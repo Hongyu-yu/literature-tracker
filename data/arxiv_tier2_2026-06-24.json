@@ -1,27 +1,27 @@
 [
   {
     "title": "Active Learning Guided Computational Discovery of 2D Materials with Large Spin Hall Conductivity",
-    "title_zh": "主动学习发现高自旋霍尔二维材料",
-    "summary": "主动学习被用于加速二维材料中本征高自旋霍尔电导候选的发现。该流程把昂贵的第一性原理计算集中到最有信息量样本，契合自旋-电荷转换材料筛选需求。",
-    "abstract": "面向二维自旋电子材料，用主动学习在庞大化学空间中筛选大自旋霍尔电导候选体。机器学习模型以自旋霍尔电导数据训练，迭代选择需第一性原理验证的材料，以降低传统计算和实验搜索成本；摘要未给出候选数量或最高电导数值。",
+    "title_zh": "主动学习发现高自旋霍尔电导二维材料",
+    "summary": "主动学习被用于二维材料高自旋霍尔电导筛选，把昂贵的第一性原理计算集中到最可能的候选体。该流程直接服务自旋-电荷互转换材料发现。",
+    "abstract": "面向二维自旋电子材料，构建主动学习框架筛选本征高自旋霍尔电导候选体。模型以已有 SHC 数值训练，在庞大化学空间中迭代选择最有信息量的材料，降低逐一第一性原理计算成本；摘要未给出候选数量、最高 SHC 或验证材料清单。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2512.21077",
     "journal": "arXiv"
   },
   {
     "title": "Reinforcement Learning to Disentangle Multiqubit Quantum States from Partial Observations",
-    "title_zh": "部分观测下解缠多量子比特态",
-    "summary": "仅凭两体约化密度矩阵，强化学习智能体可为最多 16 比特态寻找短解缠线路。结果显示部分观测也能支持多体纠缠控制。",
-    "abstract": "用深度强化学习的演员-评论家算法，为最多 16 个量子比特态构造短解缠线路。智能体只访问两量子比特约化密度矩阵，即可决定控制操作，探索在量子态部分信息下调控多体纠缠、态制备、压缩与量子控制的可行路径。",
+    "title_zh": "由部分观测解缠多量子比特态",
+    "summary": "强化学习在只看二体约化密度矩阵时仍能为最多 16 比特态生成短解缠线路。部分观测控制为量子多体态压缩和交互式量子动力学提供了可训练策略。",
+    "abstract": "针对最多 16 个量子比特态，采用 actor-critic 深度强化学习构造短解缠线路。智能体仅访问二量子比特约化密度矩阵，利用部分态信息决定门操作，用于量子态制备、压缩和控制；摘要显示核心目标是从不完全观测中管理多体纠缠。",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2406.07884",
     "journal": "arXiv"
   },
   {
     "title": "Quantum Adaptive Self-Attention for Quantum Transformer Models",
-    "title_zh": "量子变换器的自适应自注意力",
-    "summary": "量子自注意力模型被置于参数容量匹配的经典对照下检验。该协议把架构增益与量子基底增益分开，有助于量子机器学习的可重复评估。",
-    "abstract": "针对量子机器学习中“量子优势”归因不清的问题，提出容量匹配评估协议：用相同参数预算的经典瓶颈模型作对照，透明报告量子模块无优势的情形，并在真实量子硬件上验证。核心贡献偏方法论，而非单纯宣称量子变换器性能提升。",
+    "title_zh": "量子自适应自注意力变换器模型",
+    "summary": "量子自适应自注意力被置于参数预算相同的经典对照下评估，避免把架构增益误判为量子优势。该方法学对量子科学机器学习基准更关键。",
+    "abstract": "提出评估量子机器学习优势的容量匹配协议：量子自注意力模型必须与相同参数预算的经典瓶颈对照比较，并透明报告量子模块无收益的情形。重点不是单纯宣称量子优势，而是区分收益来自量子基底还是架构改动，并要求在真实量子硬件相关任务上验证。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2504.05336",
     "journal": "arXiv"
@@ -29,26 +29,35 @@
   {
     "title": "Extended pseudo-spectral physics-informed neural networks for phase-field models",
     "title_zh": "相场模型的扩展伪谱物理神经网络",
-    "summary": "扩展伪谱 PINN 将相场动力学的快照数据转化为自由能和界面参数反演。它面向微结构演化中的少数据物理识别问题。",
-    "abstract": "提出扩展伪谱物理信息神经网络，从瞬态快照数据反演相场模型中的体自由能密度和界面厚度参数。框架结合伪谱表示与物理约束，用于相分离、图案形成和微结构演化问题；目标是在有限动态观测下识别未知本构量。",
+    "summary": "ESPINN 把伪谱求解与物理信息神经网络结合，从相分离瞬态图像反演自由能和界面厚度。它把微结构动力学观测转化为相场本构识别。",
+    "abstract": "开发扩展伪谱物理信息神经网络 ESPINN，用瞬态快照数据反演相场模型。目标参数包括体自由能密度和界面厚度参数，这些量决定相分离图案与微结构演化；伪谱表示与物理残差结合，使有限动态观测可用于识别连续相场方程。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.24660",
     "journal": "arXiv"
   },
   {
+    "title": "Multi‐Mode 2D CuInP2S6‐Based Memristors Enabling Intrinsic Dropout Spiking Neural Networks",
+    "title_zh": "CuInP2S6 多模二维忆阻器实现内禀丢弃脉冲网络",
+    "summary": "二维 CuInP2S6 忆阻器被用于把器件内禀多模行为转化为脉冲网络的 dropout。该思路将铁电/离子型二维器件物理直接嵌入神经形态学习。",
+    "abstract": "报道基于二维 CuInP2S6 的多模忆阻器，用于实现带内禀丢弃机制的脉冲神经网络。题名指向器件可在多种工作模式间切换，并把随机/可变导电行为映射为神经网络 dropout；条目未提供开关比、能耗、保持时间或网络准确率等数值。",
+    "category": "其他",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75913?af=R",
+    "journal": "Wiley"
+  },
+  {
     "title": "Facilitation of pyramidal dislocation slip in Mg-Bi alloys: A molecular dynamics study via machine learning potential",
-    "title_zh": "机器学习势揭示 Mg-Bi 中锥面位错滑移",
-    "summary": "机器学习势使 Mg-Bi 合金锥面位错滑移可在原子尺度长时空模拟中解析。结果直接关联 Bi 合金化与 Mg 延展性提升机制。",
-    "abstract": "针对 Mg 室温延展性受 hcp 结构限制的问题，采用机器学习势分子动力学研究 Mg-Bi 合金中的锥面位错滑移。计算聚焦 Bi 合金化对非基面塑性变形的促进作用，揭示溶质影响位错运动的原子尺度机制；摘要未列出 Bi 浓度或临界应力数值。",
+    "title_zh": "机器学习势揭示 Mg-Bi 中锥面位错滑移促进",
+    "summary": "机器学习势把 Mg-Bi 合金位错动力学推进到可模拟的时间和长度尺度，揭示 Bi 促进锥面滑移的原子机制。该结果直接关联轻质 Mg 合金延展性设计。",
+    "abstract": "用机器学习势分子动力学研究 Mg-Bi 合金中锥面位错滑移。Mg 的 hcp 结构限制室温延展性，合金化被用于激活非基面塑性；模拟聚焦 Bi 对锥面滑移的促进作用，以原子尺度机制解释 Mg 合金塑性改善。摘要未给出势函数误差、Bi 浓度或临界应力数值。",
     "category": "AI×化学·材料",
     "link": "http://link.aps.org/doi/10.1103/l83s-dwqz",
     "journal": "Phys. Rev. Materials"
   },
   {
     "title": "Machine Learning Modeling for Real-Time Melt Pool Monitoring in Laser Powder Bed Fusion Additive Manufacturing: A Hybrid Approach",
-    "title_zh": "激光粉床熔池实时监测的混合机器学习",
-    "summary": "以 1200 张 Nickel 625 熔池图像评估实时异常检测模型。工作把分类准确率和推理延迟同时纳入 LPBF 闭环控制约束。",
-    "abstract": "面向激光粉床熔融增材制造，构建正常/异常熔池图像二分类框架。数据来自 NIST AMMT 平台的 Nickel 625，含 1200 张平衡图像；比较三类模型在准确率与推理时间上的表现，以适配开放架构设备的实时控制和硬件限制。",
+    "title_zh": "激光粉床熔融熔池实时监测的混合机器学习",
+    "summary": "以 1200 张 Ni625 熔池图像评估实时二分类模型，同时考量准确率和推理延迟。该框架把机器学习监测与 LPBF 闭环控制约束直接对接。",
+    "abstract": "针对 LPBF 增材制造实时监测，建立正常/异常熔池二分类框架。数据来自 NIST AMMT 平台的 Ni 超合金 625，共 1200 张平衡熔池图像；比较三类模型的准确率与推理时间，并以开放架构 LPBF 机器的控制需求和硬件限制作为评价约束。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.23851",
     "journal": "arXiv"
@@ -56,107 +65,98 @@
   {
     "title": "Low-power analogue neural networks with trainable nonlinear connections for continuous control",
     "title_zh": "可训练非线性连接的低功耗模拟神经网络",
-    "summary": "模拟神经网络把每条连接变成可训练非线性计算单元。带通滤波器实现表明低功耗物理计算的优势取决于任务与基函数匹配。",
-    "abstract": "受 Kolmogorov-Arnold 网络启发，将可训练非线性函数放在物理神经网络连接上，而非把非线性器件响应压缩为标量权重。连接由现场可编程模拟阵列上的模拟带通滤波器实现；连续控制任务显示收益依赖任务，并与物理基函数的平滑性相关。",
+    "summary": "模拟神经网络把每条连接变成可训练非线性滤波器，突破单一权重映射。其低功耗优势取决于任务与物理基函数平滑性的匹配。",
+    "abstract": "提出在物理神经网络连接上放置可训练非线性函数，而非把非线性器件响应压缩成标量权重。受 Kolmogorov-Arnold 网络启发，使用现场可编程模拟阵列上的模拟带通滤波器实现连接函数；连续控制任务显示收益依赖任务，并与物理基函数平滑性相关。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.23742",
     "journal": "arXiv"
   },
   {
     "title": "Disentangling Aleatoric and Epistemic Uncertainty in Physics-Informed Neural Networks. Application to Insulation Material Degradation Prognostics",
-    "title_zh": "物理神经网络中偶然与认知不确定性解耦",
-    "summary": "异方差贝叶斯 PINN 将绝缘退化预测中的两类不确定性分开建模。该框架更适合风险敏感的设备健康管理。",
-    "abstract": "提出异方差贝叶斯物理信息神经网络，用于绝缘材料退化预测中的不确定性量化。模型同时描述数据噪声导致的偶然不确定性与模型知识不足导致的认知不确定性，弥补多数 PINN 预测只给确定结果或仅估计认知不确定性的不足。",
+    "title_zh": "物理神经网络区分偶然与认知不确定性",
+    "summary": "异方差贝叶斯 PINN 在绝缘退化预测中同时输出噪声不确定性和模型不确定性。该设计使物理约束寿命预测更适合风险决策。",
+    "abstract": "面向绝缘材料退化预测，提出异方差贝叶斯物理信息神经网络，同时建模偶然不确定性和认知不确定性。框架将物理约束与数据结合，弥补多数 PINN 预测仅确定性或只考虑模型不确定性的不足，用于风险感知的寿命预测与健康管理。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2601.03673",
     "journal": "arXiv"
   },
   {
-    "title": "Multi‐Mode 2D CuInP2S6‐Based Memristors Enabling Intrinsic Dropout Spiking Neural Networks",
-    "title_zh": "CuInP2S6 忆阻器实现内禀丢弃脉冲网络",
-    "summary": "二维 CuInP2S6 忆阻器把器件多模式响应用于脉冲网络丢弃。该方向连接铁电/离子忆阻器物理与硬件神经形态计算。",
-    "abstract": "基于二维 CuInP2S6 的多模式忆阻器被用于构建具内禀丢弃机制的脉冲神经网络。题名显示器件利用可切换多工作模式提供随机或可调突触行为；列表未给出电导窗口、能耗、识别准确率等定量结果。",
-    "category": "其他",
-    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75913?af=R",
-    "journal": "Wiley"
-  },
-  {
     "title": "Emergent altermagnetism at surfaces of antiferromagnets: full symmetry classification and material identification",
-    "title_zh": "反铁磁表面涌现交替磁性的分类",
-    "summary": "表面自旋群分类显示反铁磁表面可因对称破缺涌现交替磁性。超过 150 个候选材料把二维交替磁体搜索空间大幅扩展。",
-    "abstract": "建立表面自旋群形式论，完整分类反铁磁体表面磁态，并判定哪些表面自旋群可产生交替磁性。表面对称破缺使原本体相反铁磁材料获得交替磁特征；据此在材料数据库中识别超过 150 个候选反铁磁条目，指向二维交替磁性实现路径。",
+    "title_zh": "反铁磁表面涌现交替磁性的对称分类",
+    "summary": "表面自旋群分类显示，普通反铁磁体表面可因对称性降低涌现交替磁性，并给出超过 150 个候选条目。这把二维交替磁材料空间从体相候选显著扩展到表面工程。",
+    "abstract": "建立表面自旋群形式主义，对反铁磁表面磁态进行完整分类，并识别可由表面诱导对称性破缺产生的交替磁表面自旋群。该方法在反铁磁材料库中筛出超过 150 个条目，说明许多三维反铁磁体表面可表现二维交替磁性。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2602.08773",
     "journal": "arXiv"
   },
   {
     "title": "Altermagnet-Superconductor Heterostructure: a Scalable Platform for Braiding of Majorana Modes",
-    "title_zh": "交替磁体超导异质结构编织 Majorana 模式",
-    "summary": "交替磁体-超导异质结构被设计为 Majorana 零模和编织平台。它把交替磁交换劈裂引入可扩展拓扑量子器件构想。",
-    "abstract": "提出交替磁薄膜与超导衬底近邻耦合形成的二维异质结构，用于边界局域 Majorana 零模。工作进一步展示该平台中 Majorana 模式编织的可扩展方案，面向拓扑量子计算；摘要未列出具体材料、能隙大小或器件尺寸。",
+    "title_zh": "交替磁超导异质结构实现 Majorana 编织",
+    "summary": "交替磁-超导异质结构被设计为边界 Majorana 零模平台，并进一步面向编织操作。补偿磁化与自旋分裂共存为拓扑量子器件提供了不同于铁磁路线的方案。",
+    "abstract": "研究交替磁薄膜与超导衬底近邻耦合形成的二维异质结构，目标是在边界局域 Majorana 零模并实现可扩展编织。交替磁的动量空间自旋分裂与补偿磁化避免大净磁场，超导近邻提供配对；摘要强调该平台可作为拓扑量子计算的器件路线。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2506.08095",
     "journal": "arXiv"
   },
   {
     "title": "Enabling Electrical Readout of Néel vector reversal in a van der Waals Antiferromagnet",
-    "title_zh": "范德华反铁磁 Néel 矢量翻转电读出",
-    "summary": "范德华反铁磁体中实现 Néel 矢量 180° 翻转的电学检测。该结果直指反铁磁存储从磁态操控到电读出的瓶颈。",
-    "abstract": "在薄膜范德华反铁磁体中演示 180° Néel 矢量反转的电输运读出方法。反铁磁 Néel 矢量具抗扰动和超快动力学优势，但器件化缺少可靠电读出；该实验用新的输运方案检测反转态，补齐反铁磁存储的关键操作环节。",
+    "title_zh": "范德华反铁磁中 Néel 矢量翻转电读出",
+    "summary": "范德华反铁磁薄膜中实现了 180° Néel 矢量反转的电学读出。该实验把反铁磁存储从写入/动力学优势推进到可判别状态的器件层面。",
+    "abstract": "在薄膜范德华反铁磁体中实验展示 180° Néel 矢量翻转的电输运读出方法。Néel 矢量具抗扰动和超快动力学优势，但反铁磁存储需要可读出翻转态；该工作报告一种输运方案检测 Néel 反转，补足反铁磁器件中长期缺失的读出环节。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.24527",
     "journal": "arXiv"
   },
   {
     "title": "Gate-Controlled Spin Qubits in Confined Altermagnets",
-    "title_zh": "受限交替磁体中的门控自旋量子比特",
-    "summary": "交替磁量子点可用栅压定义自旋量子比特，并在无自旋轨道耦合下实现门控旋转。微波能隙与 meV 泄漏间隙给出可操控窗口。",
-    "abstract": "提出电静限定交替磁量子点中的门定义自旋量子比特。d 波交替磁结构在椭圆限域下产生低能双重态，两个态自旋极化相反；所用参数下比特能隙位于微波范围，泄漏能隙为 meV 量级。无自旋轨道耦合时，四极门驱动可实现 Xπ/₂ 与 Xπ 旋转。",
+    "title_zh": "受限交替磁中的栅控自旋量子比特",
+    "summary": "交替磁量子点通过椭圆约束产生可微波驱动的自旋双重态，且泄漏能隙为 meV 量级。无需自旋轨道耦合即可用四极栅实现单比特 X 旋转。",
+    "abstract": "提出静电约束交替磁量子点中的栅定义自旋量子比特。d 波交替磁结构在椭圆势阱下形成相反自旋极化的低能双重态；所用参数下量子比特能隙位于微波范围，泄漏能隙保持 meV 量级。无自旋轨道耦合时，相位控制四极栅驱动可实现 Xπ/2 和 Xπ 旋转。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.24150",
     "journal": "arXiv"
   },
   {
     "title": "Notes on remanent magnetization measurements in superconductors and hard ferromagnets",
-    "title_zh": "超导体与硬铁磁体剩磁测量笔记",
-    "summary": "LuNi2B2C 与硬铁磁体的零场剩磁响应被并列比较。结果提醒高压微弱磁化实验需区分超导俘获磁通与铁磁剩磁。",
-    "abstract": "比较 BCS 超导体 LuNi2B2C 与若干硬铁磁体在零外场下的剩磁和磁弛豫数据。讨论类热剩磁、类等温剩磁及之字形变温剩磁测量中的相似与差异，并指出这些特征对金刚石对顶砧中磁化测量判读的关联。",
+    "title_zh": "超导体与硬铁磁体剩磁测量札记",
+    "summary": "LuNi2B2C 超导体与硬铁磁体的零场剩磁曲线被并列比较，突出 TRM、IRM 和锯齿扫温的判别细节。该分析有助于避免高压磁化实验中的假阳性解释。",
+    "abstract": "比较 BCS 超导体 LuNi2B2C 与多种硬铁磁体在零外场下的剩磁和磁弛豫数据。讨论热剩磁样、等温剩磁样以及锯齿温度扫描剩磁测量中的相似性和差异，并指出这些特征对金刚石对顶砧磁化测量的判读具有参考价值。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.23738",
     "journal": "arXiv"
   },
   {
     "title": "Comparing the orbital angular momentum and magnetic moment of magnons in the Kagome antiferromagnet with negative spin chirality",
-    "title_zh": "负自旋手性 Kagome 反铁磁中磁振子轨道量比较",
-    "summary": "负手性 Kagome 反铁磁中，磁振子轨道磁矩与轨道角动量并不等价。该区分影响磁振子热输运和轨道响应的理论表述。",
-    "abstract": "研究负矢量手性 Kagome 反铁磁体中磁振子的轨道磁矩和轨道角动量，比较热力学定义与波包定义。计算外磁场下动量空间 Berry 曲率、轨道磁矩和轨道角动量，揭示两类轨道量之间存在定量差异，关联磁绝缘体热输运与轨道输运。",
+    "title_zh": "负手性 Kagome 反铁磁中 Magnon 轨道量比较",
+    "summary": "负手性 Kagome 反铁磁中 Magnon 轨道磁矩和轨道角动量并不等同，差异可由 Berry 曲率和定义方式追踪。该结果澄清磁绝缘体中 Magnon 轨道输运的可观测量。",
+    "abstract": "研究负矢量手性 Kagome 反铁磁中 Magnon 的轨道磁矩与轨道角动量，比较热力学定义和波包定义。外磁场下计算动量空间 Berry 曲率、轨道磁矩和轨道角动量，揭示两类定义在数值和物理含义上的差异，关联热输运与轨道输运现象。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2603.26079",
     "journal": "arXiv"
   },
   {
     "title": "Field-induced states and thermodynamics of the frustrated Heisenberg antiferromagnet on a square lattice",
-    "title_zh": "方格受挫 Heisenberg 反铁磁场致态与热力学",
-    "summary": "强受挫方格 J₁-J₂ 模型在磁场中出现涨落稳定的上上上下态。半饱和磁化平台为量子受挫磁体提供清晰可观测指纹。",
-    "abstract": "研究外磁场下方格 J₁-J₂ Heisenberg 反铁磁体的基态和有限温性质，重点为 J₂≈J₁/2 的强受挫区。h-T 相图显示热涨落与量子涨落可稳定“上上上下”态，在量子情形表现为饱和磁化一半的平台；并讨论相关热力学增强特征。",
+    "title_zh": "方格受挫 Heisenberg 反铁磁的场诱导态",
+    "summary": "J1-J2 方格反铁磁在强受挫和磁场下出现 up-up-up-down 态及半饱和平台。有限温 h-T 相图揭示涨落稳定有序态的热力学窗口。",
+    "abstract": "研究外磁场下方格 J1-J2 Heisenberg 反铁磁的基态和有限温性质，重点为 J2≈J1/2 的强受挫区。构建 h-T 相图，分析由热涨落和量子涨落稳定的 up-up-up-down 态及其在量子情形中对应的半饱和磁化平台，并讨论相关热力学增强特征。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2601.14380",
     "journal": "arXiv"
   },
   {
     "title": "Single-crystal growth and magnetic, magnetoelectric, and optical properties of ferroaxial-type SrMn₂Ni₆Te₃O₁₈",
-    "title_zh": "铁轴型 SrMn₂Ni₆Te₃O₁₈ 单晶性质",
-    "summary": "SrMn₂Ni₆Te₃O₁₈ 单晶呈单铁轴畴倾向，并伴随 Mn²⁺/Ni²⁺ 反铁磁有序。该体系适合研究铁轴畴、磁电耦合与光学旋转。",
-    "abstract": "成功生长铁轴型氧化物 SrMn₂Ni₆Te₃O₁₈ 单晶，并系统表征结构、磁性、磁电与光学性质。电场诱导光学旋转成像显示晶体倾向形成单铁轴畴；磁化和中子衍射表明 Mn²⁺ 与 Ni²⁺ 磁矩发生反铁磁有序。",
+    "title_zh": "铁轴型 SrMn2Ni6Te3O18 单晶及磁电光学性质",
+    "summary": "SrMn2Ni6Te3O18 单晶显示近单一铁轴畴，并具有 Mn2+/Ni2+ 反铁磁有序。电场诱导光学旋转成像为铁轴畴和磁电耦合表征提供了直接手段。",
+    "abstract": "成功生长铁轴型氧化物 SrMn2Ni6Te3O18 单晶，并系统表征结构、磁性、磁电和光学性质。电场诱导光学旋转成像显示单晶倾向形成单一铁轴畴；磁化和中子衍射表明 Mn2+ 与 Ni2+ 磁矩发生反铁磁有序，题名体系属于 AB2C6Te3O18 家族。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2604.21460",
     "journal": "arXiv"
   },
   {
     "title": "Block-Type Antiferromagnetism in Single Chain Quasi-One-Dimensional K₃Fe₂Se₄",
-    "title_zh": "准一维 K₃Fe₂Se₄ 的块型反铁磁性",
-    "summary": "K₃Fe₂Se₄ 在单链准一维结构中呈现块型反铁磁序。该发现把铁基硫族化物的块磁序推进到更低维关联平台。",
-    "abstract": "报道单链准一维铁硫族化物 K₃Fe₂Se₄ 的异常块型反铁磁序。该材料提供一维结构平台，用于考察强关联量子相互作用和相变；实验结合磁性表征与中子散射等手段确认非常规磁态，关联铁基硫族化物中的低维磁性与潜在电子关联。",
+    "title_zh": "准一维 K3Fe2Se4 中的块型反铁磁性",
+    "summary": "K3Fe2Se4 在单链准一维结构中呈现块型反铁磁序，区别于常见二维铁基硫族化物磁性。该体系为研究低维强关联磁相提供了新材料实例。",
+    "abstract": "报道单链准一维铁硒化物 K3Fe2Se4 中的异常块型反铁磁性。一维结构为强关联量子相互作用和相变提供平台；该材料在铁基硫族化物中呈现块状自旋排列，连接低维磁性、轨道/电子关联与可能的非常规磁态。",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/g8zx-gc2t",
     "journal": "Phys. Rev. Lett."
@@ -164,19 +164,19 @@
   {
     "title": "Multiferroic‐Centric Materials and Systems Engineering for Battery Applications: An Insight Into Mechanisms, Strategies, and Characterizations",
     "title_zh": "面向电池的多铁材料系统工程",
-    "summary": "多铁序参量被整理为调控电池界面、离子输运和反应动力学的材料工具。该综述连接凝聚态功能序与储能器件工程。",
-    "abstract": "综述以多铁材料为中心的电池材料与系统工程，围绕铁电、铁磁、铁弹等序参量及其耦合对电化学过程的影响展开。内容覆盖作用机制、材料设计策略和表征方法；列表未给出具体电池体系、容量、循环寿命或倍率性能数值。",
+    "summary": "多铁序参量被作为电池界面和传输调控自由度来组织材料设计。该综述把凝聚态多场耦合概念引入储能材料工程。",
+    "abstract": "综述以多铁材料为中心的电池材料与系统工程，围绕机理、调控策略和表征方法展开。题名指向利用铁电、铁磁、铁弹或磁电耦合等多序参量影响离子传输、界面反应和电极/电解质过程；条目未提供具体材料体系、性能数值或案例结论。",
     "category": "铁电·极化",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76021?af=R",
     "journal": "Wiley: Advanced Science: Table of Contents"
   },
   {
-    "title": "Quantum phase transition between weak itinerant ferromagnetism and superconductivity induced by interstitial localized electrons in Li 7 Pb",
-    "title_zh": "Li7Pb 中局域电子诱导铁磁超导量子相变",
-    "summary": "Li7Pb 展现间隙局域电子驱动的弱巡游铁磁-超导量子相变。该体系为研究局域电子、磁性与超导竞争提供材料实例。",
-    "abstract": "报道 Li7Pb 中由间隙局域电子诱导的弱巡游铁磁性与超导性之间量子相变。题名指向局域电子调控费米面磁不稳定性和配对态竞争；列表未提供临界压力或成分、转变温度、磁矩和超导能隙等定量参数。",
+    "title": "Ultrafast Magneto-Optical Fingerprints of Altermagnetism in MnTe",
+    "title_zh": "MnTe 中交替磁性的超快磁光指纹",
+    "summary": "MnTe 的超快磁光信号被用作交替磁性的动力学指纹，直接对应补偿磁化与动量自旋劈裂共存。该实验为交替磁态的飞秒尺度读出提供了路径。",
+    "abstract": "在交替磁 MnTe 中研究超快磁光响应，针对其动量空间类铁磁自旋劈裂与实空间完全补偿磁化的双重性质寻找光学指纹。交替磁性源自同一晶体中的对称性约束；该工作以时间分辨磁光手段识别 MnTe 的交替磁特征，补充输运和静态谱学表征。",
     "category": "磁性·自旋电子学",
-    "link": "https://www.nature.com/articles/s41535-026-00896-2",
-    "journal": "npj Quantum Materials"
+    "link": "http://link.aps.org/doi/10.1103/nyy3-h8wr",
+    "journal": "Phys. Rev. Lett."
   }
 ]
