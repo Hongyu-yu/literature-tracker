@@ -1,18 +1,18 @@
 [
   {
     "title": "The FAST Framework: Developing a Data-Efficient Machine Learning Potential to Decode Superionic Transition-Induced Thermophysical and Kinetic Anomalies in UO2 under Extreme Conditions",
-    "title_zh": "FAST 框架解码 UO2 超离子异常",
-    "summary": "FAST 将主动学习微调与超离子构型靶向采样结合，专门服务 UO2 极端条件机器学习势构建。其价值在于把核燃料超离子转变相关的热输运和离子动力学异常纳入可计算的原子尺度框架。",
-    "abstract": "针对核燃料 UO2 在事故极端条件下的力学、热物性和物种输运难以实验或常规模拟评估的问题，提出 FAST（主动学习微调与超离子靶向）训练策略，构建数据高效机器学习原子间势。该势用于解析超离子转变诱导的热物理与动力学异常，面向高温高压下 UO2 的可靠大尺度原子模拟。",
+    "title_zh": "FAST 框架解析 UO2 超离子异常",
+    "summary": "FAST 将主动学习与超离子区域定向采样结合，用较少数据训练 UO2 机器学习势。它把事故工况下的热输运、力学和离子迁移异常纳入可计算尺度，直接服务核燃料极端条件建模。",
+    "abstract": "针对核燃料 UO2 在极端事故条件下的力学、热物性与离子输运难题，提出“微调-主动学习-超离子靶向”的 FAST 训练策略，构建数据高效机器学习原子势。势函数面向超离子转变附近采样，可解析相变诱导的热物性和动力学异常，降低常规实验与第一性原理模拟在高温高压下的代价。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.21796",
     "journal": "arXiv"
   },
   {
     "title": "Scalable Physics-Inspired Transformers for Spin Glasses",
-    "title_zh": "自旋玻璃的物理启发变换器",
-    "summary": "稀疏注意力把自旋玻璃的物理相互作用嵌入变换器，使采样模型不再只是黑箱放大。该策略直接针对受挫体系玻尔兹曼采样的可扩展性，对统计物理与组合优化都有方法论价值。",
-    "abstract": "面向受挫自旋玻璃玻尔兹曼分布采样，提出带可解释稀疏注意力的物理启发变换器，回应变分模型规模增大后性能不遵循大语言模型式单调标度、以及大体系计算成本过高两项瓶颈。模型利用自旋玻璃相互作用结构约束注意力机制，目标是在大系统上保持采样效率并改善可扩展性。",
+    "title_zh": "自旋玻璃的可扩展物理变换器",
+    "summary": "稀疏注意力变换器把自旋玻璃相互作用结构显式写入模型，缓解黑箱变分采样的缩放瓶颈。该框架把大模型方法与受挫磁性、组合优化中的玻尔兹曼采样直接连接。",
+    "abstract": "面向受挫自旋玻璃的玻尔兹曼分布采样，构建带可解释稀疏注意力的物理启发变换器。工作针对变分模型难以随规模提升而单调获益、以及大体系计算成本过高两类瓶颈，利用物理结构约束注意力连接，在大尺寸自旋系统中提升采样效率并解释模型缩放失效原因。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.22984",
     "journal": "arXiv"
@@ -20,8 +20,8 @@
   {
     "title": "Machine Learning Optimal Quantum Error Correction Thresholds",
     "title_zh": "机器学习最优量子纠错阈值",
-    "summary": "该工作把量子纠错阈值学习问题与相干信息直接挂钩，而非只评估解码器经验性能。它为噪声信道下纠错码极限判定提供了更接近信息论边界的机器学习路线。",
-    "abstract": "围绕噪声量子计算中的量子纠错阈值，建立机器学习与信息论量度之间的直接联系，使用相干信息刻画含噪量子信道可可靠传输逻辑信息的最大速率。工作旨在用学习方法估计或优化纠错码阈值，从而界定给定噪声强度下量子信息保护能力的基本极限。",
+    "summary": "机器学习被用于从相干信息中识别量子纠错阈值，给出噪声信道可保护逻辑信息的界限。该思路为量子多体信息处理中的相变式失效判据提供了数据驱动工具。",
+    "abstract": "围绕量子纠错码在噪声超过阈值后保护失效的问题，利用机器学习刻画最优纠错阈值。工作把阈值与相干信息等信息论量联系起来，相干信息衡量噪声信道中逻辑信息可靠传输的最大速率，从而用可学习判据评估不同噪声通道下量子纠错码的基本极限。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.22194",
     "journal": "arXiv"
@@ -29,53 +29,53 @@
   {
     "title": "Bridging Phase-Field Model and Deep Learning for Predicting 2D and 3D Microstructure Evolution in Ternary Alloys",
     "title_zh": "相场与深度学习预测三元合金组织",
-    "summary": "相场模拟负责物理一致数据，注意力深度网络负责快速预测二维/三维三元脱合金组织演化。该框架把纳米多孔材料自组织过程从昂贵时步积分转向可学习代理。",
-    "abstract": "构建相场模型与注意力增强深度学习耦合框架，研究三元自旋odal 脱合金在二维和三维中的显微组织演化。相场模型生成早期分解中的三类相分离机制；深度学习流程包含降维自编码器等模块，用于学习复杂双连续、层级纳米多孔结构的时空演化规律。",
+    "summary": "相场数据与注意力网络结合后，可在二维和三维中快速预测三元自旋脱合金的早期组织演化。该方法面向纳米多孔合金设计，把可解释物理模拟压缩为可快速调用的形貌动力学代理模型。",
+    "abstract": "将相场模型与注意力增强深度学习结合，模拟三元合金自旋脱合金中的二维和三维组织演化。体系覆盖早期自旋分解的三种相分离机制；流程包含降维自编码器、时序演化预测与注意力特征提取，用于学习双连续、层级纳米多孔材料形成中的复杂形貌动力学。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2606.22152",
     "journal": "arXiv"
   },
   {
     "title": "LLM-Guided Test-Time Discovery of Quantum-Chemical Approximation Algorithms",
-    "title_zh": "大模型引导量子化学近似发现",
-    "summary": "大语言模型不只是调用量子化学软件，而是在测试时搜索新的近似算法。其核心潜力是让计算材料中的方法选择从固定流程转向可适应化学空间边界的自动发现。",
-    "abstract": "针对量子化学模拟成本高且依赖固定近似方案的问题，提出大语言模型在测试时引导发现量子化学近似算法的思路。与需大规模预训练的机器学习势或只自动化既有流程的智能体不同，该方法强调在化学空间前沿、数据稀疏且方法需创新时，动态生成和评估新的近似策略。",
+    "title_zh": "大模型引导量子化学近似算法发现",
+    "summary": "大语言模型不只调度既有量子化学程序，而是在测试时搜索新的近似算法。该范式适合稀疏数据化学空间，为 AI for science 从自动化执行转向方法发现提供样例。",
+    "abstract": "针对量子化学模拟成本高且依赖固定近似方案的问题，提出由大语言模型在测试时引导发现近似算法的流程。不同于需大规模预训练的力场基础模型，该方法面向数据稀疏、化学空间前沿场景，在现有仿真管线之外搜索新的方法组合与近似形式，以提高量子化学工作流的适应性。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.20729",
     "journal": "arXiv"
   },
   {
     "title": "Machine learning metallic glass critical cooling rates through elemental and molecular simulation based featurization",
-    "title_zh": "机器学习金属玻璃临界冷却速率",
-    "summary": "该模型把元素描述符与多层级分子模拟特征并列评估，用于预测金属玻璃临界冷却速率。34 种合金的比较为玻璃形成能力筛选提供了可扩展特征工程路线。",
-    "abstract": "建立金属玻璃临界冷却速率机器学习模型，比较基于元素性质的易计算特征与来自从头算、机器学习势和经验势分子动力学的物理特征。数据覆盖 20 个化学体系中的 34 种合金；特征分析显示，最佳模型受益于计算性质特征，用于跨多组元合金获取玻璃形成能力相关指标。",
+    "title_zh": "用特征学习金属玻璃临界冷却率",
+    "summary": "金属玻璃临界冷却率可由元素特征和多层级分子模拟特征共同预测。34 种合金、20 个体系的比较揭示了低成本描述符与物理模拟特征在玻璃形成能力筛选中的取舍。",
+    "abstract": "构建金属玻璃临界冷却率机器学习模型，比较元素性质简单函数与来自从头算、机器学习势和经验势分子动力学的物理特征。数据覆盖 20 个化学体系中的 34 种合金；特征分析显示，结合计算获得的结构与热力学信息可提升对玻璃形成能力相关冷却率的预测。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.21467",
     "journal": "arXiv"
   },
   {
     "title": "Accurate identification and measurement of the precipitate area by two-stage deep neural networks in novel chromium-based alloys",
-    "title_zh": "两阶段网络测量铬基合金析出物",
-    "summary": "两阶段网络替代固定阈值，专门处理铬基高温合金电镜图像中的析出相分割与面积测量。它把显微组织统计从人工敏感流程推进到可复现的深度学习表征。",
-    "abstract": "面向新型铬基高温合金电镜图像，提出两阶段深度神经网络识别并测量强化析出相面积。该材料是面向集中式太阳能等高温环境的面心立方高温合金替代候选；方法针对传统固定阈值受背景和成像条件影响的问题，自动提取析出物体积分数与尺寸分布。",
+    "title_zh": "两阶段网络测量铬基合金析出相",
+    "summary": "两阶段深度网络提升了铬基超合金显微图像中析出相分割和面积测量的稳健性。它把极端环境合金开发中的组织统计从手工阈值推进到自动化定量。",
+    "abstract": "面向高温铬基超合金电子显微图像中的强化析出相，提出两阶段深度神经网络识别与面积测量方法。该方法替代对背景敏感的固定阈值处理，用于估计析出相体积分数和尺寸分布，服务集中太阳能等极端环境用新型铬基合金的显微组织定量表征。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2606.22112",
     "journal": "arXiv"
   },
   {
     "title": "Bayesian Neural Networks versus deep ensembles for uncertainty quantification in machine learning interatomic potentials",
-    "title_zh": "贝叶斯网络与集成势能不确定性",
-    "summary": "论文聚焦机器学习势最关键的可靠性问题：分布外构型上的不确定性估计。贝叶斯网络与深度集成的对比可直接指导主动学习势能训练和安全外推。",
-    "abstract": "比较贝叶斯神经网络与深度集成在机器学习原子间势不确定性量化中的表现。神经网络势可高效预测能量和力，但传统深度学习难以给出可靠预测不确定性，尤其在材料模拟常见的分布外构型上存在风险。工作评估不同策略对模型可靠性判定和主动学习适用性的影响。",
+    "title_zh": "贝叶斯网络与集成势不确定性比较",
+    "summary": "贝叶斯神经网络和深度集成被系统对比于机器学习原子势的不确定性估计。结论面向分布外材料结构，关系到主动学习采样和高通量原子模拟的可靠边界。",
+    "abstract": "比较贝叶斯神经网络与深度集成在神经网络机器学习原子势中的不确定性量化能力。问题聚焦材料模拟常见的分布外结构、能量和力预测可靠性评估；两类方法用于判断模型何时可信，并为主动学习、外推检测和原子尺度模拟安全使用提供不确定性标尺。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2509.19180",
     "journal": "arXiv"
   },
   {
     "title": "A large-scale foundation model enables simulation-to-real adaptation for nuclear magnetic resonance-based molecular structure analysis",
-    "title_zh": "NMR 基础模型实现仿真到真实",
-    "summary": "UltraNMR 将 NMR 谱学从小数据任务模型推进到基础模型范式，并显式处理仿真到实验的域差异。它为分子结构解析中的谱图自动判读提供了可迁移表示。",
-    "abstract": "提出 NMR 光谱基础模型 UltraNMR，利用 NMR 谱的内在性质学习可泛化表征，以缓解实验 NMR 数据稀缺导致深度学习只能窄任务应用的问题。模型依托大规模数据进行训练，并面向分子结构解析中的仿真到真实适配，实现更快速、自动化的核磁谱解释。",
+    "title_zh": "NMR 基础模型实现仿真到真实适配",
+    "summary": "UltraNMR 用大规模模拟 NMR 谱训练通用表示，再适配实验谱。它把基础模型用于分子结构解析中的仿真到真实迁移，针对实验谱学数据稀缺给出可扩展路径。",
+    "abstract": "提出 NMR 谱学基础模型 UltraNMR，利用核磁共振谱的内在结构学习通用谱表示，以缓解实验 NMR 数据稀缺导致的窄任务泛化不足。模型从大规模模拟谱中学习，并进行仿真到实验适配，用于分子结构分析中的快速自动解释，目标是跨分子类别提升谱图解析能力。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.20756",
     "journal": "arXiv"
@@ -83,17 +83,17 @@
   {
     "title": "MMGNN: Multi-level, multi-color graph neural networks for molecular property prediction",
     "title_zh": "多层多色图网络预测分子性质",
-    "summary": "MMGNN 用原子类型对“着色”子图分离化学相互作用，而不是在单一分子图中混合传播。该层级设计有助于提升分子性质预测中长程与相互作用特异信息的表达。",
-    "abstract": "提出多层多色图神经网络 MMGNN，将分子图分解为重叠的原子类型对特异子图，同时保持原子级分辨率，避免单一图消息传递混合不同化学相互作用信号。MMGNN-2D 基于共价连接构造化学着色子图，MMGNN-3D 基于几何关系构造子图，用于分子性质预测。",
+    "summary": "MMGNN 通过原子类型对和几何关系拆分分子图，减少不同化学相互作用在消息传递中的混叠。该层级多色表示为分子性质预测提供了更物理化的 GNN 架构。",
+    "abstract": "提出多层多色图神经网络 MMGNN，将分子图拆分为重叠的原子类型对特异子图，同时保持原子级分辨率。MMGNN-2D 基于共价连接构造化学着色子图，MMGNN-3D 基于几何关系构造空间相互作用子图，以避免单一消息传递图混合不同相互作用信号并改善长程效应表达。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.20906",
     "journal": "arXiv"
   },
   {
     "title": "SVGym (SciVerseGym): An Environment for Reinforcement Learning and Bayesian Optimization in Crystal Discovery",
-    "title_zh": "晶体发现强化学习环境 SVGym",
-    "summary": "SciVerseGym 把晶体发现标准化为强化学习环境，填补不同闭环搜索管线割裂的问题。其可配置结构编辑与机器学习势评估接口有利于可复现实验和算法比较。",
-    "abstract": "介绍 Gymnasium 兼容的 SciVerseGym，将顺序晶体设计表述为马尔可夫决策过程。智能体观测原子结构，执行具有化学意义的编辑操作，并由可配置评估器反馈；环境整合编辑、弛豫、打分、约束与记录流程，服务于机器学习势驱动的闭环晶体搜索。",
+    "title_zh": "晶体发现的强化学习环境 SVGym",
+    "summary": "SciVerseGym 把晶体生成、结构松弛和打分封装为标准强化学习环境。它有望统一分散的闭环晶体搜索流程，使强化学习和贝叶斯优化更容易接入机器学习势评估。",
+    "abstract": "发布 Gymnasium 兼容的 SciVerseGym，将序贯晶体发现表述为马尔可夫决策过程。智能体观测原子结构，执行化学上有意义的编辑操作，并由可配置评估器反馈；环境整合结构编辑、松弛、打分、约束和记录，适配机器学习原子势驱动的交互式材料搜索。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2606.22425",
     "journal": "arXiv"
@@ -101,17 +101,17 @@
   {
     "title": "Mitigating Measurement-Induced Training Instability in Hybrid Quantum Neural Networks for Protein Classification",
     "title_zh": "缓解量子神经网络测量训练不稳",
-    "summary": "论文指出蛋白分类量子神经网络失稳并非只因线路表达力，而与 Pauli 测量 logits 有界直接相关。识别 [-1,1] 输出导致的梯度压制，为混合量子模型训练给出明确修正方向。",
-    "abstract": "分析混合量子神经网络用于蛋白分类时的训练不稳定来源：标准 Pauli 测量给出的期望值 logits 被限制在 [-1,1]，直接进入 softmax 交叉熵后处于对 logit 差异弱敏感区域，导致参数梯度被压制。工作针对这一测量诱导问题提出缓解策略，以稳定变分量子分类优化。",
+    "summary": "量子分类器的 Pauli 测量输出天然限幅，解释了蛋白多分类中交叉熵梯度被压制的根源。对有界 logits 的修正有助于稳定混合量子神经网络训练。",
+    "abstract": "分析混合量子神经网络蛋白分类中由测量诱发的训练不稳定。标准 Pauli 测量给出的期望值 logits 被限制在 [-1,1]，直接输入 softmax 交叉熵会使损失对类别差异不敏感并压低梯度，导致变分量子分类器优化不稳；工作提出针对有界 logits 的训练修正策略。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.22551",
     "journal": "arXiv"
   },
   {
     "title": "SuperCond-GNN: Scalable Graph Neural Network Surrogate for Superconducting Circuit Simulations",
-    "title_zh": "超导电路模拟的 GNN 代理模型",
-    "summary": "SuperCond-GNN 将高温超导带材堆叠等效电路转为图学习问题，快速预测电压分布。它为 HTS 磁体设计中的昂贵电路仿真提供了拓扑可变代理模型。",
-    "abstract": "提出 SuperCond-GNN，用图神经网络代理高温超导磁体电压分布模拟。高温超导磁体被表示为集总元件等效电路并映射为图，消息传递网络学习电路拓扑、材料性质与工作电流到电响应的关系。概念验证覆盖最多 10 条带材堆叠、多种电路拓扑和工作条件。",
+    "title_zh": "超导电路仿真的 GNN 代理模型",
+    "summary": "SuperCond-GNN 将高温超导磁体等效电路转为图学习问题，预测带材堆叠中的电压分布。该代理模型面向超导磁体设计中的快速电路级仿真。",
+    "abstract": "提出 SuperCond-GNN，用图神经网络代理高温超导磁体的电压分布仿真。高温超导磁体被建模为集中参数等效电路并映射为图，GNN 从电路拓扑、材料性质和工作电流中学习电响应；概念验证覆盖最多 10 条带材的堆叠、多种拓扑和运行条件。",
     "category": "超导",
     "link": "https://arxiv.org/abs/2606.23548",
     "journal": "arXiv"
@@ -119,8 +119,8 @@
   {
     "title": "Dataset distillation for machine learning force field in phase transition regime",
     "title_zh": "相变区机器学习力场数据蒸馏",
-    "summary": "CPD 数据蒸馏专门处理相变区机器学习力场训练难点，把代表构型和临界角落案例一起保留。该策略可减少标注负担，同时避免相变涨落构型被过度压缩丢失。",
-    "abstract": "针对相变区域结构涨落增强导致机器学习力场训练效率低的问题，提出中心-外围蒸馏 CPD 算法进行训练数据集压缩。算法同时纳入代表性样本与关键角落案例，使训练集既覆盖常见构型又保留相变边界附近的困难样本，从而提升相变体系 MLFF 的数据效率与稳健性。",
+    "summary": "CPD 用代表性中心样本和相变角落样本共同蒸馏机器学习力场训练集。它直接针对相变区涨落强、采样难的问题，提高 MLFF 在临界构型附近的训练效率。",
+    "abstract": "针对相变区结构涨落增强导致机器学习力场训练效率低的问题，提出中心-外围蒸馏 CPD 算法。该方法在训练集蒸馏中同时整合代表性样本与关键角落样本，使力场在相变附近保持对常见构型和极端构型的覆盖，从而提升低数据量训练的稳定性和精度。",
     "category": "AI×物理",
     "link": "https://pubs.aip.org/aip/jcp/article/164/24/244113/3396149/Dataset-distillation-for-machine-learning-force",
     "journal": "The Journal of Chemical Physics Current Issue"
@@ -128,8 +128,8 @@
   {
     "title": "Physics-Guided Dual-Stream Heterogeneous Graph Neural Network for Predicting Full-Field Structural Response of Stiffened Panels",
     "title_zh": "物理引导双流异构图网络预测结构场",
-    "summary": "DS-HGNN 面向加筋薄壁结构，将拓扑、边界与物理关系编码进双流异构图。它使可变结构的全场应力/位移预测更接近工程设计中的快速有限元替代。",
-    "abstract": "提出物理引导双流异构图神经网络 DS-HGNN，用于加筋板组成的箱形梁薄壁结构全场应力和位移预测。方法针对有限元分析在迭代设计中成本高、传统神经代理难处理可变拓扑和复杂边界条件的问题，利用异构图表达结构组件与物理关系，实现复杂结构响应快速预测。",
+    "summary": "DS-HGNN 用双流异构图表示加筋薄壁结构，预测全场应力和位移。它把有限元代理从固定网格推广到可变拓扑结构优化场景。",
+    "abstract": "提出物理引导双流异构图神经网络 DS-HGNN，用于加筋板箱形梁的全场应力和位移预测。模型面向大型复杂薄壁结构迭代设计中有限元分析昂贵、拓扑和边界条件多变的问题，通过异构图表达结构部件与连接关系，以快速给出随拓扑变化的力学响应场。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.20916",
     "journal": "arXiv"
@@ -137,17 +137,17 @@
   {
     "title": "Physics-Informed Neural Networks for coupled stiff transport systems",
     "title_zh": "刚性耦合输运的物理信息网络",
-    "summary": "Marshak 波基准揭示 PINN 在 12 个数量级尺度差下的损失失衡与不稳定。针对性缩放与物理一致性修正为刚性辐射输运神经求解器提供了可操作改进。",
-    "abstract": "研究 PINN 在刚性、跨机制输运方程中的失效，以辐射输运 Marshak 波为基准，初始和边界条件相差可达 12 个数量级，导致训练不稳、损失失衡和物理一致性破坏。提出三项修改，包括 ScaledSigmoid 等，用于改善标准 PINN 在强刚性耦合输运系统中的稳定性。",
+    "summary": "Marshak 波揭示了 PINN 在 12 个数量级尺度差异下的损失失衡和不稳定。缩放激活等修改为辐射输运、强非线性材料过程中的 PINN 稳定求解提供了具体方案。",
+    "abstract": "研究 PINN 在刚性、跨 regime 输运方程中的失效机制，以辐射输运 Marshak 波为基准，其中初始和边界条件相差可达 12 个数量级。提出 ScaledSigmoid 等三项修改，针对训练不稳定、损失不平衡和物理一致性破坏问题，改善耦合刚性输运系统的神经求解。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.21236",
     "journal": "arXiv"
   },
   {
     "title": "Inverse Problem for Partial Differential Equations with Jump Discontinuities in Coefficients by Two-stage Physics-Informed Deep Learning and Statistical Mixture Models",
-    "title_zh": "含跳变系数 PDE 反问题深度学习",
-    "summary": "该方法把连续神经近似、混合模型统计推断和约束精修串联起来，处理 PDE 系数跳变。它针对 PINN 难以直接表达不连续材料参数的问题给出两阶段解法。",
-    "abstract": "提出两阶段物理信息深度学习框架求解系数含跳变不连续的 PDE 反问题。第一阶段采用主网络近似 PDE 解、辅助系数子网络给出真实不连续系数场的连续软近似，并用梯度自适应权重改善残差训练和采样；随后结合统计混合模型与约束参数精修识别不连续系数。",
+    "title_zh": "间断系数偏微分方程的两阶段反演",
+    "summary": "双网络 PINN 先学习间断系数的连续软表示，再用混合模型和约束优化恢复跳跃界面。该两阶段设计适合材料参数突变、缺陷界面等反问题。",
+    "abstract": "提出两阶段物理信息深度学习框架，求解系数存在跳跃间断的偏微分方程反问题。第一阶段采用主网络近似 PDE 解、辅助系数网络给出连续软近似，并用梯度自适应权重改善残差训练与采样；随后结合统计混合模型和约束参数细化，恢复离散间断系数场。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2510.14656",
     "journal": "arXiv"
@@ -155,17 +155,17 @@
   {
     "title": "Bayesian three-dimensional seismic travel-time tomography for active- and passive-source seismic data using physics-informed neural network",
     "title_zh": "PINN 贝叶斯三维地震走时层析",
-    "summary": "PINN 神经表示被用于三维地震走时层析的贝叶斯反演，缓解传统网格参数化维数灾难。主动源与被动源联合建模使速度模型及其不确定性更适合下游地震解释。",
-    "abstract": "提出基于物理信息神经网络的贝叶斯三维地震走时层析方法，融合主动源与被动源数据估计三维地震速度模型。走时层析本质上病态，传统网格贝叶斯反演受维数灾难和高计算量限制；该方法用神经表示与贝叶斯不确定性量化支撑地震监测和灾害评估中的可靠解释。",
+    "summary": "PINN 神经表示被用于主动源和被动源三维走时层析的贝叶斯反演。它绕开高维网格参数化瓶颈，同时保留速度模型不确定性。",
+    "abstract": "面向主动源与被动源地震走时层析，提出基于物理信息神经网络的贝叶斯三维速度建模方法。传统网格化贝叶斯反演受维数灾难和计算成本限制；神经表示结合 eikonal 物理约束，用于病态三维层析中的速度场估计和不确定性量化，支撑地震监测与灾害评估。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.21789",
     "journal": "arXiv"
   },
   {
     "title": "Floquet-induced anisotropic magnetoresistance and anomalous Hall effect in 2D d-wave altermagnets with Rashba spin-orbit coupling",
-    "title_zh": "Floquet 诱导交替磁体反常输运",
-    "summary": "Floquet 驱动在二维 d 波交替磁体中打开平衡态禁阻的 AMR 与反常霍尔响应。该结果把交替磁体自旋分裂、Rashba 耦合和光控对称性工程直接联系起来。",
-    "abstract": "研究具有面外 Néel 序和 Rashba 自旋轨道耦合的二维 d 波交替磁体，发现周期驱动可实现静态平衡下禁阻的输运响应。单色光驱动产生纯面外磁化，引发纵向各向异性磁阻和反常霍尔效应；双色驱动进一步通过动态对称性工程调控磁电输运。",
+    "title_zh": "Floquet 诱导交替磁体输运",
+    "summary": "Floquet 驱动让二维 d 波交替磁体出现平衡态禁戒的 AMR 和反常霍尔效应。光场动态破缺对称性为无净磁化自旋电子材料提供了可调输运旋钮。",
+    "abstract": "研究含 Rashba 自旋轨道耦合、面外 Néel 序的二维 d 波交替磁体，在周期驱动下的各向异性磁阻与反常霍尔效应。单色光驱动产生纯面外磁化，激活静态平衡中禁戒的纵向 AMR 和反常霍尔响应；双色驱动进一步调控对称性与输运通道，实现动态磁输运工程。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.21281",
     "journal": "arXiv"
@@ -173,8 +173,8 @@
   {
     "title": "Topological Hall Effect in Antiferromagnetic Co doped Fe₃GaTe₂",
     "title_zh": "Co 掺杂 Fe3GaTe2 的拓扑霍尔效应",
-    "summary": "Co 掺杂把 Fe3GaTe2 从高温铁磁/亚铁磁体系推向反铁磁区域，并在 x≈0.6 观察到拓扑霍尔信号。该范德华磁体为层状磁性材料中的非平庸自旋纹理输运提供了实验平台。",
-    "abstract": "研究范德华磁体 Fe3−xCoxGaTe2 的磁化与电输运相图。母相 Fe3GaTe2 为 Curie 温度 350–380 K 的铁磁体，冷却后近室温出现亚铁磁转变；Co 替代 Fe 可诱导随 Co 含量变化的反铁磁 Néel 温度。x≈0.6 时霍尔效应表现出与磁化相似特征，并报告拓扑霍尔效应。",
+    "summary": "Co 掺杂把 Fe3GaTe2 从高温范德华铁磁体系推向反铁磁相区，并在 x 约 0.6 观察到拓扑霍尔响应。该材料为层状磁体中的非共线自旋纹理和输运耦合提供了实验平台。",
+    "abstract": "研究范德华磁体 Fe3-xCoxGaTe2 的磁化和电输运相图。母体 Fe3GaTe2 为居里温度约 350–380 K 的铁磁体，冷却后近室温出现亚铁磁转变；Fe 位 Co 取代诱导随 Co 含量变化的反铁磁 Néel 温度。在 x 约 0.6 样品中，霍尔效应与磁化行为相仿并显示拓扑霍尔特征。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.21254",
     "journal": "arXiv"
