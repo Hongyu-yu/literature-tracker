@@ -19,11 +19,15 @@ def test_extract_elements_returns_none_on_bad_json():
 def test_extract_elements_none_provider():
     assert extract_elements({"title": "T"}, "body", provider=None) is None
 
-def test_infographic_prompt_is_text_free_memphis():
-    p = build_infographic_prompt({"method": "GNN potential"}, "Some Title")
-    assert "Memphis" in p
+def test_infographic_prompt_embeds_chinese_summary():
+    p = build_infographic_prompt(
+        {"研究问题": "如何加速材料筛选", "创新方法": "图神经网络势函数"}, "Some Title")
+    assert "图神经网络势函数" in p          # 中文详细内容嵌入图 prompt
+    assert "研究问题" in p
+    assert "SimSun" in p                      # 用户设计要求关键词
     assert "16:9" in p
-    assert "no chinese" in p.lower()
+    assert "no chinese" not in p.lower()      # 不再禁中文
+    assert "only short english" not in p.lower()
 
 def test_generate_poster_calls_image():
     class P:
@@ -64,13 +68,36 @@ def test_extract_elements_back_compat_without_en():
     assert out["title_zh"] == ""
     assert isinstance(out["elements_en"], dict)
 
-def test_infographic_prompt_is_readable_english_no_chinese():
-    p = build_infographic_prompt({"method": "GNN potential", "result": "5x faster"}, "Some Title")
-    assert "infographic" in p.lower()
-    assert "16:9" in p
-    assert "no chinese" in p.lower()
-    assert "do not invent" in p.lower() or "schematic" in p.lower()
-    assert "GNN potential" in p
+def test_infographic_prompt_has_design_guidelines_and_title():
+    p = build_infographic_prompt({"创新方法": "扩散模型生成晶体"}, "Crystal Title")
+    assert "扩散模型生成晶体" in p
+    assert "Memphis" in p or "孟菲斯" in p
+    assert "#F5F5F7" in p
+    assert "Crystal Title" in p
+
+
+def test_build_summary_for_image_numbered_and_skips_empty():
+    from poster_generator import _build_summary_for_image
+    s = _build_summary_for_image(
+        {"研究问题": "Q", "创新方法": "M", "工作流程": "", "关键结果": "R", "应用价值": ""})
+    assert "1. 研究问题：Q" in s
+    assert "2. 创新方法：M" in s
+    assert "工作流程" not in s          # 空值跳过
+    assert "应用价值" not in s
+    assert len(s.splitlines()) == 3
+
+
+def test_poster_image_template_exists_with_placeholders():
+    import poster_generator as pg
+    with open(pg._IMAGE_PROMPT_PATH, encoding="utf-8") as f:
+        t = f.read()
+    assert "${summaryForImage}" in t and "${title}" in t and "${language}" in t
+
+
+def test_build_summary_for_image_empty_dict():
+    from poster_generator import _build_summary_for_image
+    assert _build_summary_for_image({}) == ""
+    assert _build_summary_for_image(None) == ""
 
 def test_generate_poster_returns_title_zh_and_image():
     import tempfile

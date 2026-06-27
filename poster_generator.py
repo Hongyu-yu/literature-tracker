@@ -4,6 +4,7 @@ from string import Template
 from image_provider import generate_and_save
 
 _PROMPT_PATH = os.path.join(os.path.dirname(__file__), "ai_prompts", "poster_elements.txt")
+_IMAGE_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "ai_prompts", "poster_image.txt")
 _KEYS = ["研究问题", "创新方法", "工作流程", "关键结果", "应用价值"]
 _EN_KEYS = ["research_question", "method", "workflow", "result", "value"]
 
@@ -40,22 +41,23 @@ def extract_elements(meta, markdown, provider, language="中文", max_chars=4000
     except Exception as e:
         print(f"⚠️ extract_elements failed: {e}"); return None
 
-def build_infographic_prompt(elements_en, title):
-    labels = "; ".join(f"{k}: {(elements_en or {}).get(k, '')}" for k in _EN_KEYS
-                       if (elements_en or {}).get(k))
-    return (
-        "Generate a clean, readable Modern Minimalist Tech Infographic that visually "
-        "explains a research paper, flat vector illustration with subtle isometric elements, "
-        "corporate Memphis style, clean lines and geometric shapes. "
-        "Left-to-right 5-node process flow: INPUT -> METHOD -> WORKFLOW -> RESULT -> VALUE, "
-        "with SHORT ENGLISH labels only (a few words each), simple schematic bar/line/network "
-        "diagrams as icons. Background solid off-white #F5F5F7, no clutter. "
-        "Palette: deep academic blue and slate grey, vibrant orange/teal accents, high contrast. "
-        "16:9 aspect ratio, high resolution, crisp legible English text labels. "
-        "IMPORTANT: use ONLY short English words as labels — NO Chinese characters, no garbled text. "
-        "This is a SCHEMATIC concept diagram: do NOT invent specific numeric values or fake data. "
-        "No photorealism, no messy sketches, no chaotic background. "
-        f"Node labels to depict: {labels}. Paper topic: {str(title)[:80]}.")
+def _build_summary_for_image(elements_zh):
+    elements_zh = elements_zh or {}
+    lines = []
+    for i, k in enumerate(_KEYS, 1):
+        v = str(elements_zh.get(k, "") or "").strip()
+        if v:
+            lines.append(f"{i}. {k}：{v}")
+    return "\n".join(lines)
+
+def _load_image_template():
+    with open(_IMAGE_PROMPT_PATH, encoding="utf-8") as f:
+        return f.read()
+
+def build_infographic_prompt(elements_zh, title, language="中文"):
+    summary = _build_summary_for_image(elements_zh)
+    return Template(_load_image_template()).safe_substitute(
+        summaryForImage=summary, title=str(title or ""), language=language)
 
 def generate_poster(meta, markdown, provider, out_dir="docs/images/posters",
                     api_key=None, base=None):
@@ -64,8 +66,8 @@ def generate_poster(meta, markdown, provider, out_dir="docs/images/posters",
         return None
     doc_id = meta.get("doc_id") or meta.get("paper_id") or "unknown"
     out_path = os.path.join(out_dir, f"{doc_id}.webp")
-    prompt = build_infographic_prompt(parsed["elements_en"], meta.get("title", ""))
-    saved = generate_and_save(prompt, out_path, max_edge=1280,
+    prompt = build_infographic_prompt(parsed["elements"], meta.get("title", ""))
+    saved = generate_and_save(prompt, out_path, max_edge=1536,
                               api_key=api_key, base=base)
     return {"elements": parsed["elements"],
             "elements_en": parsed["elements_en"],
