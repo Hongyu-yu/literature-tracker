@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-06-27 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-06-27.xml" rel="alternate" title="2026-06-27 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-06-27.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-06-27</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-06-26.html">← 前一天 · 2026-06-26</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/06/27</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">16</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">18</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">4</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 18 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 18 篇主线相关文献中精选 16 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-06-26.html">前一天 · 2026-06-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-06-27.html">最新一期 · 2026-06-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-06-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">2 篇</span>
+</div>
+<p class="daily-core-note">今日进展从NbOI2、CrI3、CrSBr、BaTiO3等模型体系的DFT+U、equivariant GNN、MACE、NEP势能面训练，转向可重构铁电器件与高温介电聚合物网络的可学习设计变量。铁电异质结构把极化态、界面势垒和光谱响应耦合到自供能传感/突触功能，但题录缺少材料组成与定量指标，暂不能作为BaTiO3式铁电基准数据。超支化聚合物给出250 °C下4.9 J/cm³、90%效率的明确标尺，适合构建图网络/分子动力学特征与介电储能之间的监督学习任务。ML侧的关键不在新算法命名，而在把极化历史、界面态、链拓扑和热松弛谱转化为可验证标签。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">可重构铁电异质结构自供能宽带传感器</div>
+<div class="daily-core-title-en">Reconfigurable Ferroelectric Heterostructure Device for Self‐Powered Broadband Sensing, Spectral Tuning, and Optoelectronic Synapse</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道一种可重构铁电异质结构器件，面向自供能宽带传感、光谱调谐和光电子突触功能。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出材料组成、极化调控机制、响应谱宽或突触指标等定量数据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>可重构铁电异质结构被用于同时实现自供能传感、光谱调谐与突触型光电响应。该方向把铁电极化自由度引入多功能光电子器件，但题录缺少性能参数。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>可重构铁电异质结调内建场，集成自供能传感、调谱与突触。</p><p><strong>🔗 相关工作关联：</strong>呼应铁电光伏、铁电肖特基/隧穿结、光电子突触、可重构神经形态器件。</p><p><strong>💡 对你方向的启示：</strong>建模需显式记录极化历史、界面势垒和光谱响应，做状态依赖代理模型。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-74830-2">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">250 °C 巨储能超支化介电聚合物网络</div>
+<div class="daily-core-title-en">Hyperbranched dielectric polymer networks exhibiting giant energy storage density at 250 °C</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向热极限下聚合物电容储能，设计超支化介电网络以扩大链间距并抑制次级松弛，从而降低电荷转移。材料在 250 °C 下实现 4.9 J/cm³ 储能密度和 90% 效率，显示高温电介质聚合物可通过网络拓扑调控兼顾能量密度与效率。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>超支化网络通过增大链间距和压制次级松弛，解决高温聚合物中的电荷转移问题。250 °C 下 4.9 J/cm³、90% 效率直接面向高温功率电容。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>超支化介电网络扩链间距、抑制松弛，250 °C达4.9 J/cm³、90%。</p><p><strong>🔗 相关工作关联：</strong>呼应高温聚合物电容、拓扑交联调控、介电击穿、电荷输运与多尺度MD。</p><p><strong>💡 对你方向的启示：</strong>将网络拓扑描述符接入GNN/贝叶斯优化，联合预测储能、效率、击穿和热稳定。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-74830-2" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日 16 篇覆盖高温电介质储能、功率器件封装、电磁吸收/屏蔽、铁电光电器件、量子态几何与量子点相干控制，以及电催化/类芬顿催化。最具凝聚态与材料计算关注度的是 250 °C 下仍可高效储能的超支化聚合物网络、非厄米几何对量子放大的端点判据，以及半导体量子点中声子阻尼后 Rabi 振荡“回归”的实验观测。</p>
+<p><strong>热点：</strong>高温可靠性是多篇材料工作的共同主题：介电聚合物、硅凝胶封装和宽禁带功率电子都指向 250 °C 以上服役场景。结构设计从化学改性转向介观/纳米架构调控，包括超支化网络、0D/2D 缺陷锚定填料、三维笼状吸波体和夹层空心微球复合体。量子方向强调开放体系与固体环境耦合，非厄米 Berry 几何、量子点-声子相互作用和表面单分子极限光谱成为核心线索。能源催化工作集中在无金属 PCET、PtCu 氧还原和单原子介孔网络，均试图通过局域配位、孔结构或反应能匹配提升稳定性。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">16 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10155554/latest" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10155554/latest" rel="noopener noreferrer" target="_blank">HHL 嵌入牛顿法的量子地震模拟</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10155554/latest" rel="noopener noreferrer" target="_blank">Quantum-Accelerated Nonlinear Seismic Simulation for Megathrust-Prone Urban Environments: A Three-Order-of-Magnitude Speedup via HHL-Embedded Newton–Raphson Integration</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 PAUL RICARDO</span><span class="daily-chip daily-chip-score">🔥 AI 95</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>提出量子增强 Newton–Raphson 积分框架，将 HHL 量子线性求解器嵌入经典 HHT-α 时步格式，用于巨型逆冲带城市环境的非线性时程地震分析。目标是把传统 O(N³) 计算瓶颈降低并获得三数量级墙钟时间加速；摘要未说明量子硬件、误差界或实际算例规模。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>HHL 被嵌入非线性结构动力学的 Newton–Raphson/HHT-α 循环，瞄准城市尺度地震风险实时计算。该设想属于量子算法加速科学计算而非材料体系验证。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10155554/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10155554/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-74830-2" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-74830-2" rel="noopener noreferrer" target="_blank">250 °C 巨储能超支化介电聚合物网络</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-74830-2" rel="noopener noreferrer" target="_blank">Hyperbranched dielectric polymer networks exhibiting giant energy storage density at 250 °C</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 Zhaoyu Ran, Manxi Li, Li Meng, Yiwen Zhang, Yuhang Liu, Jun Hu 等8位作者</span><span class="daily-chip daily-chip-score">🔥 AI 86</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向热极限下聚合物电容储能，设计超支化介电网络以扩大链间距并抑制次级松弛，从而降低电荷转移。材料在 250 °C 下实现 4.9 J/cm³ 储能密度和 90% 效率，显示高温电介质聚合物可通过网络拓扑调控兼顾能量密度与效率。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>超支化网络通过增大链间距和压制次级松弛，解决高温聚合物中的电荷转移问题。250 °C 下 4.9 J/cm³、90% 效率直接面向高温功率电容。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-74830-2" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-74830-2" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-06-semiconductor-quantum-dots-reawaken-rabi.html" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-06-semiconductor-quantum-dots-reawaken-rabi.html" rel="noopener noreferrer" target="_blank">半导体量子点中 Rabi 振荡回归</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-06-semiconductor-quantum-dots-reawaken-rabi.html" rel="noopener noreferrer" target="_blank">Semiconductor quantum dots 'reawaken' predicted Rabi oscillations, boosting quantum control</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 82</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Paderborn 大学实验演示半导体量子点中 Rabi 振荡的“回归”现象。量子点发光强度最初因与晶格声子相互作用而阻尼，随后出现 2007 年理论预言的振荡回归；摘要未给出量子点材料、温度、脉冲面积或相干时间。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>半导体量子点中首次观测到声子阻尼后的 Rabi 振荡回归，验证固体环境下相干控制的非单调行为。该结果有助于量子点量子比特的脉冲优化。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-06-semiconductor-quantum-dots-reawaken-rabi.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-06-semiconductor-quantum-dots-reawaken-rabi.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-06-crystal-surface-molecules-ultimate-quantum.html" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-06-crystal-surface-molecules-ultimate-quantum.html" rel="noopener noreferrer" target="_blank">洁净晶面使单分子达量子极限</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-06-crystal-surface-molecules-ultimate-quantum.html" rel="noopener noreferrer" target="_blank">Clean crystal surface lets single molecules hit ultimate quantum limit</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 80</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Max Planck 光科学研究所发展表面分子高精度光谱探测技术，使晶体表面单个分子的询问达到最终量子极限。该结果发表于 Science，面向分子-表面相互作用和分子量子技术；摘要未列出晶体/分子种类、线宽、温度或光谱分辨率数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>洁净晶体表面上的单分子光谱被推进到量子极限，减少表面杂质导致的退相干和谱漂移。该平台可直接研究分子-固体界面量子相互作用。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-06-crystal-surface-molecules-ultimate-quantum.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-06-crystal-surface-molecules-ultimate-quantum.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-06-hermitian-geometry-reveals-quantum-amplification.html" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-06-hermitian-geometry-reveals-quantum-amplification.html" rel="noopener noreferrer" target="_blank">非厄米几何揭示量子放大端点判据</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-06-hermitian-geometry-reveals-quantum-amplification.html" rel="noopener noreferrer" target="_blank">Non-Hermitian geometry reveals when quantum amplification depends only on start and end points</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 75</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>将量子态几何推广到可与环境交换能量的非厄米体系，关注非厄米 Berry 相及其对量子放大的约束。报道指出该几何框架可判定量子放大何时只依赖演化起点和终点，而非完整路径；原摘要未给出具体模型、实验体系或定量判据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>非厄米量子几何被用于区分放大过程的端点依赖与路径依赖。该判据直接关联开放凝聚态体系中的增益、损耗和几何相控制。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-06-hermitian-geometry-reveals-quantum-amplification.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-06-hermitian-geometry-reveals-quantum-amplification.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9998240/latest" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9998240/latest" rel="noopener noreferrer" target="_blank">缓解大豆缺水的生物策略</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9998240/latest" rel="noopener noreferrer" target="_blank">Biological strategies to mitigate the effect of water deficit on morphophysiology of soybean</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Anderson dos Santos Dias, Luiz Otávio Montera Martins, Davi Lucas Bertolino de Alencar, Victor Garcia Holsbaque, Obadias Alves da Silva, João Pedro Assis Ozório 等9位作者</span><span class="daily-chip daily-chip-score">🔥 AI 8</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在热带环境大豆缺水胁迫下，评估 Bacillus subtilis、Trichoderma harzianum 及其与微藻 Parachlorella sp. 组合接种对形态生理响应的影响。实验采用随机区组 2×4 因子设计，因素为是否加入微藻及四类微生物处理；摘要截断，未给出生物量、光合或水分指标结果。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>微生物接种和微藻组合被用于调节大豆干旱响应，采用 2×4 因子设计区分协同作用。该条偏农业生理学，与凝聚态和材料计算关联较弱。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9998240/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9998240/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75948?af=R" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75948?af=R" rel="noopener noreferrer" target="_blank">反向磁场诱导三维笼状微米吸波体</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75948?af=R" rel="noopener noreferrer" target="_blank">Reversed Magnetic Field‐Induced Three‐Dimensional Cage‐Type Architectures: A Scalable Route to Micron‐Scale Electromagnetic Wave Absorbers</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Yukai Chang, Huilan Zhao, Yingjie Huo, Lei Wang, Zhikai Yan, Penghui Li, Ke Pei, Meihua Hu, Libo Wang, Qianku Hu, Aiguo Zhou, Renchao Che</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>提出反向磁场诱导的三维笼状架构制备路线，目标是可规模化获得微米级电磁波吸收材料。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出材料成分、磁场参数、吸收频段、反射损耗或厚度匹配数据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>反向磁场被用于构筑三维笼状微米吸波架构，强调结构可扩展制备。该类磁场诱导形貌控制可调节电磁损耗路径与阻抗匹配。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75948?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75948?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" rel="noopener noreferrer" target="_blank">可重构铁电异质结构自供能宽带传感器</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" rel="noopener noreferrer" target="_blank">Reconfigurable Ferroelectric Heterostructure Device for Self‐Powered Broadband Sensing, Spectral Tuning, and Optoelectronic Synapse</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Yu‐Xuan Zhou, Shuo Li, Xuan Li, Meng‐Lan Li, XueLei Liang, Xin‐Yi Zheng, Sheng Wang, Bing‐Jie Wang, Xin‐Yue Li, Jian‐Hui Liao, Qing Chen</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道一种可重构铁电异质结构器件，面向自供能宽带传感、光谱调谐和光电子突触功能。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出材料组成、极化调控机制、响应谱宽或突触指标等定量数据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>可重构铁电异质结构被用于同时实现自供能传感、光谱调谐与突触型光电响应。该方向把铁电极化自由度引入多功能光电子器件，但题录缺少性能参数。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76109?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202531794?af=R" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202531794?af=R" rel="noopener noreferrer" target="_blank">夹层空心玻璃微球硅胶低导屏蔽复合物</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202531794?af=R" rel="noopener noreferrer" target="_blank">Sandwich Structural Hollow Glass Microspheres/Organosilicone Composite for High‐Performance Electromagnetic Interference Shielding with Ultra‐Low Conductivity</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Xinyi Ju, Chu Yao, Chao Wang, Yujie Wang, Xueliang Jiang, Feng You, Fangjun Liu, Chenjian Li, Danfeng Zhou</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道夹层结构空心玻璃微球/有机硅复合材料，目标是在超低电导率下实现高性能电磁干扰屏蔽。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未提供夹层构型、填料含量、屏蔽效能、密度或介电损耗等指标。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>空心玻璃微球与有机硅构成夹层屏蔽复合体，突出低电导率与电磁屏蔽兼容。该思路适合绝缘封装和轻质电磁防护材料。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202531794?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202531794?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76111?af=R" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76111?af=R" rel="noopener noreferrer" target="_blank">肌纤维取向编程的生物混合毫米机器人</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76111?af=R" rel="noopener noreferrer" target="_blank">Controllable Self‐Propulsion of a Biohybrid Millirobot Through Muscle‐Fiber‐Alignment Programming and Magnetically Assisted Steering</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Anping Wu, Zhengyuan Xin, Xinyi Dong, Zhiqiang Zheng, Juan Cui, Toshio Fukuda, Huaping Wang</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道一种生物混合毫米机器人，通过肌纤维排列编程实现可控自推进，并结合磁辅助转向控制运动方向。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出肌肉组织类型、磁性组分、速度、转弯半径或驱动寿命等数据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>肌纤维取向被作为生物驱动器的可编程变量，磁场负责毫米机器人的方向控制。该策略把主动软物质、生物材料与磁响应结构耦合。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76111?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76111?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10063880/latest" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10063880/latest" rel="noopener noreferrer" target="_blank">双层共价有机结构无金属 PCET 催化</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10063880/latest" rel="noopener noreferrer" target="_blank">By-Layer Covalent Organic Structure as a Metal-Free PCET Catalyst for Efficient Oxygen Evolution in Alkaline and Neutral Media</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Soheila Nakhjiri Kamrani, Afshin Pashabadi, Mohammad Joshaghani</span><span class="daily-chip daily-chip-score">🔥 AI 96</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>构筑双层共价有机超结构作为无金属 PCET 氧析出催化剂，可在中性和碱性介质中工作。石墨/氧化石墨烯承载由乙二胺双齿连接的重复卟啉共价有机结构，针对 PCET 中质子转移滞后问题；摘要截断，未给出过电位、电流密度或稳定性。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>卟啉共价有机结构在石墨/氧化石墨烯上形成双层 PCET 催化位点，以无金属方式驱动 OER。其核心是把质子转移通道纳入共价层状结构设计。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10063880/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10063880/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9902023/latest" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9902023/latest" rel="noopener noreferrer" target="_blank">缺陷静电锚定极温功率器件封装</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9902023/latest" rel="noopener noreferrer" target="_blank">Defect-induced electrostatic anchoring for extreme-temperature power device encapsulation</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Laili Wang, Qi Wang, Yongmei Gan, Yisen Lv, Tianshu Yuan, Dingkun Ma 等7位作者</span><span class="daily-chip daily-chip-score">🔥 AI 90</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向 250 °C 以上宽禁带功率电子封装，构建无改性剂的 0D/2D 混合填料硅凝胶，利用氧空位诱导的静电锚定稳定界面。目标是抑制硅凝胶在极端热环境下的介电退化；摘要截断，未给出填料种类、击穿强度或老化寿命数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>氧空位驱动的静电锚定把 0D/2D 填料固定在硅凝胶内，避开高温下不稳定的化学改性。该策略瞄准 250 °C 以上宽禁带功率器件封装失效。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9902023/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9902023/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76073?af=R" id="paper-13">
+<span class="daily-paper-number">13</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76073?af=R" rel="noopener noreferrer" target="_blank">介孔限域单原子网络稳定类芬顿催化</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76073?af=R" rel="noopener noreferrer" target="_blank">Nanoconfined Single‐Atom Network With Tailored Mesoporous Pore Architecture for Stable Fenton‐Like Catalysis</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Yueping Bao, Yunlu Cao, Lifang Zhai, He Zhang, Xinying Chen, Zhengkun Wang, Menglu Zhang, Ying Luo, Yan Meng, Wen‐Wei Li, Wei Chen</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道纳米限域单原子网络，并通过定制介孔孔结构实现稳定类芬顿催化。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出金属中心、载体、孔径分布、污染物降解速率、氧化剂类型或循环稳定性。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>单原子位点被限域在可调介孔网络中，用孔结构控制类芬顿反应的传质与活性位稳定。该方向连接单原子催化、孔材料和环境氧化反应。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76073?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76073?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-13">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76095?af=R" id="paper-14">
+<span class="daily-paper-number">14</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76095?af=R" rel="noopener noreferrer" target="_blank">电化学退火调控 PtCu 互锁网络氧还原</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76095?af=R" rel="noopener noreferrer" target="_blank">Electrochemical Annealing Tailors PtCu Interlocked Networks Toward the Sabatier Optimum for Stable Oxygen Reduction</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Yiting Song, Heng Liu, Tianrui Xue, Xiaoqing Mao, Yongjun Shen, Di Zhang, Jialin Cui, Hao Li, Huihui Li, Chunzhong Li</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道电化学退火调控 PtCu 互锁网络，使氧还原反应活性接近 Sabatier 最优并提升稳定性。题录仅给出 Advanced Functional Materials 2026 年第 36 卷第 50 期信息，未列出 Pt/Cu 比例、半波电位、质量活性、循环衰减或结构演化数据。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>电化学退火被用于重排 PtCu 互锁网络的表面反应能，使 ORR 接近 Sabatier 最优。该策略聚焦燃料电池 Pt 合金催化剂的活性-稳定性平衡。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76095?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76095?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-14">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10046255/latest" id="paper-15">
+<span class="daily-paper-number">15</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10046255/latest" rel="noopener noreferrer" target="_blank">Ho/Fe 共掺 LaNiO3 的带隙与发光调控</a><a class="daily-permalink-link" href="#paper-15" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10046255/latest" rel="noopener noreferrer" target="_blank">Improvement in the bandgap and photoluminescence behavior by Holmium (Ho) and Iron (Fe) co-doping in LaNiO 3, synthesized using sol-gel route for novel sustainable energy applications</a><a class="daily-permalink-link" href="#paper-15" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 N S Roshima, Meenakshi R Krishnan, Jyotirmayee Satapathy</span><span class="daily-chip daily-chip-score">🔥 AI 95</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>采用溶胶-凝胶法制备 LaNi0.95Fe0.05O3 和 La0.95Ho0.05Ni0.95Fe0.05O3，比较 Ho/Fe 掺杂对 LaNiO3 钙钛矿的结构、带隙和光致发光影响。XRD 与 FESEM 显示样品形成逐步畸变的菱方相，颗粒尺寸 9–15 nm，并结合 FTIR、UV-Vis DRS、PL 和 XPS 表征。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Ho 与 Fe 共掺使 LaNiO3 钙钛矿出现菱方相畸变，并调节带隙与光致发光。9–15 nm 颗粒体系可作为镍酸盐光电性质掺杂调控样例。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10046255/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10046255/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-15">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9987927/latest" id="paper-16">
+<span class="daily-paper-number">16</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9987927/latest" rel="noopener noreferrer" target="_blank">柔性水凝胶光纤耦合 SERS 食品传感器</a><a class="daily-permalink-link" href="#paper-16" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9987927/latest" rel="noopener noreferrer" target="_blank">Flexible hydrogel fiber-coupled SERS sensor for remote in situ food inspection</a><a class="daily-permalink-link" href="#paper-16" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Xinghua Yang, Li Li, Nikolay V Petrov, Chen Shi, Fengjun Tian, Pingping Teng 等16位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>构建柔性水凝胶光纤耦合 SERS 传感器，用于远程原位食品检测。海藻酸钠水凝胶纤维在光纤端部经 Ca²⁺ 原位交联形成，使传感端兼具光信号传输、拉曼增强和曲面贴合采样能力；摘要截断，未给出增强因子、检出限或目标污染物。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>海藻酸钠水凝胶纤维把柔性取样端与光纤读出耦合，解决硬质石英光纤难贴合曲面食品的问题。该结构适合现场 SERS 传感的远程化与柔性化。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9987927/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9987927/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-16">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-06-26.html">← 前一天 · 2026-06-26</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-06-26.html">前一天 · 2026-06-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-06-27.html">最新一期 · 2026-06-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-06-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>16</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>4</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">HHL 嵌入牛顿法的量子地震模拟<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">250 °C 巨储能超支化介电聚合物网络<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">半导体量子点中 Rabi 振荡回归<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">洁净晶面使单分子达量子极限<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">非厄米几何揭示量子放大端点判据<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">缓解大豆缺水的生物策略<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">反向磁场诱导三维笼状微米吸波体<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">可重构铁电异质结构自供能宽带传感器<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">夹层空心玻璃微球硅胶低导屏蔽复合物<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">肌纤维取向编程的生物混合毫米机器人<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">双层共价有机结构无金属 PCET 催化<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">缺陷静电锚定极温功率器件封装<span class="daily-outline-meta">12</span></a><a class="daily-outline-link" href="#paper-13">介孔限域单原子网络稳定类芬顿催化<span class="daily-outline-meta">13</span></a><a class="daily-outline-link" href="#paper-14">电化学退火调控 PtCu 互锁网络氧还原<span class="daily-outline-meta">14</span></a><a class="daily-outline-link" href="#paper-15">Ho/Fe 共掺 LaNiO3 的带隙与发光调控<span class="daily-outline-meta">15</span></a><a class="daily-outline-link" href="#paper-16">柔性水凝胶光纤耦合 SERS 食品传感器<span class="daily-outline-meta">16</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-06-26.html">前一天 · 2026-06-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-06-27.html">最新一期 · 2026-06-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-06-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
