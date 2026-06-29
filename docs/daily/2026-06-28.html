@@ -261,8 +261,8 @@
 <h2 class="daily-section-title">今日摘要</h2>
 </div>
 <div class="daily-summary-card">
-<p><strong>总览：</strong>今日2篇文献均偏向AI驱动的科学数据分析流程，而非传统凝聚态材料体系：一篇面向硬骨鱼肌肉组织学图像的半自动形态计量，另一篇面向半干旱区地表覆盖分类的多源遥感融合。代表性方法包括组织图像分割后的空间形态可视化，以及哨兵一号雷达与哨兵二号光学数据的分层注意力融合。</p>
-<p><strong>热点：</strong>跨模态、多尺度表征是共同主线：组织切片分析关注细胞或纤维尺度的形态异质性，遥感分类关注像素、斑块到景观尺度的空间结构。两项工作都试图把人工密集型标注或判读流程转化为半自动或深度学习管线。方法上，注意力机制、传感器专属分支、机器学习分割与空间可视化正在成为AI for science中处理复杂图像数据的通用部件。局限在于两篇摘要均未给出完整定量性能指标，同行评估仍需关注验证集设计、泛化能力与误差来源。</p>
+<p><strong>总览：</strong>今日2篇文献均偏向面向科学数据的专用人工智能流程，而非传统凝聚态或材料计算。代表性工作包括硬骨鱼肌肉组织切片的半自动形态计量流程，以及融合哨兵一号雷达与哨兵二号光学影像的半干旱区地表分类网络。</p>
+<p><strong>热点：</strong>两项工作都强调通用机器学习工具在特定科学场景中的适配不足，需要引入领域结构先验。图像分割与遥感分类从单一传感器或单一尺度分析，转向多模态、多层级特征融合。注意力机制被用于处理空间异质性：前者关注肌纤维空间组织和形态差异，后者用像素、斑块、景观三级注意力缓解稀疏植被光谱相似与云覆盖问题。对AI for science而言，亮点在于工作流工程化和可解释空间表征，而非单纯模型堆叠。</p>
 </div>
 </section>
 <section class="daily-section" id="papers">
@@ -276,12 +276,12 @@
 <span class="daily-paper-number">01</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9931908/latest" rel="noopener noreferrer" target="_blank">分层注意力遥感融合地表分类框架</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9931908/latest" rel="noopener noreferrer" target="_blank">FusionAttNet：哨兵一二号融合半干旱地表分类</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9931908/latest" rel="noopener noreferrer" target="_blank">FusionAttNet Framework for Hierarchical Attention Driven Sentinel 1 and Sentinel 2 Fusion for Semi Arid Land Cover Classification in Far North Cameroon</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Pountianus Berinyuy Wirba, Mvogo Ngono, Noumsi Woguia Auguste Vigny, Emile Tatinyuy Verdzekov, ELE Pierre</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向喀麦隆极北区半干旱地表覆盖分类，提出融合哨兵一号合成孔径雷达与哨兵二号光学数据的深度学习框架。方法包含传感器专属并行分支、归一化植被指数与垂直发射/垂直接收比值等跨模态指数，以及像素—斑块—景观三级注意力机制，用于缓解稀疏植被光谱相似、季节变化和云覆盖问题。摘要未列出分类精度数值。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>框架以雷达—光学双模态输入和三级注意力处理半干旱区地表分类难题。像素、斑块、景观层级融合的设计，对材料显微图、多谱成像等多尺度科学图像分类也有方法参考价值。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对喀麦隆远北半干旱区地表分类，FusionAttNet 并行处理哨兵一号合成孔径雷达与哨兵二号光学数据，并构造 NDVI/VV 比值等跨模态指数。框架采用像素、斑块、景观三级注意力，缓解稀疏植被光谱相似、季节变化和云覆盖造成的分类困难；摘要未报告精度数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>FusionAttNet 用传感器特异分支和三级注意力融合雷达—光学遥感影像，面向半干旱区地表分类的混淆源设计模型结构。该多模态层级注意力思路可迁移到材料显微图、谱图等多源科学数据融合。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9931908/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9931908/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
 </div>
 </li>
@@ -289,12 +289,12 @@
 <span class="daily-paper-number">02</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10009618/latest" rel="noopener noreferrer" target="_blank">硬骨鱼肌肉形态半自动分析流程</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10009618/latest" rel="noopener noreferrer" target="_blank">fishROI：硬骨鱼肌肉形态半自动分析流程</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10009618/latest" rel="noopener noreferrer" target="_blank">fishROI: A specialized workflow for semi-automated muscle morphometry analysis in teleosts</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 </div></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Yansong Lu, Michael Pan, Vijayishwer Jamwal, Putri Halleyana Adrikni Rahman, Jake Locop, Avnika A. Ruparelia 等7位作者</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向硬骨鱼骨骼肌组织切片，构建半自动肌肉形态计量流程，用于纤维分割、形态参数提取和空间组织可视化。现有自动化工具多针对哺乳动物肌肉，难以适配硬骨鱼纤维结构；该流程强调降低人工测量负担，并展示肌纤维形态变异与空间排布。摘要未给出样本量、精度或速度等定量指标。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>针对硬骨鱼而非哺乳动物肌肉，流程把机器学习分割与肌纤维空间形态可视化结合。其价值在于把组织学形态计量变成可扩展图像分析任务，可借鉴到材料显微组织的区域分割与形貌统计。</p>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Yansong Lu, Michael Pan, Vijayishwer Jamwal, Putri Halleyana Adrikni Rahman, Jake Locop, Avnika A. Ruparelia 等7位作者</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向硬骨鱼骨骼肌组织切片，fishROI 构建半自动肌肉形态计量流程，用机器学习图像分割降低人工标注负担。针对哺乳动物工具难以迁移到硬骨鱼的问题，流程强调肌纤维形态参数提取、空间组织可视化与形态变异分析；摘要未给出定量精度或样本规模。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>fishROI 将机器学习分割与硬骨鱼肌纤维形态计量结合，补齐哺乳动物导向工具在鱼类肌肉分析中的适配缺口。其价值在于把组织形态空间分布显式化，适合生物图像中的专用AI工作流设计。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10009618/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10009618/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
 </div>
 </li>
@@ -314,7 +314,7 @@
 <div class="daily-sidebar-title">专题分布</div>
 <div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>2</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
 </div>
-<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">分层注意力遥感融合地表分类框架<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">硬骨鱼肌肉形态半自动分析流程<span class="daily-outline-meta">02</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-06-27.html">前一天 · 2026-06-27</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-06-28.html">最新一期 · 2026-06-28</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-06-28.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">FusionAttNet：哨兵一二号融合半干旱地表分类<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">fishROI：硬骨鱼肌肉形态半自动分析流程<span class="daily-outline-meta">02</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-06-27.html">前一天 · 2026-06-27</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-06-28.html">最新一期 · 2026-06-28</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-06-28.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
 <div class="daily-sidebar-title">阅读建议</div>
 <ul class="insight-note-list">
 <li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
