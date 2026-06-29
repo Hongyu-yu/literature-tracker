@@ -1,6 +1,147 @@
 {
   "articles": [
     {
+      "id": "f35641615c97",
+      "title": "Comparative Performance Analysis of Xenon, Krypton, and Argon Propellants for Hall Thrusters Using a Reproducible Machine-learning Framework",
+      "title_zh": "基于可复现机器学习框架的霍尔推力器氙、氪、氩推进剂性能比较分析",
+      "abstract": "Hall-effect thrusters (HETs) are widely used for orbit raising, station keeping, and deep-space electric propulsion. Xenon remains the reference propellant because of its high atomic mass and relatively low first ionization energy, but cost and supply concerns motivate the evaluation of krypton and argon. This paper presents a literature-based, machine-learning-assisted comparison of xenon, krypton, and argon HET operation using a harmonized 600-operating-point dataset. Random Forest, Gradient Boosting, XGBoost, Multi-Layer Perceptron, and Gaussian Process regression models were evaluated for macroscopic performance prediction. The revised framework explicitly reports the final feature set, random-split and grouped-validation logic, hyperparameters, uncertainty treatment, and the assumptions behind cost-normalized propellant ranking. In the random-split evaluation, XGBoost achieved the best thrust-prediction performance, with R² = 0.978, RMSE = 1.21 mN, and MAE = 0.86 mN. The results reproduce the expected physical trend that xenon provides the highest thrust and efficiency, krypton offers a practical compromise between performance and cost, and argon requires careful thruster optimization because lower atomic mass and higher ionization energy reduce propellant utilization. The conclusions are interpreted as data-driven macroscopic input-output trends rather than direct resolution of plasma microphysics.",
+      "abstract_zh": "该研究针对霍尔效应推力器中氙、氪、氩三类推进剂的运行表现，构建了基于文献的600个工况统一数据集，并采用多种机器学习回归模型预测推力等宏观性能。结果显示，随机划分评估中XGBoost在推力预测上表现最佳，并再现了氙性能最高、氪在成本与性能间折中、氩需要进一步优化推力器设计的物理趋势。论文还强调了特征集、验证策略、超参数、不确定性处理和成本归一化排序假设的可复现报告。",
+      "authors": [
+        "Nazmul Hasan Anik Chawdhury"
+      ],
+      "pub_date": "2026-06-29",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10159095/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871388"
+    },
+    {
+      "id": "78b5dd1d2da1",
+      "title": "Information-Geometric Audits of Macromolecular Ensembles: A Prescriptive Protocol for Latent Dimension Selection",
+      "title_zh": "大分子系综的信息几何审计：潜在维度选择的规范化协议",
+      "abstract": "Dimensionality reduction is the foundational operation in the computational analysisof macromolecular ensembles, yet the central question it raises, how many latentdimensions are physically necessary to represent a given molecular system, has noprincipled answer in the existing literature. Current heuristics based on explainedvariance, spectral gaps, or cross-validated kinetic accuracy are calibrated againststatistical proxies rather than against the thermodynamic cost of the informationthat is lost in compression. We develop an information-geometric framework thatreframes latent dimension selection as a precisely stated physical problem andderives a prescriptive, three-stage protocol for solving it. The first stagequantifies the global thermodynamic cost of compression via the compressionfree energy ((Δ Fcₒₘₚᵣₑₛₛᵢₒₙ(d))), defined as the Kullback--Leiblerdivergence between the true Boltzmann ensemble and its low-dimensionalreconstruction, and connected to the Landauer bound on irreversible informationerasure. The second stage resolves the spatial distribution of that cost bycomputing the scalar curvature ((R(z))) of the Fisher information metric on the latentmanifold, identifying precisely which structural transition corridors aregeometrically distorted and whether a given dimensionality is topologicallysufficient to resolve them. The third stage locates the thermodynamically optimal((d^*)) as the critical phase transition on the empirical rate-distortion curve, atwhich the compression shifts from filtering thermal noise to discarding macroscopiccollective variables. Applied to the high-dimensional Müller--Brown potential, acontrolled analogue of the alanine dipeptide conformational landscape withanalytically known ground truth ((d^* = 2)), the protocol recovers the correctdimensionality unambiguously across three qualitatively distinct compressionregimes characteristic of PCA, tICA, and VAE architectures, while existingheuristics select ((d = 7))--((9)). The intermediate diagnostics further revealmethod-specific distortion profiles, distributed geometric bias under PCA-likecompression, timescale-prioritisation under tICA-like compression, andnear-isometric mapping under VAE-like compression, that are invisible to scalarselection criteria and provide a physically interpretable basis for DR methodcomparison. The framework establishes a rigorous equivalence betweenmachine-learning representation error andphysical thermodynamic dissipation, offering a common language in which latentmolecular representations can be audited, compared, and improved using the tools ofstatistical mechanics.",
+      "abstract_zh": "该文针对大分子系综降维中“需要多少潜在维度”这一核心问题，提出以信息几何和热力学代价为基础的维度选择框架。作者将压缩信息损失表述为真实玻尔兹曼系综与低维重构之间的KL散度，并与Landauer不可逆信息擦除界限相联系。该协议进一步通过Fisher信息度量的标量曲率等量刻画信息损失在潜在流形上的空间分布，为潜在维度选择提供更具物理意义的准则。",
+      "authors": [
+        "Hesam Mozafarynia"
+      ],
+      "pub_date": "2026-06-29",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10141442/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871390"
+    },
+    {
+      "id": "083a725e5ffc",
+      "title": "Quantum Criticality in Monolayer Amorphous Carbon",
+      "title_zh": "单层非晶碳中的量子临界性",
+      "abstract": "Amorphous solids represent the extreme limit of structural disorder, in which broken translational symmetry challenges the Bloch description of electronic states. In strictly two dimensions (2D), lattice disorder should lead to complete localization electronic states. In stark contrast, here we show that 2D monolayer amorphous carbon (MAC)– a chemically uniform but maximally disordered random network of π-conjugated carbon retains a quantum-critical extended state at the band centre (E ∼ 0)despite the absence of crystalline order. This is confirmed by correlating lattice disorder with local wavefunction structure in atomic-resolution scanning tunnelling microscopy and spectroscopy. Our statistical analysis of the wavefunction probability density reveals a diverging correlation length and verifies the multifractal scaling relation η = −∆2 – characteristic of Anderson criticality– in agreement with atomistic tight-binding calculations. We attribute the presence of this critical state to an emergent chiral symmetry of the continuous random network, described by a Wess-Zumino Witten (WZW) topological term that protects the band-centre. Our results thus identify topological disorder as stabilizing agent for quantum criticality in a strictly 2D amorphous system.",
+      "abstract_zh": "该研究表明，二维单层非晶碳虽然缺乏晶体平移对称性且结构高度无序，但在能带中心仍保留量子临界的扩展态。作者结合原子分辨扫描隧道显微/谱学和紧束缚计算，分析局域波函数结构与晶格无序之间的关系，并观察到符合Anderson临界性的多重分形标度关系。论文将该临界态归因于连续随机网络中涌现的手征对称性及其拓扑保护机制。",
+      "authors": [
+        "Bent Weber",
+        "Rejaul SK",
+        "Hanning Zhang",
+        "Artem Grebenko",
+        "Arsen Herasymchuk",
+        "Ranjith Shivajirao",
+        "Hongji Zhang",
+        "Abee Nelson",
+        "Zheng Tong",
+        "Gagandeep Singh",
+        "Naoto Kimiuchi",
+        "Yuta Sato",
+        "Kazu Suenaga",
+        "Chee-Tat Toh",
+        "Rudolf Römer",
+        "Shaffique Adam",
+        "Oleg Yazyev",
+        "Barbaros Oezyilmaz"
+      ],
+      "pub_date": "2026-06-29",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-9974819/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871392"
+    },
+    {
+      "id": "460fe3b0ae80",
+      "title": "Prefrontal Circuitry Abnormalities and Cognitive Impairment in Adolescents with Early- Onset Psychosis",
+      "title_zh": "早发性精神病青少年的前额叶环路异常与认知损害",
+      "abstract": "Early-onset psychosis (EOP) is associated with marked cognitive impairment and poorer health-related and psychosocial outcomes compared to adult-onset illness, yet the neural mechanisms underlying these deficits during adolescence remain incompletely understood. Despite evidence implicating dorsolateral prefrontal cortex (dlPFC) dysfunction, the region’s functional and structural correlates in youth with EOP are not well characterized. Adolescents with EOP (N=31) and healthy controls (HC; N=20) completed NIH Toolbox cognitive assessments and PROMIS self-reports. Prefrontal function was assessed using functional near-infrared spectroscopy (fNIRS) during a Stroop task and at rest. Multimodal MRI, including resting-state fMRI, diffusion tensor imaging, and structural imaging, was used to examine connectivity and morphology of prefrontal and fronto-cerebellar circuits. Adolescents with EOP exhibited poorer cognitive performance across executive functioning domains compared to HC. fNIRS revealed reduced right dlPFC activation on a cognitive control paradigm (p=0.007) and increased resting-state connectivity between right dlPFC and ventrolateral PFC (p=0.02). Furthermore, resting-state fMRI showed increased dlPFC-striatal connectivity and reduced connectivity with cerebellar Crus I/II (p-FDR",
+      "abstract_zh": "该研究比较了早发性精神病青少年与健康对照在认知表现、前额叶功能和脑连接结构方面的差异。结果显示，患者在执行功能等认知领域表现较差，并在Stroop任务中呈现右背外侧前额叶激活降低，同时静息态前额叶连接出现异常。多模态MRI和功能近红外结果共同提示，前额叶及额叶-小脑环路异常可能与青少年早发性精神病的认知损害相关。",
+      "authors": [
+        "Hanne Van Der Heijden",
+        "Saad Rahmat",
+        "Amanda Cao",
+        "Raquel van Gool",
+        "Merve Koç Yekedüz",
+        "Lise Vrolix",
+        "Talia Barrett",
+        "Edin T. Randall",
+        "Itamar Ronen",
+        "James Barnacle",
+        "Maya Golden",
+        "Maria Goldman",
+        "Benjamin Lu",
+        "Joyce C. Chang",
+        "Jason M. Fogler",
+        "David C. Glahn",
+        "Navil Sethna",
+        "Joseph Gonzalez-Heydrich",
+        "Jaymin Upadhyay"
+      ],
+      "pub_date": "2026-06-28",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10021774/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871396"
+    },
+    {
+      "id": "5d2d76befdea",
+      "title": "fishROI: A specialized workflow for semi-automated muscle morphometry analysis in teleosts",
+      "title_zh": "fishROI：用于硬骨鱼半自动肌肉形态计量分析的专用流程",
+      "abstract": "Background Quantitative histological analysis of skeletal muscle morphometry provides critical insights into muscle physiology but remains labor-intensive and technically demanding. While recent developments in machine learning-based image segmentation techniques have facilitated large-scale tissue analysis, existing tools that automate muscle morphometry analysis are largely tailored to mammalian models, with limited applicability to teleosts. Moreover, there is a lack of effective tools for visualizing spatial organization and morphometric variability of teleost muscle fibers, a feature that is important for understanding hyperplastic muscle growth dynamics in teleosts.Methods In this study, we benchmarked the performance of existing muscle morphometry analysis workflows and general-purpose cell segmentation algorithms in identifying individual muscle fibers in teleost muscles. We used these findings to inform the development of a new, teleost-optimized analysis tool.Results We show that cytoplasmic staining combined with machine learning-based cell segmentation offers a robust and accurate approach for automated muscle morphometry analysis in developing zebrafish. We also introduce fishROI – a FIJI2 plugin implemented in Jython, that streamlines both morphometric analysis and visualization. This tool accommodates shallow and deep learning–based segmentation techniques and incorporates novel quantification and visualization methods suited to teleost-specific muscle features, including mosaic hyperplasia dynamics. The plugin features an intuitive graphical user interface and is designed for flexibility, with minimal constraints regarding species, image quality, or staining protocol. Its modular architecture allows it to be used as a baseline for automated muscle morphometry analysis, while permitting integration with other tools and workflows to permit a diverse range of analytical needs.Conclusion This plugin will serve as a foundational platform for semi-automated muscle morphometry analysis in teleosts, enabling a combination of reliable image segmentation, quantification and visualization optimized for teleost muscles.",
+      "abstract_zh": "该研究针对硬骨鱼骨骼肌组织学形态计量分析费时且现有自动化工具多面向哺乳动物模型的问题，开发了面向硬骨鱼的半自动分析工作流fishROI。作者比较了现有肌肉形态分析流程和通用细胞分割算法在识别硬骨鱼肌纤维方面的表现，并据此优化工具设计。结果表明，细胞质染色结合机器学习分割可较准确地分析发育中斑马鱼肌肉，并有助于可视化肌纤维空间组织和形态变异。",
+      "authors": [
+        "Yansong Lu",
+        "Michael Pan",
+        "Vijayishwer Jamwal",
+        "Putri Halleyana Adrikni Rahman",
+        "Jake Locop",
+        "Avnika A. Ruparelia",
+        "Peter D. Currie"
+      ],
+      "pub_date": "2026-06-28",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10009618/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871398"
+    },
+    {
+      "id": "e9cfa0063fcd",
+      "title": "FusionAttNet Framework for Hierarchical Attention Driven Sentinel 1 and Sentinel 2 Fusion for Semi Arid Land Cover Classification in Far North Cameroon",
+      "title_zh": "FusionAttNet：用于喀麦隆极北半干旱区土地覆盖分类的Sentinel-1与Sentinel-2层级注意力融合框架",
+      "abstract": "Accurate land cover mapping in semi-arid regions remains challenging due to spectral homogeneity of sparse vegetation, seasonal variability, and persistent cloud cover. In this study, we propose a FusionAttNet, a novel deep learning framework integrating Sentinel-1 SAR and Sentinel-2 optical data through modality-aware hierarchical attention for land cover classification case study of Far North Cameroon. Our approach employs parallel sensor-specific processing streams (generating cross-modal indices like NDVI/VV ratios) and a three-tiered attention mechanism (pixel-patch-landscape) to resolve spatial ambiguities in semi-arid landscapes. Enhanced by modality-aware augmentation and focal loss with label smoothing, FusionAttNet achieved 96.75% overall accuracy and 0.9680 F1-score on a multi-seasonal dataset over a 12-month temporal window spanning the year 2021, outperforming feature-stacking (85.1%) and early fusion (87.6%) baselines. Key innovations include: (1) landscape-level attention capturing phenological transitions in Sahelian ecotones, (2) cross-modal indices mitigating cloud-induced optical data gaps, and (3) SAR-optimized augmentation preserving backscatter textures. Results demonstrate a 14.7% reduction in misclassification of mixed bare soil/grassland interfaces compared to state-of-the-art methods, establishing a new paradigm for semi-arid land cover monitoring.",
+      "abstract_zh": "该研究提出FusionAttNet深度学习框架，将Sentinel-1雷达数据与Sentinel-2光学数据通过模态感知的层级注意力机制融合，用于半干旱地区土地覆盖分类。模型采用传感器特异性并行处理、跨模态指数以及像素—斑块—景观三级注意力，以缓解稀疏植被光谱相似、季节变化和云覆盖带来的困难。在喀麦隆极北地区多季节数据上，该方法较特征堆叠和早期融合基线取得更高分类精度，显示出在萨赫勒生态过渡带制图中的潜力。",
+      "authors": [
+        "Pountianus Berinyuy Wirba",
+        "Mvogo Ngono",
+        "Noumsi Woguia Auguste Vigny",
+        "Emile Tatinyuy Verdzekov",
+        "ELE Pierre"
+      ],
+      "pub_date": "2026-06-28",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-9931908/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-06-29T02:58:52.871400"
+    },
+    {
       "id": "a5b6858b73f1",
       "title": "Flexible hydrogel fiber-coupled SERS sensor for remote in situ food inspection",
       "title_zh": "用于远程原位食品检测的柔性水凝胶光纤耦合 SERS 传感器",
@@ -82867,102 +83008,6 @@
       "source_url": "https://rss.arxiv.org/rss/cond-mat",
       "arxiv_category": "cond-mat",
       "fetch_time": "2026-05-29T14:51:05.283078"
-    },
-    {
-      "id": "4ded764c5290",
-      "title": "Self-Assembly of Lipid-Biopolymer Periodic Nanostructures on Photonic Length Scales",
-      "title_zh": "光子尺度脂质—生物聚合物周期性纳米结构的自组装",
-      "abstract": "arXiv:2605.29040v1 Announce Type: new Abstract: The self-assembly of photonic nanostructures in insects involves chitin, proteins, and lipids. While synthetic photonic systems have been extensively studied, current lipid-based self-assembly systems are limited in periodicity to 68,nm compared to photonic length scales (approx 450,nm) observed in biological organisms. We hypothesise that lipids facilitate how structural colour arises in vivo by acting as templates for the self-assembly of biopolymers via lipidic lyotropic liquid crystal mesophases. Here, we aim to understand and identify how structural colour is produced in insects by the co-assembly of lipids and biopolymers. We study the effect of biopolymers, pH, temperature, surface charge, and stability on lipid vesicles using dynamic light scattering, X-ray scattering, and zeta potential analysis. Using cryo-electron microscopy, we demonstrate that these vesicles interact with the biopolymers and generate periodic nanostructures with periodicities ranging from 700,nm to 1.2,μm (more than ten times larger than for purely lipidic systems) and dimensionalities ranging from 1D to 3D. Our results establish that lipid mesophases and biopolymers can induce reorganisation into ordered nanostructures, overcoming key limitations of periodicities achieved by lipid-only systems, and providing a methodology for recreating the physicochemical mechanisms underlying biophotonic structural colour.",
-      "abstract_zh": "昆虫中的光子纳米结构自组装涉及几丁质、蛋白质和脂质，但合成脂质体系的周期尺度通常远小于生物结构色所需的光子尺度。作者假设脂质通过溶致液晶中间相作为模板，促进生物聚合物自组装并产生结构色；他们利用动态光散射、X射线散射、ζ电位分析和低温电镜研究生物聚合物、pH、温度、表面电荷和稳定性对脂质囊泡的影响。结果表明，囊泡与生物聚合物相互作用可形成周期为700纳米至1.2微米、维度从一维到三维的周期纳米结构，显著大于纯脂质体系。",
-      "authors": [
-        "Rushna Quddus, Meron Debas, Stefan Salentinig, Ullrich Steiner, Viola Vogler-Neuling"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29040",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283079"
-    },
-    {
-      "id": "eef3a224e7df",
-      "title": "Field-Driven Hybrid Filament Formation Governs Switching in Ta-HfO₂₋Pt Memristors",
-      "title_zh": "电场驱动的混合导电细丝形成主导Ta-HfO₂-Pt忆阻器中的开关行为",
-      "abstract": "arXiv:2605.29127v1 Announce Type: new Abstract: Memristive devices have gained significant attention for their potential in next-generation non-volatile memory and neuromorphic computing architectures. Among emerging candidates, transition metal oxides have proven particularly promising. While the switching mechanism in Ta/HfO₂/Pt devices was long attributed solely to oxygen vacancy based filaments, recent experimental evidence suggests a more complex dual-regime: the diffusion of metal cations also contributes to the formation of a conductive bridge. However, the precise atomistic mechanisms governing this metal cation migration remain poorly understood. Additionally, the role of defects such as oxygen vacancies present in the transition metal oxide in determining the final filament size and shape is also not well understood. Here, we employ molecular dynamics (MD) simulations with dynamic charge transfer to provide a detailed analysis of the atomistic mechanisms governing the co-formation of Ta-cation and oxygen-deficient filaments. We clearly show how varying the initial oxygen vacancy concentrations and spatial configurations within the HfO₂ matrix influences the final morphology and dimensions of the conductive filament. The switching is governed by field-driven formation and rupture of a hybrid Ta-cation-rich, oxygen-deficient filament in HfO₂. Our simulations closely match experiment, validating the model as a robust framework for understanding switching in oxide memristors and guiding designs that reduce cycle-to-cycle and device-to-device variability -- key barriers to high-performance devices.",
-      "abstract_zh": "Ta/HfO₂/Pt忆阻器的开关机制过去常被归因于氧空位导电细丝，但近期实验证据显示金属阳离子扩散也参与导电桥形成。作者采用具有动态电荷转移的分子动力学模拟，分析Ta阳离子细丝与缺氧细丝共同形成的原子机制。研究重点揭示HfO₂基体中初始氧空位浓度和空间分布如何影响最终细丝的尺寸、形貌和器件开关行为。",
-      "authors": [
-        "Ashutosh Krishna Amaram, Aditya Koneru, Subramanian KRS Sankaranarayanan"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29127",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283081"
-    },
-    {
-      "id": "00ca8666e46f",
-      "title": "Helimagnetic Josephson diode effect",
-      "title_zh": "螺旋磁约瑟夫森二极管效应",
-      "abstract": "arXiv:2605.29285v1 Announce Type: new Abstract: We study the Josephson diode effect in the one-dimensional superconductor/helimagnet/superconductor junctions using the Green's function method. For the spin-singlet s-wave pairing in superconductors, it is found that the necessary conditions for the Josephson diode effect are the nonzero chemical potential and the conical magnetic configuration in the helimagnet. The diode efficiency is strongly dependent on the chemical potential, chirality, tilt angle and exchange coupling in the helimagnet. The high efficiency close to 40% can be obtained for specific parameter values. The sign of the diode efficiency can be tuned by changing the chirality, tilt angle, exchange coupling and chemical potential. The dependence of the diode efficiency on the number of supercells in the helimagnet is also investigated. The characteristics of the supercurrent nonreciprocity and diode efficiency in the junctions are clarified through the symmetry analysis and the energy band calculations. The diode effect for the spin-triplet p-wave pairing in superconductors is also discussed and the nonzero chemical potential is no longer a necessary condition for the Josephson diode effect due to the equal-spin Cooper pair-mediated transport in the p-wave junctions. These results provide a scheme for the Josephson diode effect without spin-orbit coupling, which possesses the potential applications in the design of dissipationless electronic devices.",
-      "abstract_zh": "该研究采用格林函数方法考察一维超导体/螺旋磁体/超导体结中的约瑟夫森二极管效应。对于自旋单重态 s 波配对，非零化学势与螺旋磁体中的锥形磁构型是产生二极管效应的必要条件，二极管效率强烈依赖化学势、手性、倾角和交换耦合，并可在特定参数下接近 40%。作者还通过对称性分析和能带计算阐明了超电流非互易性，并讨论了自旋三重态 p 波配对情形。",
-      "authors": [
-        "Qiang Cheng, Yu-Chen Zhuang, Qing-Feng Sun"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29285",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283083"
-    },
-    {
-      "id": "5c430f69bbed",
-      "title": "Topological Lifshitz transition-induced bipolarity of anomalous Nernst effect in kagome magnet YCo3",
-      "title_zh": "拓扑 Lifshitz 转变诱导的 Kagome 磁体 YCo3 中反常能斯特效应双极性",
-      "abstract": "arXiv:2605.29297v1 Announce Type: new Abstract: The kagome lattice, renowned for hosting topological band structures and rich magnetic behaviors, offers an exceptional setting to investigate unconventional transport in magnetic topological systems. Controlling the polarity of the anomalous Nernst effect (ANE) is crucial for designing flexible thermoelectric devices, such as thermopiles, where the ability to switch the thermoelectric voltage sign can dramatically enhance energy conversion efficiency and output. Here, we demonstrate such a bipolar ANE in the kagome magnet YCo3, driven by a temperature-induced topological Lifshitz transition. With a Curie temperature TC~225 K, sizable anomalous Hall and Nernst effects emerge below TC. Supported by the first-principles calculations, the AHE and ANE are suggested to be dominated by the intrinsic mechanism. Furthermore, the intrinsic anomalous Hall conductivity exhibits a piecewise-linear dependence on magnetization, with an abrupt slope change near 100 K, consistent with the Karplus-Luttinger mechanism. Concurrently, the anomalous Nernst coefficient SAyx reverses its sign around the same temperature, realizing the crucial bipolarity. These anomalies could be interpreted as a topological Lifshitz transition, enabled by the evolution of Co moments that could shift the Fermi level relative to Weyl nodes. Our work reveals YCo3 as a prototypical kagome magnet where temperature and magnetism directly govern both Weyl node topology and the bipolar ANE, opening a pathway to magnetically control thermoelectric output in topological quantum materials.",
-      "abstract_zh": "该工作报道了 Kagome 磁体 YCo3 中由温度诱导拓扑 Lifshitz 转变驱动的双极性反常能斯特效应。材料在居里温度约 225 K 以下出现显著反常霍尔效应和反常能斯特效应，第一性原理计算表明其主要来源于内禀机制。反常霍尔电导随磁化强度呈分段线性变化，并在约 100 K 附近出现斜率突变，同时反常能斯特系数在相近温度发生符号反转。",
-      "authors": [
-        "Sheng Xu, Yue-Yang Wu, Hao-Ran Bai, Zheng Li, Shu-Xiang Li, Jun-Jian Mi, Tian-Hao Li, Ze-Wei Wang, Ze-Kai Dong, Jiang Ma, Xiao-Bo Wu, Qian Tao, Zhu-An Xu"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29297",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283087"
-    },
-    {
-      "id": "488ee8762bc6",
-      "title": "Effective Theory of Fermion Quartet Condensation",
-      "title_zh": "费米子四聚体凝聚的有效理论",
-      "abstract": "arXiv:2605.29338v1 Announce Type: new Abstract: We develop a theory of superconductivity (or superfluidity) based on condensed fermion quartets focusing on the dilute spin-frac12 systems at zero temperature. In the spirit of the Bardeen--Cooper--Schrieffer ansatz, a variational wavefunction is constructed such that, within the so-called ``dilute quartet approximation\", it is the ground state of an effective quartic Hamiltonian. For a given two-body interaction in favor of quartetting, the gap parameter is suitably defined and the gap equation is also derived. As to the excited states, an intuitive physical picture based on a sixteen-dimensional ``occupation space\" is depicted and the associated eigen-energies are obtained. This theory is applied to compute the superfluid fraction, which is found to be the same as in conventional superconductors, despite the interacting nature of the quartet problem.",
-      "abstract_zh": "作者发展了一种基于费米子四聚体凝聚的超导或超流理论，重点讨论零温稀薄自旋 1/2 体系。借鉴 BCS 变分思想，研究构造了在“稀薄四聚体近似”下对应有效四次哈密顿量基态的波函数，并定义能隙参数、推导能隙方程。该理论还给出基于十六维占据空间的激发态图像，并用于计算超流分数，结果显示其与常规超导体相同。",
-      "authors": [
-        "Qiao-Ru Xu, Congjun Wu"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29338",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283089"
-    },
-    {
-      "id": "230a064efcf6",
-      "title": "Tetrahedrally ferromagnetic correlations and a glassy-freezing anomaly in the breathing pyrochlore magnet AgInCr₄S₈ with partial A-site disorder",
-      "title_zh": "部分 A 位无序呼吸烧绿石磁体 AgInCr4S8 中的四面体铁磁关联与玻璃冻结异常",
-      "abstract": "arXiv:2605.29349v1 Announce Type: new Abstract: We investigate the chromium breathing pyrochlore sulfide AgInCr₄S₈, a chromium-based thiospinel, by synchrotron x-ray and neutron powder diffraction, dc magnetization, and heat capacity. Diffraction confirms the Fbar43m breathing structure with alternating large and small Cr₄ tetrahedra, a large breathing ratio (d^prime/d = 1.106 at 300 K), and substantial Ag/In intermixing on the A sublattice (sim 16%). No structural transition or magnetic Bragg peaks are detected down to 1.5 K. An enlarged low-angle difference plot between the 1.5 and 20 K neutron diffraction patterns shows a weak broad diffuse-like enhancement, consistent with short-range or frozen correlated moments within the sensitivity of the present data. Susceptibility yields a positive Weiss temperature θW = +92 K and a moment enhancement in 30--60 K, while the magnetic entropy released by sim 30 K approaches a scale of order Rłn 13, together consistent with the development of short-range tetrahedral ferromagnetic correlations and an effective S = 6 cluster-moment picture. A broad susceptibility cusp with ZFC--FC bifurcation and a low-temperature specific heat anomaly near 9 K indicate a phenomenological glassy-freezing anomaly without long-range order. AgInCr₄S₈ provides a benchmark for the interplay of strong breathing distortion and quenched A-site disorder in chromium breathing pyrochlores.",
-      "abstract_zh": "该研究结合同步辐射 X 射线、中子粉末衍射、直流磁化率和热容测量，研究铬基硫尖晶石 AgInCr4S8。衍射证实其具有 Fbar43m 呼吸结构、较大的呼吸比以及约 16% 的 Ag/In A 位混排，在低至 1.5 K 未观察到结构相变或磁性布拉格峰。磁化率、磁熵和低温异常表明体系中形成短程四面体铁磁关联，并在约 9 K 附近出现类似玻璃冻结的异常。",
-      "authors": [
-        "Yuya Haraguchi, Masahiro Kitamura, Masaki Gen, Yusuke Nambu, Akira Matsuo, Koichi Kindo, Masaki Kondo, Masashi Tokunaga, Hiroko Aruga Katori"
-      ],
-      "pub_date": "2026-05-29",
-      "journal": "arXiv",
-      "link": "https://arxiv.org/abs/2605.29349",
-      "source_url": "https://rss.arxiv.org/rss/cond-mat",
-      "arxiv_category": "cond-mat",
-      "fetch_time": "2026-05-29T14:51:05.283090"
     }
   ]
 }
