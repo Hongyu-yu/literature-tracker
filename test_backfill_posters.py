@@ -106,3 +106,26 @@ def test_process_file_respects_budget():
                            side_effect=lambda prompt, out_path, **k: out_path):
         filled, missing = process_file(path, provider=None, budget=2)
     assert filled == 2 and missing == 5                      # 配额封顶
+
+
+def test_process_file_parallel_fills_all_correctly():
+    import threading
+    items = [_with_elements(doc_id=f"axC{i}") for i in range(10)]
+    d = tempfile.mkdtemp(); path = os.path.join(d, "arxiv_core_2026-06-28.json")
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(items, f, ensure_ascii=False)
+    seen = set(); lock = threading.Lock(); peak = {"n": 0, "cur": 0}
+    def gen(prompt, out_path, **k):
+        with lock:
+            peak["cur"] += 1; peak["n"] = max(peak["n"], peak["cur"])
+            seen.add(out_path)
+        try:
+            return out_path
+        finally:
+            with lock: peak["cur"] -= 1
+    with mock.patch.object(backfill_posters, "generate_and_save", side_effect=gen):
+        filled, missing = process_file(path, provider=None, max_workers=6)
+    assert (filled, missing) == (10, 10)                     # 并发下全部补齐、无丢失/重复
+    assert len(seen) == 10                                   # 10 个不同 doc_id 各生一次
+    reloaded = json.loads(open(path, encoding="utf-8").read())
+    assert all(it["image"] == f"images/posters/axC{i}.webp" for i, it in enumerate(reloaded))

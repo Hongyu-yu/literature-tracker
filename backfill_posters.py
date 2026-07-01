@@ -79,21 +79,31 @@ def backfill_item(it, provider=None, out_dir=POSTER_DIR):
     return image
 
 
-def process_file(path, provider=None, budget=None, out_dir=POSTER_DIR):
-    """补一个 JSON 文件里的缺图条目;返回 (filled, missing_total)。保持原写盘格式(无缩进)。"""
+def process_file(path, provider=None, budget=None, out_dir=POSTER_DIR, max_workers=None):
+    """补一个 JSON 文件里的缺图条目;返回 (filled, missing_total)。保持原写盘格式(无缩进)。
+
+    并发生图(每条目/每 doc_id 互不相干,线程安全):先按 budget 切片,再并发调 backfill_item。"""
+    if max_workers is None:
+        try:
+            max_workers = int(os.environ.get("POSTER_BACKFILL_WORKERS", "6"))
+        except (TypeError, ValueError):
+            max_workers = 6
     with open(path, encoding="utf-8") as f:
         data = json.load(f)
     items = data if isinstance(data, list) else (data.get("items") or data.get("papers") or [])
     missing = find_missing(items)
+    todo = missing if budget is None else missing[:max(0, budget)]
     filled = 0
-    for _i, it in missing:
-        if budget is not None and filled >= budget:
-            break
-        img = backfill_item(it, provider=provider, out_dir=out_dir)
-        print(("  ✅" if img else "  ⚠️"), os.path.basename(path),
-              (it.get("title") or "")[:48], "->", img)
-        if img:
-            filled += 1
+    if todo:
+        from concurrent.futures import ThreadPoolExecutor
+        def _work(pair):
+            return backfill_item(pair[1], provider=provider, out_dir=out_dir)
+        with ThreadPoolExecutor(max_workers=max(1, min(max_workers, len(todo)))) as ex:
+            for (idx, it), img in zip(todo, ex.map(_work, todo)):
+                print(("  ✅" if img else "  ⚠️"), os.path.basename(path),
+                      (it.get("title") or "")[:48], "->", img)
+                if img:
+                    filled += 1
     if filled:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False)   # 匹配 run_deep 写盘(无缩进)
