@@ -33,6 +33,9 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
 
+      - name: 配置网关 hosts（网关域名 DNS 解析失败的兜底，映射存于 secret）
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+
       - name: 运行优化同步（AI筛选）
         env:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}

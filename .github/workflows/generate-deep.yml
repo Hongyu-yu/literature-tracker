@@ -26,6 +26,8 @@ jobs:
           python-version: "3.11"
           cache: "pip"
       - run: pip install -r requirements.txt
+      - name: Configure gateway hosts (fallback for gateway DNS resolution failure; mapping in secret)
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
       # Daily FIRST: regenerates daily pages (今日精读 from existing aps_*.json) and writes the
       # corrected arxiv_tier2_<date>.json candidates that run_deep then enriches SAME run.
       - name: Generate daily pages (writes tier2 candidates)

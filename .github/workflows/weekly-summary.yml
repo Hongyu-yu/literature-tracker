@@ -32,6 +32,9 @@ jobs:
         run: |
           pip install -r requirements.txt
 
+      - name: Configure gateway hosts (fallback for gateway DNS resolution failure; mapping in secret)
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+
       - name: Generate weekly summary
         run: |
           python weekly_summary.py
