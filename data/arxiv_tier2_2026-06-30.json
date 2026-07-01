@@ -1,38 +1,182 @@
 [
   {
     "title": "mCGCNN: A Dual-Stream Crystal Graph Convolutional Neural Network for the Efficient Prediction of Magnetic Properties of Crystalline Materials",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "mCGCNN 高效预测晶体磁性",
+    "summary": "mCGCNN 将磁性中心子图和角度敏感交换路径嵌入 CGCNN。它把 GKA 规则转化为可学习特征，提升晶体磁性性质预测的物理可解释性。",
+    "abstract": "mCGCNN 面向晶体磁性预测，在常规全结构图外加入磁性子图；磁性流只在携带磁矩中心间传递信息，并使用金属-配体-金属交换路径的角度描述符，体现 Goodenough-Kanamori-Anderson 物理。该双流晶体图网络针对磁有序由磁子晶格与配体介导交换共同决定的问题，避免把所有原子等同处理。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2606.28458",
     "journal": "arXiv"
   },
   {
+    "title": "Optimizing Expert-Designed Crystal Graph Networks for Band-Gap Prediction with an Autonomous LLM Research Loop",
+    "title_zh": "自主 LLM 循环优化晶体图带隙预测",
+    "summary": "通用 LLM 编码代理在 MatBench 带隙任务中自主改进晶体图网络。无外部预训练仍超过既有基线，凸显自动化模型发现可直接作用于材料性质预测。",
+    "abstract": "在 MatBench 带隙基准的 10 万余晶体上，通用编码代理以自主研究循环构建并优化专家设计的晶体图网络。模型不使用外部预训练，却达到该设置下最准确的带隙预测结果，超过已有公开基线，展示固定指标材料基准可作为自主科研代理的可检验环境。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2606.29717",
+    "journal": "arXiv"
+  },
+  {
+    "title": "On Surrogate Modeling of Static Response of AM Short-Fiber Thermoplastics Using Graph Neural Networks",
+    "title_zh": "GNN 代理短纤热塑料静态响应",
+    "summary": "短纤热塑性复合材料被表示为含取向、团聚和孔隙的介观图。GNN 代理可替代部分高成本力学模拟，适合增材制造构件的快速性能评估。",
+    "abstract": "面向增材制造短纤热塑性复合材料的静态响应，采用图神经网络构建代理模型。材料力学由纤维取向、空间团聚和制造孔隙等介观特征共同控制，这些特征在构件中强烈非均匀并影响刚度、损伤萌生和非线性变形；GNN 用于表征这种空间相互作用。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2606.28996",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Synthesizability and Mechanical Properties of High-Entropy Borides: First-Principles and Machine Learning Studies",
+    "title_zh": "高熵硼化物可合成性与力学性质",
+    "summary": "126 种 AlB2 型五金属高熵硼化物被系统筛选。EFA 与 DFT 力学计算结合，可同时判断单相形成倾向和硬质硼化物候选。",
+    "abstract": "对 Ti、V、Cr、Zr、Nb、Mo、Hf、Ta、W 九种 4–6 族过渡金属中所有 126 种五金属组合进行 DFT 计算，结构为六方 AlB2 型高熵硼化物。用熵形成能力 EFA 评估单相可合成性，预测与部分实验 HEB 数据吻合；再用特殊准随机结构计算力学性质。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2606.30540",
+    "journal": "arXiv"
+  },
+  {
+    "title": "High-order tensor neural network for iteration-free structure relaxation",
+    "title_zh": "高阶张量网络实现免迭代结构弛豫",
+    "summary": "HotRelax 把结构弛豫改写为一次前向预测。无需力标签和迭代优化，有望显著压缩高通量材料发现中的几何优化成本。",
+    "abstract": "HotRelax 是高阶张量消息传递神经网络，直接从未弛豫结构端到端预测弛豫后结构。训练数据为未弛豫/弛豫结构对，不需要 DFT 力标签，也不依赖逐步几何优化；目标是消除高通量材料筛选中 ab initio 弛豫和机器学习势迭代弛豫的瓶颈。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2606.29919",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Machine learning enhanced data assimilation framework for multiscale carbonate rock characterization",
+    "title_zh": "机器学习增强碳酸盐岩多尺度表征",
+    "summary": "碳酸盐岩宏/微 CT 与数值模拟通过机器学习数据同化耦合。该框架面向多尺度孔隙和多相流，服务碳封存与地下储氢储层评价。",
+    "abstract": "针对碳酸盐储层在碳封存、油气开采和地下储氢中的多尺度孔隙问题，提出机器学习增强的数据同化框架。方法融合宏观与微观 X 射线 CT 图像及数值模拟，以克服单一尺度成像难以覆盖宽孔径分布的限制，用于表征多相流相关的孔隙结构与跨尺度性质。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2602.06989",
+    "journal": "arXiv"
+  },
+  {
     "title": "Seismic full waveform inversion via a physics-guided Fourier representation neural network",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "物理引导傅里叶网络反演地震全波形",
+    "summary": "PGFRNN 将傅里叶表示、SALC 鲁棒损失和物理约束优化结合。它面向声学 FWI 与同时源 FWI，降低速度模型反演对初值和噪声的敏感性。",
+    "abstract": "PGFRNN 用于无监督声学全波形反演和同时源全波形反演，将傅里叶变换后的地震数据嵌入潜空间，并用软加近似 log-cosh 的 SALC 损失及物理引导优化器更新速度模型。该方法针对常规 FWI 的周跳、噪声敏感和初始模型依赖问题。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.30126",
     "journal": "arXiv"
   },
   {
-    "title": "Verified residual-specific explicit derivative kernels for physics-informed learning and discretized PDE adjoints",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2606.29702",
+    "title": "Distinct Roles of Hydrogen in Superconducting and Ferromagnetic Phases of CoZr₂Hₓ",
+    "title_zh": "氢在 CoZr2Hx 超导与铁磁相中的作用",
+    "summary": "CoZr2Hx 中氢含量把体系分成低氢超导和高氢铁磁两相区。x=0–0.054 与 x=2.786 的分离显示氢化可在同一母体中切换相互排斥的基态。",
+    "abstract": "合成不同含氢量的 CoZr2Hx，发现氢进入两个相隔宽组成间隙的浓度区：低氢超导相 x=0–0.054 与高氢铁磁相 x=2.786。低浓度氢化保持超导相关相区，高浓度氢化则诱导铁磁相，说明氢在两种浓度极限中分别调控电子态与磁性。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.28726",
     "journal": "arXiv"
   },
   {
-    "title": "Physics-Informed Neural Quantum Control for Extended Rovibrational Photoassociation in a Morse Molecular System",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2606.29610",
+    "title": "Ferromagnetic ordering in Hubbard models",
+    "title_zh": "Hubbard 模型中的铁磁有序",
+    "summary": "该理论工作聚焦 Hubbard 铁磁的严格条件。结论突出晶格几何而非单纯相互作用强度，是理解强关联铁磁稳定性的核心变量。",
+    "abstract": "围绕 Hubbard 模型基态能否出现铁磁有序的长期问题，论文讨论不同版本模型中晶格结构对铁磁性的关键作用。作者强调简单立方晶格上铁磁有序似乎难以稳定，而特定非平凡晶格可自然产生铁磁，呼应 Tasaki 等平带/晶格机制。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.30607",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ferromagnetism vs. Antiferromagnetism in Narrow-Band Systems: Competition Between Quantum Geometry and Band Dispersion",
+    "title_zh": "窄带中量子几何与色散竞争磁性",
+    "summary": "窄带磁性被分解为量子几何与带色散的竞争。有效自旋模型说明非原子化波函数可改变交换符号，为莫尔和拓扑窄带磁性提供统一判据。",
+    "abstract": "建立窄带自旋物理的统一理论框架，比较铁磁与反铁磁基态的稳定条件。通过推导有效自旋模型，指出窄带非原子化波函数会通过量子几何贡献交换相互作用，而有限带色散也参与竞争；两者共同决定窄带关联体系更偏向铁磁还是反铁磁。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2509.03575",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ferron Hall effect: Transverse accumulation of polarization driven by thermal gradients in ferroelectrics",
+    "title_zh": "铁电体中热梯度驱动 ferron 霍尔效应",
+    "summary": "ferron Hall 效应把声子霍尔偏转转化为铁电极化积累。热梯度可直接产生横向极化，为铁电热输运和声子角动量研究增加新响应函数。",
+    "abstract": "理论提出 ferron Hall 效应：在铁电材料中，携带电偶极矩的晶格激发 ferron 受霍尔偏转时，会在横向积累电极化。该机制类比磁场下纵向热梯度诱导横向热流的声子霍尔效应，并用原子级晶格模型描述热梯度驱动的极化横向分离。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2606.29765",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Field-induced topological Hall effect and butterfly-shaped magnetoresistance in the centrosymmetric antiferromagnet EuAuAs",
+    "title_zh": "EuAuAs 中场诱导拓扑霍尔效应",
+    "summary": "EuAuAs 在低温反铁磁相中呈现场诱导拓扑霍尔信号。中心对称反铁磁体也可产生非共线磁纹理相关输运，是拓扑自旋电子学候选。",
+    "abstract": "系统测量中心对称反铁磁体 EuAuAs 的磁性和输运。磁化显示 H∥ab 与 H∥c 时反铁磁转变温度分别为 5.7 K 和 6.3 K，并伴随变磁转变；输运中出现场诱导拓扑霍尔效应和蝴蝶形磁阻，指向磁性与电子自由度耦合及非平凡实空间自旋纹理。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.29813",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Real-space identification of distinct magnetic configurations in a candidate d-wave altermagnet",
+    "title_zh": "候选 d 波交变磁体的实空间磁构型",
+    "summary": "KV2Se2O 的交变磁性被追溯到实空间磁构型。该工作强调仅凭能带自旋劈裂不足以定性，需要实空间磁序证据闭合判定链条。",
+    "abstract": "针对候选 d 波交变磁体 KV2Se2O，解析动量空间自旋劈裂信号与实空间磁构型之间的关系。由于相似自旋劈裂能由不同磁序产生，作者通过实空间识别区分多种磁构型，从磁性起源层面检验该材料的交变磁性归属。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.29140",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Silicon-compatible ideal antiferroelectricity with large digital electromechanical responses enabled by thermal-strain domain engineering",
+    "title_zh": "热应变畴工程实现硅兼容理想反铁电",
+    "summary": "热失配应变被用作反铁电畴工程旋钮。硅兼容反铁电薄膜实现可逆反极性-极性转变和数字式机电响应，面向集成纳电子器件。",
+    "abstract": "利用热失配应变进行畴工程，在硅兼容平台上实现理想反铁电性和大的数字式机电响应。方法把传统氧化物与硅的热失配缺点转化为控制反铁电畴和翻转路径的手段，解决常规反铁电氧化物在结构、化学兼容性和确定性畴控制方面的限制。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2606.29219",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Strain engineering of ultrafast magnetism in the room-temperature vdW ferromagnet Fe3GaTe2",
+    "title_zh": "应变调控 Fe3GaTe2 超快磁性",
+    "summary": "Fe3GaTe2 的室温铁磁和飞秒退磁可由最高 4.2% 拉伸连续调节。应变调控把二维磁体超快自旋动力学从材料内禀限制中解耦出来。",
+    "abstract": "在室温范德华铁磁体 Fe3GaTe2 中实现原位连续单轴拉伸调控，最大应变 4.2%。拉伸提高矫顽场，并同时改变平衡磁响应和超快退磁动力学，说明机械应变可作为非平衡自旋相互作用和高速自旋电子学中的可调参数。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.28668",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Strain-Driven Domain Walls in Antiferromagnets",
+    "title_zh": "反铁磁体中的应变驱动畴壁",
+    "summary": "反铁磁畴壁可由法向应变梯度驱动。εxx 与 εzz 对畴壁宽度和终端速度作用相反，为应变操控反铁磁畴壁给出定量模型。",
+    "abstract": "推导法向应变驱动反铁磁畴壁运动的方程，并与 mumax+ 模拟比较。畴壁趋向 εxx 高、εzz 低的位置；相同应变轮廓下，不同应变分量给出不同终端速度，因为 εxx 缩小畴壁宽度，而 εzz 增大畴壁宽度。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.29258",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Thermal Entropy, Density Disorder and Antiferromagnetism of Repulsive Fermions in 3D Optical Lattice",
+    "title_zh": "三维光晶格斥力费米子的熵与反铁磁",
+    "summary": "三维光晶格 Hubbard 反铁磁实验的 U/t 峰值偏差被归因于熵和密度无序。该解释把冷原子量子模拟与理想模型相图重新对齐。",
+    "abstract": "针对三维费米 Hubbard 模型光晶格实验中反铁磁结构因子和临界熵在 U/t≈11.75 达峰、偏离理论 U/t≈8 的现象，分析热熵、密度无序与反铁磁性的相互作用。结果解释实验最优相互作用强度上移，连接真实囚禁/无序条件与理想 Hubbard 预测。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2411.13418",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Andreev Reflection to Probe Momentum-Dependent Spin Polarization in Altermagnet CrSb",
+    "title_zh": "Andreev 反射探测 CrSb 动量依赖自旋极化",
+    "summary": "CrSb 的交变磁性通过 Andreev 反射进行自旋极化探测。该方法把超导界面输运用于读取 k 依赖自旋劈裂，是交变磁体实验鉴别的新路径。",
+    "abstract": "在交变磁体候选 CrSb 中，利用 Andreev 反射探测动量依赖的自旋极化。交变磁体具有零净磁化但能带自旋劈裂随 k 变化；该实验方法直接面向 CrSb 的 k 依赖自旋极化，为区分交变磁性与常规铁磁/反铁磁响应提供输运证据。",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/42m7-p7l3",
+    "journal": "Phys. Rev. Lett."
+  },
+  {
+    "title": "Orbital Altermagnetism in Two Dimensions",
+    "title_zh": "二维轨道交变磁性",
+    "summary": "轨道交变磁性把交变磁体思想从自旋推广到纯轨道磁矩。二维体系中反平行轨道磁序可产生 k 依赖轨道劈裂，扩展了无净磁矩磁电子学。",
+    "abstract": "提出轨道交变磁性概念：纯轨道自由度形成受对称性保护的磁序，实空间轨道磁矩反平行排列，但能带出现动量依赖的轨道劈裂，类比自旋交变磁性。二维模型展示这种无净磁矩却具 k 依赖轨道分裂的有序态。",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/l8fc-dp36",
+    "journal": "Phys. Rev. Lett."
+  },
+  {
+    "title": "Dimension expansion for simulation-efficient nanophotonic neural networks",
+    "title_zh": "维度扩展高效设计纳米光子神经网络",
+    "summary": "DEN 以无监督方式进行纳米光子逆设计，减少对预生成数据和结构库的依赖。维度扩展策略面向连续复杂设计空间，可降低电磁仿真开销。",
+    "abstract": "提出维度扩展网络 DEN，用于纳米光子结构无监督逆设计。该框架针对设计空间大、结构-响应关系非线性和迭代电磁仿真昂贵的问题，不依赖大规模预计算数据集或已优化结构库，通过维度扩展实现更高仿真效率，适配连续复杂逆设计任务。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2606.25226",
     "journal": "arXiv"
   }
 ]
