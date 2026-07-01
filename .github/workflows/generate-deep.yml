@@ -57,6 +57,9 @@ jobs:
           DEEP_WINDOW_DAYS: ${{ github.event.inputs.window || '4' }}
           AI_TIMEOUT_SECONDS: "600"
           AI_MAX_RETRIES: "2"
+          # 图生成偶发 Read timeout（单次失败丢整张海报）：拉长读超时 + 失败重试
+          IMAGE_TIMEOUT_SECONDS: "600"
+          IMAGE_MAX_RETRIES: "2"
           DEEP_MAX_NEW_PER_RUN: "24"
           DEEP_WORKERS: "6"
         run: python run_deep.py
