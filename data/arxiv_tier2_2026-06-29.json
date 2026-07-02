@@ -1,18 +1,18 @@
 [
   {
     "title": "Hybrid quantum-classical neural network for sample-efficient recognition of topological phases",
-    "title_zh": "样本高效识别拓扑相的混合量子经典网络",
-    "summary": "混合量子-经典网络用浅量子电路处理量子态，面向拓扑相识别降低测量与训练样本成本。该路线把量子硬件表征从大量读出后处理转向端到端量子态分类。",
-    "abstract": "针对量子计算机输出态的全局拓扑性质表征，提出混合量子-经典神经网络。量子部分直接处理量子态以降低测量需求，经典部分完成特征识别，目标是在现有浅量子线路条件下避免深量子神经网络难以实现的问题，实现拓扑相样本高效分类。",
+    "title_zh": "混合量子经典网络识别拓扑相",
+    "summary": "用浅量子线路加经典网络替代深量子神经网络，针对拓扑相识别降低测量样本需求。该方案把量子态全局性质判别推进到近期开硬件可执行范围。",
+    "abstract": "面向量子计算机输出态的全局拓扑相识别，提出混合量子-经典神经网络，用浅量子电路先处理量子态，再由经典网络分类，以减少直接测量和后处理成本。核心目标是在现有器件可实现的电路深度下，以更少样本完成拓扑相表征。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.28199",
     "journal": "arXiv"
   },
   {
     "title": "PtyRANNOSAUR: Ptychography with Robust Artificial Neural Networks Optimized for Sub-Angstrom Accuracy and Ultrafast Reconstruction",
-    "title_zh": "PtyRANNOSAUR 亚埃级超快叠层成像",
-    "summary": "PtyRANNOSAUR 将电子叠层成像重构加速到秒级，并保持亚埃级精度。对原位 4D-STEM 和高通量原子结构表征，数据驱动相位恢复可显著缩短分析闭环。",
-    "abstract": "PtyRANNOSAUR 用卷积自编码器把 4D 扫描透射电镜数据映射为二维相位图，面向原子分辨电子叠层成像实现秒级重构，速度比标准方法快 10–100 倍。模型在大规模晶体结构库上训练，并按加速电压、会聚角、离焦、样品厚度等实验参数定制。",
+    "title_zh": "稳健神经网络亚埃级叠层成像",
+    "summary": "卷积自编码器把 4D-STEM 叠层数据秒级转成原子相位图，速度提升 10–100 倍。对电子显微实时反馈和高通量材料成像尤其直接。",
+    "abstract": "PtyRANNOSAUR 用卷积自编码器将 4D 扫描透射电镜数据映射为二维相位图，模型按加速电压、会聚角、离焦和样品厚度等实验条件训练。重构原子分辨电子叠层成像仅需数秒，比标准方法快 10–100 倍，并面向亚埃级精度优化。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.27587",
     "journal": "arXiv"
@@ -20,17 +20,17 @@
   {
     "title": "Quantifying Perovskite Solar Cell Degradation via Machine Learning from Spatially Resolved Multimodal Luminescence Time Series",
     "title_zh": "多模发光时序量化钙钛矿电池退化",
-    "summary": "多模态发光时序被直接映射到钙钛矿太阳电池效率与退化分布。该方法把器件老化诊断从单点电学读数推进到空间分辨机器学习表征。",
-    "abstract": "针对钙钛矿太阳电池运行稳定性诊断，使用空间分辨多模态发光时间序列训练深度学习框架估计效率与健康状态。相比耗时且缺乏空间信息的光照 J–V 扫描，该成像方案可捕捉局域退化并进行非侵入式快速评估。",
+    "summary": "深度学习从空间分辨发光时序反推出钙钛矿电池效率与退化位置。该方法把稳定性评估从慢速电学扫描转为可成像的状态诊断。",
+    "abstract": "针对钙钛矿太阳能电池运行稳定性，利用空间分辨多模态发光时间序列训练深度学习框架，估计器件效率和健康状态。相较照明 J–V 扫描，成像诊断可非侵入地解析局域退化，避免仅给出整体性能指标且耗时的问题。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2603.12857",
     "journal": "arXiv"
   },
   {
     "title": "Quantum Generative Diffusion Model for Real-World Time Series",
-    "title_zh": "真实时间序列的量子生成扩散模型",
-    "summary": "QDiffusion-TS 把扩散模型带到量子处理器上的时间序列生成任务。真实硬件验证使量子生成模型从概念演示走向可测试的数据合成框架。",
-    "abstract": "QDiffusion-TS 将经典扩散生成架构中的前馈模块替换为量子机器学习组件，用紧凑量子模型表示复杂时间序列分布，并在 IQM 量子处理器上验证。目标是降低大规模生成模型的计算成本，面向真实时间序列合成。",
+    "title_zh": "真实时间序列的量子扩散生成模型",
+    "summary": "QDiffusion-TS 是面向时间序列的量子扩散生成框架，并在 IQM 处理器上运行验证。它展示了量子模型嵌入扩散生成器的可行路径。",
+    "abstract": "QDiffusion-TS 将经典扩散时间序列生成框架中的前馈组件替换为量子机器学习模块，面向真实时间序列合成，并在 IQM 量子处理器上验证。目标是用紧凑、表达能力强的量子模型表示复杂数据分布，降低大规模生成模型的计算成本。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.27561",
     "journal": "arXiv"
@@ -38,8 +38,8 @@
   {
     "title": "Arbitrary state preparation in quantum harmonic oscillators using neural networks",
     "title_zh": "神经网络制备谐振子任意量子态",
-    "summary": "神经网络优化相位调制脉冲，在辅助量子比特耦合谐振子中制备任意目标态。该方案服务于连续变量量子信息和高维 qudit 控制。",
-    "abstract": "面向量子谐振子中的 qudit 操作和高维量子算法，提出谐振子耦合辅助量子比特的任意态制备方法。量子比特与谐振子由两束具有时变相位调制的激光驱动，神经网络优化调制时间和相位，并保证目标态物理可制备。",
+    "summary": "用神经网络设计激光相位调制，实现辅助量子比特耦合谐振子的任意态制备。该控制框架服务于连续变量 qudit 与高维量子算法。",
+    "abstract": "针对耦合辅助量子比特的量子谐振子，构建任意目标态制备方法，保证目标态物理可制备。量子比特和谐振子由两束具有时变相位调制的激光驱动，神经网络优化调制时间和相位参数，用于 qudit 操控与高维量子算法初始化。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2502.04598",
     "journal": "arXiv"
@@ -47,26 +47,26 @@
   {
     "title": "Physics-Informed Neural Network with Transfer Learning for State Estimation in Lithium-Ion Batteries using the Single Particle Model with Electrolyte",
     "title_zh": "迁移 PINN 估计锂离子电池状态",
-    "summary": "迁移学习 PINN 直接求解带电解液单颗粒模型，用于锂离子电池状态估计。物理约束网络为电池数字孪生提供比传统网格法更轻量的求解路径。",
-    "abstract": "使用带电解液的单颗粒模型描述锂离子电池电化学动力学，并以 PINN 在损失函数中约束守恒律求解非线性 PDE。结合迁移学习加速不同工况下的状态估计，替代有限差分、有限体积和有限元等离散化成本较高的数值方法。",
+    "summary": "迁移学习 PINN 用于含电解液单颗粒电池模型的状态估计，直接约束电化学 PDE。它为电池管理中的快速物理一致推断提供可训练替代模型。",
+    "abstract": "面向含电解液单颗粒模型描述的锂离子电池，采用物理信息神经网络并结合迁移学习求解非线性偏微分方程，实现状态估计。损失函数嵌入守恒律以保证物理一致性，目标是在替代有限差分、有限体积和有限元离散求解时提升非线性系统可扩展性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.28220",
     "journal": "arXiv"
   },
   {
     "title": "Machine Learning‐Guided High‐Efficiency and Thermally Stable Capacitive Energy Storage in Dielectric Capacitors With a Simple Chemical Composition",
-    "title_zh": "机器学习指导简单组分介电电容高效储能",
-    "summary": "机器学习被用于筛选或优化简单组分介电电容材料，目标同时兼顾高效率与热稳定储能。该方向强调从复杂多元体系转向可制造性更好的低复杂度组分设计。",
-    "abstract": "题名显示，机器学习用于指导简单化学组成的介电电容材料设计，目标是在保持热稳定性的同时获得高效率电容储能性能。摘要未给出具体材料配方、储能密度、效率或温度范围等数值。",
-    "category": "铁电·极化",
+    "title_zh": "机器学习指导高效热稳定介电储能",
+    "summary": "机器学习被用于筛选简单组成介电电容器，聚焦高效率和热稳定储能。缺少摘要数值，但方向指向可制造性更强的电容材料优化。",
+    "abstract": "Advanced Materials EarlyView 报道机器学习指导的介电电容器材料设计，目标是在简单化学组成中实现高效率、热稳定的电容储能。题名显示研究结合数据驱动筛选与介电储能性能优化，但摘要未给出具体组分、储能密度、效率或温度范围。",
+    "category": "AI×化学·材料",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73852?af=R",
     "journal": "Wiley: Advanced Materials: Table of Contents"
   },
   {
     "title": "Recovering Sharp Conductivity Features in the Finite-Data Calderón Problem with Physics-Informed Neural Networks",
-    "title_zh": "有限数据 Calderón 问题中恢复尖锐电导",
-    "summary": "随机小波边界激励与傅里叶特征编码结合，提高 PINN 对尖锐电导界面的恢复能力。该框架对电阻抗成像和材料内部缺陷反演具有方法学价值。",
-    "abstract": "针对有限边界数据下的 Calderón 反问题，构建 PINN 框架同时表示未知电导率和一族电势。方法引入随机小波函数产生多尺度边界激励，并评估傅里叶特征编码对尖锐电导变化表示能力的作用，以改善有限数据下的边界反演。",
+    "title_zh": "PINN 恢复有限数据电导率锐特征",
+    "summary": "随机小波边界激励与傅里叶特征编码联合提升 PINN 对尖锐电导率结构的反演能力。该策略直指有限数据电阻抗成像中的界面模糊问题。",
+    "abstract": "针对有限边界数据 Calderón 反问题，引入随机小波函数构成的多尺度边界激励，并考察傅里叶特征编码对尖锐电导率变化的表示能力。框架用物理信息网络同时表示未知电导率和一族电势，旨在从稀疏边界测量恢复清晰电导率界面。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.28158",
     "journal": "arXiv"
@@ -74,71 +74,71 @@
   {
     "title": "Bridging Ab Initio Symmetries and Global Nuclear Masses with Interpretable Neural Networks",
     "title_zh": "可解释神经网络连接从头算对称性与核质量",
-    "summary": "SU(3)/SU(4) Casimir 特征进入可解释神经网络，连接从头算核结构对称性与全局核质量。它展示了物理对称性特征在跨尺度机器学习建模中的可迁移性。",
-    "abstract": "从 Wigner SU(4) 与 Elliott SU(3) Casimir 算符构造对称性特征，建立三类神经网络核质量模型：用于点预测的 FINN、加入不确定性的 GINN，以及基于 Wigner 结构的模型。目标不是极限精度，而是检验轻中核从头算主导对称性是否贯穿全核素图结合能。",
+    "summary": "以 SU(3)/SU(4) Casimir 量作为可解释特征训练核质量神经网络。该工作把从头算核结构对称性外推到全核素图的机器学习检验。",
+    "abstract": "从 Wigner SU(4) 和 Elliott SU(3) 对称性的 Casimir 算符出发，构造 FINN、GINN 和 Wigner 型神经网络核质量模型。目标不是最高精度预测，而是检验轻核和中等质量核中占优的从头算对称性是否支配整个核素图，并在 GINN 中加入不确定度量化。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2606.28287",
     "journal": "arXiv"
   },
   {
     "title": "Comment on \"Altermagnetic and Dipolar Spitting of Magnons in FeF₂\" arXiv:2601.04303",
-    "title_zh": "评 FeF2 中交变磁与偶极磁振子劈裂",
-    "summary": "该评论要求在 FeF2 磁振子谱中显式纳入声子杂化，而非仅用交变磁或偶极劈裂解释。它提醒交变磁体中子散射判读需区分磁-弹耦合伪影。",
-    "abstract": "评论指出 Sears 等关于金红石 FeF2 中磁振子色散的结论不可靠，原因是中子散射谱分析遗漏了必须考虑的晶格振动。作者强调，FeF2 磁有序相中的磁振子-声子杂化模已在约半世纪前被观测并成功解析。",
+    "title_zh": "评 FeF2 中替代磁与偶极磁振子分裂",
+    "summary": "该评论认为 FeF2 磁振子谱必须纳入声子杂化，否则替代磁分裂解释站不住脚。它提醒中子散射中自旋-晶格耦合可能伪装成新型磁色散。",
+    "abstract": "评论指出 Sears 等关于金红石 FeF2 中磁振子色散和替代磁、偶极分裂的结论不可靠，原因是中子散射谱分析遗漏了必须考虑的晶格振动。作者强调 FeF2 磁有序相中的磁振子-声子杂化模半个世纪前已被观测并成功分析。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.27975",
     "journal": "arXiv"
   },
   {
     "title": "Emergence of millimeter-wave resonances in self-assembled ferroelectric metamaterials",
-    "title_zh": "自组装铁电超材料中的毫米波共振",
-    "summary": "SrTiO3 基自组装铁电纳米畴阵列产生毫米波共振，显示畴结构可充当内禀超材料。该结果把铁电畴工程与高频谐振器设计直接连接。",
-    "abstract": "在介电-铁电 SrTiO3 基体系中，利用自组装周期性铁电纳米畴阵列设计毫米波电磁响应。实验和建模显示，均匀固体中通常缺乏的该频段共振可由纳米畴周期结构产生，为向太赫兹频段推进的通信与计算谐振器提供材料路线。",
+    "title_zh": "自组装铁电超材料毫米波谐振",
+    "summary": "SrTiO3 基自组装铁电纳畴阵列产生毫米波谐振，区别于均匀固体的无内禀谐振响应。铁电畴结构由此成为可设计高频超材料自由度。",
+    "abstract": "利用介电-铁电 SrTiO3 基原型体系中的自组装周期铁电纳畴阵列，探索固体材料通常缺乏的毫米波至太赫兹频段谐振。结合实验表征与建模，显示周期纳畴可作为工程化毫米波性质的路径，面向通信和计算器件的高频谐振需求。",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2606.27616",
     "journal": "arXiv"
   },
   {
     "title": "Highly anisotropic nonrelativistic charge-to-spin conversion in altermagnets",
-    "title_zh": "交变磁体中强各向异性非相对论电荷自旋转换",
-    "summary": "交变磁体的电荷-自旋转换可在无自旋轨道主导机制下由自旋极化电导差决定。强方向各向异性为电写入补偿磁序提供了非相对论输运通道。",
-    "abstract": "推导交变磁体中电流方向依赖的非相对论电荷-自旋转换。证明控制转换的自旋电导在非相对论极限等价于自旋极化电导差；基于自旋群分析给出各向异性转换比解析式，并识别影响响应的对称性条件。",
+    "title_zh": "替代磁中各向异性非相对论电荷自旋转换",
+    "summary": "非相对论替代磁的电荷-自旋转换可化为自旋极化电导差，且随电流方向强烈各向异性。该结论为无自旋轨道矩的电控磁化提供判据。",
+    "abstract": "研究替代磁中电流方向依赖的非相对论电荷-自旋转换，证明控制转换的自旋电导在非相对论极限等价于自旋极化电导差。基于自旋群分析推导各向异性转换比解析表达式，并识别由替代磁对称性决定的强方向依赖响应。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2512.08156",
     "journal": "arXiv"
   },
   {
     "title": "Interaction enhanced altermagnet in the Hatsugai-Kohmoto model",
-    "title_zh": "Hatsugai-Kohmoto 模型中的相互作用增强交变磁",
-    "summary": "强关联使 Hatsugai-Kohmoto 交变磁模型出现多体 Lifshitz 转变和近全动量自旋极化。该结果说明电子相互作用可放大而非破坏交变磁劈裂。",
-    "abstract": "研究 d_{x^2-y^2} 交变磁推广的 Hatsugai-Kohmoto 模型，揭示相互作用增强下的多体 Lifshitz 转变：费米面上双占据区域消失，几乎所有动量态变为完全自旋极化。小波矢动力学磁化率仅存在横向非零分量，并随相互作用展现交变磁特征强化。",
+    "title_zh": "Hatsugai-Kohmoto 模型中的关联增强替代磁",
+    "summary": "Hatsugai-Kohmoto 模型显示相互作用可驱动多体 Lifshitz 转变并放大替代磁自旋极化。关联效应不只是修正能带，而能重构替代磁费米面。",
+    "abstract": "在 d_{x^2-y^2} 替代磁推广的 Hatsugai-Kohmoto 模型中分析能带替代磁与电子关联耦合。随相互作用增强，双占据区域从费米面消失并发生多体 Lifshitz 转变，几乎所有动量态变为完全自旋极化，形成关联增强替代磁；小波矢动力学磁化率仅横向分量非零。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2511.04141",
     "journal": "arXiv"
   },
   {
     "title": "Multiphoton Fingerprints of Altermagnetic Spin Splittings",
-    "title_zh": "交变磁自旋劈裂的多光子指纹",
-    "summary": "多光子吸收阶数与交变磁自旋劈裂谐波一一对应：d、g、i 波分别对应二、四、六光子。该选择定则给出区分交变磁对称性的非线性光学探针。",
-    "abstract": "系统分析平面交变磁体的偏振分辨多光子吸收，发现自旋劈裂角谐波决定最低对称选择性吸收阶数：d 波对应双光子，g 波对应四光子，i 波对应六光子。相应偏振通道与交变磁纹理谐波锁定，直接 n 光子响应可作为自旋劈裂指纹。",
+    "title_zh": "替代磁自旋分裂的倍光子指纹",
+    "summary": "多光子吸收阶数直接读出替代磁自旋纹理谐波：d、g、i 波分别对应二、四、六光子响应。该光学规则给出无接触识别替代磁阶参量的清晰方案。",
+    "abstract": "系统分析平面替代磁的偏振分辨多光子吸收，指出替代磁自旋分裂的角向谐波决定最早出现对称选择响应的吸收阶数：d 波为双光子，g 波为四光子，i 波为六光子。相应偏振通道锁定于替代磁纹理的对称谐波，可作为自旋分裂指纹。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.27548",
     "journal": "arXiv"
   },
   {
     "title": "Optical signatures of bulk g-wave altermagnetism in MnTe",
-    "title_zh": "MnTe 体相 g 波交变磁性的光学特征",
-    "summary": "α-MnTe 在超短线偏振脉冲下产生带 g 波对称信息的电子自旋响应。该理论结果把体相交变磁的对称性识别推进到超快光学实验可观测量。",
-    "abstract": "基于从头算能带，理论分析原型体相 g 波交变磁体 α-MnTe 受线偏振超短脉冲激发后的电子分布和自旋响应。结果显示，尽管材料磁补偿，激发电子自旋响应仍携带与 g 波交变磁对称性一致的特征，可通过偏振依赖光学响应辨识。",
+    "title_zh": "MnTe 体相 g 波替代磁的光学特征",
+    "summary": "α-MnTe 的超短脉冲激发产生具有 g 波对称特征的电子自旋分布。该结果把替代磁光控自旋响应从平面 d 波推广到体相 MnTe。",
+    "abstract": "基于从头算能带，理论分析原型体相 g 波替代磁 α-MnTe 对线偏振超短脉冲的响应。计算激发电子分布，显示尽管材料磁补偿，光激发电子自旋响应具有不同于平面 d 波替代磁的对称特征，可用作 MnTe 中 g 波替代磁的光学签名。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2505.13415",
     "journal": "arXiv"
   },
   {
     "title": "Symmetry-Selective Strain Control of Spin-Momentum Locking and Spin Transport in Two-Dimensional Pentagonal Altermagnets",
-    "title_zh": "二维五角交变磁体中应变选择性调控自旋锁定",
-    "summary": "对二维五角交变磁体，应变可按对称性选择性保持、重构或关闭自旋-动量锁定。该框架为柔性或压电调控的交变磁自旋输运器件给出设计规则。",
-    "abstract": "建立二维五角交变磁体的应变分辨对称性框架，分类单轴与剪切应变张量对交变磁自旋-动量锁定的影响：保持、重构或消除。判据基于连接反平行自旋子晶格的实空间操作是否被应变改变，用于指导应变调控自旋输运。",
+    "title_zh": "二维五角替代磁中应变调控自旋输运",
+    "summary": "二维五角替代磁的单轴与剪切应变可选择性保持、重构或抹除自旋-动量锁定。该对称框架把机械调控直接连到自旋输运开关。",
+    "abstract": "建立二维五角替代磁的应变分辨对称性框架，分类单轴和剪切应变张量对替代磁自旋-动量锁定的影响：保持、重构或消除。该判据用于分析自旋分裂和自旋输运的可控性，核心是通过改变连接反向自旋子晶格的实空间操作来调节非相对论自旋分裂。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.27896",
     "journal": "arXiv"
@@ -146,35 +146,35 @@
   {
     "title": "The spontaneous Nernst coefficient of ferromagnets from the interplay of electron scattering and Berry curvature",
     "title_zh": "散射与贝里曲率决定铁磁体自发能斯特系数",
-    "summary": "铁磁金属自发能斯特系数随散射增强而增大，源于散射与贝里曲率横向电流的耦合。该结论重写了反常热电材料优化中“高迁移率优先”的直觉。",
-    "abstract": "用 Boltzmann 输运推导铁磁金属的自发能斯特系数，并将贝里曲率导致的横向电流密度作为费米面性质处理。得到自发能斯特系数与散射时间常数的倒数成正比，意味着高效自发能斯特材料应具有较强散射，这与普通能斯特材料偏好长散射时间相反。",
+    "summary": "铁磁金属自发能斯特系数随 1/散射时间增强，而非随高迁移率增强。该反常标度重新界定了 Berry 曲率热电材料筛选规则。",
+    "abstract": "用 Boltzmann 输运推导铁磁金属自发能斯特系数，将 Berry 曲率导致的横向电流显式写成费米面性质。结果显示自发能斯特系数正比于散射时间常数的倒数，因而高效自发能斯特材料应具有较强散射，这与普通能斯特材料偏好长散射时间形成对比。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2508.08756",
     "journal": "arXiv"
   },
   {
     "title": "Ultrafast non-thermal suppression of ferroelectricity by carrier screening in LiNbO3",
-    "title_zh": "LiNbO3 中载流子屏蔽超快非热抑制铁电性",
-    "summary": "LiNbO3 中少量光生载流子即可通过屏蔽在超快时间尺度压低铁电极化。该结果揭示非平衡载流子是铁电光控和失效动力学的关键自由度。",
-    "abstract": "用飞秒激光释放 LiNbO3 中被俘获载流子，并通过时间分辨二次谐波和受激拉曼散射追踪极化响应。即使稀薄光激发载流子也会快速且持久地抑制极化和拉曼极化率；通量与温度依赖显示该效应来自载流子屏蔽而非简单热过程。",
+    "title_zh": "LiNbO3 中载流子屏蔽超快抑制铁电性",
+    "summary": "LiNbO3 中少量光生载流子即可通过非热屏蔽快速压低铁电极化。该结果揭示超快光控铁电性时载流子而非晶格加热的主导作用。",
+    "abstract": "在 LiNbO3 中用飞秒激光释放陷阱载流子，并用时间分辨二次谐波和受激 Raman 散射跟踪铁电响应。即使稀薄光生载流子也会快速且持久地抑制极化和 Raman 极化率；通量和温度依赖实验指向非热的载流子屏蔽机制。",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2606.27494",
     "journal": "arXiv"
   },
   {
     "title": "Theory of Spin-splitter Magnetoresistance in Altermagnets",
-    "title_zh": "交变磁体中自旋分流磁阻理论",
-    "summary": "自旋分流磁阻的完整角依赖可识别金属 d 波交变磁，而非普通补偿磁体自旋轨道效应。该理论为交变磁输运实验提供了可检验的判据。",
-    "abstract": "建立金属交变磁体/铁磁绝缘体双层中的角度依赖磁阻理论，给出区分交变磁与具有自旋轨道耦合的常规补偿磁体的判据。完整角依赖的自旋分流磁阻可作为金属共线 d 波交变磁性的明确输运特征，并关联近期双层实验报道。",
+    "title_zh": "替代磁自旋分流磁阻理论",
+    "summary": "理论给出替代磁/铁磁绝缘体双层中自旋分流磁阻的全角依赖判据。它把磁阻测量转化为识别金属 d 波替代磁的实验诊断。",
+    "abstract": "建立金属替代磁与铁磁绝缘体耦合体系中的角依赖磁阻理论，给出区分其与含自旋轨道耦合常规补偿磁体的判据。完整角依赖若被实验证实，自旋分流磁阻可成为金属共线 d 波替代磁的明确特征，并解释双层结构中的相关观测。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2605.10747",
     "journal": "arXiv"
   },
   {
     "title": "Coexistence of liquid-like disordered state and weak ferromagnetism in a s = 1 kagome lattice",
-    "title_zh": "s=1 kagome 晶格中液态无序与弱铁磁共存",
-    "summary": "s=1 kagome 晶格呈现液态样无序与弱铁磁共存，挑战简单长程有序或纯自旋液体图像。该现象为受挫磁性中弱铁磁畸变与量子/热涨落耦合提供实验线索。",
-    "abstract": "npj Quantum Materials 报道 s=1 kagome 晶格中液态样无序态与弱铁磁性的共存。题录未提供材料名称、实验探针、温度标度或磁矩数值；核心结论是几何受挫 kagome 体系可同时容纳无序自旋液体样行为和弱铁磁响应。",
+    "title_zh": "自旋一 kagome 晶格中液态无序与弱铁磁共存",
+    "summary": "s=1 kagome 晶格呈现液体样无序与弱铁磁共存，挑战简单有序磁基态图像。该体系可用于研究阻挫、各向异性和弱铁磁分量的竞争。",
+    "abstract": "npj Quantum Materials 报道 s=1 kagome 晶格中液体样无序态与弱铁磁性的共存。题名指向几何阻挫 kagome 磁体中无长程常规有序的动态或无序背景，同时伴随小铁磁分量；给定摘要未列出具体化合物、温度尺度、磁矩或实验技术细节。",
     "category": "磁性·自旋电子学",
     "link": "https://www.nature.com/articles/s41535-026-00917-0",
     "journal": "npj Quantum Materials"
