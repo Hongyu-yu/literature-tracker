@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Holographic Quantum Transformer: A Generalist Neuro-Symbolic Architecture for Solving Frustrated Systems via Generative Attention",
+    "title_zh": "全息量子变换器求解受挫体系",
+    "summary": "HQT 将生成式注意力用于 J1-J2 受挫磁体变分求解，在 8×8、J2=0.5 处给出 E/N=-0.5001(1)。它显示 Transformer 类结构可直接承担强关联量子多体波函数建模。",
+    "abstract": "提出全息量子变换器 HQT，用全局自注意力生成量子态并捕捉二维受挫体系的非局域纠缠。验证对象为方格 J1-J2 海森堡模型；在强受挫 8×8 晶格、量子临界点 J2=0.5 处，基态能量每格点达到 -0.5001(1)，用于规避符号问题和指数希尔伯特空间复杂度。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.00398",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A dual machine learning framework for the solution of the inverse scattering problem in cylindrical plasmas",
+    "title_zh": "柱形等离子体逆散射双机器学习",
+    "summary": "随机森林把柱形等离子体的三维全波散射仿真压缩为快速代理模型。该双机器学习流程面向等离子体诊断中的电子密度逆散射重建。",
+    "abstract": "面向柱形等离子体微波散射逆问题，先用随机森林替代 COMSOL 三维全波仿真，训练输入为电子密度剖面，输出为与等离子体相互作用后的微波束功率分布。该代理模型可准确复现实值仿真结果，并与逆向推断框架结合，从散射功率信息恢复等离子体密度特征。",
+    "category": "其他",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7d86",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Automatic charge state tuning of 300 mm silicon quantum dots using neural network segmentation of charge stability diagram",
+    "title_zh": "300 mm 硅量子点电荷态自动调谐",
+    "summary": "U-Net 分割 1015 张 300 mm FD-SOI 硅量子点电荷稳定图，自动给出单电荷区栅压。它直接面向硅自旋量子比特阵列的规模化调参瓶颈。",
+    "abstract": "针对栅定义半导体量子点调参瓶颈，构建深度学习语义分割流程，从完整电荷稳定图中定位跃迁线并返回单电荷区栅压目标。数据集含 1015 张手工标注的 FD-SOI 硅量子点实验图，覆盖 9 种设计几何、多个晶圆和工艺批次；采用 U-Net 式卷积网络完成自动电荷态调谐。",
+    "category": "AI×物理",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7cda",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Machine learning framework for GW calculations across molecular dynamics trajectories",
+    "title_zh": "分子动力学轨迹的 GW 机器学习",
+    "summary": "LightGBM 被用于替代 MD 轨迹上高频调用的 GW 准粒子能计算。该框架把多体微扰论的激发态精度需求与热构型统计采样连接起来。",
+    "abstract": "针对分子动力学中数千热构型的 GW 准粒子能计算代价，采用 LightGBM 梯度提升框架预测准粒子能。模型仅依赖计算代价较低的输入特征，绕开反介电矩阵反复求值这一主要瓶颈，用于在 MD 轨迹上高效采样激发态电子结构。",
+    "category": "其他",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7eca",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "BiL-AttNet: A deep learning architecture for structure-agnostic material property prediction",
+    "title_zh": "BiL-AttNet 结构无关材料性质预测",
+    "summary": "BiL-AttNet 面向结构无关材料性质预测，强调注意力机制对通用材料表示的作用。由于摘要缺失，具体适用性质、数据规模和性能提升仍需原文确认。",
+    "abstract": "Computational Materials Science 文章提出 BiL-AttNet 深度学习结构，用于结构无关的材料性质预测。题名表明模型包含双向学习与注意力机制，目标是在不依赖特定晶体结构表示的条件下建立材料组成或描述符到目标性质的映射；摘要未提供数据集、误差或对比基线细节。",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S092702562600337X?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Quantum vs. Classical Machine Learning: A Unified Empirical Comparison",
+    "title_zh": "量子与经典机器学习统一比较",
+    "summary": "7 组量子与经典模型配对显示，当前 QML 优势证据仍不充分。该比较为凝聚态和材料任务选用量子机器学习设定了更严格的实证基准。",
+    "abstract": "围绕量子机器学习相对经典模型是否具备性能优势，开展统一经验比较。研究覆盖监督学习和强化学习中的 7 组量子/经典模型配对，系统评估两类模型表现；结论指向现阶段支持 QML 优势的实证证据仍不足，需要在统一任务、模型和指标下谨慎比较。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.01197",
+    "journal": "arXiv"
+  },
+  {
+    "title": "On-Demand Coherent Nanolaser Metalens and Beam Steering Enabled by Physics-Informed Neural Networks",
+    "title_zh": "物理信息神经网络设计纳米激光透镜",
+    "summary": "NanoPhotoNet-Lase 将电磁场方程和四能级增益动力学共同写入 PINN。它把纳米激光超表面、金属透镜和光束 steering 的设计从纯数值扫描转向物理约束学习。",
+    "abstract": "提出 NanoPhotoNet-Lase 物理信息神经网络，用于主动纳米光子器件设计。模型把 Maxwell 矢量 Helmholtz 方程与染料增益介质四能级粒子数动力学直接嵌入训练过程，预测超表面纳米激光器的光学响应，并支持相干纳米激光金属透镜和按需光束偏转设计。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.00739",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Generative Modeling of Quantum Distribution with Functional Flow Matching",
+    "title_zh": "函数流匹配生成量子分布",
+    "summary": "QFM 以自旋 Wigner 函数作为量子态分布表示，并用函数流匹配生成。它为量子态数据的物理约束生成建模提供了不同于常规扩散模型的路径。",
+    "abstract": "提出量子流匹配 QFM，用深度生成模型学习量子态分布。方法先把密度矩阵转换为自旋 Wigner 函数，再在函数空间中应用流匹配，从而保留量子态的物理结构并建模复杂分布；目标是提升扩散和流匹配类模型在量子分布学习中的物理一致性。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.00301",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Near-Sensor Damage Localization in Multi-Story Buildings with Level-Crossing Spike Encoding and a Compact Spiking Neural Network",
+    "title_zh": "脉冲神经网络近传感器损伤定位",
+    "summary": "电平交叉编码加小型脉冲网络把多层建筑损伤定位前移到传感器端。阈值 θ 同时调节精度、能耗和无线传输负载，适合低功耗监测节点。",
+    "abstract": "面向电池供电无线加速度节点的结构健康监测，构建近传感器损伤定位流程。信号先经小型模态滤波器，再由电平交叉时间对比编码器转为脉冲；单一阈值 θ 同时控制定位精度、突触操作数和离开传感器的数据量，后端采用紧凑脉冲神经网络识别多层建筑刚度退化位置。",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-10162479/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Node-Level Fault Monitoring in WSN using Deep Neural Networks with Real-Time Graph Mapping and Performance Analysis",
+    "title_zh": "图映射深网监测无线传感器节点故障",
+    "summary": "CNN、RNN 与 LSTM 被用于基于温度、电量和读数时序的 WSN 故障节点识别。实时图映射把节点状态与网络拓扑联系起来，服务在线可靠性监测。",
+    "abstract": "针对无线传感器网络节点级故障导致的数据可靠性下降，比较 CNN、RNN 和 LSTM 深度学习模型。输入利用温度、电池寿命和传感器读数等时间特征，并结合实时图映射进行故障节点分类；评估关注不同网络在实时监测场景中的分类表现。",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-10013502/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "A Multi-Resolution Finite-Volume Inspired Deep Learning Framework for Spatiotemporal Dynamics Prediction",
+    "title_zh": "多分辨率有限体积深网预测动力学",
+    "summary": "MuRFiV 将有限体积守恒结构嵌入多分辨率神经网络，面向时空物理场预测。它针对误差累积和参数外泛化，是物理信息深度学习的一种结构化实现。",
+    "abstract": "提出多分辨率有限体积启发网络 MuRFiV，用于复杂物理过程的时空动力学预测。模型在深度学习中引入守恒型有限体积先验，针对传统数值方法代价高、纯数据网络训练成本高、误差累积和跨参数泛化差等问题，利用多分辨率结构提升对未见参数条件的预测能力。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.00460",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Scoping Review of Physics Informed Machine Learning for Wave Propagation Modeling in Seismology",
+    "title_zh": "地震波物理信息机器学习综述",
+    "summary": "该综述梳理地震波 PDE 建模中的物理信息机器学习，特别关注正演和反演的计算瓶颈。它为波动方程类科学机器学习方法提供了跨文献地图。",
+    "abstract": "范围综述物理信息机器学习在地震波传播偏微分方程建模中的应用。检索 OpenAlex 和 Scopus，聚焦用机器学习降低正演与反演问题计算成本、同时保持可接受物理精度的工作；内容覆盖以 PDE 约束为核心的波传播建模方法、应用场景和研究分布。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.00178",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Reduced-Order Hydrodynamic Modelling of a Sphere Near a Wall Using Sparse Regression and Neural Networks",
+    "title_zh": "壁面附近球体水动力降阶建模",
+    "summary": "CFD 数据、SINDy 和神经网络共同形成壁面附近升沉球体的参数化降阶模型。该方案强调可解释实时水动力预测，而非黑箱拟合。",
+    "abstract": "构建壁面附近一自由度升沉球体的可解释参数化代理模型，用于实时轨迹求解。高保真 CFD 生成不同壁距 WD 和下落高度 DH 下的升沉衰减响应数据；再结合 SINDy 稀疏非线性动力学识别与神经网络，得到随参数变化的降阶水动力模型。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2512.11895",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Atom-selective spin-polarized transport in a charge-ordered altermagnet",
+    "title_zh": "电荷有序交替磁体原子选择自旋输运",
+    "summary": "α-Fe2PO5 中 Fe2+/Fe3+ 电荷有序把交替磁输运从动量空间自旋劈裂转向实空间原子选择性。该结果扩展了无净磁化自旋过滤的材料机制。",
+    "abstract": "用第一性原理和量子输运模拟研究电荷有序交替磁体 α-Fe2PO5。尽管费米能级附近交替磁自旋劈裂较弱，电荷有序使每个子晶格内 Fe2+ 与 Fe3+ 位点不等价，褶皱 C 型结构诱导实空间自旋选择性，从而产生区别于动量空间自旋劈裂图像的原子选择自旋极化输运。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.00506",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetoelectric effect in multiferroic metals via a direct spin-charge interaction",
+    "title_zh": "多铁金属中的直接自旋电荷磁电效应",
+    "summary": "单层磁体堆垛可产生多铁金属，并在 6 种实验材料上经第一性原理验证。线性磁电响应来自费米能级调制下的直接自旋-电荷耦合。",
+    "abstract": "提出基于单层磁体堆垛工程构造多铁金属的策略，并用第一性原理在 6 种已实验合成材料中验证。所得多铁金属主要表现线性磁电响应，其来源为外电场调制费米能级引起的直接自旋-电荷相互作用；该机制区别于多铁绝缘体中常见的间接磁电耦合。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2510.22636",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Terahertz oscillation of 180ⁱ̧rc domain walls in ferroelectric membranes",
+    "title_zh": "铁电膜中 180 度畴壁太赫兹振荡",
+    "summary": "BaTiO3 膜腔体可增强 180° 铁电畴壁的集体极化波共振，并产生太赫兹振荡。该机制把铁电畴壁动力学推向高速可调激发范畴。",
+    "abstract": "采用动力学相场模拟研究单轴应变 BaTiO3 膜中 Ising 型 180° 畴壁集体激发。薄膜同时充当极化波和声波腔体，可腔增强共振激发极化波；模拟识别畴壁集体模并显示其可进入太赫兹振荡频段，关联畴壁纳米电子学和光电子器件的高速动力学。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2511.18280",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Efficient spin-pumping and spin transport across epitaxial Mn₃Sn(0001) noncollinear antiferromagnet/permalloy interfaces",
+    "title_zh": "Mn3Sn/坡莫合金界面高效自旋泵浦",
+    "summary": "外延 Mn3Sn(0001)/坡莫合金界面展示非共线反铁磁 Weyl 半金属的自旋泵浦潜力。Kagome 磁序与 Berry 曲率为自旋流生成和转换提供材料自由度。",
+    "abstract": "系统研究外延 Mn3Sn(0001) 非共线反铁磁体/坡莫合金界面的自旋泵浦与自旋输运。Mn3Sn 属 Kagome 拓扑反铁磁 Weyl 半金属，具非共线磁序和 Berry 曲率驱动输运特征；工作关注其作为自旋流源和自旋-电荷互转换材料时，与传统铁磁/重金属体系相比的界面输运能力。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2508.02415",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Kagome edge states under lattice termination, spin-orbit coupling, and magnetic order",
+    "title_zh": "Kagome 边缘态受终止和磁序调控",
+    "summary": "Kagome 边缘态在无 SOC 时可被特定边界终止完全抑制，而 Kane-Mele SOC 稳定 Z2 螺旋边缘态。该结果澄清了几何终止与拓扑保护的分工。",
+    "abstract": "用紧束缚模型研究二维 Kagome 晶格边缘态对晶格终止、自旋轨道耦合和磁序的依赖。无自旋轨道耦合时，局域边缘态高度依赖边界几何，某些终止会完全抑制边缘模；Kane-Mele 自旋轨道耦合打开体能隙并稳定拓扑保护螺旋边缘态，形成对终止不敏感的 Z2 绝缘相。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2602.12223",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnon-polaron mediated spin Seebeck effect in altermagnets",
+    "title_zh": "交替磁体中磁振子极化子自旋塞贝克",
+    "summary": "磁振子-极化子使交替磁体的自旋 Seebeck 系数在外场下呈强方向各向异性。该热自旋输运特征可作为交替磁序的实验判据。",
+    "abstract": "研究外磁场下交替磁体中由磁振子-极化子介导的自旋 Seebeck 效应。交替磁体具有补偿反平行自旋但磁振子谱非简并的特征；计算显示自旋 Seebeck 系数出现显著方向各向异性，为识别交替磁有序提供比单纯各向异性输运或谱学更直接的热自旋输运信号。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.00993",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Universal Scaling of the Spin Hall Effect",
+    "title_zh": "自旋霍尔效应普适标度",
+    "summary": "Dirac 电子自旋霍尔响应在杂质散射下呈现类似反常霍尔效应的三段普适标度。该框架把斜散射、内禀贡献和无序强度统一到 σyy 标尺上。",
+    "abstract": "研究 Dirac 电子的自旋霍尔效应，以自旋和磁矩积累系数表征横向响应，并在自洽 T 矩阵近似中考虑短程非磁性杂质。类似反常霍尔效应普适标度，随纵向电导率 σyy 改变出现三种区域：超洁净区由斜散射给出与 σyy 成正比的响应，中等脏区近似常数，脏区呈现另一标度行为。",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2607.00343",
+    "journal": "arXiv"
+  }
+]
