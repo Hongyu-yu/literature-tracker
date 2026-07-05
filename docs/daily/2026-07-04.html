@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-07-04 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-07-04.xml" rel="alternate" title="2026-07-04 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-07-04.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-07-04</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-03.html">← 前一天 · 2026-07-03</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/07/04</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">9</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">10</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">5</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 10 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 10 篇主线相关文献中精选 9 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-07-03.html">前一天 · 2026-07-03</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-04.html">最新一期 · 2026-07-04</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-04.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">2 篇</span>
+</div>
+<p class="daily-core-note">今日实质进展不是新ML算法，而是给ML×凝聚态提供两个高价值物理靶标：手性Ni2+/Yb3+分子室温磁场驱动180°极化反转，以及空穴掺杂kagome超导体中的普遍电荷关联和隐藏量子临界点。前者可与NbOI2、BaTiO3的铁电势垒学习及CrI3、CrSBr的自旋-晶格耦合建模对接，用DFT+U+SOC数据训练equivariant GNN、MACE或NEP势函数。后者指向kagome能带、电荷序和超导竞争问题，可用图神经网络表征结构-掺杂-关联强度映射，并结合DFT+U或低能有效模型生成监督信号。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">手性 Ni2+/Yb3+ 分子室温极化反转</div>
+<div class="daily-core-title-en">Chiral Ni 2+ /Yb 3+ molecular complex with room-temperature magnetic-field driven 180° polarization reversal</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Materials Today</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Materials Today 2026 年 9 月刊报道手性 Ni2+/Yb3+ 分子配合物，在室温下可由外加磁场驱动 180° 极化反转。摘要仅给出题名与作者信息，未披露矫顽场、极化强度、晶体结构或磁电耦合系数。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Ni2+/Yb3+ 手性分子配合物实现室温磁场驱动 180° 极化反转。若正文验证可逆、可循环的磁电开关，将把分子磁性与铁电极化耦合推进到室温器件尺度。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>手性Ni2+/Yb3+分子配合物；磁场驱动室温180°极化反转</p><p><strong>🔗 相关工作关联：</strong>呼应分子多铁、手性磁电耦合、CrI3/CrSBr自旋-极化耦合建模</p><p><strong>💡 对你方向的启示：</strong>用DFT+U+SOC生成训练集，接MACE或等变GNN筛选可反转分子</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41535-026-00916-1">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">空穴掺杂 kagome 超导体的电荷关联</div>
+<div class="daily-core-title-en">Observation of ubiquitous charge correlations and hidden quantum critical point in hole-doped kagome superconductors</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 npj Quantum Materials</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>npj Quantum Materials 在线发表空穴掺杂 kagome 超导体研究，题名指出观测到普遍存在的电荷关联，并识别隐藏量子临界点。摘要未列具体材料组成、掺杂范围、探测手段、临界掺杂或转变温度等数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>空穴掺杂 kagome 超导体中电荷关联并非局域偶发现象，而是跨样品普遍存在。隐藏量子临界点提示电荷涨落可能与 kagome 超导配对机制直接相连。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>空穴掺杂kagome超导体；观测电荷关联并定位隐藏量子临界点</p><p><strong>🔗 相关工作关联：</strong>呼应kagome电荷序、非常规超导、量子临界、掺杂相图学习</p><p><strong>💡 对你方向的启示：</strong>把掺杂、谱学特征和电荷关联标注成数据，训练相边界预测模型</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41535-026-00916-1" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日 9 篇覆盖手性分子磁电、kagome 超导电荷关联、二维范德华异质结谷选择光调控、GaN 神经探针与量子光源/超快显微等方向。最贴近凝聚态前沿的是 Ni2+/Yb3+ 手性分子室温磁场驱动 180° 极化反转、空穴掺杂 kagome 超导体隐藏量子临界点，以及 MoSe2/WSe2 中谷选择量子限制斯塔克效应。</p>
+<p><strong>热点：</strong>电场、磁场与光场对量子材料自由度的可控调谐仍是主线：极化、谷激子、单光子与飞秒/皮秒尺度隧穿成像均指向可操控量子器件。kagome 超导体系继续围绕电荷序、超导与量子临界性的竞争展开，核磁/局域探针类证据尤受关注。材料器件方向强调从物性到集成：GaN HFET 神经探针、室温机架式单光子源体现可部署化趋势。另有公共交通网络、LEO 轨道衰减与闭环脑机接口工作，虽偏离凝聚态，但在复杂网络、事件级建模和闭环因果干预方法上可与 AI for science 的数据驱动范式相互借鉴。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">9 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9565508/latest" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9565508/latest" rel="noopener noreferrer" target="_blank">MoSe2/WSe2 中谷选择斯塔克效应</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9565508/latest" rel="noopener noreferrer" target="_blank">Electric-Field-Driven Optical Tunability in MoSe₂/WSe₂ van der Waals Type-II Heterostructures: Valley-Selective Quantum Confined Stark Effect</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Amit Kumar Sinha, A. M. Khan</span><span class="daily-chip daily-chip-score">🔥 AI 96</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对 MoSe2/WSe2 II 型范德华异质结，结合 DFT 能带参数、包络函数载流子波函数和含层分辨自旋–轨道耦合的有质量 Dirac 哈密顿量，分别计算 K 与 K′ 谷中电场对激子能量、振子强度等光学量的调制，提出谷选择量子限制斯塔克效应。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>MoSe2/WSe2 异质结中外电场对 K/K′ 谷激子产生非等价斯塔克调谐。层分辨自旋–轨道耦合模型为可电控谷光学器件提供了可计算框架。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9565508/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9565508/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10045904/latest" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10045904/latest" rel="noopener noreferrer" target="_blank">地磁暴强度对 LEO 卫星衰减的影响</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10045904/latest" rel="noopener noreferrer" target="_blank">Impact of geomagnetic storm intensity on thermospheric density and orbital decay of LEO satellites: a G1–G5 per-event analysis</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Jeong-Heon Kim, Giwoong Eom, Young-Sil Kwak, Tae-Yong Yang, Hwanil Huh</span><span class="daily-chip daily-chip-score">🔥 AI 78</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对 2003–2024 年两个太阳周期内 22 次 G1–G5 地磁暴，采用逐事件分析而非传统叠加历元法，评估热层密度增强与低轨卫星大气阻力、轨道衰减的关系；背景包括 2022 年 2 月温和风暴导致 38 颗 Starlink 卫星损失。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>22 次 G1–G5 地磁暴被逐事件拆解，用于量化热层密度和 LEO 轨道衰减响应。事件级建模比平均化分析更适合极端空间天气风险评估。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10045904/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10045904/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10109926/latest" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10109926/latest" rel="noopener noreferrer" target="_blank">广州公共交通网络分类与优化</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10109926/latest" rel="noopener noreferrer" target="_blank">Analysis of Network Classification and Optimization Based on Comprehensive Evaluation of Public Transportation Network – A Case Study of Guangzhou</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 caixia li, Cong Cong, Hunan Deng, Jiachao Chen, Junhui Li</span><span class="daily-chip daily-chip-score">🔥 AI 10</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向广州公交网络，构建“结构–功能–公平”综合评价框架，融合 6 个拓扑指标：网络密度、覆盖率、站点覆盖、线路长度、重复系数、非直线系数，以及供给指数、人口覆盖、基尼系数等 5 个功能/公平指标，用于线路分类和优化。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>广州公交案例把拓扑结构、服务功能与空间公平纳入同一评价框架。该多指标网络分析虽非材料问题，但对复杂网络优化和城市系统数据建模具有方法参考。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10109926/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10109926/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-play-photon-source-room-temperature.html" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-play-photon-source-room-temperature.html" rel="noopener noreferrer" target="_blank">即插即用室温单光子源</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-play-photon-source-room-temperature.html" rel="noopener noreferrer" target="_blank">Plug-and-play single-photon source can work at room temperature</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 3</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>韩国标准科学研究院开发无需低温制冷的室温单光子源，集成在紧凑 19 英寸机架设备中，通电即可运行。报道强调即插即用和现场部署，未给出发射体类型、单光子纯度 g2(0)、亮度、线宽或稳定性数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>机架式室温单光子源把量子光源从低温实验台推向可部署设备。若性能指标满足量子通信需求，将降低单光子系统工程门槛。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-play-photon-source-room-temperature.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-play-photon-source-room-temperature.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-ultrafast-scanning-tunneling-microscopy-quantum.html" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-ultrafast-scanning-tunneling-microscopy-quantum.html" rel="noopener noreferrer" target="_blank">超快扫描隧道显微达时空量子极限</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-ultrafast-scanning-tunneling-microscopy-quantum.html" rel="noopener noreferrer" target="_blank">Ultrafast scanning tunneling microscopy reaches the quantum mechanical space-time limit for the first time</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 3</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道超快扫描隧道显微首次达到量子力学时空极限，背景讨论海森堡不确定性中位置–动量受限而位置–时间不存在同类不确定关系。摘要未给出时间分辨率、空间分辨率、脉冲方案、样品体系或隧穿信号指标。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>超快 STM 被报道触及量子力学允许的空间–时间测量边界。该能力若在具体材料中实现，将直接服务于电子、声子和相变动力学的原子尺度成像。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-ultrafast-scanning-tunneling-microscopy-quantum.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-ultrafast-scanning-tunneling-microscopy-quantum.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">手性 Ni2+/Yb3+ 分子室温极化反转</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Chiral Ni 2+ /Yb 3+ molecular complex with room-temperature magnetic-field driven 180° polarization reversal</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Materials Today</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Materials Today 2026 年 9 月刊报道手性 Ni2+/Yb3+ 分子配合物，在室温下可由外加磁场驱动 180° 极化反转。摘要仅给出题名与作者信息，未披露矫顽场、极化强度、晶体结构或磁电耦合系数。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Ni2+/Yb3+ 手性分子配合物实现室温磁场驱动 180° 极化反转。若正文验证可逆、可循环的磁电开关，将把分子磁性与铁电极化耦合推进到室温器件尺度。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S1369702126002415?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41535-026-00916-1" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41535-026-00916-1" rel="noopener noreferrer" target="_blank">空穴掺杂 kagome 超导体的电荷关联</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41535-026-00916-1" rel="noopener noreferrer" target="_blank">Observation of ubiquitous charge correlations and hidden quantum critical point in hole-doped kagome superconductors</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 npj Quantum Materials</span><span class="daily-chip daily-chip-authors">👤 Ilija K. Nikolov, Giuseppe Allodi, Adrien Rosuel, Ginevra Corsale, Anshu Kataria, Pietro Bonfà 等12位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>npj Quantum Materials 在线发表空穴掺杂 kagome 超导体研究，题名指出观测到普遍存在的电荷关联，并识别隐藏量子临界点。摘要未列具体材料组成、掺杂范围、探测手段、临界掺杂或转变温度等数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>空穴掺杂 kagome 超导体中电荷关联并非局域偶发现象，而是跨样品普遍存在。隐藏量子临界点提示电荷涨落可能与 kagome 超导配对机制直接相连。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41535-026-00916-1" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41535-026-00916-1" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10147214/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10147214/latest" rel="noopener noreferrer" target="_blank">AlGaN/GaN 光电极探针抑制光伪影</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10147214/latest" rel="noopener noreferrer" target="_blank">AlGaN/GaN heterojunction field effect transistor structure integrated photoelectrode probe with optical artifact suppression function</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Xin Cao, Yanyuan Ding, Xi'en Yang, Wenbo Zhao, Xiaodong Li, Ye Wen 等11位作者</span><span class="daily-chip daily-chip-score">🔥 AI 82</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>以 AlGaN/GaN 异质结场效应晶体管替代传统金属微电极制备脑神经探针，并与 LED 光电极探针键合集成，实现光刺激与电生理信号采集。HFET 探针强调高灵敏度和生物相容性，并用于降低光遗传实验中的光伪影。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>AlGaN/GaN HFET 被集成进光遗传探针，同时承担神经信号采集与光伪影抑制。宽禁带半导体器件路线有望提升闭环神经接口的信噪比。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10147214/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10147214/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75265-5" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75265-5" rel="noopener noreferrer" target="_blank">前岛叶高伽马闭环读出调控决策</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75265-5" rel="noopener noreferrer" target="_blank">Closed-loop readout of anterior insula high-gamma activity steers value-based decisions</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 Clarissa Baratin, Mathias Pessiglione, Philippe Kahane, Alexis Robin, Lorella Minotti, Guillaume Jean-Paul Claude Becq 等7位作者</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Nature Communications 报道闭环颅内脑机接口实验，实时读出人类前岛叶自发高伽马活动，并用于影响价值决策。结果显示自发神经涨落可因果性塑造选择，说明持续背景脑活动是人类选择变异性的来源之一。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>闭环颅内接口把前岛叶高伽马自发涨落与价值选择建立因果联系。实时神经读出和反馈范式为研究决策波动提供了可干预方法。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75265-5" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-75265-5" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-03.html">← 前一天 · 2026-07-03</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-03.html">前一天 · 2026-07-03</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-04.html">最新一期 · 2026-07-04</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-04.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>9</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">MoSe2/WSe2 中谷选择斯塔克效应<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">地磁暴强度对 LEO 卫星衰减的影响<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">广州公共交通网络分类与优化<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">即插即用室温单光子源<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">超快扫描隧道显微达时空量子极限<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">手性 Ni2+/Yb3+ 分子室温极化反转<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">空穴掺杂 kagome 超导体的电荷关联<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">AlGaN/GaN 光电极探针抑制光伪影<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">前岛叶高伽马闭环读出调控决策<span class="daily-outline-meta">09</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-03.html">前一天 · 2026-07-03</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-04.html">最新一期 · 2026-07-04</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-04.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
