@@ -1,6 +1,99 @@
 {
   "articles": [
     {
+      "id": "f05597ea54ff",
+      "title": "Obstacle-Avoidance Path Planning for a Basket-Carrying Robotic Arm Based on an Improved APF-RRT Algorithm",
+      "title_zh": "基于改进 APF-RRT 算法的搬篮机械臂避障路径规划",
+      "abstract": "Purpose This study addresses the challenges of robotic arm path planning in unstructured material-handling environments typical of agricultural robotics—including complex obstacle distributions, weak goal-directedness of conventional RRT algorithms, low convergence efficiency, and poor path smoothness.Methods An RRT-based path planning algorithm integrated with an improved Artificial Potential Field (APF) method is proposed. A power-law decay repulsive gain coefficient eliminates the goal-unreachability problem; a three-level progressive escape mechanism combined with a penalty-weighted distance metric enables the random tree to bypass local deadlock regions; an adaptive step-size strategy based on local environmental awareness and a dynamic goal-bias probability strategy achieve a self-adaptive balance between global exploration and local goal convergence. Multi-pass greedy pruning and cubic B-spline smoothing are applied in post-processing to remove path redundancy and guarantee C² continuity.Results Comparative simulations and real-robot grasping experiments were conducted in 2D and 3D configuration spaces and on a 6-DOF collaborative robotic arm platform. In 2D scenarios, the improved algorithm reduces average iteration counts by 85.8%–89.7% and planning time by 42.1%–56.4% relative to conventional RRT. In 3D space, planning is completed in an average of 17.1 iterations with path length shortened by 31.4%. In joint-space experiments on a 6-DOF robotic arm, the proposed algorithm reduces path cost by 38.9%, 43.9%, and 32.9% relative to RRT, RRT-Connect, and RRT*, respectively, while cutting planning time by 10.1%–20.9%.Conclusions Real-robot trials confirm smooth, jitter-free motion across all joints, demonstrating that the algorithm effectively satisfies engineering requirements for planning responsiveness and motion stability in complex agricultural environments.",
+      "abstract_zh": "该研究面向农业机器人等非结构化搬运场景中障碍物复杂、传统 RRT 目标导向性弱、收敛效率低和路径不平滑等问题，提出融合改进人工势场法的 RRT 路径规划算法。方法通过幂律衰减斥力增益、三级渐进逃逸机制、惩罚加权距离度量、自适应步长和动态目标偏置策略，提高全局探索与局部收敛能力。仿真与 6 自由度协作机械臂实验证明，该方法可减少路径冗余并经贪婪剪枝和三次 B 样条平滑获得连续、可执行的避障轨迹。",
+      "authors": [
+        "Shilei Lyu",
+        "Shengjun Shi",
+        "Guoning Zhang",
+        "Junxing He",
+        "Leyuan Chen",
+        "Xiongzhe Han",
+        "Peng Gao"
+      ],
+      "pub_date": "2026-07-07",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10165181/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902083"
+    },
+    {
+      "id": "982e5ae305b3",
+      "title": "Physics-Informed Deep Learning Enabled Ultra-Sparse Projection Neutron Computed Tomography",
+      "title_zh": "物理信息深度学习驱动的超稀疏投影中子计算机断层成像",
+      "abstract": "Neutron computed tomography (NCT) uniquely visualizes light elements within dense materials, but time-resolved (4D) neutron tomography remains impractical. A conventional 3D scan requires 12–14 hours owing to low neutron flux. Here we developed a physics-informed deep learning framework that reconstructs high-fidelity tomographic projections from ultra-sparse angular sampling, reducing acquisition time by over 90% while preserving quantitative structural integrity. Our spatiotemporal generator–discriminator architecture exploits the sequential nature of projection acquisition with explicit temporal conditioning, learning the manifold of physically plausible projections without hallucinations. Validated on 16-bit, 1024×1024 neutron radiography data across three facilities (BRIN, PSI, IMAT) beamline, reducing projections from 360 to just 37 yields reconstructions with PSNR = 41.62 ± 2.78 dB and SSIM = 0.9799 ± 0.0095. Nominal/actual analysis shows > 92% of surfaces lie within tolerance for 37-projection reconstructions. This framework enables operando studies of fast dynamic processes previously accessible only with synchrotron X-ray sources.",
+      "abstract_zh": "该研究针对中子计算机断层成像采集时间长、难以开展时间分辨三维/四维成像的问题，提出一种物理信息深度学习框架，用超稀疏角度采样重建高保真断层投影。其时空生成器—判别器结构利用投影采集的序列特征并引入显式时间条件，以学习物理上合理的投影流形。跨多个束线的验证表明，将投影数由 360 降至 37 仍可获得较高 PSNR 和 SSIM，并显著缩短采集时间，从而为快速动态过程的原位研究提供可能。",
+      "authors": [
+        "Fahrurrozi Akbar",
+        "Nur Bayyinah",
+        "Ratna Dewi Syarifah",
+        "Andeka Tris Susanto",
+        "Bharoto Bharoto",
+        "Khairul Handono",
+        "Ranggi Sahmura Ramadhan",
+        "Abu Khalid Rivai"
+      ],
+      "pub_date": "2026-07-07",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10153554/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902084"
+    },
+    {
+      "id": "7e95f60adc5c",
+      "title": "Estimating Above-Ground Blue Carbon in a Tropical Mangrove Using Multispectral Unmanned Aerial Vehicle Imagery",
+      "title_zh": "利用多光谱无人机影像估算热带红树林地上蓝碳",
+      "abstract": "Mangroves are ecosystems with high potential for blue carbon sequestration and storage, aiding in the mitigation of emitted carbon dioxide into the atmosphere through anthropogenic activities. The use of unmanned aerial vehicles, or drones, for forest management has increased exponentially with the development of new methodologies for obtaining vegetation structure data. In this research, we developed a new segmentation methodology for mangrove forests using multispectral drone imagery. The segmentation resulted in polygon features, which allowed the application of allometric equations for estimating above-ground biomass and, consequently, the carbon inventory. Different carbon stock estimates, from five distinct allometric equations, were evaluated using a vegetation structure plot (ground truth). The results were compared with C estimates per area from other regions and global calculations. We found that the mangrove of Suape bay (8º22’S/34º57’W), east of the Massangana River (Brazil), stores 79.8 MgC.ha⁻¹, despite the strong port-industrial anthropogenic pressure. This carbon is allocated, in a stratified manner, mainly in trees adjacent to estuarine channels and decreasing towards the upper mangrove and hypersaline tidal flat. Future studies can use our methodology for calculating carbon stock in other estuaries, also utilizing very high-resolution satellite imagery.",
+      "abstract_zh": "该研究利用多光谱无人机影像建立红树林分割方法，以生成多边形对象并结合异速生长方程估算地上生物量和碳储量。作者比较了五种异速生长方程的碳储量估算结果，并以植被结构样地作为地面验证。结果显示，巴西 Massangana 河以东 Suape 湾红树林尽管受到港口工业压力，仍具有较高地上碳储量，且碳主要集中在邻近河口水道的树木中并向内陆方向递减。",
+      "authors": [
+        "Francisco Cordeiro Nascimento-Neto",
+        "Roberto Lima Barcellos",
+        "Marília Cunha-Lignon",
+        "Priscila Almeida Oliveira",
+        "Luís Américo Conti"
+      ],
+      "pub_date": "2026-07-07",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10230875/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902086"
+    },
+    {
+      "id": "62b61177313e",
+      "title": "Supercell-size effects on magnetic ordering in RI 2 monolayers from first-principles and Ising model calculations",
+      "title_zh": "基于第一性原理与伊辛模型计算的 RI₂ 单层磁有序超胞尺寸效应",
+      "abstract": "Publication date: 25 June 2026 Source: Computational Materials Science, Volume 271 Author(s): Aycan Özkan, Ceren Tayran, Bülent Kutlu, Mehmet Çakmak",
+      "abstract_zh": "该文围绕 RI₂ 单层材料中磁有序对超胞尺寸的依赖性展开，结合第一性原理计算与伊辛模型分析相关磁性行为。由于所给摘要主要为出版元数据，具体材料体系、参数设置和定量结论需查阅原文。该研究可能为二维磁性材料模拟中超胞选择和有限尺寸效应评估提供参考。",
+      "authors": [],
+      "pub_date": "2026-07-07",
+      "journal": "ScienceDirect",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0927025626003411?dgcid=rss_sd_all",
+      "source_url": "https://rss.sciencedirect.com/publication/science/09270256",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902110"
+    },
+    {
+      "id": "e2c95e4cb14f",
+      "title": "Semi-empirical pseudopotential method for monolayer transition metal dichalcogenides",
+      "title_zh": "单层过渡金属二硫族化物的半经验赝势方法",
+      "abstract": "Publication date: October 2026 Source: Computer Physics Communications, Volume 327 Author(s): Raj Kumar Paudel, Chung-Yuan Ren, Yia-Chung Chang",
+      "abstract_zh": "该工作围绕单层过渡金属二硫族化物的电子结构建模，提出或讨论一种半经验赝势方法。由于所给摘要仅包含出版信息，具体模型构建、参数拟合方式、适用材料范围和验证结果需查阅原文。该类方法通常旨在以较低计算成本描述二维半导体材料的能带和相关物性。",
+      "authors": [],
+      "pub_date": "2026-07-07",
+      "journal": "ScienceDirect",
+      "link": "https://www.sciencedirect.com/science/article/pii/S0010465526002225?dgcid=rss_sd_all",
+      "source_url": "https://rss.sciencedirect.com/publication/science/00104655",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902116"
+    },
+    {
       "id": "f97d2d9c997d",
       "title": "Computational Screening of Molecularly Imprinted Polymers for Pesticide Recognition tira a palavra Degradation",
       "title_zh": "用于农药识别的分子印迹聚合物的计算筛选",
@@ -409,6 +502,204 @@
       "source_url": "https://www.researchsquare.com/rss.xml",
       "arxiv_category": "",
       "fetch_time": "2026-07-06T15:17:33.118965"
+    },
+    {
+      "id": "328b6d5922ec",
+      "title": "Scattering Amplitudes and Conservative Binary Dynamics at O(G⁵) without Self-Force Truncation",
+      "title_zh": "不采用自力截断的 O(G⁵) 散射振幅与保守双体动力学",
+      "abstract": "Author(s): Zvi Bern, Enrico Herrmann, Radu Roiban, Michael S. Ruf, Alexander V. Smirnov, Sid Smith, and Mao Zeng We compute the complete potential-graviton contributions to the conservative radial action and scattering angle for two nonspinning bodies in general relativity, accurate through fifth order in Newton’s constant and including second-order self-force effects. The calculation is carried out in the sca… [Phys. Rev. Lett. 137, 021402] Published Mon Jul 06, 2026",
+      "abstract_zh": "该研究计算了广义相对论中两个非自旋天体保守动力学的势引力子贡献，精度达到牛顿常数五阶，并包含二阶自力效应。作者在散射振幅框架下获得径向作用量和散射角的完整结果。该成果推进了后闵可夫斯基引力两体问题的高精度解析计算，可用于引力波源动力学建模。",
+      "authors": [
+        "Zvi Bern, Enrico Herrmann, Radu Roiban, Michael S. Ruf, Alexander V. Smirnov, Sid Smith, and Mao Zeng"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Phys. Rev. Lett.",
+      "link": "http://link.aps.org/doi/10.1103/zjcp-ssrw",
+      "source_url": "http://feeds.aps.org/rss/recent/prl.xml",
+      "arxiv_category": "recent/prl.xml",
+      "fetch_time": "2026-07-07T02:45:57.901760"
+    },
+    {
+      "id": "5efcdc531db8",
+      "title": "Self-Confinement of Relativistic Pair Beams in Magnetized Interstellar Plasmas: The Case of Pulsar X-Ray Filaments",
+      "title_zh": "磁化星际等离子体中相对论正负电子束的自约束：以脉冲星 X 射线丝状结构为例",
+      "abstract": "Author(s): Luca Orusa and Lorenzo Sironi The observation of filamentary x-ray structures near bow-shock pulsar wind nebulae (PWNe)—such as the Guitar, Lighthouse, and PSR J2030+4415 nebulae—and of slow-diffusion regions around pulsars like Geminga, Monogem, and PSR J0622+3749, challenges the standard picture of cosmic… [Phys. Rev. Lett. 137, 025201] Published Mon Jul 06, 2026",
+      "abstract_zh": "该研究探讨弓形激波脉冲星风云附近观测到的丝状 X 射线结构及脉冲星周围慢扩散区现象，对传统宇宙线传播图像提出的挑战。作者关注相对论正负电子束在磁化星际等离子体中的自约束机制，并以脉冲星 X 射线丝状结构为典型情形。该工作有助于理解脉冲星环境中高能粒子输运、辐射形态和局域扩散抑制的物理起源。",
+      "authors": [
+        "Luca Orusa and Lorenzo Sironi"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Phys. Rev. Lett.",
+      "link": "http://link.aps.org/doi/10.1103/2hrd-vv2q",
+      "source_url": "http://feeds.aps.org/rss/recent/prl.xml",
+      "arxiv_category": "recent/prl.xml",
+      "fetch_time": "2026-07-07T02:45:57.901776"
+    },
+    {
+      "id": "100dc7481a0e",
+      "title": "PT-Symmetric Magnon Lasing and Antilasing",
+      "title_zh": "PT 对称磁振子激光与反激光",
+      "abstract": "Author(s): Xi-guang Wang, Tian-xiang Lu, Guang-hua Guo, Jamal Berakdar, and Hui Jing A mechanism for electrically tunable PT-symmetric magnonic lasing and antilasing is proposed along with a device consisting of a current-biased region in a magnetically ordered planar waveguide. Within the bias area, several heavy-metal wires carrying dc charge currents are per… [Phys. Rev. Lett. 137, 026701] Published Mon Jul 06, 2026",
+      "abstract_zh": "该研究提出一种电可调的 PT 对称磁振子激光与反激光机制，并设计了包含电流偏置区域的磁有序平面波导器件。偏置区域中多根重金属导线承载直流电流，以调控磁振子系统中的增益、损耗和非厄米对称性。该方案为可控磁振子放大、吸收以及自旋波器件中的非厄米物理应用提供了新思路。",
+      "authors": [
+        "Xi-guang Wang, Tian-xiang Lu, Guang-hua Guo, Jamal Berakdar, and Hui Jing"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Phys. Rev. Lett.",
+      "link": "http://link.aps.org/doi/10.1103/21ts-5d39",
+      "source_url": "http://feeds.aps.org/rss/recent/prl.xml",
+      "arxiv_category": "recent/prl.xml",
+      "fetch_time": "2026-07-07T02:45:57.901780"
+    },
+    {
+      "id": "c9727f3de2fc",
+      "title": "Physiological and Biochemical Responses of Tomato (Solanum lycopersicum L.) to Polyethylene Microplastic Exposure",
+      "title_zh": "番茄（Solanum lycopersicum L.）对聚乙烯微塑料暴露的生理和生化响应",
+      "abstract": "Microplastics (MPs) are emerging environmental pollutants with potential impacts on terrestrial ecosystems and crop productivity. This study examined the effects of polyethylene microplastics (PE-MPs) on the physiological and biochemical responses of tomato (Solanum lycopersicum L.) plants under controlled greenhouse conditions. A completely randomized design was employed with soil treatments containing 0%, 1%, 3%, and 5% (w/w) MPs, each replicated five times. Tomato seeds were grown in MP-amended soils for six weeks under uniform environmental conditions, after which growth parameters, photosynthetic pigments (chlorophyll a, chlorophyll b, and total chlorophyll), antioxidant enzyme activities (superoxide dismutase, catalase, and peroxidase), and stress biomarkers (malondialdehyde, MDA) were assessed using standard analytical procedures. Increasing MP concentrations significantly reduced plant growth, with shoot height declining from 47.6 cm in the control to 30.1 cm at 5% MPs, root length decreasing from 18.4 cm to 10.7 cm, and dry biomass decreasing from 3.25 g to 1.98 g. Total chlorophyll content declined from 2.56 to 1.51 mg g⁻¹ FW, indicating impaired photosynthetic capacity. In contrast, antioxidant enzyme activities increased markedly, with SOD, CAT, and POD reaching approximately 172%, 165%, and 159% of control levels, respectively, while MDA content increased by approximately 2.3-fold, confirming enhanced lipid peroxidation and oxidative stress. Overall, MPs caused dose-dependent toxicity by disrupting plant growth, impairing photosynthesis, and inducing oxidative stress, highlighting potential risks to crop productivity, soil health, and food security.",
+      "abstract_zh": "该研究在温室条件下考察不同质量分数聚乙烯微塑料对番茄幼苗生长、光合色素、抗氧化酶活性和胁迫标志物的影响。结果表明，随微塑料浓度升高，株高、根长、干生物量和总叶绿素含量显著下降，提示生长和光合能力受损。研究还检测了超氧化物歧化酶、过氧化氢酶、过氧化物酶及丙二醛等指标，以评估微塑料诱导的氧化胁迫响应。",
+      "authors": [
+        "Marvellous Oluwatosin Kudabo",
+        "Success Philip Olagbile",
+        "Gabriel Kehinde Olawepo",
+        "Oluwatobiloba Amos Olagbile"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-9886681/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902088"
+    },
+    {
+      "id": "3cf929086fd8",
+      "title": "Drought tolerance mechanisms in contrasting wheat genotypes: coordination of ABA signaling, antioxidant defense, and stress-responsive genes",
+      "title_zh": "对比小麦基因型的耐旱机制：ABA 信号、抗氧化防御与胁迫响应基因的协同调控",
+      "abstract": "Background Drought stress is a major constraint on wheat productivity, particularly under climate change scenarios characterized by increasing drought frequency and severity. Drought tolerance involves the coordinated regulation of hormonal signaling, osmotic adjustment, antioxidant defense, and stress-responsive gene expression.Methods This study evaluated physiological, biochemical and molecular responses of drought-tolerant and drought-sensitive wheat genotypes at the seedling stage. Drought stress was applied by withholding irrigation for five days. Abscisic acid (ABA) accumulation, osmolyte content, antioxidant enzyme activities, and the expression of thirteen drought-responsive genes were analyzed.Results Drought stress significantly increased ABA accumulation in the sensitive genotype BT, whereas tolerant genotype Utique maintained stable ABA levels. Tolerant genotypes Utique and D117 accumulated higher proline and soluble sugar contents, indicating improved osmotic adjustment. They also showed enhanced antioxidant defense, particularly higher superoxide dismutase (SOD) and catalase (CAT) activities. Gene expression analysis revealed contrasting responses: sensitive genotypes exhibited stronger induction of ABA biosynthesis genes (NCED and AAO), stress-related transcription factors (WRKY44 and NAC48), and repression of the photosynthesis-related gene LHCb1. In contrast, tolerant genotypes showed higher expression of genes associated with osmolyte biosynthesis (P5CS and BADH), ion homeostasis (NHX1 and AVP1), and water transport (PIP2;1).Conclusions The identified physiological and molecular traits highlight key mechanisms underlying drought tolerance and provide potential biomarkers for the selection of drought-resilient wheat genotypes in breeding programs targeting water-limited environments.",
+      "abstract_zh": "该研究比较耐旱与敏感小麦基因型在幼苗期遭受停水胁迫后的生理、生化和分子响应。结果显示，敏感基因型在干旱下 ABA 积累显著增加，而耐旱基因型维持较稳定 ABA 水平，并积累更多脯氨酸和可溶性糖以增强渗透调节。耐旱材料还表现出更强的抗氧化防御，尤其是较高的 SOD 和 CAT 活性，同时多个干旱响应基因呈现基因型特异性表达模式。",
+      "authors": [
+        "Asma Guizani",
+        "Nicoletta Rapana",
+        "Maria Laura Amenta",
+        "Mariella Finetti-Sialer",
+        "Carmen Bianco",
+        "Roberto Defez",
+        "Hend Askri",
+        "Elyes Babay",
+        "Fatma Gharbi"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10180282/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902090"
+    },
+    {
+      "id": "fdfe97270f8e",
+      "title": "Permutation-Equivariant Deep Equilibrium Networks for Real-Time Single-Bus DER Dispatch with O(1) Parameter Scaling",
+      "title_zh": "用于实时单母线分布式能源调度且参数规模为 O(1) 的置换等变深度平衡网络",
+      "abstract": "Real-time dispatch of heterogeneous distributed energy resources (DERs)— electric vehicles, battery storage, and flexible loads—under a single-bus real-time price requires solving a high-dimensional equilibrium every dispatch interval. We cast the problem as a competitive equilibrium with device-specific dynamics and constraints, and learn the equilibrium policy together with the clearing price using a permutation-equivariant Transformer Deep Equilibrium Network (DER�DEQN) whose parameter count is O(1) in the number of devices N, in contrast to MLP-DEQN baselines that scale O(N). We redesign the positional encod�ing to inject device-type, temporal-window, and feeder priors as the symmetry structure, and train with an unsupervised N-component equilibrium loss (an intertemporal marginal-value Euler analogue, three families of KKT complemen�tarities, and the market-clearing residual that pins the real-time price)—requiring no labeled data. Experiments on two NVIDIA RTX 3090 GPUs establish two distinct claims at their relevant scales. The architecture-level properties hold to N=5000: O(1) parameter scaling (a flat 1.19×105 parameters versus 8.6×107 for an MLP), machine-precision permutation equivariance (∼ 2 × 10−6), and a real-time inference latency of 8.8 ms at N=5000. The equilibrium-quality results—stable label-free training in which the market-clearing and KKT residu�als converge to ∼10−4 and a competitive welfare comparison to the centralized convex optimum—are validated at N=50, the largest N at which the unsuper�vised residual loss is observed to converge to small residuals under our training budget; we report an honest limitation that the intertemporal marginal-value residual settles to a nonzero floor, so exact welfare parity with centralized solvers remains open. JEL Classification: C63 , C68 , Q41 , L94",
+      "abstract_zh": "该研究将电动汽车、储能和柔性负荷等异构分布式能源在单母线实时电价下的调度问题表述为竞争均衡，并用置换等变 Transformer 深度平衡网络同时学习均衡策略和出清价格。与参数量随设备数增长的 MLP 基线相比，该模型参数规模对设备数量保持 O(1)，并通过设备类型、时间窗口和馈线先验重构位置编码。训练采用无监督的多组成均衡损失，包括边际价值类 Euler 条件、KKT 互补条件和市场出清残差，实验展示了大规模设备下的参数效率和置换等变性质。",
+      "authors": [
+        "Jiang Zhan",
+        "Guofeng Liang",
+        "SiQi Chen",
+        "Tong Su",
+        "Fanrong Feng"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10114527/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902092"
+    },
+    {
+      "id": "aae442bbddb0",
+      "title": "Egypt’s protected-area network at the land–sea interface: coastal reserve fragmentation, the 30×30 gap, and Lessepsian bioinvasion (1983–2022)",
+      "title_zh": "埃及陆海交界保护地网络：海岸保护区碎片化、30×30 缺口与莱赛普斯生物入侵（1983—2022）",
+      "abstract": "Coastal and marine systems lie at the centre of the Kunming–Montreal Global Biodiversity Framework (KMGBF), whose Target 3 commits nations to conserving 30% of terrestrial, inland-water, coastal and marine areas through ecologically representative, well-connected and effectively managed systems by 2030. For the coastal zone — the contested land–sea interface where biodiversity, human pressure and area-based conservation converge — the first global stocktake (Protected Planet Report 2024) shows that progress on these quality dimensions, rather than on area alone, is now the binding constraint, and that marine and coastal protection across Northern Africa remains far below the global mean. We provide the first integrated, multi-decadal (1983–2022) assessment of Egypt’s protected-area (PA) network through a coastal-conservation lens, asking how well the network serves the Mediterranean and Red Sea coasts that concentrate the country’s marine biodiversity and its most acute coastal pressures. Combining official EEAA and CAPMAS datasets with structural-break detection, Lorenz/Gini inequality analysis, Monte-Carlo and exact contingency testing, and scenario-based trajectory projection, we show that the network expanded from a single 778 km² reserve to 30 reserves spanning 141,137 km² (14.1% of national territory) in two pulses (mid-1980s and mid-2000s) separated by a long plateau. Conservation effort is, however, distributed with pronounced inequality (Gini = 0.83): four large desert flagship reserves hold more than 80% of the estate, whereas the small reserves (nine averaging under 12 km²) are disproportionately the Mediterranean and Red Sea coastal and wetland sites of highest marine-biodiversity value. We interpret this size structure as a representativeness and connectivity concern for the coastal sub-network rather than as direct evidence of ecological decline. Under the status-quo trajectory Egypt is projected to reach only ~ 14% coverage by 2030. An inventory of 292 alien species, dominated by aquatic animals (about two-thirds of invasive animals: fish, crustaceans and molluscs), is consistent with the Suez Canal’s role as the principal corridor of Lessepsian migration into the Mediterranean, placing Egypt’s Mediterranean coastal reserves at the leading edge of the world’s most invaded sea. The mammalian assessment indicates comparable overall threat incidence between marine and terrestrial groups, with the most severe threat categories occupied only by terrestrial species. We argue that Egypt’s coastal-conservation priority should shift from area accumulation toward consolidating the representativeness, connectivity and management effectiveness of its coastal and marine reserves, underpinned by a marine-invasion early-detection-and-rapid-response capability and KMGBF-aligned coastal-conservation finance.",
+      "abstract_zh": "该研究从海岸保护视角，对 1983—2022 年埃及保护地网络在地中海和红海沿岸的覆盖、连通性和代表性进行综合评估。作者结合官方数据、结构突变检测、Lorenz/Gini 不平等分析、蒙特卡洛与精确列联检验以及情景轨迹预测，检验其与昆明—蒙特利尔全球生物多样性框架 30×30 目标的差距。研究强调埃及海岸带保护不仅面临面积不足，还受到保护区碎片化、管理质量约束和莱赛普斯生物入侵等压力影响。",
+      "authors": [
+        "Mohammed G. Desouky",
+        "Ahmed R. Algendy",
+        "Ibrahem M. Abdallah"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10085000/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902094"
+    },
+    {
+      "id": "bb50a9ed0cd5",
+      "title": "Integration of a Structural Coherence Model with a Semi-Universal Machine Learning Interatomic Potential to Predict Molten Salt Thermal Conductivity",
+      "title_zh": "结合结构相干模型与半通用机器学习原子间势预测熔盐热导率",
+      "abstract": "The accurate design and performance assessment of energy generation systems that use molten salts as working fluids require accurate characterization of thermal conductivity, with a sufficiently low uncertainty. However, experimental data on several molten salt systems, of interest for various energy generation applications , are generally lacking. Physics-informed models, as well as molecular dynamic (MD) simulations, have the potential to populate gaps in current ther-mophysical property databases. Existing predictive models using MD simulation (Green-Kubo, non-equilibrium MD) take significantly longer to predict thermal conductivity than classical MD models that otherwise predict salt density with reasonable accuracy. We present an approach that uses the SuperSalt machine-learning interatomic potentials (MLIPs) for chloride salts, as well as a structural coherence model (SCM) to predict thermal conductivity of molten salts using vol-umetric heat capacity, adiabatic speed of sound, and the partial pair distribution function. The SCM uses this function to predict the mean free path of thermal transport and applies generalized kinetic theory to predict thermal conductivity near the melting temperature, achieving results 1–2 orders of magnitude faster 1 than existing MD methods. By also predicting the isothermal bulk modulus, the temperature dependence of thermal conductivity above the melting temperature can be determined. This integrated SCM-MLIP (ISM) methodology serves as a proof of concept for using MLIPs to predict thermal properties within current experimental uncertainties at a fraction of the computational cost. This enables investigation into thermal conductivity as well as other thermophysical properties across a variety of molten salt compositions. When coupled with targeted experimental studies, the ISM methodology can help contribute to existing databases necessary to safely implement molten salts into power generation systems.",
+      "abstract_zh": "该研究面向以熔盐为工质的能源系统热物性评估，提出将氯盐体系的 SuperSalt 机器学习原子间势与结构相干模型结合，用于预测熔盐热导率。方法利用体积热容、绝热声速和部分对分布函数估计热输运平均自由程，并基于广义动理论计算热导率。该框架旨在以较低计算成本弥补实验数据和传统分子动力学热导率预测的不足。",
+      "authors": [
+        "Isaac Walker",
+        "Jacob Numbers",
+        "Nathan Burlett",
+        "Anthony Birri",
+        "Troy Munro"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10223172/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902096"
+    },
+    {
+      "id": "6bb9f57a7aa9",
+      "title": "Mechanism-Dependent Scaling in Porous Materials",
+      "title_zh": "多孔材料中依赖机制的尺度标度关系",
+      "abstract": "Power-law scaling between physical properties and relative density is a well-established feature of porous, cellular, and microstructured materials. Transport properties, such as electrical, thermal, or diffusive response, and mechanical properties, such as stiffness or strength, are often described by relations of the form P propto h̊o^σ, where the exponent σ depends on material class, architecture, deformation mechanism, and transport pathway. Here, we revisit the comparison between transport and mechanical density-scaling exponents from a mechanism-dependent perspective. Across several porous and cellular systems, transport properties often scale with exponents in the approximate range σₜᵣₐₙₛₚ approx 1.1--1.6, whereas bending- or stability-dominated mechanical responses frequently exhibit larger exponents, commonly in the range σₘₑcₕ approx 2--3. In these classes, the ratio σₘₑcₕ/σₜᵣₐₙₛₚ is often found near two. This relation is not proposed as a universal scaling law. Stretching-dominated lattices, including triangular and octet-type architectures, provide expected counterexamples because their stiffness may scale approximately linearly with relative density. Likewise, anisotropic architectures, percolation-dominated networks, and microstructures in which transport and stiffness sample different structural pathways may deviate from the proposed trend. The contribution of this work is therefore not to replace established cellular-solids theory, but to organize transport--stiffness scaling in porous materials according to the dominant structural mechanism. We interpret the near-two exponent ratio as a recurrent signature of systems in which transport is primarily connectivity-controlled while mechanical response is bending- or stability-dominated. On this basis, we identify the expected validity range, discuss boundary cases and counterexamples, and formulate a falsifiable prediction for additively manufactured lattice structures, especially TPMS-based architectures in which geometry and relative density can be systematically controlled.",
+      "abstract_zh": "该文重新审视多孔、胞状和微结构材料中物理性质随相对密度变化的幂律标度关系，强调标度指数取决于材料结构、变形机制和输运路径。作者指出，许多输运性质的密度指数约为1.1–1.6，而弯曲或稳定性主导的力学响应常见指数约为2–3，两者比值在若干体系中接近2。文章同时强调这并非普适定律，拉伸主导晶格和各向异性结构可构成重要反例。",
+      "authors": [
+        "Miguel Jorge Díaz Luna"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10203374/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902098"
+    },
+    {
+      "id": "511de33b2f1e",
+      "title": "Exact Differentiable Inference for Fractional Stochastic Volatility: ADavies–Harte-Reparameterized Hamiltonian Monte Carlo Posterior of the Hurst Index, with Application to the VN30 Frontier Index",
+      "title_zh": "分数随机波动率的精确可微推断：Davies–Harte 重参数化的哈密顿蒙特卡洛 Hurst 指数后验及其在 VN30 前沿指数中的应用",
+      "abstract": "We make full-posterior Bayesian inference of the Hurst index of a fractional stochastic-volatility SDE exact and differentiable, removing the O(N 3) inversion of the non-Markovian fractional covariance that forces practitioners onto the biased Whittle approximation. The driver is a fractional Brownian motion whose Hurst index H separates rough (H < 1/2) from long-memory (H > 1/2) volatility; embedding the Davies–Harte circulant-embedding generator of fractional Gaussian noise inside an automatic-differentiation Hamiltonian Monte Carlo sampler makes the full posterior of (µ, κ, σ, H) reachable at O(N log N) without forming or inverting the dense N × N matrix, and for the scalar Hurst marginal an analytic scale marginalisation sharpens this to an exact, sampling-free posterior. A simulation calibration at known H shows the payoff: the exact posterior is near unbiased with close to nominal 95% coverage, whereas the Whittle pseudo-posterior is biased toward roughness and, in the strong long-memory regime, covers the truth only 12.5% of the time. Measured timing confirms the near-linear cost of the differentiable generator against the cubic dense fac-torisation. Applied to the VN30 frontier index over N = 3585 daily returns from 2012-02-07 to 2026-06-22, the exact posterior places the Hurst index at 0.5828 with a 95% credible interval of [0.5614, 0.6052] entirely above 1/2; the exact posterior odds favour long memory over roughness by a Bayes factor of 1.5 × 10 20 , so the rough regime is refuted rather than merely disfavoured. Out of sample a horizon-aware forecaster cuts the one-day random-walk error by 18.7%, with a tuned GARCH(1, 1) a further 2.5% ahead through near-integrated persistence that approximates the same memory. The Python primary and the independent R verification agree to within 4.9×10 −11 , so every reported number is reproducible. MSC Classification: 60G22 , 62F15 , 62M10 , 65C05",
+      "abstract_zh": "该研究提出一种针对分数随机波动率随机微分方程中 Hurst 指数的全后验贝叶斯推断方法，避免了非马尔可夫分数协方差矩阵的 O(N³) 求逆。作者将 Davies–Harte 循环嵌入的分数高斯噪声生成器纳入自动微分哈密顿蒙特卡洛采样，实现对参数后验的 O(N log N) 推断，并对标量 Hurst 边际给出解析尺度边际化。模拟结果显示，该精确后验相比 Whittle 近似偏差更小、覆盖率更接近标称水平，并被应用于 VN30 前沿指数分析。",
+      "authors": [
+        "Thanh-Phong Lam",
+        "Viet-Tam Tran"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Preprints",
+      "link": "https://www.researchsquare.com/article/rs-10142167/latest",
+      "source_url": "https://www.researchsquare.com/rss.xml",
+      "arxiv_category": "",
+      "fetch_time": "2026-07-07T02:45:57.902102"
+    },
+    {
+      "id": "9b22992cb7ac",
+      "title": "Reconstructing quantum dot charge stability diagrams with diffusion models",
+      "title_zh": "利用扩散模型重建量子点电荷稳定性图",
+      "abstract": "Efficiently characterizing quantum dot (QD) devices is a critical bottleneck when scaling quantum processors based on confined spins. Measuring high-resolution charge stability diagrams (or CSDs, data maps which crucially define the occupation of QDs) is time-consuming, particularly in emerging architectures where CSDs must be acquired with remote sensors that cannot probe the charge of the relevant dots directly. In this work, we present a generative approach to accelerate acquisition by reconstructing full CSDs from sparse measurements, using a conditional diffusion model. We evaluate our approach using two experimentally motivated masking strategies: uniform grid-based sampling, and line-cut sweeps. Our lightweight architecture, trained on approximately 9000 examples, successfully reconstructs CSDs, maintaining key physically important features such as charge transition lines, from as little as 4% of the total measured data. We compare the approach to interpolation methods, which fail when the task involves reconstructing large unmeasured regions. Our results demonstrate that generative models can significantly reduce the characterization overhead for quantum devices, and provides a robust path towards an experimental implementation.",
+      "abstract_zh": "该研究针对自旋量子处理器中量子点器件表征耗时的问题，提出用条件扩散模型从稀疏测量数据重建完整电荷稳定性图。作者考察了均匀网格采样和线扫描两种实验相关的掩蔽策略，模型在约9000个样本上训练后，可在仅使用少量测量数据时保留电荷跃迁线等关键物理特征。与插值方法相比，该生成式方法在大面积未测区域重建中表现更优，有望降低量子器件表征开销。",
+      "authors": [
+        "Vinicius Hernandes, Joseph Rogers, Rouven Koch, Thomas Spriggs, Brennan Undseth, Anasua Chatterjee, Lieven M K Vandersypen and Eliska Greplova"
+      ],
+      "pub_date": "2026-07-06",
+      "journal": "Machine Learning: Science and Technology",
+      "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae8070",
+      "source_url": "https://iopscience.iop.org/journal/rss/2632-2153",
+      "arxiv_category": "2632-2153",
+      "fetch_time": "2026-07-07T02:45:57.902120"
     },
     {
       "id": "3e7574b68f69",
@@ -82512,262 +82803,6 @@
       "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
       "arxiv_category": "recent/prb.xml",
       "fetch_time": "2026-06-06T13:23:43.562951"
-    },
-    {
-      "id": "974bf97b80c5",
-      "title": "Conductance anomaly in a partially open adiabatic quantum point contact",
-      "title_zh": "部分开放的绝热量子点接触中的电导异常",
-      "abstract": "Author(s): Donghao Liu and Dmitri Gutman We demonstrate that conductance anomalies can arise in a clean, adiabatic quantum point contact when a channel is partially transmitting. Even for a smooth barrier potential, backscattering induces Friedel oscillations that, via electron interactions, generate a singular correction to the conductanc… [Phys. Rev. B 113, 235412] Published Fri Jun 05, 2026",
-      "abstract_zh": "该研究表明，在洁净的绝热量子点接触中，当某一传输通道处于部分透射状态时也可能出现电导异常。即使势垒势能十分平滑，背散射仍会诱导弗里德尔振荡，并通过电子相互作用对电导产生奇异修正。工作强调了相互作用与部分透射共同作用下，量子点接触电导平台附近异常行为的微观机制。",
-      "authors": [
-        "Donghao Liu and Dmitri Gutman"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/vh89-rpxl",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.562953"
-    },
-    {
-      "id": "311b74b82332",
-      "title": "Accurate computation of the energy variance for ground states and 〈〈L†L〉〉 for steady states using iPEPS",
-      "title_zh": "利用 iPEPS 精确计算基态能量方差及稳态的 〈〈L†L〉〉",
-      "abstract": "Author(s): Emilio Cortés Estay, Naushad A. Kamar, and Philippe Corboz Infinite projected entangled-pair states (iPEPS) provide a powerful tensor network ansatz for two-dimensional quantum many-body systems in the thermodynamic limit. In this paper, we introduce an approach to accurately compute the energy variance of an iPEPS, enabling systematic extrapolations of the… [Phys. Rev. B 113, 245114] Published Fri Jun 05, 2026",
-      "abstract_zh": "该论文提出一种用于无限投影纠缠对态（iPEPS）的精确计算方案，以评估二维量子多体系统热力学极限中的基态能量方差。该方法有助于对 iPEPS 结果进行系统外推，从而更可靠地判断张量网络近似的精度。作者还将相关思想扩展到稳态问题中 〈〈L†L〉〉 量的计算。",
-      "authors": [
-        "Emilio Cortés Estay, Naushad A. Kamar, and Philippe Corboz"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/fkyw-c5tn",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.562954"
-    },
-    {
-      "id": "58e3f0a79686",
-      "title": "Anomalies in the thermal conductivity of the honeycomb antiferromagnet MnPS₃",
-      "title_zh": "蜂窝反铁磁体 MnPS₃ 热导率中的异常现象",
-      "abstract": "Author(s): Jian Yan, Hiromu Okamoto, Hiroki Yoshida, Hikaru Takeda, Xuan Luo, Yuping Sun, Jun-ichi Yamaura, and Minoru Yamashita Intrinsic two-dimensional magnets serve as a good platform to explore collective, charge-neutral, and low-energy excitations. Distinguishing their crucial role in the experimental aspect remains a challenge for decades. Here, we study the thermal transport in honeycomb antiferromagnet {mathrm{MnPS… [Phys. Rev. B 113, 245201] Published Fri Jun 05, 2026",
-      "abstract_zh": "该研究聚焦本征二维磁体中集体、低能且电荷中性的激发在热输运中的作用。作者测量并分析蜂窝反铁磁体 MnPS₃ 的热输运行为，报道其热导率中出现的异常特征。该工作旨在为区分磁性激发等低能自由度对实验热输运信号的贡献提供依据。",
-      "authors": [
-        "Jian Yan, Hiromu Okamoto, Hiroki Yoshida, Hikaru Takeda, Xuan Luo, Yuping Sun, Jun-ichi Yamaura, and Minoru Yamashita"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/k43j-czq6",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.562956"
-    },
-    {
-      "id": "36162506d7e2",
-      "title": "Theory of Sondheimer magneto-oscillations beyond the semiclassical limit",
-      "title_zh": "超越半经典极限的桑德海默磁振荡理论",
-      "abstract": "Author(s): Alexander Nikolaenko and Pavel A. Nosov In conducting films subjected to an out-of-plane magnetic field, electron motion along the field direction gives rise to conductance oscillations periodic in field intensity—a phenomenon known as Sondheimer oscillations. Traditionally, these oscillations were understood within the semiclassical fram… [Phys. Rev. B 113, 245411] Published Fri Jun 05, 2026",
-      "abstract_zh": "该论文研究导电薄膜在垂直磁场中因电子沿磁场方向运动而产生的电导振荡，即桑德海默振荡。传统解释主要基于半经典图像，而本文发展了超越半经典极限的理论描述。该工作有助于理解薄膜体系中量子效应对磁输运振荡的影响。",
-      "authors": [
-        "Alexander Nikolaenko and Pavel A. Nosov"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/ksdk-6zw8",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.562957"
-    },
-    {
-      "id": "2dca801f66b4",
-      "title": "Decoupling‐Gliding Ion Transport in Polymer Electrolytes via Ferroelectric Order‐Structuring: Toward High‐Voltage and High‐Rate Solid‐State Batteries",
-      "title_zh": "通过铁电有序结构化实现聚合物电解质中的解耦—滑移离子传输：面向高电压与高倍率固态电池",
-      "abstract": "Advanced Functional Materials, EarlyView.",
-      "abstract_zh": "该工作围绕聚合物电解质中的离子传输调控展开，重点关注利用铁电有序结构化促进离子迁移的策略。题目表明作者试图通过“解耦—滑移”传输机制提升固态电池在高电压和高倍率条件下的性能。由于提供的信息仅含题录与期刊元数据，具体材料体系、性能指标和机理证据需查阅原文。",
-      "authors": [
-        "Kunyun Yan, Chunxiao Zhang, Youxuan Ni, Jialin Lin, Yang Li, Hai Zhu, Xiaowei Huang, Libao Chen, Weifeng Wei"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76398?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562973"
-    },
-    {
-      "id": "5150c0d5ffa6",
-      "title": "Graphene Fiber‐Based Bio‐Microelectrode for Precise Neural Signal Recording",
-      "title_zh": "用于精准神经信号记录的石墨烯纤维基生物微电极",
-      "abstract": "Advanced Functional Materials, Volume 36, Issue 45, 5 June 2026.",
-      "abstract_zh": "该论文围绕石墨烯纤维基生物微电极的设计与应用展开，目标是实现神经信号的高精度记录。题目显示该器件可能利用石墨烯纤维的导电性、柔性和生物界面适配性服务于神经电生理检测。由于摘要信息仅为期刊卷期元数据，具体制备方法、性能对比和生物实验结果需参考原文。",
-      "authors": [
-        "Zeqi Zhang, Hongyu Pan, Tianyu Wu, Jiayuan Liu, Yang Zhang, Kai Hou, Guoyin Chen, Meifang Zhu"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.202528803?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562975"
-    },
-    {
-      "id": "4631d0ec0e4c",
-      "title": "Spin‐Orbit Torque Controlled Large Antisymmetric Magnetoresistance in van der Waals Fe3GaTe2/Fe3GeTe2 Bilayer Heterostructure",
-      "title_zh": "自旋轨道矩调控范德华 Fe3GaTe2/Fe3GeTe2 双层异质结构中的大反对称磁阻",
-      "abstract": "Advanced Functional Materials, Volume 36, Issue 45, 5 June 2026.",
-      "abstract_zh": "该研究关注范德华磁性双层异质结构 Fe3GaTe2/Fe3GeTe2 中的磁输运效应，尤其是由自旋轨道矩调控的大幅反对称磁阻。题目表明该工作可能涉及层间磁耦合、自旋轨道效应和磁阻响应的协同调控。因原始摘要未提供具体内容，材料制备、测量条件及物理解释需查阅全文。",
-      "authors": [
-        "Chenxu Kang, Kai Wu, Xiaoliang Weng, Wentao Shi, Jingcheng Jin, Xiaokeng Wu, Yuan Cheng, Wei Tang, Yu‐Jia Zeng"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75340?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562977"
-    },
-    {
-      "id": "a202f629a27c",
-      "title": "Engineering Phonon Anharmonicity in Lanthanide‐Doped Double Perovskites for Deep‐Learning‐Assisted Colorimetric Thermography",
-      "title_zh": "在镧系掺杂双钙钛矿中调控声子非谐性用于深度学习辅助的比色测温成像",
-      "abstract": "Advanced Functional Materials, Volume 36, Issue 45, 5 June 2026.",
-      "abstract_zh": "该论文围绕镧系离子掺杂双钙钛矿材料的声子非谐性调控及其光学测温应用展开。题目显示作者将材料发光或颜色响应与深度学习方法结合，用于比色热成像或温度识别。由于提供内容仅为期刊元数据，具体材料组成、模型方法和测温性能需参考原文。",
-      "authors": [
-        "Zhe Wang, Mochen Jia, Zichen Bai, Mengya Li, Mengsong Zhao, Zhuangzhuang Ma, Ying Liu, Linyuan Lian, Jibin Zhang, Yanbing Han, Zhen Sun, Dongwen Yang, Mengyao Li, Xu Chen, Zhifeng Shi"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75233?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562978"
-    },
-    {
-      "id": "87a80841c0ef",
-      "title": "Multifunctional Bilayer Ag NW‐ANF Nanocomposite Films with Excellent Mechanical and Electromagnetic Interference Shielding Properties",
-      "title_zh": "兼具优异力学与电磁干扰屏蔽性能的多功能双层 Ag 纳米线—芳纶纳米纤维纳米复合薄膜",
-      "abstract": "Advanced Functional Materials, Volume 36, Issue 45, 5 June 2026.",
-      "abstract_zh": "该论文围绕双层银纳米线与芳纶纳米纤维复合薄膜的构筑及其多功能性能展开。题目显示该材料同时强调机械性能和电磁干扰屏蔽能力，可能面向柔性电子、封装或防护应用。由于原摘要仅为卷期信息，具体结构设计、性能数据和作用机制需查阅原文。",
-      "authors": [
-        "Mengyao Wang, Xiaofeng Pan, Yiheng Wang, Qiuchen Wang, Junjie Wang, Yanjun Ding, Bin Wu, Wenjian Zhang, Qibao Dong, Shikuo Li, Wei Bai"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75327?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562981"
-    },
-    {
-      "id": "ca37cb936fe4",
-      "title": "Intercalated SiBCN‐Mo2C/PyC‐Al2O3 Ceramic Hierarchical Lattice Metastructure: A New Paradigm for Ultrabroad Bandwidth‐to‐Thermal Electromagnetic Absorption",
-      "title_zh": "插层 SiBCN-Mo2C/PyC-Al2O3 陶瓷分级晶格超结构：面向超宽带宽—耐热电磁吸收的新范式",
-      "abstract": "Advanced Functional Materials, Volume 36, Issue 45, 5 June 2026.",
-      "abstract_zh": "该研究提出一种由 SiBCN-Mo2C、热解碳和氧化铝等组分构成的陶瓷分级晶格超结构，用于电磁吸收。题目强调其兼具超宽带电磁吸收与耐热特性，可能面向高温或极端环境下的电磁防护。由于未提供详细摘要，结构制备、吸收频段、热稳定性和机理分析需参考全文。",
-      "authors": [
-        "Xingmin Liu, Qian Zhou, Xuehan Ma, Heqiang Liu, Hongjing Wu, Zhijian Xu, Hailong Xu, Bojie You, Wenyan Duan, Yi Zhang, Xiaomeng Fan, Yiqi Wang, Hang Gao, Lifei Du, Lechun Deng, Paolo Colombo"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75349?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562983"
-    },
-    {
-      "id": "b98150475641",
-      "title": "Tailoring the In‐Plane and Interfacial Polarization in Continuous/Bi‐Gradient MXene/Graphene/Cellulose‐Nanofiber Aerogels Through Gradient Reduction for Absorption‐Dominated Electromagnetic Interference Shielding",
-      "title_zh": "通过梯度还原调控连续/双梯度 MXene/石墨烯/纤维素纳米纤维气凝胶的面内与界面极化以实现吸收主导型电磁干扰屏蔽",
-      "abstract": "Advanced Functional Materials, EarlyView.",
-      "abstract_zh": "该工作围绕 MXene/石墨烯/纤维素纳米纤维气凝胶的梯度结构设计展开，重点在于通过梯度还原调控面内和界面极化。题目表明其目标是获得以吸收为主导的电磁干扰屏蔽性能，而非单纯依赖反射屏蔽。由于提供信息仅为 EarlyView 元数据，具体制备过程、屏蔽效能和极化机制需查阅原文。",
-      "authors": [
-        "Sujit Kumar Deb, Hemanta Upadhya, Debasish Das, Urbismita Thakuria, Snehasish Das, Priyam Mukherjee, Amalika Patra, Pranab Bera, Pradip Kumar, Uday Narayan Maiti"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76351?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562984"
-    },
-    {
-      "id": "95c597b3b26b",
-      "title": "Dual‐Driven Interface Programming via Molecular Anchoring and Entropy Order for Efficient Dielectric‐Magnetic Synergy and Robust Microwave‐Absorption",
-      "title_zh": "通过分子锚定与熵有序实现双驱动界面编程：高效介电–磁协同与稳健微波吸收",
-      "abstract": "Advanced Functional Materials, EarlyView.",
-      "abstract_zh": "该工作围绕微波吸收材料中的界面调控展开，强调通过分子锚定和熵有序两种策略实现界面编程。研究目标是增强介电损耗与磁损耗之间的协同作用，从而提升材料的微波吸收效率与稳定性。具体材料设计、性能指标和机理细节需查阅原文。",
-      "authors": [
-        "Huwei Lv, Rui Sun, Gangjie Lian, Qingqing Li, Longfei Bi, Qiu Yan, Xiaojiang Zhou, Lei Chen, Wenbin You, Renchao Che"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76357?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562986"
-    },
-    {
-      "id": "8a58356dbaf5",
-      "title": "High‐Power‐Density Triboelectric Nanogenerator Driven by Ferroelectric Fluid",
-      "title_zh": "由铁电流体驱动的高功率密度摩擦电纳米发电机",
-      "abstract": "Advanced Functional Materials, EarlyView.",
-      "abstract_zh": "该研究关注利用铁电流体驱动摩擦电纳米发电机，以提高器件的输出功率密度。题目表明工作可能结合铁电极化特性与流体动力过程，探索新型能量收集机制。由于摘要信息有限，具体器件结构、输出性能和应用场景需参考原文。",
-      "authors": [
-        "Jia‐Yao Ye, Susanta Chakraborty, Yang Ding, Jia‐Hao Chen, Tao Lan, Karthick Subramani, Xing‐Zhou Tang, Yannan Xie, Bing‐Xiang Li"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Wiley",
-      "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.76348?af=R",
-      "source_url": "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
-      "arxiv_category": "",
-      "fetch_time": "2026-06-06T13:23:43.562987"
-    },
-    {
-      "id": "b91ff6db190e",
-      "title": "Ramp Josephson junctions of Al/Ti/Sr₂RuO₄: Observation of single-domain quantum oscillations and the detection of chiral surface current",
-      "title_zh": "Al/Ti/Sr₂RuO₄斜坡约瑟夫森结：单畴量子振荡的观测与手性表面电流的探测",
-      "abstract": "Author(s): Zixuan Li, Yiqun Alex Ying, Brian M. Zakrzewski, Yan Xin, Yu Wang, Zhiqiang Mao, and Ying Liu The determination of how the phase of the superconducting order parameter in a superconductor varies with the spatial direction, which can be done only through Josephson-effect-based phase-sensitive measurements, is crucial for the establishment of the precise pairing symmetry of the superconductor.… [Phys. Rev. B 113, 214510] Published Fri Jun 05, 2026",
-      "abstract_zh": "该研究利用基于约瑟夫森效应的相位敏感测量，探讨Sr₂RuO₄超导序参量相位随空间方向的变化。作者制备Al/Ti/Sr₂RuO₄斜坡约瑟夫森结，并报告了单畴量子振荡现象以及对手性表面电流的探测。该工作旨在为确定该材料的配对对称性和可能的手性超导性质提供实验依据。",
-      "authors": [
-        "Zixuan Li, Yiqun Alex Ying, Brian M. Zakrzewski, Yan Xin, Yu Wang, Zhiqiang Mao, and Ying Liu"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/p14l-nq8z",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.563006"
-    },
-    {
-      "id": "648d72c7c1e7",
-      "title": "Bipartite entanglement under frequency comb pumping in parametric Josephson circuits",
-      "title_zh": "参数约瑟夫森电路中频率梳泵浦下的二分纠缠",
-      "abstract": "Author(s): Mikael Vartiainen, Ilari Lilja, Ekaterina Mukhanova, Kirill Petrovnin, Gheorghe Sorin Paraoanu, and Pertti Hakonen The creation of high-quality cluster states in superconducting microwave circuits is a relevant ingredient in continuous-variable quantum computing. Although large-scale cluster states have been established in optical systems, dissipation prevents their direct applicability to the microwave realm. R… [Phys. Rev. B 113, 224304] Published Fri Jun 05, 2026",
-      "abstract_zh": "该文研究在超导微波参数约瑟夫森电路中，通过频率梳泵浦产生和表征二分纠缠。背景动机是连续变量量子计算需要高质量簇态，但微波体系中的耗散使得光学方案难以直接移植。该工作针对微波量子电路中的纠缠生成机制与簇态构建条件进行分析。",
-      "authors": [
-        "Mikael Vartiainen, Ilari Lilja, Ekaterina Mukhanova, Kirill Petrovnin, Gheorghe Sorin Paraoanu, and Pertti Hakonen"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/51mq-qrxd",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.563007"
-    },
-    {
-      "id": "1a594c8e7593",
-      "title": "Modeling ultrabroadband and wide-angle photonic spin Hall effect based on gradient epsilon-near-zero multilayer films",
-      "title_zh": "基于梯度近零介电常数多层膜的超宽带宽角光子自旋霍尔效应建模",
-      "abstract": "Author(s): Jun-Yang Sui and Hai-Feng Zhang The photonic spin Hall effect (PSHE), a typical manifestation of spin-orbit interactions of light, is characterized by a transverse shift δ of photons with opposite spins. Precise measurement of this shift advances spin-dependent technologies, including precision metrology and optical sensing. Previ… [Phys. Rev. B 113, 235305] Published Fri Jun 05, 2026",
-      "abstract_zh": "该研究建立基于梯度近零介电常数多层薄膜的模型，用于实现超宽带和宽入射角范围内的光子自旋霍尔效应。光子自旋霍尔效应体现为不同自旋光子产生横向位移，其精确调控和测量对精密计量与光学传感具有意义。作者重点探索梯度ENZ结构对自旋相关位移增强和角谱适用范围的影响。",
-      "authors": [
-        "Jun-Yang Sui and Hai-Feng Zhang"
-      ],
-      "pub_date": "2026-06-05",
-      "journal": "Phys. Rev. B",
-      "link": "http://link.aps.org/doi/10.1103/gjrr-gkqq",
-      "source_url": "http://feeds.aps.org/rss/recent/prb.xml",
-      "arxiv_category": "recent/prb.xml",
-      "fetch_time": "2026-06-06T13:23:43.563009"
     }
   ]
 }
