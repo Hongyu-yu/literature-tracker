@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Machine learning prediction of the convergence criterion for a topological invariant of finite non-Hermitian chains",
+    "title_zh": "有限非厄米链拓扑不变量收敛的机器学习预测",
+    "summary": "非厄米皮肤效应链的拓扑判定被转化为局域化长度控制的收敛问题。机器学习可预测裁剪长度，使有限体系拓扑不变量更接近可自动化计算。",
+    "abstract": "有限非厄米链的极分解拓扑不变量依赖裁剪长度，尤其在拓扑相变附近受有限尺寸效应影响。工作指出所需裁剪长度由物理衰减/局域化长度控制，并用机器学习预测收敛判据，减少经验选参。",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2607.05900",
+    "journal": "arXiv"
+  },
+  {
+    "title": "An interpretable convolutional neural network framework for fluid dynamics",
+    "title_zh": "流体动力学的可解释卷积神经网络框架",
+    "summary": "CNN 不只拟合层流数据，而被约束为可解释的流体算子。该思路把深度网络权重与流体动力学结构关联起来，利于诊断数据驱动求解器。",
+    "abstract": "针对数据驱动流体模型的黑箱性，作者用简单层流数据训练 CNN，使其表现为流体动力学算子。框架强调卷积结构与流动方程之间的对应关系，用于解释模型何时、为何能捕捉非线性流动行为。",
+    "category": "软物质·流体·统计",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae8072",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Data-Efficient Indentation Size Effect Correction in Steels Using Machine Learning and Physics-Constrained Neural Network",
+    "title_zh": "机器学习和物理约束网络修正钢中压痕尺寸效应",
+    "summary": "浅压痕数据无需进入深压入线性区即可校正钢的 ISE。物理约束网络把有限体积材料的硬度表征推向更低数据量和更浅压入深度。",
+    "abstract": "浅层纳米压痕中压痕尺寸效应会高估硬度，传统 Nix-Gao 修正需深压入线性区。作者在 3 种认证钢标准块、700 余次压痕、硬度 2–6.5 GPa 数据上，构建小数据机器学习与物理约束神经网络，从浅层数据恢复高载荷参考硬度。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2604.27775",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Accelerating phase prediction via CALPHAD-informed machine learning and data augmentation",
+    "title_zh": "CALPHAD 引导的机器学习加速相预测",
+    "summary": "CALPHAD 先验被用于扩充和约束相预测数据。该路线适合减少相图机器学习对大规模实验标注的依赖。",
+    "abstract": "题名与元数据表明，工作将 CALPHAD 热力学信息与机器学习、数据增强结合，用于加速材料相预测。摘要未给出具体合金体系、模型结构、误差指标或相图验证结果，核心信息集中在物理数据库先验辅助监督学习。",
+    "category": "其他",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626003538?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "PINNIES: An efficient physics-informed neural network framework for integral operator problems",
+    "title_zh": "求解积分算子问题的高效物理信息神经网络框架",
+    "summary": "PINNIES 将物理信息学习用于积分算子而非仅 PDE 残差。若能稳定处理非局域核算子，将服务于多体、输运和连续介质中的非局域问题。",
+    "abstract": "PINNIES 面向积分算子问题，采用物理信息神经网络框架求解。现有条目未列出具体积分方程、基准问题、收敛阶或加速倍率；可确认的重点是把 PINN 从微分方程残差扩展到积分算子约束。",
+    "category": "AI×物理",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0010465526002377?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Black Hole Black Boxes: Numerical Black Hole Metrics via AInstein Neural Networks",
+    "title_zh": "用 AInstein 神经网络求数值黑洞度规",
+    "summary": "AInstein 网络能在洛伦兹签名下重构 Schwarzschild 黑洞度规。拓扑嵌入式 PINN 展示了几何方程求解中显式流形先验的价值。",
+    "abstract": "AInstein 架构从黎曼 Einstein 方程扩展到洛伦兹度规，用无监督 PINN 求解数值黑洞时空。方法通过 S² 标准嵌入把拓扑写入网络，在 R²×R³ 环境流形上学习度规，并以最大延拓 Schwarzschild 几何验证。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.05489",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Reinforcement learning control of quantum error correction",
+    "title_zh": "强化学习控制量子纠错",
+    "summary": "强化学习直接参与量子纠错控制，而非只做后处理。在线自校准降低逻辑错误率并抵抗漂移，是容错量子硬件控制的重要示范。",
+    "abstract": "强化学习与量子纠错闭环集成，使量子计算机在计算过程中连续自校准。Nature 论文报告逻辑错误率达到纪录水平，并在硬件漂移下保持更强鲁棒性，重点是把控制策略从离线调参转为在线自适应。",
+    "category": "量子信息·计算",
+    "link": "https://www.nature.com/articles/s41586-026-10759-2",
+    "journal": "Nature"
+  },
+  {
+    "title": "Interpretable machine-learning model for predicting the magnetocaloric effect in Heusler alloys",
+    "title_zh": "预测 Heusler 合金磁热效应的可解释机器学习模型",
+    "summary": "Heusler 合金磁热筛选被转化为可解释机器学习问题。成分—磁性—热响应关系若可解析，可提升磁制冷候选材料筛选效率。",
+    "abstract": "工作面向 Heusler 合金磁热效应预测，采用可解释机器学习模型。条目未给出数据规模、特征集合、目标量如磁熵变或绝热温变、以及测试误差；可确认重点是用可解释性连接成分/结构描述符与磁热响应。",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.sciencedirect.com/science/article/pii/S092702562600306X?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Machine Learning Classification for Irradiated Material Gamma Ray Spectra",
+    "title_zh": "辐照材料伽马能谱的机器学习分类",
+    "summary": "同一分类任务横跨 NaI(Tl)、CZT、HPGe 三种能谱分辨率。该数据设置有助于评估机器学习在辐照材料快速识别中的仪器迁移能力。",
+    "abstract": "作者评估机器学习在自动伽马能谱分类中的表现，覆盖两级谱复杂度和三类探测器分辨率。样品包括单一同位素源及 UT Austin 研究堆辐照材料，采集设备为 NaI(Tl)、CZT 和 HPGe，并比较多种分类方法。",
+    "category": "AI×化学·材料",
+    "link": "https://www.researchsquare.com/article/rs-9771858/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "A Physics-Informed Neural Network Framework for Elastodynamic Wave Propagation in Bimaterial Systems",
+    "title_zh": "双材料弹性动力波传播的物理信息神经网络框架",
+    "summary": "钢–铝界面的瞬态弹性波由 PINN 直接求解。界面连续条件被纳入损失函数，适合处理传统网格在材料界面处的复杂匹配问题。",
+    "abstract": "PINN 用于模拟双材料体系中的瞬态弹性动力波传播，控制方程为轴对称线弹性方程。算例为代表分离式 Hopkinson 压杆的钢–铝试样，网络同时嵌入弹性动力学方程及相应初始、边界和界面条件。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.06479",
+    "journal": "arXiv"
+  },
+  {
+    "title": "DBNN: Neural Spike Classification Using a Deep Binarized Neural Network",
+    "title_zh": "用深度二值神经网络进行神经脉冲分类",
+    "summary": "DBNN 把神经脉冲分类压缩到 16 点输入和二值隐层。乘法器-free 推理适合植入式低功耗神经接口硬件。",
+    "abstract": "面向植入式脑机接口的片上 spike sorting，DBNN 使用两个 256 神经元二值隐藏层和定点输出层，输入为 16 点脉冲波形，结构为 16-256-256-3。推理以符号控制累加和位逻辑为主，避免乘法器以降低功耗和遥测负担。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.05590",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Neuromorphic control of a simulated shape-memory-alloy-driven multi-legged robot using a spiking neural network",
+    "title_zh": "脉冲网络控制形状记忆合金多足机器人",
+    "summary": "SNN 强化学习用于协调 SMA 多足软体机器人运动。脉冲控制器更贴近肌肉式非线性驱动，可减少软体机器人步态手工调参。",
+    "abstract": "作者提出 SNN 深度强化学习控制器，用于由形状记忆合金驱动的海星状多足软体机器人仿真。方法针对 SMA 强非线性收缩和多自由度协调难题，替代依赖手工设计周期信号的开环控制。",
+    "category": "AI×化学·材料",
+    "link": "https://www.researchsquare.com/article/rs-10010940/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Mass-Conserving Physics-Informed Neural Networks For The One-Dimensional Advection-Diffusion Equation",
+    "title_zh": "一维对流扩散方程的质量守恒物理信息神经网络",
+    "summary": "普通 PINN 在对流扩散长时演化中可能丢失全局质量。显式质量约束使神经 PDE 求解更接近守恒数值格式。",
+    "abstract": "周期一维对流扩散方程中，Crank-Nicolson 等经典格式可构造性守恒质量，而普通 PINN 只惩罚局部 PDE 残差，长时间积分不保证全局质量守恒。作者考察该缺陷，并引入质量守恒约束的 PINN 方案。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.06091",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Physics-Informed Machine Learning for Radiation-Free Water Liquid Ratio Estimation Using Coriolis Flow Measurements",
+    "title_zh": "基于科里奥利流量测量的无辐射含水率物理信息机器学习",
+    "summary": "科里奥利流量数据被用于无辐射估计油水气流含水率。物理信息约束使 WLR 预测与相密度关系相容，面向工业在线测量。",
+    "abstract": "三相油–水–气流中，纯液体密度通常依赖双伽马仪测量但存在成本、监管和辐射风险。作者用物理信息机器学习，仅基于科里奥利质量流量计读数和实验室相密度预测含水率 WLR，再估算纯液体密度，目标是替代辐射仪表。",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10254536/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Raman spectroscopy of the van der Waals altermagnet Co₁/₄NbSe₂",
+    "title_zh": "范德华交变磁体 Co₁/₄NbSe₂ 的拉曼光谱",
+    "summary": "Co₁/₄NbSe₂ 的拉曼谱主要来自 NbSe₂ 声子折叠与杂化。该结果给出范德华交变磁体中插层诱导晶格重构的对称性指纹。",
+    "abstract": "偏振分辨拉曼结合 DFT 研究 Co₁/₄NbSe₂ 中 Co 插层和交变磁序对晶格动力学的影响。实验识别 6 个拉曼活性声子；Co 插层通过 NbSe₂ 声子的区折叠重构振动谱，形成混合区心/区边界特征，而 Co 原子按对称性不参与拉曼活性模。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.05616",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Engineering nonlinear magnon scattering in artificial spin ice via vertex dipolar control",
+    "title_zh": "顶点偶极控制调控人工自旋冰非线性磁振子散射",
+    "summary": "kagome 人工自旋冰的非线性磁振子散射可由顶点偶极调控。该策略把非线性可编程性从简单几何缩放中解耦出来。",
+    "abstract": "人工自旋冰常用几何参数会同时改变岛尺寸、偶极间距和形状各向异性，难以独立调节非线性响应。作者对 kagome ASI 在强微波驱动下做微磁模拟，通过顶点偶极控制工程化非线性磁振子散射，目标是在不强烈扰动线性谱和晶格密度的情况下调节非线性。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.05797",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnon-Mediated Superconductivity in a 2D Itinerant Ferromagnet with Weak Easy-plane Magnetic Anisotropy",
+    "title_zh": "弱易面各向异性二维巡游铁磁体中的磁振子介导超导",
+    "summary": "二维完全极化巡游铁磁体中，横向磁振子成为主要低能胶水。该模型直接关联谷极化石墨烯多层的铁磁金属与超导配对。",
+    "abstract": "受自旋、谷极化石墨烯多层中四分之一金属态超导启发，作者研究单谷二维 Hubbard 型巡游电子铁磁相中的配对，不引入人为高能截断。二维 Stoner 转变为进入完全极化态的一阶转变，低能无能隙集体激发仅为横向磁振子，并据此分析磁振子介导配对。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.05754",
+    "journal": "arXiv"
+  },
+  {
+    "title": "CE-antiferromagnetic electronic structure in LaSr₂Mn₂O₇ revealed by micro-focused angle-resolved photoemission spectroscopy and tight-binding models",
+    "title_zh": "μ-ARPES 与紧束缚揭示 LaSr₂Mn₂O₇ 的 CE 反铁磁电子结构",
+    "summary": "LaSr₂Mn₂O₇ 的 CE-AFM 能带在 X 点附近被 μ-ARPES 捕捉。与 A-AFM 无带区对比，明确了相分辨电子结构指纹。",
+    "abstract": "在 Néel 温度以下，作者用微聚焦 ARPES 和紧束缚模型研究 LaSr₂Mn₂O₇ 的 CE 型反铁磁态。μ-ARPES 在 X 点附近观测到色散强度，与紧束缚计算一致；A 型反铁磁相在该处实验和理论均无能带，因而区分出 CE-AFM 能带特征。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.05949",
+    "journal": "arXiv"
+  },
+  {
+    "title": "High temperature ferromagnetism in epitaxial monolayers of Co-doped Fe5GeTe2",
+    "title_zh": "Co 掺杂 Fe5GeTe2 外延单层的高温铁磁性",
+    "summary": "Co 掺杂 Fe5GeTe2 单层显示铁磁有序证据，多层可在室温以上保持铁磁性。外延可控生长把二维范德华磁体推向高温自旋器件条件。",
+    "abstract": "作者用分子束外延合成 Co 掺杂 Fe5GeTe2，实现厚度和成分精确控制。多层样品表现出远高于室温的铁磁性，并给出单层中存在铁磁有序的清晰证据，突破多数二维范德华单层磁体长程磁序低于 150 K 的局限。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.05962",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Interfacial Noncollinear Filtering of Spin Hall Currents",
+    "title_zh": "自旋霍尔流的界面非共线过滤",
+    "summary": "自旋霍尔源的有效极化可由界面非共线过滤重塑。该观点把非常规自旋流设计从低对称体材料扩展到异质界面工程。",
+    "abstract": "传统观点把非磁材料中的自旋霍尔流视为由晶体对称性固定极化的体响应。作者指出器件相关量是穿过界面发射出的自旋流，而非完全对称平均的体自旋流；因此建立“发射自旋流”为体-界面混合量，并提出界面非共线过滤可产生非常规自旋极化。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.05912",
+    "journal": "arXiv"
+  }
+]

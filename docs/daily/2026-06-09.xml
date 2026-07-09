@@ -5,19 +5,8 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-06-09.html</link>
     <description>2026-06-09 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 08 Jul 2026 14:06:53 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 09 Jul 2026 03:26:22 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-06-09.xml" rel="self" type="application/rss+xml"/>
-    <item>
-        <title>四臂压电能量采集与优化 PZT-5A 布置，并结合深度强化学习实现能量感知自主无人机导航</title>
-        <link>https://www.researchsquare.com/article/rs-9829194/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Sayeed Omar, Ma Guoli
-
-该论文提出一个物理耦合框架，将 DJI F450 四旋翼平台上的单臂压电能量采集扩展到四臂 PZT-5A 部署，并评估 DQN、PPO 和 SAC 三种深度强化学习算法的能量感知导航性能。基于 Euler–Bernoulli 有限元分析，作者比较每个机臂六个贴片位置，发现位于 15% 展长处的臂根位置 P3 在四个机臂上均最优，四臂对称部署可产生 0.2400 mW 平均功率和每 10 分钟任务 144 mJ 的能量。若 SAC 导航策略更多分配飞行时间至最大油门爬升阶段，回收能量可增至每任务 153 mJ，同时 SAC 也在导航成功率和能耗之间表现最佳。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-9829194/latest</guid>
-    </item>
     <item>
         <title>Graph Neural Networks for Fast Operator Selection in Adaptive VQE</title>
         <link>https://arxiv.org/abs/2606.08794</link>
@@ -39,17 +28,6 @@ arXiv:2606.08794v1 Announce Type: cross Abstract: Adaptive variational quantum a
 arXiv:2512.05568v3 Announce Type: replace Abstract: Understanding the behavior of light interstitial elements in multicomponent alloys remains challenging due to the complexity of local chemical environments and the high computational cost of first-principles calculations. Here we demonstrate that three universal machine-learning interatomic potentials (uMLIPs) - MACE-MATPES-PBE-0, Orb-v3, and SevenNet-0 can efficiently map the energetics of C, N, O, and H interstitials in a Ti-23Nb-0.7Ta-2Zr (at.%) gum metal base alloy while being several orders of magnitude faster than density functional theory (DFT). All uMLIPs predict broad energy distributions (~1-3 eV) across the four interstitial elements, reflecting their strong sensitivity to local lattice chemistry. Despite alloy disorder, MACE-…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2512.05568</guid>
-    </item>
-    <item>
-        <title>面向带电点缺陷的多保真机器学习原子间势</title>
-        <link>https://arxiv.org/abs/2603.05238</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Xinwei Wang, Irea Mosquera-Lois, Aron Walsh
-
-该研究指出，现有基础机器学习原子间势虽能高精度描述体相材料的能量、力和应力，但在处理配位环境与电子数偏离完美晶体的缺陷体系时仍存在不足。作者以半导体 Sb2Se3 为例，发现当前模型难以正确刻画其缺陷物理，并提出全局缺陷电荷嵌入以区分不同电荷态的成键特征。进一步地，研究采用多保真策略，将低成本半局域泛函数据与高质量非局域杂化泛函能量和力结合，所得缺陷适用力场能够以显著较低成本预测稳定结构和缺陷热力学，并与直接量子力学计算定量一致。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2603.05238</guid>
     </item>
     <item>
         <title>Information Entropy Based Crystal Structure Prediction of Chemically Disordered Alloys via Graph Convolutional Neural Networks</title>
@@ -127,17 +105,6 @@ npj Computational Materials, Published online: 09 June 2026; doi:10.1038/s41524-
 arXiv:2509.11485v3 Announce Type: replace Abstract: Labyrinthine stripe patterns are common in many physical systems, yet their lack of long-range order makes quantitative characterization challenging. We investigate the evolution of such patterns in bismuth-doped yttrium iron garnet (Bi:YIG) films subjected to a magnetic field annealing protocol. A U-Net deep learning model, trained with synthetic degradations including additive white Gaussian and Simplex noise, enables robust segmentation of experimental magneto-optical images despite noise and occlusions. Building on this segmentation, we develop a geometric analysis pipeline based on skeletonization, graph mapping, and spline fitting, which quantifies local stripe propagation through length and curvature measurements. Applying this fr…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2509.11485</guid>
-    </item>
-    <item>
-        <title>描述等离子体鞘层的深度学习方法</title>
-        <link>https://arxiv.org/abs/2604.22566</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Ethan Webb, Yuzhi Li, Christopher McDevitt
-
-该研究采用物理信息神经网络（PINN）来评估等离子体鞘层的一系列模型，以应对该区域物理过程复杂、通用描述困难的问题。与传统深度学习不同，PINN 利用控制偏微分方程约束网络预测，因此无需实验或模拟数据进行训练。作者用 PINN 求解不同物理保真度流体模型的参数化解；尽管离线训练可能较慢，但训练完成后可在广泛参数范围内高效预测鞘层剖面，形成有效代理模型。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2604.22566</guid>
     </item>
     <item>
         <title>Automating the Expert Eye: A System-Agnostic Deep Learning Framework for Rare Event Discovery in Imbalanced Force Spectroscopy</title>
@@ -349,26 +316,92 @@ arXiv:2606.07740v1 Announce Type: new Abstract: Magnetic Skyrmions are planar so
         <guid isPermaLink="true">https://arxiv.org/abs/2606.07740</guid>
     </item>
     <item>
-        <title>通过 n 维球面上的随机块模型嵌入对图神经网络进行拓扑表征</title>
-        <link>https://arxiv.org/abs/2606.07598</link>
+        <title>Collective dynamics in a one-dimensional Heisenberg ferromagnetic spin chain</title>
+        <link>https://arxiv.org/abs/2606.08149</link>
         <description><![CDATA[📚 arXiv
 
-👤 Gopal Anantharaman
+👤 R. Arun, M. Lakshmanan, Avadh Saxena
 
-该研究提出一种用于比较已训练图神经网络的拓扑框架，将消息传递神经网络在 graphon-信号空间上诱导的随机块模型映射到单位 n 维球面。该构造基于 cut-distance graphon 空间的紧性、Frieze–Kannan 弱正则性引理及其 graphon-信号扩展，以及 MPNN 关于 cut-distance 的 Lipschitz 连续性。作者表明，对任意给定误差容忍度，足够大图上的训练后 MPNN 可近似分解为有限复杂度的阶梯 graphon-信号，并由此形成可视化和近邻检索友好的低维模型“指纹”，用于模型库中的迁移学习候选检索。]]></description>
+arXiv:2606.08149v1 Announce Type: cross Abstract: We investigate the different oscillatory modes, namely, complete synchronization, inphase synchronization, antiphase synchronization and desynchronization in a one-dimensional anisotropic Heisenberg ferromagnetic spin chain consisting of a large number of spins. By solving the associated Landau-Lifshitz-Gilbert-Slonczewski equation for the spins we show the simultaneous existence of the above mentioned oscillatory modes in the spins. We observe that when the number of the spins is large the synchronization is lost between the spins; however, we identify that the field-like torque is able to induce synchronous oscillations of the spins in the chain again. We also confirm the agreement of the numerically obtained values of the frequency of t…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.07598</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.08149</guid>
     </item>
     <item>
-        <title>EssentialGIN：一种基于图同构神经网络的基因必需性预测新方法</title>
-        <link>https://arxiv.org/abs/2606.07700</link>
+        <title>Stability and thermodynamic properties of bound magnetic polarons in ferromagnetic semiconductors: Beyond the Gaussian approximation</title>
+        <link>https://arxiv.org/abs/2606.07671</link>
         <description><![CDATA[📚 arXiv
 
-👤 Sahar Mansouri-Rad, Zahra Narimani, Parvin Razzaghi, Nazanin Hosseinkhan
+👤 Henryk Bednarski
 
-该研究面向必需基因或蛋白预测问题，旨在减少湿实验筛选的高成本和高耗时，并克服单纯基于中心性指标方法误报率较高的局限。作者采用图同构网络在蛋白质相互作用网络中嵌入蛋白节点，以保留网络拓扑特征，同时整合基因表达、同源性和亚细胞定位等生物信息。实验结果表明，所提出的深度架构优于基于中心性的基线方法以及 Node2Vec、MLP 等机器学习方法。]]></description>
+arXiv:2606.07671v1 Announce Type: new Abstract: The formation of bound magnetic polarons (BMPs) is traditionally described using a Gaussian approximation for host magnetization fluctuations. While successful for diluted magnetic semiconductors, this approach fails for ferromagnetic semiconductors like GdN near their Curie temperature Tc, where diverging susceptibility yields unphysical instabilities. We extend the BMP theory beyond the Gaussian approximation by rigorously incorporating cubic and quartic fluctuations of the Ginzburg-Landau-Wilson functional. Two consistent extensions of the Dietl-Spalek framework are presented: (i) a non-local treatment valid for finite spin correlation lengths xi (to first order in lambda) and (ii) a non-perturbative resummation of dominant local fluctuat…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.07700</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.07671</guid>
+    </item>
+    <item>
+        <title>Proximity-induced orbital antiferromagnetism in Ising superconductors</title>
+        <link>https://arxiv.org/abs/2606.09797</link>
+        <description><![CDATA[📚 arXiv
+
+👤 G. A. Bobkov, V. A. Bobkov, T. Karabassov, I. V. Bobkova, A. A. Golubov
+
+arXiv:2606.09797v1 Announce Type: new Abstract: We predict a fundamentally new superconducting state in superconductor/antiferromagnet heterostructures with Ising spin--orbit coupling: proximity-induced orbital antiferromagnetism. In this state, the order parameter acquires a periodic phase modulation locked to the magnetic lattice, generating atomic-scale loop currents with opposite orbital moments on neighboring unit cells. Its emergence requires at least three nonequivalent magnetic sublattices per unit cell and finite spin--orbit coupling. Using NbSe₂/MnPS₃ as a concrete example, we combine first-principles and Bogoliubov--de Gennes calculations to demonstrate that the proximity-induced exchange field leads to robust phase modulation. Unlike FFLO and helical states, the phase gradient…]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.09797</guid>
+    </item>
+    <item>
+        <title>Uniaxial-Stress-Induced Magnetic Transitions in the Triangular-Lattice Antiferromagnet PdCrO2</title>
+        <link>https://arxiv.org/abs/2606.09628</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Nina Stilkerich, Tobias Ritschel, Hilary M. L. Noad, Richard Waite, Dmitry Khalyavin, Kousuke Ishida, Pascal Manuel, Fabio Orlandi, Seunghyun Khim, Elena Gati, Andrew P. Mackenzie, Jochen Geck, Clifford W. Hicks
+
+arXiv:2606.09628v1 Announce Type: new Abstract: Uniaxial stress is a promising method to tune magnetic frustration, allowing its effects to be studied in a precise way. In this work, uniaxial stress is applied to the triangular-lattice antiferromagnet PdCrO2. The Cr-Cr magnetic interaction is very sensitive to interatomic separation, so laboratory-achievable stress can induce substantial changes in magnetic structure. Results from three types of measurement are presented: X-ray diffraction, the stress-strain relationship, and neutron diffraction. The combined data show that the elastic moduli of PdCrO2 are strongly affected by stress-induced changes in magnetic structure. A new, first-order stress-induced magnetic transition is observed, at which the lattice constant shrinks by 0.21%. The…]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.09628</guid>
+    </item>
+    <item>
+        <title>Correlated PT-Symmetric Antiferromagnetic Topological Insulators with Giant Nonlinear Anomalous Thermoelectrics</title>
+        <link>https://arxiv.org/abs/2606.08235</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Heng-Yu Di, Zhen-Gang Zhu, Gang Su
+
+arXiv:2606.08235v1 Announce Type: new Abstract: Topological states in antiferromagnets (AFMs) offer a promising platform for exploring novel physical phenomena and advancing the applications of AFM spintronics. The AFM topological insulator (TI) state stands out as one of the most representative and prominent cases. Unlike the previously proposed AFM-TI states in noninteracting systems, here we employ an extended Kane-Mele-Hubbard model to demonstrate that electron correlations can give rise to a PT-symmetric AFM-TI state. This state breaks both spatial inversion symmetry P and time-reversal symmetry T, and enables intrinsic topological nonlinear responses to dominate the leading-order dynamics of the system. The competition between electron correlations and spin-orbit coupling drives the…]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.08235</guid>
+    </item>
+    <item>
+        <title>Simultaneous nanoscale imaging of local conductivity and chemical potential in a quantum Hall isospin ferromagnet</title>
+        <link>https://arxiv.org/abs/2606.08237</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jiawei Hu, Shiyu Zhu, Bohao Li, Yunhao Wang, Shuigang Xu, Zhihai Cheng, Chengmin Shen, Andre K. Geim, Fengcheng Wu, Hong-Jun Gao
+
+arXiv:2606.08237v1 Announce Type: new Abstract: Quantum Hall isospin ferromagnetism in multilayer graphene offers a versatile playground for exploring flat band correlated physics, driven by the intricate coupling of spin, valley, orbital, and layer degrees of freedom. However, a nanoscale probe capable of simultaneously mapping local conductivity and chemical potential in these exotic phases has yet to be realized. Here, we introduce scanning conductivity and chemical potential microscopy (SCCM), a technique integrating scanning microwave impedance microscopy and Kelvin probe force microscopy. We demonstrate SCCM by probing the quantum Hall states and many-body Landau level energy spectrum in bilayer graphene. Applied to marginally twisted double bilayer graphene, SCCM then reveals a cas…]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.08237</guid>
+    </item>
+    <item>
+        <title>Thermal Processing Limits in Oxide-Channel Ferroelectric Field Effect Transistors</title>
+        <link>https://arxiv.org/abs/2606.08378</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Lance Fernandes, Yu-Hsin Kuo, Chengyang Zhang, Priyankka Ravikumar, Ranie Jeyakumar, Dyutimoy Chakraborty, Jiayi Chen, Taeyoung Song, Kai Ni, Woohyun Hwang, Kwangyou Seo, Suhwan Lim, Wanki Kim, Daewon Ha, Julia Medvedeva, Suman Datta, Shimeng Yu, Asif Khan
+
+arXiv:2606.08378v1 Announce Type: new Abstract: In this work, we report a systematic study of the impact of high-temperature post-capping thermal annealing on the memory characteristics of Oxide-semiconductor channel ferroelectric field-effect transistors (OS-FeFETs). Using an identical engineered ferroelectric gate stack 8nm Hf0.5Zr0.5O2 (HZO) / 3 nm Al2O3 / 8 nm HZO (8/3/8) and a hybrid capping layer (3 nm HfO2 + 3 nm Al2O3), 10 percent Ga doped InO (IGO) channel and 4 percent W doped InO (IWO) channel FeFETs remain functional after annealing at temperatures up to 650 C for durations of up to 30 min and 10 min, respectively; further annealing results in irreversible loss of conduction and device failure. Detailed electrical analysis reveals that the MW enhancement originates from a pref…]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.08378</guid>
+    </item>
+    <item>
+        <title>Colossal Photovoltaic Current in Ferroelectric Oxide by Constructing Defect Band</title>
+        <link>https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76000?af=R</link>
+        <description><![CDATA[📚 Wiley: Advanced Science: Table of Contents
+
+👤 Yiran Sun, Zhenbang Dai, Xingzhong Cao, Peng Zhang, Chen Lin, Zihang Huang, Ruian Zhang, Yi Fu, Xuanyu Jiang, He Tian, Jingjing Xue, Kaifeng Wu, Junhui Wang, Tianqi Deng, Andrew M. Rappe, Gaorong Han, Zhaohui Ren
+
+Advanced Science, EarlyView.]]></description>
+        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76000?af=R</guid>
     </item>
     <item>
         <title>General Learning of the Electric Response of Inorganic Materials</title>
@@ -481,17 +514,6 @@ Author(s): Filippo Bigi, Johannes Spies, and Michele Ceriotti Machine learning c
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/shj2-hyw8</guid>
     </item>
     <item>
-        <title>基于深度强化学习的能量感知自主无人机导航：采用电池约束奖励的 DQN、PPO 与 SAC 比较</title>
-        <link>https://www.researchsquare.com/article/rs-9892501/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Sayeed Omar, Ma Guoli
-
-该论文针对商用四旋翼无人机受电池续航限制的问题，提出一种兼顾任务成功率与能耗的多目标奖励函数，其中包含逐步能量惩罚和按剩余电量缩放的目标奖励。作者以纯 NumPy 实现 DQN、PPO 和 SAC，并在多个随机种子和训练步数下进行比较。实验显示，SAC 在成功率与电池消耗之间取得帕累托最优表现，优于 PPO、DQN 以及具有完整障碍物知识的 A*+PID 基线。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-9892501/latest</guid>
-    </item>
-    <item>
         <title>Precipitate phase selection and grain boundary morphology in Cu-Ni-Si-Mn alloys: A machine-learning interatomic potential study</title>
         <link>https://arxiv.org/abs/2606.09023</link>
         <description><![CDATA[📚 arXiv
@@ -523,17 +545,6 @@ arXiv:2606.08287v1 Announce Type: cross Abstract: Finite element analysis (FEA) 
 arXiv:2606.07724v1 Announce Type: new Abstract: High-fidelity computational fluid dynamics (CFD) is crucial to vehicle aerodynamic analysis, but its cost still constrains early-stage design exploration. Machine-learning-based surface-field prediction offers a faster alternative if the model can efficiently capture both global flow context and local geometric detail. This work proposes a machine-learning-based method, named the geometry-aware triplane field network (GTF-Net), for vehicle aerodynamic pressure and wall shear stress prediction. GTF-Net constructs triplane features directly from sampled surface points through a shared multilayer perceptron (MLP) and smooth bilinear rasterization. The planes are then processed by a dual-stream backbone that combines adaptive Fourier neural oper…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.07724</guid>
-    </item>
-    <item>
-        <title>面向机器学习新手的公共机器学习求解器框架</title>
-        <link>https://arxiv.org/abs/2606.08212</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Lokman Saleh, Hafedh Mili, Mounir Boukadoum
-
-该论文面向非专家用户提出一种半自动化机器学习问题求解平台，结合专家算法选择指南与基于准则的决策支持系统。不同于仅推荐单一算法的工具，该平台根据用户问题与数据特征推荐完整机器学习流水线，并自动识别类别不平衡、缺失值等数据属性。系统利用一阶逻辑在知识库上推理，对候选算法进行相关性排序，并通过专家众包机制持续更新。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.08212</guid>
     </item>
     <item>
         <title>Hybrid Deep Learning Enhanced Angstrom Framework for Global Horizontal Irradiance Prediction</title>
@@ -589,17 +600,6 @@ arXiv:2606.08326v1 Announce Type: new Abstract: The recent development of small-
 arXiv:2606.09704v1 Announce Type: new Abstract: Cation-disordered AgBiS2 is a promising lead-free optoelectronic material, but both its ordered structure and the microscopic origin of its favorable electronic properties remain debated. Theory has proposed a mixed-coordination tendency with tetrahedral AgS4 and octahedral BiS6 units, whereas experiments mainly report octahedrally coordinated ordered and cation-disordered phases, together with local cation off-centering. Here, we combine a machine-learning interatomic potential with a deep-learning Hamiltonian to resolve the coupled structural and electronic evolution of AgBiS2 at large length scales. We identify the three-dimensional Bi-S network as the central structural motif governing both disorder stability and band-edge electronic sta…]]></description>
         <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.09704</guid>
-    </item>
-    <item>
-        <title>使用 TNRKit.jl 的张量网络重整化实践导论</title>
-        <link>https://arxiv.org/abs/2604.06922</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Victor Vanthilt, Adwait Naravane, Chenqi Meng, Atsushi Ueda
-
-该论文介绍 TNRKit，这是一个用于二维和三维经典统计模型及欧几里得格点场论张量网络重整化的开源 Julia 软件包。该软件基于 TensorKit 构建，支持具有对称性的配分函数张量网络表示，并提供 TRG、HOTRG 和 LoopTNR 等粗粒化方法。除热力学量外，TNRKit 还可从固定点张量中提取标度维数、中心荷等普适共形数据；文章同时作为张量网络重整化框架的自洽入门教程。]]></description>
-        <pubDate>Tue, 09 Jun 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2604.06922</guid>
     </item>
     <item>
         <title>Intermetallic charge redistribution restructures the oxygen-bound intermediate network for efficient ethylene electrosynthesis</title>
