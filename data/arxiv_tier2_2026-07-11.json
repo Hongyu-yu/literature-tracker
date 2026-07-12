@@ -1,27 +1,27 @@
 [
   {
     "title": "Determination of equivalent circuits for electrochemical impedance spectra using convolutional neural networks",
-    "title_zh": "用卷积神经网络判定电化学阻抗等效电路",
-    "summary": "卷积网络被用于从电化学阻抗谱直接选择等效电路，减少人工拟合中的拓扑猜测。若能在多类电极和界面体系泛化，可成为电化学材料表征的自动化入口。",
-    "abstract": "面向电化学阻抗谱的等效电路识别，使用卷积神经网络从阻抗谱特征中自动判定电路拓扑。目标是替代依赖人工经验的等效电路选择流程，使电池、腐蚀、界面反应等体系的阻抗解释更可复现；摘要未给出数据集规模、准确率或候选电路数量。",
+    "title_zh": "用卷积神经网络确定电化学阻抗等效电路",
+    "summary": "CNN 被用于从电化学阻抗谱直接判别等效电路。该方法把谱图模式识别引入 EIS 建模，可降低电池、腐蚀和界面反应分析中的人工拟合负担。",
+    "abstract": "面向电化学阻抗谱解析，采用卷积神经网络从频域响应中识别等效电路拓扑。摘要未给出数据集规模、准确率或电化学体系细节；核心结论是 CNN 可自动化完成传统上依赖人工经验的电路判定。",
     "category": "其他",
     "link": "https://www.nature.com/articles/s41524-026-02225-4",
     "journal": "npj Computational Materials"
   },
   {
     "title": "PARA-PV: Physics-Aware Retrieval-Augmented PV Prediction Based on Frozen Foundation Model and Distribution Shift Correction",
-    "title_zh": "物理感知检索增强光伏预测",
-    "summary": "PARA-PV 把检索增强、冻结基础模型和物理约束放入同一光伏预测流程。其核心价值在于针对昼夜转换和天气驱动漂移校正基础模型输出，贴近真实电网场景。",
-    "abstract": "PARA-PV 将多变量光伏观测编码为分块表征，结合物理感知检索、冻结基础模型与分布漂移校正进行功率预测。框架显式处理天气波动、昼夜切换、不同运行机制和物理约束，面向电网调度中的短期光伏出力预报；摘要未列出误差指标。",
+    "title_zh": "PARA-PV：物理感知检索增强光伏预测",
+    "summary": "PARA-PV 将检索增强、冻结基础模型和物理约束合并用于光伏预测。其重点是校正天气与昼夜导致的分布漂移，适合可再生能源并网调度场景。",
+    "abstract": "PARA-PV 面向光伏功率预测，将多变量光伏观测编码为片级表示，结合物理感知检索、冻结基础模型和分布漂移校正。框架显式处理天气变化、昼夜转换、工况依赖动力学与物理约束；摘要未给出误差数值。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.08079",
     "journal": "arXiv"
   },
   {
     "title": "Chip-integrated metasurface-enabled single-photon skyrmion sources",
-    "title_zh": "片上超表面单光子斯格明子源",
-    "summary": "超表面集成量子发射体在室温下产生单光子斯格明子，且不依赖磁场。该结果把拓扑光场纹理推进到片上单光子尺度，为集成量子信息中的结构化光子态提供硬件方案。",
-    "abstract": "在集成超表面与量子发射体平台中，实现室温、片上单光子斯格明子产生，无需外加磁场。该结构针对量子发射体纳米尺度限域带来的片上生成难题，通过超表面调控单光子场的拓扑纹理，面向集成量子光子学中的结构化单光子态。",
+    "title_zh": "芯片集成超表面单光子斯格明子源",
+    "summary": "超表面与量子发射体集成后，在室温、无磁场条件下产生片上单光子斯格明子。该平台把拓扑光场纹理推进到单光子量子器件层面。",
+    "abstract": "在超表面集成量子发射体平台中，实现室温片上单光子斯格明子产生。方案利用纳米尺度光场调控克服量子发射体受限问题，且不需要外加磁场；体系面向可集成量子光源与拓扑光场编码。",
     "category": "磁性·自旋电子学",
     "link": "https://www.nature.com/articles/s41467-026-75516-5",
     "journal": "Nature Communications"
@@ -29,26 +29,35 @@
   {
     "title": "Accelerating Two-Dimensional Computational Fluid Dynamics via Hybrid Spectral-Geometric Neural Architectures",
     "title_zh": "混合谱几何神经结构加速二维流体计算",
-    "summary": "该方法把局域卷积、全局谱表示和边界几何编码合并用于二维流体模拟。对材料加工、软物质流动和多尺度输运问题，关键在于是否能稳健处理不规则边界。",
-    "abstract": "针对复杂不规则边界周围二维流体的高成本投影求解，提出混合神经架构：卷积网络提取局域特征，谱域模块提高全局波动分辨效率，并结合几何信息处理边界。目标是面向大规模或实时流体模拟；摘要未给出网格规模、速度提升或误差。",
+    "summary": "该模型把卷积网络的局域几何感知与谱表示的全局传播效率结合。对复杂边界二维 CFD，可作为实时流体仿真的神经算子候选。",
+    "abstract": "面向复杂不规则边界二维流体，提出结合卷积局域特征提取与谱方法全局波分辨能力的混合神经结构。目标是替代高成本投影求解器，实现大规模流场快速模拟；摘要未给出加速比、误差或基准算例完整结果。",
     "category": "软物质·流体·统计",
     "link": "https://www.researchsquare.com/article/rs-10172708/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Fermi surface topology of the topological nodal-loop semimetal HfP 2",
+    "title_zh": "拓扑节线半金属 HfP2 的费米面拓扑",
+    "summary": "HfP2 的费米面拓扑被作为节线半金属电子结构的关键检验对象。该结果有助于连接拓扑能带、载流子口袋与输运响应。",
+    "abstract": "针对拓扑节线半金属 HfP2，研究其费米面拓扑及与节线电子结构的关系。摘要未列出实验手段、量子振荡频率或能带参数；核心信息是 HfP2 的费米面被用于检验拓扑节线半金属图像。",
+    "category": "拓扑·电子结构",
+    "link": "https://www.nature.com/articles/s41535-026-00926-z",
+    "journal": "npj Quantum Materials"
+  },
+  {
     "title": "Multi-agent Autoformalization of Tensor Network Theory",
     "title_zh": "张量网络理论的多智能体自动形式化",
-    "summary": "多智能体大模型被用于形式化矩阵乘积态基本定理，并能寻找非标准证明路径。该工作把张量网络的核心定理推向可验证数学库，有助于量子多体算法的可靠复用。",
-    "abstract": "构建由专门化大语言模型智能体组成的团队，在结构化数学蓝图和周期性人工审查下，自动形式化矩阵乘积态基本定理。智能体完成研究级证明编排与执行，部分命题探索了不同于标准文献的证明路线，展示张量网络理论向机器可检验证明迁移的流程。",
+    "summary": "多智能体大模型完成矩阵乘积态基本定理的研究级形式化。其亮点是能在张量网络证明中生成非标准证明路径，推动可验证理论物理与 AI 协作。",
+    "abstract": "构建由专门化大语言模型智能体组成的团队，以结构化数学蓝图和周期性人工审查协调，自动形式化矩阵乘积态基本定理。部分命题中，智能体探索了标准文献之外的证明路线，展示理论物理形式化的端到端流程。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.07857",
     "journal": "arXiv"
   },
   {
     "title": "A Reproducible Workflow for Extracting Quantum Hamiltonians from Surface-Adsorbate Models",
-    "title_zh": "从表面吸附模型提取量子哈密顿量流程",
-    "summary": "该流程把表面催化 DFT slab 自动转成费米子和量子比特哈密顿量。它解决了真实吸附位点到量子算法输入之间的工程断层，适合量子化学基准和催化反应能量面测试。",
-    "abstract": "提出开源可复现流程，将 DFT 优化的表面 slab 转换为量子算法所需哈密顿量：围绕活性位截取氢封端团簇，自动选择前线活性空间，构造费米子哈密顿量并映射为量子比特算符。目标是连接表面催化 DFT 模型与变分量子本征求解等算法输入。",
+    "title_zh": "从表面吸附模型提取量子哈密顿量的流程",
+    "summary": "该流程把表面 DFT 模型转换为可直接用于量子算法的哈密顿量。自动活性空间选择与团簇截取降低了催化量子计算建模门槛。",
+    "abstract": "提出开源可复现实流程：从 DFT 优化的表面 slab 出发，截取活性位附近氢封端团簇，自动选择前线活性空间，并生成费米子与量子比特哈密顿量。对象是表面催化模型到 VQE 等量子算法输入的转换。",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-9495573/latest",
     "journal": "Preprints"
