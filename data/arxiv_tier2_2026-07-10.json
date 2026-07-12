@@ -2,17 +2,17 @@
   {
     "title": "Interpretable machine learning of magnetic transition temperature in Heusler magnets via hierarchical dependence extraction",
     "title_zh": "Heusler 磁体转变温度的可解释学习",
-    "summary": "层级依赖提取把 Heusler 磁体 Tc 的化学和晶格依赖拆解为可解释项。实验 Tc 与从头算-蒙特卡洛 Tc 的并行分析，有助于识别高温 Heusler 磁体设计中的关键变量。",
-    "abstract": "针对 200 余种同属 F-43m 结构、化学式和晶格常数不同的铁磁/亚铁磁 Heusler 化合物，采用层级依赖提取分析实验 Tc 与由从头算交换作用、经典蒙特卡洛得到的 Tc。HDE 用于分解元素、组分和晶格参数对磁转变温度的层级贡献，比较实验与计算数据中的材料依赖规律。",
+    "summary": "层级依赖提取把 Heusler 磁体 Tc 的化学与结构控制因素显式分解，而非只给出预测值。对高通量磁体筛选而言，该方法有助于把机器学习结果转化为可检验的交换相互作用规律。",
+    "abstract": "针对 200 余种 F-43m 结构 Heusler 铁磁/亚铁磁化合物，比较实验 Tc 与由从头算磁相互作用加经典蒙特卡罗得到的 Tc。层级依赖提取用于分解化学组成、晶格常数等变量对转变温度的贡献，识别不同层级材料描述符与 Tc 的非线性依赖。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2510.18469",
     "journal": "arXiv"
   },
   {
     "title": "Empowering neural network-based quantum Monte Carlo with local pseudopotentials",
-    "title_zh": "局域赝势增强神经网络量子蒙特卡洛",
-    "summary": "局域赝势显著提升神经网络量子蒙特卡洛效率，同时保持铁硫簇能量精度。该策略把高精度随机波函数方法推向更大的强相关生物无机与催化材料体系。",
-    "abstract": "神经网络量子蒙特卡洛中引入局域赝势，在保持精度的同时降低电子结构采样成本。方法用于大型、难处理的铁硫簇，展示了在过渡金属多中心体系上进行可靠大规模模拟的可行性，缓解全电子或非局域处理带来的计算瓶颈。",
+    "title_zh": "局域赝势增强神经量子蒙特卡罗",
+    "summary": "局域赝势解决了神经网络量子蒙特卡罗处理铁硫簇时的效率瓶颈，并尽量保持高精度。它把神经量子蒙特卡罗推向更接近真实生物无机与催化活性中心的尺寸。",
+    "abstract": "在神经网络波函数量子蒙特卡罗中引入局域赝势，降低电子结构采样与优化成本，同时保持能量精度。方法用于大型、难处理的铁硫簇，显示局域赝势可显著提升神经量子蒙特卡罗在过渡金属多中心体系中的可扩展性与可靠性。",
     "category": "AI×物理",
     "link": "https://www.nature.com/articles/s43588-026-01008-7",
     "journal": "Nature Computational Science"
@@ -20,17 +20,17 @@
   {
     "title": "Machine learning evaluation of structural descriptors for supercooled water",
     "title_zh": "过冷水结构描述符的机器学习评估",
-    "summary": "机器学习把过冷水的四面体序、密度和壳层分离描述符放到统一评估框架中。结果聚焦哪些局域结构变量最能刻画高/低密度水态，有助于液-液相变判据标准化。",
-    "abstract": "围绕过冷水高密度/低密度液态转变假说，比较表征局域分子环境的结构描述符，包括四面体序、局域密度、第一与第二配位壳层分离等。机器学习用于系统评估这些相互独立提出的描述符与水异常行为、氢键网络微观结构之间的关联，筛选更能区分局域态的变量。",
+    "summary": "该工作用机器学习横向比较过冷水常用结构描述符，避免各指标孤立解释液液转变。结果有助于为水的局域结构分类选择更稳健的物理特征。",
+    "abstract": "围绕过冷水高密度/低密度液态转变假设，系统评估四面体序、局域密度、第一与第二配位壳层分离等局域结构描述符。机器学习用于比较这些描述符对分子环境与异常行为的表征能力，澄清氢键网络特征与液态水微观状态分类之间的关系。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2605.00415",
     "journal": "arXiv"
   },
   {
     "title": "Automated peak detection in grazing-incidence diffraction using transformers",
-    "title_zh": "变压器自动检测掠入射衍射峰",
-    "summary": "变压器模型用于 GIWAXS 图像中弱 Bragg 峰和环背景峰的自动识别。它直接面向薄膜高通量衍射数据瓶颈，可减少结构解析中的人工交互。",
-    "abstract": "面向薄膜和表面 GIWAXS 大批量数据，构建基于变压器的 Bragg 峰自动检测方法。目标是替代依赖人工输入的慢速分析，并处理弱峰、叠加在 Debye-Scherrer 环上的峰等困难情形。该框架针对原子/分子尺度结构表征中的峰定位自动化，提高高通量散射实验的数据处理效率。",
+    "title_zh": "用变换器自动检测掠入射衍射峰",
+    "summary": "变换器被用于 GIWAXS 二维图像中的弱布拉格峰识别，直接针对德拜环背景和人工分析慢的问题。该流程能提高有机/薄膜材料高通量结构表征的自动化程度。",
+    "abstract": "面向 GIWAXS 薄膜/表面散射数据，构建基于变换器的布拉格峰自动检测方法。目标场景包含弱峰、叠加在德拜–谢乐环上的峰及高通量数据量带来的人工标注瓶颈，可加速从二维散射图中提取晶体取向和结构信息。",
     "category": "其他",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7ec8",
     "journal": "Machine Learning: Science and Technology"
@@ -38,62 +38,71 @@
   {
     "title": "Grokking and epoch-wise double descent in quantum neural networks",
     "title_zh": "量子神经网络中的顿悟与双降",
-    "summary": "双量子比特 SU(4) 量子神经网络出现顿悟和轮次双降。线路深度诱导的过参数化改善泛化概率，为理解变分量子学习的训练相变提供了小系统证据。",
-    "abstract": "在完整参数化 SU(4) 流形的双量子比特量子神经网络中，经验观察到从记忆到泛化的延迟顿悟转变，以及随训练轮次出现的双降现象。增加线路深度带来的过参数化提高成功泛化概率，显示变分量子机器学习中也存在与经典梯度学习相似的训练动力学。",
+    "summary": "双量子比特 QNN 已能呈现经典深度学习中的顿悟和轮次双降。结果提示量子线路过参数化不仅改变可表达性，也会重塑泛化动力学。",
+    "abstract": "在完全参数化 SU(4) 流形的双量子比特量子神经网络中，经验观察到从记忆到泛化的延迟“顿悟”转变及按训练轮次出现的双降现象。增加线路深度带来的过参数化提高成功泛化概率，揭示变分量子学习中优化动力学与泛化之间的非平凡关系。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.08350",
     "journal": "arXiv"
   },
   {
+    "title": "Quantum physics-informed neural network with residual-based adaptive refinement for solving partial differential equations",
+    "title_zh": "带残差自适应加密的量子物理神经网",
+    "summary": "QPINN 与残差驱动采样结合，把经典 PINN 的自适应加密思想移植到量子神经网络求解 PDE。该策略针对误差集中区域补点，可提升量子科学计算的训练效率。",
+    "abstract": "提出结合残差自适应加密的量子物理信息神经网络，用于偏微分方程求解。训练过程中根据方程残差动态增补采样点，使量子神经网络把计算资源集中到误差较大的区域，从而改善收敛性和解的精度。",
+    "category": "AI×物理",
+    "link": "http://link.aps.org/doi/10.1103/lb19-wv6f",
+    "journal": "Phys. Rev. Research"
+  },
+  {
     "title": "Global reanalysis from observations alone with machine learning",
-    "title_zh": "仅由观测驱动的全球再分析",
-    "summary": "仅由观测训练的机器学习模型可重建多年全球大气格点场。若能稳定扩展，它将改变天气气候 AI 训练数据对传统物理再分析的依赖。",
-    "abstract": "原型机器学习系统仅用地球系统观测训练，尝试生成无需物理数值模式的多年全球再分析格点场。所得场能捕捉大尺度大气结构及多时间尺度变率，面向天气和气候研究中依赖再分析数据训练的机器学习预报系统，检验观测到格点再构建的可行路径。",
+    "title_zh": "仅由观测生成全球再分析",
+    "summary": "该原型绕开传统数值模式，仅用观测生成全球再分析格点场。若扩展成功，将改变机器学习天气模型对物理再分析资料的依赖方式。",
+    "abstract": "构建仅用地球系统观测训练的机器学习原型，用于生成多年代全球格点再分析场，不依赖物理数值天气模式。所得场能捕捉大尺度大气结构及多时间尺度变率，显示观测驱动再分析可能成为气象气候机器学习训练数据的新来源。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.07879",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Machine Learning Under Small-Data Constraints: Lessons from Abrasive Waterjet Milling",
-    "title_zh": "小数据物理信息学习用于磨料水射流铣削",
-    "summary": "Inconel 718 水射流铣削的 n=155 小样本案例显示，数据清洗和筛选假设可改变模型结论。该工作把物理信息学习的重点从模型结构扩展到可复现评估设计。",
-    "abstract": "以 Inconel 718 磨料水射流铣削小样本数据集 n=155 为例，区分物理数据清洗与统计筛选，并把后者视作竞争建模假设而非默认预处理。比较不同物理嵌入形式、数据整理和评估设计对模型排序的影响，强调在小样本、材料特异、实验昂贵的加工过程中，数据治理与算法同等关键。",
+    "title_zh": "小数据物理机器学习：磨料水射流铣削",
+    "summary": "在仅 155 个 Inconel 718 加工样本上，数据整理策略可显著影响物理机器学习结论。该案例提醒小数据材料制造预测中，预处理本身必须作为可检验假设。",
+    "abstract": "以 Inconel 718 磨料水射流铣削数据集为例，样本数 n=155，分析小数据、材料特异和实验昂贵条件下的物理机器学习。区分物理数据清洗与统计筛选，并把后者作为竞争建模假设处理；比较模型排序对数据整理和物理嵌入形式的敏感性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.07863",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Machine Learning for Predicting Buckling Performance and Damage Evolution in Graphene Reinforced Basalt/Epoxy Composites",
-    "title_zh": "石墨烯增强玄武岩/环氧复合材料屈曲预测",
-    "summary": "双相 rGO 功能化用于增强玄武岩/环氧复合材料界面，并由物理信息学习预测屈曲与损伤。该路线把纳米改性、实验表征和结构性能建模耦合起来。",
-    "abstract": "针对玄武岩纤维/环氧复合材料界面弱、损伤早发和压缩稳定性不足，引入双相还原氧化石墨烯功能化：电泳沉积将 rGO 涂覆于玄武岩纤维，同时在基体中引入 rGO。结合实验与计算，采用物理信息机器学习预测屈曲性能和损伤演化，评估界面增强对轻量结构承载的影响。",
+    "title_zh": "石墨烯增强玄武岩复合材料的物理学习",
+    "summary": "双相 rGO 功能化被用于增强玄武岩/环氧复合材料界面和屈曲抗力。物理约束模型把材料改性、屈曲响应与损伤演化连接到同一预测框架。",
+    "abstract": "针对玄武岩/环氧复合材料的界面弱化、早期损伤和压缩稳定性不足，结合实验与计算研究双相 rGO 功能化。rGO 通过电泳沉积涂覆玄武岩纤维，并引入树脂相；物理信息机器学习用于预测屈曲性能和损伤演化。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10113791/latest",
     "journal": "Preprints"
   },
   {
     "title": "A Mesoscale Damage Mechanics Framework for Predicting Damage Initiation in Cross-Ply Composite Laminates under Low-Velocity Impact Using Artificial Neural Networks",
-    "title_zh": "神经网络预测交叉铺层低速冲击损伤",
-    "summary": "介观损伤力学与神经网络结合，用于交叉铺层复合材料低速冲击损伤起始预测。模型针对 BVID 的多机制耦合问题，有利于结构健康评估。",
-    "abstract": "面向航空、汽车和海洋结构中交叉铺层复合材料的低速冲击，建立介观损伤力学与人工神经网络框架预测损伤起始。关注工具跌落、鸟撞等引起的 barely visible impact damage，包括基体裂纹、纤维-基体脱粘、纤维屈曲和层间分层等难以常规检测的复杂机制。",
+    "title_zh": "神经网络预测交叉铺层冲击损伤",
+    "summary": "介观损伤力学与神经网络结合，用于交叉铺层层合板低速冲击损伤起始预测。重点落在 BVID 中难以直接检测的分层和界面损伤。",
+    "abstract": "面向交叉铺层复合层合板低速冲击下的 barely visible impact damage，建立介观损伤力学与人工神经网络框架。考虑基体开裂、纤维–基体脱粘、纤维屈曲和层间分层等复杂机制，用于预测损伤起始并辅助航空、汽车和海洋结构安全评估。",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-10300396/latest",
     "journal": "Preprints"
   },
   {
     "title": "Residual strength of corroded reinforced concrete beams: Experimental, analytical, numerical and machine learning approach",
-    "title_zh": "锈蚀钢筋混凝土梁剩余强度预测",
-    "summary": "M30/M50 混凝土梁在最高 16% 锈蚀下的弯曲实验与机器学习预测被统一比较。数据直接服务于锈蚀 RC 构件剩余承载力评估。",
-    "abstract": "对 M30 与 M50 钢筋混凝土梁开展锈蚀后四点弯曲实验，试件尺寸 100×150×1220 mm，锈蚀水平最高 16%，每种强度等级含对照梁。结合实验、解析、数值和机器学习方法量化剩余抗弯承载力；结果显示锈蚀显著降低抗弯强度，用于比较多类预测途径的可靠性。",
+    "title_zh": "腐蚀钢筋混凝土梁的剩余强度",
+    "summary": "腐蚀水平最高 16% 的 RC 梁实验为剩余抗弯强度机器学习建模提供基准。多方法对照有助于评估结构材料劣化预测的可信度。",
+    "abstract": "对 M30 和 M50 钢筋混凝土梁进行腐蚀后四点弯曲试验，并结合解析、数值和机器学习方法评估剩余抗弯承载力。试件尺寸为 100 × 150 × 1220 mm，腐蚀水平最高 16%；实验显示腐蚀会显著降低梁的抗弯强度。",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-10300025/latest",
     "journal": "Preprints"
   },
   {
     "title": "Supervised Machine Learning for Predicting Power Conversion Efficiency in Perovskite Solar Cells: A Systematic Review and Quantitative Meta-Analysis",
-    "title_zh": "钙钛矿太阳能电池效率机器学习综述",
-    "summary": "监督机器学习用于 PSC 的 PCE 预测被系统综述和荟萃分析。焦点从单一模型精度转向组成、结构、工艺变量的跨研究量化比较。",
-    "abstract": "系统综述并定量荟萃分析监督机器学习预测钙钛矿太阳能电池功率转换效率的研究。关注材料组成、器件结构和制备参数之间的复杂耦合，以及这些变量对 PCE 优化的影响；比较不同监督模型在 PSC 性能预测中的应用范围、数据特征和量化表现。",
+    "title_zh": "钙钛矿太阳电池效率预测综述",
+    "summary": "该综述把 PSC 效率预测中的监督学习结果进行系统化和定量汇总。它强调组成、结构和工艺参数耦合是 PCE 机器学习建模的核心难点。",
+    "abstract": "系统综述并定量荟萃分析监督机器学习在钙钛矿太阳电池 PCE 预测中的应用。关注材料组成、器件结构和制备参数之间的复杂耦合，比较不同监督模型对效率预测和工艺优化的表现，为 PSC 数据驱动设计梳理证据基础。",
     "category": "AI×化学·材料",
     "link": "https://www.researchsquare.com/article/rs-9502299/latest",
     "journal": "Preprints"
@@ -101,8 +110,8 @@
   {
     "title": "Physics-informed neural networks for shock capturing in inviscid flows around an airfoil",
     "title_zh": "PINN 捕捉翼型无黏流激波",
-    "summary": "PINN 在翼型稳态 Euler 激波问题中的失败被归因于损失约束过弱。对激波捕捉机制的剖析有助于把物理信息学习用于含间断守恒律。",
-    "abstract": "针对稳态无黏翼型绕流中 PINN 难以捕捉激波的问题，指出以稳态 Euler 方程构造损失时约束偏弱，导致激波区域训练失败。工作分析失效原因并改进物理约束，用于处理含间断的流体力学正/反问题，目标是在无黏可压缩流中提升激波定位和强度预测能力。",
+    "summary": "文章把 PINN 激波失败归因于定常欧拉损失约束不足，而非单纯网络容量问题。该诊断对含间断 PDE 的物理信息学习具有方法论价值。",
+    "abstract": "分析 PINN 求解翼型周围定常无黏流时难以捕捉激波的原因，指出用定常欧拉方程构造损失会形成偏弱约束。围绕激波捕捉重新设计物理信息学习策略，以改善 PINN 在含间断流场中的收敛和解的物理一致性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.08130",
     "journal": "arXiv"
@@ -110,53 +119,53 @@
   {
     "title": "Deep Neural Networks as Discrete Dynamical Systems: Implications for Physics-Informed Learning",
     "title_zh": "深度网络作为离散动力系统",
-    "summary": "前馈深度网络被解释为离散动力系统，并与 Burgers、Eikonal 方程的 PINN 求解对照。该视角澄清 PINN 与传统离散化的差异，有助于诊断物理学习误差来源。",
-    "abstract": "从神经积分方程及对应 PDE 形式出发，重新考察前馈深度网络与离散动力系统的类比。比较 Burgers 方程和 Eikonal 方程的数值/解析解与 PINN 解，指出 PINN 学习与标准数值离散在逼近同一底层动力学时采用不同计算路径，用于理解物理信息学习的表达与误差特征。",
+    "summary": "深度网络被解释为离散动力系统，并与 Burgers、Eikonal 方程的 PINN 求解相连。该视角有助于理解物理信息学习为何不等同于传统网格离散。",
+    "abstract": "从神经积分方程及对应 PDE 形式出发，重新审视前馈深度网络与离散动力系统的类比。通过 Burgers 方程和 Eikonal 方程的数值/解析解与 PINN 解对比，说明 PINN 学习与标准数值离散是逼近同一动力学的不同计算路径。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2601.00473",
     "journal": "arXiv"
   },
   {
     "title": "Deep Learning for Joint Narrowband Interference Cancellation and Soft Demodulation in OFDM Systems",
-    "title_zh": "OFDM 窄带干扰消除与软解调深度学习",
-    "summary": "深度网络联合处理 OFDM 窄带干扰消除和软解调，替代压缩感知加高斯解映射的割裂流程。核心收益是降低非高斯残余导致的 LLR 失真和错误平台。",
-    "abstract": "窄带干扰会破坏 OFDM 子载波，使传统软解调失效；压缩感知消除存在顺序延迟高、残余呈结构化非高斯分布等问题，导致 LLR 不可靠、译码器饱和和错误平台。统一深度学习框架联合进行 NBI 消除与软解调，缓解干扰抑制和高斯解映射之间的流水线不匹配。",
+    "title_zh": "OFDM 窄带干扰消除与软解调",
+    "summary": "统一深度网络把 OFDM 窄带干扰抑制和 LLR 软解调合并优化。该设计直接处理压缩感知残差非高斯带来的译码饱和问题。",
+    "abstract": "针对 OFDM 系统中窄带干扰破坏子载波、压缩感知消除延迟高且残差非高斯导致 LLR 不可靠的问题，提出统一深度学习框架联合执行干扰消除和软解调。目标是降低误码地板，缓解经典高斯解映射器与结构化残差之间的流水线失配。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.08717",
     "journal": "arXiv"
   },
   {
     "title": "A Physics-Informed Hypoplasticity–Machine Learning Framework for Offshore Foundation Design: Comparative Insights from the German North Sea and the Peruvian Pacific Coast",
-    "title_zh": "海工基础的低塑性物理机器学习",
-    "summary": "低塑性本构与机器学习被耦合用于海工基础设计，并比较北海与秘鲁海岸土体场景。该框架强调物理约束下的可迁移土体响应预测。",
-    "abstract": "面向海上基础设计中海洋土的强非线性、速率相关和循环响应，构建低塑性本构与机器学习耦合的物理约束流程。比较德国北海与秘鲁太平洋海岸场景，讨论从成熟海上风电市场向新兴海域转移时，如何在保持计算可承受的同时捕捉土体循环与非线性行为。",
+    "title_zh": "海上基础设计的亚塑性机器学习",
+    "summary": "亚塑性本构与机器学习结合，用于海上基础中循环海洋土响应的快速预测。跨德国北海和秘鲁海岸比较突出物理约束模型的可迁移性问题。",
+    "abstract": "提出面向海上基础设计的亚塑性–机器学习耦合框架，用于描述海洋土强非线性、速率相关和循环响应，同时保持迭代设计中的计算可承受性。比较德国北海与秘鲁太平洋海岸场景，讨论物理约束管线在不同海域岩土条件间的迁移。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10300349/latest",
     "journal": "Preprints"
   },
   {
     "title": "Complex polar superstructure controlled thermal conductivity in ferroelectric PbTiO3/SrTiO3 superlattices",
-    "title_zh": "PTO/STO 极性超结构调控热导率",
-    "summary": "PTO/STO 超晶格中三维极性涡旋超晶体显著抑制热导率。极性拓扑结构成为调控氧化物薄膜声子输运的新自由度。",
-    "abstract": "在铁电 PbTiO3 与顺电 SrTiO3 外延超晶格中，通过应变、退极化场及界面/表面能调控极性拓扑相。结果显示，极性涡旋在三维超晶体中的排列会抑制 PTO/STO 超晶格热导率 k，并分析其温度依赖。该体系把 skyrmion、涡旋、meron、正弦波等极性结构与声子热输运联系起来。",
-    "category": "磁性·自旋电子学",
+    "title_zh": "PTO/STO 极性超结构调控热导",
+    "summary": "PTO/STO 超晶格中三维极性涡旋超晶体可压低热导率。该结果把铁电拓扑极化纹理与声子散射直接联系起来，为氧化物热管理提供材料设计线索。",
+    "abstract": "在外延 PbTiO3/SrTiO3 周期超晶格中，通过应变、退极化场及界面/表面能稳定涡旋、斯格明子、meron、正弦波和极性超晶体等拓扑极化结构。三维极性涡旋超晶体显著抑制超晶格热导率 k，温度依赖表明复杂极化纹理可作为声子热输运调控自由度。",
+    "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2607.08683",
     "journal": "arXiv"
   },
   {
     "title": "Emergent Topology in Kagome Ferromagnets",
     "title_zh": "Kagome 铁磁体中的涌现拓扑",
-    "summary": "Kagome 铁磁体中 DMI 与标量自旋手性共同诱导拓扑磁振子能带。Berry 曲率和量子化 Chern 数把手性自旋纹理与磁振子拓扑输运相连。",
-    "abstract": "研究含 Dzyaloshinskii-Moriya 相互作用和标量自旋手性的二维 Kagome 铁磁体。在线性自旋波与动量空间表述下，引入与标量三重积 χijk=Si·(Sj×Sk) 成正比的手性相互作用，分析其与拓扑轨道耦合 κTO 的协同作用如何在磁振子能带中产生几何相位、非平庸 Berry 曲率和量子化 Chern 数。",
+    "summary": "DMI 与标量自旋手性共同驱动 kagome 铁磁体中的拓扑磁振子能带。Berry 曲率和 Chern 数的产生机制为拓扑自旋波器件提供模型基础。",
+    "abstract": "研究含 Dzyaloshinskii–Moriya 相互作用和标量自旋手性的二维 kagome 铁磁体。在线性自旋波和动量空间表述下，引入与标量三重积相关的手性相互作用，分析 DMI 与拓扑轨道耦合共同产生的几何相位、非平庸 Berry 曲率和量子化 Chern 数。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2510.15536",
     "journal": "arXiv"
   },
   {
     "title": "Anisotropic vacancy-induced magnetization textures in altermagnets",
-    "title_zh": "交替磁体空位诱导各向异性磁纹理",
-    "summary": "交替磁体中的空位会产生反映磁态对称性的各向异性磁化纹理。该缺陷响应为扫描探针识别交替磁序提供了具体可观测量。",
-    "abstract": "结合微观模拟和低能场论，研究交替磁体中空位诱导的磁纹理。单个空位通常会在实空间产生各向异性磁序畸变，其形状编码底层交替磁态的对称性。结果表明，局域分辨探针可通过杂质响应直接探测交替磁序；在经典交替磁体中，横向磁场下空位生成各向异性磁化纹理。",
+    "title_zh": "交错磁体中空位诱导各向异性磁纹理",
+    "summary": "空位在交错磁体中诱导的各向异性磁化纹理可直接反映交错磁序对称性。该缺陷响应为扫描探针识别交错磁体提供具体实空间指纹。",
+    "abstract": "结合微观模拟与低能场论，研究空位在交错磁体中诱导的磁纹理。单个空位通常会造成实空间各向异性磁序畸变，其形状编码底层交错磁态的对称性；在经典交错磁体中，横向磁场下空位可产生各向异性磁化纹理，为局域探针探测交错磁序提供可观测信号。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.07789",
     "journal": "arXiv"
@@ -164,19 +173,10 @@
   {
     "title": "Moiré magnetism in a bilayer Ising model",
     "title_zh": "双层 Ising 模型中的莫尔磁性",
-    "summary": "莫尔调制层间交换使双层 Ising 磁体形成低温畴纹理，但临界行为仍为二维 Ising 普适类。该最小模型分离了莫尔纹理与相变普适性的作用。",
-    "abstract": "建立含莫尔调制层间交换的经典双层 Ising 模型，调制可由相对扭转或差异应变产生。大规模经典蒙特卡洛显示，即使低温态形成畴纹理，排序相变仍属于常规二维 Ising 普适类。低温下空间非均匀层间耦合驱动磁畴结构，用于刻画磁性双层中的莫尔纹理效应。",
+    "summary": "最小双层 Ising 模型显示莫尔调制可产生低温磁畴纹理，但不改变二维 Ising 普适类。该结果为扭转或应变磁性双层中的相变分类提供基准。",
+    "abstract": "研究具有莫尔调制层间交换的经典双层 Ising 模型，调制由相对扭转或差异应变产生。大规模经典蒙特卡罗显示，即使低温态形成畴纹理，序参量相变仍属于常规二维 Ising 普适类；低温下非均匀磁畴由莫尔交换空间调制稳定。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2601.18955",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Observation of giant nonvolatile magneto-thermal switching in superconductor-ferromagnet hybrids",
-    "title_zh": "超导-铁磁异质结构巨非易失磁热开关",
-    "summary": "超导-铁磁异质结构实现巨大的零场非易失磁热开关。磁通钉扎与铁磁耦合放大热导记忆，为无持续磁场热管理提供材料机制。",
-    "abstract": "磁热开关通过外磁场控制热传输；以往 II 型和相分离超导体因磁通钉扎可在零场保持非易失热导态，但非易失开关比低于易失响应。超导-铁磁混合体系中观测到巨大的零场非易失磁热开关，利用磁通钉扎与铁磁组分耦合增强热导记忆效应，面向低能耗热控制器件。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.08005",
     "journal": "arXiv"
   }
 ]

@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-07-11 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-07-11.xml" rel="alternate" title="2026-07-11 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-07-11.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-07-11</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-10.html">← 前一天 · 2026-07-10</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/07/11</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科 | arXiv | 预印本追踪</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span><span class="daily-tag">arXiv</span><span class="daily-tag">预印本追踪</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">12</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">19</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">4</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">5</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 19 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 19 篇主线相关文献中精选 12 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-07-10.html">前一天 · 2026-07-10</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-11.html">最新一期 · 2026-07-11</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-11.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">4 篇</span>
+</div>
+<p class="daily-core-note">今日进展主要落在“表征反演自动化”和“物理约束神经代理模型”，而非 NbOI2、CrI3、CrSBr、BaTiO3 等铁电/磁性材料的 DFT+U、equivariant GNN、MACE 或 NEP 势能面构建。阻抗谱 CNN 把等效电路识别从人工拟合转为谱图分类，适合迁移到铁电陶瓷、离子导体和多相界面阻抗解析。PARA-PV 与谱—几何 CFD 分别强化物理感知检索、分布漂移校正和全局谱算子，对凝聚态实验时序预测、相场/流固耦合代理模型有直接借鉴。单光子斯格明子源展示了片上拓扑光场调控，可作为磁斯格明子、拓扑光子晶体与量子发射体耦合数据建模的实验对象。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41524-026-02225-4">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">用卷积网络判定阻抗谱等效电路</div>
+<div class="daily-core-title-en">Determination of equivalent circuits for electrochemical impedance spectra using convolutional neural networks</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 npj Computational Materials</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向电化学阻抗谱，采用卷积神经网络从频率响应中判定等效电路类型，目标是把依赖人工经验的谱图解释转化为自动分类流程。摘要未给出数据集规模、准确率或候选电路数量。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>卷积网络被用于直接识别电化学阻抗谱对应的等效电路拓扑。该方法针对电池、腐蚀和电催化中常见的 EIS 反演瓶颈，有助于构建可批量处理的材料表征工作流。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>用 CNN 直接从阻抗频率响应分类等效电路类型。</p><p><strong>🔗 相关工作关联：</strong>呼应 EIS 自动拟合、DRT 反演、物理约束谱图分类和界面动力学表征。</p><p><strong>💡 对你方向的启示：</strong>可迁移到铁电畴壁、固态电解质、磁电界面阻抗的自动判读。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41524-026-02225-4" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://arxiv.org/abs/2607.08079">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">PARA-PV：物理感知检索增强光伏预测</div>
+<div class="daily-core-title-en">PARA-PV: Physics-Aware Retrieval-Augmented PV Prediction Based on Frozen Foundation Model and Distribution Shift Correction</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 arXiv</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>PARA-PV 将多变量光伏观测编码为片段表征，结合物理感知检索、冻结基础模型和分布漂移校正，处理天气波动、昼夜转换、工况依赖动力学与物理约束。摘要未给出预测误差数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>PARA-PV 把物理约束、检索增强和冻结基础模型合并到光伏功率预测中。其关键价值在于显式处理昼夜切换与分布漂移，面向可再生能源调度中的时序科学建模。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>物理感知检索增强冻结基础模型，并校正分布漂移。</p><p><strong>🔗 相关工作关联：</strong>呼应时间序列基础模型、RAG、物理约束预测和非平稳工况建模。</p><p><strong>💡 对你方向的启示：</strong>适合处理凝聚态实验中温度、光照、应变驱动的漂移时序。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.08079" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75516-5">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">芯片集成超表面单光子斯格明子源</div>
+<div class="daily-core-title-en">Chip-integrated metasurface-enabled single-photon skyrmion sources</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在芯片上将超表面与量子发射体集成，实现室温、无外磁场的单光子斯格明子产生。该平台针对量子发射体纳米限域导致的片上生成难题，利用超表面调控单光子场的拓扑纹理。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>超表面集成量子发射体在室温下产生单光子斯格明子，且无需磁场。该结果把拓扑光场、单光子源和片上集成连接起来，适合量子光子学中的结构化单光子态制备。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>芯片超表面调控量子发射体，实现单光子斯格明子纹理。</p><p><strong>🔗 相关工作关联：</strong>呼应拓扑光子学、量子发射体、光学斯格明子和纳米光场工程。</p><p><strong>💡 对你方向的启示：</strong>为 ML 表征拓扑光场、发射体位置无序和片上量子态提供数据场景。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75516-5" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10172708/latest">
+<div class="daily-core-number">04</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">谱—几何神经结构加速二维流体计算</div>
+<div class="daily-core-title-en">Accelerating Two-Dimensional Computational Fluid Dynamics via Hybrid Spectral-Geometric Neural Architectures</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Preprints</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对复杂不规则边界二维流体模拟，提出混合神经结构：卷积网络提取局域几何特征，谱模块高效解析全局波动。目标是在大规模流场中替代高成本投影求解器，服务实时计算；摘要未给出加速比。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该二维 CFD 网络把局域卷积与全局谱表示结合，用于复杂边界附近的多尺度流动。它体现了物理仿真代理模型从纯卷积向几何—频域混合架构的转向。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>卷积提取局域几何，谱模块建模全局波动以替代求解器。</p><p><strong>🔗 相关工作关联：</strong>呼应 Fourier Neural Operator、几何深度学习、神经 PDE 和投影法加速。</p><p><strong>💡 对你方向的启示：</strong>可借鉴到相场、畴演化、磁流体和复杂边界输运代理模型。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10172708/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日 12 篇覆盖 AI for science、量子/光子凝聚态、计算材料与神经符号学习。代表性工作包括二维自旋 1 模型中的无能隙分形子量子自旋液体、芯片集成单光子斯格明子源、Er3+ 掺杂量子点的 1.55 µm 电致发光，以及用多智能体大模型形式化矩阵乘积态基本定理。</p>
+<p><strong>热点：</strong>机器学习继续深入物理建模流程：卷积网络解析电化学阻抗等效电路，检索增强基础模型预测光伏功率，谱—几何网络加速二维流体模拟。量子材料与光子器件集中在可观测新激发和可集成光源，分形子规范场、单光子斯格明子、稀土掺杂量子点是核心对象。量子计算前处理与形式化数学也在平台化，多智能体自动证明和从表面吸附模型抽取哈密顿量分别面向理论可靠性与量子算法输入。神经符号推理、隐私化假肢控制和 sEMG 图网络显示 AI 方法正向约束推理与人机接口扩展。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">12 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://arxiv.org/abs/2607.07857" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07857" rel="noopener noreferrer" target="_blank">张量网络理论的多智能体自动形式化</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07857" rel="noopener noreferrer" target="_blank">Multi-agent Autoformalization of Tensor Network Theory</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 arXiv / cs.AI</span><span class="daily-chip daily-chip-authors">👤 Sirui Lu, Erickson Tjoa, J. Ignacio Cirac</span><span class="daily-chip daily-chip-score">🔥 AI 1</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>构建由专门大语言模型智能体组成的团队，在结构化数学蓝图和周期性人工审阅下，自动形式化矩阵乘积态基本定理。部分命题中，智能体探索到标准文献之外的证明路线。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>多智能体大模型完成研究级张量网络定理形式化，并覆盖矩阵乘积态基本定理。该流程把 AI 辅助证明推进到凝聚态理论核心工具的可验证表达层面。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.07857" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://arxiv.org/abs/2607.07857" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41524-026-02225-4" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02225-4" rel="noopener noreferrer" target="_blank">用卷积网络判定阻抗谱等效电路</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02225-4" rel="noopener noreferrer" target="_blank">Determination of equivalent circuits for electrochemical impedance spectra using convolutional neural networks</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 npj Computational Materials</span><span class="daily-chip daily-chip-authors">👤 Long Duong Ha, Sangkyu Park, Donghyun Lee, Hyeonsu Je, Kwok-Fan Chow, Doran L. Pennington 等10位作者</span><span class="daily-chip daily-chip-score">🔥 AI 3</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向电化学阻抗谱，采用卷积神经网络从频率响应中判定等效电路类型，目标是把依赖人工经验的谱图解释转化为自动分类流程。摘要未给出数据集规模、准确率或候选电路数量。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>卷积网络被用于直接识别电化学阻抗谱对应的等效电路拓扑。该方法针对电池、腐蚀和电催化中常见的 EIS 反演瓶颈，有助于构建可批量处理的材料表征工作流。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41524-026-02225-4" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41524-026-02225-4" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://arxiv.org/abs/2607.08079" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://arxiv.org/abs/2607.08079" rel="noopener noreferrer" target="_blank">PARA-PV：物理感知检索增强光伏预测</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://arxiv.org/abs/2607.08079" rel="noopener noreferrer" target="_blank">PARA-PV: Physics-Aware Retrieval-Augmented PV Prediction Based on Frozen Foundation Model and Distribution Shift Correction</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 arXiv / cs.AI</span><span class="daily-chip daily-chip-authors">👤 Hang Fan, Weican Liu, Ying Lu, Dunnan Liu, Long Cheng, Wei Wei</span><span class="daily-chip daily-chip-score">🔥 AI 90</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>PARA-PV 将多变量光伏观测编码为片段表征，结合物理感知检索、冻结基础模型和分布漂移校正，处理天气波动、昼夜转换、工况依赖动力学与物理约束。摘要未给出预测误差数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>PARA-PV 把物理约束、检索增强和冻结基础模型合并到光伏功率预测中。其关键价值在于显式处理昼夜切换与分布漂移，面向可再生能源调度中的时序科学建模。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.08079" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://arxiv.org/abs/2607.08079" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75429-3" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75429-3" rel="noopener noreferrer" target="_blank">Er3+掺杂量子点有序组装实现1.55µm发光</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75429-3" rel="noopener noreferrer" target="_blank">Mesoscale ordered assembly of Er 3+ -doped quantum dots enables efficient 1.55 µm electroluminescence</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 Hua-Hui Li, Jia-Lin Pan, Ying-Ying Pan, Feng Zhao, Hao-Bo Ren, Wan-Shan Shen 等8位作者</span><span class="daily-chip daily-chip-score">🔥 AI 2</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在 CsPbCl3 钙钛矿量子点中引入 Er3+ 掺杂，并利用氢键介导的介观有序组装，实现 1.55 µm 电致发光。该策略绕开钙钛矿量子点带隙限制，面向通信波段和红外光子学光源。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Er3+ 掺杂 CsPbCl3 量子点经氢键有序组装后实现 1.55 µm 电致发光。该材料路线把稀土能级发射与钙钛矿量子点电注入结合，指向片上通信波段光源。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75429-3" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-75429-3" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-74797-0" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-74797-0" rel="noopener noreferrer" target="_blank">二维自旋1模型中的无能隙分形子自旋液体</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-74797-0" rel="noopener noreferrer" target="_blank">Gapless fracton quantum spin liquid and emergent photons in a 2D spin-1 model</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 Nils Niggemann, Meghadeepa Adhikary, Yannik Schaden-Thillmann, Johannes Reuther</span><span class="daily-chip daily-chip-score">🔥 AI 2</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在二维方格自旋 1 模型中，通过格林函数蒙特卡洛发现秩 2 U(1) 分形子量子自旋液体迹象，包括受抑制的 pinch point 与涌现类光子激发。结果为高阶规范理论描述的无能隙分形子相提供微观自旋模型候选。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>二维自旋 1 方格模型显示秩 2 U(1) 分形子量子自旋液体特征，并出现类光子激发。该结果把长期停留在有效规范理论中的无能隙分形子物理落到具体量子磁体模型。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-74797-0" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-74797-0" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75516-5" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75516-5" rel="noopener noreferrer" target="_blank">芯片集成超表面单光子斯格明子源</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75516-5" rel="noopener noreferrer" target="_blank">Chip-integrated metasurface-enabled single-photon skyrmion sources</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 Xujing Liu, Yinhui Kan, Shailesh Kumar, Liudmilla F. Kulikova, Valery A. Davydov, Viatcheslav N. Agafonov 等7位作者</span><span class="daily-chip daily-chip-score">🔥 AI 2</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在芯片上将超表面与量子发射体集成，实现室温、无外磁场的单光子斯格明子产生。该平台针对量子发射体纳米限域导致的片上生成难题，利用超表面调控单光子场的拓扑纹理。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>超表面集成量子发射体在室温下产生单光子斯格明子，且无需磁场。该结果把拓扑光场、单光子源和片上集成连接起来，适合量子光子学中的结构化单光子态制备。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75516-5" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-75516-5" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9751212/latest" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9751212/latest" rel="noopener noreferrer" target="_blank">量子点元胞自动机纳米技术演化</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9751212/latest" rel="noopener noreferrer" target="_blank">Evolution of Nanotechnology Using Quantum Dot Cellular Automata</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Priyanka Wani, Sankit Kassa</span><span class="daily-chip daily-chip-score">🔥 AI 1</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>围绕量子点元胞自动机替代 CMOS 缩放瓶颈，设计并分析组合与时序纳米电路，重点包括优化 D 锁存器和基于 SRAM 的存储结构。使用 QCA Designer 2.0.3 实现基本逻辑门、多路复用器和存储单元。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>量子点元胞自动机被用于构建单层 D 锁存器、SRAM 型存储和基础逻辑。该方向关注低面积、低功耗纳米电路，是超越 CMOS 的器件级计算材料方案之一。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9751212/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9751212/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9495573/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9495573/latest" rel="noopener noreferrer" target="_blank">从表面吸附模型提取量子哈密顿量</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9495573/latest" rel="noopener noreferrer" target="_blank">A Reproducible Workflow for Extracting Quantum Hamiltonians from Surface-Adsorbate Models</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Manisha Malhotra, Fabio Rinaldi, Neil Ramarapu</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>给出开源可复现流程：从 DFT 优化的表面 slab 出发，截取活性位点周围氢封端簇，自动选择前线活性空间，并构造费米子与量子比特哈密顿量。目标是连接表面催化 DFT 与 VQE 等量子算法输入。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作把表面吸附 DFT 模型转换为可供量子算法使用的显式哈密顿量。其流程化处理活性簇、活性空间与量子比特算符，切中量子计算模拟催化的输入瓶颈。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9495573/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-9495573/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://arxiv.org/abs/2607.07850" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07850" rel="noopener noreferrer" target="_blank">基于 sEMG 图网络的实时手势识别</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07850" rel="noopener noreferrer" target="_blank">A Graph Neural Network Model for Real-Time Gesture Recognition Based on sEMG Signals</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 arXiv / cs.AI</span><span class="daily-chip daily-chip-authors">👤 Pragatheeswaran Vipulanandan, Kamal Premaratne, Manohar Murthi</span><span class="daily-chip daily-chip-score">🔥 AI 10</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对高级手部假肢和增强现实控制，提出将前臂 sEMG 信号表示为包含肌肉激活模式的图结构，并基于图神经网络实现实时手势识别。摘要强调准确且即时的识别需求，未给出延迟或准确率数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>前臂 sEMG 被重构为肌肉激活图，再由 GNN 进行实时手势分类。该表示比逐通道时序更接近解剖协同关系，适合低延迟假肢控制。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.07850" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://arxiv.org/abs/2607.07850" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10172708/latest" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10172708/latest" rel="noopener noreferrer" target="_blank">谱—几何神经结构加速二维流体计算</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10172708/latest" rel="noopener noreferrer" target="_blank">Accelerating Two-Dimensional Computational Fluid Dynamics via Hybrid Spectral-Geometric Neural Architectures</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Carlos Andrés Angulo Rosales</span><span class="daily-chip daily-chip-score">🔥 AI 98</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对复杂不规则边界二维流体模拟，提出混合神经结构：卷积网络提取局域几何特征，谱模块高效解析全局波动。目标是在大规模流场中替代高成本投影求解器，服务实时计算；摘要未给出加速比。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该二维 CFD 网络把局域卷积与全局谱表示结合，用于复杂边界附近的多尺度流动。它体现了物理仿真代理模型从纯卷积向几何—频域混合架构的转向。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10172708/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10172708/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://arxiv.org/abs/2607.07775" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07775" rel="noopener noreferrer" target="_blank">隐私与智能机器人假肢的统一</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://arxiv.org/abs/2607.07775" rel="noopener noreferrer" target="_blank">Idiobionics: The Unification of Privacy and Intelligent Robotic Prostheses</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 arXiv / cs.AI</span><span class="daily-chip daily-chip-authors">👤 Kwesi Afari Darfoor, Patrick M. Pilarski, Bailey Kacsmar</span><span class="daily-chip daily-chip-score">🔥 AI 15</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>围绕机器人假肢与人体长期耦合产生的隐私问题，提出“Idiobionics”框架。对象是带多传感器和 AI 控制的仿生肢体，讨论其在抓握、行走等日常任务中对身体数据的持续采集、推断与保护需求。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该框架把智能假肢控制与隐私保护放在同一设计空间中。对依赖肌电、运动和环境传感的 AI 假肢而言，隐私不再是外置约束，而是闭环人机系统的一部分。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.07775" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://arxiv.org/abs/2607.07775" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://arxiv.org/abs/2607.08136" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://arxiv.org/abs/2607.08136" rel="noopener noreferrer" target="_blank">ASP与能量模型的神经符号推理学习</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://arxiv.org/abs/2607.08136" rel="noopener noreferrer" target="_blank">Answer Set Programming Energised! End-to-End Neurosymbolic Reasoning and Learning with ASP and Energy Based Models</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 arXiv / cs.AI</span><span class="daily-chip daily-chip-authors">👤 Jakob Suchan, Julius Monsen, Salim Baloch, Mehul Bhatt</span><span class="daily-chip daily-chip-score">🔥 AI 10</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>提出把答案集编程与能量模型模块化结合的神经符号方法，在连续潜空间中联合优化，同时显式纳入 ASP 的背景知识、约束和非单调推理。该框架推广答案集、概率逻辑与答案集模理论接口的相关模型。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>ASP 的声明式语义被嵌入能量模型，使连续表示学习可受逻辑约束和非单调推理调控。该方法适合需要物理规则、先验约束与数据驱动模型共同优化的科学 AI 场景。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://arxiv.org/abs/2607.08136" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://arxiv.org/abs/2607.08136" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-10.html">← 前一天 · 2026-07-10</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-10.html">前一天 · 2026-07-10</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-11.html">最新一期 · 2026-07-11</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-11.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>12</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>4</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">张量网络理论的多智能体自动形式化<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">用卷积网络判定阻抗谱等效电路<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">PARA-PV：物理感知检索增强光伏预测<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">Er3+掺杂量子点有序组装实现1.55µm发光<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">二维自旋1模型中的无能隙分形子自旋液体<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">芯片集成超表面单光子斯格明子源<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">量子点元胞自动机纳米技术演化<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">从表面吸附模型提取量子哈密顿量<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">基于 sEMG 图网络的实时手势识别<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">谱—几何神经结构加速二维流体计算<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">隐私与智能机器人假肢的统一<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">ASP与能量模型的神经符号推理学习<span class="daily-outline-meta">12</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-10.html">前一天 · 2026-07-10</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-11.html">最新一期 · 2026-07-11</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-11.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
