@@ -1,36 +1,36 @@
 [
   {
     "title": "Siamese Neural Network for Label-Efficient Critical Phenomena Prediction in 3D Percolation Models",
-    "title_zh": "孪生神经网络预测三维渗流临界",
-    "summary": "孪生网络用 22 个非临界标注点识别三维位点/键渗流相变。该策略降低临界现象机器学习对临界区标签的依赖，适合有限标注的统计物理问题。",
-    "abstract": "面向三维位点与键渗流模型，构建孪生神经网络框架，用少量标注概率点识别相变。训练仅使用 22 个标注概率点，且全部来自非临界区域；借助样本相似性学习推断临界行为，验证对象为具有已知临界指数的渗流基准体系。",
+    "title_zh": "SNN 少标签预测三维渗流临界现象",
+    "summary": "孪生网络用 22 个非临界概率点标签识别三维位点/键渗流相变。少标签相变诊断可降低统计物理模拟中临界区标注成本。",
+    "abstract": "面向三维位点与键渗流模型，构建孪生神经网络框架识别相变。训练仅使用 22 个概率点标签，且标签来自非临界区域；利用样本相似性学习替代大量临界点标注，用于预测渗流临界行为。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2507.14159",
     "journal": "arXiv"
   },
   {
     "title": "A Multi-Scale Machine Learning Framework for Coupled Chemical, Spin, and Structural Disorder in Alloys",
-    "title_zh": "合金化学自旋结构无序的多尺度机器学习",
-    "summary": "框架把 GNN/机器学习势与 MC/MD 结合，用于化学、自旋和结构无序耦合。它面向磁性合金热力学，为多自由度相稳定性计算提供统一路线。",
-    "abstract": "提出处理无序磁性合金热力学的多尺度框架，将图神经网络、机器学习原子间势与蒙特卡洛、分子动力学结合。目标是统一采样化学构型、自旋与结构自由度，突破传统方法难以同时描述多类无序耦合的限制。",
+    "title_zh": "合金化学自旋结构无序多尺度学习",
+    "summary": "该框架把 GNN、机器学习势、蒙特卡洛和分子动力学联用于无序磁性合金。它面向化学-自旋-结构耦合热力学，补足传统相图建模难以统一处理多重无序的缺口。",
+    "abstract": "提出合金中化学、自旋与结构无序的统一多尺度框架，结合图神经网络、机器学习原子间势、蒙特卡洛与分子动力学采样。目标是计算无序磁性合金热力学性质，并同时处理构型与原子结构自由度耦合。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.07456",
     "journal": "arXiv"
   },
   {
     "title": "Machine Learning Materials Properties by Encoding Orbital-Projected Density of States",
-    "title_zh": "用轨道投影态密度编码材料性质",
-    "summary": "将位点投影轨道态密度嵌入 GNN 节点特征，替代单纯元素描述符。该方法把局域电子结构带入材料性质学习，有望提高跨晶体环境泛化。",
-    "abstract": "针对晶体结构 GNN 中原子节点多用静态元素描述符的问题，引入位点投影轨道态密度指纹作为节点表征。pDOS 由晶体宿主中的量子电子环境计算得到，可补充局域轨道信息，从而增强材料性质预测的物理表达能力。",
+    "title_zh": "用轨道投影态密度学习材料性质",
+    "summary": "pDOS 指纹把局域电子结构直接编码到 GNN 原子节点中。该做法将材料性质预测从静态元素表征推进到晶体环境相关的量子表征。",
+    "abstract": "针对晶体图神经网络的原子节点初始化，引入由第一性原理得到的位点投影轨道态密度指纹。相较静态元素描述符，pDOS 表征包含原子在具体晶体环境中的量子电子信息，用于改进材料性质预测。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.07339",
     "journal": "arXiv"
   },
   {
     "title": "DeepH-pack: a general-purpose neural network package for deep-learning electronic structure calculations",
-    "title_zh": "DeepH-pack 通用电子结构深度学习包",
-    "summary": "DeepH-pack 将深度学习电子结构计算封装为通用软件包。对凝聚态研究者而言，它降低了神经网络哈密顿量与电子结构预测的使用门槛。",
-    "abstract": "DeepH-pack 是面向深度学习电子结构计算的通用神经网络软件包，发表于 npj Computational Materials。题名显示其目标是提供可复用工具链，用神经网络加速或替代部分电子结构计算流程，服务哈密顿量等电子结构相关任务。",
+    "title_zh": "DeepH-pack 通用深度电子结构计算包",
+    "summary": "DeepH-pack 将深度学习电子结构计算封装为通用软件包。对凝聚态高通量电子结构、低维材料能带建模和可扩展哈密顿量学习具有直接工具价值。",
+    "abstract": "DeepH-pack 是面向深度学习电子结构计算的通用神经网络软件包，发表于 npj Computational Materials。题名显示其目标是支持神经网络化电子结构任务，服务哈密顿量、能带或相关量的快速学习计算。",
     "category": "AI×物理",
     "link": "https://www.nature.com/articles/s41524-026-02219-2",
     "journal": "npj Computational Materials"
@@ -38,26 +38,26 @@
   {
     "title": "Machine learning interatomic potential for Li 2 TiO 3 with comprehensive validation of lattice defect stability",
     "title_zh": "Li2TiO3 机器学习势与缺陷稳定性验证",
-    "summary": "Li2TiO3 机器学习势以晶格缺陷稳定性作为核心验证对象。该取向强调势函数在缺陷热力学任务中的可用性，而非仅报告静态误差。",
-    "abstract": "针对 Li2TiO3 构建机器学习原子间势，并对晶格缺陷稳定性进行系统验证。题名表明工作重点不只在势函数拟合，还覆盖缺陷构型的可靠性评估，适合用于含锂钛氧化物中的缺陷与可能的扩散相关模拟。",
+    "summary": "Li2TiO3 势函数以晶格缺陷稳定性作为核心验证对象。对含锂陶瓷中的缺陷迁移、辐照响应和多尺度模拟更贴近实际需求。",
+    "abstract": "构建用于 Li2TiO3 的机器学习原子间势，并围绕晶格缺陷稳定性开展综合验证。题名强调势函数不仅拟合结构能量，还检验缺陷相关构型的可靠性，适用于后续缺陷热力学或动力学模拟。",
     "category": "AI×物理",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004118?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
   },
   {
     "title": "κ ALDo 2.0: Scalable thermal transport from first principles and machine learning potentials",
-    "title_zh": "κ ALDo 2.0 可扩展热输运计算",
-    "summary": "κ ALDo 2.0 将第一性原理与机器学习势接入可扩展热输运计算。它有助于把晶格热导预测推向更大体系和更长程非谐采样。",
-    "abstract": "κ ALDo 2.0 面向第一性原理与机器学习势驱动的热输运计算，发表于 Computer Physics Communications。题名强调可扩展性，说明软件支持从从头算力常数到机器学习势的大规模热导率或声子输运工作流。",
-    "category": "AI×物理",
+    "title_zh": "κALDo 2.0 第一性原理与机器势热输运",
+    "summary": "κALDo 2.0 将机器学习势接入可扩展热输运计算。它把第一性原理热导预测扩展到更大、更复杂的材料体系。",
+    "abstract": "κALDo 2.0 面向热输运计算，结合第一性原理与机器学习势以提升可扩展性。软件目标是从原子尺度力常数或势能面出发计算晶格热输运，适合大体系与复杂材料的热导率模拟。",
+    "category": "其他凝聚态",
     "link": "https://www.sciencedirect.com/science/article/pii/S001046552600264X?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
   },
   {
     "title": "Fine-tuning universal machine learning potentials for transition state search in surface catalysis",
-    "title_zh": "通用机器学习势微调搜索表面过渡态",
-    "summary": "通用机器学习势经微调用于表面催化过渡态搜索。该路线把预训练势从结构弛豫推进到反应势垒与催化机理任务。",
-    "abstract": "面向表面催化过渡态搜索，研究通用机器学习势的微调策略。题名显示核心任务是把预训练通用势适配到催化表面反应路径，以支持过渡态定位；作者包括 Kitchin 团队，发表于 npj Computational Materials。",
+    "title_zh": "通用机器学习势微调搜索表面催化过渡态",
+    "summary": "通用机器学习势经微调用于表面催化过渡态搜索。该路线把预训练势从结构弛豫推广到反应势垒定位，有望降低催化反应路径筛选成本。",
+    "abstract": "针对表面催化反应过渡态搜索，研究通用机器学习势的微调策略。工作发表于 npj Computational Materials，核心问题是如何把预训练势适配到催化表面反应路径，使过渡态定位比直接第一性原理搜索更高效。",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02228-1",
     "journal": "npj Computational Materials"
@@ -65,8 +65,8 @@
   {
     "title": "MCLFormer: a text-driven deep learning framework for predicting CO 2 adsorption in metal-organic frameworks",
     "title_zh": "MCLFormer 文本驱动预测 MOF 吸附 CO2",
-    "summary": "MCLFormer 用文本驱动模型预测 MOF 的 CO2 吸附。它把材料语言表征引入多孔框架筛选，可降低结构特征工程负担。",
-    "abstract": "MCLFormer 是用于预测金属有机框架 CO2 吸附的文本驱动深度学习框架。题名表明其输入侧利用文本信息而非仅依赖几何或手工描述符，目标性质为 MOF 的 CO2 吸附性能，面向多孔材料筛选。",
+    "summary": "MCLFormer 以文本信息驱动 MOF 的 CO2 吸附预测。它将材料语言表征用于多孔框架筛选，适合低结构预处理成本的吸附数据库建模。",
+    "abstract": "MCLFormer 是面向金属有机框架 CO2 吸附预测的文本驱动深度学习框架。输入侧利用文本信息描述 MOF 结构或组成，输出 CO2 吸附性能，用于多孔材料吸附筛选与数据驱动建模。",
     "category": "其他",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626003836?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
@@ -74,8 +74,8 @@
   {
     "title": "Utilizing a high-accuracy machine learning potential for molecular dynamics studies of radiation damage in Al-Li alloys",
     "title_zh": "高精度机器学习势模拟 Al-Li 辐照损伤",
-    "summary": "高精度机器学习势被用于 Al-Li 合金辐照损伤 MD。该工作将 MLIP 应用于非平衡缺陷产生与演化，是结构合金辐照模拟的重要场景。",
-    "abstract": "利用高精度机器学习势开展 Al-Li 合金辐照损伤分子动力学研究。题名显示该势用于辐照级联或缺陷演化等非平衡过程，目标是在保持接近第一性原理精度的同时扩展 Al-Li 合金辐照损伤模拟尺度。",
+    "summary": "Al-Li 合金辐照损伤模拟采用高精度机器学习势。该方向可连接第一性原理精度与辐照缺陷演化所需的大规模分子动力学。",
+    "abstract": "利用高精度机器学习势开展 Al-Li 合金辐照损伤分子动力学研究。题名显示重点在替代传统势函数，以更接近第一性原理的势能面追踪位移级联、缺陷生成与合金元素影响。",
     "category": "AI×化学·材料",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004295?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
@@ -83,17 +83,17 @@
   {
     "title": "The comparison between the Pt-Rh thermodynamic database from machine learning interatomic potential and first-principles calculations",
     "title_zh": "Pt-Rh 机器学习势与第一性原理热力学库比较",
-    "summary": "Pt-Rh 合金热力学数据库被用于检验机器学习势相对第一性原理的偏差。该比较直接关系到 MLIP 能否支撑合金相图与热力学评估。",
-    "abstract": "比较由机器学习原子间势和第一性原理计算得到的 Pt-Rh 热力学数据库，发表于 npj Computational Materials。工作聚焦贵金属二元合金 Pt-Rh，评估 MLIP 构建热力学数据相对从头算结果的可靠性。",
-    "category": "AI×化学·材料",
+    "summary": "Pt-Rh 合金热力学数据库被用于检验机器学习势相对第一性原理的可靠性。该比较直接关系到机器学习势能否支撑 CALPHAD 类相图数据生成。",
+    "abstract": "比较由机器学习原子间势与第一性原理计算得到的 Pt-Rh 热力学数据库。对象为贵金属二元合金，重点评估机器学习势在热力学量、相稳定性或数据库构建中的一致性与偏差。",
+    "category": "其他",
     "link": "https://www.nature.com/articles/s41524-026-02212-9",
     "journal": "npj Computational Materials"
   },
   {
     "title": "Machine learning potential for DGEBA/MTHPA epoxy under water ingress",
-    "title_zh": "吸水 DGEBA/MTHPA 环氧机器学习势",
-    "summary": "DGEBA/MTHPA 环氧的机器学习势面向水侵入环境。它把 MLIP 扩展到含水聚合物网络，有助于模拟湿热老化相关微观过程。",
-    "abstract": "针对 DGEBA/MTHPA 环氧树脂在水侵入条件下构建机器学习势。题名显示研究对象为含水聚合物热固性网络，目标是用 MLIP 描述水分进入后的分子相互作用与结构响应，服务环氧材料耐湿性模拟。",
+    "title_zh": "DGEBA/MTHPA 环氧吸水机器学习势",
+    "summary": "DGEBA/MTHPA 环氧的含水环境由机器学习势描述。该模型面向聚合物吸湿、老化和水致性能退化的原子尺度动力学模拟。",
+    "abstract": "构建 DGEBA/MTHPA 环氧树脂在水侵入条件下的机器学习势。研究对象为交联环氧与水分子相互作用，目标是描述吸水引发的结构、界面或力学相关原子尺度过程。",
     "category": "其他",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004131?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
@@ -101,8 +101,8 @@
   {
     "title": "Are Machine Learning Interatomic Potentials Truly Practical? A Benchmark of 23 Mainstream Models",
     "title_zh": "23 种主流机器学习势实用性基准",
-    "summary": "23 种 MLIP 在同一 192 原子 ASE 流程中按精度、吞吐量和扩展性比较。结果指出模型变大并不等于实验室硬件上的实用 MD 性能。",
-    "abstract": "在低成本 NVIDIA DGX Spark 上统一基准 23 个开源机器学习原子间势，内存 128 GB 且限制到 80 GB，采用固定 192 原子体系和 ASE 流水线。评估预测精度、MD 吞吐量和原子数可扩展性，揭示大型先进模型存在明显精度—效率权衡。",
+    "summary": "23 种机器学习势在统一硬件和 192 原子体系下比较精度、MD 吞吐与可扩展性。结果把模型排名从静态误差拉回真实实验室硬件可用性。",
+    "abstract": "在低成本 NVIDIA DGX Spark 上基准测试 23 种开源机器学习原子间势，内存由 128 GB 限制到 80 GB，体系固定为 192 原子，并采用统一 ASE 流程。评价维度包括预测精度、分子动力学吞吐量与原子数可扩展性，揭示精度-效率权衡。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.07647",
     "journal": "arXiv"
@@ -110,8 +110,8 @@
   {
     "title": "An Hybrid Quantum-Classical Diffusion Model for Image Generation",
     "title_zh": "混合量子经典扩散模型生成图像",
-    "summary": "经典自编码器压缩图像后，混合态量子扩散模型在潜在空间去噪。该框架降低量子生成模型的量子比特与模拟开销。",
-    "abstract": "提出混合生成流程：经典自编码器先对高维图像降维，随后在潜在空间中使用混合态量子去噪扩散概率模型。该设计缓解量子态编码所需量子比特数和大密度矩阵模拟成本，使量子扩散模型可处理经典高维数据。",
+    "summary": "经典自编码器与混合态量子扩散模型结合，在低维潜空间生成图像。该方案降低量子生成模型处理经典高维数据的量子比特与模拟成本。",
+    "abstract": "提出混合量子-经典生成流程：经典自编码器先降低高维图像维度，混合态量子去噪扩散概率模型在潜空间执行加噪与去噪。该设计缓解量子态编码所需量子比特数和大密度矩阵模拟开销。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.07072",
     "journal": "arXiv"
@@ -119,62 +119,62 @@
   {
     "title": "Physics-inspired transformer quantum states via latent imaginary-time evolution",
     "title_zh": "潜在虚时演化的物理启发变换器量子态",
-    "summary": "变换器神经量子态被解释为潜在虚时演化的近似。该框架把 NQS 架构设计与多体基态投影物理联系起来。",
-    "abstract": "在变分蒙特卡洛中重新解释神经量子态，把模型视为潜在虚时演化的神经近似，而非黑箱 ansatz。该视角导出物理透明的变换器量子态构造，用虚时演化直觉指导架构设计，以提升可解释性。",
+    "summary": "变换器神经量子态被重写为潜在虚时演化近似。该解释为量子多体波函数学习提供比黑箱网络更可诊断的物理结构。",
+    "abstract": "在变分蒙特卡洛中，把神经量子态解释为潜在虚时演化的神经近似，而非纯黑箱 ansatz。该观点用于设计具有物理透明度的变换器量子态架构，服务量子多体基态表征。",
     "category": "AI×物理",
     "link": "http://link.aps.org/doi/10.1103/bjxb-8tsk",
     "journal": "Phys. Rev. Research"
   },
   {
     "title": "Quantum compiling with reinforcement learning on a superconducting processor",
-    "title_zh": "超导处理器上的强化学习量子编译",
-    "summary": "强化学习编译器在真实超导处理器上优化双量子比特线路。其表现优于传统编译方法，说明学习型编译可直接改善 NISQ 电路执行。",
-    "abstract": "在超导量子处理器上评估强化学习量子编译器，目标是为噪声中等规模量子器件生成更短、更适配硬件的线路。实验显示在双量子比特线路中，强化学习编译器优于传统方法，体现其在受限相干时间和门误差条件下的优势。",
+    "title_zh": "超导处理器上强化学习量子编译",
+    "summary": "强化学习编译器在真实超导处理器的两量子比特电路上超过常规编译。该结果说明学习型编译可直接优化 NISQ 硬件上的短电路执行。",
+    "abstract": "在超导量子处理器上评估强化学习量子编译器，面向 NISQ 设备的短深度电路实现。实验显示，在两量子比特电路中，强化学习编译器优于常规方法，体现其适配噪声硬件与门误差约束的能力。",
     "category": "超导",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae835e",
     "journal": "Machine Learning: Science and Technology"
   },
   {
     "title": "Quantum machine learning performance evaluation for air pollution assessment with benchmarking and comparative analysis using multi-metric scoring and quantum circuit expressibility",
-    "title_zh": "空气污染评估中的量子机器学习基准",
-    "summary": "MDQ-3L 用多误差指标和量子线路表达能力评估 AQI 预测模型。它展示了 QML 基准应同时考虑回归误差、负 R² 惩罚和线路物理特征。",
-    "abstract": "提出 MDQ-3L 多指标量子感知基准框架，用于 AQI 预测中的经典机器学习、深度学习和量子机器学习比较。输入包括 PM2.5、PM10、NO、NO2、NOx、NH3、CO、SO2、O3、苯、甲苯、二甲苯；评估 17 个 ML 回归器、9 个 DL 模型和 7 个 QML 线路，含 MAE、MSE、RMSE、R²、RMSLE、MAPE、表达能力 0.739–2.0 与纠缠能力 0–0.398。",
+    "title_zh": "空气污染评估的量子机器学习基准",
+    "summary": "MDQ-3L 用多指标同时评价 17 个 ML、9 个 DL 和 7 个 QML 空气质量模型。它把量子电路可表达性和纠缠能力纳入环境预测基准。",
+    "abstract": "提出 MDQ-3L 基准框架，比较经典机器学习、深度学习和量子机器学习用于 AQI 预测。输入包含 PM2.5、PM10、NO、NO2、NOx、NH3、CO、SO2、O3、苯、甲苯、二甲苯；评估 17 个 ML 回归器、9 个 DL 模型和 7 个 QML 电路，并纳入 MAE、MSE、RMSE、R²、RMSLE、MAPE、可表达性 0.739–2.0 与纠缠能力 0–0.398。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10290235/latest",
     "journal": "Preprints"
   },
   {
     "title": "Performance Comparison of Neural Network Approaches for Electric Potential Field Generation in Surface Ion Traps",
-    "title_zh": "表面离子阱电势场神经网络比较",
-    "summary": "三种神经网络被比较用于表面离子阱电势场生成。该方向用替代模型加速陷阱电极设计，服务可扩展离子量子计算硬件。",
-    "abstract": "比较三类神经网络生成表面电极离子阱电势场的性能。有限元方法在离子阱设计中计算昂贵，拖慢原型优化；神经网络替代模型旨在加速可扩展量子电荷耦合器件架构中的电势评估。",
+    "title_zh": "表面离子阱电势生成神经网络比较",
+    "summary": "三种神经网络被用于表面离子阱电势场快速生成。该替代建模可减少有限元调用，服务可扩展离子阱量子计算芯片设计。",
+    "abstract": "比较三类神经网络生成表面电极离子阱电势场的性能。问题背景是有限元法用于离子阱设计时计算昂贵、拖慢原型优化；神经网络替代模型旨在快速预测电势分布以支持可扩展量子电荷耦合器件结构。",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-9452458/latest",
     "journal": "Preprints"
   },
   {
     "title": "An Interpretable Convolutional Neural Network Framework for Fluid Dynamics",
-    "title_zh": "可解释卷积神经网络模拟流体动力学",
-    "summary": "可解释 CNN 从简单层流数据出发分析流体学习机制。该方法强调何时、为何神经网络能模拟流动，而不仅追求预测误差。",
-    "abstract": "提出可解释 CNN 框架理解数据驱动流体动力学模型的工作机制。模型训练于简单层流数据，用透明分析揭示卷积网络如何捕捉非线性流动行为，回应复杂黑箱架构在可靠性和失效原因解释上的不足。",
+    "title_zh": "流体动力学可解释卷积网络框架",
+    "summary": "可解释 CNN 用简单层流数据解析机器学习流体模型的内部机制。该框架把预测精度与可诊断性结合，适合检验数据驱动流体模型的泛化边界。",
+    "abstract": "针对数据驱动流体模型的黑箱性，训练可解释卷积神经网络处理简单层流数据。方法关注网络如何捕捉非线性流动行为，并分析模型成功或失效原因，以提高机器学习流体动力学的可靠性。",
     "category": "软物质·流体·统计",
     "link": "https://arxiv.org/abs/2601.11946",
     "journal": "arXiv"
   },
   {
     "title": "Learning Turbulence Closures with Physics-Informed Neural Networks for the Rayleigh-Taylor Transition to Turbulence",
-    "title_zh": "PINN 学习瑞利泰勒转捩湍流闭合",
-    "summary": "PINN 被用于校准瑞利-泰勒转捩混合中的 k-ε-b 闭合系数。该策略针对未充分发展湍流阶段，改进传统 RANS 的动力学预测。",
-    "abstract": "针对瑞利-泰勒混合从初始扰动界面向湍流转捩时 RANS 模型表现较差的问题，将简单 k-ε-b 湍流模型嵌入替代 PINN 中。通过数据驱动校准模型系数，补偿参数不确定性并改善转捩阶段的混合动力学预测。",
+    "title_zh": "PINN 学习瑞利-泰勒转捩湍流闭合",
+    "summary": "PINN 被用于校准瑞利-泰勒转捩阶段的 k-ε-b 湍流闭合。该策略聚焦未充分发展湍流，比直接套用常规 RANS 更适合界面混合早期动力学。",
+    "abstract": "面向初始扰动界面到湍流的瑞利-泰勒混合，改进简单 k-ε-b RANS 湍流模型。将湍流模型嵌入代理 PINN 中，校准转捩阶段相关系数，以弥补传统 RANS 在未充分发展湍流阶段预测不佳的问题。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.07020",
     "journal": "arXiv"
   },
   {
     "title": "CoFINN: Conservation Flux Informed Neural Networks for Physics Problems Governed by Conservation Laws",
-    "title_zh": "守恒通量神经网络求解守恒律问题",
-    "summary": "CoFINN 用有限体积通量约束训练可压缩流预测网络。它把守恒律以离散通量形式嵌入深度学习，更贴近数值流体格式。",
-    "abstract": "CoFINN 面向由守恒律控制的可压缩流场预测，将有限体积守恒物理直接嵌入训练损失。它不同于仅优化像素相似度的 CNN，也不同于在配点上用自动微分约束微分方程残差的经典 PINN，而是采用有限体积通量一致性。",
+    "title_zh": "CoFINN 守恒通量神经网络",
+    "summary": "CoFINN 用有限体积通量约束训练可压缩流神经网络。它把守恒律以离散物理形式并入学习过程，适合激波和通量主导问题。",
+    "abstract": "CoFINN 面向守恒律支配的可压缩流场预测，在训练中嵌入有限体积守恒通量约束。区别于仅优化像素相似性的 CNN，也不同于在配点用自动微分施加微分方程残差的传统 PINN，其损失直接体现守恒格式。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.06587",
     "journal": "arXiv"
