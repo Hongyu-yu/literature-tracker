@@ -222,7 +222,7 @@
 <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
 </div>
 </div>
-<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-11.html">← 前一天 · 2026-07-11</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-11.html">← 前一天 · 2026-07-11</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><a class="daily-nav-link daily-nav-next" href="2026-07-13.html">后一天 · 2026-07-13 →</a></nav>
 <nav aria-label="移动目录" class="daily-toc-sticky">
 <a href="#summary">摘要</a>
 <a href="#core-focus">核心关注</a>
@@ -261,29 +261,29 @@
 <h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
 <span class="daily-core-count">2 篇</span>
 </div>
-<p class="daily-core-note">非晶 SiO2 氧空位工作把机器学习从 MACE、NEP、equivariant GNN 势能面推进到电子哈密顿量层面，直接处理无序氧化物中的局域缺陷态。磁隧道结的巨轨道力矩皮秒开关把凝聚态器件问题拉到轨道角动量输运主线，和 CrI3、CrSBr、NbOI2 等二维磁体的 DFT+U、Wannier、NEGF 建模需求相连。今天的实质进展不是单纯加速结构弛豫，而是把 ML Hamiltonian 与轨道力矩物理分别推向“缺陷电子态可扩展计算”和“超快磁化操控”两个关键瓶颈。</p>
+<p class="daily-core-note">今日进展把 ML 从 BaTiO3、NbOI2、CrI3、CrSBr 等体系中常见的 equivariant GNN、MACE、NEP 势能面建模，推进到非晶 SiO2 氧空位的电子哈密顿量层面。机器学习哈密顿量直接面向缺陷态、能级和局域结构弛豫，区别于只拟合总能与力的 MLIP 路线。磁隧道结论文则强调轨道力矩驱动的皮秒翻转，把凝聚态器件研究从 DFT+U 描述磁各向异性、交换作用，推向超快动力学与轨道角动量输运。两篇工作共同指向：ML × 凝聚态不再只做结构搜索，而要覆盖缺陷电子结构、磁化动力学和器件级可观测量。</p>
 <ol class="daily-core-list">
 <li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41524-026-02217-4">
 <div class="daily-core-number">01</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">机器学习哈密顿量计算非晶 SiO2 氧空位</div>
+<div class="daily-core-title-zh">机器学习哈密顿量用于非晶 SiO2 氧空位计算</div>
 <div class="daily-core-title-en">Machine learning Hamiltonian enables scalable and accurate defect calculations: the case of oxygen vacancies in amorphous SiO 2</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 npj Computational Materials</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向非晶 SiO2 中氧空位缺陷，构建机器学习哈密顿量以替代昂贵电子结构计算，在保持缺陷相关精度的同时提升体系尺寸与采样可扩展性；案例指向非晶氧化物中局域缺陷态、结构无序与电子性质的联合计算。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>机器学习哈密顿量被用于非晶 SiO2 氧空位，直接面向缺陷电子结构而非只拟合能量。该路线有助于把非晶氧化物缺陷计算推进到更大模型和更多构型采样。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>训练非晶SiO2氧空位ML电子哈密顿量，替代大超胞DFT</p><p><strong>🔗 相关工作关联：</strong>呼应DFT缺陷能级、深能级陷阱、无序氧化物、ML Hamiltonian方向</p><p><strong>💡 对你方向的启示：</strong>可把缺陷采样从小模型推向大非晶网络，适合研究铁电氧化物氧空位</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向非晶 SiO2 中氧空位缺陷，构建机器学习哈密顿量以替代高成本第一性原理电子结构计算。题名指出其目标是同时实现可扩展与准确的缺陷计算，适用于无序氧化物中局域缺陷态、结构弛豫及相关能级分析；条目未给出误差、体系尺寸或采样数量。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>非晶 SiO2 氧空位被用作机器学习哈密顿量的测试场景，核心在于把电子结构精度扩展到更大无序模型。对缺陷物理和 AI for science 而言，亮点是从势能面学习推进到可直接服务缺陷电子态的哈密顿量学习。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>以机器学习哈密顿量替代DFT电子结构计算，处理非晶SiO2氧空位。</p><p><strong>🔗 相关工作关联：</strong>呼应ML tight-binding、神经网络哈密顿量、缺陷能级计算、非晶氧化物电子态建模。</p><p><strong>💡 对你方向的启示：</strong>缺陷研究者可从拟合能量/力转向拟合哈密顿量，直接预测局域态与能级。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
 <li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all">
 <div class="daily-core-number">02</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">磁隧道结中的巨轨道力矩皮秒开关</div>
+<div class="daily-core-title-zh">磁隧道结中巨轨道力矩驱动皮秒翻转</div>
 <div class="daily-core-title-en">Giant orbital torque-driven picosecond switching in magnetic tunnel junctions</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Science Bulletin</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在磁隧道结中报道巨轨道力矩驱动的皮秒尺度磁化翻转，体系聚焦自旋电子存储器件的高速开关；结论指向轨道角动量通道可显著增强力矩效率，使磁隧道结进入超快、低延迟操控区间。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>磁隧道结中实现轨道力矩驱动的皮秒磁化开关，核心在于利用巨轨道力矩而非传统纯自旋力矩。该结果强化了轨道电子学在高速非易失存储中的器件价值。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>以轨道角动量流驱动MTJ巨力矩，实现皮秒磁化翻转</p><p><strong>🔗 相关工作关联：</strong>呼应自旋轨道力矩、轨道霍尔效应、MgO基MTJ、超快自旋电子学</p><p><strong>💡 对你方向的启示：</strong>提示ML筛选应纳入轨道霍尔电导、界面透射和阻尼等力矩效率指标</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题名显示工作聚焦磁隧道结中的巨轨道力矩驱动磁化翻转，目标时间尺度为皮秒量级。体系属于自旋电子学器件，关键机制是轨道力矩而非传统仅依赖自旋转移或自旋轨道力矩的翻转路径；条目未给出层结构、脉冲宽度、临界电流密度或隧穿磁阻数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>磁隧道结中实现轨道力矩驱动的皮秒磁化翻转，指向超快非易失存储单元。若巨轨道力矩可在实际堆栈中稳定复现，将直接影响凝聚态自旋输运与低功耗磁存储设计。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>利用巨轨道力矩驱动磁隧道结皮秒级磁化翻转。</p><p><strong>🔗 相关工作关联：</strong>呼应自旋轨道力矩、轨道霍尔效应、STT-MTJ、超快磁化动力学方向。</p><p><strong>💡 对你方向的启示：</strong>ML研究可围绕层结构、脉冲参数、轨道输运量建立快速器件优化模型。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
@@ -295,68 +295,69 @@
 <h2 class="daily-section-title">今日摘要</h2>
 </div>
 <div class="daily-summary-card">
-<p><strong>总览：</strong>今日 7 篇覆盖机器学习哈密顿量、机器学习势、磁矩翻转、等离子体约束、非傅里叶输运与自旋哈密顿量计算。代表性工作包括非晶 SiO2 氧空位的可扩展缺陷计算、液态钠中氧溶解焓的 SCAN 族机器学习势预测，以及磁隧道结中轨道力矩驱动的皮秒开关。</p>
-<p><strong>热点：</strong>AI for science 方向继续从能量/力势能面扩展到哈密顿量与缺陷电子结构，目标是兼顾大尺度非晶体系与第一性原理精度。核能与液态金属材料场景中，机器学习势开始服务于溶质热力学量的定量预测。自旋电子学侧重轨道角动量与自旋哈密顿量参数的高效操控和计算，连接器件开关速度与多尺度模拟。等离子体与类引力波动实验显示，凝聚态和软物质平台正被用于模拟极端场论和非平衡输运现象。</p>
+<p><strong>总览：</strong>今日 7 篇集中在机器学习势/哈密顿量、缺陷与熔体热力学、自旋电子学以及非平衡输运。代表性工作包括非晶 SiO2 氧空位的机器学习哈密顿量、液态钠中氧溶解焓的 SCAN 族机器学习势，以及磁隧道结中轨道力矩皮秒翻转。</p>
+<p><strong>热点：</strong>机器学习原子尺度模型继续向复杂缺陷、液态金属杂质热力学等高成本问题扩展，重点从能量拟合转向可用于实际材料问题的哈密顿量或势函数。自旋电子学方向强调轨道角动量与自旋哈密顿量参数提取，分别面向高速器件翻转和第一性原理工作流加速。非平衡与波动体系中，工业等离子体约束、合成旋转波放大和扩展结构动力学显示出从经典输运近似走向有限松弛、类引力模拟与强约束设计的趋势。部分新闻或条目摘要信息有限，具体装置参数、材料堆栈和数值性能需以原文为准。</p>
 </div>
 </section>
 <section class="daily-section" id="papers">
 <div class="daily-section-head">
 <span class="daily-section-index">📚</span>
 <h2 class="daily-section-title">今日文献</h2>
-<span class="daily-core-count">7 篇 · 2 含图深析</span>
+<span class="daily-core-count">7 篇 · 3 含图深析</span>
 </div>
 <ol class="daily-paper-list">
-<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" id="paper-1">
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41524-026-02217-4" id="paper-1">
 <span class="daily-paper-number">01</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">新磁设计增强工业等离子体熔炉</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">Reimagining the furnace: How a new magnetic design could supercharge industrial plasma</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">机器学习哈密顿量用于非晶 SiO2 氧空位计算</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">Machine learning Hamiltonian enables scalable and accurate defect calculations: the case of oxygen vacancies in amorphous SiO 2</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 </div><span class="enrich-badge">📊 含图深析</span></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 80</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>围绕工业高温等离子体约束，报道一种新的磁场设计，用于把高温等离子体限制在装置内部并降低与壁面接触或熄灭风险；讨论对象是等离子体工程中的磁约束构型优化，而非传统材料制备炉体改良。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>新的磁约束设计针对工业等离子体“触壁”和能量损失问题，目标是提升高温等离子体稳定性。该方向把磁场构型优化推向高功率材料处理与等离子体工程场景。</p>
-<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax63e65a678dfa23.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>高温工业等离子体在炉体或反应装置中容易扩散并触碰壁面，导致壁面热损伤、能量损失和等离子体熄灭；核心问题是如何用磁场把“炽热等离子体云”稳定悬在装置中心，减少与金属炉壁接触。</div><div class="poster-row"><b>创新方法</b>提出面向工业炉/反应装置的新型磁场约束设计，用磁力线重新塑造等离子体边界，使高温等离子体像被“磁笼”包围一样远离壁面；Aha 点在于把磁约束从聚变场景转向工业等离子体炉，强调运行持续性和抗熄灭能力。</div><div class="poster-row"><b>工作流程</b>输入为工业装置中的高温等离子体与炉腔几何需求；设计并布置新的磁场构型；磁力线在炉腔内形成约束区域；等离子体被限制在中心高温区，减少向壁面漂移；输出为更稳定、更少壁面接触、更低熄灭风险的工业等离子体运行状态。</div><div class="poster-row"><b>关键结果</b>论文摘要表明，新磁场设计能够在装置内部限制等离子体，并降低等离子体碰壁和熄灭风险；但未提供约束时间、热负荷降低、功率提升、稳定性阈值等定量指标，也未明确是实验验证、模拟验证还是概念设计。</div><div class="poster-row"><b>应用价值</b>可用于升级工业等离子体炉、反应器和高温加工系统，减少炉壁损伤与停机风险，提高连续运行可靠性；视觉上可表现为更耐久的炉体、更稳定的蓝紫色等离子体核心和更高效的工业热处理/材料加工流程。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>本文属于高温工业等离子体约束与磁场工程方向，提出一种新的磁场设计，旨在更好限制装置内等离子体，减少其与壁面接触并降低等离子体熄灭风险。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>采用新的磁场设计来约束高温工业等离子体。</li><li>目标是通过磁约束减少等离子体与装置壁面的接触。</li><li>设计关注提升等离子体在工业炉/反应装置中的持续性与运行可靠性。</li><li>摘要未详述具体磁拓扑、磁场强度、装置几何或控制策略。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确称该磁场设计可用于在装置内限制等离子体。</li><li>摘要指出该设计有助于降低等离子体接触壁面和熄灭的风险。</li><li>摘要未给出功率增益、约束时间、稳定性阈值、热负荷降低幅度等定量结果。</li><li>摘要未说明是否经过实验验证、数值模拟验证，或仅为概念设计。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于面向工业高温等离子体应用提出了新的磁场约束构型，而非传统聚焦于聚变等离子体的磁约束方案。</li><li>其潜在创新价值可能体现在提高工业等离子体装置的稳定运行能力，降低壁面损伤和熄灭风险。</li><li>但由于摘要未详述磁拓扑、设计原理、性能对比或验证方式，无法确定其相对已有磁约束方案的实质创新程度。</li></ul></div></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 npj Computational Materials</span><span class="daily-chip daily-chip-authors">👤 Zhenxing Dai, Yang Zhong, Mingjue Ni, Menglin Huang, Hongjun Xiang, Xin-Gao Gong 等7位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向非晶 SiO2 中氧空位缺陷，构建机器学习哈密顿量以替代高成本第一性原理电子结构计算。题名指出其目标是同时实现可扩展与准确的缺陷计算，适用于无序氧化物中局域缺陷态、结构弛豫及相关能级分析；条目未给出误差、体系尺寸或采样数量。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>非晶 SiO2 氧空位被用作机器学习哈密顿量的测试场景，核心在于把电子结构精度扩展到更大无序模型。对缺陷物理和 AI for science 而言，亮点是从势能面学习推进到可直接服务缺陷电子态的哈密顿量学习。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/axd6c35cc9a12130.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>非晶 SiO₂ 中氧空位缺陷的电子结构计算成本高、体系无序且局域环境复杂，传统第一性原理方法难以在大尺度模型和大量缺陷构型上同时保持精度与可扩展性。</div><div class="poster-row"><b>创新方法</b>构建机器学习哈密顿量来直接替代高成本第一性原理电子哈密顿量，用于描述非晶 SiO₂ 氧空位附近的局域缺陷态、能级分布和结构弛豫效应；核心 Aha 点是从“预测能量/力”提升到“学习电子哈密顿量”，使缺陷电子结构可被快速重建。</div><div class="poster-row"><b>工作流程</b>输入含氧空位的非晶 SiO₂ 原子结构与局域原子环境，经机器学习模型生成近似哈密顿量，再求解电子能级与局域缺陷态，并结合缺陷结构弛豫分析，最终输出氧空位相关的电子态、缺陷能级和可扩展缺陷计算结果。</div><div class="poster-row"><b>关键结果</b>机器学习哈密顿量被成功应用于非晶 SiO₂ 氧空位这一典型无序氧化物缺陷体系，支持较准确且可扩展的缺陷电子结构分析，可用于研究局域缺陷态、结构弛豫和能级特征；具体误差、体系尺寸和加速倍数摘要未给出。</div><div class="poster-row"><b>应用价值</b>该研究为无序氧化物、绝缘材料和半导体介质中的缺陷建模提供高效工具，可降低大规模缺陷筛选、可靠性分析、陷阱态识别和材料电子性能预测的计算门槛。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>该论文构建机器学习哈密顿量，用于非晶 SiO₂ 中氧空位缺陷的可扩展、较准确电子结构计算，属机器学习辅助材料缺陷计算方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>以机器学习哈密顿量替代高成本第一性原理电子结构计算。</li><li>研究对象为非晶 SiO₂ 中的氧空位缺陷。</li><li>目标应用包括无序氧化物中的局域缺陷态分析。</li><li>方法涉及缺陷相关结构弛豫与能级分析，但具体流程摘要未详述。</li><li>训练数据来源、模型形式、特征构造、损失函数和验证方案摘要未详述。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确指出该方法面向“可扩展”和“准确”的缺陷计算。</li><li>该机器学习哈密顿量被用于非晶 SiO₂ 氧空位这一典型无序氧化物缺陷问题。</li><li>论文声称该方法可支持局域缺陷态、结构弛豫及相关能级分析。</li><li>误差水平、可处理体系尺寸、采样数量、与第一性原理对比结果等摘要未详述。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：将机器学习哈密顿量用于非晶 SiO₂ 中氧空位缺陷的电子结构与能级计算，而不仅是常规能量/力预测；这一点相对传统机器学习势函数更偏向电子哈密顿量层面的替代。</li><li>另一可能创新在于：面向非晶无序体系中的局域缺陷态进行可扩展计算，这类问题通常比晶体缺陷更依赖大尺度采样与局域环境描述。</li><li>其创新性强弱仍不确定，因为摘要未详述模型架构、训练策略、基准对比、精度指标及与已有机器学习电子结构方法的差异。</li></ul></div></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
 </div>
 </li>
-<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" id="paper-2">
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" id="paper-2">
 <span class="daily-paper-number">02</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">磁隧道结中的巨轨道力矩皮秒开关</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Giant orbital torque-driven picosecond switching in magnetic tunnel junctions</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">新磁场设计强化工业等离子体约束</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">Reimagining the furnace: How a new magnetic design could supercharge industrial plasma</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 </div><span class="enrich-badge">📊 含图深析</span></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Science Bulletin</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在磁隧道结中报道巨轨道力矩驱动的皮秒尺度磁化翻转，体系聚焦自旋电子存储器件的高速开关；结论指向轨道角动量通道可显著增强力矩效率，使磁隧道结进入超快、低延迟操控区间。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>磁隧道结中实现轨道力矩驱动的皮秒磁化开关，核心在于利用巨轨道力矩而非传统纯自旋力矩。该结果强化了轨道电子学在高速非易失存储中的器件价值。</p>
-<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax12b6c4a7f7ccb0.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>磁隧道结中的磁化翻转通常受限于传统自旋转移力矩或自旋轨道力矩的速度与效率；核心问题是：能否用“巨轨道力矩”在磁隧道结内直接驱动自由磁层，实现皮秒尺度的超快磁化开关。</div><div class="poster-row"><b>创新方法</b>将巨轨道力矩引入磁隧道结开关机制：利用电流激发的强轨道角动量流，对磁层施加瞬时巨大力矩，替代或超越传统自旋力矩路径，形成“轨道力矩驱动的超快翻转”这一 Aha 点。</div><div class="poster-row"><b>工作流程</b>输入电流脉冲进入磁隧道结器件；脉冲在功能层中产生强轨道角动量流；轨道角动量转化为作用在磁性自由层上的巨轨道力矩；自由层磁化方向在皮秒时间窗内快速翻转；最终通过磁隧道结的高/低阻态读出开关结果。</div><div class="poster-row"><b>关键结果</b>论文核心结果是在磁隧道结中实现了巨轨道力矩驱动的磁化翻转，并将开关时间推进到皮秒尺度；这表明轨道力矩可作为磁隧道结超快写入的有效驱动力。</div><div class="poster-row"><b>应用价值</b>该研究为高速非易失磁存储器和自旋逻辑器件提供新的写入方案：以轨道力矩实现更快的磁化控制，有望推动皮秒级 MRAM、低延迟存算器件和超快磁逻辑单元的发展。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>该论文属于自旋电子学/磁存储器件方向，研究在磁隧道结中利用巨轨道力矩实现磁化的皮秒尺度翻转。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>研究对象是磁隧道结（MTJ）体系。</li><li>核心驱动机制为“巨轨道力矩”（giant orbital torque）。</li><li>目标现象是力矩驱动的磁化快速开关/翻转。</li><li>摘要未详述具体层结构、材料组合、脉冲参数、电流密度、测量手段或模拟方法。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确指出：在磁隧道结中实现了由巨轨道力矩驱动的磁化翻转。</li><li>标题和摘要给出的核心结论是：该翻转达到皮秒尺度。</li><li>摘要未披露隧穿磁阻变化、开关能耗、临界电流密度、重复性或器件尺寸等具体结果。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于将“巨轨道力矩”用于磁隧道结中的超快磁化开关，而不是传统主要依赖自旋转移力矩或自旋轨道力矩的方案。</li><li>皮秒尺度开关若经实验证实，可能对高速非易失磁存储或逻辑器件具有重要意义。</li><li>但由于摘要未详述实验设计、对照体系和性能指标，无法确定其相对既有工作的提升幅度、机制证据强度或器件实用性。</li></ul></div></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 80</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>新闻条目围绕高温工业等离子体约束问题：需像约束微型恒星一样防止等离子体接触壁面或快速损耗。核心是新的磁场设计，用于提升高温等离子体工程中的稳定性与约束效率；摘要未给出磁构型名称、场强、装置尺度、温度或能量增益。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把关键问题定位在工业高温等离子体的磁约束几何设计，目标是减少壁面接触和能量损失。对等离子体材料与能源装置而言，磁拓扑优化可能比单纯提高功率更关键。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax63e65a678dfa23.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>高温工业等离子体在炉体或反应装置中容易扩散并触碰壁面，导致壁面热损伤、能量损失和等离子体熄灭；核心问题是如何用磁场把“炽热等离子体云”稳定悬在装置中心，减少与金属炉壁接触。</div><div class="poster-row"><b>创新方法</b>提出面向工业炉/反应装置的新型磁场约束设计，用磁力线重新塑造等离子体边界，使高温等离子体像被“磁笼”包围一样远离壁面；Aha 点在于把磁约束从聚变场景转向工业等离子体炉，强调运行持续性和抗熄灭能力。</div><div class="poster-row"><b>工作流程</b>输入为工业装置中的高温等离子体与炉腔几何需求；设计并布置新的磁场构型；磁力线在炉腔内形成约束区域；等离子体被限制在中心高温区，减少向壁面漂移；输出为更稳定、更少壁面接触、更低熄灭风险的工业等离子体运行状态。</div><div class="poster-row"><b>关键结果</b>论文摘要表明，新磁场设计能够在装置内部限制等离子体，并降低等离子体碰壁和熄灭风险；但未提供约束时间、热负荷降低、功率提升、稳定性阈值等定量指标，也未明确是实验验证、模拟验证还是概念设计。</div><div class="poster-row"><b>应用价值</b>可用于升级工业等离子体炉、反应器和高温加工系统，减少炉壁损伤与停机风险，提高连续运行可靠性；视觉上可表现为更耐久的炉体、更稳定的蓝紫色等离子体核心和更高效的工业热处理/材料加工流程。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>这是一篇偏新闻/科普性质的工业等离子体工程条目，介绍一种新的磁场设计，旨在提升高温工业等离子体的稳定性与约束效率。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>研究聚焦于高温工业等离子体的磁约束问题，即避免等离子体接触装置壁面或快速能量损耗。</li><li>核心技术是采用一种新的磁场设计来改善等离子体约束。</li><li>该设计的目标包括提高等离子体稳定性和约束效率。</li><li>摘要未详述磁构型名称、磁场强度、装置几何尺度、运行温度、诊断方法或实验/模拟流程。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确指出，新磁场设计有望提升高温等离子体工程中的稳定性。</li><li>摘要明确指出，该设计旨在提高等离子体约束效率。</li><li>该工作针对工业等离子体中的壁面接触和快速损耗问题。</li><li>摘要未详述定量结果，例如约束时间提升幅度、能量增益、温度范围或实际工业效率提升。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于提出或报道了一种面向工业高温等离子体应用的新磁场构型或磁约束设计，但具体形式摘要未详述。</li><li>相对传统工业等离子体或聚变类磁约束思路，其潜在创新可能是将更强稳定性、更高约束效率作为工程化目标进行磁场重构；这一判断基于摘要措辞，存在不确定性。</li><li>由于摘要没有给出对比对象、实验数据或理论模型，无法判断其相对现有磁镜、托卡马克、仿星器或其他磁约束方案的实质性突破程度。</li></ul></div></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-reimagining-furnace-magnetic-supercharge-industrial.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
 </div>
 </li>
-<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41524-026-02217-4" id="paper-3">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" id="paper-3">
 <span class="daily-paper-number">03</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">机器学习哈密顿量计算非晶 SiO2 氧空位</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">Machine learning Hamiltonian enables scalable and accurate defect calculations: the case of oxygen vacancies in amorphous SiO 2</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
-</div></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 npj Computational Materials</span><span class="daily-chip daily-chip-authors">👤 Zhenxing Dai, Yang Zhong, Mingjue Ni, Menglin Huang, Hongjun Xiang, Xin-Gao Gong 等7位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>面向非晶 SiO2 中氧空位缺陷，构建机器学习哈密顿量以替代昂贵电子结构计算，在保持缺陷相关精度的同时提升体系尺寸与采样可扩展性；案例指向非晶氧化物中局域缺陷态、结构无序与电子性质的联合计算。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>机器学习哈密顿量被用于非晶 SiO2 氧空位，直接面向缺陷电子结构而非只拟合能量。该路线有助于把非晶氧化物缺陷计算推进到更大模型和更多构型采样。</p>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41524-026-02217-4" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">磁隧道结中巨轨道力矩驱动皮秒翻转</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Giant orbital torque-driven picosecond switching in magnetic tunnel junctions</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div><span class="enrich-badge">📊 含图深析</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Science Bulletin</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题名显示工作聚焦磁隧道结中的巨轨道力矩驱动磁化翻转，目标时间尺度为皮秒量级。体系属于自旋电子学器件，关键机制是轨道力矩而非传统仅依赖自旋转移或自旋轨道力矩的翻转路径；条目未给出层结构、脉冲宽度、临界电流密度或隧穿磁阻数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>磁隧道结中实现轨道力矩驱动的皮秒磁化翻转，指向超快非易失存储单元。若巨轨道力矩可在实际堆栈中稳定复现，将直接影响凝聚态自旋输运与低功耗磁存储设计。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax12b6c4a7f7ccb0.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>磁隧道结中的磁化翻转通常受限于传统自旋转移力矩或自旋轨道力矩的速度与效率；核心问题是：能否用“巨轨道力矩”在磁隧道结内直接驱动自由磁层，实现皮秒尺度的超快磁化开关。</div><div class="poster-row"><b>创新方法</b>将巨轨道力矩引入磁隧道结开关机制：利用电流激发的强轨道角动量流，对磁层施加瞬时巨大力矩，替代或超越传统自旋力矩路径，形成“轨道力矩驱动的超快翻转”这一 Aha 点。</div><div class="poster-row"><b>工作流程</b>输入电流脉冲进入磁隧道结器件；脉冲在功能层中产生强轨道角动量流；轨道角动量转化为作用在磁性自由层上的巨轨道力矩；自由层磁化方向在皮秒时间窗内快速翻转；最终通过磁隧道结的高/低阻态读出开关结果。</div><div class="poster-row"><b>关键结果</b>论文核心结果是在磁隧道结中实现了巨轨道力矩驱动的磁化翻转，并将开关时间推进到皮秒尺度；这表明轨道力矩可作为磁隧道结超快写入的有效驱动力。</div><div class="poster-row"><b>应用价值</b>该研究为高速非易失磁存储器和自旋逻辑器件提供新的写入方案：以轨道力矩实现更快的磁化控制，有望推动皮秒级 MRAM、低延迟存算器件和超快磁逻辑单元的发展。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>该论文聚焦自旋电子学中磁隧道结的皮秒磁化翻转，强调由“巨轨道力矩”驱动，而非传统自旋力矩机制。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>研究对象为磁隧道结（MTJ）器件中的磁化翻转过程。</li><li>核心物理机制是轨道力矩（orbital torque）驱动。</li><li>工作关注皮秒量级的超快开关行为。</li><li>摘要暗示其与传统自旋转移力矩（STT）或自旋轨道力矩（SOT）路径不同。</li><li>具体层结构、材料体系、脉冲参数、测量方法或模拟方法摘要未详述。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>论文声称实现或研究了磁隧道结中的“巨轨道力矩驱动”磁化翻转。</li><li>目标或实现的翻转时间尺度为皮秒量级。</li><li>摘要强调该机制可能提供区别于传统 STT/SOT 的快速翻转路径。</li><li>临界电流密度、脉冲宽度、隧穿磁阻、翻转概率等定量结果摘要未详述。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于将“轨道力矩”作为磁隧道结超快翻转的主导驱动力，而不是仅依赖传统自旋转移力矩或自旋轨道力矩。</li><li>若论文确实证明“巨轨道力矩”可实现皮秒级 MTJ 开关，则其创新性主要体现在新型力矩机制与超快存储器件应用的结合。</li><li>由于摘要未给出材料设计、器件结构和对照实验，无法确定其创新来自材料体系、器件架构、测量技术还是理论机制。</li><li>“giant orbital torque”的定量强度及其相对已有轨道力矩工作的提升幅度，摘要未详述，因此创新幅度仍需全文验证。</li></ul></div></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326007711?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
 </div>
 </li>
 <li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" id="paper-4">
 <span class="daily-paper-number">04</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">SCAN 族机器学习势预测液态钠氧溶解焓</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">SCAN 族机器学习势预测液态钠中氧溶解焓</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Accurate prediction of oxygen solution enthalpy in liquid sodium with SCAN-family machine-learning potentials</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
 </div></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对液态钠中氧溶解焓，采用 SCAN 族交换关联泛函数据训练机器学习势，并用于热力学量预测；体系对应钠冷却剂中氧杂质行为，结论强调机器学习势可在液态金属无序结构中保持接近第一性原理的溶解焓精度。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>SCAN 族机器学习势被用于液态钠中氧溶解焓预测，连接第一性原理精度与液态采样效率。该工作对钠冷快堆冷却剂杂质热力学建模尤其直接。</p>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对液态钠中氧的溶解焓，采用基于 SCAN 族交换关联泛函数据训练的机器学习势进行预测。体系对应钠冷却剂或液态金属环境中的轻元素杂质热力学；题名强调“准确预测”，但条目未给出训练集规模、势函数形式、温度范围或与实验/DFT 的误差。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>液态钠—氧体系被用于检验 SCAN 族机器学习势对溶解焓的预测能力，问题直接关联液态金属杂质热力学。该方向把机器学习势从固体晶格扩展到反应性强、采样困难的高温液态金属。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600443X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
 </div>
 </li>
@@ -364,12 +365,12 @@
 <span class="daily-paper-number">05</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-synthetic-rotation-black-hole-energy.html" rel="noopener noreferrer" target="_blank">合成旋转在实验室放大波</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-synthetic-rotation-black-hole-energy.html" rel="noopener noreferrer" target="_blank">合成旋转实验放大类黑洞波</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-synthetic-rotation-black-hole-energy.html" rel="noopener noreferrer" target="_blank">Synthetic rotation brings black hole energy theory into lab, amplifying waves</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 70</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>报道利用合成旋转平台在实验室模拟 Penrose 能量提取与 Zel'dovich 波放大思想：波与足够快速旋转的等效介质或结构相互作用时，可从旋转自由度汲取能量并被放大；内容连接类黑洞物理、波动力学和可控凝聚态模拟。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>合成旋转把黑洞能量提取类比带入实验室波系统，观测目标是旋转诱导波放大。该平台拓展了凝聚态和人工介质对引力场论效应的模拟能力。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>新闻条目介绍用合成旋转在实验室模拟彭罗斯能量提取和 Zel'dovich 波放大。波与足够快速旋转的对象相互作用时可从旋转中取能并被放大，对应类黑洞能层的波动力学模拟；摘要未给介质平台、旋转频率、增益幅度或频谱范围。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>合成旋转平台把黑洞能量提取类比转化为可测的波放大实验，核心现象是 Zel'dovich 型超辐射。对凝聚态和波动物理而言，这类系统可用可控介质研究旋转、耗散与能量抽取。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-synthetic-rotation-black-hole-energy.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-synthetic-rotation-black-hole-energy.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
 </div>
 </li>
@@ -381,8 +382,8 @@
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526002791?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Spinss: Accelerating the Four-State Method for Spin Hamiltonian via Appropriate Initial Spin Densities</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Spinss 面向自旋哈密顿量参数计算中的四态法，通过选择合适初始自旋密度来加速计算流程；对象是第一性原理自旋模型参数提取，结论指向减少不必要收敛开销并提升四态法在多自旋体系中的自动化效率。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Spinss 通过优化初始自旋密度加速四态法，服务于自旋哈密顿量参数提取。该工具可降低磁性材料从 DFT 到自旋模型映射的计算成本。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Spinss 面向自旋哈密顿量参数计算，改进四态法的初始自旋密度设置以提升计算效率。应用场景是从第一性原理总能或自旋构型中提取交换相互作用等模型参数；题名强调“适当初始自旋密度”带来的加速，条目未给加速倍数、测试材料或误差评估。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Spinss 通过优化初始自旋密度加速自旋哈密顿量四态法，切入点是减少非共线或多构型 DFT 计算的迭代成本。对磁性材料高通量筛选而言，参数提取流程的自动化和收敛稳定性尤为关键。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526002791?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526002791?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
 </div>
 </li>
@@ -390,18 +391,18 @@
 <span class="daily-paper-number">07</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10263100/latest" rel="noopener noreferrer" target="_blank">扩展结构动力学中的热波与 Mpemba 效应</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10263100/latest" rel="noopener noreferrer" target="_blank">扩展结构动力学解释姆潘巴效应</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10263100/latest" rel="noopener noreferrer" target="_blank">Structural Viscosity, Thermal Waves, and the Mpemba Effect from Extended Structural Dynamics</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Patrick BarAvi</span><span class="daily-chip daily-chip-score">🔥 AI 90</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>提出扩展结构动力学：粒子被视为空间延展对象，含取向、角动量和内部形变模式；从扩展相空间 Boltzmann 方程出发，结合 Chapman–Enskog 展开与 BGK 闭合，得到可描述结构黏度、有限时间弛豫、各向异性输运、热波及 Mpemba 效应的框架。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>扩展结构动力学把取向、角动量和内部形变纳入动理学变量，用于推导非经典输运。它给出结构黏度、热波和 Mpemba 效应的统一描述，但仍属预印本理论框架。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>提出扩展结构动力学：把粒子视为空间延展对象，具有取向、角动量和内部形变模。由扩展相空间 Boltzmann 方程出发，结合 BGK 闭合与 Chapman–Enskog 展开，推导含结构黏度、热波和有限松弛的输运描述，用于处理各向异性、非傅里叶热输运及姆潘巴效应；摘要未给具体实验数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>扩展结构动力学通过引入取向和内部形变自由度，把热波、结构黏度与姆潘巴效应纳入同一动力学框架。它挑战点粒子流体近似，对非平衡软物质、复杂流体和热输运理论有直接关联。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10263100/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10263100/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
 </div>
 </li>
 </ol>
 </section>
-<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-11.html">← 前一天 · 2026-07-11</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-11.html">← 前一天 · 2026-07-11</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><a class="daily-nav-link daily-nav-next" href="2026-07-13.html">后一天 · 2026-07-13 →</a></nav>
 <div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-11.html">前一天 · 2026-07-11</a><a class="daily-page-nav-link" href="2026-07-13.html">后一天 · 2026-07-13</a><a class="daily-page-nav-link" href="2026-07-13.html">最新一期 · 2026-07-13</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-12.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
           本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
         </div>
@@ -414,9 +415,9 @@
 <a href="#papers"><span>今日文献</span><span>📚</span></a>
 <div class="daily-sidebar-block">
 <div class="daily-sidebar-title">专题分布</div>
-<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>7</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>2</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>7</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>3</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
 </div>
-<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">新磁设计增强工业等离子体熔炉<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">磁隧道结中的巨轨道力矩皮秒开关<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">机器学习哈密顿量计算非晶 SiO2 氧空位<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">SCAN 族机器学习势预测液态钠氧溶解焓<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">合成旋转在实验室放大波<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">Spinss 加速自旋哈密顿量四态法<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">扩展结构动力学中的热波与 Mpemba 效应<span class="daily-outline-meta">07</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-11.html">前一天 · 2026-07-11</a><a class="daily-page-nav-link" href="2026-07-13.html">后一天 · 2026-07-13</a><a class="daily-page-nav-link" href="2026-07-13.html">最新一期 · 2026-07-13</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-12.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">机器学习哈密顿量用于非晶 SiO2 氧空位计算<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">新磁场设计强化工业等离子体约束<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">磁隧道结中巨轨道力矩驱动皮秒翻转<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">SCAN 族机器学习势预测液态钠中氧溶解焓<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">合成旋转实验放大类黑洞波<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">Spinss 加速自旋哈密顿量四态法<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">扩展结构动力学解释姆潘巴效应<span class="daily-outline-meta">07</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-11.html">前一天 · 2026-07-11</a><a class="daily-page-nav-link" href="2026-07-13.html">后一天 · 2026-07-13</a><a class="daily-page-nav-link" href="2026-07-13.html">最新一期 · 2026-07-13</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-12.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
 <div class="daily-sidebar-title">阅读建议</div>
 <ul class="insight-note-list">
 <li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>

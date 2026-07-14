@@ -1,9 +1,9 @@
 [
   {
     "title": "Learning to Converge: Warm-Starting DFTB Self-Consistent Charges with Machine Learning",
-    "title_zh": "机器学习预热 DFTB 自洽电荷",
-    "summary": "用机器学习直接给出 DFTB 自洽电荷初猜，以缩短 SCC 迭代。该思路把电子结构求解的瓶颈从反复混合转为数据驱动初始化，适合大体系高通量模拟。",
-    "abstract": "针对含自洽电荷的 DFTB 在复杂分子和材料中收敛慢的问题，构建机器学习初值生成器，用预测电荷分布 warm-start SCC 迭代。目标是在保持 DFTB 可访问电子性质和半经验效率的同时，减少自洽循环瓶颈，面向大规模分子/材料模拟。",
+    "title_zh": "机器学习热启动 DFTB 自洽电荷",
+    "summary": "机器学习直接给出 DFTB 自洽电荷的初值，针对复杂分子和材料中 SCC 难收敛场景。核心价值在于把电子结构计算加速点放在迭代初始态，而非替代哈密顿量。",
+    "abstract": "面向自洽电荷 DFTB 中迭代收敛慢的问题，使用机器学习预测初始电荷分布作为热启动。对象为复杂分子和材料体系，目标是在保留 DFTB 电子性质可访问性的同时减少 SCC 迭代瓶颈，提升大规模半经验电子结构计算效率。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.09304",
     "journal": "arXiv"
@@ -11,8 +11,8 @@
   {
     "title": "Developing Machine Learning Models of Subgrid Turbulent Transport for Quiet Sun 3D Radiative Hydrodynamic Simulations",
     "title_zh": "宁静太阳湍流输运的机器学习模型",
-    "summary": "三维 CNN 被用于学习太阳辐射流体中的亚网格湍流输运。该代理模型把高分辨率小尺度耗散信息注入低分辨率模拟，体现物理仿真中的数据驱动闭合趋势。",
-    "abstract": "面向宁静太阳三维辐射流体模拟的网格分辨率依赖问题，训练三维卷积神经网络作为亚网格湍流输运代理模型。模型从空间局域结构学习小尺度流动对动量输运和能量耗散的贡献，用于替代或改进数值模拟中的亚网格闭合。",
+    "summary": "3D 卷积网络被用于学习太阳等离子体辐射流体模拟中的亚网格湍流输运。该思路把 AI 代理模型嵌入多尺度物理闭合，对高分辨率天体流体计算有直接借鉴价值。",
+    "abstract": "针对宁静太阳三维辐射流体模拟中网格分辨率不足导致的亚网格湍流输运误差，构建 3D 卷积神经网络代理模型。模型学习小尺度流动对动量输运和能量耗散的贡献，用于替代或补充高成本亚网格闭合项。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.08969",
     "journal": "arXiv"
@@ -20,8 +20,8 @@
   {
     "title": "Quantum Circuits in Diffusion Models: A Fair-Comparison Study and a Mechanistic Analysis of Angle-Embedding Failures",
     "title_zh": "扩散模型中的量子线路公平比较",
-    "summary": "量子线路接入扩散模型后并未在 FID 上显著优于角色匹配经典模块。公平对照和角度嵌入失效分析为量子生成模型评测设定了更严格基线。",
-    "abstract": "在挤压-激励通道调制框架中把变分量子线路嵌入 DDPM、潜空间扩散和 NCSN，并设置角色匹配的经典对照。MNIST、CIFAR-10 多随机种子检验显示，量子核心平均 FID 与经典控制相当；EfficientSU2 的配对采样检验未显示统计显著优势，并分析角度嵌入失效机制。",
+    "summary": "量子线路嵌入扩散模型后，在公平对照下未带来稳定 FID 优势。结果提醒量子生成模型需区分架构贡献与真正量子贡献，尤其要警惕角度嵌入瓶颈。",
+    "abstract": "在扩散模型中通过压缩-激发通道调制框架嵌入变分量子线路，并用角色匹配的经典对照、多随机种子显著性检验评估 DDPM、潜空间扩散和 MNIST 上的 NCSN。量子核心在 MNIST、CIFAR-10 的平均 FID 与经典对照相当；EfficientSU2 的配对采样种子检验未显示统计显著优势，并分析角度嵌入失效机制。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.09108",
     "journal": "arXiv"
@@ -29,8 +29,8 @@
   {
     "title": "Universal Neural Network Based Calibration and Control of Programmable Classical and Quantum Photonic Integrated Processors",
     "title_zh": "可编程光子处理器的神经校准控制",
-    "summary": "面向可编程光子芯片，神经网络框架同时处理校准和反向控制。其关键在于修正多对一控制映射与采样偏置，有助于规模化光计算和量子光路调谐。",
-    "abstract": "针对可编程经典与量子光子集成电路校准困难，提出通用神经网络校准与控制框架。方法处理控制信号到光学响应的多对一映射问题，并避免均匀电流采样训练集带来的偏置，旨在提升跨架构学习、泛化和可扩展控制能力。",
+    "summary": "神经网络被用于解决光子集成处理器的多对一校准难题，并面向经典与量子光路统一建模。该框架有助于降低大规模可编程光子芯片调参成本。",
+    "abstract": "面向可编程经典和量子光子集成电路的规模化校准，提出通用神经网络控制框架。针对控制信号到光学响应的多对一映射以及均匀电流采样引起的数据偏置，改进训练数据与模型设计，实现跨结构的校准和控制能力。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.09301",
     "journal": "arXiv"
@@ -38,8 +38,8 @@
   {
     "title": "Benchmarking Universal Machine Learning Force Fields for Molecular Dynamics of Lunar Regolith Minerals",
     "title_zh": "月壤矿物机器学习力场基准",
-    "summary": "六种基础机器学习势被系统用于月壤矿物分子动力学基准。结果聚焦硅酸盐和氧化物结构保真度，为月面材料反应与资源利用模拟筛选可靠势函数。",
-    "abstract": "用 NVT 分子动力学评测 MACE-MH、MatterSim、SevenNet-0、UPET、UMA、NequIP-OAM-L 六种通用机器学习势在月壤相关矿物中的迁移性。测试体系包括镁橄榄石、铁橄榄石、钛铁矿、钙长石，并以温度稳定性和结构保真度等指标衡量硅酸盐、氧化物及含氢表面物种的适用性。",
+    "summary": "六类基础机器学习势被放到月壤矿物分子动力学中统一检验。该基准直接暴露通用势在行星材料硅酸盐和氧化物上的可迁移性边界。",
+    "abstract": "评测 MACE-MH、MatterSim、SevenNet-0、UPET、UMA 和 NequIP-OAM-L 六种通用机器学习原子间势在月壤相关体系中的可迁移性。NVT 分子动力学覆盖镁橄榄石、铁橄榄石、钛铁矿和钙长石，比较温度稳定性与结构保真度，聚焦硅酸盐、氧化物及含氢表面物种模拟可靠性。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.09005",
     "journal": "arXiv"
@@ -47,8 +47,8 @@
   {
     "title": "Learning Physics-Informed Surrogate Model of Linear Elastic Displacement Fields from Geometry",
     "title_zh": "由几何学习线弹性位移代理模型",
-    "summary": "物理信息 DeepONet 直接从裂纹几何和边界条件生成弹性位移场。无需有限元训练数据且嵌入无牵引边界，使结构监测中的快速力学推断更可行。",
-    "abstract": "构建物理信息 DeepONet，用断裂几何和边界条件预测线弹性域位移场，面向实时结构健康监测。模型采用专门几何编码，不依赖有限元生成训练数据；裂纹边界的无牵引条件通过局域惩罚项弱施加，数值示例验证其对断裂弹性问题的快速近似能力。",
+    "summary": "物理约束 DeepONet 从裂纹几何和边界条件直接预测弹性位移场。其关键特点是不依赖有限元标签，适合实时断裂结构监测。",
+    "abstract": "提出物理约束 DeepONet，用边界条件和断裂几何预测线弹性位移场，面向含裂纹结构的实时健康监测。方法设计专用几何编码，不依赖有限元生成训练数据；裂纹边界的无牵引条件通过局域罚项弱施加，并在二维数值例子中验证。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.09382",
     "journal": "arXiv"
@@ -56,8 +56,8 @@
   {
     "title": "Amplitude mode in two-dimensional coherent spectroscopy of weak-coupling antiferromagnets",
     "title_zh": "弱耦合反铁磁体二维谱中的振幅模",
-    "summary": "二维相干谱结合非平衡 DMFT 揭示 Hubbard 反铁磁体中的振幅模指纹。等待时间依赖和 Hartree 对照把集体模与普通非线性响应区分开。",
-    "abstract": "用非平衡动力学平均场理论模拟 Hubbard 模型多脉冲激发，提取弱耦合反铁磁体的二维相干谱信号，并比较有无局域势无序的情况。通过静态/动态 Hartree 项对照和等待时间依赖分析，识别集体振幅模对谱峰结构的贡献。",
+    "summary": "二维相干谱结合非平衡 DMFT 揭示 Hubbard 反铁磁体中的振幅模响应。该工作给出在弱耦合关联体系中分辨集体模和无序效应的谱学路径。",
+    "abstract": "用非平衡动力学平均场理论模拟 Hubbard 模型的多脉冲激发，提取弱耦合反铁磁体二维相干谱信号，并比较有无局域势无序的情形。通过静态与动态 Hartree 项及等待时间依赖分析，识别集体振幅模对谱学特征的贡献。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2504.21351",
     "journal": "arXiv"
@@ -65,62 +65,62 @@
   {
     "title": "Finite-time cooling and accessibility of the stripe phase in the Ising antiferromagnet",
     "title_zh": "Ising 反铁磁条纹相的有限时冷却",
-    "summary": "三角晶格 J1-J2 Ising 反铁磁体的平衡条纹相在有限冷却时间内并不自动可达。n*(L,J2/J1) 揭示尺寸和次近邻耦合共同控制动力学可及性。",
-    "abstract": "研究三角晶格 J1-J2 Ising 反铁磁体在局域 Metropolis 更新下的有限速率冷却。尽管反铁磁次近邻耦合在平衡态选择条纹相，有限时间模拟显示系统不一定到达全局条纹有序；定义动力学条纹形成时间 n*(L,J2/J1)，发现其随系统尺寸增大移向更慢冷却，随 J2/J1 增大而加快。",
+    "summary": "三角晶格 J1-J2 Ising 反铁磁体的条纹相在有限冷却时间内存在可达性限制。动力学时间 n* 揭示尺寸和次近邻耦合对条纹形成的竞争影响。",
+    "abstract": "研究三角晶格 J1-J2 Ising 反铁磁体在局域 Metropolis 更新下的有限速率冷却动力学。尽管反铁磁次近邻耦合在平衡态选择条纹相，模拟显示有限时间内不一定可达；定义获得全局条纹有序末态的动力学时间 n*(L,J2/J1)，其随体系尺寸增大移向更慢冷却，随 J2/J1 增大移向更快冷却。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.09411",
     "journal": "arXiv"
   },
   {
     "title": "Interface-induced spin-resolved type-II band alignment and enhanced magnetic anisotropy in MSe2/WTe2 (M = V, Cr, Mn, Fe and Co) van der Waals heterobilayers",
-    "title_zh": "MSe2/WTe2 界面自旋能带对准",
-    "summary": "MSe2/WTe2 异质双层通过界面工程产生自旋分辨 II 型能带对准。0.70 eV 的 WSe2/WTe2 基准和增强磁各向异性指向二维自旋电子器件。",
-    "abstract": "用第一性原理研究 MSe2/WTe2（M=V、Cr、Mn、Fe、Co）范德华异质双层的结构、电子和磁性。AA' 构型 WSe2/WTe2 最稳定，呈 0.70 eV 带隙的 II 型能带对准；过渡金属 M 引入自旋分辨 II 型对准并增强磁各向异性，适合调控自旋依赖载流子输运。",
+    "title_zh": "MSe2/WTe2 中自旋分辨能带对齐",
+    "summary": "过渡金属硒化物与 WTe2 组成的二维异质双层表现出界面诱导自旋分辨 II 型能带对齐。0.70 eV 原始带隙和增强磁各向异性使其适合范德华自旋电子器件设计。",
+    "abstract": "用第一性原理研究 MSe2/WTe2 范德华异质双层，M 为 V、Cr、Mn、Fe、Co，分析结构、电子和磁性。AA' 构型的原始 WSe2/WTe2 能量最低，呈 II 型能带对齐且带隙为 0.70 eV；磁性 MSe2/WTe2 界面诱导自旋分辨 II 型对齐并增强磁各向异性，适合自旋电子输运调控。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.08926",
     "journal": "arXiv"
   },
   {
     "title": "Magnetic Field Control of the Néel Vector and Magnon Visibility in Altermagnetic MnTe",
-    "title_zh": "MnTe 中磁场调控 Néel 矢量",
-    "summary": "α-MnTe 中面内磁场能旋转 Néel 矢量而基本不改变量子化的磁振子能量。磁振子强度对 Néel 方向敏感，为交替磁畴和自旋动力学读出提供实验路径。",
-    "abstract": "用非弹性中子散射和线性自旋波理论研究交替磁 α-MnTe 的磁场依赖自旋波谱。面内磁场可克服弱晶体各向异性并连续重取向 Néel 矢量，但相对主导交换尺度仍很小；重取向几乎不改变磁振子能量，却显著改变磁振子可见性。",
+    "title_zh": "MnTe 中 Néel 矢量和磁振子可见性场控",
+    "summary": "α-MnTe 中面内磁场可连续旋转 Néel 矢量而几乎不改写磁振子能量。磁振子可见性的场控为交变磁体中动量依赖自旋劈裂的实验读出提供了清晰方案。",
+    "abstract": "用非弹性中子散射和线性自旋波理论研究交变磁体 α-MnTe 的磁场依赖自旋波谱。面内磁场克服弱晶体各向异性并连续重定向 Néel 矢量，但相对主导交换能标仍很小；该重定向基本不改变磁振子能量，却显著改变谱学可见性。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.08829",
     "journal": "arXiv"
   },
   {
     "title": "Short-range magnetic order and multi-stage phase transitions in the easy-plane van der Waals magnet CrCl₃",
-    "title_zh": "CrCl3 短程磁序与多级相变",
-    "summary": "CrCl3 微片的 FMR、SQUID 与 DFT+DMFT 联合揭示短程自旋关联参与多级磁转变。该结果细化了易平面范德华磁体中二维涨落和长程有序的关系。",
-    "abstract": "结合宽带铁磁共振、直流 SQUID 磁ometry和非局域 DFT+DMFT，研究准二维易平面范德华磁体 CrCl3 中自旋关联和多级磁转变。机械剥离微片实验确认向自旋极化相的交叉，并分析长程与短程磁序在多阶段转变中的作用。",
+    "title_zh": "CrCl3 中短程磁序与多阶段相变",
+    "summary": "CrCl3 微片的 FMR、SQUID 与 DFT+DMFT 联合揭示短程磁关联参与多阶段转变。该结果细化了易平面范德华磁体从二维关联到自旋极化的动力学图像。",
+    "abstract": "结合宽带铁磁共振、直流 SQUID 磁ometry和 DFT+DMFT，研究易平面范德华磁体 CrCl3 微米剥离片中的自旋关联和多阶段磁转变。实验确认存在向自旋极化相的交叉，并分析长程与短程磁序的演化，解释准二维磁体中分阶段磁响应。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.09421",
     "journal": "arXiv"
   },
   {
     "title": "A Machine Learning Surrogate for Component Criticality Ranking in Interdependent Power-Communication Networks",
-    "title_zh": "电力通信网络关键性机器学习代理",
-    "summary": "机器学习代理替代 MIIM 级联仿真，对电力—通信互依网络进行组件关键性排序。其优势在于用无泄漏结构特征处理大规模 N-k 事故评估。",
-    "abstract": "针对电力—通信耦合系统中大规模 N-k 事故集级联仿真代价高的问题，以改进隐含互依模型 MIIM 为真实级联模拟器，训练机器学习代理模型。模型使用避免信息泄漏的结构特征预测事故严重度，并据此给出组件关键性排序，用于韧性规划。",
+    "title_zh": "互依电力通信网关键性代理模型",
+    "summary": "机器学习代理模型替代 MIIM 高保真级联仿真，快速评估电力-通信互依网络中的组件关键性。其方法学与材料网络、能源系统中的失效传播建模相通。",
+    "abstract": "针对电力-通信互依网络中 N-k 故障组合的级联评估成本过高，使用已发表的 MIIM 模型作为级联仿真真值，训练机器学习代理模型。输入为避免泄漏的结构特征，输出事故严重性，并进一步给出组件关键性排序，用于韧性规划。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.08918",
     "journal": "arXiv"
   },
   {
     "title": "Frequency combs due to the magnetic square well scheme and dissipative exchange flows in one-dimensional ferromagnetic channels",
-    "title_zh": "铁磁通道中的频率梳与耗散交换流",
-    "summary": "双点超声速自旋注入的一维铁磁通道可通过耗散交换流产生频率梳。磁方势阱方案连接自旋超流极限与强非线性接触孤子。",
-    "abstract": "研究一维铁磁通道中两个注入点的超声速自旋极化电流通过非局域相互作用形成频率梳。提出“磁方势阱”注入方案以产生耗散交换流；低注入极限退化为自旋超流，强注入极限中非线性在注入点附近占主导并形成接触孤子。",
+    "title_zh": "铁磁通道磁方阱频率梳",
+    "summary": "双点自旋注入在一维铁磁通道中形成磁方阱，并通过耗散交换流产生频率梳。弱注入自旋超流与强注入接触孤子的连续图像突出了非线性磁输运机制。",
+    "abstract": "研究一维铁磁通道中两个注入点的超声速自旋极化电流非局域相互作用，提出“磁方阱”注入方案。该方案产生耗散交换流；弱注入极限下退化为自旋超流，强注入极限下注入点附近非线性增强并形成接触孤子，由此诱发频率梳。",
     "category": "磁性·自旋电子学",
     "link": "https://www.researchsquare.com/article/rs-10233689/latest",
     "journal": "Preprints"
   },
   {
     "title": "Predicting Entanglement Entropy from Particle Tunneling of Interacting Fermions Using Kolmogorov-Arnold Networks",
-    "title_zh": "用 KAN 从隧穿预测纠缠熵",
-    "summary": "一维相互作用费米子中，势垒后粒子数可预测双分区纠缠熵及其数目/构型分量。KAN 为从可观测隧穿动力学重构量子相关提供紧凑模型。",
-    "abstract": "在带外部非对称势的一维 Fermi-Hubbard 体系中，建立势垒后粒子数与双分区 von Neumann 纠缠熵的关系。将熵分解为数目熵 Sn 和构型熵 Sc，发现势垒主导隧穿区两部分均可由粒子隧穿信息表征，并用 Kolmogorov-Arnold 网络预测纠缠熵。",
+    "title_zh": "用 KAN 由隧穿预测纠缠熵",
+    "summary": "KAN 从相互作用费米子的隧穿粒子数预测纠缠熵，连接可观测输运量与多体量子相关。该结果有助于用少量动力学观测反推 Fermi-Hubbard 系统纠缠结构。",
+    "abstract": "在一维 Fermi-Hubbard 体系和非对称外势中，分析势垒后粒子数与双分区纠缠熵的关系。将 von Neumann 熵分解为数目熵 Sn 和构型熵 Sc，发现势垒主导隧穿区两者与粒子数关系清晰，并用 Kolmogorov-Arnold 网络预测纠缠熵。",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2507.19731",
     "journal": "arXiv"
@@ -128,44 +128,44 @@
   {
     "title": "Is data-efficient learning feasible with quantum models?",
     "title_zh": "量子模型能否数据高效学习",
-    "summary": "可控半人工数据集显示量子核在某些经典任务上具备样本效率优势。该工作把 QML 评测重点从模型本身转向数据结构与量子归纳偏置匹配。",
-    "abstract": "提出面向量子核方法的半人工经典数据生成工具，用于系统调控数据集特征。实验显示，在完全经典数据上，量子核方法可用更少训练样本达到与经典核相当误差，但优势依赖数据构造；该框架用于分析数据效率与量子模型归纳偏置的关系。",
+    "summary": "半人工数据生成器显示量子核的数据效率优势并非普适，而依赖数据结构与核函数匹配。该框架为量子机器学习在科学数据上的可检验优势提供了更严格基准。",
+    "abstract": "提出面向量子核方法的半人工经典数据生成工具，用于系统控制数据集特征。结果显示，在完全经典数据集上，量子核方法有时可用更少训练样本达到与经典核相当误差，但这种优势依赖数据构造与核匹配，强调评测量子机器学习时需使用非平凡数据集和统一框架。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2508.19437",
     "journal": "arXiv"
   },
   {
     "title": "PHINN-EEG: Topological Time-Series Analysis of Dream-State EEG -- Dynamic Betti Curves for Dream Content Classification and Topology-Conditioned Neural Signal Synthesis",
-    "title_zh": "PHINN-EEG 梦态脑电拓扑分析",
-    "summary": "PHINN-EEG 用持久同调的动态 Betti 曲线刻画梦态多通道脑电。拓扑条件化特征把非线性时序几何引入神经信号分类与合成。",
-    "abstract": "提出 PHINN-EEG，将滑动窗口 Takens 延迟嵌入、Vietoris-Rips 过滤和动态 Betti 曲线用于多通道 EEG 梦内容分类与神经信号合成。针对 DREAM 数据库中传统功率谱密度和统计矩特征 AUC 约 0.70 的基线，引入拓扑时间序列特征描述梦境脑电结构。",
+    "title_zh": "梦态脑电的拓扑时间序列分析",
+    "summary": "PHINN-EEG 把动态 Betti 曲线引入梦态脑电分类和信号生成。尽管偏生物信号方向，其拓扑时间序列框架可迁移到复杂物理传感数据分析。",
+    "abstract": "提出 PHINN-EEG，用滑动窗口 Takens 延迟嵌入和 Vietoris-Rips 过滤生成多通道脑电动态 Betti 曲线，用于梦内容分类和拓扑条件神经信号合成。方法针对 DREAM 数据库中传统功率谱密度和统计矩特征 AUC 约 0.70 的瓶颈，引入持久同调特征描述脑电时序拓扑。",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2607.09662",
     "journal": "arXiv"
   },
   {
     "title": "Quantum-Enhanced Synthetic Data Generation Using Quantum Circuit Born Machines for Imbalanced Tabular Learning",
-    "title_zh": "量子线路 Born 机合成不平衡数据",
-    "summary": "量子线路 Born 机被用于不平衡表格学习中的少数类合成。该方案探索量子生成分布对数据稀缺任务的潜在补充价值。",
-    "abstract": "提出混合量子—经典合成数据框架，用量子线路 Born 机处理数据稀缺和类别不平衡。参数化变分量子线路利用叠加和纠缠建模复杂概率分布，生成少数类表格数据，以缓解泛化下降和预测偏差问题。",
+    "title_zh": "量子 Born 机生成不平衡表格数据",
+    "summary": "量子线路 Born 机被用于不平衡表格数据的少数类合成。该工作把量子生成模型应用到小样本数据增强，但优势仍需与强经典生成基线严格比较。",
+    "abstract": "提出混合量子-经典合成数据生成框架，用量子线路 Born 机缓解表格学习中的数据稀缺和类别不平衡。参数化变分量子线路利用叠加与纠缠来表示复杂概率分布，生成少数类样本以改善下游模型泛化和偏置问题。",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2607.09113",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Ensemble Learning for Structural Wall Plastic Hinge Length Prediction",
-    "title_zh": "结构墙塑性铰长度的物理集成学习",
-    "summary": "堆叠集成模型用于从剪力墙几何与材料参数预测塑性铰长度。物理和因果约束的引入旨在提升抗震工程代理模型的可信度。",
-    "abstract": "提出堆叠集成框架预测钢筋混凝土剪力墙塑性铰长度。两级架构将多个基学习器与元学习器结合，以捕捉几何和材料参数到塑性铰长度的非线性关系；理论上引入因果推断与随机微分几何的联系，用于地震设计和性能评估。",
+    "title_zh": "结构墙塑性铰长度物理集成学习",
+    "summary": "物理启发堆叠集成模型用于预测剪力墙塑性铰长度。该范式体现工程结构参数预测中数据驱动模型与力学约束的结合。",
+    "abstract": "提出堆叠集成框架预测钢筋混凝土剪力墙塑性铰长度，面向抗震设计和性能评估。两级结构结合多个基学习器和元学习器，以捕捉几何、材料参数与塑性铰长度之间的非线性关系；理论上结合因果推断和随机微分几何表述。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10220219/latest",
     "journal": "Preprints"
   },
   {
     "title": "A Cloud-Accessible Open-Source Framework for the Electromagnetic Modelling of Applied Superconductors",
-    "title_zh": "应用超导体电磁建模云端开源框架",
-    "summary": "H-cloud 将 II 型超导体非线性电磁响应写入可复现的云端有限元流程。Nédélec 离散与全隐式残差为工程超导建模提供开放工具链。",
-    "abstract": "提出 H-cloud 形式化方法和云端开源有限元框架，用于应用超导体电磁建模。方法采用基于 Nédélec 有限元的 curl-共形离散，在变分层面显式写入切向外加场边界条件、非线性 E-J 幂律和全隐式时间离散残差，并以 Python 脚本化工作流实现。",
+    "title_zh": "应用超导体电磁建模云端框架",
+    "summary": "H-cloud 用 Nédélec 有限元和显式弱形式统一处理 II 型超导体非线性电磁响应。开源云端实现降低了应用超导器件建模的复现和使用门槛。",
+    "abstract": "提出 H-cloud 形式化方法，这是面向应用超导体电磁建模的云端可访问开源有限元框架。方法用 Nédélec 有限元的旋度相容离散描述 II 型超导体非线性电磁响应，在变分层面显式给出切向外场边界条件、非线性 E-J 幂律和全隐式时间离散残差，并以 Python 脚本工作流实现。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.09572",
     "journal": "arXiv"
@@ -173,8 +173,8 @@
   {
     "title": "Anisotropic Superconductivity with Enhanced Critical Field in Strained RuO2",
     "title_zh": "应变 RuO2 中各向异性超导",
-    "summary": "外延应变 RuO2 显示取向和输运方向强相关的超导转变及增强临界场。该交替磁候选体系把应变、各向异性超导和邻近磁序联系起来。",
-    "abstract": "研究应变诱导超导的 RuO2 薄膜，该材料同时是交替磁候选。通过在 TiO2(100) 和 TiO2(110) 单晶基底上外延生长 RuO2，并沿不同晶向测量输运，发现超导转变强烈依赖生长取向和电流晶体方向，临界场表现增强和各向异性。",
+    "summary": "外延应变 RuO2 显示取向和晶向依赖的超导转变及增强临界场。作为交变磁体候选，该体系把非常规超导各向异性与磁性电子结构联系起来。",
+    "abstract": "研究应变诱导超导的 RuO2 薄膜，该材料也是交变磁体候选。外延 RuO2 生长在 TiO2(100) 和 TiO2(110) 单晶衬底上，并沿不同晶体方向测量电子输运。超导转变强烈依赖生长取向和输运晶向，显示各向异性超导与增强临界场，为理解 RuO2 中超导和相邻磁性序的关系提供约束。",
     "category": "超导",
     "link": "https://arxiv.org/abs/2607.09437",
     "journal": "arXiv"
