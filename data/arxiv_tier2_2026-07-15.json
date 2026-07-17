@@ -1,182 +1,92 @@
 [
   {
     "title": "Lattice Configuration Generation with a Self-Learning Diffusion Model",
-    "title_zh": "自学习扩散模型生成格点构型",
-    "summary": "SLDiffusion 将扩散采样与严格 MH 校正结合，从 β=0 自举生成格点场构型。核心价值在于减少对预生成蒙特卡洛训练集的依赖，同时保留目标分布校正。",
-    "abstract": "提出 SLDiffusion 格点场采样器：从 β=0 精确采样构型出发，在每个 β 用固定学习得分生成周期高斯提议，并以梅特罗波利斯–黑斯廷斯校正到同一物理目标；下一阶段只使用链的回放构型训练得分，无需外部蒙特卡洛数据。",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.12587",
     "journal": "arXiv"
   },
   {
     "title": "Performance of universal machine learning potentials in global optimization of inorganic crystal structures",
-    "title_zh": "通用机器学习势的无机晶体全局优化表现",
-    "summary": "12 个 uMLP 被放入无约束演化搜索，直接测试其外推到新结构基元的能力。该基准把关注点从能量误差转向实际晶体发现中的搜索可靠性。",
-    "abstract": "比较 12 个预训练通用机器学习势在无约束演化晶体结构搜索中的表现。任务要求模型访问参考集外的复杂非磁性无机结构基元，用以检验 uMLP 在全局优化而非局部弛豫中的稳健性；摘要强调需随训练集扩张同步系统基准测试。",
+    "title_zh": "通用机器学习势在无机晶体结构全局优化中的性能",
+    "summary": "",
+    "abstract": "",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2602.23515",
     "journal": "arXiv"
   },
   {
     "title": "TXL Fusion: A Hybrid Machine Learning Framework Integrating Chemical Heuristics and Large Language Models for Topological Materials Discovery",
-    "title_zh": "拓扑材料发现的 TXL 融合框架",
-    "summary": "TXL Fusion 把化学规则、数值描述符和 LLM 融合到拓扑材料筛选流程。它针对 TI/TSM 候选降低高通量第一性原理前筛成本。",
-    "abstract": "TXL Fusion 结合化学启发式规则、可解释数值描述符与大语言模型，用于拓扑绝缘体和拓扑半金属候选筛选。目标是在第一性原理计算和实验验证成本较高的条件下，利用物理可解释特征与 LLM 推理提高拓扑材料发现效率。",
+    "title_zh": "TXL Fusion：融合化学启发式与大语言模型的拓扑材料发现混合机器学习框架",
+    "summary": "",
+    "abstract": "",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2511.04068",
     "journal": "arXiv"
   },
   {
-    "title": "Exploring structural stability and bonding trends in A 2 B 2 O 7 Pyrochlores using machine learning",
-    "title_zh": "机器学习解析 A2B2O7 焦绿石稳定性",
-    "summary": "该工作把机器学习用于 A2B2O7 焦绿石稳定性和成键规律识别。对稀土/过渡金属氧化物的组成筛选有直接关联，但需正文指标判断模型可靠性。",
-    "abstract": "面向 A2B2O7 焦绿石，利用机器学习探索结构稳定性与成键趋势。题名显示关注 A、B 位化学组成对焦绿石结构形成和键合特征的影响；所给摘要未列出数据规模、模型类型、误差或筛选出的具体化合物。",
-    "category": "其他",
-    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626003824?dgcid=rss_sd_all",
-    "journal": "ScienceDirect"
-  },
-  {
     "title": "On-demand growth of semiconductor heterostructures guided by physics-informed machine learning",
-    "title_zh": "物理知情机器学习指导半导体异质结构按需生长",
-    "summary": "物理知情机器学习被用于指导半导体异质结构生长，而非仅做事后表征分析。若闭环精度充分，将直接影响外延材料的可控制备。",
-    "abstract": "报道物理知情机器学习用于半导体异质结构按需生长调控。题名指向以物理约束模型连接生长参数与目标异质结构，实现实验制备过程的预测或闭环指导；所给摘要未给出材料体系、模型结构和生长精度数值。",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeb8867?af=R",
     "journal": "AAAS: Science Advances: Table of Contents"
   },
   {
-    "title": "Predicting interface structure using the minima hopping method with a machine learning interatomic potential",
-    "title_zh": "机器学习势最小跳跃预测界面结构",
-    "summary": "最小跳跃全局搜索与机器学习势耦合，瞄准界面原子结构预测这一高维难题。该方法有望把界面建模从手工构型假设推进到自动势能面搜索。",
-    "abstract": "将最小跳跃方法与机器学习原子间势结合，用于预测界面结构。该路线以快速势能面搜索替代大量第一性原理候选枚举，适合界面构型自由度高、局部极小众多的体系；摘要未给出具体界面材料、势模型和验证误差。",
-    "category": "其他",
-    "link": "https://www.nature.com/articles/s41524-026-02214-7",
-    "journal": "npj Computational Materials"
-  },
-  {
-    "title": "Explainable machine learning reveals that local structural motifs encode the thermodynamic state across the Cu Zr metallic glass-forming range",
-    "title_zh": "可解释机器学习揭示 Cu Zr 玻璃局域结构",
-    "summary": "可解释模型将 Cu Zr 金属玻璃的局域结构图案与热力学状态直接关联。该结果强化了用结构基元理解玻璃形成与状态变量的路线。",
-    "abstract": "针对 Cu Zr 金属玻璃形成组成范围，使用可解释机器学习分析局域结构基元与热力学状态的关系。题名给出的主要结论是局域结构基元编码了跨玻璃形成区间的热力学状态；所给摘要未列出模拟规模、特征定义和关键基元。",
-    "category": "其他",
-    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626003551?dgcid=rss_sd_all",
-    "journal": "ScienceDirect"
-  },
-  {
-    "title": "Symmetry-Informed Deep Learning for Electromagnetic Scattering",
-    "title_zh": "面向电磁散射的对称性深度学习",
-    "summary": "该方法把电磁散射的对称变换律直接用于神经网络训练。相较黑箱代理模型，它以麦克斯韦等变性减少仿真数据需求。",
-    "abstract": "利用麦克斯韦方程的等变性推导电磁散射参数在几何或坐标变换下的一般变换规则，并把对称性注入深度学习代理模型。目标是在昂贵数值仿真生成训练数据受限时，提高从器件设计参数到散射参数预测的数据效率。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.12810",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Coordination-Resolved Surrogate Models for Thermodynamic Stability, Band Gaps, and Magnetic Moments of Spinel Oxides, Sulfides, and Selenides",
-    "title_zh": "配位分辨尖晶石稳定性与带隙代理模型",
-    "summary": "配位分辨特征把尖晶石 A/B 位环境显式引入代理模型。320 个 Fdbar3m 条目的分组评估比随机拆分更接近新化学体系外推。",
-    "abstract": "整理 Materials Project 中 320 个立方 Fdbar3m 尖晶石条目，覆盖氧化物、硫化物、硒化物和氮化物及 A3X4 混价化合物。用 CrystalNN 配位数而非元素身份划分四面体/八面体阳离子，训练树集成模型预测形成能、凸包能、带隙、总磁化和金属性，并按化学式分组评估。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.11996",
-    "journal": "arXiv"
-  },
-  {
     "title": "Physically Consistent Parameter Inference: Transparent Machine Learning Emulation in High Energy Physics and Cosmology",
-    "title_zh": "高能物理与宇宙学的物理一致参数推断",
-    "summary": "XGBoost 被用作复杂似然面的透明代理，加速高维参数推断。对材料中的贝叶斯反演和昂贵模拟拟合同样有方法借鉴价值。",
-    "abstract": "提出用 XGBoost 模拟高能物理和宇宙学全局拟合中的复杂似然面，面向高维、非高斯或拓扑复杂参数空间。框架强调透明机器学习代理在加速扫描、解析置信区域和处理昂贵似然函数方面的优势，并讨论物理一致性约束。",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.12726",
     "journal": "arXiv"
   },
   {
-    "title": "Strain-Tunable Shift Current and Magneto-Optical Kerr Effect in Multiferroic Altermagnet Fe2Mo3O8",
-    "title_zh": "Fe2Mo3O8 中应变可调移位电流与 Kerr 效应",
-    "summary": "Fe2Mo3O8 被作为极性多铁交错磁体，计算显示应变可调自旋劈裂、移位电流和 Kerr 响应。该体系连接非线性光伏与无净磁化自旋电子学。",
-    "abstract": "第一性原理研究极性多铁交错磁体 Fe2Mo3O8 中铁电极化、交错磁有序与自旋依赖响应的耦合。系统考察应变对自旋劈裂、移位电流和磁光 Kerr 效应的调控，指向极性、非共线磁性和非线性光电响应的统一操控。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.12799",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Scale-Aware Attention for Scarce Neural Data: An RG-Flow Transformer on Sleep-EDF EEG",
-    "title_zh": "稀缺神经数据的尺度感知注意力",
-    "summary": "RG-Flow Transformer 把重整化群式粗粒化嵌入 EEG 注意力模型。它利用 1/fβ 尺度律处理 Sleep-EDF 稀缺睡眠数据，体现物理归纳偏置在生物信号中的作用。",
-    "abstract": "针对 Sleep-EDF 脑电睡眠分期，构建 RG-Flow Transformer：在普通自注意力外加入尺度感知分支、可学习反常维数 γ、块自旋粗粒化和熵门控同步桥。动机是脑场势功率谱呈 1/fβ，睡眠深度对应 β 的变化；评估其相对同参数普通 Transformer 在真实稀缺数据上的优势。",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2607.11950",
-    "journal": "arXiv"
-  },
-  {
     "title": "Quantum Port-Hamiltonian Neural Networks: Learning Conservative and Dissipative Dynamics via Measurement-Induced Nonlinearity",
-    "title_zh": "量子端口哈密顿神经网络：通过测量诱导非线性学习保守与耗散动力学",
-    "summary": "该工作把端口哈密顿结构嵌入量子线路，实现保守与耗散动力学的物理一致学习。其核心创新是用测量诱导非线性表达耗散，为量子机器学习求解结构化动力系统提供新路径。",
-    "abstract": "提出量子端口哈密顿神经网络（Q-pHNN），用参数化量子线路以结构保持方式学习经典动力学。方法通过同构哈密顿映射将斜对称互连矩阵对应于酉演化、半正定耗散矩阵对应于中途测量与经典前馈产生的测量诱导非线性，从而内建守恒性与无源性约束。",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.12269",
     "journal": "arXiv"
   },
   {
     "title": "MUSA-PINN: Multi-scale Weak-form Physics-Informed Neural Networks for Fluid Flow in Complex Geometries",
-    "title_zh": "MUSA-PINN：用于复杂几何流体流动的多尺度弱形式物理信息神经网络",
-    "summary": "MUSA-PINN用多尺度弱形式替代局部点残差，缓解复杂通道中的PINN收敛病态。其结果指向更可靠的无网格复杂流体模拟框架。",
-    "abstract": "针对标准PINN在三重周期极小曲面等复杂拓扑流道中点残差约束局部性强、梯度不稳定和守恒性差的问题，提出多尺度弱形式PINN（MUSA-PINN）。该方法以弱形式重构Navier–Stokes约束并引入多尺度信息传播，提升复杂几何流动求解的稳定性、收敛性与守恒表现。",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2603.08465",
     "journal": "arXiv"
   },
   {
     "title": "Integrated classical/quantum-classical neural networks, DFT, and experiments for predicting bandgap and color of CrxSbxTi1−2xO2 yellow-orange pigments",
-    "title_zh": "集成经典/量子-经典神经网络、DFT与实验预测CrxSbxTi1−2xO2黄橙色颜料的带隙和颜色",
-    "summary": "该研究把实验、DFT和量子-经典神经网络结合用于颜料带隙与颜色预测。其意义在于拓展了机器学习辅助功能陶瓷配方设计的工具链。",
-    "abstract": "研究Cr/Sb共掺杂金红石TiO2陶瓷颜料的带隙与颜色预测，结合合成表征、DFT及DFT+U电子结构计算，并引入经典与混合量子-经典神经网络。工作比较多源方法对颜料带隙和颜色的预测能力，展示量子机器学习在功能陶瓷颜料性质预测中的应用潜力。",
+    "title_zh": "融合经典/量子-经典神经网络、DFT 与实验预测 CrxSbxTi1−2xO2 黄橙色颜料的带隙与颜色",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10175395/latest",
     "journal": "Preprints"
   },
   {
-    "title": "Learning Mechanistic Reasoning for Chemical Reactions with Large Language Models",
-    "title_zh": "利用大型语言模型学习化学反应的机理推理",
-    "summary": "该工作将化学反应机理建模为逐步推理任务，弥补现有化学LLM只做粗粒度预测的不足。方向上有助于构建更物理一致的化学智能模型。",
-    "abstract": "面向化学反应机理由基元反应逐步构成的特点，研究如何让大型语言模型学习机理逻辑。论文指出现有化学LLM多关注名称反应、产物预测和逆合成，易产生物理不一致与幻觉；通过强化逐步机理推理，有望提升模型对化学转化本质的理解与可靠性。",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2607.12771",
-    "journal": "arXiv"
-  },
-  {
     "title": "A Physics-Informed Neural Network Frameworkfor Elastodynamic Wave Propagation inBimaterial Systems",
     "title_zh": "用于双材料体系弹性动力波传播的物理信息神经网络框架",
-    "summary": "该研究用PINN处理钢-铝双材料中的瞬态弹性波与界面条件。其价值在于为冲击与波传播问题提供物理约束驱动的无网格建模方案。",
-    "abstract": "提出PINN框架求解双材料体系瞬态弹性动力波传播问题，嵌入轴对称线弹性控制方程及初始、边界和界面条件。以钢-铝分离式霍普金森压杆代表试样为对象，验证该方法在无需传统网格离散情况下模拟异质材料界面波传播的可行性。",
+    "summary": "",
+    "abstract": "",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10282772/latest",
     "journal": "Preprints"
   },
   {
-    "title": "Phase-Controlled Epitaxy and Anisotropic Antiferromagnetism of Polar Wurtzite MnTe",
-    "title_zh": "极性纤锌矿MnTe的相控制外延与各向异性反铁磁性",
-    "summary": "该工作实现了近单相纤锌矿MnTe的外延制备，并揭示其各向异性反铁磁性。它为可调极性交替磁薄膜材料开辟了实验平台。",
-    "abstract": "面向交替磁自旋电子学需求，研究极性纤锌矿相MnTe薄膜的外延生长与磁性。作者通过分子束外延在GaAs(111)B上制备近乎单相纤锌矿MnTe，并发现生长条件可调控相纯度；该极性相表现出各向异性反铁磁特征，为MnTe亚稳相薄膜的实验探索提供基础。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.12191",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Phase-shifted multicomponent spin-charge nematicity in an altermagnet",
-    "title_zh": "交替磁体中的相移多组分自旋-电荷向列性",
-    "summary": "该实验发现Co0.25NbSe2中自旋与电荷耦合但相移的向列性。结果表明交替磁体可承载非常规多组分关联电子相。",
-    "abstract": "研究交替磁体Co0.25NbSe2中的电子向列有序。利用谱成像扫描隧道显微镜和自旋极化扫描隧道显微镜，发现零磁场下三个名义上C3等价方向在电荷与自旋敏感通道中失去旋转等价性，显示具有相移特征的多组分自旋-电荷向列态。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.12824",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Logarithmic corrections to bulk and surface criticality in a three-dimensional quantum Heisenberg antiferromagnet",
-    "title_zh": "三维量子海森堡反铁磁体中体相与表面临界性的对数修正",
-    "summary": "该工作系统连接量子蒙特卡洛与边界重整化群，刻画三维量子反铁磁临界点的体/表面对数修正。其贡献在于推进上临界维度边界临界性的定量理解。",
-    "abstract": "研究处于体上临界维度的(3+1)维O(3)量子临界点中，对数修正对体相和边界临界行为的影响。结合大规模量子蒙特卡洛与边界重整化群分析，验证体有限尺寸标度的已知对数修正，并进一步探讨边界临界有限尺寸标度中的对数效应。",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.12029",
-    "journal": "arXiv"
+    "title": "Spectral bias mitigation in physics-informed neural surrogates for nonlinear structural dynamics: Fourier feature encoding versus Kolmogorov-Arnold representations",
+    "title_zh": "",
+    "summary": "",
+    "abstract": "",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-9643432/latest",
+    "journal": "Preprints"
   }
 ]
