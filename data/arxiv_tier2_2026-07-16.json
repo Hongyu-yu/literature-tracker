@@ -1,38 +1,182 @@
 [
   {
     "title": "Physics-Informed Residual Deep Learning for Constitutive Modeling of Hot Deformation and Dynamic Recrystallization in a Mo-Rich α+β Titanium Alloy",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "Mo富集α+β钛合金热变形与再结晶本构建模的物理约束残差深度学习",
+    "summary": "STAR-PINNs 把应变硬化、DRV 和 DRX 统一进钛合金热变形本构。它面向宽工艺窗口的高温塑性建模，契合数据稀缺条件下的材料 AI 需求。",
+    "abstract": "针对 Ti-6Al-4Mo-1V-0.1Si 钛合金热变形，构建两套堆叠残差物理约束神经网络（STAR-PINNs），联合描述应变硬化、动态回复和动态再结晶；相较 Arrhenius 与经验模型，更适合覆盖宽加工窗口的本构响应。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.13467",
     "journal": "arXiv"
   },
   {
     "title": "Towards quantum machine learning for assessing the resilience of post-quantum cryptography",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "用于评估后量子密码韧性的量子机器学习",
+    "summary": "QGAN 被引入后量子密码韧性评估。核心看点是把量子生成模型变成协议漏洞探针。",
+    "abstract": "尝试用量子生成对抗网络（QGAN）评估后量子密码协议的韧性，利用当前量子计算机虽受规模和精度限制、但仍可能发现协议漏洞与弱点的特性，探索量子机器学习在密码分析中的可行性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.13722",
     "journal": "arXiv"
   },
   {
+    "title": "A general framework for knowledge integration in machine learning for electromagnetic scattering using quasinormal modes",
+    "title_zh": "基于准正模的电磁散射知识融合通用框架",
+    "summary": "准正模把电磁散射的物理结构直接写进网络。该框架兼顾加速与可解释性，适合光学器件逆向设计。",
+    "abstract": "以准正模为物理先验，构建电磁散射的通用知识融合神经网络框架，用于加速正向建模与逆向设计；目标是缓解纯数据驱动模型在可靠性和训练样本需求上的局限。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2509.06130",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Forecasting Lab Climates: A Machine Learning Decision Support System for Humidity-Sensitive Experiments",
+    "title_zh": "实验室气候预测：面向湿度敏感实验的机器学习决策支持系统",
+    "summary": "把实验室相对湿度做成可预测量，直接服务湿度敏感实验排程。对可重复性管理很实用。",
+    "abstract": "面向静电纺丝等湿度敏感实验，利用本地气象观测/预报与实验室内部气候数据预测室内相对湿度，作为决策支持工具提前提示温湿波动对溶剂蒸发、射流稳定性和纤维成形的影响。",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-9940600/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "Experimental Study and Wavelet Neural Network Prediction of Unconfined Compressive Strength of Acrylate Copolymer-Emulsion-Cured Saline Soil",
-    "title_zh": "丙烯酸酯共聚乳液固化盐渍土无侧限抗压强度的试验研究与小波神经网络预测",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "丙烯酸共聚乳液固化盐碱土强度与小波网络预测",
+    "summary": "盐碱土固化、微观机理和 UCS 预测被放在同一框架内。小波网络连接了土工实验与强度回归。",
+    "abstract": "制备了丙烯酸酯共聚乳液 ZM 作为盐碱土固化剂，考察固化剂掺量、龄期、含盐量和含水率对无侧限抗压强度的影响，并结合红外等手段分析微观固化机理；同时引入小波神经网络进行 UCS 预测。",
     "category": "AI×化学·材料",
     "link": "https://www.researchsquare.com/article/rs-10256256/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Spectral-Informed Neural Networks Outperform Spectral Methods in High-dimensional PDEs",
+    "title_zh": "高维偏微分方程中谱信息神经网络优于谱方法",
+    "summary": "谱信息网络把谱方法的先验带入高维 PDE。它试图在 d≫10 时同时压住维数灾难和 PINN 精度短板。",
+    "abstract": "针对高维偏微分方程，论文主张在低维谱方法与高维 PINN 之间建立谱信息神经网络：既继承谱结构的先验信息，又规避高维谱方法的维数灾难，目标是在 d≫10 场景取得更高精度。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.13566",
+    "journal": "arXiv"
+  },
+  {
     "title": "Automatic Differentiation from Scratch: How PyTorch Computes Gradients in Physics-Informed Neural Networks",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "从零解析 PyTorch 在 PINN 中的自动微分",
+    "summary": "这篇把 PINN 里的双层自动微分拆到逐节点数值级别。对理解反传、调试物理约束网络很直接。",
+    "abstract": "以 1-3-3-1 多层感知机求解 y'(t)+y(t)=0、y(0)=1，逐节点追踪 PyTorch 自动微分如何先计算网络输出的物理导数 ŷ'(t)，再回传损失函数对参数的梯度，完整展示 PINN 训练中的双层求导流程。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.13042",
     "journal": "arXiv"
+  },
+  {
+    "title": "Dirac topology, anomalous Hall response, and giant magnetoresistance in carrier-compensated altermagnetic semimetal NiS",
+    "title_zh": "载流补偿交替磁半金属 NiS 的狄拉克拓扑与巨磁阻",
+    "summary": "NiS 被串起为补偿型交替磁半金属，并同时出现狄拉克拓扑、异常霍尔和巨磁阻。把电子结构、磁性与输运放进同一图景。",
+    "abstract": "结合第一性原理、Berry 曲率、半经典 Boltzmann 输运和原子级自旋动力学，论文将六方 NiS 识别为电荷补偿的 3d 交替磁半金属。NiAs 晶格的旋转余类对称性导致动量依赖自旋分裂；在自旋轨道耦合下，狄拉克型交叉开缝形成强 Berry 曲率热点，并指向异常霍尔与巨磁阻。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.13400",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Altermagnetic spin-split Fermi surfaces in CrSb revealed by quantum oscillation measurements",
+    "title_zh": "量子振荡揭示 CrSb 的交替磁自旋分裂费米面",
+    "summary": "CrSb 的量子振荡把交替磁自旋分裂费米面直接拉了出来。A 点闭合口袋与多分支频率给出很硬的实验约束。",
+    "abstract": "通过高场磁输运与力矩量子振荡，并结合含自旋轨道耦合的 DFT+U 计算，作者系统解析了 CrSb 的交替磁费米面。多个频率分支在广角范围内与自旋分裂费米面一致，且部分口袋位于 A 点附近闭合。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2601.19105",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Precision quantum simulation of magnon spectra and interactions",
+    "title_zh": "精密量子模拟磁振子谱与相互作用",
+    "summary": "混合量子模拟已能高精度重建二维 XY 磁体的线性和非线性响应。它把量子多体动力学推向可控准粒子级别。",
+    "abstract": "面向磁振子谱与相互作用，作者在二维 XY 自旋 1/2 磁体上采用模拟-数字混合量子平台，高精度模拟线性与非线性响应函数；工作强调在高保真演化中操纵单个准粒子的能力。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.13301",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Dissipationless dynamics of spin supersolid states in a spin-1/2 triangular antiferromagnet with impurities",
+    "title_zh": "含杂质自旋1/2三角反铁磁体中自旋超固态的无耗散动力学",
+    "summary": "K 点 Goldstone 模在杂质下仍稳定，说明三角晶格超固态保有自旋超流。无耗散动力学因此更接近可观测量。",
+    "abstract": "数值研究含磁杂质的自旋 1/2 易轴三角反铁磁海森堡模型中、磁场诱导的自旋超固态动力学。弱场和强场超固态里，K 点无能隙 Goldstone 模对杂质保持鲁棒，直接体现自旋超流；杂质对同密度下其他激发的影响更强。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2509.03489",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Angular momentum splitter effect of d-wave axial phonons in orbital altermagnets",
+    "title_zh": "轨道交替磁体中 d 波轴向声子的角动量分束效应",
+    "summary": "d 波轨道序不仅分裂电子角动量，也能分束声子的角动量纹理。把交替磁效应推进到晶格振动自由度。",
+    "abstract": "在无自旋轨道耦合条件下，作者理论证明轨道交替磁体中的轴向声子可携带有限角动量并形成 d 波角动量纹理。以含 d 波环流序的最小紧束缚模型为起点，通过分子 Berry 曲率处理电子-声子耦合，揭示声子角动量的分束机制。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.13923",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Electric field controlled spin transport in a topological insulator interfaced with a ferroelectric antiferromagnet",
+    "title_zh": "铁电反铁磁界面中电场控制拓扑绝缘体自旋输运",
+    "summary": "Bi₂Te₃ 与 BiFeO₃ 界面实现了电场调控的自旋-电荷转换。铁电极化直接改写拓扑绝缘体的非局域自旋输运。",
+    "abstract": "在 Bi₂Te₃/BiFeO₃ 非局域自旋输运器件中，作者观察到电场可调的自旋-电荷转换。界面自旋输运对层厚的系统依赖表明，铁电反铁磁极化可在无外磁场条件下重塑拓扑绝缘体的自旋输运通道。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.14031",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magneto-optical hologram lens with microsecond focal switching in magnetic garnet",
+    "title_zh": "磁石榴石中的微秒焦距切换磁光全息透镜",
+    "summary": "磁石榴石磁光全息透镜实现了微秒级焦点切换。633 nm 光束被 3.1 m 焦距、91% 调制深度的器件稳定聚焦。",
+    "abstract": "实验演示了基于磁石榴石薄膜磁全息结构的磁光主动透镜。借助永久磁体阵列制备 Fresnel 区板图样，将 633 nm、直径 12.5 mm 的激光聚焦到 0.7 mm 光斑，焦距 3.1 m，调制深度约 91%；聚焦状态可逆切换。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.13985",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Multiplet-Selective Photoelectron Diffraction from an Altermagnet",
+    "title_zh": "交替磁体的多重态选择性光电子衍射",
+    "summary": "多重态选择性 PED 给交替磁畴提供了实空间探针。CrSb 的 Cr 3p 多重态已能读出明显衍射不对称。",
+    "abstract": "针对交替磁体直接实空间探测稀缺的问题，作者提出多重态选择性光电子衍射：把过渡金属芯能级多重态的不同区域当作不同光电子源波。以 CrSb 为例，多重散射计算表明，具有 Y₁⁺¹ 和 Y₁⁻¹ 主要成分的 Cr 3p 多重态会产生对交替磁畴敏感的稳健衍射不对称。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2605.31531",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ultrafast altermagnetophononics",
+    "title_zh": "超快交替磁声子学",
+    "summary": "定向激发 α-MnTe 的 B₁g 相干声子，可在极短时间内破坏保护交替磁性的对称性。声子因此成为超快磁控旋钮。",
+    "abstract": "作者把相干声子驱动的选择性对称性破缺定义为交替磁声子学，并以 α-MnTe 为例说明其超快磁控路线。定向激发 B₁g 模可选择性解除保护交替磁性的对称性约束，从而诱导超快磁态调控。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.13863",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Visualizing spin-polarization of an altermagnet KV₂Se₂O via spin-selective tunneling",
+    "title_zh": "通过自旋选择隧穿成像交替磁体 KV₂Se₂O 的自旋极化",
+    "summary": "KV₂Se₂O 的 d 波自旋极化被自旋选择隧穿直接看见。它把交替磁从 band 结构推到实空间成像。",
+    "abstract": "利用自旋选择性扫描隧道显微镜，论文在拓扑界面辅助下直接可视化了金属交替磁体 KV₂Se₂O 的自旋极化。结果把晶体对称性、电子结构与 d 波自旋极化联系起来，提供了交替磁的实验证据。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2603.21969",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Topological magnons in a collinear altermagnet",
+    "title_zh": "共线交替磁体中的拓扑磁振子",
+    "summary": "共线交替磁体中的磁振子也可能带拓扑。说明交替磁不仅改写电子态，也改写磁激发谱。",
+    "abstract": "工作聚焦共线交替磁体中的拓扑磁振子，讨论共线交替磁序下磁激发的非平庸带拓扑及其可能的输运后果。",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.sciencedirect.com/science/article/pii/S2095927326007851?dgcid=rss_sd_all",
+    "journal": "ScienceDirect Publication: Science Bulletin"
+  },
+  {
+    "title": "Microscopic Evidence for a Zhang-Rice Triplet State in the van der Waals Antiferromagnet, NiPS₃",
+    "title_zh": "范德华反铁磁体 NiPS₃ 中 Zhang-Rice 三重态的微观证据",
+    "summary": "NMR 直接确认 NiPS₃ 处于 Zhang-Rice 三重态基态。为范德华反铁磁里的局域-巡游耦合提供了微观锚点。",
+    "abstract": "核磁共振测量直接验证了范德华反铁磁体 NiPS₃ 的 Zhang-Rice 三重态基态，给出其微观证据。该结果锁定了 NiPS₃ 中局域自旋与轨道/电荷自由度的耦合方式。",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/hhtt-ffgg",
+    "journal": "Editors' Suggestions"
+  },
+  {
+    "title": "The Spin Wavelength Electromagnetic Nonlocality (SWEN) Theory: A Spin-Geometry Framework for Orbital and Field Structures",
+    "title_zh": "自旋波长电磁非局域性（SWEN）理论：自旋几何框架",
+    "summary": "SWEN 把旋转几何和同步轨道尺度当作主变量来描述场结构。它更像一个现象学框架，而非已验证的凝聚态模型。",
+    "abstract": "SWEN 理论尝试用旋转参数刻画不同物理系统中的密度梯度与几何结构，并以自旋周期和同步轨道尺度描述重力加速度，而不显式引入质量和万有引力常数。该框架强调旋转几何与外部轨道构型之间的对应关系。",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-10194910/latest",
+    "journal": "Preprints"
   }
 ]
