@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-07-18 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-07-18.xml" rel="alternate" title="2026-07-18 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-07-18.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-07-18</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-17.html">← 前一天 · 2026-07-17</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/07/18</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">9</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">10</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">5</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 10 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 10 篇主线相关文献中精选 9 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-07-17.html">前一天 · 2026-07-17</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-18.html">最新一期 · 2026-07-18</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-18.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">8 篇</span>
+</div>
+<p class="daily-core-note">今天的主线是把原子级演化、磁激发和器件开关放进同一可计算/可成像框架：Al 的百万原子凝固-变形用图神经网络势直接联通组织形成与力学响应，二维铁电突触把极化态写成可编程权重，MnTe2 则把反铁磁磁振子的类格纹分裂与手性摆到能带层面，NV 磁成像直接读出门控超导的迈斯纳衰减。围绕 NbOI2、CrI3、CrSBr、BaTiO3 这类铁电/磁性体系，equivariant GNN、MACE、NEP 与 DFT+U 正在把畴壁、磁序、缺陷和应变从静态能量面推进到可训练的动力学数据。器件侧的重点也更明确：双端铁电忆阻器和二维铁电突触都在把极化翻转、界面注入与多级态稳定性变成存算一体的核心设计变量。与此同时，折纸超材料机器人和磁-介电链式吸收结构说明，可重构几何和外场协同已经可以和 ML 逆向设计直接对接。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">图神经网络势与百万原子铝凝固变形模拟</div>
+<div class="daily-core-title-en">Aluminum solidification and nanopolycrystal deformation via a graph neural network potential and million-atom simulations</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>结合图神经网络势函数与百万原子级模拟，追踪铝从凝固到纳米多晶形成及其变形响应。重点是把原子尺度结构演化与力学行为放到同一计算框架中，用于大尺度金属组织研究。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>图神经网络势驱动百万原子铝模拟，把凝固、纳米多晶与变形统一起来。该路线把机器学习势与金属组织演化深度耦合，适合大尺度塑性研究。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>图神经网络势+百万原子MD联算铝凝固与纳米多晶变形</p><p><strong>🔗 相关工作关联：</strong>原子间势学习、equivariant GNN、NEP/MACE、金属凝固与位错塑性</p><p><strong>💡 对你方向的启示：</strong>可把凝固组织、晶粒长大和塑性失稳放进同一势函数框架，便于迁移到Cu/Ni等合金</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">二维铁电材料可持续突触器件用于类脑计算</div>
+<div class="daily-core-title-en">Sustainable Synaptic Device with Two‐Dimensional Ferroelectric Materials for Neuromorphic Computing (Adv. Sci. 40/2026)</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二维铁电材料被用于可持续双端突触器件，面向类脑计算中的权重存储与更新。核心是把铁电极化作为可编程突触状态，强调低功耗、非易失与可集成特征。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>二维铁电材料被用于可持续双端突触器件，面向类脑计算中的权重存储与更新。它强化了低功耗、非易失神经形态硬件的材料基础。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>二维铁电双端突触器件，极化态直接映射权重</p><p><strong>🔗 相关工作关联：</strong>铁电忆阻器、非易失存算一体、BaTiO3/2D铁电、神经形态硬件</p><p><strong>💡 对你方向的启示：</strong>重点看可写/可擦多级态、低压写入和循环耐久，适合做器件级学习规则验证</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">反铁磁 MnTe2 中类格纹自旋分裂与磁振子手性</div>
+<div class="daily-core-title-en">Plaid‐Like Spin Splitting and Chirality of Magnon Bands in Antiferromagnetic MnTe2</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在反铁磁 MnTe2 中讨论磁振子能带的类格纹自旋分裂与手性。该工作把磁振子拓扑/手性响应与反铁磁自旋结构关联起来，指向可由磁振子携带信息的磁性材料体系。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>MnTe2 中出现类格纹自旋分裂与磁振子手性，指向反铁磁中的新型能带纹理。该结果把磁振子手性和自旋结构联系起来，利于磁振子信息学。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>反铁磁 MnTe2 的磁振子能带手性与类格纹分裂分析</p><p><strong>🔗 相关工作关联：</strong>磁振子学、反铁磁自旋波、拓扑磁激发、DFT+U+自旋波理论</p><p><strong>💡 对你方向的启示：</strong>可把磁序当作信息通道，后续可用第一性原理筛选具手性传播的反铁磁材料</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R">
+<div class="daily-core-number">04</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">二维铁电材料可持续突触器件用于类脑计算</div>
+<div class="daily-core-title-en">Sustainable Synaptic Device with Two‐Dimensional Ferroelectric Materials for Neuromorphic Computing</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二维铁电材料被用于可持续双端突触器件，围绕类脑计算中的权重更新、非易失存储与低功耗操作展开。核心是把铁电极化映射为可编程突触状态，服务神经形态硬件。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>二维铁电材料用于双端突触器件，把极化直接映射为可编程权重。该路线面向低功耗、非易失的神经形态硬件。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>二维铁电双端器件，把可翻转极化写成突触状态</p><p><strong>🔗 相关工作关联：</strong>铁电突触、双端忆阻器、非易失权重、神经形态计算</p><p><strong>💡 对你方向的启示：</strong>适合对比电导型与极化型权重更新，重点检验功耗、漂移和器件一致性</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all">
+<div class="daily-core-number">05</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">双端铁电忆阻器：材料创新、机理突破与智能计算</div>
+<div class="daily-core-title-en">Two-terminal ferroelectric memristors: material innovation, mechanistic breakthroughs, new opportunities for intelligent computing</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Science Bulletin</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>综述双端铁电忆阻器的材料体系、机理进展与智能计算应用。内容聚焦铁电极化和畴壁调控、器件结构简化，以及其在存算一体和神经形态计算中的机会。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>双端铁电忆阻器综述聚焦材料创新与机理突破，归纳其在存算一体和智能计算中的潜力。它系统梳理了铁电极化、器件简化与神经形态实现路径。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>综述双端铁电忆阻器的材料、机理与器件结构</p><p><strong>🔗 相关工作关联：</strong>铁电畴壁、极化翻转、忆阻器、存算一体、神经形态计算</p><p><strong>💡 对你方向的启示：</strong>可据此拆分材料创新与电路需求，优先锁定读写对称性和长时保持</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75567-8">
+<div class="daily-core-number">06</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">通过迈斯纳效应成像门控超导抑制</div>
+<div class="daily-core-title-en">Imaging of gate-controlled suppression of superconductivity via the Meissner effect</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>利用亚开尔文下的扫描 NV 磁力计成像，直接观察门控超导抑制伴随的迈斯纳屏蔽减弱。结果表明，电压门控不仅影响输运超电流，也会削弱薄超导纳米线的磁屏蔽响应。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>扫描 NV 磁力计在亚开尔文下直接看到门控超导抑制同时削弱迈斯纳屏蔽。它把门控超导从输运现象推进到磁成像证据。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>亚开尔文扫描NV磁成像，直观看门控超导迈斯纳减弱</p><p><strong>🔗 相关工作关联：</strong>扫描NV磁测、门控超导、Meissner效应、超导纳米线</p><p><strong>💡 对你方向的启示：</strong>把输运抑制和磁屏蔽退化分开观测，适合检验局域非均匀性与临界场变化</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75567-8" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R">
+<div class="daily-core-number">07</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">基于 Kresling 折纸的动态电磁调控超材料机器人</div>
+<div class="daily-core-title-en">Kresling Origami‐Based Metamaterial Robot for Dynamic Electromagnetic Control</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Kresling 折纸超材料机器人用于动态电磁调控，依靠结构可重构性实现对电磁响应的时变操控。题目指向机械形变与电磁功能耦合的可编程平台，适合可调吸波与散射器件。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Kresling 折纸超材料机器人把几何重构变成动态电磁调控手段。为可重构吸波、散射与器件编程提供结构平台。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>Kresling折纸机器人通过形变重构电磁响应</p><p><strong>🔗 相关工作关联：</strong>可编程超材料、机械超材料、折纸结构、电磁调控</p><p><strong>💡 对你方向的启示：</strong>可把几何自由度直接当作调谐参数，适合做形变-频响联合优化</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R">
+<div class="daily-core-number">08</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">高静磁场辅助的超长异质结构链电磁吸收增强</div>
+<div class="daily-core-title-en">Tailoring Successive Magnetic‐Dielectric Synergy for Enhancing Electromagnetic Absorption in Ultralong Heterostructure Chains Assisted by High Static Magnetic Field</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过高静磁场调控超长异质结构链中的磁-介电协同，增强电磁吸收。工作核心是链式异质耦合与外场协同设计，把磁响应与介电损耗在结构中共同放大。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>高静磁场配合超长异质结构链，放大磁-介电协同以提升电磁吸收。核心在链式异质耦合与外场协同设计。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>高静磁场协同超长磁-介电链的吸收增强</p><p><strong>🔗 相关工作关联：</strong>磁-介电协同、电磁吸收超材料、链式异质结构、外场调控</p><p><strong>💡 对你方向的启示：</strong>提示外场应纳入逆向设计变量，联动优化结构耦合与损耗通道</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日聚焦机器学习势函数与逆向设计、铁电/忆阻类脑器件、超导与磁振子等凝聚态主题。最亮眼的是百万原子铝模拟、扫描 NV 成像的门控超导抑制，以及 AI 反演 QLED 工艺配方。</p>
+<p><strong>热点：</strong>AI for science 正从拟合性质走向直接反演工艺，从铝的 GNN 势到 QLED 配方都体现出这一点。二维铁电材料和双端铁电忆阻器继续成为类脑硬件主线，强调极化可编程与器件简化。磁学方向集中在反铁磁 MnTe2 的磁振子手性，以及门控超导在迈斯纳屏蔽上的直接成像。电磁功能材料则向折纸超材料机器人和异质结构链的磁-介电协同吸波延展，显示结构重构与外场调控的结合。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">9 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-ai-qled-recipe-efficiency-boosts.html" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-ai-qled-recipe-efficiency-boosts.html" rel="noopener noreferrer" target="_blank">AI解锁QLED配方：效率翻倍、寿命增40倍</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-ai-qled-recipe-efficiency-boosts.html" rel="noopener noreferrer" target="_blank">AI unlocks QLED recipe that doubles efficiency and boosts lifetime 40-fold</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 1</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>AI 通过逆向推断 QLED 制程条件，找到原本依赖大量试错的工艺配方，使器件效率提升到两倍并将寿命提高 40 倍。说明机器学习可直接压缩量子点发光器件的工艺搜索空间。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>AI 逆向给出 QLED 工艺配方，实现效率翻倍、寿命提升 40 倍。它展示了机器学习直接压缩量子点器件试错空间。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-ai-qled-recipe-efficiency-boosts.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-ai-qled-recipe-efficiency-boosts.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" rel="noopener noreferrer" target="_blank">二维铁电材料可持续突触器件用于类脑计算</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" rel="noopener noreferrer" target="_blank">Sustainable Synaptic Device with Two‐Dimensional Ferroelectric Materials for Neuromorphic Computing (Adv. Sci. 40/2026)</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Jaewook Yoo, Seokjin Oh, Minah Park, Jong Min Song, Hongseung Lee, Seohyeon Park, Sojin Jung, Seongbin Lim, Soohyun Lim, Dongsun Shin, Ji Won Heo, TaeWan Kim, Hagyoul Bae</span><span class="daily-chip daily-chip-score">🔥 AI 94</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二维铁电材料被用于可持续双端突触器件，面向类脑计算中的权重存储与更新。核心是把铁电极化作为可编程突触状态，强调低功耗、非易失与可集成特征。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>二维铁电材料被用于可持续双端突触器件，面向类脑计算中的权重存储与更新。它强化了低功耗、非易失神经形态硬件的材料基础。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76358?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" rel="noopener noreferrer" target="_blank">二维铁电材料可持续突触器件用于类脑计算</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" rel="noopener noreferrer" target="_blank">Sustainable Synaptic Device with Two‐Dimensional Ferroelectric Materials for Neuromorphic Computing</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Jaewook Yoo, Seokjin Oh, Minah Park, Jong Min Song, Hongseung Lee, Seohyeon Park, Sojin Jung, Seongbin Lim, Soohyun Lim, Dongsun Shin, Ji Won Heo, TaeWan Kim, Hagyoul Bae</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二维铁电材料被用于可持续双端突触器件，围绕类脑计算中的权重更新、非易失存储与低功耗操作展开。核心是把铁电极化映射为可编程突触状态，服务神经形态硬件。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>二维铁电材料用于双端突触器件，把极化直接映射为可编程权重。该路线面向低功耗、非易失的神经形态硬件。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.202600064?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">双端铁电忆阻器：材料创新、机理突破与智能计算</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Two-terminal ferroelectric memristors: material innovation, mechanistic breakthroughs, new opportunities for intelligent computing</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect Publication: Science Bulletin</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>综述双端铁电忆阻器的材料体系、机理进展与智能计算应用。内容聚焦铁电极化和畴壁调控、器件结构简化，以及其在存算一体和神经形态计算中的机会。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>双端铁电忆阻器综述聚焦材料创新与机理突破，归纳其在存算一体和智能计算中的潜力。它系统梳理了铁电极化、器件简化与神经形态实现路径。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S2095927326006043?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" rel="noopener noreferrer" target="_blank">反铁磁 MnTe2 中类格纹自旋分裂与磁振子手性</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" rel="noopener noreferrer" target="_blank">Plaid‐Like Spin Splitting and Chirality of Magnon Bands in Antiferromagnetic MnTe2</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Dirk Wulferding, Daehyeon An, Jiwon Choi, Dongmin Moon, Youngsu Choi, Sivasakthi Kuppusamy, Sritharan Krishnamoorthi, Raman Sankar, Myung Joon Han, Se Kwon Kim, Kwang‐Yong Choi</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在反铁磁 MnTe2 中讨论磁振子能带的类格纹自旋分裂与手性。该工作把磁振子拓扑/手性响应与反铁磁自旋结构关联起来，指向可由磁振子携带信息的磁性材料体系。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>MnTe2 中出现类格纹自旋分裂与磁振子手性，指向反铁磁中的新型能带纹理。该结果把磁振子手性和自旋结构联系起来，利于磁振子信息学。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76555?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" rel="noopener noreferrer" target="_blank">基于 Kresling 折纸的动态电磁调控超材料机器人</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" rel="noopener noreferrer" target="_blank">Kresling Origami‐Based Metamaterial Robot for Dynamic Electromagnetic Control</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Xinxi Zeng, Long Zhou, Shaojie Xi, Yixuan Gao, Desheng Pan, Chaoyang Sun, Haoxin Sun, Xian Wang, Lingyun Qian, Peipei Li, Pengfei Zhu, Bo Li, Jiang Luo, Ji Zhou</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Kresling 折纸超材料机器人用于动态电磁调控，依靠结构可重构性实现对电磁响应的时变操控。题目指向机械形变与电磁功能耦合的可编程平台，适合可调吸波与散射器件。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Kresling 折纸超材料机器人把几何重构变成动态电磁调控手段。为可重构吸波、散射与器件编程提供结构平台。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76437?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75567-8" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75567-8" rel="noopener noreferrer" target="_blank">通过迈斯纳效应成像门控超导抑制</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75567-8" rel="noopener noreferrer" target="_blank">Imaging of gate-controlled suppression of superconductivity via the Meissner effect</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 K. J. Knapp, U. Ognjanović, P. J. Scheidegger, L. Ruf, S. Diesch, E. Scheer 等8位作者</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>利用亚开尔文下的扫描 NV 磁力计成像，直接观察门控超导抑制伴随的迈斯纳屏蔽减弱。结果表明，电压门控不仅影响输运超电流，也会削弱薄超导纳米线的磁屏蔽响应。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>扫描 NV 磁力计在亚开尔文下直接看到门控超导抑制同时削弱迈斯纳屏蔽。它把门控超导从输运现象推进到磁成像证据。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75567-8" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-75567-8" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" rel="noopener noreferrer" target="_blank">高静磁场辅助的超长异质结构链电磁吸收增强</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" rel="noopener noreferrer" target="_blank">Tailoring Successive Magnetic‐Dielectric Synergy for Enhancing Electromagnetic Absorption in Ultralong Heterostructure Chains Assisted by High Static Magnetic Field</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Science: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Zhuolin Li, Meilong Feng, Wenbo Gao, Tianxiang Zheng, Wenhao Lin, Yunbo Zhong</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过高静磁场调控超长异质结构链中的磁-介电协同，增强电磁吸收。工作核心是链式异质耦合与外场协同设计，把磁响应与介电损耗在结构中共同放大。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>高静磁场配合超长异质结构链，放大磁-介电协同以提升电磁吸收。核心在链式异质耦合与外场协同设计。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75440?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">图神经网络势与百万原子铝凝固变形模拟</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Aluminum solidification and nanopolycrystal deformation via a graph neural network potential and million-atom simulations</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>结合图神经网络势函数与百万原子级模拟，追踪铝从凝固到纳米多晶形成及其变形响应。重点是把原子尺度结构演化与力学行为放到同一计算框架中，用于大尺度金属组织研究。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>图神经网络势驱动百万原子铝模拟，把凝固、纳米多晶与变形统一起来。该路线把机器学习势与金属组织演化深度耦合，适合大尺度塑性研究。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S092702562600460X?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-17.html">← 前一天 · 2026-07-17</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-17.html">前一天 · 2026-07-17</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-18.html">最新一期 · 2026-07-18</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-18.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>9</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">AI解锁QLED配方：效率翻倍、寿命增40倍<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">二维铁电材料可持续突触器件用于类脑计算<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">二维铁电材料可持续突触器件用于类脑计算<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">双端铁电忆阻器：材料创新、机理突破与智能计算<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">反铁磁 MnTe2 中类格纹自旋分裂与磁振子手性<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">基于 Kresling 折纸的动态电磁调控超材料机器人<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">通过迈斯纳效应成像门控超导抑制<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">高静磁场辅助的超长异质结构链电磁吸收增强<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">图神经网络势与百万原子铝凝固变形模拟<span class="daily-outline-meta">09</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-17.html">前一天 · 2026-07-17</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-18.html">最新一期 · 2026-07-18</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-18.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
