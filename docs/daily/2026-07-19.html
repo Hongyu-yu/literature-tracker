@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-07-19 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-07-19.xml" rel="alternate" title="2026-07-19 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-07-19.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-07-19</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-18.html">← 前一天 · 2026-07-18</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/07/19</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">3</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">3</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">1</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-07-18.html">前一天 · 2026-07-18</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-19.html">最新一期 · 2026-07-19</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-19.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">3 篇</span>
+</div>
+<p class="daily-core-note">κ-Ga2O3/AlN把第一性原理与机器学习分子动力学用于铁电翻转路径和界面极化调控，问题从BaTiO3式体相翻转扩展到宽禁带氧化物/氮化物异质结。显微组织反演工作采用simulation-informed deep learning，把相场/微结构模拟约束并入从形貌到材料参数的逆映射，呼应铁电畴图像参数识别。锡相边界工作通过重配训练数据校正ML原子势，相当于在NEP、MACE、equivariant GNN势训练中把相稳定性和相边界误差作为数据设计目标；这也可迁移到CrI3、CrSBr等磁性层状材料的相变势能面构建。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">κ相氧化镓铁电翻转与AlN异质结构极化调控</div>
+<div class="daily-core-title-en">Ferroelectric switching in κ-Ga 2 O 3 and polarization tuning in κ-Ga 2 O 3 /AlN heterostructures by first-principles and machine-learning molecular dynamics</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为κ-Ga2O3及κ-Ga2O3/AlN异质结构；方法结合第一性原理与机器学习分子动力学，考察κ相氧化镓的铁电翻转过程，并讨论与AlN成异质结构后的极化调控。题录未给出翻转能垒、极化强度、温度范围等定量结果。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把第一性原理与机器学习分子动力学用于κ-Ga2O3铁电翻转，并延伸到κ-Ga2O3/AlN界面极化。对宽禁带铁电氧化物和氮化物异质集成的计算设计具有直接参考价值。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>第一性原理+机器学习MD解析κ-Ga2O3翻转及AlN界面极化调控。</p><p><strong>🔗 相关工作关联：</strong>呼应BaTiO3/HfO2铁电翻转、AlN/ScAlN极化工程、界面偶极调控。</p><p><strong>💡 对你方向的启示：</strong>宽禁带铁电异质结需把翻转路径、界面应变和极化补偿同时纳入ML势训练。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">由显微组织形貌估计材料参数的仿真引导深度学习</div>
+<div class="daily-core-title-en">Simulation-informed deep learning for estimating material parameters from microstructural morphology</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为由显微组织形貌反推材料参数的逆问题；方法为仿真信息引导的深度学习，将模拟生成或模拟约束的形貌数据用于参数估计。题录未说明具体材料体系、网络结构、参数类型、误差指标或与传统反演方法的数值对比。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心是用仿真数据约束深度模型，从显微组织形貌直接估计材料参数。该路线面向材料反问题，可减少对大规模实验标注形貌数据的依赖。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>用仿真约束深度网络，从显微组织形貌反演材料参数。</p><p><strong>🔗 相关工作关联：</strong>对应相场反演、PINN、微结构图像表征、铁电畴形貌参数识别。</p><p><strong>💡 对你方向的启示：</strong>可将模拟先验嵌入畴图、晶粒和相分离图像，降低纯监督反演的数据需求。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">通过调整训练数据校正锡相边界的机器学习势</div>
+<div class="daily-core-title-en">Study on correcting tin phase boundaries by adjusting training data for machine learning atomic interaction potentials</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为锡的多相相边界；方法是调整机器学习原子相互作用势的训练数据，以修正相边界预测。题录未给出涉及的锡相、压力—温度区间、训练集构成、势函数类型或相边界偏差降低幅度等定量信息。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作聚焦训练数据对机器学习原子势预测锡相边界的影响，并以数据调整实现相图校正。它强调相稳定性问题中训练集设计与能量差精度同等关键。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>通过调整训练数据分布，校正锡多相ML原子势的相边界。</p><p><strong>🔗 相关工作关联：</strong>呼应NEP、MACE、GAP、equivariant GNN势的主动学习与相稳定性训练。</p><p><strong>💡 对你方向的启示：</strong>训练集不应只追求能量力误差，还要覆盖相竞争构型和相边界附近热力学状态。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日3篇文献集中在计算材料与AI for science交叉：κ相氧化镓铁电翻转、显微组织反演材料参数、锡相边界的机器学习势修正。共同特征是用第一性原理、分子动力学、深度学习或数据集重构，把原子尺度相稳定性与介观形貌参数估计连接起来。</p>
+<p><strong>热点：</strong>机器学习原子势继续从加速动力学扩展到相图与相边界的可控校正，训练数据分布成为影响物理可迁移性的关键变量。铁电氧化物与氮化物异质结构显示出用计算筛选界面极化状态的潜力，尤其适合宽禁带电子学。显微组织图像到材料参数的反问题正在转向仿真生成数据与深度模型结合，以降低实验标注需求。3篇题录均未给出摘要细节和定量指标，因此不宜比较精度、能垒或相变温度等数值。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">3 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">κ相氧化镓铁电翻转与AlN异质结构极化调控</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Ferroelectric switching in κ-Ga 2 O 3 and polarization tuning in κ-Ga 2 O 3 /AlN heterostructures by first-principles and machine-learning molecular dynamics</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为κ-Ga2O3及κ-Ga2O3/AlN异质结构；方法结合第一性原理与机器学习分子动力学，考察κ相氧化镓的铁电翻转过程，并讨论与AlN成异质结构后的极化调控。题录未给出翻转能垒、极化强度、温度范围等定量结果。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把第一性原理与机器学习分子动力学用于κ-Ga2O3铁电翻转，并延伸到κ-Ga2O3/AlN界面极化。对宽禁带铁电氧化物和氮化物异质集成的计算设计具有直接参考价值。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">由显微组织形貌估计材料参数的仿真引导深度学习</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Simulation-informed deep learning for estimating material parameters from microstructural morphology</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为由显微组织形貌反推材料参数的逆问题；方法为仿真信息引导的深度学习，将模拟生成或模拟约束的形貌数据用于参数估计。题录未说明具体材料体系、网络结构、参数类型、误差指标或与传统反演方法的数值对比。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心是用仿真数据约束深度模型，从显微组织形貌直接估计材料参数。该路线面向材料反问题，可减少对大规模实验标注形貌数据的依赖。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">通过调整训练数据校正锡相边界的机器学习势</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Study on correcting tin phase boundaries by adjusting training data for machine learning atomic interaction potentials</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为锡的多相相边界；方法是调整机器学习原子相互作用势的训练数据，以修正相边界预测。题录未给出涉及的锡相、压力—温度区间、训练集构成、势函数类型或相边界偏差降低幅度等定量信息。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作聚焦训练数据对机器学习原子势预测锡相边界的影响，并以数据调整实现相图校正。它强调相稳定性问题中训练集设计与能量差精度同等关键。</p>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-18.html">← 前一天 · 2026-07-18</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-18.html">前一天 · 2026-07-18</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-19.html">最新一期 · 2026-07-19</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-19.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>3</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">κ相氧化镓铁电翻转与AlN异质结构极化调控<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">由显微组织形貌估计材料参数的仿真引导深度学习<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">通过调整训练数据校正锡相边界的机器学习势<span class="daily-outline-meta">03</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-18.html">前一天 · 2026-07-18</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-19.html">最新一期 · 2026-07-19</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-19.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
