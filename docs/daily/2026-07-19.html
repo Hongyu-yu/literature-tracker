@@ -261,41 +261,41 @@
 <h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
 <span class="daily-core-count">3 篇</span>
 </div>
-<p class="daily-core-note">κ-Ga2O3/AlN把第一性原理与机器学习分子动力学用于铁电翻转路径和界面极化调控，问题从BaTiO3式体相翻转扩展到宽禁带氧化物/氮化物异质结。显微组织反演工作采用simulation-informed deep learning，把相场/微结构模拟约束并入从形貌到材料参数的逆映射，呼应铁电畴图像参数识别。锡相边界工作通过重配训练数据校正ML原子势，相当于在NEP、MACE、equivariant GNN势训练中把相稳定性和相边界误差作为数据设计目标；这也可迁移到CrI3、CrSBr等磁性层状材料的相变势能面构建。</p>
+<p class="daily-core-note">κ-Ga2O3工作把DFT势能面与机器学习分子动力学连接，用于解析铁电翻转路径，并把κ-Ga2O3/AlN界面作为极化调控自由度。微观形貌反演论文将仿真标注与深度学习耦合，针对材料参数识别中的多解性引入物理约束。锡相边界研究表明，MACE、NEP、GAP类机器学习原子势的相图可靠性取决于α-Sn、β-Sn和液相训练构型权重，而不只是总能/力拟合误差。与BaTiO3铁电畴动力学、CrI3/CrSBr磁相变和NbOI2二维铁电的equivariant GNN、DFT+U建模相比，今天三篇更集中在训练数据与界面/形貌先验如何改变凝聚态可观测量。</p>
 <ol class="daily-core-list">
 <li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all">
 <div class="daily-core-number">01</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">κ相氧化镓铁电翻转与AlN异质结构极化调控</div>
+<div class="daily-core-title-zh">κ-Ga2O3 铁电翻转与异质结构极化调控</div>
 <div class="daily-core-title-en">Ferroelectric switching in κ-Ga 2 O 3 and polarization tuning in κ-Ga 2 O 3 /AlN heterostructures by first-principles and machine-learning molecular dynamics</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为κ-Ga2O3及κ-Ga2O3/AlN异质结构；方法结合第一性原理与机器学习分子动力学，考察κ相氧化镓的铁电翻转过程，并讨论与AlN成异质结构后的极化调控。题录未给出翻转能垒、极化强度、温度范围等定量结果。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把第一性原理与机器学习分子动力学用于κ-Ga2O3铁电翻转，并延伸到κ-Ga2O3/AlN界面极化。对宽禁带铁电氧化物和氮化物异质集成的计算设计具有直接参考价值。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>第一性原理+机器学习MD解析κ-Ga2O3翻转及AlN界面极化调控。</p><p><strong>🔗 相关工作关联：</strong>呼应BaTiO3/HfO2铁电翻转、AlN/ScAlN极化工程、界面偶极调控。</p><p><strong>💡 对你方向的启示：</strong>宽禁带铁电异质结需把翻转路径、界面应变和极化补偿同时纳入ML势训练。</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为 κ-Ga2O3 及 κ-Ga2O3/AlN 异质结构；采用第一性原理与机器学习分子动力学，分析铁电翻转路径，并考察界面耦合下的极化可调性。题录未给出矫顽场、能垒或极化强度等定量数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>κ-Ga2O3 的铁电翻转被第一性原理与机器学习分子动力学联合刻画。κ-Ga2O3/AlN 界面极化可调，指向氧化物/氮化物可重构极化器件。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>DFT构建翻转路径，ML分子动力学采样κ-Ga2O3/AlN极化响应。</p><p><strong>🔗 相关工作关联：</strong>呼应BaTiO3/HfO2铁电翻转、二维铁电NbOI2、界面极化耦合与ML势能面动力学。</p><p><strong>💡 对你方向的启示：</strong>研究者应把界面应变、电荷补偿和端接构型纳入训练/采样，而非只拟合体相势垒。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
 <li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all">
 <div class="daily-core-number">02</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">由显微组织形貌估计材料参数的仿真引导深度学习</div>
+<div class="daily-core-title-zh">由微观形貌估计材料参数的仿真引导深度学习</div>
 <div class="daily-core-title-en">Simulation-informed deep learning for estimating material parameters from microstructural morphology</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为由显微组织形貌反推材料参数的逆问题；方法为仿真信息引导的深度学习，将模拟生成或模拟约束的形貌数据用于参数估计。题录未说明具体材料体系、网络结构、参数类型、误差指标或与传统反演方法的数值对比。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心是用仿真数据约束深度模型，从显微组织形貌直接估计材料参数。该路线面向材料反问题，可减少对大规模实验标注形貌数据的依赖。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>用仿真约束深度网络，从显微组织形貌反演材料参数。</p><p><strong>🔗 相关工作关联：</strong>对应相场反演、PINN、微结构图像表征、铁电畴形貌参数识别。</p><p><strong>💡 对你方向的启示：</strong>可将模拟先验嵌入畴图、晶粒和相分离图像，降低纯监督反演的数据需求。</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>以微观组织形貌为输入，结合模拟生成或标注数据训练深度学习模型，反演材料参数。题录未披露具体材料体系、网络结构、误差或泛化测试结果；核心方法是用仿真约束减少形貌到参数映射的不适定性。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>仿真引导深度学习把微观形貌直接映射到材料参数。该路线面向难以直接测量的相场或本构参数，连接计算显微组织与反问题求解。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>用仿真生成或约束形貌样本，训练深度网络反演材料参数。</p><p><strong>🔗 相关工作关联：</strong>呼应相场模拟-图像反演、微结构数字孪生、物理约束CNN和贝叶斯参数识别。</p><p><strong>💡 对你方向的启示：</strong>形貌到参数映射需显式编码生成机制；只做显微图监督学习容易学到伪相关。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
 <li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all">
 <div class="daily-core-number">03</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">通过调整训练数据校正锡相边界的机器学习势</div>
+<div class="daily-core-title-zh">用训练数据修正锡机器学习原子势相边界</div>
 <div class="daily-core-title-en">Study on correcting tin phase boundaries by adjusting training data for machine learning atomic interaction potentials</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为锡的多相相边界；方法是调整机器学习原子相互作用势的训练数据，以修正相边界预测。题录未给出涉及的锡相、压力—温度区间、训练集构成、势函数类型或相边界偏差降低幅度等定量信息。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作聚焦训练数据对机器学习原子势预测锡相边界的影响，并以数据调整实现相图校正。它强调相稳定性问题中训练集设计与能量差精度同等关键。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>通过调整训练数据分布，校正锡多相ML原子势的相边界。</p><p><strong>🔗 相关工作关联：</strong>呼应NEP、MACE、GAP、equivariant GNN势的主动学习与相稳定性训练。</p><p><strong>💡 对你方向的启示：</strong>训练集不应只追求能量力误差，还要覆盖相竞争构型和相边界附近热力学状态。</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为锡的相稳定性与相边界；围绕机器学习原子相互作用势，改变训练数据组成以纠正相图或相边界偏差。题录未列明 α/β/液相边界温度、压力范围或误差，但结论指向训练集分布对相边界预测的决定作用。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>通过重配训练数据修正锡机器学习原子势的相边界。该例强调相变热力学不能只看整体误差，训练集需覆盖竞争相与边界构型。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>通过重配锡训练集构型分布，修正ML原子势预测的相边界。</p><p><strong>🔗 相关工作关联：</strong>呼应MACE、NEP、GAP、SNAP势的相稳定性训练，以及主动学习相图构型采样。</p><p><strong>💡 对你方向的启示：</strong>相边界精度要用α/β/液相共存构型检验，训练集权重比单点能量RMSE更关键。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
@@ -307,27 +307,28 @@
 <h2 class="daily-section-title">今日摘要</h2>
 </div>
 <div class="daily-summary-card">
-<p><strong>总览：</strong>今日3篇文献集中在计算材料与AI for science交叉：κ相氧化镓铁电翻转、显微组织反演材料参数、锡相边界的机器学习势修正。共同特征是用第一性原理、分子动力学、深度学习或数据集重构，把原子尺度相稳定性与介观形貌参数估计连接起来。</p>
-<p><strong>热点：</strong>机器学习原子势继续从加速动力学扩展到相图与相边界的可控校正，训练数据分布成为影响物理可迁移性的关键变量。铁电氧化物与氮化物异质结构显示出用计算筛选界面极化状态的潜力，尤其适合宽禁带电子学。显微组织图像到材料参数的反问题正在转向仿真生成数据与深度模型结合，以降低实验标注需求。3篇题录均未给出摘要细节和定量指标，因此不宜比较精度、能垒或相变温度等数值。</p>
+<p><strong>总览：</strong>今日3篇均来自计算材料科学与 AI for science 交叉方向，集中在机器学习势、深度学习反演和铁电异质结构模拟。代表性主题包括 κ-Ga2O3 铁电翻转及 κ-Ga2O3/AlN 极化调控、由微观形貌估计材料参数、通过训练数据修正锡机器学习原子势的相边界。</p>
+<p><strong>热点：</strong>机器学习不再只用于加速能量与力计算，而是进入相边界、极化翻转和参数反演等物理判据更强的任务。训练数据分布成为机器学习原子势可靠性的核心变量，尤其影响竞争相稳定性和相变边界。仿真数据与深度学习结合用于从形貌反推材料参数，显示计算显微组织正在转化为可校准的反问题数据源。第一性原理与机器学习分子动力学联用，则面向复杂异质界面的长时间尺度极化响应。</p>
 </div>
 </section>
 <section class="daily-section" id="papers">
 <div class="daily-section-head">
 <span class="daily-section-index">📚</span>
 <h2 class="daily-section-title">今日文献</h2>
-<span class="daily-core-count">3 篇 · 0 含图深析</span>
+<span class="daily-core-count">3 篇 · 3 含图深析</span>
 </div>
 <ol class="daily-paper-list">
 <li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" id="paper-1">
 <span class="daily-paper-number">01</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">κ相氧化镓铁电翻转与AlN异质结构极化调控</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">κ-Ga2O3 铁电翻转与异质结构极化调控</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Ferroelectric switching in κ-Ga 2 O 3 and polarization tuning in κ-Ga 2 O 3 /AlN heterostructures by first-principles and machine-learning molecular dynamics</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
-</div></div>
+</div><span class="enrich-badge">📊 含图深析</span></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为κ-Ga2O3及κ-Ga2O3/AlN异质结构；方法结合第一性原理与机器学习分子动力学，考察κ相氧化镓的铁电翻转过程，并讨论与AlN成异质结构后的极化调控。题录未给出翻转能垒、极化强度、温度范围等定量结果。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把第一性原理与机器学习分子动力学用于κ-Ga2O3铁电翻转，并延伸到κ-Ga2O3/AlN界面极化。对宽禁带铁电氧化物和氮化物异质集成的计算设计具有直接参考价值。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为 κ-Ga2O3 及 κ-Ga2O3/AlN 异质结构；采用第一性原理与机器学习分子动力学，分析铁电翻转路径，并考察界面耦合下的极化可调性。题录未给出矫顽场、能垒或极化强度等定量数值。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>κ-Ga2O3 的铁电翻转被第一性原理与机器学习分子动力学联合刻画。κ-Ga2O3/AlN 界面极化可调，指向氧化物/氮化物可重构极化器件。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax0a6ed671107ca9.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>κ-Ga2O3 是否存在可实现的铁电翻转路径？引入 AlN 构成异质结构后，界面耦合能否进一步调控其极化行为与可切换性？</div><div class="poster-row"><b>创新方法</b>将第一性原理计算与机器学习分子动力学结合，在同一框架中同时追踪 κ-Ga2O3 的翻转路径与 κ-Ga2O3/AlN 界面的极化响应，实现从原子结构演化到极化调控的联合分析。</div><div class="poster-row"><b>工作流程</b>先对 κ-Ga2O3 建立原子结构并用第一性原理搜索铁电翻转路径；再引入机器学习分子动力学模拟结构演化与有限温度下的翻转过程；随后构建 κ-Ga2O3/AlN 异质结构，分析界面耦合对极化方向与强度的影响；最终输出翻转机制与极化调控规律。</div><div class="poster-row"><b>关键结果</b>确认 κ-Ga2O3 存在可研究的铁电翻转路径；证明 κ-Ga2O3/AlN 异质结构中的界面耦合可以有效调控极化；表明该体系不仅具备开关行为，还具备通过异质界面进行极化调谐的潜力。</div><div class="poster-row"><b>应用价值</b>为氧化物/氮化物异质铁电器件提供设计思路，可用于构建可切换极化的存储、传感与低功耗电子器件，并为界面工程调控铁电性能提供理论依据。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>研究 κ-Ga2O3 及其 AlN 异质结构中的铁电翻转与极化调控，结合第一性原理和机器学习分子动力学，属于计算材料/铁电异质结方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>采用第一性原理计算，分析 κ-Ga2O3 的铁电翻转路径。</li><li>结合机器学习分子动力学，辅助研究结构演化与翻转过程。</li><li>构建 κ-Ga2O3/AlN 异质结构，考察界面耦合对极化的影响。</li><li>关注极化可调性，而非仅讨论单一材料本征性质。</li><li>摘要未详述所用具体模型、训练细节与计算参数。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确表明：κ-Ga2O3 存在可研究的铁电翻转路径。</li><li>摘要明确表明：κ-Ga2O3/AlN 异质结构中，界面耦合可用于调控极化。</li><li>论文聚焦于铁电开关行为与异质结构中的极化调谐，而非仅做静态结构分析。</li><li>摘要未详述矫顽场、能垒、极化强度等定量结果。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：把 κ-Ga2O3 的铁电翻转与 κ-Ga2O3/AlN 异质结构中的极化调控放在同一框架下研究。</li><li>将第一性原理与机器学习分子动力学结合，可能用于更高效地描述翻转过程与有限温度效应。</li><li>以 AlN 界面耦合实现极化调节，可能为氧化物/氮化物异质铁电器件提供新思路。</li><li>以上判断基于题名与摘要，具体创新幅度摘要未详述。</li></ul></div></details>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004374?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
 </div>
 </li>
@@ -335,12 +336,13 @@
 <span class="daily-paper-number">02</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">由显微组织形貌估计材料参数的仿真引导深度学习</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">由微观形貌估计材料参数的仿真引导深度学习</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Simulation-informed deep learning for estimating material parameters from microstructural morphology</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
-</div></div>
+</div><span class="enrich-badge">📊 含图深析</span></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为由显微组织形貌反推材料参数的逆问题；方法为仿真信息引导的深度学习，将模拟生成或模拟约束的形貌数据用于参数估计。题录未说明具体材料体系、网络结构、参数类型、误差指标或与传统反演方法的数值对比。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心是用仿真数据约束深度模型，从显微组织形貌直接估计材料参数。该路线面向材料反问题，可减少对大规模实验标注形貌数据的依赖。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>以微观组织形貌为输入，结合模拟生成或标注数据训练深度学习模型，反演材料参数。题录未披露具体材料体系、网络结构、误差或泛化测试结果；核心方法是用仿真约束减少形貌到参数映射的不适定性。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>仿真引导深度学习把微观形貌直接映射到材料参数。该路线面向难以直接测量的相场或本构参数，连接计算显微组织与反问题求解。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/axe6686e4ad9a915.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>如何仅依据材料微观组织形貌，反推出对应的材料参数；尤其是在真实标注稀缺、形貌到参数映射高度不适定的情况下，怎样让反演更稳定、可学习。</div><div class="poster-row"><b>创新方法</b>提出 simulation-informed 深度学习反演框架：用仿真生成或仿真标注数据构建训练集，把物理/模拟知识显式注入网络训练，相当于给“形貌→参数”关系加上仿真先验与弱监督，缓解病态逆问题。</div><div class="poster-row"><b>工作流程</b>输入微观组织形貌图像或表征；通过仿真生成/标注得到材料参数训练样本；将仿真信息融入深度网络训练；模型学习形貌与参数的对应关系；最终输出材料参数的反演估计。</div><div class="poster-row"><b>关键结果</b>证明了可以利用基于仿真的深度学习，从微观组织形貌中估计材料参数；仿真约束能够减少映射不适定性，使反演问题更可解、更稳定。摘要未给出具体精度数值和提升幅度。</div><div class="poster-row"><b>应用价值</b>为材料参数无损反演提供低标注依赖的智能方案，可用于材料信息学、微结构表征、工艺—组织—性能关联分析，以及样本稀缺场景下的材料表征与设计。</div></div><div class="deep-body"><h3 class="deep-h">核心概览（100字内）</h3><p>本文面向<strong>材料参数反演</strong>问题，利用<strong>微观组织形貌</strong>作为输入，结合<strong>仿真生成/标注数据</strong>训练深度学习模型，从而估计材料参数，属于<strong>材料信息学/逆问题建模</strong>方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>以<strong>微观组织形貌</strong>作为模型输入，做材料参数的反演预测。</li><li>采用<strong>仿真生成或仿真标注数据</strong>构建训练集，降低对真实标注数据的依赖。</li><li>通过<strong>simulation-informed</strong>思路，把物理/模拟信息引入深度学习训练过程。</li><li>用仿真约束缓解“<strong>形貌到参数映射</strong>”的<strong>不适定性</strong>，提升可学性与稳定性。</li><li>具体网络结构、损失设计、数据规模与训练策略：<strong>摘要未详述</strong>。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>论文明确提出：可以用<strong>基于仿真的深度学习</strong>从微观组织形貌中反演材料参数。</li><li>仿真约束被认为能够<strong>减少映射不适定性</strong>，使反演问题更可解。</li><li>具体材料体系、精度提升幅度、泛化表现和误差统计：<strong>摘要未详述</strong>。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：不是纯数据驱动地拟合形貌—参数关系，而是将<strong>仿真数据/仿真知识</strong>显式引入训练，作为一种<strong>物理先验或弱监督</strong>。</li><li>这种思路相对常规深度学习反演，可能更适合处理<strong>样本稀缺</strong>和<strong>病态逆问题</strong>。</li><li>但由于摘要未说明模型结构与实验对比，创新程度是否显著优于同类工作，<strong>仍需全文验证</strong>。</li></ul></div></details>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626003940?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
 </div>
 </li>
@@ -348,12 +350,13 @@
 <span class="daily-paper-number">03</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">通过调整训练数据校正锡相边界的机器学习势</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">用训练数据修正锡机器学习原子势相边界</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Study on correcting tin phase boundaries by adjusting training data for machine learning atomic interaction potentials</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
-</div></div>
+</div><span class="enrich-badge">📊 含图深析</span></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>体系为锡的多相相边界；方法是调整机器学习原子相互作用势的训练数据，以修正相边界预测。题录未给出涉及的锡相、压力—温度区间、训练集构成、势函数类型或相边界偏差降低幅度等定量信息。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作聚焦训练数据对机器学习原子势预测锡相边界的影响，并以数据调整实现相图校正。它强调相稳定性问题中训练集设计与能量差精度同等关键。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>对象为锡的相稳定性与相边界；围绕机器学习原子相互作用势，改变训练数据组成以纠正相图或相边界偏差。题录未列明 α/β/液相边界温度、压力范围或误差，但结论指向训练集分布对相边界预测的决定作用。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>通过重配训练数据修正锡机器学习原子势的相边界。该例强调相变热力学不能只看整体误差，训练集需覆盖竞争相与边界构型。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/axb6160f83674089.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>如何通过调整机器学习原子相互作用势的训练数据组成，纠正锡相图中相边界预测偏差，提升对锡相稳定性与相变边界的准确描述。</div><div class="poster-row"><b>创新方法</b>不只改模型结构，而是把“训练数据配比与分布”作为核心调控手段；通过重构训练集，让势函数学习到更合理的锡相空间，从而修正相边界偏移。</div><div class="poster-row"><b>工作流程</b>收集锡相关结构与相态数据 → 调整训练数据的组成和分布 → 训练机器学习原子相互作用势 → 预测锡的相边界与相图 → 对比偏差并通过数据重配修正预测。</div><div class="poster-row"><b>关键结果</b>训练集组成会显著改变势函数对锡相边界的预测；当训练数据分布被调整后，原本偏移的相图边界可以被纠正，说明数据分布对相边界外推具有决定性影响。</div><div class="poster-row"><b>应用价值</b>为计算材料中相图预测提供可操作的校正思路，帮助更可靠地构建锡及类似材料的机器学习势函数，提升相稳定性分析、相变模拟和材料设计的可信度。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>围绕锡的相稳定性与相边界，研究如何通过调整机器学习原子相互作用势的训练数据组成来纠正相图偏差，属<strong>计算材料/机器学习势函数</strong>方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>以锡的相稳定性问题为目标，构建或调整机器学习原子相互作用势。</li><li>通过改变训练数据的组成与分布，观察其对相边界预测的影响。</li><li>关注相图中不同相之间的边界预测是否出现偏差，并尝试加以修正。</li><li>摘要未详述具体模型类型、特征表示、训练流程与验证方案。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>训练集的组成会显著影响机器学习势对锡相边界的预测。</li><li>通过调整训练数据分布，可以纠正相图或相边界的偏差。</li><li>结论强调：训练集分布对相边界预测具有决定性作用。</li><li>摘要未详述 α/β/液相边界的具体温度、压力范围或误差幅度。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：<strong>不只优化模型结构，而是把“训练数据配比/分布”作为修正相边界的关键手段</strong>。</li><li>相比常见的势函数拟合工作，这篇更强调<strong>数据分布对相图外推/预测的控制作用</strong>。</li><li>这一判断基于摘要，具体是否提出系统化的数据重加权、主动采样或迭代校正方法，摘要未详述。</li></ul></div></details>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004611?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
 </div>
 </li>
@@ -372,9 +375,9 @@
 <a href="#papers"><span>今日文献</span><span>📚</span></a>
 <div class="daily-sidebar-block">
 <div class="daily-sidebar-title">专题分布</div>
-<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>3</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>3</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>3</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
 </div>
-<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">κ相氧化镓铁电翻转与AlN异质结构极化调控<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">由显微组织形貌估计材料参数的仿真引导深度学习<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">通过调整训练数据校正锡相边界的机器学习势<span class="daily-outline-meta">03</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-18.html">前一天 · 2026-07-18</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-19.html">最新一期 · 2026-07-19</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-19.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">κ-Ga2O3 铁电翻转与异质结构极化调控<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">由微观形貌估计材料参数的仿真引导深度学习<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">用训练数据修正锡机器学习原子势相边界<span class="daily-outline-meta">03</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-18.html">前一天 · 2026-07-18</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-07-19.html">最新一期 · 2026-07-19</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-19.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
 <div class="daily-sidebar-title">阅读建议</div>
 <ul class="insight-note-list">
 <li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
