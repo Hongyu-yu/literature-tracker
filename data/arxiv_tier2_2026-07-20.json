@@ -1,45 +1,54 @@
 [
   {
+    "title": "Machine Learning–Guided Surface Strain Engineering in Connected Platinum–Nickel Nanoparticle Catalysts for Advanced Oxygen Reduction Performance",
+    "title_zh": "铂镍纳米颗粒催化剂的表面应变工程",
+    "summary": "机器学习被用于指导 Pt–Ni 互连纳米颗粒的表面应变设计，面向氧还原催化优化。由于摘要缺失，具体结构—性能关联和活性增益需以正文数据为准。",
+    "abstract": "题名显示利用机器学习指导互连 Pt–Ni 纳米颗粒催化剂的表面应变调控，目标是提升氧还原反应性能。期刊条目仅给出 EarlyView 信息，未提供具体模型、应变幅度、活性或稳定性数值。",
+    "category": "AI×化学·材料",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76651?af=R",
+    "journal": "Wiley: Advanced Science: Table of Contents"
+  },
+  {
     "title": "Auditing domain alignment in latent representations for cross-domain materials machine learning",
-    "title_zh": "跨域材料机器学习潜表示的域对齐审计",
-    "summary": "用无目标编码器审计多孔碳和 MOF 潜表示中的实验/模拟域偏差。结果把跨域迁移失败从预测误差层面推进到表示层诊断，适合材料数据融合前的质量控制。",
-    "abstract": "面向实验多孔碳、实验 MOF 与模拟 MOF 的异质数据，训练不依赖目标性质的神经编码器，输入共享理化描述符并显式处理缺失模式。通过潜空间域对齐审计，区分可迁移结构—性质信息与实验/模拟来源偏差，指出跨域材料机器学习可能学习域特异信号。",
+    "title_zh": "跨域材料机器学习潜表示对齐审计",
+    "summary": "该工作把潜空间域对齐作为跨域材料机器学习的审计对象，比较多孔碳、实验 MOF 与模拟 MOF。它直接针对异质实验—计算数据融合中的可迁移性问题。",
+    "abstract": "面向实验多孔碳、实验 MOF 与模拟 MOF 数据，作者在共享物化描述符和显式缺失掩码上训练无目标神经编码器，审计潜表示是否学习可迁移结构—性质关系，还是编码实验/模拟及材料类别偏置。核心结论是跨域材料模型需定量检查域对齐，避免异质数据融合中的隐性偏差。",
     "category": "AI×化学·材料",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae87f4",
     "journal": "Machine Learning: Science and Technology"
   },
   {
     "title": "Machine Learning for Electrode Materials: Property Prediction via Composition",
-    "title_zh": "基于组成预测电极材料性质的机器学习",
-    "summary": "CrabNet 在电极材料组成式性质预测中全面优于 MODNet 和 Magpie 随机森林。对计算电池材料筛选而言，组成编码 Transformer 仍是强基线。",
-    "abstract": "在 Materials Project Battery Explorer 电极材料数据集上比较 MODNet、CrabNet 与基于 Magpie 特征的随机森林，任务为仅由组成预测电池电极性质。采用标准误差指标和二维嵌入分析数值特征；CrabNet 在各项测试中稳定优于其他模型，并用于验证组成式 Transformer 的电极材料筛选能力。",
+    "title_zh": "由成分预测电极材料性质的机器学习",
+    "summary": "在电极材料成分到性质预测基准中，CrabNet 持续优于 MODNet 和 Magpie 随机森林。结果说明注意力式成分表征仍是电池材料快速筛选的强基线。",
+    "abstract": "使用 Materials Project Battery Explorer 数据集，比较 MODNet、CrabNet 与基于 Magpie 特征的随机森林三类成分模型预测电池电极材料性质。通过标准误差指标和二维特征嵌入评估可分性与精度；结果显示 CrabNet 在所有测试中表现最稳健、整体优于另外两种框架。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2603.07805",
     "journal": "arXiv"
   },
   {
     "title": "Nonadiabatic excited-state dynamics with quantum Monte Carlo-trained machine learning: azomethane as a stringent test",
-    "title_zh": "QMC 训练机器学习的非绝热激发态动力学",
-    "summary": "QMC 级相关电子结构被转写成多态机器学习力场，并用于偶氮甲烷非绝热动力学。该路线把高精度随机电子结构与可连续传播的光化学势能面连接起来。",
-    "abstract": "提出由量子蒙特卡洛数据训练的多态机器学习力场，用偶氮甲烷检验非绝热光化学动力学。变分蒙特卡洛波函数结合紧凑选择组态相互作用展开与 Jastrow 因子，显式包含动态关联；神经网络将随机 QMC 势能、力和态间信息转化为平滑势能面，适用于电子态性质沿反应路径变化的过程。",
+    "title_zh": "QMC 训练的偶氮甲烷非绝热动力学",
+    "summary": "QMC 级多态数据被转化为可用于非绝热动力学的机器学习力场，并在偶氮甲烷上测试。该框架把相关电子结构精度引入光化学动力学模拟。",
+    "abstract": "提出由量子蒙特卡罗数据训练的多态机器学习力场，用于电子态性质沿反应路径显著变化的非绝热激发态动力学。变分蒙特卡罗波函数结合紧凑选态组态相互作用展开与 Jastrow 因子，以显式包含动态关联；神经网络把随机 QMC 势能面和耦合数据平滑化，并以偶氮甲烷光化学作为严格测试体系。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.16129",
     "journal": "arXiv"
   },
   {
     "title": "Empowering Neural Network-based Quantum Monte Carlo with Local Pseudopotentials",
-    "title_zh": "局域赝势增强神经网络量子蒙特卡洛",
-    "summary": "局域赝势显著减少 NNQMC 中的显式电子自由度，同时提升相对能量精度。该方法直接缓解神经网络波函数在材料体系中的尺度瓶颈。",
-    "abstract": "针对神经网络量子蒙特卡洛难以扩展到较大体系的问题，引入局域赝势框架。赝势减少神经网络显式处理的电子数，提高计算效率和可扩展性；相对能量精度优于全电子处理，并为含重元素或更大材料单元的 NNQMC 计算降低代价。",
+    "title_zh": "局域赝势增强神经网络量子蒙特卡罗",
+    "summary": "局域赝势显著降低 NNQMC 中的显式电子自由度，同时保持甚至改善相对能量精度。该方法直指高精度多体电子结构在材料体系中的可扩展瓶颈。",
+    "abstract": "针对神经网络量子蒙特卡罗在大体系中电子数多、计算成本高的问题，作者引入局域赝势框架，减少神经网络显式处理的电子数。局域赝势不仅提高计算效率和可扩展性，还在相对能量精度上优于全电子处理，推动 NNQMC 从小分子向更大材料体系扩展。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2505.19909",
     "journal": "arXiv"
   },
   {
     "title": "First Experimental Demonstration of Reinforcement Learning-Based Tuning on the PSI Injector 2 Cyclotron",
-    "title_zh": "PSI 注入器2回旋加速器的强化学习调谐",
-    "summary": "强化学习调谐被直接部署到 PSI 高功率质子回旋加速器。对大型科学装置而言，这是从离线仿真优化迈向在线闭环控制的实证案例。",
-    "abstract": "在 PSI Injector 2 高功率质子回旋加速器上部署机器学习调谐框架，目标是替代慢速且依赖经验的手动束流调节。系统结合定制强化学习策略与在线运行约束，在存在故障或工况变化时寻找可行调参方案，给出强化学习在真实高功率加速器上的实验演示。",
+    "title_zh": "PSI 注入器二号回旋加速器强化学习调参",
+    "summary": "强化学习调参在 PSI Injector 2 回旋加速器上完成实验部署，目标是高功率质子束稳定运行。它把在线机器学习控制推进到真实大型加速器设备。",
+    "abstract": "在 PSI Injector 2 高功率质子回旋加速器上部署机器学习调参框架，用定制强化学习替代部分人工束流调谐。系统面向 ADS 等高功率应用所需的可靠运行，处理故障或工况变化下的非最优人工调参问题；摘要强调这是该装置上的首次实验演示。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2512.03829",
     "journal": "arXiv"
@@ -47,8 +56,8 @@
   {
     "title": "A Bit of Freedom Goes a Long Way: Classical and Quantum Algorithms for Reinforcement Learning under a Generative Model",
     "title_zh": "生成模型下强化学习的经典与量子算法",
-    "summary": "在在线强化学习中加入偶发生成式采样，可系统降低学习难度。量子子程序提供了生成模型策略近似的新复杂度路径。",
-    "abstract": "提出有限与无限时域马尔可夫决策过程的经典和量子在线学习算法，采用在线—离线混合设定：智能体偶尔可像访问模拟器一样进行生成式采样。结合已有经典算法与新的量子近似最优策略算法，证明少量“自由”生成采样可改善在线强化学习的样本效率和策略学习性能。",
+    "summary": "该理论工作刻画了偶尔访问模拟器时强化学习的经典与量子样本复杂度优势。它为物理实验闭环控制中的混合在线—离线策略提供算法依据。",
+    "abstract": "提出有限与无限时域马尔可夫决策过程的经典和量子在线学习算法，采用在线—离线混合强化学习设定：智能体可偶尔以生成采样方式自由访问环境模拟器。结合已有经典算法与新的量子最优策略近似算法，证明少量生成模型访问可改善在线学习效率。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2507.22854",
     "journal": "arXiv"
@@ -56,44 +65,44 @@
   {
     "title": "Machine learning of electronic structure and atomistic properties from the external potential",
     "title_zh": "从外势学习电子结构与原子性质",
-    "summary": "电子结构机器学习的输入从几何图转向外势。该表征更贴近 DFT 基本定理，有望统一处理分子结构变化与外场扰动。",
-    "abstract": "受 Hohenberg–Kohn 定理启发，提出以外势为输入学习电子结构和原子性质，而非仅由分子图或局域环境直接预测性质。该框架面向 Fock 矩阵、密度矩阵等原子轨道基表示的电子量，通过把几何、核电荷和外场统一到外势表征中，探索更接近密度泛函理论基本变量的机器学习代理模型。",
+    "summary": "外势被用作机器学习电子结构的核心输入变量，而非传统几何图表征。该思路更贴近密度泛函理论的基本映射，有助于提升电子结构代理模型的物理一致性。",
+    "abstract": "受 Hohenberg–Kohn 定理启发，作者提出从外部势而非仅从分子图或局域原子环境学习电子结构和原子性质的机器学习表征。该路线区别于直接预测标量性质或 AO 基 Fock/密度矩阵的代理模型，试图把电子结构问题的基本输入变量纳入可学习框架。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2602.15345",
     "journal": "arXiv"
   },
   {
     "title": "Stoichiometry dependent properties of cerium hydride: An active learning developed interatomic potential study",
-    "title_zh": "主动学习势研究 Ce 氢化物化学计量性质",
-    "summary": "主动学习势把 Ce 氢化物的化学计量依赖性质扩展到可模拟尺度。对氢含量驱动的晶格收缩和相稳定性分析，比纯 DFT 更适合做统计采样。",
-    "abstract": "针对 CeHx 氢含量难精确控制且从头算难覆盖大尺度性质的问题，利用主动学习构建铈氢化物原子间势。该势用于研究随氢化学计量变化的晶格收缩、致密化和相关结构性质，在保持第一性原理训练约束的同时支持更大体系和更长时间尺度模拟。",
+    "title_zh": "铈氢化物化学计量依赖性质的主动学习势",
+    "summary": "主动学习原子间势被用于跨化学计量 CeHx，解析氢含量驱动的晶格收缩与致密化。它弥合了从头算精度和大尺度氢化物模拟之间的缺口。",
+    "abstract": "针对 CeHx 中氢含量增加导致晶格收缩和致密化、但实验精确控比困难且大规模从头算昂贵的问题，作者用主动学习构建原子间势研究化学计量依赖性质。该势覆盖不同氢含量下的铈氢化物构型，使分子动力学尺度的结构与性质评估成为可能。",
     "category": "其他",
     "link": "http://link.aps.org/doi/10.1103/7mny-v7vt",
     "journal": "Phys. Rev. Materials"
   },
   {
     "title": "A Physics-Informed Neural Network with a Modified Lorentzian Activation for Nonlocal Gradient-Flow Equations in Dynamic Density Functional Theory",
-    "title_zh": "用于 DDFT 非局域梯度流方程的 PINN",
-    "summary": "改进 Lorentzian 激活被嵌入 DDFT 梯度流 PINN。该方案针对非局域相互作用导致的 PINN 优化困难，服务于软物质密度动力学求解。",
-    "abstract": "建立处理动态密度泛函理论非局域偏微分方程的物理信息神经网络。方程含非线性、非局域相互作用和梯度流结构，普通 PINN 收敛慢；框架引入改进 Lorentzian 激活函数，并按 DDFT 梯度流形式设计残差与优化流程，以改善非局域密度演化问题的训练稳定性。",
+    "title_zh": "非局域 DDFT 梯度流方程的改进 PINN",
+    "summary": "改进 Lorentzian 激活与梯度流约束被结合进 PINN，用于求解非局域 DDFT 方程。该方法面向软物质和凝聚态密度演化中的非局域动力学瓶颈。",
+    "abstract": "开发用于动态密度泛函理论非局域偏微分方程的 PINN 框架，处理非线性、非局域相互作用和梯度流结构引起的收敛慢与优化困难。方法引入改进 Lorentzian 激活函数，并把 DDFT 梯度流约束纳入网络求解，以改善非局域动力学密度方程训练。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.15291",
     "journal": "arXiv"
   },
   {
     "title": "Evolutionary Algorithm-Guided LLMs for Physics-Informed Neural Network Design",
-    "title_zh": "进化算法引导大语言模型设计 PINN",
-    "summary": "大语言模型被放入进化闭环，自动生成并筛选 PINN 配置。对科学机器学习而言，经验反馈式设计比单轮提示更接近可复现实验自动化。",
-    "abstract": "针对 PINN 对架构、激活、损失权重、配点、优化器和约束施加方式高度敏感的问题，提出闭环进化算法引导大语言模型生成完整可执行配置。每一代根据实际训练结果选择和变异方案，使大语言模型不再给出孤立建议，而是从已训练 PINN 的性能反馈中积累搜索经验。",
+    "title_zh": "演化算法引导大语言模型设计 PINN",
+    "summary": "LLM 不再只给 PINN 设计建议，而是在演化闭环中依据训练结果生成下一代配置。该框架把自动机器学习引入物理约束神经求解器设计。",
+    "abstract": "针对 PINN 对架构、激活、损失权重、配点、优化器和约束施加方式高度敏感的问题，作者提出闭环演化算法引导 LLM 生成完整可执行 PINN 配置。每一代用实际训练结果反馈选择与变异，使后续 LLM 搜索累积经验，而非给出彼此独立的设计建议。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.15560",
     "journal": "arXiv"
   },
   {
     "title": "Interface-Engineered Giant Multistate Resistance Switching in Altermagnetic CrSb Multiferroic Tunnel Junctions",
-    "title_zh": "CrSb 多铁隧穿结的巨多态电阻切换",
-    "summary": "CrSb/α-In2Se3 隧穿结把交替磁自旋劈裂转化为界面选择的多态电阻。该机制把交替磁与铁电隧穿结合，为无杂散场自旋电子器件给出具体材料方案。",
-    "abstract": "采用密度泛函理论与非平衡格林函数计算 CrSb/α-In2Se3 交替磁多铁隧穿结。巨多态电阻切换并非仅由 CrSb 体相动量依赖自旋劈裂决定，而是由界面空间对称性选择隧穿通道：CrSb 终端和 α-In2Se3 铁电极化共同调制可透射态，产生强隧穿电阻响应。",
+    "title_zh": "CrSb 多铁隧道结的巨多态电阻切换",
+    "summary": "CrSb/α-In2Se3 隧道结通过界面对称性选择隧穿通道放大交替磁响应。该机制把无净磁矩自旋劈裂转化为可开关多态电阻。",
+    "abstract": "基于 DFT 与非平衡格林函数计算，研究 CrSb/α-In2Se3 交替磁多铁隧道结。巨多态电阻切换并非只由 CrSb 体相动量依赖自旋劈裂决定，而由界面选择的隧穿通道控制；铁电极化与交替磁对称性共同筛选传输态，实现强隧穿响应且无杂散磁场优势。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.15728",
     "journal": "arXiv"
@@ -101,17 +110,17 @@
   {
     "title": "First-Order Topological FFLO Transition and Superconducting Diode Sign Reversal in Altermagnetic Nanowires",
     "title_zh": "交替磁纳米线中的一阶拓扑 FFLO 转变",
-    "summary": "零净磁化交替磁体可在纳米线中诱导一阶拓扑 FFLO 态。超导二极管效应符号反转成为识别双谷自由能切换的输运标志。",
-    "abstract": "研究自旋轨道耦合纳米线与 d 波交替磁体近邻耦合后的超导态。零净磁化的交替磁场产生能带分辨的竞争配对通道，形成双谷自由能景观；全局极小值不连续切换，导致一阶拓扑 FFLO 转变，并伴随超导二极管效应的尖锐符号反转。",
+    "summary": "d 波交替磁近邻纳米线可在无净磁化下产生一阶拓扑 FFLO 转变。超导二极管效应符号反转成为识别该转变的输运指纹。",
+    "abstract": "研究自旋轨道耦合纳米线与 d 波交替磁体近邻耦合后的超导态。在零净磁化条件下，交替磁场产生能带分辨的竞争配对通道，形成双谷自由能景观；全局极小值不连续切换导致一阶拓扑 FFLO 转变，并伴随超导二极管效应的尖锐符号反转。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.15720",
     "journal": "arXiv"
   },
   {
     "title": "Controlling charge and spin currents through nonreciprocal dissipative processes",
-    "title_zh": "非互易耗散过程控制电荷与自旋流",
-    "summary": "电荷流和自旋流可由非互易 Lindblad 跳跃算符直接生成。冷原子平台因此可用耗散工程模拟非平衡自旋电子输运。",
-    "abstract": "在破缺反演和时间反演对称性的二维自旋费米原子体系中，使用 Gorini–Kossakowski–Sudarshan–Lindblad 主方程与含时广义 Gibbs 系综分析非互易耗散。弱耗散耦合下识别诱导电荷流和自旋流所需的最小非互易跳跃算符集合，并展示电流大小和方向可由耗散通道控制。",
+    "title_zh": "用非互易耗散调控电荷与自旋流",
+    "summary": "非互易 Lindblad 跃迁可在二维自旋费米气中生成并调控电荷流和自旋流。该工作展示了耗散工程作为量子输运控制手段的可计算准则。",
+    "abstract": "在破缺反演和时间反演对称性的二维自旋费米原子量子系统中，作者用 Gorini–Kossakowski–Sudarshan–Lindblad 主方程和时变广义 Gibbs 系综研究非互易耗散。弱耗散耦合下，识别出诱导并调控电荷流和自旋流方向及大小所需的最小非互易跃迁算符集合。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.15767",
     "journal": "arXiv"
@@ -119,17 +128,17 @@
   {
     "title": "A Dynamical Phase-Field Model for the Optical Properties of Ferroelectrics",
     "title_zh": "铁电体光学性质的动力学相场模型",
-    "summary": "相场模型中显式加入电子极化场，使铁电畴动力学与光学响应同步演化。该工具适合设计畴结构可重构的铁电光子器件。",
-    "abstract": "提出将铁电序参量与局域光学响应直接耦合的动力学相场模型，引入电子极化场描述光与畴结构相互作用。模型可同时处理自发极化、畴演化和空间变化的光学性质，弥补传统方法难以捕捉铁电畴结构与光响应紧密耦合的问题，面向可控光子器件设计。",
+    "summary": "电子极化场被并入铁电相场模型，使畴结构与局域光学响应可同时演化。该框架适合设计畴可重构的铁电光子器件。",
+    "abstract": "提出动力学相场模型，把铁电有序参量与局域光学响应直接耦合，并引入电子极化场来描述光学性质。模型面向铁电畴结构与光响应强耦合而传统理论难以统一处理的问题，可模拟畴演化对可控光子器件性能的影响。",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2607.16180",
     "journal": "arXiv"
   },
   {
     "title": "Altermagnetism without a long-range order",
-    "title_zh": "无长程序的交替磁性",
-    "summary": "交替磁行为被推广到无长程磁/轨道有序的 Kugel–Khomskii 模型。结果提示交替磁信号不必只来自常规有序态，也可能由短程自旋—轨道关联驱动。",
-    "abstract": "在平方晶格和一维链的 SU(2)×SU(2) Kugel–Khomskii 自旋—赝自旋模型中，用旋转不变格林函数方法研究无长程磁有序或轨道有序时的交替磁行为。分析自旋—自旋与自旋—赝自旋关联、激发谱和热力学量，指出短程关联也可产生交替磁特征。",
+    "title_zh": "无长程有序的交替磁性",
+    "summary": "交替磁特征可在 Kugel–Khomskii 模型的短程关联中出现，而不依赖长程磁或轨道有序。该结果扩展了交替磁性的强关联判据。",
+    "abstract": "作者在被重新解释为交替磁模型的 Kugel–Khomskii 自旋—赝自旋模型中，研究无长程磁有序或轨道有序时的交替磁行为。采用旋转不变格林函数方法处理 SU(2)×SU(2) 对称模型，分析方格晶格和一维链上的自旋、自旋—赝自旋关联及激发谱。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.15954",
     "journal": "arXiv"
@@ -137,46 +146,37 @@
   {
     "title": "Zigzag ordering, defects, and anomalous relaxation in antiferromagnetic Kuramoto lattices",
     "title_zh": "反铁磁 Kuramoto 晶格的锯齿有序与弛豫",
-    "summary": "反铁磁 Kuramoto 链出现 t^-1/4 缺陷粗化和 stretched-exponential 持续概率。该模型把同步振子中的拓扑缺陷弛豫与反铁磁有序动力学联系起来。",
-    "abstract": "研究负近邻耦合 Kuramoto 振子晶格的非平衡有序动力学，负耦合诱导锯齿反铁磁型相位排列。一维中缺陷密度先按 D(t)∼t^-1/4 异常慢粗化，再在 t_c(N)∼N^z、z=2 的系统尺寸相关时间饱和；局域持续概率呈 P(t)∼exp(-c t^α)，α=1/4，指数与耦合强度无关。",
+    "summary": "反铁磁 Kuramoto 链显示 t^-1/4 缺陷粗化和 α=1/4 的拉伸指数持续概率。该模型给出非平衡锯齿有序中异常弛豫的清晰标度。",
+    "abstract": "研究负最近邻耦合 Kuramoto 振子晶格的非平衡有序动力学，该耦合诱导锯齿状反铁磁相位排列。一维中缺陷密度先按 D(t)∼t^-1/4 异常慢粗化，随后在 t_c(N)∼N^z、z=2 的尺寸相关时间饱和；局域持续概率满足 exp(-c t^α)，α=1/4，指数对耦合强度不敏感。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.15911",
     "journal": "arXiv"
   },
   {
     "title": "Families of planar lattices with arbitrarily high Tₘ̊ c for the ferromagnetic Ising model",
-    "title_zh": "铁磁 Ising 模型高临界温度平面晶格族",
-    "summary": "通过迭代三角剖分构造平面周期晶格，可使铁磁 Ising 临界温度任意升高。该结果澄清了平面几何、最大配位数与 Tc 标度的关系。",
-    "abstract": "构造具有任意高临界温度 Tc 的周期平面镶嵌晶格族，用于经典近邻铁磁 Ising 模型。方法受精确界启发：高 Tc 需要大的最大配位数 qmax；通过迭代三角剖分生成晶格并推导 Tc 显式表达式，证明这些族的 Tc/J 渐近随 qmax 对数增长。",
+    "title_zh": "具有任意高 Ising 临界温度的平面晶格族",
+    "summary": "通过迭代三角剖分，可构造 Tc 任意高的平面铁磁 Ising 晶格族。结果把临界温度提升与最大配位数增长建立了显式联系。",
+    "abstract": "构造一系列周期平面镶嵌，使最近邻铁磁 Ising 模型的临界温度 Tc 可任意高。受精确界启发，高 Tc 需要大的最大配位数 qmax；作者通过迭代三角剖分生成此类晶格并推导 Tc 显式表达式，证明这些族中 Tc/J 渐近按与 ln qmax 相关的形式增长。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2605.10017",
     "journal": "arXiv"
   },
   {
+    "title": "Relaxor Ferroelectricity Enables Enhanced Thermoelectric Performance in In2Se3‐Alloyed GeTe",
+    "title_zh": "弛豫铁电提升 In2Se3 合金化 GeTe 热电性能",
+    "summary": "In2Se3 合金化 GeTe 将弛豫铁电响应与热电输运耦合，用于提高性能。由于摘要缺失，关键热电指标和微观机制需参考正文。",
+    "abstract": "题名显示 In2Se3 合金化 GeTe 中的弛豫铁电性被用于增强热电性能，可能涉及极性涨落对载流子或声子输运的调控。期刊条目仅给出 EarlyView 信息，未提供热电优值、载流子浓度、热导率或相结构等具体数据。",
+    "category": "铁电·极化",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76578?af=R",
+    "journal": "Wiley: Advanced Science: Table of Contents"
+  },
+  {
     "title": "Relaxor-like ferroelectric response and achiral–chiral switching in an amorphous molecular solid",
     "title_zh": "非晶分子固体的弛豫铁电与手性切换",
-    "summary": "非晶水杨叉苯胺衍生物把紫外诱导手性切换与弛豫铁电响应耦合。无序偶极网络成为调控分子铁电和手性光学的主动自由度。",
-    "abstract": "在水杨叉苯胺衍生物非晶分子固体中，利用紫外触发的非手性到手性转变研究弛豫铁电响应。结构无序重塑偶极网络，使手性光学信号与极化动力学耦合；材料可在非手性—手性状态间切换，同时表现类似弛豫铁电的极化行为。",
+    "summary": "水杨叉苯胺非晶分子固体中，UV 可驱动非手性—手性切换并调制弛豫铁电响应。它把结构无序、手性光学和极化动力学耦合到同一软物质平台。",
+    "abstract": "在一种水杨叉苯胺衍生物非晶分子固体中，UV 触发非手性到手性转变。结构无序重塑耦合的手性光学与极化动力学，产生弛豫体样铁电响应，并实现非手性—手性可切换行为；该体系把无序偶极网络与对称性调制联系起来。",
     "category": "铁电·极化",
     "link": "https://www.nature.com/articles/s41467-026-75838-4",
     "journal": "Nature Communications"
-  },
-  {
-    "title": "Realtime forecasting of solar energetic particle event and proton flux using multi-source solar observations and multi-task deep learning",
-    "title_zh": "多源太阳观测和多任务深度学习预报质子事件",
-    "summary": "SEPNET-PRISM 用多源太阳观测和多任务深度学习同时预测 SEP 事件与质子通量。它把空间天气预报从单一分类扩展到风险强度的实时估计。",
-    "abstract": "提出 24 小时提前量的实时太阳高能粒子事件与质子通量预报框架 SEPNET-PRISM。SEP 事件定义为 >10 MeV 通道质子通量超过 10 pfu；模型采用多任务学习结构，整合多源太阳观测特征，面向事件发生判别和质子通量预测，以应对 SEP 稀有且成因复杂的业务预报难题。",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2606.14440",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Electromagnetic Modeling of a Phase-Shifting Transformer Based on DC Hysteresis Measurements",
-    "title_zh": "基于直流磁滞测量的移相变压器电磁建模",
-    "summary": "600 MVA 移相变压器可由有限设计数据和直流磁滞曲线重建暂态电磁模型。该流程提升了在役电网设备的非线性铁心建模可用性。",
-    "abstract": "针对 600 MVA 移相变压器详细设计数据受限的问题，结合少量制造商参数与直流磁滞测量建立电磁模型。分别构建饱和型和磁滞型参数化方法，用于暂态研究中更准确表示铁心非线性和有功潮流控制设备的动态行为，适合已投运大型变压器建模。",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.researchsquare.com/article/rs-10206171/latest",
-    "journal": "Preprints"
   }
 ]
