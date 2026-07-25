@@ -1,92 +1,182 @@
 [
   {
     "title": "Machine Learning for Charge State Characterization of Isolated Double Quantum Dots",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "孤立双量子点电荷态机器学习识别",
+    "summary": "把孤立双量子点的 CSM 识别做成专用机器学习任务，适配近竖直电荷线。该思路直接服务可扩展自旋量子点阵列的自动调谐。",
+    "abstract": "面向孤立模式双量子点的电荷稳定图分析，作者针对近乎竖直的电荷跃迁线设计紧凑、任务特定的机器学习模型，用于自动化电荷态表征与调谐，目标是减少依赖人工判读的 tune-up 流程。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.20871",
     "journal": "arXiv"
   },
   {
     "title": "Writhe-Based Polymer Link Classification Using Machine Learning",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "基于卷曲度的聚合物链接分类机器学习",
+    "summary": "用 writhe density matrix 做拓扑指纹，前馈网络可把前六类素链接分到 97% 准确率。对聚合物熔体、DNA 和蛋白拓扑识别都很直接。",
+    "abstract": "针对链结/打结拓扑分类这一开放问题，作者把热平衡聚合物构型的 writhe density matrix 输入前馈神经网络，成功区分前六类素链结，分类准确率达到 97%，并延续了此前的写曲率数据驱动框架。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.20657",
     "journal": "arXiv"
   },
   {
     "title": "Quantum convolutional HLA immunogenic peptide prediction (Q-CHIPP): Next-generation neoantigen prediction with quantum neural network",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "Q-CHIPP：量子卷积HLA免疫肽预测",
+    "summary": "Q-CHIPP 把量子卷积网络引入 HLA 免疫原性肽预测。现有条目只显示其面向新抗原识别，细节与数值尚未展开。",
+    "abstract": "该条目指向用量子卷积/量子神经网络 Q-CHIPP 预测 HLA 免疫原性肽与新抗原；当前仅给出目录信息，未公开摘要中的数据集规模、性能数值或具体消融结果。",
     "category": "AI×物理",
     "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec3824?af=R",
     "journal": "AAAS: Science Advances: Table of Contents"
   },
   {
+    "title": "A high-dimensional neural network potential for finite-temperature phenomena in NiTi martensite",
+    "title_zh": "NiTi马氏体有限温度现象的高维神经网络势",
+    "summary": "NiTi 马氏体的 HDNNP 同时覆盖结构、弹性、层错和声子谱。它把 DFT 精度带到有限温度相变模拟里，适合研究形状记忆合金。",
+    "abstract": "作者为 NiTi 马氏体相构建了基于 DFT 的高维神经网络势，并系统验证其对平衡晶体结构、弹性常数、广义层错能和振动谱的描述能力；模型还能正确给出 B19' 与 B33 相的相对稳定性，用于有限温度相变研究。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.20681",
+    "journal": "arXiv"
+  },
+  {
     "title": "Graph Neural Network Force Fields (GPTFF-mol) for Organic Molecules from Optimization Trajectories (OpenGEM26)",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "基于优化轨迹的有机分子GNN力场（OpenGEM26）",
+    "summary": "OpenGEM26 把 20 万分子、440 万构型整理成统一量化数据集。配套的 GPTFF-mol 为有机分子机器学习力场提供了大规模训练底座。",
+    "abstract": "作者发布 OpenGEM26 数据集，包含 20 万个唯一分子和 440 万个构型，元素覆盖 H/C/N/O/S/Cl、重原子数不超过 10，并在 ωB97X-D/Def2-SVP 与 Def2-TZVP 水平完成标注；同时提出面向有机分子的 GPTFF-mol 图神经网络力场。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.21369",
     "journal": "arXiv"
   },
   {
     "title": "Machine learning based prediction of optical properties in two-dimensional Mo-W-S-Se-Te transition-metal dichalcogenide alloys through physics-informed sampling",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "基于物理引导采样的二维Mo-W-S-Se-Te TMD光学性质预测",
+    "summary": "面向多组元二维 TMD，作者用物理引导采样补足第一性原理数据。模型直接预测复介电函数，适合做成分可调光学筛选。",
+    "abstract": "工作把第一性原理光学计算与表格型基础模型回归结合，用于预测 Mo-W-S-Se-Te 二维 TMD 合金的复介电函数实部和虚部；通过物理引导采样缓解多组元组合空间的计算爆炸，提升了对光学响应的覆盖范围。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.21246",
     "journal": "arXiv"
   },
   {
+    "title": "A Graph Neural Network approach to zero-shot Digital Twins",
+    "title_zh": "零样本数字孪生的图神经网络方法",
+    "summary": "这套零样本数字孪生把图神经网络与热力学约束直接拼接。最大特点是几何变化后也能工作，适合在线物理系统监控。",
+    "abstract": "作者提出几何无关、物理信息驱动的零样本数字孪生框架，把实时视觉感知与基于 metriplectic 热力学的图神经网络求解器耦合起来；目标是在物理域或边界条件改变时仍无需重训即可推断系统状态。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.20535",
+    "journal": "arXiv"
+  },
+  {
     "title": "A Parameterized Data-Driven Neural Network with Physics-Based Regularization for Thermal Field Prediction in Metal Additive Manufacturing",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "金属增材制造热场预测的参数化数据驱动神经网络",
+    "summary": "把增材制造热场预测做成带物理约束的参数化网络。对 SS316L 的瞬态温度场建模更适合大规模工艺扫描。",
+    "abstract": "作者针对激光粉床熔融中的瞬态局域热行为，构建带物理正则项的参数化神经网络，预测 SS316L 在不同工艺参数下的时空温度场，以替代代价高昂的大规模数值模拟。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10362204/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Data-Driven Mission Recommendation for LEO Satellites using Random Forest and Hybrid Deep Learning Forecasting",
+    "title_zh": "面向LEO卫星的任务推荐：随机森林与混合深度预测",
+    "summary": "这套推荐框架把卫星任务调度从经验判断转为数据驱动决策。随机森林加混合深度预测，核心是围绕电池行为做任务可行性评估。",
+    "abstract": "工作面向 LAPAN-IPB 这类 500 km 轨道 LEO 极轨卫星，利用随机森林与混合深度学习预测构建任务推荐框架，替代依赖操作员经验的电池行为判断，把任务可行性评估变成可记录、可迁移、可验证的流程。",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-10222764/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "HypNO: A Graph-Based Neural Operator with Physics-Informed Message Passing for Hyperbolic Conservation Laws",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "用于双曲守恒律的物理信息图神经算子HypNO",
+    "summary": "HypNO 把双曲守恒律搬到时空图上做神经算子学习。它显式照顾上风和熵条件，对激波问题比普通算子更自然。",
+    "abstract": "HypNO 直接在有限体积单元构成的时空图上工作，通过邻接分解的物理信息消息传递刻画上风格式与熵可容许性，重点测试 LWR 与 ARZ 交通流模型；在激波形成与全局输运并存的场景下，能较准确预测解快照。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.20541",
     "journal": "arXiv"
   },
   {
     "title": "Structure-Preserving Physics-Informed Neural Network for the Korteweg--de Vries (KdV) Equation",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "KdV方程的结构保持物理信息神经网络",
+    "summary": "这版 PINN 不只拟合 KdV 解，还把守恒量塞进损失函数。对于长时间非线性色散演化，结构保持比单纯误差更关键。",
+    "abstract": "作者为非线性 KdV 方程设计结构保持 PINN，把质量守恒与 Hamiltonian 能量守恒直接写入损失函数，缓解传统 PINN 在长时间积分中丢失不变量的问题，并提升对色散波传播的物理一致性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2511.00418",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Neural Networks for solving 2D Shallow Water Equations: Accuracy Assessment Through Dambreak Benchmark Problems",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "二维浅水方程的物理信息神经网络：溃坝基准评估",
+    "summary": "二维浅水方程的 PINN 在多种溃坝基准上做了系统测试。重点不是单点拟合，而是看能否稳住水跃、湿干界面和跨临界流。",
+    "abstract": "作者用统一 PINN 框架求解二维浅水方程，通过自动微分把连续性方程和动量方程直接嵌入损失，并在四个溃坝基准上评估，包括 1D 湿/干床、三角堰台跨临界流与水跃，以及二维部分溃坝等复杂流动。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10097604/latest",
     "journal": "Preprints"
   },
   {
-    "title": "PILD: Physics-Informed Learning via Diffusion",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2601.21284",
+    "title": "Circular phonon dichroism in d-wave altermagnets",
+    "title_zh": "d波交变磁体中的圆偏振声子二色性",
+    "summary": "圆偏振声子二色性被用来直接读出 d 波 altermagnet 的 Néel 矢量。信号随磁序翻转变号，给反铁磁读出提供了新通道。",
+    "abstract": "作者提出在二维 d 波 altermagnet 中利用有限动量圆偏振声子二色性直接读出 Néel 矢量；结合 Onsager 互易关系与 C2z 晶格对称性，发现当 Néel 矢量翻转时二色信号符号反转，可作为磁序探针。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.21221",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Doping-induced Ferromagnetic order and its unusual evolution to Helical Antiferromagnetic Order in Sr(Ni₁₋ₓCoₓ₎₂P₂",
+    "title_zh": "Sr(Ni₁₋ₓCoₓ)₂P₂中掺杂诱导铁磁序到螺旋反铁磁序",
+    "summary": "Sr(Ni₁₋ₓCoₓ)₂P₂ 展示了从铁磁到螺旋反铁磁的异常磁序演化。它把部分塌缩结构与磁相图的耦合关系拉得很清楚。",
+    "abstract": "作者研究了 Sr(Ni₁₋ₓCoₓ)₂P₂ 中 Co 掺杂引发的磁序演化。该体系源于特殊的部分塌缩结构，结果显示在 Co 富集侧出现磁性丰富的相图，铁磁序会异常演化为螺旋反铁磁序，揭示了结构键合与磁性的耦合。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.20663",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Emergent ferromagnetism in the NiI₂₋NbSe₂ van der Waals heterostructure",
+    "title_zh": "NiI₂-NbSe₂范德华异质结构中的涌现铁磁性",
+    "summary": "把单层 NiI₂ 放到 NbSe₂ 上，磁基态就被近邻效应重塑。这个结果说明二维多铁性可以通过异质结工程来调磁。",
+    "abstract": "作者在单层 NiI₂ 与超导 NbSe₂ 的范德华异质结构中观测到磁基态改变；低温扫描隧道测量表明，邻近效应可调制这一原型二维多铁材料的磁性，从而使原本的非共线自旋纹理转向铁磁化。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.21218",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Exceptional Points in a Parallel Double-Quantum-Dot Josephson Junction Coupled to a Ferromagnetic Reservoir",
+    "title_zh": "耦合铁磁库的并联双量子点约瑟夫森结异常点",
+    "summary": "双量子点约瑟夫森结里的异常点被做成了可调非厄米谱问题。有限能隙会抹掉部分异常点，而自旋依赖耗散又能把它们拉回来。",
+    "abstract": "作者研究并联双量子点约瑟夫森结与耗散库耦合时的异常点，得到非厄米 Bogoliubov–de Gennes 描述，指出超导相差与磁通共同控制复数 Andreev 谱；在有限超导能隙下，均匀自旋无关耗散下的二阶异常点会消失，而自旋依赖耗散可重新生成异常点结构。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.20856",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ferromagnetic transition in a chiral spin chain",
+    "title_zh": "手性自旋链中的铁磁转变",
+    "summary": "手性自旋链的临界点被识别为 z=3 的特殊 Lifshitz 转变。手性相不是普通临界态，而是部分极化的铁磁相。",
+    "abstract": "作者研究带三体手性项的自旋 1/2 Heisenberg 链，已知临界点 g_c=2/π；文中结合解析与数值方法证明该临界点属于特殊的 Lifshitz 转变，动力学临界指数 z=3，而手性相对应部分自旋极化的铁磁态。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.20629",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetic ground states of CrPS₄ and NiPS₃ monolayers from long-range exchange interactions",
+    "title_zh": "长程交换作用下CrPS₄与NiPS₃单层的磁基态",
+    "summary": "CrPS₄ 和 NiPS₃ 单层的磁基态对长程交换极其敏感。直接从 DFT 提取交换张量，比只截断近邻更可靠。",
+    "abstract": "作者对 CrPS₄ 和 NiPS₃ 单层结合第一性原理、二级原理自旋模型和蒙特卡洛模拟，利用 LKAG 形式直接从 DFT 提取交换张量并纳入足够远的长程相互作用；结果表明，若只截断少数近邻，会漏掉并显著改变真实磁基态。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.20631",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Photo-induced currents and short-term memory for reservoir computing in a ferroelectric semiconductor",
+    "title_zh": "铁电半导体中光生电流与短期记忆储备计算",
+    "summary": "ErMnO₃ 把光生电流和短期记忆结合起来，适合作为储备计算材料。亮点是直接用光脉冲输入做时间序列识别。",
+    "abstract": "作者以小带隙 p 型铁电半导体 ErMnO₃ 为模型，探索用光诱导电流识别时间变化的光脉冲；结果表明其在白光照射下具有可利用的非线性响应和短期记忆特征，可作为物理储备计算介质。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.20810",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Pseudo-chiral phonon splitting from octupolar magnetic order",
+    "title_zh": "八极磁序引发的伪手性声子分裂",
+    "summary": "八极磁序也能像手性磁体那样劈裂声子。它把多极矩有序与 Raman 声子读出直接连了起来。",
+    "abstract": "作者研究非 Kramers Γ₃ 双重态与 E_g Raman 声子之间的线性耦合，指出四极/八极有序都会打破声子简并；在含四极与 Ising 八极自由度的体系中，八极磁序可导致伪手性声子分裂，并解释相关磁-声子耦合响应。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2506.18978",
     "journal": "arXiv"
   }
 ]
