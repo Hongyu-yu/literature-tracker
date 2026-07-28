@@ -1,27 +1,27 @@
 [
   {
     "title": "Charge-Density-Wave Phase Transitions in Monolayer 1T-TaS2 from Universal Machine Learning Molecular Dynamics",
-    "title_zh": "单层 1T-TaS2 中 CDW 相变",
-    "summary": "通用机器学习势把单层 1T-TaS2 的大超胞有限温度 CDW 动力学推进到可采样尺度。该流程把 DFT 精度、MD 统计和温度依赖声子统一起来，适合研究低维相变材料。",
-    "abstract": "针对单层 1T-TaS2 的电荷密度波相变，结合 DFT、通用机器学习原子间势、分子动力学和温度依赖有效势声子计算，处理常规第一性原理 MD 难以覆盖的大超胞与有限温度采样。结果解析强电声耦合导致的晶格不稳定及随温度演化的 CDW 结构相变。",
+    "title_zh": "单层 1T-TaS2 电荷密度波相变",
+    "summary": "通用 MLIP 将单层 1T-TaS2 的有限温 CDW 相变带入可采样分子动力学尺度。结果把 DFT 精度与大超胞声子统计结合，适合研究低维相变动力学。",
+    "abstract": "针对单层 1T-TaS2 中由强电子-声子耦合和晶格不稳定性驱动的 CDW，相结合 DFT、通用机器学习原子间势、分子动力学和温度依赖有效势声子计算，处理大超胞与有限温采样难题，解析不同温度下的结构演化和 CDW 相变。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.22316",
     "journal": "arXiv"
   },
   {
     "title": "Parameter inference and uncertainty quantification with diffusion models: extending CDI to 2D spatial conditioning",
-    "title_zh": "扩散模型二维空间条件反演",
-    "summary": "CDI 首次面向二维空间观测执行扩散式参数后验采样，可量化电子显微等反问题中的不可辨识性。它把 AI 反演从点估计推向带不确定性的科学成像推断。",
-    "abstract": "将条件扩散模型反问题求解器 CDI 从一维时间信号扩展到二维空间条件，可直接由空间观测给出参数后验分布和不确定性。方法在会聚束电子衍射等二维数据上验证，用概率推断区分可辨识参数与由测量限制导致的模糊参数。",
+    "title_zh": "扩散模型的二维空间反演不确定性",
+    "summary": "CDI 被推广到二维空间观测，能输出科学反问题的概率参数推断。对电子显微衍射类数据，它把点估计升级为可量化不确定性的反演。",
+    "abstract": "将条件扩散模型反问题求解器 CDI 从一维时间信号扩展到二维空间条件，可直接由空间观测给出参数后验分布和不确定性。方法在会聚束电子衍射等二维数据上验证，用于区分可辨识参数与由测量信息不足导致的模糊参数。",
     "category": "其他",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7f7b",
     "journal": "Machine Learning: Science and Technology"
   },
   {
     "title": "Machine Learning Inference Limits of Routine Cement Characterization for CEM I Performance: Evidence From a Multi-Producer Dataset",
-    "title_zh": "水泥常规表征的机器学习极限",
-    "summary": "多生产商 476 条 CEM I 数据显示，常规水泥表征并不必然支持稳健性能迁移预测。该结果提醒材料信息学需显式评估数据可辨识性和跨域泛化边界。",
-    "abstract": "分析 23 家欧洲生产商 27 年间在同一实验室采集的 476 条 CEM I 水泥记录，输入包括氧化物化学、Blaine 细度、粒径分布、物理性质及 Bogue/等效铝酸盐等派生量。机器学习用于评估常规质量控制数据对性能推断和跨生产商迁移的上限，揭示其信息含量受限。",
+    "title_zh": "常规水泥表征的机器学习推断极限",
+    "summary": "多生产商 CEM I 数据显示，常规表征并不必然支持可迁移性能预测。该数据集为材料机器学习中的信息瓶颈和域外泛化提供了负例基准。",
+    "abstract": "分析 23 家欧洲生产商、同一实验室 27 年积累的 476 条 CEM I 水泥记录，输入氧化物组成、Blaine 细度、粒径分布、物理性质及 Bogue/等效铝酸盐等派生量，评估常规质量控制数据对性能推断和跨生产商迁移的上限。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.22512",
     "journal": "arXiv"
@@ -29,17 +29,17 @@
   {
     "title": "A systematic study of physics-informed neural networks for the level-set interface advection",
     "title_zh": "水平集界面输运的 PINN 系统研究",
-    "summary": "69 组水平集 PINN 实验表明，调度器、eikonal 约束和采样策略的最优组合随界面问题改变。该结论给流体界面 AI 求解器建立了更可复现的调参边界。",
-    "abstract": "围绕水平集界面平流，对平移、刚体旋转、反向涡旋变形和 Zalesak 开槽圆盘 4 个基准开展 69 组 PINN 消融。平移中 StepLR 配合 eikonal 权重最优；旋转中余弦退火优于 StepLR，说明学习率调度与损失权重强依赖具体基准，不能直接迁移。",
+    "summary": "69 组实验揭示 PINN 在界面输运中的超参数强依赖性。StepLR 与余弦退火的优劣随基准变化，提示物理约束网络需要问题级调参。",
+    "abstract": "围绕水平集界面平流，在平移、固体旋转、反向涡旋变形和 Zalesak 旋转开槽圆盘四个基准上完成 69 组 PINN 消融。平移问题中 StepLR 加 eikonal 权重最优，旋转问题中余弦退火更优，说明学习率调度等超参数不可跨基准直接迁移。",
     "category": "AI×物理",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae8b74",
     "journal": "Machine Learning: Science and Technology"
   },
   {
     "title": "Graph-Theoretic Neural Network Fragmentation with Covariant Direct Molecular Force Learning: Enabling Coupled-Cluster Accuracy AIMD for Fluxional Systems",
-    "title_zh": "图论碎片化耦合簇力场学习",
-    "summary": "图论碎片化把耦合簇级核力直接交给机器学习模型预测，避免能量微分中的链接原子问题。它为通量分子体系的高精度 AIMD 提供了可扩展路径。",
-    "abstract": "提出图论分子碎片化框架，与机器学习结合直接学习后 Hartree-Fock 核力，目标达到耦合簇精度的 AIMD。方法绕开从学习能量面自动微分求力时链接原子 Jacobian 可能带来的困难，面向复杂、通量性化学体系降低相关电子结构分子动力学成本。",
+    "title_zh": "图论碎片化直接学习分子力",
+    "summary": "图论碎片化与直接力学习把耦合簇级 AIMD 推向通量分子体系。绕开能量微分中的 link-atom 难题，是高精度化学动力学代理模型的实用路线。",
+    "abstract": "提出图论分子碎片化框架并结合机器学习，直接拟合后 Hartree-Fock 核力以达到耦合簇精度，用于复杂易变形体系 AIMD。方法绕开从学习能量面自动微分求力时 link-atom 雅可比处理的困难，降低相关电子结构动力学的计算瓶颈。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.21779",
     "journal": "arXiv"
@@ -47,8 +47,8 @@
   {
     "title": "Intrinsic single crystals of MnTe altermagnet",
     "title_zh": "MnTe 交替磁体本征单晶",
-    "summary": "高质量 MnTe 单晶排除了缺陷和应力对交替磁性的主要干扰，显露转变附近各向异性畴动力学。该样品平台有助于校准交替磁输运与畴操控实验。",
-    "abstract": "采用自助熔剂法合成超高质量 MnTe 单晶，并通过多种表征确认晶体缺陷和化学非化学计量接近消除。在准自由支撑测量条件下降低应力影响，晶体在交替磁转变附近的过热与过冷区表现出复杂且各向异性的畴动力学，给出 MnTe 的本征结构和物性基准。",
+    "summary": "高质量 MnTe 单晶澄清了应力和缺陷对交替磁转变的干扰。各向异性畴动力学为交替磁体的本征输运和畴控制实验提供样品基础。",
+    "abstract": "采用自助熔剂法制备超高质量 MnTe 单晶，结构与成分表征显示晶体缺陷和化学偏离极少。在近自由支撑、降低应力影响的测量条件下，围绕交替磁转变观察到过热和过冷区的复杂各向异性畴动力学，给出 MnTe 本征性质基准。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21803",
     "journal": "arXiv"
@@ -56,8 +56,8 @@
   {
     "title": "Molecular Quantum Control Algorithm Design by Reinforcement Learning",
     "title_zh": "强化学习设计分子量子控制算法",
-    "summary": "强化学习被用于搜索复杂多原子分子的量子控制策略，突破手工设计序列在高维 rovibrational 空间中的限制。该方向连接量子传感、分子物理和 AI 控制。",
-    "abstract": "面向精密分子测量中复杂多原子分子的转动-振动结构，使用强化学习设计量子控制序列。目标是在比双原子和简单多原子分子更复杂的能级网络中实现鲁棒高效操控，服务于基本对称性破缺、局域位置不变性和暗物质等超标准模型物理探测。",
+    "summary": "强化学习被用于自动设计复杂多原子分子的量子控制序列。它针对丰富转振能级的可控性瓶颈，服务分子精密测量与量子传感。",
+    "abstract": "面向利用分子精密测量检验标准模型之外物理、基本对称性破缺、局域位置不变性和暗物质的需求，引入强化学习设计分子量子控制算法。目标是处理一般多原子分子复杂转动-振动结构，扩展目前双原子和简单多原子分子的俘获与控制能力。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2410.11839",
     "journal": "arXiv"
@@ -65,8 +65,8 @@
   {
     "title": "Universal Quantum Transformer",
     "title_zh": "通用量子变换器",
-    "summary": "通用量子变换器把形式规则学习映射到量子原生架构，目标是精确处理模算术和群代数。若可实现，它将改变科学计算中符号规则与神经网络的结合方式。",
-    "abstract": "提出量子原生的通用量子变换器架构，针对经典连续空间神经网络难以精确锁定模运算、非阿贝尔群代数和组合泛化等离散规则的问题。模型利用量子计算结构编码形式规则，试图减少依赖大参数规模和 grokking 式延迟泛化带来的随机不稳定。",
+    "summary": "UQT 将形式规则学习转向量子原生架构，而非继续扩大经典网络。它瞄准模算术和非阿贝尔群代数等精确离散推理问题。",
+    "abstract": "提出通用量子变换器 UQT，针对经典连续空间神经网络难以精确锁定模运算、非阿贝尔群代数和系统组合泛化等离散规则的问题，构建量子原生计算架构，试图以量子态和量子操作替代单纯参数规模扩张，降低 grokking 后仍存在的随机不稳定性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.00045",
     "journal": "arXiv"
@@ -74,17 +74,17 @@
   {
     "title": "Quantum neural networks get their first hardware test",
     "title_zh": "量子神经网络首次硬件测试",
-    "summary": "量子神经网络开始进入硬件验证阶段，但噪声、线路实现和可训练性仍是核心障碍。该进展将量子机器学习从概念模型推向实验可检验问题。",
-    "abstract": "报道量子神经网络在实际量子硬件上的早期测试。文章指出，经典神经网络已在图像识别和蛋白结构预测等任务中成功，而量子计算机可能利用量子效应形成不同于经典机器的网络；但在噪声量子硬件上运行神经网络仍比预期更困难。",
+    "summary": "量子神经网络开始从理论电路走向硬件验证。该方向的关键不在规模优势，而在噪声量子设备上能否稳定实现可训练学习模块。",
+    "abstract": "报道量子神经网络在真实量子硬件上的早期测试。经典神经网络已在图像识别和蛋白结构预测等任务中成熟，但将神经网络映射到量子处理器仍困难；相关实验检验量子效应能否支持不同于经典计算的学习机制。",
     "category": "AI×物理",
     "link": "https://phys.org/news/2026-07-quantum-neural-networks-hardware.html",
     "journal": "Physics News"
   },
   {
     "title": "Neptuna: A Comprehensive Machine Learning Framework for Benchmarking Complex Multiphase Flows",
-    "title_zh": "多相流机器学习基准 Neptuna",
-    "summary": "Neptuna 填补了激波驱动可压缩多相流的机器学习基准空缺。它把代理模型测试推向尖锐界面、间断和多尺度混合并存的高难度物理场景。",
-    "abstract": "发布 Neptuna，大规模机器学习基准面向含激波、材料界面、气泡塌缩和液滴破碎等可压缩多相流。数据覆盖强非线性相互作用、尖锐间断、界面变形、混合和多尺度动力学，用于评估代理模型在同时处理可压缩性与多相效应时的可靠性。",
+    "title_zh": "复杂多相流机器学习基准框架",
+    "summary": "该基准把可压缩性、激波和多相界面同时纳入机器学习流体测试。它补齐了复杂多相流代理模型缺少统一大规模评测的短板。",
+    "abstract": "发布面向冲击驱动可压缩多相流的大规模机器学习基准，覆盖气泡塌缩、液滴破碎等含激波、材料界面、强非线性相互作用、界面变形、混合和多尺度动力学的场景。框架用于评测代理模型在尖锐间断和多相效应并存条件下的可靠性。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.22280",
     "journal": "arXiv"
@@ -92,8 +92,8 @@
   {
     "title": "PIML-OFEM: A New Large-Scale Structural Analysis Method Based on Problem-Independent Machine Learning and Overlapping Finite Element Technique",
     "title_zh": "PIML-OFEM 大尺度结构分析",
-    "summary": "PIML-OFEM 用问题无关模型加速重叠有限元子结构求解，减少材料分布变化时的重复建模。它适合面向大型异质结构的快速在线分析与设计。",
-    "abstract": "提出 PIML-OFEM，将问题无关机器学习与重叠有限元结合，用于大尺度非均匀结构的高分辨率分析。每个子结构保留少量自由度，避免传统多尺度方法针对不同材料分布反复构造局域基函数，也缓解子结构 PIML 中预设边界位移插值带来的限制。",
+    "summary": "PIML-OFEM 用重叠有限元改造问题无关结构代理模型。它面向非均质大结构的高分辨率在线计算，减少重复局部基构造。",
+    "abstract": "提出结合问题无关机器学习与重叠有限元的 PIML-OFEM，用于大尺度非均质结构高分辨率分析与设计。各子结构只保留少量机器学习辅助自由度，避免传统多尺度方法随材料分布反复构造局部基函数，也缓解固定边界位移插值的限制。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.22019",
     "journal": "arXiv"
@@ -101,62 +101,62 @@
   {
     "title": "Proximity-induced Rashba spin-orbit interaction in BaMnO₃|KTaO₃ heterostructure for antiferromagnetic spintronics",
     "title_zh": "",
-    "summary": "BaMnO3|KTaO3 异质界面把 KTaO3 的 Rashba 效应转移到反铁磁 BaMnO3 能带。该设计面向超快反铁磁自旋电子学中的自旋-轨道操控瓶颈。",
-    "abstract": "通过 DFT 设计 BaMnO3|KTaO3 异质结构，将 KTaO3 的强 Rashba 自旋轨道相互作用邻近诱导到本征强反铁磁 BaMnO3。计算显示费米能级附近出现具有显著 Rashba 特征的 BaMnO3 能带，目标是在同一平台中兼具稳健反铁磁性和可用 Rashba 相互作用。",
+    "summary": "BaMnO3|KTaO3 通过界面近邻效应把 Rashba 相互作用引入反铁磁层。该设计直接针对反铁磁自旋电子学中自旋轨道耦合不足的问题。",
+    "abstract": "设计 BaMnO3|KTaO3 异质结构，将 KTaO3 的强 Rashba 自旋轨道相互作用近邻诱导到稳健反铁磁 BaMnO3。DFT 显示费米能级附近存在具有显著 Rashba 型特征的 BaMnO3 能带，面向同时具备反铁磁性和可用 Rashba 效应的自旋电子学材料。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2506.01861",
     "journal": "arXiv"
   },
   {
     "title": "Non-linear in-plane spin current in spin-orbit coupled 2D hole gases",
-    "title_zh": "自旋轨道二维空穴气非线性自旋流",
-    "summary": "二维空穴气中线性面内自旋流被对称性禁戒，但二阶自旋流由自旋 Berry 曲率极化率驱动。该机制扩展了非线性自旋电子学的几何响应框架。",
-    "abstract": "建立时间反演对称二维体系的面内自旋流非线性输运理论，证明线性面内自旋流消失，而二阶面内自旋流可存在。内禀二阶自旋流来源于自旋 Berry 曲率极化率；用于 k³ Rashba 自旋轨道耦合二维空穴气时，预言可观测的非线性自旋响应。",
+    "title_zh": "自旋轨道二维空穴气非线性面内自旋流",
+    "summary": "二维空穴气中线性面内自旋流为零，二阶自旋流由自旋 Berry 曲率极化率驱动。该结果把带几何效应引入非线性自旋电子学。",
+    "abstract": "建立时间反演对称二维体系的非线性自旋输运描述，指出线性面内自旋流消失，但二阶面内自旋流可存在；其本征来源为自旋 Berry 曲率极化率。应用于具有 k³ Rashba 自旋轨道耦合的二维空穴气，揭示几何效应诱导的非线性自旋响应。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2506.14890",
     "journal": "arXiv"
   },
   {
     "title": "Interplay of Anisotropy, Dzyaloshinskii Moriya Interaction and Symmetry breaking Fields in a 2D XY Ferromagnet",
-    "title_zh": "二维 XY 铁磁中 DMI 与各向异性",
-    "summary": "二维 XY 铁磁模型中，各向异性交换、DMI 和对称性破缺场共同重塑 KT 转变。该模拟有助于理解低维手性磁体中的涡旋涨落与相变调控。",
-    "abstract": "对平方格二维经典铁磁 XY 模型开展蒙特卡洛研究，加入各向异性交换、Dzyaloshinskii-Moriya 相互作用和对称性破缺场。工作考察这些项对低温涡旋-反涡旋准长程序及 Kosterlitz-Thouless 转变的共同影响，覆盖有无外加对称性破缺场两类情形。",
+    "title_zh": "二维 XY 铁磁体中各向异性与 DMI",
+    "summary": "二维 XY 模型中，交换各向异性、DMI 和外加破缺场共同重塑 KT 转变。该模拟为含手性相互作用的二维磁体相图提供参考。",
+    "abstract": "对方格子二维经典 XY 铁磁模型进行蒙特卡洛研究，在各向异性交换、Dzyaloshinskii-Moriya 相互作用和有无对称性破缺场条件下考察 KT 转变。重点分析这些扩展项如何影响低温涡旋-反涡旋束缚主导的准长程序以及相变特征。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2604.04104",
     "journal": "arXiv"
   },
   {
     "title": "Switchable Altermagnetism via Spin-Induced Improper Polarization",
-    "title_zh": "自旋诱导非本征极化开关交替磁性",
-    "summary": "DyFeO3 中 Dy-Fe 相对自旋取向可诱导极化并切换交替磁劈裂，突破仅依赖本征极性材料的方案。该机制扩大了无杂散场可开关自旋电子材料范围。",
-    "abstract": "提出在非极性双子晶格磁体中利用自旋诱导非本征极化实现交替磁自旋劈裂可逆开关。以 DyFeO3 为例，非极性的 Fe 与 Dy 自旋模乘积按极性模变换；DFT 显示 Dy-Fe 相对自旋取向选择极化，而 Fe 子晶格控制交替磁自旋劈裂。",
+    "title_zh": "自旋诱导非本征极化切换交替磁性",
+    "summary": "DyFeO3 展示由 Dy-Fe 自旋排列选择极化、由 Fe 子晶格控制自旋劈裂的机制。它把可切换交替磁性从固有极性材料扩展到非极性磁体。",
+    "abstract": "提出在非极性双子晶格磁体中利用自旋诱导非本征极化切换交替磁性。以 DyFeO3 为例，非极性的 Fe 与 Dy 自旋模乘积变换为诱导极性模；DFT 表明 Dy-Fe 相对自旋取向选择极化方向，Fe 子晶格控制非相对论性交替磁自旋劈裂。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21930",
     "journal": "arXiv"
   },
   {
     "title": "Real and momentum space analysis of topological phases in 2D d-wave altermagnets",
-    "title_zh": "二维 d 波交替磁体拓扑相分析",
-    "summary": "二维 d 波交替磁体在临界子晶格内跃迁 tₐ^C 处发生拓扑相变并产生 Dirac 节点。该模型连接交替磁自旋劈裂与拓扑能带工程。",
-    "abstract": "用紧束缚 Hamiltonian 分析二维 d 波交替磁体的实空间与动量空间拓扑相。随着子晶格内跃迁强度达到临界值 tₐ^C，体系发生拓扑相变；文中讨论 Dirac 节点的出现及其与动量依赖自旋劈裂、无净磁化交替磁性的联系。",
+    "title_zh": "二维 d 波交替磁拓扑相的实空间与动量空间分析",
+    "summary": "二维 d 波交替磁模型在 t_a^C 附近发生拓扑相变并产生 Dirac 节点。工作连接了交替磁自旋劈裂与拓扑能带结构。",
+    "abstract": "采用紧束缚哈密顿量系统分析二维 d 波交替磁体的拓扑相，在实空间和动量空间表征临界子晶格内跃迁强度 t_a^C 处的拓扑相变。讨论 Dirac 节点的出现、能带拓扑与交替磁动量依赖自旋劈裂之间的关系。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2602.04854",
     "journal": "arXiv"
   },
   {
     "title": "Quasi-Two-Dimensional Quantum Antiferromagnetism in the Distorted Honeycomb Compound KCuIn(PO4)2",
-    "title_zh": "KCuIn(PO4)2 中准二维量子反铁磁性",
-    "summary": "KCuInP2O8 被确定为 Cu2+ 局域磁矩主导的畸变蜂窝准二维反铁磁绝缘体。DFT 与量子蒙特卡洛结合给出其交换网络和各向异性来源。",
-    "abstract": "结合实验、GGA+U 第一性原理和量子蒙特卡洛研究畸变蜂窝化合物 KCuInP2O8。计算确认其为间接带隙绝缘体，Cu2+ 形成局域磁矩；自旋轨道耦合带来有限磁晶各向异性，磁力定理给出微观交换相互作用，支撑准二维量子反铁磁图像。",
+    "title_zh": "畸变蜂窝 KCuIn(PO4)2 量子反铁磁性",
+    "summary": "KCuInP2O8 被刻画为 Cu2+ 局域矩主导的准二维畸变蜂窝反铁磁绝缘体。DFT 与量子蒙特卡洛结合约束了其交换网络和各向异性。",
+    "abstract": "结合实验、第一性原理和量子蒙特卡洛研究畸变蜂窝化合物 KCuInP2O8。GGA+U 显示其为间接带隙绝缘体，Cu2+ 承载局域磁矩，SOC 产生有限磁晶各向异性；磁力定理给出微观交换相互作用，用于建立准二维量子反铁磁图像。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21868",
     "journal": "arXiv"
   },
   {
     "title": "Symmetry-Adapted Physical and Vibrational Properties of Ferroelectric Perovskite Oxides: Application to PbZrxTi1-xO3",
-    "title_zh": "PZT 铁电钙钛矿对称适配性质",
-    "summary": "该工作把 PZT 的相结构、物性张量和 Raman 模式统一到点群对称性框架中。它适合快速判定铁电钙钛矿在不同相中的允许响应。",
-    "abstract": "基于张量分析和群论，从晶体点群直接确定物性张量、振动态对称性和 Raman 选择定则，并应用于铁电 PbZrxTi1-xO3。PZT 相图中的对称性降低会增加热释电、介电和压电张量的独立分量，同时改变振动模分类与 Raman 活性规则。",
+    "title_zh": "PZT 铁电钙钛矿的对称适配性质",
+    "summary": "该工作把点群对称性系统映射到 PZT 的张量物性和 Raman 规则。它为铁电钙钛矿相变区的谱学与机电响应判读提供形式化工具。",
+    "abstract": "基于张量分析和群论，从晶体点群直接推导允许的物性张量、振动模对称性和 Raman 选择定则，并应用于铁电 PbZrxTi1-xO3。PZT 相图中的对称性降低会增加热释电、介电和压电张量的独立分量，并改变振动模式分类。",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2607.21682",
     "journal": "arXiv"
@@ -164,17 +164,17 @@
   {
     "title": "Current-induced creation and dynamics of embedded magnetic skyrmion bags",
     "title_zh": "电流诱导嵌入式斯格明子袋",
-    "summary": "FeGe 中首次展示零场电流生成嵌入式斯格明子袋，并实时成像其演化。该结果把多拓扑荷磁结构推向全电操控的自旋计算元件。",
-    "abstract": "在零磁场 FeGe 纳米片中，用原位洛伦兹透射电镜观察到电流直接生成并操控嵌入式磁斯格明子袋。实验捕捉多斯格明子拓扑结构的形成和动力学演化，展示可调拓扑荷 Q 的涡旋状复合磁结构可由电信号而非外磁场创建。",
+    "summary": "FeGe 纳米片中实现零场电流生成嵌入式斯格明子袋。直接电写入多 Q 拓扑结构为斯格明子计算中的可编程磁纹理提供实验路径。",
+    "abstract": "在零磁场 FeGe 纳米片中，用原位 Lorentz 透射电镜观察到电流直接生成和操控嵌入式磁斯格明子袋。该类涡旋状结构可容纳多个斯格明子并具有可调拓扑荷 Q；实验捕捉其由电流驱动形成、转变和运动的过程。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21889",
     "journal": "arXiv"
   },
   {
     "title": "Enhanced Curie temperature and room-temperature 50-nm skyrmions achieved in hexagonal ferromagnet Mn5Ge3+x synthesized via a high-pressure method",
-    "title_zh": "高压 Mn5Ge3+x 室温 50 nm 斯格明子",
-    "summary": "高压 Mn5Ge3+x 同时实现 350 K Curie 温度和室温约 50 nm 斯格明子。晶格收缩与 Ge 富集协同增强铁磁性，是接近器件条件的拓扑磁材料。",
-    "abstract": "用高压合成制备六方铁磁 Mn5Ge3+x，使 Curie 温度从 294 K 提高到 350 K；DFT 支持晶格收缩和 Ge 含量升高共同增强铁磁性。实空间磁成像显示室温约 50 nm 斯格明子，满足高温、小尺寸拓扑自旋结构材料需求。",
+    "title_zh": "高压 Mn5Ge3+x 的高居里温度和室温斯格明子",
+    "summary": "高压 Mn5Ge3+x 同时实现 350 K 居里温度和室温 50 nm 斯格明子。晶格收缩与 Ge 富集的协同调控给出提升拓扑磁材料工作温度的路线。",
+    "abstract": "采用高压合成制备六方铁磁 Mn5Ge3+x，将居里温度由 294 K 提高到 350 K。DFT 支持增强来自晶格收缩与 Ge 含量增加的协同作用；实空间磁成像显示室温约 50 nm 斯格明子，为高温小尺寸拓扑磁结构材料提供候选。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21891",
     "journal": "arXiv"

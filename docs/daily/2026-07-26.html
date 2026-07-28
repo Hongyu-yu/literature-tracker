@@ -222,7 +222,7 @@
 <button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
 </div>
 </div>
-<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-25.html">← 前一天 · 2026-07-25</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-07-25.html">← 前一天 · 2026-07-25</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><a class="daily-nav-link daily-nav-next" href="2026-07-27.html">后一天 · 2026-07-27 →</a></nav>
 <nav aria-label="移动目录" class="daily-toc-sticky">
 <a href="#summary">摘要</a>
 <a href="#core-focus">核心关注</a>
@@ -261,29 +261,29 @@
 <h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
 <span class="daily-core-count">2 篇</span>
 </div>
-<p class="daily-core-note">今日进展一端是热输运ML势的验证范式：论文未披露NbOI2、CrI3、CrSBr、BaTiO3等对象，却明确要求MACE、NEP、equivariant GNN势不能只以能量/力RMSE背书。多描述符校验把声子谱、局域结构、热流相关函数、热导率收敛性纳入同一可靠性链条，直接约束铁电/磁性材料中的非谐声子模拟。另一端是铜氧化物奇异金属的普朗克耗散重分析：等离子体频率平方随掺杂近线性，支持弛豫率近掺杂无关。对用DFT+U数据训练ML势或输运代理模型的研究者，这要求同时编码莫特谱重、载流子数与散射率约束。</p>
+<p class="daily-core-note">ML势论文把热导率可信性从单一RMSE推向多描述符交叉验证，可迁移到BaTiO3、NbOI2等非谐/极性材料热输运基准流程。该条目未披露MACE、NEP或equivariant GNN的具体架构和材料体系，因此实质贡献在验证范式而非新材料结论。铜氧化物工作用光学等离子体频率重分析约束奇异金属普朗克耗散，给DFT+U/DMFT和ML代理模型一个掺杂依赖硬约束。CrI3、CrSBr等磁性层状体系未被直接推进，但其自旋-声子热输运ML势同样需要多观测量验证。</p>
 <ol class="daily-core-list">
 <li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all">
 <div class="daily-core-number">01</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">热导率研究中机器学习势的多描述符验证</div>
+<div class="daily-core-title-zh">机器学习势研究热导率的多描述符验证</div>
 <div class="daily-core-title-en">Multi-descriptor validation of machine learning potential in studying thermal conductivity</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>论文围绕机器学习势函数预测热导率的可靠性验证，提出多描述符校验框架；摘要未披露具体材料、描述符类型、热导率数值或误差指标。可确定的目标是避免仅用单一拟合精度评估势函数，提升其在热输运模拟中的可信度。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>面向热导率计算，作者强调用多描述符验证机器学习势，而不是只看能量或力误差。该思路直接关系到AI势函数在声子输运与计算材料筛选中的可迁移性。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>多描述符交叉验证ML势，热导率不再只看能量/力RMSE</p><p><strong>🔗 相关工作关联：</strong>呼应MACE、NEP、equivariant GNN热输运、声子谱与Green-Kubo验证</p><p><strong>💡 对你方向的启示：</strong>训练DFT+U势后需核查声子、热流自相关、局域结构等外推稳定性</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>论文聚焦机器学习势函数用于热导率计算的可信性评估，主线是以多描述符验证替代单一误差指标。条目未给出摘要细节，无法确认材料体系、描述符类型、热导数值，以及与第一性原理或实验结果的偏差。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>热导率对声子非谐性和势能面细节高度敏感，多描述符验证可暴露机器学习势的物性外推风险。该方向直接关系到AI势函数在热输运计算中的可复现性与可信使用。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>以多描述符交叉验证ML势热导率，而非只看能量/力RMSE。</p><p><strong>🔗 相关工作关联：</strong>呼应MACE、NEP、equivariant GNN势的声子热输运与非谐采样验证。</p><p><strong>💡 对你方向的启示：</strong>训练铁电/磁性ML势时需同时核查声子、热流、自相关和结构分布。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
 <li class="daily-core-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-75673-7">
 <div class="daily-core-number">02</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">铜氧化物奇异金属中的普朗克耗散</div>
+<div class="daily-core-title-zh">铜氧化物奇异金属态的普适普朗克耗散</div>
 <div class="daily-core-title-en">Universal Planckian dissipation in the strange metal state of the cuprates</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过重分析铜氧化物超导体已有输运与光学数据，作者指出奇异金属态的普朗克弛豫率不随掺杂改变。关键依据是光学等离子体频率平方与掺杂浓度近似线性标度；这一关系被解释为莫特物理对载流子谱重的约束。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>铜氧化物奇异金属的普朗克弛豫率被归纳为掺杂无关，而变化主要来自等离子体频率平方随掺杂线性缩放。该结论把普朗克耗散与莫特物理直接联系起来。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>重分析输运/光学数据，以ωp²∝掺杂锁定普朗克弛豫率</p><p><strong>🔗 相关工作关联：</strong>呼应cuprate奇异金属、莫特谱重转移、Planckian耗散研究</p><p><strong>💡 对你方向的启示：</strong>做ML相图或输运代理模型时，应把谱重-掺杂约束显式编码</p></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过重分析已有铜氧化物超导体数据，作者指出奇异金属态的“普朗克”弛豫率不依赖掺杂。关键证据是光学等离子体频率平方随掺杂近似线性变化，并被解释为摩特物理的自然结果。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>铜氧化物奇异金属中的普朗克弛豫率被归纳为掺杂无关。光学等离子体频率平方的线性掺杂标度把普适耗散与摩特背景直接相连。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>重分析铜氧化物光学数据，检验普朗克弛豫率的掺杂无关性。</p><p><strong>🔗 相关工作关联：</strong>呼应奇异金属、摩特物理、DFT+U/DMFT、光学电导与输运标度分析。</p><p><strong>💡 对你方向的启示：</strong>构建凝聚态ML代理模型时，应把等离子体频率的掺杂标度纳入约束。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
@@ -295,8 +295,8 @@
 <h2 class="daily-section-title">今日摘要</h2>
 </div>
 <div class="daily-summary-card">
-<p><strong>总览：</strong>今日4篇覆盖机器学习势热输运验证、铜氧化物奇异金属、曲率石墨烯挠电性与火山浅部成像。最具凝聚态指向的是铜氧化物中掺杂无关的普朗克弛豫率，以及亚纳米曲率触发的石墨烯量子轨道挠电性。</p>
-<p><strong>热点：</strong>热输运模拟正在从单一误差指标转向多描述符验证，以提高机器学习势在声子与热导率预测中的可迁移性。强关联体系方面，铜氧化物奇异金属的普朗克耗散被重新归因于莫特物理控制的等离子体频率标度。低维材料中，几何曲率不再只是结构扰动，而可直接耦合轨道自由度并诱发挠电响应。地球物理预印本显示，环境噪声层析成像可在数千米尺度解析低速异常与流体通道。</p>
+<p><strong>总览：</strong>今日4篇条目覆盖机器学习势函数热导率验证、铜氧化物奇异金属输运、曲率石墨烯量子电响应，以及火山浅部结构成像。代表性工作显示铜氧化物中普朗克弛豫率不随掺杂变化，并把光学等离子体频率平方的线性掺杂标度与摩特物理关联。</p>
+<p><strong>热点：</strong>计算材料方向从追求势函数能量/力误差转向面向物性目标的多描述符验证，热导率是典型高敏感检验场景。强关联电子体系继续围绕奇异金属的普适输运标度展开，光学谱权重与掺杂的关系成为判定普朗克耗散的关键。低维碳材料研究强调几何曲率与轨道量子自由度耦合，亚纳米弯曲可能打开新的挠曲电响应通道。地球物理成像条目虽偏离凝聚态主题，但环境噪声层析中的反演与多尺度结构识别方法与材料成像算法存在方法交叉。</p>
 </div>
 </section>
 <section class="daily-section" id="papers">
@@ -310,13 +310,13 @@
 <span class="daily-paper-number">01</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">热导率研究中机器学习势的多描述符验证</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">机器学习势研究热导率的多描述符验证</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Multi-descriptor validation of machine learning potential in studying thermal conductivity</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 </div><span class="enrich-badge">📊 含图深析</span></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>论文围绕机器学习势函数预测热导率的可靠性验证，提出多描述符校验框架；摘要未披露具体材料、描述符类型、热导率数值或误差指标。可确定的目标是避免仅用单一拟合精度评估势函数，提升其在热输运模拟中的可信度。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>面向热导率计算，作者强调用多描述符验证机器学习势，而不是只看能量或力误差。该思路直接关系到AI势函数在声子输运与计算材料筛选中的可迁移性。</p>
-<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax40aec8bee23b72.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>机器学习势函数用于热导率模拟时，能量/力拟合误差低并不等于热输运预测可信；核心问题是如何判断一个机器学习势是否真正适合下游热导率计算，而不是只在训练集上表现好。</div><div class="poster-row"><b>创新方法</b>提出面向热导率任务的“多描述符校验”框架：不再用单一拟合精度作为通行证，而是从多个物理/统计描述符维度交叉检查势函数行为，形成类似多面体仪表盘的可靠性评估；Aha 点是把验证目标从“拟合得准”转向“对热输运物理是否一致”。</div><div class="poster-row"><b>工作流程</b>输入为训练好的机器学习势函数和热导率模拟任务；先计算常规拟合指标，再引入多个与结构、动力学、热输运相关的描述符进行并行检验；随后比较各描述符是否一致支持该势函数的物理可靠性；最终输出该势函数是否适合用于热导率预测的可信度判断。</div><div class="poster-row"><b>关键结果</b>论文明确指出单一拟合精度不足以验证机器学习势在热导率研究中的可靠性；多描述符校验可提供更严格、更任务相关的可信度判断。摘要未给出具体材料体系、热导率数值、误差降低比例或定量性能提升。</div><div class="poster-row"><b>应用价值</b>该框架可作为热输运模拟中的势函数质检流程，帮助研究者在昂贵或复杂的热导率计算前筛除不可靠模型，提升机器学习势预测热导率结果的可信度，并减少因单一误差指标误导而产生的错误物性结论。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>该论文属于机器学习势函数与热输运模拟方向，提出用于验证机器学习势预测热导率可靠性的多描述符校验框架，强调不能仅依赖单一拟合精度评价势函数可信度。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>提出“多描述符 validation”框架，用于评估机器学习势函数在热导率研究中的可靠性。</li><li>将势函数验证从单一拟合精度扩展到多个描述符维度，具体描述符类型摘要未详述。</li><li>面向热输运/热导率模拟任务，对机器学习势的适用性进行针对性检验。</li><li>论文目标是提高机器学习势在热导率预测中的可信度，而非仅证明其训练集拟合能力。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>摘要明确指出：仅用单一拟合精度评估机器学习势函数是不充分的。</li><li>论文提出多描述符校验框架，以增强热导率模拟中机器学习势预测结果的可靠性。</li><li>摘要未披露具体材料体系、热导率预测数值、误差指标或与基准方法的定量对比。</li><li>摘要未详述该框架是否已在具体案例中系统验证，也未说明其相较传统验证方式的性能提升幅度。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：将机器学习势的验证重点从常规能量/力等单一拟合指标，拓展为面向热导率预测的多描述符一致性评估。</li><li>该工作可能强调“任务相关验证”，即针对热输运性质建立更严格的势函数可信度判断标准。</li><li>相比一般机器学习势研究只报告训练/测试误差，该论文可能更关注势函数在下游物性计算中的可迁移性与可靠性。</li><li>以上创新性判断基于摘要推断；具体描述符选择、验证流程、对比对象和实际改进幅度摘要未详述，需全文确认。</li></ul></div></details>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>论文聚焦机器学习势函数用于热导率计算的可信性评估，主线是以多描述符验证替代单一误差指标。条目未给出摘要细节，无法确认材料体系、描述符类型、热导数值，以及与第一性原理或实验结果的偏差。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>热导率对声子非谐性和势能面细节高度敏感，多描述符验证可暴露机器学习势的物性外推风险。该方向直接关系到AI势函数在热输运计算中的可复现性与可信使用。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax40aec8bee23b72.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>机器学习势函数用于热导率模拟时，能量/力拟合误差低并不等于热输运预测可信；核心问题是如何判断一个机器学习势是否真正适合下游热导率计算，而不是只在训练集上表现好。</div><div class="poster-row"><b>创新方法</b>提出面向热导率任务的“多描述符校验”框架：不再用单一拟合精度作为通行证，而是从多个物理/统计描述符维度交叉检查势函数行为，形成类似多面体仪表盘的可靠性评估；Aha 点是把验证目标从“拟合得准”转向“对热输运物理是否一致”。</div><div class="poster-row"><b>工作流程</b>输入为训练好的机器学习势函数和热导率模拟任务；先计算常规拟合指标，再引入多个与结构、动力学、热输运相关的描述符进行并行检验；随后比较各描述符是否一致支持该势函数的物理可靠性；最终输出该势函数是否适合用于热导率预测的可信度判断。</div><div class="poster-row"><b>关键结果</b>论文明确指出单一拟合精度不足以验证机器学习势在热导率研究中的可靠性；多描述符校验可提供更严格、更任务相关的可信度判断。摘要未给出具体材料体系、热导率数值、误差降低比例或定量性能提升。</div><div class="poster-row"><b>应用价值</b>该框架可作为热输运模拟中的势函数质检流程，帮助研究者在昂贵或复杂的热导率计算前筛除不可靠模型，提升机器学习势预测热导率结果的可信度，并减少因单一误差指标误导而产生的错误物性结论。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>本文属于机器学习势函数与热输运计算方向，关注机器学习势在热导率研究中的可信性评估，主张用多描述符验证替代单一误差指标来判断模型可靠性。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>以机器学习势函数作为热导率计算的核心模型对象。</li><li>研究重点不是单纯构建势函数，而是评估其在热导率预测中的可靠性。</li><li>提出或强调“多描述符验证”框架，用多个指标/特征共同检验势函数表现。</li><li>摘要未详述具体描述符类型，例如能量、力、声子性质、结构采样或热流相关指标等。</li><li>摘要未说明采用的热导率计算方法，如分子动力学、Green-Kubo、非平衡 MD 或其他方法。</li><li>摘要未给出材料体系、训练数据来源、基准方法或实验/第一性原理对照细节。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>论文明确聚焦于机器学习势函数在热导率计算中的可信性问题。</li><li>主要结论是：单一误差指标不足以全面验证机器学习势在热导率研究中的可靠性。</li><li>多描述符验证被认为是更合适的评估策略。</li><li>摘要未给出具体热导率数值、误差大小、材料案例或性能提升幅度。</li><li>摘要未详述与第一性原理或实验结果的偏差，因此无法判断实际预测精度。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于将机器学习势验证从传统的单一误差评价，扩展到面向热导率计算的多描述符可信性评估。</li><li>相比只报告能量/力误差的常见做法，本文可能更强调热输运任务相关的综合验证；但具体采用哪些描述符，摘要未详述。</li><li>若论文系统展示了多描述符与热导率预测可靠性之间的关系，则其贡献可能偏方法学和验证框架，而非单一材料的热导率预测。</li><li>创新性强弱无法仅凭摘要确定，因为摘要未给出具体实验设计、对比基线和验证效果。</li></ul></div></details>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626004829?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
 </div>
 </li>
@@ -324,13 +324,13 @@
 <span class="daily-paper-number">02</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">铜氧化物奇异金属中的普朗克耗散</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">铜氧化物奇异金属态的普适普朗克耗散</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">Universal Planckian dissipation in the strange metal state of the cuprates</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
 </div><span class="enrich-badge">📊 含图深析</span></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Nature Communications</span><span class="daily-chip daily-chip-authors">👤 A. Shekhter, B. J. Ramshaw, M. K. Chan, N. Harrison</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过重分析铜氧化物超导体已有输运与光学数据，作者指出奇异金属态的普朗克弛豫率不随掺杂改变。关键依据是光学等离子体频率平方与掺杂浓度近似线性标度；这一关系被解释为莫特物理对载流子谱重的约束。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>铜氧化物奇异金属的普朗克弛豫率被归纳为掺杂无关，而变化主要来自等离子体频率平方随掺杂线性缩放。该结论把普朗克耗散与莫特物理直接联系起来。</p>
-<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax359d4b1fd00875.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>铜氧化物高温超导体在奇异金属态中表现出线性温度电阻，但其背后的普朗克耗散率是否会随空穴掺杂浓度改变仍不清楚；核心问题是：不同掺杂下的载流子是否都以接近普朗克极限的同一弛豫速率耗散。</div><div class="poster-row"><b>创新方法</b>论文的 Aha 点是用既有输运数据与光学数据交叉重分析：不只看电阻斜率，而是引入光学等离子体频率平方作为载流子谱重的可视化标尺；发现等离子体频率平方近似随掺杂线性增长，从而把电阻变化主要归因于谱重变化，而不是弛豫率变化，支持掺杂无关的普朗克耗散。</div><div class="poster-row"><b>工作流程</b>输入铜氧化物奇异金属的已有电阻/输运数据和光学反射/电导数据；提取线性温度电阻斜率与光学等离子体频率平方；比较等离子体频率平方随掺杂的近似线性标度；用该谱重标度重新计算或约束弛豫率；结合莫特物理对载流子谱重的限制，输出“掺杂无关的普适普朗克弛豫率”图景。</div><div class="poster-row"><b>关键结果</b>主要发现是铜氧化物奇异金属中的普朗克弛豫率在不同掺杂浓度下近似保持不变；光学等离子体频率平方与掺杂浓度近似线性对应，像一条随掺杂上升的直线；该标度说明掺杂主要改变可参与输运的谱重，而非改变耗散时钟；莫特物理为这种谱重受限提供解释。</div><div class="poster-row"><b>应用价值</b>该研究为理解高温超导母体附近的奇异金属提供统一视觉框架：电阻线性温度依赖可被看作普朗克极限耗散与莫特受限谱重共同作用的结果；它有助于比较不同铜氧化物材料、约束强关联金属理论，并为寻找或设计具有普适量子耗散特征的新型超导相关材料提供判据。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>论文重分析铜氧化物奇异金属的输运与光学数据，讨论普朗克耗散率的掺杂无关性，属强关联超导/奇异金属输运方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>对铜氧化物超导体已有输运数据进行再分析，摘要未详述具体样品、温区或拟合流程。</li><li>对已有光学数据进行再分析，重点关注光学等离子体频率平方与掺杂浓度的关系。</li><li>将等离子体频率平方近似线性随掺杂标度作为判断弛豫率掺杂依赖性的关键依据。</li><li>用莫特物理对载流子谱重的约束来解释上述光学标度关系。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>作者指出铜氧化物奇异金属态中的普朗克弛豫率不随掺杂改变。</li><li>摘要明确称，光学等离子体频率平方与掺杂浓度近似线性标度。</li><li>该线性标度被解释为莫特物理限制载流子谱重的体现。</li><li>论文结论指向一种“普适”的普朗克耗散行为，但适用材料范围、误差与例外情况摘要未详述。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：不是提出全新实验，而是通过重分析既有输运与光学数据，论证奇异金属普朗克弛豫率的掺杂无关性。</li><li>其核心创新可能是将光学等离子体频率平方的掺杂线性标度与莫特物理约束联系起来，用来支持普朗克耗散的普适性。</li><li>相比仅从电阻线性温度依赖讨论奇异金属，该工作可能更强调光学谱重/等离子体频率对弛豫率提取的约束作用；但具体相对前人差异摘要未详述。</li></ul></div></details>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>通过重分析已有铜氧化物超导体数据，作者指出奇异金属态的“普朗克”弛豫率不依赖掺杂。关键证据是光学等离子体频率平方随掺杂近似线性变化，并被解释为摩特物理的自然结果。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>铜氧化物奇异金属中的普朗克弛豫率被归纳为掺杂无关。光学等离子体频率平方的线性掺杂标度把普适耗散与摩特背景直接相连。</p>
+<details class="enrich-details"><summary>📖 展开分析 + 配图</summary><div class="poster-figure"><img loading="lazy" onerror="this.style.display='none'" src="../images/posters/ax359d4b1fd00875.webp"/></div><div class="daily-deep-elements"><div class="poster-row"><b>研究问题</b>铜氧化物高温超导体在奇异金属态中表现出线性温度电阻，但其背后的普朗克耗散率是否会随空穴掺杂浓度改变仍不清楚；核心问题是：不同掺杂下的载流子是否都以接近普朗克极限的同一弛豫速率耗散。</div><div class="poster-row"><b>创新方法</b>论文的 Aha 点是用既有输运数据与光学数据交叉重分析：不只看电阻斜率，而是引入光学等离子体频率平方作为载流子谱重的可视化标尺；发现等离子体频率平方近似随掺杂线性增长，从而把电阻变化主要归因于谱重变化，而不是弛豫率变化，支持掺杂无关的普朗克耗散。</div><div class="poster-row"><b>工作流程</b>输入铜氧化物奇异金属的已有电阻/输运数据和光学反射/电导数据；提取线性温度电阻斜率与光学等离子体频率平方；比较等离子体频率平方随掺杂的近似线性标度；用该谱重标度重新计算或约束弛豫率；结合莫特物理对载流子谱重的限制，输出“掺杂无关的普适普朗克弛豫率”图景。</div><div class="poster-row"><b>关键结果</b>主要发现是铜氧化物奇异金属中的普朗克弛豫率在不同掺杂浓度下近似保持不变；光学等离子体频率平方与掺杂浓度近似线性对应，像一条随掺杂上升的直线；该标度说明掺杂主要改变可参与输运的谱重，而非改变耗散时钟；莫特物理为这种谱重受限提供解释。</div><div class="poster-row"><b>应用价值</b>该研究为理解高温超导母体附近的奇异金属提供统一视觉框架：电阻线性温度依赖可被看作普朗克极限耗散与莫特受限谱重共同作用的结果；它有助于比较不同铜氧化物材料、约束强关联金属理论，并为寻找或设计具有普适量子耗散特征的新型超导相关材料提供判据。</div></div><div class="deep-body"><h3 class="deep-h">核心概览</h3><p>该论文重分析铜氧化物超导体已有数据，研究奇异金属态中普朗克耗散率与掺杂的关系，属于强关联电子体系/高温超导输运方向。</p><h3 class="deep-h">方法要点</h3><ul class="deep-ul"><li>对已有铜氧化物超导体实验数据进行重新分析，而非摘要所述的新实验测量。</li><li>关注奇异金属态中的“普朗克”弛豫率，并考察其对掺杂水平的依赖性。</li><li>利用光学等离子体频率平方与掺杂的关系作为关键分析依据。</li><li>将等离子体频率平方近似线性随掺杂变化解释为摩特物理的自然结果。</li><li>具体数据来源、样品种类、拟合方法和误差分析摘要未详述。</li></ul><h3 class="deep-h">关键结果</h3><ul class="deep-ul"><li>作者指出铜氧化物奇异金属态中的“普朗克”弛豫率不依赖掺杂。</li><li>关键证据是光学等离子体频率平方随掺杂近似线性变化。</li><li>该线性关系被认为可由摩特物理自然解释。</li><li>摘要未给出弛豫率的具体数值、掺杂范围或不同材料间的定量比较。</li></ul><h3 class="deep-h">创新性判断</h3><ul class="deep-ul"><li>可能的新颖点在于：通过重分析已有数据，提出或强化“普朗克耗散率在铜氧化物奇异金属态中具有掺杂无关的普适性”这一结论。</li><li>另一个可能创新点是：将光学等离子体频率平方的掺杂线性关系与摩特物理联系起来，用以支撑普朗克耗散的普适解释。</li><li>不确定性：由于摘要未详述对比文献、数据集和分析流程，无法判断该观点相对已有工作的原创程度和争议性。</li></ul></div></details>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.nature.com/articles/s41467-026-75673-7" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
 </div>
 </li>
@@ -338,12 +338,12 @@
 <span class="daily-paper-number">03</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518224?af=R" rel="noopener noreferrer" target="_blank">亚纳米曲率激发石墨烯量子轨道挠电性</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518224?af=R" rel="noopener noreferrer" target="_blank">亚纳米曲率激发石墨烯量子轨道挠曲电性</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518224?af=R" rel="noopener noreferrer" target="_blank">Sub‐Nanometer Curvature Unlocks Quantum Orbital Flexoelectricity in Graphene</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Sathvik Ajay Iyengar, James G. McHugh, Jonathan P. Salvage, Robert Vajtai, Venkataramana Gadhamshetty, Alan B. Dalton, Manoj Tripathi, Pulickel M. Ajayan, Vincent Meunier</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题名指向亚纳米曲率石墨烯中的量子轨道挠电性，核心对象是强弯曲碳原子网络中曲率与轨道自由度的耦合。摘要未披露曲率半径、样品构型、实验或计算方法、极化强度等数值，当前只能确认其关注曲率诱导的挠电响应。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>亚纳米曲率被用于激活石墨烯中的量子轨道挠电性，突出几何形变对电子轨道的直接调控。该方向把低维碳材料的力电耦合推进到原子尺度曲率极限。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>条目题名显示研究对象为石墨烯，核心变量是亚纳米尺度曲率，目标现象为量子轨道挠曲电性。当前只提供早期在线信息，未给出实验或计算方法、曲率半径、电响应强度及样品构型等定量内容。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>石墨烯的亚纳米弯曲被指向一种量子轨道来源的挠曲电响应。若得到定量验证，几何曲率将成为调控二维碳材料电极化的新自由度。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518224?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202518224?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
 </div>
 </li>
@@ -355,14 +355,14 @@
 <div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10243095/latest" rel="noopener noreferrer" target="_blank">Imaging shallow magma storage and fluid pathways beneath Aso volcano using ambient-noise tomography</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Takeshi Tsuji, Chanmaly Chhun, Rezkia Andajani, Yoshihiko Ishikawa, Naoki Nishizaka, Hiromichi Yano</span><span class="daily-chip daily-chip-score">🔥 AI 2</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在阿苏火山布设临时地震台网，并采用环境噪声面波层析成像解析三维浅部结构。中岳火口下方2.5–4.5 km深度出现椭球状低S波速度异常，Vs约1.5 km/s，指示高度破裂、受压岩体，被解释为浅部岩浆储存区；截断摘要还提到超临界流体条件。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>环境噪声层析成像在阿苏火山2.5–4.5 km深处解析出Vs约1.5 km/s的椭球状低速体。该结果将浅部岩浆储存与高压破裂岩体、流体通道联系起来。</p>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在阿苏火山布设临时地震仪网络，并采用环境噪声面波层析成像重建三维浅部结构。中岳火口下方2.5–4.5千米深处出现椭球形低S波速度异常，Vs约1.5千米/秒，指示高度破裂且受压岩体，被解释为浅部岩浆储存区；摘要还提到温度条件下可能存在超临界流体。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>环境噪声层析在阿苏火山下方解析出2.5–4.5千米深的低Vs异常。约1.5千米/秒的S波速度支持浅部岩浆储存与流体通道解释。</p>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10243095/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10243095/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
 </div>
 </li>
 </ol>
 </section>
-<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-25.html">← 前一天 · 2026-07-25</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-07-25.html">← 前一天 · 2026-07-25</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><a class="daily-nav-link daily-nav-next" href="2026-07-27.html">后一天 · 2026-07-27 →</a></nav>
 <div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-07-25.html">前一天 · 2026-07-25</a><a class="daily-page-nav-link" href="2026-07-27.html">后一天 · 2026-07-27</a><a class="daily-page-nav-link" href="2026-07-27.html">最新一期 · 2026-07-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-26.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
           本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
         </div>
@@ -377,7 +377,7 @@
 <div class="daily-sidebar-title">专题分布</div>
 <div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>4</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>2</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>4</strong></div></div>
 </div>
-<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">热导率研究中机器学习势的多描述符验证<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">铜氧化物奇异金属中的普朗克耗散<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">亚纳米曲率激发石墨烯量子轨道挠电性<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">环境噪声层析成像阿苏火山浅部岩浆与流体通道<span class="daily-outline-meta">04</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-25.html">前一天 · 2026-07-25</a><a class="daily-page-nav-link" href="2026-07-27.html">后一天 · 2026-07-27</a><a class="daily-page-nav-link" href="2026-07-27.html">最新一期 · 2026-07-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-26.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">机器学习势研究热导率的多描述符验证<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">铜氧化物奇异金属态的普适普朗克耗散<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">亚纳米曲率激发石墨烯量子轨道挠曲电性<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">环境噪声层析成像阿苏火山浅部岩浆与流体通道<span class="daily-outline-meta">04</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-07-25.html">前一天 · 2026-07-25</a><a class="daily-page-nav-link" href="2026-07-27.html">后一天 · 2026-07-27</a><a class="daily-page-nav-link" href="2026-07-27.html">最新一期 · 2026-07-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-07-26.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
 <div class="daily-sidebar-title">阅读建议</div>
 <ul class="insight-note-list">
 <li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>

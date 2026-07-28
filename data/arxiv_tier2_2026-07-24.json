@@ -1,27 +1,27 @@
 [
   {
     "title": "Machine Learning for Charge State Characterization of Isolated Double Quantum Dots",
-    "title_zh": "孤立双量子点电荷态的机器学习表征",
-    "summary": "针对孤立模式双量子点电荷稳定图的近竖直跃迁特征，设计紧凑机器学习模型实现电荷态表征。该路线补足接库量子点之外的自动调谐环节，直接面向半导体自旋量子比特扩展。",
-    "abstract": "面向半导体自旋量子比特阵列自动调谐，处理孤立模式双量子点电荷稳定图；区别于接库器件，孤立模式跃迁近似竖直线，适合紧凑任务专用模型。工作针对电荷态识别与调谐中的人工判读瓶颈，提出机器学习分析框架，服务故障容错量子计算所需的大规模量子点阵列。",
+    "title_zh": "孤立双量子点电荷态机器学习表征",
+    "summary": "把孤立模式双量子点 CSM 的近竖直跃迁结构转化为机器学习识别任务。该路线直接服务自旋量子比特阵列自动调谐，减少人工判图瓶颈。",
+    "abstract": "面向半导体自旋量子比特阵列调谐，处理孤立模式双量子点电荷稳定图；该模式中电荷跃迁近似为竖直线，适合紧凑任务专用模型。工作将机器学习用于自动识别电荷态/跃迁特征，补足以往主要针对库耦合器件的 CSM 分析。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.20871",
     "journal": "arXiv"
   },
   {
     "title": "Writhe-Based Polymer Link Classification Using Machine Learning",
-    "title_zh": "基于缠绕数的聚合物链环分类",
-    "summary": "用缠绕数密度矩阵替代手工拓扑不变量，神经网络可将前六个素链环以 97% 准确率分类。该方法为聚合物和生物大分子拓扑的大规模自动分析提供了轻量路径。",
-    "abstract": "将缠绕数密度矩阵输入前馈神经网络，对热平衡构型中的前六个素链环进行拓扑分类，准确率达到 97%。方法延续 Sleiman 等在 Soft Matter 2024 的框架，面向聚合物熔体、DNA 和蛋白质中快速唯一识别结与链环的需求，展示数据驱动拓扑判别的可行性。",
+    "title_zh": "基于扭缠数的聚合物链环机器学习分类",
+    "summary": "扭缠密度矩阵可作为链环拓扑的紧凑数据表征。前馈网络对 6 类素链环达到 97% 准确率，为软物质拓扑快速识别提供实用工具。",
+    "abstract": "针对聚合物、DNA 与蛋白质中的链环拓扑分类，使用扭缠密度矩阵作为输入训练前馈神经网络。对前 6 个素链环的热平衡构型实现 97% 分类准确率，延续并扩展 Sleiman 等 2024 年框架。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.20657",
     "journal": "arXiv"
   },
   {
     "title": "Quantum convolutional HLA immunogenic peptide prediction (Q-CHIPP): Next-generation neoantigen prediction with quantum neural network",
-    "title_zh": "量子卷积肽免疫原性预测",
-    "summary": "Q-CHIPP 把量子卷积神经网络引入 HLA 肽免疫原性与新抗原预测。若能在真实临床肽库中优于经典模型，将成为量子机器学习服务生物材料界面识别的案例。",
-    "abstract": "Q-CHIPP 将量子神经网络用于 HLA 免疫原性肽和新抗原预测，目标是提升肿瘤免疫相关肽段筛选。题名显示其核心为量子卷积结构与 HLA-肽相互作用预测；给定条目未提供性能指标、数据规模或对照模型，无法判断量子模型相对经典深度学习的增益。",
+    "title_zh": "量子卷积 HLA 免疫肽预测",
+    "summary": "Q-CHIPP 将量子神经网络引入 HLA 免疫肽预测与新抗原筛选。该工作属于量子机器学习在生物分子科学中的应用探索，但公开条目未披露关键性能数值。",
+    "abstract": "提出 Q-CHIPP，用量子神经网络预测 HLA 相关免疫原性肽/新抗原。文献信息显示发表于 Science Advances 第 12 卷第 30 期；摘要未给出数据集规模、量子线路细节或性能数值，无法进一步量化其预测增益。",
     "category": "AI×物理",
     "link": "https://www.science.org/doi/abs/10.1126/sciadv.aec3824?af=R",
     "journal": "AAAS: Science Advances: Table of Contents"
@@ -29,26 +29,26 @@
   {
     "title": "A high-dimensional neural network potential for finite-temperature phenomena in NiTi martensite",
     "title_zh": "NiTi 马氏体有限温度神经网络势",
-    "summary": "NiTi 马氏体 HDNNP 以 DFT 为基准同时覆盖结构、弹性、层错和声子性质。它为形状记忆合金有限温度相变与缺陷运动提供了比 DFT 更可扩展的原子级工具。",
-    "abstract": "构建面向 NiTi 形状记忆合金马氏体相的高维神经网络势，训练于 DFT 数据，并系统验证平衡晶体结构、弹性常数、广义层错能和振动谱。势函数能准确描述 B19′ 与 B33 相对稳定性等结构演化关键性质，用于有限温度马氏体行为模拟。",
+    "summary": "NiTi 马氏体 HDNNP 在结构、弹性、层错能和声子层面对齐 DFT。它为形状记忆合金有限温度相变和缺陷动力学提供可扩展原子模拟基础。",
+    "abstract": "为 NiTi 形状记忆合金马氏体相构建基于 DFT 数据训练的高维神经网络势。系统验证平衡晶体结构、弹性常数、广义层错能和振动谱；势函数准确描述 B19′ 与 B33 相的相对稳定性，可用于有限温度结构演化研究。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.20681",
     "journal": "arXiv"
   },
   {
     "title": "Graph Neural Network Force Fields (GPTFF-mol) for Organic Molecules from Optimization Trajectories (OpenGEM26)",
-    "title_zh": "优化轨迹有机分子 GNN 力场",
-    "summary": "OpenGEM26 用 20 万小分子和 440 万构象构建有机分子优化轨迹数据基础。结合 GPTFF-mol，可推动分子力场从静态构象学习转向几何优化路径学习。",
-    "abstract": "发布 OpenGEM26 数据集，含 20 万个由 H、C、N、O、S、Cl 组成且重原子数不超过 10 的独特分子，以及 440 万个构象。计算覆盖 ωB97X-D/Def2-SVP 和 Def2-TZVP 色散校正层级，并用于训练面向有机分子的图神经网络力场 GPTFF-mol。",
-    "category": "AI×化学·材料",
+    "title_zh": "有机分子 GNN 力场数据集 OpenGEM26",
+    "summary": "OpenGEM26 用 440 万构象覆盖小有机分子优化轨迹。双基组 DFT 标注与 GNN 力场训练可提升分子势能面学习的数据规模和可复用性。",
+    "abstract": "发布 OpenGEM26 数据集，含 20 万个由 H、C、N、O、S、Cl 组成、最多 10 个重原子的分子，以及 440 万个构象。计算采用 ωB97X-D/Def2-SVP 与 Def2-TZVP、含色散校正，并基于优化轨迹训练有机分子 GNN 力场 GPTFF-mol。",
+    "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.21369",
     "journal": "arXiv"
   },
   {
     "title": "Accelerating sustainable glass discovery: integrating molecular dynamics, machine learning, and robotic synthesis",
-    "title_zh": "分子动力学机器学习加速可持续玻璃发现",
-    "summary": "玻璃发现被组织为分子动力学—机器学习—机器人合成的闭环流程。该范式把无序材料的计算筛选与自动实验连接起来，适合处理高维玻璃组成空间。",
-    "abstract": "npj Computational Materials 论文将分子动力学、机器学习与机器人合成整合，用于加速可持续玻璃配方发现。题名表明流程覆盖模拟生成结构/性质数据、模型筛选候选组成与自动化实验验证；给定条目未列出具体玻璃体系、筛选规模或性能提升数值。",
+    "title_zh": "融合模拟机器学习与机器人加速玻璃发现",
+    "summary": "玻璃发现流程将 MD、机器学习与机器人合成连成闭环。该范式适合高维玻璃组成空间中的快速筛选与实验验证。",
+    "abstract": "面向可持续玻璃组成发现，整合分子动力学、机器学习预测与机器人合成。npj Computational Materials 条目未提供具体玻璃体系、性能指标或闭环轮次数值，但题名表明流程覆盖计算筛选到自动实验验证。",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02249-w",
     "journal": "npj Computational Materials"
@@ -56,17 +56,17 @@
   {
     "title": "Decoupling Intrinsic Molecular Efficacy From Platform Effects: An Interpretable Machine Learning Framework for Unbiased Perovskite Passivator Discovery",
     "title_zh": "解耦平台效应的钙钛矿钝化剂发现",
-    "summary": "钙钛矿钝化剂筛选从直接比效率转向分离分子本征作用与平台差异。该框架有助于避免把器件工艺优势误判为钝化分子优势。",
-    "abstract": "提出可解释机器学习框架，将钙钛矿钝化分子的内禀效能与器件平台效应解耦，减少不同实验平台引入的偏差。目标是实现无偏钝化剂发现；给定条目未提供数据集规模、描述符、模型性能或筛选出的分子，因此只能确认其方法核心为偏差校正和可解释排序。",
+    "summary": "该框架把钙钛矿钝化剂的分子效应从平台差异中剥离。对跨实验室数据驱动筛选尤其关键，可降低伪相关主导的候选推荐。",
+    "abstract": "构建可解释机器学习框架，用于区分钙钛矿钝化分子的内禀效能与测试平台/器件结构效应，减少数据偏差导致的候选排序失真。条目未给出材料库规模、模型类型或器件效率提升数值。",
     "category": "AI×化学·材料",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.75486?af=R",
     "journal": "Wiley: Advanced Science: Table of Contents"
   },
   {
     "title": "Machine learning based prediction of optical properties in two-dimensional Mo-W-S-Se-Te transition-metal dichalcogenide alloys through physics-informed sampling",
-    "title_zh": "物理采样预测二维 TMD 合金光学性质",
-    "summary": "在 Mo-W-S-Se-Te 二维 TMD 合金空间中，物理信息采样配合表格基础模型预测介电函数谱。该方法把昂贵光学第一性原理计算扩展到多组元合金设计。",
-    "abstract": "针对 Mo-W-S-Se-Te 二维过渡金属硫族化物多组元合金，结合从头算光学性质与表格基础模型回归，预测频率依赖介电函数实部和虚部。通过物理信息采样降低组合空间中第一性原理计算成本，服务成分可调的光学与电子响应设计。",
+    "title_zh": "物理采样预测二维 Mo-W-S-Se-Te 合金光学性质",
+    "summary": "用物理信息采样和表格基础模型映射 TMD 多元合金介电响应。该策略面向二维光电材料组成空间，减少逐点第一性原理计算负担。",
+    "abstract": "针对二维 Mo-W-S-Se-Te 过渡金属硫族化物多元合金，结合从头算光学性质与表格基础模型回归，预测频率依赖介电函数实部和虚部。物理信息采样用于降低多组分合金空间的第一性原理组合成本。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.21246",
     "journal": "arXiv"
@@ -74,62 +74,62 @@
   {
     "title": "Inverse inference of lithium-ion battery degradation parameters via physical modeling and data-driven machine learning",
     "title_zh": "锂离子电池退化参数反演",
-    "summary": "锂电退化分析采用物理建模约束机器学习反演隐藏老化参数。相比黑箱寿命预测，该方向更接近可诊断的材料与界面退化机理识别。",
-    "abstract": "将物理电池模型与数据驱动机器学习结合，对锂离子电池退化参数进行逆向推断。目标是从可观测运行数据估计难以直接测量的老化机理参数，用于容量衰减诊断与寿命分析；给定条目未列出电池化学体系、参数种类、数据规模或误差指标。",
+    "summary": "物理建模与机器学习被用于锂离子电池退化参数逆推。该类方法可把容量衰减曲线转化为机制参数估计，服务寿命诊断。",
+    "abstract": "将物理电池模型与数据驱动机器学习结合，反演锂离子电池退化参数。npj Computational Materials 条目未列出具体退化机制、实验循环数据量或误差指标；核心任务是从可观测电化学响应恢复不可直接测量的老化参数。",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02250-3",
     "journal": "npj Computational Materials"
   },
   {
     "title": "A Graph Neural Network approach to zero-shot Digital Twins",
-    "title_zh": "零样本数字孪生的图神经网络方法",
-    "summary": "热力学信息 GNN 被用于几何无关的零样本数字孪生，目标是在形状和边界变化时仍能推理。该设计把守恒/耗散结构嵌入图求解器，提升工程物理代理模型迁移性。",
-    "abstract": "提出零样本数字孪生框架，将实时视觉感知与几何无关的物理推理引擎耦合。核心为热力学信息图神经网络，基于度量辛结构进行几何深度学习求解，使预测数字孪生在物理域或边界条件改变时减少重新训练和微调需求。",
+    "title_zh": "面向零样本数字孪生的 GNN 方法",
+    "summary": "热力学信息 GNN 被用于几何可变数字孪生。通过把物理结构写入图推理器，模型有望在新形状和边界条件下零样本泛化。",
+    "abstract": "提出零样本数字孪生框架，耦合实时视觉感知与几何无关的物理推理引擎。核心为热力学信息 GNN，基于度量-辛结构进行几何深度学习求解，使预测孪生体在物理域或边界条件变化时减少重训练/微调需求。",
     "category": "其他",
     "link": "https://arxiv.org/abs/2607.20535",
     "journal": "arXiv"
   },
   {
     "title": "A Parameterized Data-Driven Neural Network with Physics-Based Regularization for Thermal Field Prediction in Metal Additive Manufacturing",
-    "title_zh": "金属增材制造热场物理正则神经网络",
-    "summary": "SS316L 激光粉末床熔融热场用参数化神经网络与物理正则共同预测。它将增材制造的高成本瞬态热仿真转化为可快速扫描工艺窗口的代理模型。",
-    "abstract": "面向 SS316L 激光粉末床熔融，构建参数化数据驱动神经网络并加入物理正则项，预测不同工艺参数下瞬态温度场。该过程具有强瞬态、局域热行为，直接影响熔池演化和材料性能；方法旨在替代高成本大规模数值仿真用于参数扫描。",
+    "title_zh": "金属增材热场物理正则神经网络",
+    "summary": "参数化神经网络预测 SS316L L-PBF 瞬态温度场，并用物理正则约束热行为。该方法面向工艺窗口搜索和熔池演化快速评估。",
+    "abstract": "针对 SS316L 激光粉末床熔融中高度瞬态、局域的温度场，构建参数化数据驱动神经网络并加入物理正则化。模型预测不同工艺参数下的时空热场，用于替代大规模参数扫描中的高成本数值热传导模拟。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10362204/latest",
     "journal": "Preprints"
   },
   {
     "title": "Data-Driven Mission Recommendation for LEO Satellites using Random Forest and Hybrid Deep Learning Forecasting",
-    "title_zh": "随机森林与深度预测推荐低轨任务",
-    "summary": "低轨卫星任务推荐把随机森林与混合深度预测用于电池约束下的可行性判断。该工作虽偏航天运维，但体现了数据驱动数字孪生在资源受限物理系统中的应用。",
-    "abstract": "针对 500 km 极轨 LAPAN-IPB（LAPAN-A3）低轨卫星任务调度，构建端到端推荐框架，用随机森林和混合深度学习预测电池行为并评估任务可行性。目标是替代依赖资深操作员经验的人工判断，使任务配置建议可记录、可转移、可事后验证。",
+    "title_zh": "低轨卫星任务随机森林与混合深度推荐",
+    "summary": "随机森林和混合深度预测用于低轨卫星任务可行性推荐。虽然偏工程应用，其数据驱动调度思想与自主实验/自治平台管理相通。",
+    "abstract": "面向 500 km 极轨 LAPAN-IPB/LAPAN-A3 低轨卫星任务排程，构建端到端推荐框架。方法结合随机森林与混合深度学习预测电池行为，将依赖操作员经验的任务可行性判断转化为可记录、可验证的自动推荐。",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-10222764/latest",
     "journal": "Preprints"
   },
   {
     "title": "HypNO: A Graph-Based Neural Operator with Physics-Informed Message Passing for Hyperbolic Conservation Laws",
-    "title_zh": "双曲守恒律的物理消息传递算子",
-    "summary": "HypNO 将迎风格式和熵条件写入图神经算子的消息传递，用于含激波的双曲守恒律。它为材料流动、输运和冲击问题中的神经算子稳定性提供了可借鉴结构。",
-    "abstract": "HypNO 是面向标量双曲守恒律的图神经算子，直接作用于有限体积单元的时空图。通过邻接分解的物理信息消息传递，显式考虑迎风性和激波附近熵可容许性；在 LWR 与 ARZ 交通流模型上测试，可准确预测含全局输运和激波形成的解快照。",
+    "title_zh": "双曲守恒律物理消息传递神经算子",
+    "summary": "HypNO 把迎风性和熵条件嵌入图消息传递。对含激波的双曲守恒律算子学习，这比普通黑箱神经算子更贴近有限体积物理结构。",
+    "abstract": "提出 HypNO，一种作用于有限体积时空单元图的图神经算子，用邻接因子化、物理信息消息传递体现迎风格式与激波附近熵可容许性。基准为 LWR 与 ARZ 交通流模型，覆盖全局输运与激波形成的算子学习难题。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.20541",
     "journal": "arXiv"
   },
   {
     "title": "Structure-Preserving Physics-Informed Neural Network for the Korteweg--de Vries (KdV) Equation",
-    "title_zh": "保结构 PINN 求解 KdV 方程",
-    "summary": "KdV 方程 PINN 通过同时约束质量和 Hamilton 能量缓解长时漂移。该思路对凝聚态中孤子、色散波及其他守恒 PDE 的神经求解器设计有参考价值。",
-    "abstract": "提出用于非线性 Korteweg–de Vries 方程的保结构 PINN，在损失函数中嵌入质量守恒与 Hamilton 能量守恒。针对常规 PINN 长时间积分易破坏物理不变量的问题，该框架约束非线性色散波传播的关键守恒量，以改善长期预测稳定性。",
+    "title_zh": "KdV 方程保结构物理信息神经网络",
+    "summary": "KdV PINN 通过质量和哈密顿量约束保持不变量。该设计强调长时动力学可信度，而非仅在短时训练点拟合 PDE 残差。",
+    "abstract": "针对非线性色散波 KdV 方程，提出保结构 PINN，在损失函数中直接嵌入质量守恒与哈密顿能量守恒。目标是缓解常规 PINN 长时间积分中物理不变量漂移，提高孤子/色散波传播预测的长期一致性。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2511.00418",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Neural Networks for solving 2D Shallow Water Equations: Accuracy Assessment Through Dambreak Benchmark Problems",
-    "title_zh": "二维浅水方程 PINN 溃坝基准",
-    "summary": "二维浅水方程 PINN 在多类溃坝基准中检验湿干界面、水跃和二维展开。该基准化评估有助于判断 PINN 在含间断和强非线性守恒律中的可靠边界。",
-    "abstract": "评估统一 PINN 框架求解二维浅水方程溃坝流，通过自动微分把连续方程和动量方程写入损失函数，无需计算网格。测试四类基准：湿/干床一维溃坝、带三角隆起并产生跨临界流和水跃的一维溃坝、二维局部溃坝等，用于检验复杂自由面流动精度。",
+    "title_zh": "二维浅水方程溃坝问题 PINN 评估",
+    "summary": "PINN 被系统用于二维浅水方程溃坝基准，覆盖干湿界面、跨临界流和二维侧向扩展。结果可检验无网格物理学习在强间断水动力中的适用边界。",
+    "abstract": "评估统一 PINN 框架求解二维浅水方程溃坝流动，通过自动微分把连续方程和动量方程写入损失函数且无需网格。测试包括湿/干床一维溃坝、三角丘上跨临界流和水跃、二维局部溃坝等 4 类基准。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10097604/latest",
     "journal": "Preprints"
@@ -137,35 +137,35 @@
   {
     "title": "Circular phonon dichroism in d-wave altermagnets",
     "title_zh": "d 波交替磁体中的圆偏振声子二色性",
-    "summary": "二维 d 波交替磁体可用有限动量圆偏振声子二色性读出 Néel 矢量，翻转 Néel 矢量使信号反号。该方案把声子手性响应引入反铁磁自旋电子学表征。",
-    "abstract": "提出有限动量圆偏振声子二色性作为二维 d 波交替磁体 Néel 矢量的直接探针。结合 Onsager 互易性与 C2z 晶格对称性，得到当面内 Néel 矢量翻转时二色信号反号；该效应利用交替磁体动量依赖自旋劈裂，解决反铁磁序读出困难。",
+    "summary": "有限动量圆偏振声子二色性可读出 d 波交替磁体 Néel 矢量。二色信号随矢量翻转变号，为反铁磁自旋电子学提供非电输运探针。",
+    "abstract": "提出用有限动量圆偏振声子二色性直接探测二维 d 波交替磁体的 Néel 矢量。结合 Onsager 互易性与 C2z 晶格对称性，发现面内声子模式的二色信号在 Néel 矢量翻转时变号，为难读出的交替磁有序提供光谱判据。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21221",
     "journal": "arXiv"
   },
   {
     "title": "Doping-induced Ferromagnetic order and its unusual evolution to Helical Antiferromagnetic Order in Sr(Ni₁₋ₓCoₓ₎₂P₂",
-    "title_zh": "Sr(Ni1-xCox)2P2 掺杂诱导磁序演化",
-    "summary": "Sr(Ni1-xCox)2P2 在特殊三分之一 P-P 塌缩结构背景下由 Co 掺杂产生铁磁并演化为螺旋反铁磁。该体系连接 122 磷族化物的化学键塌缩与非常规磁相竞争。",
-    "abstract": "研究 Sr(Ni1-xCox)2P2 中 Co 掺杂导致的磁性相图，母体 SrNi2P2 属 A(TM)2X2 族的一种三分之一塌缩结构，每三个 P-P 对中一个成键。Co 富侧出现磁性丰富相图，题名指出铁磁序由掺杂诱导，并异常演化为螺旋反铁磁序，用于考察塌缩键合与磁性的关联。",
+    "title_zh": "Sr(Ni1-xCox)2P2 掺杂诱导铁磁与螺旋反铁磁",
+    "summary": "Sr(Ni1-xCox)2P2 把一维比例的 P-P 塌缩键合与 Co 掺杂磁相图联系起来。铁磁到螺旋反铁磁的演化揭示 122 磷化物中结构键合调控磁性的复杂性。",
+    "abstract": "研究 Sr(Ni1-xCox)2P2 中 Co 掺杂对结构键合与磁性的影响。母体 SrNi2P2 属 A(TM)2X2 家族罕见三分之一塌缩结构，每三个 P-P 对中一个成键；Co 富侧形成磁性丰富相图，包含掺杂诱导铁磁及向螺旋反铁磁的异常演化。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.20663",
     "journal": "arXiv"
   },
   {
     "title": "Emergent ferromagnetism in the NiI₂₋NbSe₂ van der Waals heterostructure",
-    "title_zh": "NiI2-NbSe2 范德华异质结构的涌现铁磁性",
-    "summary": "单层 NiI2 放置在 NbSe2 上后磁基态被近邻效应重构并出现铁磁性。该结果展示了超导/磁性范德华界面调控二维多铁体自旋结构的实验路径。",
-    "abstract": "在单层多铁 NiI2 与超导 NbSe2 构成的范德华异质结构中，低温扫描隧道显微学显示 NiI2 磁基态受衬底近邻效应改变。单层 NiI2 原本因非共线自旋和强自旋轨道耦合具多铁性；结果表明与 NbSe2 接触可诱导或稳定铁磁性，为应变、栅压之外的二维多铁调控途径。",
+    "title_zh": "NiI2-NbSe2 范德华异质结构涌现铁磁性",
+    "summary": "单层 NiI2 放在 NbSe2 上后磁基态转变并涌现铁磁性。该实验展示了邻近效应调控二维多铁磁性的可行路径。",
+    "abstract": "在单层多铁 NiI2 与超导 NbSe2 衬底组成的范德华异质结构中，低温扫描隧道实验显示 NiI2 磁基态被邻近效应改变。结果表明原本非共线自旋纹理相关的二维多铁体可通过超导/金属衬底邻近作用调控，出现铁磁性。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.21218",
     "journal": "arXiv"
   },
   {
     "title": "Exceptional Points in a Parallel Double-Quantum-Dot Josephson Junction Coupled to a Ferromagnetic Reservoir",
-    "title_zh": "铁磁库耦合双量子点 Josephson 结例外点",
-    "summary": "双量子点 Josephson 结的例外点对有限超导能隙和自旋相关耗散高度敏感。该分析修正无限能隙近似下的非厄米 Andreev 谱判断，关联量子点、超导和铁磁库。",
-    "abstract": "研究平行双量子点 Josephson 结与耗散库耦合产生的例外点。积分掉引线后得到非厄米 Bogoliubov–de Gennes 描述，超导相位差和轨道磁通调控复 Andreev 谱；有限超导能隙会消除无限能隙近似下自旋无关耗散的二阶例外点，而自旋相关耗散可产生不同情形。",
+    "title_zh": "铁磁库耦合双量子点约瑟夫森结例外点",
+    "summary": "有限超导能隙修正会抹去自旋无关耗散下的二阶例外点。铁磁库引入的自旋依赖耗散则为 Andreev 能谱非厄米奇异性提供可控来源。",
+    "abstract": "研究并联双量子点约瑟夫森结耦合耗散库的例外点。积分掉电极后得到非厄米 Bogoliubov-de Gennes 描述，超导相位差和轨道磁通调控复 Andreev 能谱；有限超导能隙会消除自旋无关耗散下无限能隙近似得到的二阶例外点，而自旋依赖耗散可产生新的例外点。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.20856",
     "journal": "arXiv"
@@ -173,8 +173,8 @@
   {
     "title": "Ferromagnetic transition in a chiral spin chain",
     "title_zh": "手征自旋链中的铁磁转变",
-    "summary": "手征自旋 1/2 链在 gc=2/π 处表现为 z=3 的 Lifshitz 转变，强手征相实为部分自旋极化相。该结果澄清了一维手征磁体中临界性、手征序与铁磁极化的关系。",
-    "abstract": "研究含三站点手征项强度 g 的自旋 1/2 Heisenberg 链零温性质。已知 Bethe ansatz 给出从 g<gc=2/π 的通常临界态到 g>gc 手征相的转变；解析与计算表明转变点是动力学临界指数 z=3 的 Lifshitz 转变，手征相为部分自旋极化相，并存在铁磁转变特征。",
+    "summary": "手征自旋链在 gc=2/π 处表现 z=3 Lifshitz 转变。所谓手征相被识别为部分极化铁磁相，澄清了一维可积磁体的量子临界图像。",
+    "abstract": "研究含三格点手征项强度 g 的自旋 1/2 Heisenberg 链零温性质。结合解析与计算，确认在 Bethe ansatz 已知临界点 gc=2/π 处发生动力学临界指数 z=3 的异常 Lifshitz 转变；g>gc 的手征相实为部分自旋极化相。",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2607.20629",
     "journal": "arXiv"
