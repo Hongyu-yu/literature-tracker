@@ -1,65 +1,182 @@
 [
   {
     "title": "Charge-Density-Wave Phase Transitions in Monolayer 1T-TaS2 from Universal Machine Learning Molecular Dynamics",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "通用机器学习分子动力学研究单层1T-TaS2电荷密度波相变",
+    "summary": "用通用MLIP把DFT级声子/MD推到单层1T-TaS2的CDW相变问题上，瞄准大超胞与有限温度采样瓶颈。对低维强电子-声子耦合体系的温度结构演化建模更可行。",
+    "abstract": "结合DFT、通用机器学习原子势、分子动力学与温度依赖有效势声子计算，研究单层1T-TaS2电荷密度波相变及其随温度的结构演化；针对大超胞与有限温度采样导致的第一性原理MD瓶颈，给出可扩展方案。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.22316",
     "journal": "arXiv"
   },
   {
+    "title": "Parameter inference and uncertainty quantification with diffusion models: extending CDI to 2D spatial conditioning",
+    "title_zh": "扩散模型参数推断与不确定性量化：二维空间条件扩展",
+    "summary": "把CDI从一维时序推广到二维空间观测，能同时给出参数后验和不确定性。对成像、衍射和空间反演类问题更贴近真实测量。",
+    "abstract": "将条件扩散模型CDI扩展到二维空间条件，直接从空间观测中做参数后验推断并量化不确定性；在二维空间反问题上验证其有效性，可区分可识别参数与仍然模糊的参数。",
+    "category": "其他",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae7f7b",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Machine Learning Inference Limits of Routine Cement Characterization for CEM I Performance: Evidence From a Multi-Producer Dataset",
+    "title_zh": "CEM I常规表征的机器学习推断极限：多生产商数据证据",
+    "summary": "23家厂、27年数据表明，常规水泥表征对性能可推断信息有限，跨生产商迁移更受约束。对工业质量控制里的“能从哪些指标学到什么”给出边界。",
+    "abstract": "基于476条CEM I记录、23家欧洲生产商、单实验室27年数据，联合氧化物化学、Blaine细度、粒径分布、物理性质及Bogue/等效代数指标，分析常规表征对性能推断的上限与跨厂迁移性。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.22512",
+    "journal": "arXiv"
+  },
+  {
     "title": "A systematic study of physics-informed neural networks for the level-set interface advection",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "水平集界面对流的物理信息神经网络系统研究",
+    "summary": "这篇把PINN训练超参数做成了系统性基准研究，结论是“调度器不通用”。对界面追踪类问题，训练设计和物理约束必须按场景重配。",
+    "abstract": "对水平集界面对流的PINNs做系统消融，在四个基准TR、RO、RV、ZD上共69组实验，比较学习率调度、eikonal权重等设置。结果表明最优训练策略强依赖具体基准，调度器不能跨问题直接迁移。",
     "category": "AI×物理",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae8b74",
     "journal": "Machine Learning: Science and Technology"
   },
   {
+    "title": "Graph-Theoretic Neural Network Fragmentation with Covariant Direct Molecular Force Learning: Enabling Coupled-Cluster Accuracy AIMD for Fluxional Systems",
+    "title_zh": "图论碎片化与协变直接力学习实现耦合簇级AIMD",
+    "summary": "把耦合簇级力学习做成图论碎片化AIMD，避开能量面自动微分和link-atom Jacobian瓶颈。对大分子、构象易变体系的高精度动力学更实用。",
+    "abstract": "提出图论分子碎片化框架并与机器学习结合，直接学习后Hartree-Fock核力，目标是以耦合簇精度推进复杂流变/构象易变体系的AIMD。方法绕开对学习能量面求自动微分时可能遇到的link-atom Jacobian问题。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.21779",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Intrinsic single crystals of MnTe altermagnet",
+    "title_zh": "MnTe异磁体本征单晶",
+    "summary": "高质量MnTe单晶把反铁磁异磁转变的畴动力学从应力伪影中剥离出来。对理解本征相变过程和异磁体器件切换都很关键。",
+    "abstract": "采用自熔法生长近乎无缺陷、化学计量偏差很小的MnTe超高质量单晶，并在尽量减小应力的准自由边界条件下测量其本征性质。样品在反铁磁异磁转变附近表现出复杂且各向异性的超冷/超热畴动力学。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.21803",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Molecular Quantum Control Algorithm Design by Reinforcement Learning",
+    "title_zh": "强化学习设计分子量子控制算法",
+    "summary": "用强化学习自动设计分子量子控制脉冲，目标是从二原子推广到更复杂多原子体系。对分子精密测量和基础物理检验的控制栈更友好。",
+    "abstract": "面向分子精密测量与基本对称性破缺探测中的量子控制难题，利用强化学习设计多原子分子的控制算法，针对更复杂的振动-转动能级结构寻找稳健高效的脉冲方案。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2410.11839",
+    "journal": "arXiv"
+  },
+  {
     "title": "Universal Quantum Transformer",
-    "title_zh": "通用量子 Transformer",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "通用量子变换器",
+    "summary": "通用量子变换器瞄准离散规则而非近似拟合，覆盖模运算与非阿贝尔群代数。若能落地，可能改变量子原生模型处理组合泛化的方式。",
+    "abstract": "提出通用量子变换器，面向精确形式规则的学习，如模运算、非阿贝尔群代数和组合泛化。该量子原生架构试图摆脱经典连续空间神经网络依赖大规模参数与迟发泛化的局限。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.00045",
     "journal": "arXiv"
   },
   {
     "title": "Topology-directed optimization of block copolymer architecture for self-assembly into spherical vesicles using machine learning",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "基于拓扑导向优化的嵌段共聚物球形囊泡机器学习设计",
+    "summary": "把嵌段共聚物囊泡设计从穷举搜索改成拓扑导向优化。对可编程纳米载体与软物质反向设计更直接。",
+    "abstract": "针对两亲性嵌段共聚物自组装成球形囊泡的架构优化，利用机器学习替代昂贵网格搜索，在拓扑导向的搜索框架中直接寻找目标形貌。核心难点是如何用单一目标函数数值表征囊泡结构。",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/4/044905/3399305/Topology-directed-optimization-of-block-copolymer",
     "journal": "The Journal of Chemical Physics Current Issue"
   },
   {
     "title": "Quantum neural networks get their first hardware test",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "量子神经网络的首次硬件测试",
+    "summary": "量子神经网络开始接受硬件检验，但可运行性仍受量子平台制约。对比经典网络的这一步，更像是量子机器学习从概念走向工程的门槛测试。",
+    "abstract": "报道量子神经网络在量子硬件上的首次测试，并指出当前将神经网络真正运行在量子硬件上仍比经典实现困难得多。文章聚焦这种量子原生学习范式与经典机器学习的差异和硬件约束。",
     "category": "AI×物理",
     "link": "https://phys.org/news/2026-07-quantum-neural-networks-hardware.html",
     "journal": "Physics News"
   },
   {
-    "title": "Latent PDE mapping for efficient physics-informed learning across geometries with limited data",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2607.22215",
+    "title": "Assessing melting points from machine learning interatomic potentials using PBE and PBEsol exchange–correlation functionals",
+    "title_zh": "基于PBE与PBEsol泛函的机器学习原子势熔点评估",
+    "summary": "用MTP和两相共存法系统比较PBE与PBEsol对金属熔点的影响。对高温相稳定性与MLIP驱动热力学预测有直接参考价值。",
+    "abstract": "结合PBE与PBEsol交换-相关泛函、MTP机器学习原子势和两相共存法，计算一组精选元素金属的熔点，比较不同体系中两种泛函在凝聚能趋势下的表现差异，并覆盖结论不够明确的情形。",
+    "category": "其他",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/4/044506/3399307/Assessing-melting-points-from-machine-learning",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
+    "title": "Neptuna: A Comprehensive Machine Learning Framework for Benchmarking Complex Multiphase Flows",
+    "title_zh": "激波驱动复杂多相流基准Neptuna",
+    "summary": "Neptuna把激波、多相和尖锐界面同时纳入基准。对训练与比较复杂流体ML代理模型，是比单一算例更接近真实应用的测试台。",
+    "abstract": "提出面向激波驱动可压缩多相流的首个大规模基准Neptuna，覆盖气泡塌缩、液滴破碎等场景中的压缩性、尖锐界面和多相耦合。目标是为这类强非线性、多尺度流动的机器学习替代模型提供统一评测平台。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.22280",
     "journal": "arXiv"
   },
   {
-    "title": "A Physics-Informed Computational Framework for Forward Prediction and Inverse Closure Learning of Pore-Scale Biofilm Growth",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-10384053/latest",
-    "journal": "Preprints"
+    "title": "PIML-OFEM: A New Large-Scale Structural Analysis Method Based on Problem-Independent Machine Learning and Overlapping Finite Element Technique",
+    "title_zh": "基于问题无关机器学习和重叠有限元的PIML-OFEM大型结构分析方法",
+    "summary": "PIML-OFEM把问题无关学习嵌入重叠有限元，面向大尺度异质结构更省在线代价。对多尺度结构力学的快速求解与反向设计都更实用。",
+    "abstract": "提出PIML-OFEM，将重叠有限元与问题无关机器学习结合，用于大型异质结构的高分辨率分析与设计。相较需反复构建局部基函数的方法，该框架把各子结构保留为较少信息，并缓解了传统PIML受边界位移插值限制的问题。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.22019",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Proximity-induced Rashba spin-orbit interaction in BaMnO₃|KTaO₃ heterostructure for antiferromagnetic spintronics",
+    "title_zh": "BaMnO3|KTaO3异质结中的邻近诱导拉什巴自旋轨道耦合",
+    "summary": "通过KTaO3邻近效应给BaMnO3注入强拉什巴耦合，瞄准无杂散磁场的反铁磁自旋电子器件。把界面工程变成自旋轨道功能调控手段。",
+    "abstract": "用DFT设计BaMnO3|KTaO3异质结，借助KTaO3向BaMnO3邻近诱导强拉什巴自旋轨道耦合，使BaMnO3在费米能级附近出现显著带特征，服务于反铁磁自旋电子学器件设计。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2506.01861",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Non-linear in-plane spin current in spin-orbit coupled 2D hole gases",
+    "title_zh": "自旋轨道耦合二维空穴气中的非线性面内自旋流",
+    "summary": "这篇把面内自旋流从一阶推进到二阶几何响应，源头是自旋贝里曲率极化率。对二维自旋轨道体系的非线性输运建模更完整。",
+    "abstract": "证明对具有时间反演对称的通用二维体系，线性面内自旋流消失，而二阶面内自旋流存在，其本征来源是自旋贝里曲率极化率。将该形式用于具有k^3拉什巴耦合的二维空穴气后，可得到具体的二阶输运响应。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2506.14890",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Interplay of Anisotropy, Dzyaloshinskii Moriya Interaction and Symmetry breaking Fields in a 2D XY Ferromagnet",
+    "title_zh": "各向异性、DM相互作用与对称破缺场耦合的二维XY铁磁体",
+    "summary": "各向异性和DM相互作用会重塑二维XY模型的KT转变。对手征磁性与二维磁序调控的相图理解更细。",
+    "abstract": "对二维经典XY铁磁体做Monte Carlo系统研究，纳入各向异性交换、DM相互作用以及对称破缺场，考察它们如何共同影响Kosterlitz-Thouless转变及涡旋-反涡旋主导的准长程序。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2604.04104",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Switchable Altermagnetism via Spin-Induced Improper Polarization",
+    "title_zh": "通过自旋诱导非本征极化实现可切换异磁性",
+    "summary": "用自旋诱导的非本征极化，在非极性DyFeO3中实现可切换异磁性设想。把极化开关和自旋分裂翻转绑定，拓宽了可设计材料空间。",
+    "abstract": "提出基于自旋诱导非本征极化的可切换异磁性方案，突破仅限极少数极性材料的限制。以非极性双子晶格磁体DyFeO3为例，DFT表明非极性的Fe与Dy自旋模乘积可转化为诱导极化模，Dy-Fe相对排布决定极化方向。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.21930",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Real and momentum space analysis of topological phases in 2D d-wave altermagnets",
+    "title_zh": "二维d波异磁体拓扑相的实空间与动量空间分析",
+    "summary": "这篇把二维d波异磁体的拓扑相变和狄拉克节点一起梳理清楚。对理解异磁体中的边界态与相图组织方式很有帮助。",
+    "abstract": "基于紧束缚哈密顿量，从实空间与动量空间系统分析二维d波异磁体的拓扑相，刻画在临界同子晶格跃迁强度t_a^C处发生的相变，并讨论狄拉克节点及其演化。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2602.04854",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Quasi-Two-Dimensional Quantum Antiferromagnetism in the Distorted Honeycomb Compound KCuIn(PO4)2",
+    "title_zh": "扭曲蜂窝化合物KCuIn(PO4)2中的准二维量子反铁磁性",
+    "summary": "KCuIn(PO4)2被刻画为带隙绝缘的准二维量子反铁磁体。实验、DFT和QMC三线并进，给出局域磁矩、交换与各向异性的一致图景。",
+    "abstract": "结合实验、第一性原理和量子蒙特卡洛，研究扭曲蜂窝化合物KCuIn(PO4)2的电子结构与磁性。GGA+U表明其为间接带隙绝缘体，具有Cu2+局域磁矩和由自旋轨道耦合导致的有限磁晶各向异性；磁交换由磁力定理定量评估。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.21868",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Symmetry-Adapted Physical and Vibrational Properties of Ferroelectric Perovskite Oxides: Application to PbZrxTi1-xO3",
+    "title_zh": "铁电钙钛矿PZT的对称性适配物性与振动特性",
+    "summary": "用群论把PZT的物性张量、振动模和拉曼选择定则统一起来。对铁电相变附近的对称性约束分析尤其直接。",
+    "abstract": "利用张量分析与群论，从晶体点群对称性直接推出允许的物性张量、振动模对称性和拉曼选择定则，并应用于铁电钙钛矿PZT。随着相图中的对称性降低，可独立的热释电、介电与压电张量分量数量增加。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.21682",
+    "journal": "arXiv"
   }
 ]
