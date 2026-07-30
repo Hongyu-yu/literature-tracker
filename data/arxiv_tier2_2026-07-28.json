@@ -1,56 +1,182 @@
 [
   {
+    "title": "Interplay of Spin Waves, Crystal-Field Excitations, and Phonons in Multiferroic Ba3HoRu2O9 revealed by Inelastic Neutron Scattering, Crystal-Field Analysis, and Machine-Learned Phonon Calculations",
+    "title_zh": "Ba3HoRu2O9中自旋波晶场声子耦合",
+    "summary": "Ba3HoRu2O9 的 INS 谱由自旋波、Ho3+ 晶场激发和声子共同构成，需联合自旋波与机器学习声子计算才能拆分。该工作给出 4d-4f 多铁氧化物中磁-电-晶格耦合的可操作谱学判据。",
+    "abstract": "针对 4d-4f 多铁氧化物 Ba3HoRu2O9 中能量重叠的磁、晶场与晶格激发，结合非弹性中子散射、线性自旋波、Ho3+ 晶场分析和机器学习声子计算分解谱权重。Ru2O9 分子单元与局域 Ho3+ 磁矩共存，使自旋-偶极耦合及高能激发可在同一能区内被区分。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.23490",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Tangent-Plane Evidential Uncertainty in Active Learning for Magnetic Interatomic Potentials",
+    "title_zh": "磁性原子势主动学习的切平面不确定性",
+    "summary": "方法把磁矩约束几何显式纳入证据不确定性，在切平面评估自旋力置信度。对构建磁性 MLP，核心价值在于主动学习不再只看能量/力误差，而关注驱动自旋翻转的物理量。",
+    "abstract": "面向含晶格与非共线自旋自由度的磁性机器学习原子间势，将 e²IP 证据框架扩展到投影自旋力似然，在自旋单位球切平面上定义与自旋重取向相关的不确定性。目标是减少昂贵非共线第一性原理标注，并让主动学习优先采样磁响应误差大的构型。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2605.12353",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Combined Tight Binding with Machine Learning Potential Model for Magnesium Compounds",
+    "title_zh": "镁化合物的紧束缚机器学习势模型",
+    "summary": "DFTB+MACE 将半经验电子结构与多体机器学习势拼接，直接学习 DFT-DFTB 残差。对 MgO-CO2 等镁化合物界面反应，提供了比纯 DFTB 更灵活的结构优化路径。",
+    "abstract": "提出 DFTB+MACE 镁基体系模型，用多体 MACE 替代传统 DFTB 成对排斥势。MACE 训练 DFT 与去除成对排斥项后的 DFTB 能量、力差值，用于 MgO-CO2 吸附等结构弛豫任务，在保留紧束缚电子结构效率的同时补偿 DFTB 系统误差。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2606.25853",
+    "journal": "arXiv"
+  },
+  {
     "title": "Aligning Heterogeneous DFT Datasets: A Graph Neural Network Approach to Cross-Functional Formation Energies",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "异构 DFT 数据的GNN形成能对齐",
+    "summary": "工作直面多源 DFT 数据库的能标不一致问题，用 GNN 学习跨泛函形成能偏移。PBE-r2SCAN 平均 107 meV/atom 的差异说明，材料大模型训练前的数据对齐已是精度瓶颈。",
+    "abstract": "针对不同泛函、截断能、赝势和色散修正导致的形成能系统偏差，构建 GNN 跨方法能量对齐框架。MatPES 中相同结构的 PBE 与 r2SCAN 平均能量差达 107 meV/atom，量级足以阻碍多源数据合并；模型目标是把异构 DFT 数据映射到可比形成能尺度。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.24327",
     "journal": "arXiv"
   },
   {
+    "title": "Benchmarking universal machine learning interatomic potentials on elemental systems",
+    "title_zh": "元素体系通用机器学习原子势基准",
+    "summary": "该 npj Computational Materials 工作系统评估通用 MLP 在元素体系上的表现。对材料模拟社区，单质基准有助于识别通用势在相稳定性、缺陷和高温构型中的真实适用边界。",
+    "abstract": "在元素体系上基准测试通用机器学习原子间势，比较其在不同元素结构、能量/力预测和可能的结构弛豫任务中的表现。题目指向通用 MLP 在单质化学空间内的可迁移性、稳定性与误差分布评估，但摘要未给出具体模型名单和数值结论。",
+    "category": "AI×化学·材料",
+    "link": "https://www.nature.com/articles/s41524-026-02251-2",
+    "journal": "npj Computational Materials"
+  },
+  {
+    "title": "Exploring fixed points and eigenstates of quantum systems with reinforcement learning",
+    "title_zh": "用强化学习探索量子不动点和本征态",
+    "summary": "强化学习被用于直接学习量子操作不动点基，而不是显式对角化矩阵。对量子多体和量子算法，测量驱动的本征态搜索可作为小规模量子硬件上的变分替代方案。",
+    "abstract": "设计强化学习算法寻找给定量子操作的不动点，通过基于量子测量的奖惩机制迭代构造把计算基映射到不动点基的幺正变换。若量子操作为哈密顿演化，任务等价于求哈密顿本征态；算法先在二、三量子比特随机哈密顿量上测试，再用于具体量子系统。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2511.17491",
+    "journal": "arXiv"
+  },
+  {
     "title": "Machine Learning of Quantum Entanglement from Noisy Measurements",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "从含噪测量机器学习量子纠缠",
+    "summary": "工作把两量子比特纠缠学习限制在 16 维 SIC-POVM 计数空间，并显式考虑泊松噪声。它更接近光子实验读出场景，可减少对完整量子态层析的依赖。",
+    "abstract": "利用机器学习从偏振纠缠光子对的 SIC-POVM 模拟测量数据识别并定量表征两量子比特纠缠。每个量子态由 16 维、对应实验符合计数的测量向量表示，并加入泊松散粒噪声，以检验分类或回归模型在实验可及噪声下的纠缠判别能力。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.22853",
     "journal": "arXiv"
   },
   {
     "title": "Machine Learning on Heterogeneous, Edge, and Quantum Hardware for Particle Physics (ML-HEQUPP)",
-    "title_zh": "面向粒子物理的异构、边缘与量子硬件机器学习（ML-HEQUPP）",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "粒子物理异构边缘量子硬件机器学习",
+    "summary": "该综述把粒子物理实验的实时数据链路与边缘/异构/量子机器学习连接起来。虽然不属凝聚态核心问题，其低延迟推理和硬件协同设计经验可借鉴到大科学装置与原位材料表征。",
+    "abstract": "ML-HEQUPP 白皮书讨论下一代粒子物理实验的数据获取挑战：空前数据率、数据量、极端环境和运行约束要求实时推理、智能压缩与高效处理架构。重点覆盖 AI/ML 在异构计算、边缘设备和量子硬件上的部署，用于触发、探测器读出和快速决策。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2602.22248",
     "journal": "arXiv"
   },
   {
+    "title": "SERS Chemical Tongue for Rapid Detection of Chili Oils Assisted with a Convolutional Neural Network",
+    "title_zh": "CNN辅助 SERS 化学舌快速检测辣椒油",
+    "summary": "CPD 功能化 MNP@Ag 阵列把 SERS 化学舌扩展到非极性油相，并用 CNN 解析复杂指纹谱。该传感范式体现了纳米界面化学与小样本谱学机器学习的结合。",
+    "abstract": "构建 SERS 化学舌检测复杂非极性辣椒油基质，由三种碳化聚合物点功能化磁核-银壳纳米粒子 MNP@Ag-CPDA、MNP@Ag-CPDAB、MNP@Ag-CPDH 组成，并配合定制 CNN。共价锚定 CPD 作为通用受体，提高银表面在油相中的稳定性并增强谱图区分能力。",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-10186586/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "Physics-Informed Neural Networks for Predicting Nitrous Oxide Flux",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "预测氧化亚氮通量的物理信息神经网络",
+    "summary": "PINN 被引入农业 N2O 通量预测，目标是在过程模型和经验机器学习之间建立物理约束桥梁。对 AI for science，关键在于将守恒或动力学先验嵌入稀疏环境观测。",
+    "abstract": "面向农业过程贡献超过 70% 的 N2O 排放，探索 PINN 预测氧化亚氮通量。背景模型包括 DayCent、Cycles 等过程模型和经典 AI；该工作将物理约束神经网络用于 N2O 通量估计，以把微生物/土壤过程约束与数据驱动拟合结合。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.23880",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Neural Networks for Discovering Periodic Orbits in the Gravitational Three-Body Problem",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "PINN发现三体问题周期轨道",
+    "summary": "PINN 在混沌三体系统中从稀疏噪声数据恢复周期轨道，甚至外推出未见轨道族。该结果凸显物理残差与频域特征结合后，可缓解非线性动力系统对精确初猜的依赖。",
+    "abstract": "用 PINN 在无初始条件且仅有稀疏含噪观测的情况下恢复引力三体问题周期轨道，包括训练数据中不存在的轨道族。方法采用二阶 ODE 形式、固定频率傅里叶特征和基于百分位数的自适应细化，避免传统延拓或梯度搜索对近邻初猜的强依赖。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.23501",
     "journal": "arXiv"
   },
   {
     "title": "Variational Boosting for Physics-Informed Neural Networks",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "物理信息神经网络的变分提升",
+    "summary": "变分提升把 PINN 从一次性大网络训练改为逐步函数空间校正。对刚性或多尺度 PDE，局域正交的弱学习器可能比单体 PINN 更稳定、更易诊断。",
+    "abstract": "提出 PINN 的变分提升框架，将微分方程解在函数空间中加性构造。每一阶段训练一个弱学习器，其收敛修正满足局域正交条件，等价于在非线性算子残差上的投影泛函梯度下降，以缓解单体 PINN 的病态条件、谱偏置和优化不稳定。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.23940",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Oxygen-induced Fe surface segregation at the L1₀₋FePd(001)/graphene heterointerface for spintronics devices: a first-principles study",
+    "title_zh": "FePd/石墨烯界面氧诱导 Fe 偏析",
+    "summary": "FePd(001)/石墨烯界面并非简单延续真空表面稳定性，氧会驱动 Fe 表面偏析。该结论对 FePd/Gr 自旋注入界面的制备气氛与终止层控制很直接。",
+    "abstract": "用 DFT 研究自旋电子器件相关 L10 有序 FePd(001)/石墨烯异质界面的原子结构。真空中 Pd 终止表面比 Fe 终止更稳定，但 Pd 终止不利于石墨烯吸附；氧存在可诱导 Fe 向表面偏析，从而改变 L10-FePd(001)/Gr 界面终止与结合特性。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2502.00328",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetic Bulk Photovoltaic Effect in Bernal Bilayer Graphene",
+    "title_zh": "Bernal双层石墨烯磁性体光伏效应",
+    "summary": "该工作系统区分面内场与垂直场对 Bernal 双层石墨烯位移电流的作用。结果表明磁场可调非线性光电响应，但面内场主要改写谱权重而非体能带。",
+    "abstract": "研究反演破缺 AB 堆垛双层石墨烯在面内和垂直磁场下的位移电流响应，覆盖微扰到强轨道量子化，并比较二维体相与有限纳米带。面内场表现为两层相反动量平移，体能带几乎不变，仅重分配频率依赖谱；弱垂直场用规范协变处理，强场进入量子化响应。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2511.20498",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Non-Quantum-Critical Routes to Magnetic Superconductivity",
+    "title_zh": "磁性超导的非量子临界路径",
+    "summary": "文章挑战“磁性超导必由量子临界性驱动”的常见图像，转向能量竞争与重排机制。它为无明显 QCP 的非常规超导相图提供了更宽的理论解释空间。",
+    "abstract": "针对许多电子超导体系缺少可见 QCP 但仍出现 Tc 圆顶的问题，建立能量学框架解释磁性超导可不依赖磁量子临界点产生。重点考察超导凝聚能远小于磁有序能标时，超导为何在特定参数区间出现，以替代单纯由临界涨落配对的解释。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2506.18996",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Observation of correlation-driven topological transport and robust ferromagnetism in 2D CrS₂",
+    "title_zh": "二维 CrS2 中关联拓扑输运与稳健铁磁",
+    "summary": "1T-CrS2 同时呈现室温以上面外铁磁、350 K 负磁阻和低温拓扑霍尔效应。它把可生长二维 vdW 磁体与关联拓扑输运连接起来，是自旋电子学候选材料。",
+    "abstract": "首次无催化 CVD 生长层状 1T-CrS2，获得稳定 vdW 铁磁体，具有面外易轴且居里温度高于室温。输运显示约 80 K 的半金属-绝缘体交叉、最高 350 K 的显著负磁阻，并在低温出现拓扑霍尔效应，指向关联驱动的非平庸自旋纹理或拓扑输运。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.23625",
+    "journal": "arXiv"
+  },
+  {
+    "title": "D-Wave Phonon Angular Momentum Texture in Altermagnets by Magnon-Phonon Hybridization",
+    "title_zh": "交替磁体中d波声子角动量纹理",
+    "summary": "交替磁体中的各向异性磁振子劈裂可通过界面 DMI 转化为 d 波声子角动量纹理。该机制把非相对论自旋劈裂与手性声子控制联系起来。",
+    "abstract": "理论研究二维方晶格 d 波交替磁体中的磁振子与声子在自旋-晶格相互作用下的耦合。交替磁体的磁振子能带无需相对论或偶极自旋相互作用即可在动量空间各向异性自旋劈裂；界面 Dzyaloshinskii-Moriya 相互作用可诱导声子手性选择性磁振子-声子杂化，使杂化准粒子携带有限声子角动量。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2511.08357",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Hybrid-parity sliding multiferroics",
+    "title_zh": "混合宇称滑移多铁体",
+    "summary": "工作把滑移铁电性与混合宇称非相对论自旋劈裂统一到同一多铁平台。电控层间滑移可切换特定 NSS 分量，为二维自旋纹理可重构器件给出对称性路线。",
+    "abstract": "提出混合宇称滑移多铁体：层间滑移产生的自发铁电极化与若干混合宇称非相对论自旋劈裂分量耦合。对称性分析表明，电场驱动的可逆层间滑移可翻转特定 NSS 分量，实现对非常规磁性自旋纹理的非易失电控。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.24337",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Pair-Density Wave from Doping an Altermagnetic Mott Insulator",
+    "title_zh": "掺杂交替磁 Mott 绝缘体的配对密度波",
+    "summary": "DMRG 显示掺杂交替磁 Mott 绝缘体可形成 PDW，而非仅有均匀超导。该结果把交替磁交换各向异性引入强关联超导机制，扩展了 PDW 的候选母态。",
+    "abstract": "用大规模 DMRG 研究棋盘 t-J 模型中掺杂交替磁 Mott 绝缘体，交替磁交换各向异性由各向异性铁磁次近邻交换微观编码。主要在六腿柱面上扫描掺杂和交替磁各向异性，得到基态相图，并识别有限波矢调制超导序参量的配对密度波相及其相变。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.23654",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetic anisotropy in the near-stoichiometric van der Waals ferromagnet Fe₃GeTe₂",
+    "title_zh": "近化学计量 Fe3GeTe2 的磁各向异性",
+    "summary": "宽频 ESR 给出 Fe3.03±0.03GeTe2 的磁各向异性和自旋动力学约束。近化学计量样品减少 Fe 空位不确定性，有助于厘清 Fe3GeTe2 的本征二维巡游铁磁行为。",
+    "abstract": "对近化学计量单晶 Fe3.03±0.03GeTe2 进行宽频率、温度和磁场范围 ESR 测量，定量分析准二维 vdW 金属铁磁体的磁各向异性与自旋动力学。Fe3-xGeTe2 具有较高居里温度和稳健金属性，该样品接近化学计量，有利于区分本征各向异性与 Fe 缺陷效应。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.24543",
     "journal": "arXiv"
   }
 ]

@@ -5,49 +5,60 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-07-09.html</link>
     <description>2026-07-09 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Thu, 30 Jul 2026 05:14:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 30 Jul 2026 06:57:06 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-07-09.xml" rel="self" type="application/rss+xml"/>
     <item>
-        <title>Siamese Neural Network for Label-Efficient Critical Phenomena Prediction in 3D Percolation Models</title>
+        <title>用于三维渗流模型临界现象低标注预测的孪生神经网络</title>
         <link>https://arxiv.org/abs/2507.14159</link>
         <description><![CDATA[📚 arXiv
 
 👤 Shanshan Wang, Dian Xu, Jianmin Shen, Feng Gao, Wei Li, Weibing Deng
 
-arXiv:2507.14159v2 Announce Type: replace Abstract: Predicting critical phenomena from limited labeled data remains a challenging task in statistical physics. As percolation theory provides a canonical model for phase transitions with well-established critical exponents, it serves as an ideal benchmark for validating new machine learning frameworks. Here, we introduce a label-efficient learning framework based on a Siamese Neural Network (SNN) to identify phase transitions in three-dimensional site and bond percolation models. Using only 22 labeled probability points drawn entirely from non-critical regions, the method locates percolation thresholds with percent-level accuracy and yields estimates of the critical exponent ν consistent with literature values within statistical uncertainty.…]]></description>
+该工作提出一种基于孪生神经网络的低标注学习框架，用于识别三维位点和键渗流模型中的相变。方法仅使用来自非临界区域的少量标注概率点，就能以百分比量级精度定位渗流阈值，并给出与文献一致的临界指数 ν 估计。表征分析显示，网络虽只接受二元相似性标签训练，却自发学习到与归一化最大团簇尺寸高度相关的有限尺寸序参量。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2507.14159</guid>
     </item>
     <item>
-        <title>A Multi-Scale Machine Learning Framework for Coupled Chemical, Spin, and Structural Disorder in Alloys</title>
+        <title>解码磁性织构</title>
+        <link>https://arxiv.org/abs/2607.07685</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Michael P. Path, Jeffrey McCord, Michael Vogel
+
+该研究利用受控磁光推断实验，从铋取代钇铁石榴石薄膜中高对比度、像素分辨的光学偏振图像重建磁场、温度与磁历史。作者结合深度卷积神经网络和基于人工设计物理可解释特征的神经网络推断，分析磁畴形貌与外部刺激之间复杂、非线性且受滞后影响的关系。结果表明，磁性织构可作为高保真信息载体，用于反推出材料所经历的外部条件。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.07685</guid>
+    </item>
+    <item>
+        <title>用于合金中化学、自旋与结构无序耦合研究的多尺度机器学习框架</title>
         <link>https://arxiv.org/abs/2607.07456</link>
         <description><![CDATA[📚 arXiv
 
 👤 Zhenyao Fang, Qimin Yan
 
-arXiv:2607.07456v1 Announce Type: new Abstract: Understanding the thermodynamic properties of disordered magnetic alloys requires a unified treatment of configurational (chemical, spin, etc.) and structural degrees of freedom, which has remained beyond the scope of existing computational frameworks. Here we present a general framework that integrates machine learning models (such as graph neural networks and machine learning interatomic potentials) and statistical sampling methods (such as Monte Carlo and molecular dynamics simulations) to study the coupled chemical, spin, and structural disorder in alloys. We demonstrate the framework on body-centered-cubic Fe-Co alloys with interstitial carbon dopants, where the Fe-Co host exhibits intrinsic chemical and spin disorder, and the interstit…]]></description>
+该工作提出一种结合图神经网络、机器学习原子间势以及蒙特卡洛/分子动力学采样的通用框架，用于统一处理合金中的化学、自旋和结构自由度。作者以含间隙碳的体心立方 Fe-Co 合金为例，研究宿主的化学与自旋无序以及碳掺杂引起的局域晶格畸变。该框架预测的有序-无序相变温度和熔点分别约为 1000 K 和 1690 K，与实验值高度一致，显示出处理多重无序磁性合金热力学性质的潜力。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07456</guid>
     </item>
     <item>
-        <title>Machine Learning Materials Properties by Encoding Orbital-Projected Density of States</title>
+        <title>通过编码轨道投影态密度进行材料性质机器学习</title>
         <link>https://arxiv.org/abs/2607.07339</link>
         <description><![CDATA[📚 arXiv
 
 👤 Paulo Pires, Pierre-Paul De Breuck, Mauro Fava, Hai-Chen Wang, Miguel A. L. Marques
 
-arXiv:2607.07339v1 Announce Type: new Abstract: Graph neural networks have become the dominant machine-learning architecture for predicting materials properties from crystal structures. Yet the initialization of atomic node features has received comparatively little attention, and conventional approaches rely on static elemental descriptors that carry no information about the quantum-mechanical electronic environment of each atom in its crystalline host. Here we show that augmenting atomic node representations with site-projected orbital density of states (pDOS) fingerprints, computed directly from density functional theory calculations, yields systematic and substantial improvements in predictive performance.These representations are fused with Pettifor elemental embeddings at each atomi…]]></description>
+该研究提出将由密度泛函理论计算得到的位点投影轨道态密度指纹加入图神经网络的原子节点表示，以改进材料性质预测。该表示与 Pettifor 元素嵌入在每个原子位点融合后再进行消息传递，相比仅使用静态元素描述符能更好反映晶体中原子的量子电子环境。对于超导临界温度和光学介电常数预测，pDOS 增强分别将误差降低 22.9% 和 27.9%，效果接近于将训练集规模翻倍；不过提升幅度依赖训练数据量。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07339</guid>
     </item>
     <item>
-        <title>DeepH-pack: a general-purpose neural network package for deep-learning electronic structure calculations</title>
+        <title>DeepH-pack：用于深度学习电子结构计算的通用神经网络软件包</title>
         <link>https://www.nature.com/articles/s41524-026-02219-2</link>
         <description><![CDATA[📚 npj Computational Materials
 
 👤 Yang Li, Yanzhen Wang, Boheng Zhao, Xiaoxun Gong, Yuxiang Wang, Zechen Tang 等18位作者
 
-npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-026-02219-2 DeepH-pack: a general-purpose neural network package for deep-learning electronic structure calculations]]></description>
+该工作介绍 DeepH-pack，一个面向深度学习电子结构计算的通用神经网络软件包。由于原摘要仅包含题名和出版元数据，具体模型架构、支持的材料体系和基准测试结果需查阅原文。根据题名，该软件包旨在为利用神经网络预测或加速电子结构相关量的研究提供通用工具。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.nature.com/articles/s41524-026-02219-2</guid>
     </item>
@@ -70,13 +81,35 @@ npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S001046552600264X?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>Fine-tuning universal machine learning potentials for transition state search in surface catalysis</title>
+        <title>BatteryMat：用于锂离子正极材料平均电压筛选的分层机器学习与DFT框架</title>
+        <link>https://arxiv.org/abs/2607.06645</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jaehyung Lee, Charles Rhys Campbell, Kent Zhang, Kamal Choudhary
+
+该文提出 BatteryMat，一个结合机器学习、力场脱锂曲线和自动化密度泛函理论计算的三层框架，用于快速筛选锂离子电池正极材料的平均电压。其以 ALIGNN 作为初筛信号，再用 ALIGNN-FF 与 PBE+U 或 optB88-vdW+U 超胞 DFT 验证候选材料，并自动选择交换-相关泛函与重新计算锂金属参考能。作者报告 ALIGNN 对力场标签具有较高蒸馏精度，但强调这反映的是对力场协议的拟合，而非直接等同于 DFT 或实验一致性。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.06645</guid>
+    </item>
+    <item>
+        <title>机器学习原子间势真的实用吗？23 种主流模型的基准测试</title>
+        <link>https://arxiv.org/abs/2607.07647</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Hanwen Kang, Tenglong Lu, Sheng Meng, Miao Liu
+
+该研究指出现有机器学习原子间势基准多强调静态精度，而忽视推理效率和硬件可扩展性。作者在低成本 NVIDIA DGX Spark 平台上，以统一 ASE 流程和固定 192 原子体系测试 23 种主流开源模型，评估预测精度、分子动力学吞吐量和原子数可扩展性。结果显示高精度大型模型相较轻量模型仅提升约 3–5 meV/atom，却可能牺牲数个数量级的吞吐量；轻量模型更常位于精度-效率 Pareto 前沿，说明未来模型发展应同时重视效率、可扩展性与精度。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.07647</guid>
+    </item>
+    <item>
+        <title>面向表面催化过渡态搜索的通用机器学习势微调</title>
         <link>https://www.nature.com/articles/s41524-026-02228-1</link>
         <description><![CDATA[📚 npj Computational Materials
 
 👤 Raffaele Cheula, Mie Andersen, John R. Kitchin
 
-npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-026-02228-1 Fine-tuning universal machine learning potentials for transition state search in surface catalysis]]></description>
+该工作围绕表面催化中过渡态搜索问题，探讨如何对通用机器学习势进行微调以提升其在相关化学反应路径中的适用性。由于原摘要仅提供题名和出版信息，具体方法、数据集和性能结论需查阅原文。总体上，该研究可能关注机器学习势在催化反应能垒和过渡态定位中的计算效率与精度。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.nature.com/articles/s41524-026-02228-1</guid>
     </item>
@@ -99,13 +132,13 @@ npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0927025626004295?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>The comparison between the Pt-Rh thermodynamic database from machine learning interatomic potential and first-principles calculations</title>
+        <title>基于机器学习原子间势与第一性原理计算的 Pt-Rh 热力学数据库比较</title>
         <link>https://www.nature.com/articles/s41524-026-02212-9</link>
         <description><![CDATA[📚 npj Computational Materials
 
 👤 Arkapol Saengdeejing, Ryoji Sahara, Hiori Kino, Yoshiyuki Kawazoe, Kazuyuki Higashino, Toyohiro Chikyow
 
-npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-026-02212-9 The comparison between the Pt-Rh thermodynamic database from machine learning interatomic potential and first-principles calculations]]></description>
+该研究比较了由机器学习原子间势和第一性原理计算得到的 Pt-Rh 合金热力学数据库。原摘要仅提供题名与出版信息，因此具体比较指标、误差分析和适用范围需查阅原文。该工作可能旨在评估机器学习势在合金热力学性质预测中的可靠性与效率。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.nature.com/articles/s41524-026-02212-9</guid>
     </item>
@@ -119,57 +152,46 @@ npj Computational Materials, Published online: 09 July 2026; doi:10.1038/s41524-
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0927025626004131?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>Are Machine Learning Interatomic Potentials Truly Practical? A Benchmark of 23 Mainstream Models</title>
-        <link>https://arxiv.org/abs/2607.07647</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Hanwen Kang, Tenglong Lu, Sheng Meng, Miao Liu
-
-arXiv:2607.07647v1 Announce Type: new Abstract: Most MLIP benchmarks reward static accuracy while ignoring inference efficiency and hardware scalability -- driving model bloat with unclear real-world value. We benchmark 23 mainstream open-source MLIPs on a low-cost NVIDIA DGX Spark (128 GB native memory, capped at 80 GB to mimic ordinary lab hardware), using a fixed 192-atom system under a unified ASE-based pipeline. We evaluate three dimensions: predictive accuracy, MD simulation throughput, and atomic scalability. Our results expose a sharp accuracy-efficiency trade-off: large SOTA models deliver only 3-5 meV/atom more accuracy than lightweight ones, but lose orders of magnitude in throughput -- in the worst case, becoming only marginally faster than DFT itself. Lightweight MLIPs, by co…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.07647</guid>
-    </item>
-    <item>
-        <title>An Hybrid Quantum-Classical Diffusion Model for Image Generation</title>
+        <title>用于图像生成的混合量子-经典扩散模型</title>
         <link>https://arxiv.org/abs/2607.07072</link>
         <description><![CDATA[📚 arXiv
 
 👤 Qipeng Qian, Keli Deng, Yuntao Qian
 
-arXiv:2607.07072v1 Announce Type: new Abstract: Quantum diffusion models provide a physics-consistent route to generative learning by formulating noising and denoising directly on quantum states. However, applying such models to classical high-dimensional data is constrained by the qubit cost of state encoding and the computational burden of simulating large density operators. We propose a scalable hybrid generative pipeline that combines a classical autoencoder for dimensionality reduction with a mixed-state quantum denoising diffusion probabilistic model (MSQuDDPM) operating in the learned latent space. The autoencoder compresses data into compact latent codes that can be embedded into a small-qubit Hilbert space, after which the quantum diffusion model learns a generative distribution…]]></description>
+该文提出一种可扩展的混合生成流程，将经典自编码器用于降维，并在学习到的潜在空间中运行混合态量子去噪扩散概率模型。方法通过将潜在编码嵌入小量子比特希尔伯特空间，缓解高维经典数据量子态编码与密度算符模拟的成本问题。作者还通过预测时间步上的干净态估计并采用解析反向传播规则来简化反向动力学，并在 MNIST 图像生成任务上进行验证。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07072</guid>
     </item>
     <item>
-        <title>Physics-inspired transformer quantum states via latent imaginary-time evolution</title>
+        <title>通过潜在虚时演化构建物理启发的 Transformer 量子态</title>
         <link>http://link.aps.org/doi/10.1103/bjxb-8tsk</link>
         <description><![CDATA[📚 Phys. Rev. Research
 
 👤 Kimihiro Yamazaki, Itsushi Sakata, Takuya Konishi, and Yoshinobu Kawahara
 
-Author(s): Kimihiro Yamazaki, Itsushi Sakata, Takuya Konishi, and Yoshinobu Kawahara Neural quantum states (NQS) are powerful ansätze in the variational Monte Carlo framework, yet their architectures are often treated as black boxes. We propose a physically transparent framework in which NQS are treated as neural approximations to latent imaginary-time evolution. This viewpoint sugg… [Phys. Rev. Research 8, 033032] Published Thu Jul 09, 2026]]></description>
+本文提出一种具有物理可解释性的神经量子态框架，将神经量子态视为对潜在虚时演化过程的神经近似。该视角为设计基于 Transformer 的量子态 Ansatz 提供了物理动机，有助于减少神经网络结构作为黑箱使用的问题。研究聚焦于变分蒙特卡罗中的神经量子态建模，具体性能和实验细节需结合原文进一步查看。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/bjxb-8tsk</guid>
     </item>
     <item>
-        <title>Quantum compiling with reinforcement learning on a superconducting processor</title>
+        <title>在超导处理器上利用强化学习进行量子编译</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae835e</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 Z T Wang, Qiuhao Chen, Yuxuan Du, Z H Yang, Xiaoxia Cai, Kaixuan Huang, Jingning Zhang, Kai Xu, Jun Du, Yinan Li, Yuling Jiao, Xingyao Wu, Xiliang Lu, Huikai Xu, Yirong Jin, Ruixia Wang, Haifeng Yu and S P Zhao
 
-Effectively implementing quantum algorithms on noisy intermediate-scale quantum (NISQ) processors is a central task in modern quantum technology. NISQ processors feature tens to a few hundreds of noisy qubits with limited coherence times and gate operations with errors, so NISQ algorithms naturally require employing circuits of short lengths via quantum compilation. Here, we evaluate a reinforcement learning (RL)-based quantum compiler on a superconducting processor. Our experiments reveal that for two-qubit circuits, the RL-based compiler surpasses conventional methods, demonstrating its ability to discover hardware-amenable circuits with near-optimal lengths. However, for three-qubit circuits, the RL-based compiler does not achieve unity theoretical fidelity. To address this limitation,…]]></description>
+该研究在超导量子处理器上评估了基于强化学习的量子编译器，目标是在噪声中等规模量子设备上生成更短、更适配硬件的量子线路。实验显示，对于双量子比特线路，该方法优于传统编译方法；但在三量子比特线路中理论保真度不足。作者进一步结合变分策略，形成变分强化学习编译器，在严格硬件约束下仍能稳定找到近最优线路，并分析退相干与门误差的影响。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae835e</guid>
     </item>
     <item>
-        <title>Quantum machine learning performance evaluation for air pollution assessment with benchmarking and comparative analysis using multi-metric scoring and quantum circuit expressibility</title>
+        <title>基于多指标评分与量子线路表达能力的空气污染评估量子机器学习性能评价</title>
         <link>https://www.researchsquare.com/article/rs-10290235/latest</link>
         <description><![CDATA[📚 Preprints
 
 👤 Jagadish Kumar Mogaraju
 
-Our study proposes the MDQ-3L framework, a multi-metric, quantum-aware hierarchy for benchmarking classical machine learning, deep learning, and quantum machine learning models in air quality prediction. PM2.5, PM10, NO, NO2, NOx, NH3, CO, SO2, O3, Benzene, Toluene, and Xylene were considered predictors of AQI. Seventeen ML regressors, nine DL models, and seven QML circuits were evaluated using MAE, MSE, RMSE, R², RMSLE, MAPE, and QML-specific expressibility (0.739-2.0) and entangling power (0-0.398). Aggregated via min-max normalization and weights, the framework penalizes negative R² and high structural costs, yielding CatBoost and DBN as top performers, while QML trailed by 25–40% in composite scores due to generalization gaps and barren plateau risks. MDQ-3L aligns circuits to targets…]]></description>
+该研究提出MDQ-3L框架，用于在空气质量预测中对经典机器学习、深度学习和量子机器学习模型进行多指标、量子感知的基准评估。研究以多种污染物作为AQI预测变量，综合MAE、MSE、RMSE、R²等回归指标以及量子线路表达能力和纠缠能力进行评分。结果显示CatBoost和DBN表现最佳，而量子机器学习模型在当前NISQ约束下因泛化差距和贫瘠高原风险而落后，但低纠缠线路设计可能带来改进空间。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10290235/latest</guid>
     </item>
@@ -196,24 +218,24 @@ arXiv:2601.11946v3 Announce Type: replace Abstract: Modelling fluid dynamics wit
         <guid isPermaLink="true">https://arxiv.org/abs/2601.11946</guid>
     </item>
     <item>
-        <title>Learning Turbulence Closures with Physics-Informed Neural Networks for the Rayleigh-Taylor Transition to Turbulence</title>
+        <title>利用物理信息神经网络学习瑞利–泰勒向湍流转捩过程的湍流闭合</title>
         <link>https://arxiv.org/abs/2607.07020</link>
         <description><![CDATA[📚 arXiv
 
 👤 Paul Creusy, Benoît-Joseph Gréa, Antoine Briard, Téo Granger
 
-arXiv:2607.07020v1 Announce Type: new Abstract: Reynolds-averaged Navier-Stokes (RANS) turbulence models are known to perform poorly in predicting the dynamics of Rayleigh-Taylor mixing when turbulence is not fully developed, particularly during the transition from an initially perturbed interface. In this work, we investigate the use of data-driven strategies to enhance a simple k-ǎrepsilon-b model for this transitional regime. The turbulence model is first embedded within a surrogate physics-informed neural network (PINN), enabling the calibration of coefficients that account for parametric errors and the identification of corrective terms representing structural errors associated with missing physical processes. The learned corrections are then re-expressed onto the model state variabl…]]></description>
+该研究针对瑞利–泰勒混合在湍流尚未充分发展时 RANS 湍流模型预测能力不足的问题，探索数据驱动方法改进简单的 k-ε-b 模型。作者首先将湍流模型嵌入代理物理信息神经网络中，以校准参数误差并识别代表缺失物理过程的结构修正项。随后将学习到的修正重新表示为模型状态变量和相关流动指标的显式解析闭合，并利用大量直接数值模拟数据验证其能改进转捩阶段混合层增长预测。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07020</guid>
     </item>
     <item>
-        <title>CoFINN: Conservation Flux Informed Neural Networks for Physics Problems Governed by Conservation Laws</title>
+        <title>CoFINN：面向守恒律物理问题的守恒通量信息神经网络</title>
         <link>https://arxiv.org/abs/2607.06587</link>
         <description><![CDATA[📚 arXiv
 
 👤 Adnan Harun Doğan, Mert Deniz, Hande Alemdar, Özgür Uğraş Baran
 
-arXiv:2607.06587v1 Announce Type: cross Abstract: We present CoFINN (Conservation Flux Informed Neural Networks), a physics-informed deep learning framework for predicting compressible flow fields governed by conservation laws. Unlike conventional data-driven convolutional neural networks (CNNs), which optimize only pixel-wise similarity metrics, CoFINN embeds finite-volume conservation physics directly into the training process. Unlike classical physics-informed methods which enforce differential-equation residuals at collocation points through automatic differentiation, CoFINN adopts a finite-volume perspective consistent with modern CFD methodology. CoFINN interprets CNN output fields as structured computational grids, where each pixel represents a finite-volume cell, and enforces cons…]]></description>
+本文提出 CoFINN，一种用于预测受守恒律控制的可压缩流场的物理信息深度学习框架。不同于仅优化像素相似性的常规卷积神经网络，CoFINN 将有限体积守恒物理直接嵌入训练过程，把输出场解释为结构化计算网格并通过数值通量计算约束守恒一致性。其在翼型跨声速流动预测中表现出更好的气动力预测精度，尤其在高攻角和激波条件下能降低阻力预测误差。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06587</guid>
     </item>
@@ -229,147 +251,136 @@ arXiv:2607.06587v1 Announce Type: cross Abstract: We present CoFINN (Conservatio
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-8913300/latest</guid>
     </item>
     <item>
-        <title>Symmetry-Enforced Chiral Phonons in Altermagnets via Magnon-Phonon Coupling</title>
+        <title>交替磁体中由磁振子-声子耦合实现的对称性强制手性声子</title>
         <link>https://arxiv.org/abs/2607.06792</link>
         <description><![CDATA[📚 arXiv
 
 👤 Philipp Rieger, Markus Weißenhofer, Sergiy Mankovsky, Peter M. Oppeneer
 
-arXiv:2607.06792v1 Announce Type: new Abstract: Chiral phonons are attractive for spintronics applications, however, their zero-field generation in conventional antiferromagnets is forbidden by combined parity and time-reversal (PT) symmetry. Here we demonstrate the emergence of chiral phonons in PT-breaking altermagnetic systems at zero field arising from relativistic magnon-phonon coupling. Focusing on the prototypical altermagnet CrSb, we utilize first-principles methods to calculate the hybridized magnon-polarons across the complete Brillouin zone. We show that this coupling imprints an altermagnetic g-wave symmetry directly onto the phonon angular momentum. Furthermore, we demonstrate anomalous spin and phonon angular momentum Nernst responses arising from finite Berry curvatures. Th…]]></description>
+该研究表明，在破缺 PT 对称性的交替磁体系中，零外场下可通过相对论性磁振子-声子耦合产生手性声子。以典型交替磁体 CrSb 为例，作者利用第一性原理计算整个布里渊区中的杂化磁振子-极化子，并发现耦合可将交替磁的 g 波对称性 imprint 到声子角动量上。研究还展示了由有限 Berry 曲率导致的反常自旋与声子角动量能斯特响应，指向零场自旋热电子学和手性声子学应用。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06792</guid>
     </item>
     <item>
-        <title>Spin Textures and Eigenstate Evolution of Isospectrally Patterned Lattices</title>
+        <title>等谱图案化晶格的自旋织构与本征态演化</title>
         <link>https://arxiv.org/abs/2607.07502</link>
         <description><![CDATA[📚 arXiv
 
 👤 Peter Schmelcher
 
-arXiv:2607.07502v1 Announce Type: cross Abstract: Isospectrally patterned lattices exhibit a composite band structure with a tunable ratio of localized versus delocalized eigenstates that is controlled by the underlying phase gradient. We show that the lattice Hamiltonian can be interpreted as that of a single spin exposed to a rotating magnetic field which is allowed to hop with a spin-flip across the lattice. In the low- and high-energy part of the band the localized states show an envelope of oscillatory character separated by quasi-nodes. Spin peaks occur at the locations of these quasi-nodes and provide a unique spin texture to the eigenstates which becomes increasingly complex with increasing degree of excitation. The crossover from localization to delocalization and vice versa leav…]]></description>
+该研究考察等谱图案化晶格中由相位梯度调控的局域与离域本征态比例及其复合能带结构。作者将晶格哈密顿量解释为单个自旋处于旋转磁场中，并可伴随自旋翻转在晶格上跃迁。低能和高能能带中的局域态表现出由准节点分隔的振荡包络，自旋峰出现在准节点位置，形成随激发程度增加而更复杂的自旋织构；局域化与离域化交叉也会在本征态傅里叶谱中留下特征。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07502</guid>
     </item>
     <item>
-        <title>Fluctuation-Driven Enhancement of Spin-Orbit Torque near the Curie Temperature of Ultrathin Ferromagnets</title>
+        <title>超薄铁磁体居里温度附近涨落驱动的自旋轨道力矩增强</title>
         <link>https://arxiv.org/abs/2607.06703</link>
         <description><![CDATA[📚 arXiv
 
 👤 Mateusz Szurek, Sergei Ivanov, Sergei Urazhdin
 
-arXiv:2607.06703v1 Announce Type: new Abstract: We investigate how magnetic fluctuations influence spin-orbit torque in ultrathin-film magnetic heterostructures whose Curie temperature T_C is suppressed by confinement. Above T_C, the damping-like contribution to spin-orbit field is significantly enhanced while the field-like contribution is suppressed, with the two contributions exhibiting opposite field dependencies. We show that these behaviors are consistent with fluctuation driven mixing between the longitudinal and transverse interfacial spin conductances, which enhances absorption of transversely polarized spin current by the ferromagnet. This mechanism can be activated below T_C by engineering the microscopic magnetic state and by harnessing spin current-generated short-wavelength…]]></description>
+该研究考察了受限导致居里温度降低的超薄磁性异质结构中，磁涨落如何影响自旋轨道力矩。在居里温度以上，阻尼型自旋轨道场显著增强，而场型分量受到抑制，且二者呈现相反的磁场依赖。作者认为这些现象源于涨落诱导的纵向与横向界面自旋电导混合，从而增强铁磁体对横向极化自旋流的吸收，并指出该机制可用于类似热辅助磁记录的自旋电子方案。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06703</guid>
     </item>
     <item>
-        <title>Spin-orbit magnetism in altermagnets</title>
+        <title>交替磁体中的自旋轨道磁性</title>
         <link>https://arxiv.org/abs/2607.06730</link>
         <description><![CDATA[📚 arXiv
 
 👤 Ruojia Wang, Yuntian Liu, Renzheng Xiong, Xiaobing Chen, Qihang Liu
 
-arXiv:2607.06730v1 Announce Type: new Abstract: The mechanism enabling antiferromagnets, including altermagnets, to exhibit a prominent anomalous Hall effect despite a vanishingly small net magnetization has long remained elusive. Here, by employing oriented spin group theory and spin-orbit-coupling tensor expansion, we systematically disentangle the perturbative behaviors of orbital and spin magnetizations with respect to spin-orbit coupling. Remarkably, we find that only if the opposite-spin sublattices are connected through a fourfold rotation, the orbital and spin magnetizations exhibit distinct perturbative orders. In these altermagnets, we further discover a coaxial Hall effect characterized by the induced spin and orbital magnetizations aligning parallel to the Néel vector, which w…]]></description>
+该文研究反铁磁体及交替磁体在净磁化极小的情况下仍能表现显著反常霍尔效应的机制。作者结合定向自旋群理论与自旋轨道耦合张量展开，区分轨道磁化与自旋磁化相对于自旋轨道耦合的微扰行为。研究发现，在特定四重旋转关联的交替磁体中会出现同轴霍尔效应，诱导的自旋与轨道磁化沿 Néel 矢量排列，并通过 KV₂Se₂O 的第一性原理计算加以展示。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06730</guid>
     </item>
     <item>
-        <title>Stripe antiferromagnetism and chiral superconductivity in tWSe₂</title>
+        <title>第二类多铁性材料中的拓扑荷、螺旋度和涡量守恒及反向自旋流模型</title>
+        <link>https://arxiv.org/abs/2607.06756</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Pavel A. Andreev
+
+该文讨论拓扑荷及其密度与自旋涡量的关系，并将自旋涡量纳入介质总涡量与流体动力学螺旋度守恒的框架中。作者分析了自旋流模型在特定自旋分布诱导电极化及螺旋度守恒中的作用，并提出反向自旋流模型来描述电极化对自旋演化方程的反馈。该模型还为电极化驱动自旋结构形成提供机制，并与另一种具有非定常起源的自旋场极化模型相联系。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.06756</guid>
+    </item>
+    <item>
+        <title>tWSe₂ 中的条纹反铁磁性与手性超导</title>
         <link>https://arxiv.org/abs/2601.20836</link>
         <description><![CDATA[📚 arXiv
 
 👤 Erekle Jmukhadze, Sam Olin, Allan H. MacDonald, Wei-Cheng Lee
 
-arXiv:2601.20836v2 Announce Type: replace Abstract: The layer-dependent Hamiltonians of parallel-stacked MoTe₂ and WSe₂ homobilayer moiré materials are topologically non-trivial, both in real space and in momentum space, and have been shown to support integer and fractional quantum anomalous Hall states, as well as antiferromagnetic and superconducting states. Here, we address the interplay between the antiferromagnetic and superconducting states observed in tWSe₂ when the Fermi level is close to its M-point van Hove singularity and the displacement field is small. We combine DFT with path-integrals to construct a minimal moiré band model that accounts for lattice relaxation along the c-axis and perform Hartree-Fock calculations to identify competing charge and spin ordered states. For tW…]]></description>
+本文研究平行堆叠过渡金属二硫族化物同质双层莫尔材料 tWSe₂ 中，在费米能级接近 M 点范霍夫奇异性且位移场较小时反铁磁态与超导态的相互作用。作者结合 DFT 与路径积分构造包含 c 轴晶格弛豫的最小莫尔能带模型，并用 Hartree-Fock 计算分析竞争的电荷与自旋有序态。结果表明，在特定扭角下层反铁磁态、条纹自旋密度波和铁磁 Chern 绝缘体是零位移场基态的主要候选，且次近邻反铁磁交换相互作用 J₂ 可诱导破坏时间反演对称性的手性超导态。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2601.20836</guid>
     </item>
     <item>
-        <title>Raman spectroscopic signature of Kitaev magnetism and complex spin-lattice coupling in S = 1/2 antiferromagnet SrLaCoNbO₆ double perovskite</title>
+        <title>S = 1/2 反铁磁双钙钛矿 SrLaCoNbO₆ 中 Kitaev 磁性与复杂自旋-晶格耦合的拉曼光谱特征</title>
         <link>https://arxiv.org/abs/2607.07630</link>
         <description><![CDATA[📚 arXiv
 
 👤 Ajay Kumar, Clemens Ulrich, Rajendra S. Dhaka
 
-arXiv:2607.07630v1 Announce Type: new Abstract: We report a detailed analysis of temperature-dependent Raman spectroscopy and Co K-edge extended x-ray absorption fine structure (EXAFS) for a pseudospin-tildeS=1/2 insulating antiferromagnet SrLaCoNbO₆, a B-site--ordered double perovskite hosting Co²⁺ (3d⁷⁾ ions on an it f.c.c. sublattice. Notably, pronounced anomalies in the phonon frequency, linewidth and spectral weight are observed around 60~K, well above the long-range antiferromagnetic transition at Tₘ̊ N approx 15~K. These renormalizations indicate a significant coupling between lattice and spin degrees of freedom, although a purely structural contribution cannot be excluded. Additional modifications of both high- and low-energy Raman modes are detected near 160-180 K, including chan…]]></description>
+该研究对赝自旋 1/2 绝缘反铁磁体 SrLaCoNbO₆ 进行了温度依赖拉曼光谱和 Co K 边 EXAFS 分析。拉曼声子频率、线宽和谱重在约 60 K 附近出现明显异常，远高于约 15 K 的长程反铁磁转变温度，表明晶格与自旋自由度之间存在显著耦合。160–180 K 附近还观测到高、低能拉曼模的线宽、强度和 Fano 不对称性变化以及额外低能特征，提示离散声子与涨落磁激发之间存在耦合，并可能与 Kitaev 型磁性相关。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07630</guid>
     </item>
     <item>
-        <title>Multistage development of short-range spin correlations and weak magnetic order in the two coupled trillium lattices of K2Fe2(MoO4)(PO4)2</title>
+        <title>K₂Fe₂(MoO₄)(PO₄)₂ 两个耦合 trillium 晶格中短程自旋关联与弱磁有序的多阶段发展</title>
         <link>https://arxiv.org/abs/2607.07681</link>
         <description><![CDATA[📚 arXiv
 
 👤 J. Khatua, Sritharan Krishnamoorthi, Changhyun Koo, Gyungbin Ban, Taeyun Kim, Yugo Oshima, Marc Uhlarz, John Wilkinson, Peter J. Baker, Kyeong Jun Lee, Mani Shankar, Seo Hyoung Chang, R. Sankar, Kwang-Yong Choi
 
-arXiv:2607.07681v1 Announce Type: new Abstract: Trillium lattices, where magnetic ions form a chiral network of corner-sharing triangles, offer a three-dimensional magnetic framework that can host fragile classical spin-liquid states. Herein, we report on the magnetization, specific heat, electron spin resonance (ESR), and muon spin relaxation (μSR) of K₂Fe₂(MoO₄)(PO₄)₂ single crystals. Magnetization measurements reveal strong antiferromagnetic interactions coexisting with weak magnetic order at Tₘ̊ N = 5.2~K, as evidenced by a łambda-like anomaly observed in the magnetic susceptibility, a critical enhancement of the muon spin relaxation rate and the wipeout of the ESR signal as the temperature approaches Tₘ̊ N. Above Tₘ̊ N, two distinct developments of short-range spin correlations are i…]]></description>
+该研究通过磁化率、比热、电子自旋共振和 μ 子自旋弛豫研究 K₂Fe₂(MoO₄)(PO₄)₂ 单晶中两个耦合 trillium 晶格的磁性。实验显示强反铁磁相互作用与 5.2 K 的弱磁有序共存，并由磁化率中的 λ 型异常、μSR 弛豫率临界增强及 ESR 信号消失支持。在 Néel 温度以上，34 K 和 10 K 附近分别出现两阶段短程自旋关联的发展；低于有序温度后，3.2 K 的异常表明残余相互作用可能诱导自旋重取向。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07681</guid>
     </item>
     <item>
-        <title>Wavelength-resolved small-angle neutron spectroscopy of spin waves in MnSi under pressure</title>
+        <title>压力下 MnSi 自旋波的波长分辨小角中子谱研究</title>
         <link>https://arxiv.org/abs/2607.07660</link>
         <description><![CDATA[📚 arXiv
 
 👤 E. V. Altynbaev, D. O. Skanchenko, Z. Xie, Y. Ke, Y. Bao, A. V. Tsvyashchenko
 
-arXiv:2607.07660v1 Announce Type: new Abstract: We report wavelength-resolved spin-wave small-angle neutron scattering (SWSANS) on the time-of-flight SANS instrument BL01 at the China Spallation Neutron Source and extend the method to pressure-cell measurements of MnSi. MnSi is used as a benchmark B20 helimagnet because its helimagnetic order and spin-wave stiffness are well characterized at ambient pressure. In a fixed magnetic field, the time-of-flight measurement provides a spectrum of neutron wavelengths. For each detector branch s=±1, the intensity profile is recentered relative to the wavelength-dependent Bragg angle θ_B (łambda) = kₛ łambda / 2π, and the cutoff angle θ_C (łambda) is extracted in the local branch coordinate. The cutoff-derived spin-wave stiffness A is obtained from…]]></description>
+该工作报道了在中国散裂中子源 BL01 飞行时间小角中子散射仪上开展的波长分辨自旋波小角中子散射，并将该方法扩展到 MnSi 的压力池测量。作者以 B20 螺旋磁体 MnSi 为基准，通过分析不同中子波长下相对于 Bragg 角重心校正后的截止角，线性拟合得到自旋波刚度。常压测量再现了 MnSi 已知的刚度尺度；在名义 11 kbar 下，根据当前截止模型得到的刚度明显降低，同时结构 SANS 用于验证磁态并提供压力状态的内部检查。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07660</guid>
     </item>
     <item>
-        <title>Competing ferroelectric and smectic order: modulated structures through molecular design</title>
+        <title>竞争的铁电序与近晶序：通过分子设计实现调制结构</title>
         <link>https://arxiv.org/abs/2607.07346</link>
         <description><![CDATA[📚 arXiv
 
 👤 Grant J. Strachan, Ewa Górecka, Jadwiga Szydłowska, Damian Pociecha
 
-arXiv:2607.07346v1 Announce Type: new Abstract: We demonstrate that the balance between polar and positional order can be systematically tuned through molecular engineering, providing direct control over the emergence of polar and modulated liquid-crystalline phases, allowing for versatile strategy for the design of functional ferroelectric soft materials. We show that polar orthogonal smectic phases (SmAF and SmAAF), promoted by the self-segregation of aromatic cores and sufficiently long terminal chains, are readily destabilized by strong longitudinal dipolar interactions that energetically penalize parallel alignment of molecular dipoles within a smectic layer. In contrast, the tilted ferroelectric SmCF phase is remarkably robust across the entire homologous series, indicating that mol…]]></description>
+该研究表明，可通过分子工程系统调节极性有序与位置有序之间的平衡，从而控制极性和调制液晶相的出现。作者发现，由芳香核心自分离和足够长端链促进的极性正交近晶相会被强纵向偶极相互作用去稳定化，而倾斜铁电 SmCF 相在整个同系物系列中保持高度稳健，说明分子倾斜可缓解层内偶极挫折。研究还显示，微相分离与静电相互作用共同稳定了新的调制 SmCM 相，其特征为非公度电子密度波，尤其在短端链化合物中更明显。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07346</guid>
     </item>
     <item>
-        <title>Monolithic GaN Systems Combining Non-Volatile Memory and Analog Computing via Area-Ratio-Engineered Ferroelectric AlScN Gate Stacks</title>
+        <title>通过面积比工程化铁电 AlScN 栅堆栈实现非易失存储与模拟计算集成的单片 GaN 系统</title>
         <link>https://arxiv.org/abs/2607.07577</link>
         <description><![CDATA[📚 arXiv
 
 👤 Hyeong Jun Joo, Jong Min Park, Kieran Barrett-Snyder, Brendan Hanrahan, Geonwook Yoo
 
-arXiv:2607.07577v2 Announce Type: new Abstract: Gallium nitride (GaN) transistors have become the platform of choice for power electronics and radio-frequency power amplifiers. To unlock capabilities beyond those of conventional GaN, integrating ferroelectric heterostructure has been considered toward memory, logic and reconfigurable systems. Here, we demonstrate ferroelectric GaN transistors employing an AlScN-based gate stack in which systematic engineering of the area-ratio (SMIS/SMFM) provides unified control over both memory and analog functionality. Precise modulation of the intermediate electrode length yields a record memory window of 27 V and a forward subthreshold swing of 27 mV/dec, driven by ferroelectric polarization reversal of a robust downward-polarization state pre-induce…]]></description>
+该研究展示了采用 AlScN 铁电栅堆栈的 GaN 晶体管，并通过调控 SMIS/SMFM 面积比统一控制存储与模拟功能。通过精确调节中间电极长度，器件实现了 27 V 的高存储窗口和 27 mV/dec 的正向亚阈值摆幅，源于二维电子气预诱导的稳定向下极化态及其反转。低面积比器件实现 4 位多级存储并在 4×4 阵列中表现出良好均匀性，高面积比器件则利用连续可调电导态展示多态反相器等模拟计算功能。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07577</guid>
     </item>
     <item>
-        <title>Non-Hermitian control of helicity-selective antiferromagnetic resonance</title>
+        <title>螺旋选择性反铁磁共振的非厄米调控</title>
         <link>https://arxiv.org/abs/2607.07488</link>
         <description><![CDATA[📚 arXiv
 
 👤 Masato Todani, Satoshi Iihama, Yuto Moritake, Takeo Kato
 
-arXiv:2607.07488v1 Announce Type: new Abstract: We study non-Hermitian antiferromagnetic resonance in an antiferromagnetic insulator/nonmagnetic metal junction with sublattice-dependent damping and spin-orbit torque. By formulating the linearized Landau-Lifshitz-Gilbert (LLG) equation as a 2x2 non-Hermitian eigenvalue problem, we derive the complex resonance frequencies, the exceptional-point condition, and the stability-threshold condition. We show that the largest absorption response is maximized by approaching the stability threshold from the stable side. Near the threshold on the stable side, the absorption spectrum exhibits strong enhancement and linewidth narrowing, together with pronounced helicity dependence in the sub-THz regime that can be switched by reversing the spin-orbit to…]]></description>
+该研究考察具有亚晶格依赖阻尼和自旋轨道力矩的反铁磁绝缘体/非磁金属结中的非厄米反铁磁共振。作者将线性化 Landau-Lifshitz-Gilbert 方程表述为 2×2 非厄米本征值问题，推导出复共振频率、例外点条件和稳定性阈值条件。结果表明，从稳定侧接近稳定性阈值可显著增强吸收响应并缩窄线宽，同时在亚太赫兹频段产生可由反转自旋轨道力矩切换的强螺旋依赖性。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07488</guid>
-    </item>
-    <item>
-        <title>Strain-tunable charge localization coupled to complex magnetic orders in EuAl₄</title>
-        <link>https://arxiv.org/abs/2607.07544</link>
-        <description><![CDATA[📚 arXiv
-
-👤 M. Baumgartner, Xunyang Hong, Tianren Wang, Fazhi Yang, Yuetong Wu, Junzhang Ma, Tian Shang, J. Oppliger, J. Küspert, M. Hücker, O. Ivashko, F. Igoa Saldaña, M. v. Zimmermann, S. Pyon, K. Kudo, M. Nohara, P. Sačer, A. Akrap, N. Barišić, M. Novak, Qisi Wang, J. Chang
-
-arXiv:2607.07544v1 Announce Type: new Abstract: Charge localization is particularly interesting when coupled to antiferromagnetic spin structures. Coupled spin-charge orders are well established in elemental chromium and correlated oxide superconductors, yet the interplay between charge order and more complex magnetic textures -- such as skyrmion lattices and chiral spin structures -- remains largely unexplored. Here we report a comprehensive study of how charge localization couples to the unusually rich sequence of magnetic phases in EuAl₄. Using x-ray diffraction under applied magnetic field and uniaxial pressure, we demonstrate a direct coupling between the charge and spin order parameters. In the absence of external stimuli, charge localization is markedly enhanced upon entering the m…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.07544</guid>
-    </item>
-    <item>
-        <title>Electrical manipulation and detection of perpendicular altermagnetic order via proximitized Dirac semimetal</title>
-        <link>https://arxiv.org/abs/2607.07299</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Zhaohui Li, Wenqing He, Hua Bai, Yang Wang, Alexander J. Grutter, Guoyi Shi, Xiwen Zhang, Christy Kinane, Andrew Caruana, Hui Ru Tan, Yuchen Pu, Chenhui Zhang, Yongxi Wang, Hanbum Park, Anjan Soumyanarayanan, Lei Shen, Hyunsoo Yang
-
-arXiv:2607.07299v1 Announce Type: new Abstract: Altermagnets, which combine antiferromagnetic-like magnetic compensation with ferromagnetic-like broken time-reversal symmetry, hold great promise for high-density and ultrafast spintronic applications. However, the detection and switching of perpendicular altermagnetic order are fundamentally constrained by magnetic symmetry, restricting both fundamental studies and practical implementation. We realize robust electrical reading and deterministic switching of perpendicular altermagnetic order by designing a Dirac semimetal/altermagnet heterostructure of PtTe2/CrSb. This engineered interface enables anomalous Hall readout via altermagnetic proximity effect and delivers efficient spin-orbit torque for manipulating the epitaxial perpendicular N…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.07299</guid>
     </item>
     <item>
         <title>利用图神经网络与传统机器学习进行钓鱼 URL 检测</title>
@@ -383,17 +394,6 @@ arXiv:2607.07299v1 Announce Type: new Abstract: Altermagnets, which combine anti
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10217796/latest</guid>
     </item>
     <item>
-        <title>BatteryMat: a hierarchical machine-learning and DFT framework for average-voltage screening of lithium-ion cathode materials</title>
-        <link>https://arxiv.org/abs/2607.06645</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jaehyung Lee, Charles Rhys Campbell, Kent Zhang, Kamal Choudhary
-
-arXiv:2607.06645v1 Announce Type: new Abstract: Density functional theory (DFT) predicts cathode voltages accurately but does not scale to the combinatorial chemical spaces of modern materials databases, while pure machine-learning surrogates are fast but cannot guarantee thermodynamic consistency. We introduce BatteryMat, a three-tier framework that promotes single-pass average-voltage prediction with the Atomistic Line Graph Neural Network (ALIGNN) as the primary screening signal across JARVIS-DFT, then validates survivors with ALIGNN-FF force-field delithiation profiles and automated PBE+U or optB88-vdW+U supercell DFT. The exchange-correlation functional is selected automatically by spacegroup, and the lithium metal reference is recomputed in the same plane-wave basis as the cathode r…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.06645</guid>
-    </item>
-    <item>
         <title>不规则超材料网络</title>
         <link>https://arxiv.org/abs/2606.02695</link>
         <description><![CDATA[📚 arXiv
@@ -405,35 +405,35 @@ arXiv:2607.06645v1 Announce Type: new Abstract: Density functional theory (DFT) 
         <guid isPermaLink="true">https://arxiv.org/abs/2606.02695</guid>
     </item>
     <item>
-        <title>Weight-Space Physics: Interpretable Hypernetworks for Lattice Quantum Field Theories</title>
+        <title>权重空间物理：用于格点量子场论的可解释超网络</title>
         <link>https://arxiv.org/abs/2607.07127</link>
         <description><![CDATA[📚 arXiv
 
 👤 Tobias Göbel, Julian R. Ebelt, Zier Mensch, Mathis Gerdes, Miranda C. N. Cheng
 
-arXiv:2607.07127v1 Announce Type: cross Abstract: Lattice field theory is the workhorse of non-perturbative physics, used to simulate phenomena from the strong nuclear force to critical phenomena in materials. Its Boltzmann distributions are parametrized analytically by coupling constants, but these bare parameters are weak predictors of observables -- extracting physics typically requires extensive simulation. While normalizing flows have emerged as effective samplers at fixed couplings, it remains difficult to interpret what these networks have learned. This raises a natural question: can the physics be read off directly from the flow network parameters themselves, and can those parameters be generated for unseen theories? We propose lattice field theory as a testbed for neural network…]]></description>
+该文将格点场论作为神经网络可解释性的测试平台，探讨是否能从归一化流网络参数中直接读取物理信息，并为未见耦合参数生成相应网络权重。作者提出 JEPAWG，一种基于联合嵌入预测架构的权重生成器，可将耦合常数映射到流模型权重的潜在空间。以标量场论小规模格点为例，研究旨在揭示网络权重空间与物理可观测量、相变结构之间的关系。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07127</guid>
     </item>
     <item>
-        <title>CaLiSym: Learning Symplectic Dynamics of Real-World Systems through Structured Canonical Lifts</title>
+        <title>CaLiSym：通过结构化正则提升学习真实世界系统的辛动力学</title>
         <link>https://arxiv.org/abs/2607.06824</link>
         <description><![CDATA[📚 arXiv
 
 👤 Aristotelis Papatheodorou, Pranav Vaidhyanathan, Natalia Ares, Ioannis Havoutis, Gerard J. Milburn
 
-arXiv:2607.06824v1 Announce Type: cross Abstract: Physics-informed learning promises data-efficient and stable dynamics prediction, yet its strongest geometric guarantees have largely remained confined to closed conservative systems. This excludes many robotic systems of practical interest, where actuation, dissipation, and constraints continuously exchange energy and momentum with the environment. We introduce CaLiSym, a lightweight framework that extends exact symplectic learning to such systems by changing where the geometric prior is imposed. Rather than enforcing symplecticity on the measured physical state, CaLiSym embeds the state and its physical ports into a structured lifted canonical phase space, where the learned dynamics evolve through an exactly symplectic map. The lift is e…]]></description>
+该文提出 CaLiSym，用于将精确辛结构学习扩展到包含驱动、耗散和约束的真实机器人系统。方法不直接在观测物理状态上强制辛性，而是将状态及其物理端口嵌入结构化提升的正则相空间，并在其中通过精确辛映射演化。该提升为显式代数形式，不依赖循环潜变量、Transformer 解码器、隐式优化或推理时 ODE 积分，并结合广义岭 SympNet 与 B 样条变体 GRB-SympNet 进行实验验证。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06824</guid>
     </item>
     <item>
-        <title>Physics-guided spatiotemporal neural models for fuel density prediction</title>
+        <title>用于燃料密度预测的物理引导时空神经模型</title>
         <link>https://arxiv.org/abs/2607.06999</link>
         <description><![CDATA[📚 arXiv
 
 👤 Tolga Caglar, Jaynil Jaiswal, Saqib Azim, Yudhir Gala, Mai H. Nguyen, Ilkay Altintas
 
-arXiv:2607.06999v1 Announce Type: new Abstract: This paper presents a physics-guided machine learning (PGML) framework for fuel density prediction, integrating physics constraints and domain knowledge into deep learning models to enhance model accuracy and stability. We explore three deep learning architectures -- ConvLSTM, Adaptive Fourier Neural Operator (AFNONet), and Video Vision Transformer (ViViT) -- to model the spatiotemporal evolution of fuel density. Our approach incorporates differentiable physics-informed terms in the loss function, including a mass-conserving fuel transport term and a rate-of-spread estimation. Experimental results, averaged across multiple independent trials, demonstrate that the proposed PGML framework outperforms purely data-driven baselines without physic…]]></description>
+该文提出一种用于燃料密度预测的物理引导机器学习框架，将物理约束和领域知识纳入深度学习模型，以提升预测精度与稳定性。作者比较了 ConvLSTM、自适应傅里叶神经算子（AFNONet）和视频视觉 Transformer（ViViT）三种架构，用于建模燃料密度的时空演化。框架在损失函数中加入可微的物理信息项，包括质量守恒的燃料输运项和蔓延速率估计；多次独立实验表明，相比纯数据驱动基线，该方法在精度和稳定性上表现更好，可支持计算高效且物理合理的火灾预测与适应性计划烧除管理。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06999</guid>
     </item>
@@ -449,11 +449,11 @@ arXiv:2607.07547v1 Announce Type: cross Abstract: The performance of variational
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07547</guid>
     </item>
     <item>
-        <title>Data-efficient multidimensional free energy estimation via physics-informed score learning</title>
+        <title>基于物理信息分数学习的高数据效率多维自由能估计</title>
         <link>https://pubs.aip.org/aip/jcp/article/165/2/024109/3398009/Data-efficient-multidimensional-free-energy</link>
         <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
 
-Many biological processes involve numerous coupled degrees of freedom, yet free-energy estimation is often restricted to one-dimensional profiles to mitigate the high computational cost of multidimensional sampling. In this work, we extend Fokker–Planck Score Learning (FPSL) to efficiently reconstruct two-dimensional free-energy landscapes from non-equilibrium molecular dynamics simulations using different types of collective variables. We show that explicitly modeling orthogonal degrees of freedom reveals insights hidden in one-dimensional projections at negligible computational overhead. Additionally, exploiting symmetries in the underlying landscape enhances reconstruction accuracy, while regularization techniques ensure numerical robustness in sparsely sampled regions. We validate our…]]></description>
+许多生物过程涉及多个耦合自由度，但多维采样成本高昂，常使自由能估计局限于一维剖面。该工作扩展Fokker–Planck分数学习方法，使其能够从非平衡分子动力学模拟中高效重构二维自由能景观，并适用于不同类型的集体变量。研究表明，显式建模正交自由度可揭示一维投影中隐藏的信息，利用体系对称性和正则化还能提高稀疏采样区域的重构精度；在丙氨酸二肽构象动力学和溶质穿越脂质双层模型中验证了该方法的数据效率和可扩展性。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/2/024109/3398009/Data-efficient-multidimensional-free-energy</guid>
     </item>
@@ -480,6 +480,17 @@ Many biological processes involve numerous coupled degrees of freedom, yet free-
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06630</guid>
     </item>
     <item>
+        <title>利用量子退火器进行核学习</title>
+        <link>https://arxiv.org/abs/2304.10144</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yasushi Hasegawa, Hiroki Oshiyama, Masayuki Ohzeki
+
+该文提出将玻尔兹曼机应用于机器学习中核矩阵的构造，并借助量子退火器实现相关学习过程。作者利用平移不变核可通过傅里叶变换表示为谱分布期望这一事实，在随机傅里叶特征方法基础上，用玻尔兹曼机学习更适合数据的谱分布。结果表明，该方法的预测精度可与采用高斯分布的传统方法相当，并能生成高斯分布难以实现的谱分布。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2304.10144</guid>
+    </item>
+    <item>
         <title>用于液体从头算多尺度建模的统一机器学习框架</title>
         <link>https://arxiv.org/abs/2603.20493</link>
         <description><![CDATA[📚 arXiv
@@ -491,24 +502,24 @@ Many biological processes involve numerous coupled degrees of freedom, yet free-
         <guid isPermaLink="true">https://arxiv.org/abs/2603.20493</guid>
     </item>
     <item>
-        <title>Multi-fidelity multi-objective Bayesian optimisation for laser wakefield acceleration using multi-task Gaussian processes</title>
+        <title>基于多任务高斯过程的激光尾场加速多保真多目标贝叶斯优化</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae8401</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 M P Backhouse and Z Najmudin
 
-The increasing laser powers available for laser-driven particle acceleration have placed greater computational demand on the accompanying simulations. Optimising these simulations is challenging due to their high cost, high-dimensional input spaces, and multiple conflicting output metrics. These competing objectives lead to a range of solutions that may all be considered optimal, depending on the intended application. We propose a method for discrete multi-fidelity, multi-objective Bayesian optimisation, in which lower-cost evaluations of a related function assist the Pareto front optimisation of the primary target function. To enable effective information sharing, we employ a sparse multi-task covariance kernel that transfers information between the related functions while selectively li…]]></description>
+该研究提出一种离散多保真、多目标贝叶斯优化方法，用低成本相关函数评估辅助优化高成本目标函数的帕累托前沿。作者采用稀疏多任务协方差核在不同保真度和目标之间传递信息，同时限制不适当的信息共享。通过基准问题和基于激光尾场加速实验数据构造的测试函数验证后，结果表明对每个目标分别拟合独立多任务模型在不同长度尺度、噪声和偏差条件下最为稳健。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae8401</guid>
     </item>
     <item>
-        <title>AI2Pot: A scalable and unified framework for machine-learning interatomic potential development and large-scale molecular dynamic simulations</title>
+        <title>AI2Pot：用于机器学习原子间势开发与大规模分子动力学模拟的可扩展统一框架</title>
         <link>https://arxiv.org/abs/2607.06969</link>
         <description><![CDATA[📚 arXiv
 
 👤 Hanyu Liu, Linggang Zhu, Xuanguang Zhang, Ning Yang, Jian Zhou, Zhimei Sun
 
-arXiv:2607.06969v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) bridge the accuracy of first-principles calculations and the efficiency required for large-scale molecular dynamics (MD) simulations. However, existing MLIP software remains fragmented across different model architectures, making it difficult to establish unified workflows that support flexible model development, efficient training, and scalable MD deployment. Here, we present AI2Pot, a scalable and unified MLIP framework that seamlessly integrates model training, evaluation, and large-scale MD simulations with PyTorch-compatible ecosystem. Instead of relying on generic automatic differentiation for expensive atomistic operators, AI2Pot re-engineers the core computations of Moment tensor potent…]]></description>
+该工作提出 AI2Pot，一个面向机器学习原子间势的可扩展统一框架，整合了模型训练、评估和大规模分子动力学模拟，并兼容 PyTorch 生态。与依赖通用自动微分不同，AI2Pot 针对矩张量势和神经演化势的核心原子算符，以手写 C++/CUDA 代码重构训练与推理计算。该统一后端提高了训练-推理一致性，减少中间缓存导致的内存开销，并支持大规模原子体系的快速推理和模拟部署。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06969</guid>
     </item>
@@ -524,6 +535,17 @@ arXiv:2607.06969v1 Announce Type: new Abstract: Machine-learning interatomic pot
         <guid isPermaLink="true">https://arxiv.org/abs/2607.06610</guid>
     </item>
     <item>
+        <title>人工智能引导的电化学氧化用于破坏饮用水网络中的全氟和多氟烷基物质（PFAS）：从美国到秘鲁的可迁移框架</title>
+        <link>https://www.researchsquare.com/article/rs-10285281/latest</link>
+        <description><![CDATA[📚 Preprints
+
+👤 PAUL RICARDO PRUDENCIO GALVEZ
+
+该文提出一种用于饮用水网络中PFAS降解的人工智能引导电化学氧化框架，结合硼掺杂金刚石等非活性阳极反应器与机器学习控制策略。框架采用XGBoost-LSTM集成模型实时预测和调控电流密度、流速与停留时间等参数，以提升不同链长PFAS的矿化效率并降低能耗。文章还综合文献中的降解数据，讨论反应器工程、仪器配置、反应路径和技术从美国向秘鲁等场景转移的适用性。]]></description>
+        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10285281/latest</guid>
+    </item>
+    <item>
         <title>利用深度强化学习和降阶相场代理模型优化 L-PBF 激光扫描路径以控制微观组织</title>
         <link>https://www.sciencedirect.com/science/article/pii/S0927025626003794?dgcid=rss_sd_all</link>
         <description><![CDATA[📚 ScienceDirect
@@ -533,13 +555,13 @@ arXiv:2607.06969v1 Announce Type: new Abstract: Machine-learning interatomic pot
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0927025626003794?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>Mechanistic Interpretability for Neural Networks: Circuits, Sparse Features and Symbolic Reasoning</title>
+        <title>神经网络的机制可解释性：电路、稀疏特征与符号推理</title>
         <link>https://arxiv.org/abs/2607.07316</link>
         <description><![CDATA[📚 arXiv
 
 👤 Pranav Sawant, Jakub Krejčí
 
-arXiv:2607.07316v1 Announce Type: new Abstract: This article offers a comprehensive overview of mechanistic interpretability, an emerging field that seeks to reverse-engineer the internal algorithms of modern neural networks. While traditional explainable AI methods often stop at surface-level input-output correlations, this approach directly addresses the opaque "black box" nature of machine learning models, which is essential for ensuring safety and auditability in high-stakes deployments. The paper provides a detailed examination of Transformer circuit analysis, exploring how internal components like the residual stream, attention mechanisms, and induction heads drive complex tasks and in-context learning. It subsequently tackles the core challenge of superposition and polysemanticity,…]]></description>
+该文综述机制可解释性这一旨在逆向工程现代神经网络内部算法的研究方向，强调其相较传统可解释 AI 更关注模型内部因果机制。文章重点讨论 Transformer 电路分析，包括残差流、注意力机制和归纳头在复杂任务与上下文学习中的作用。它还介绍稀疏自编码器、转码器、引导向量和因果干预等工具，并将机制洞见与神经符号 AI 框架联系起来。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07316</guid>
     </item>
@@ -564,48 +586,26 @@ arXiv:2607.07316v1 Announce Type: new Abstract: This article offers a comprehens
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07637</guid>
     </item>
     <item>
-        <title>Kernel Learning by quantum annealer</title>
-        <link>https://arxiv.org/abs/2304.10144</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Yasushi Hasegawa, Hiroki Oshiyama, Masayuki Ohzeki
-
-arXiv:2304.10144v2 Announce Type: replace-cross Abstract: The Boltzmann machine is one of the various applications using quantum annealer. We propose an application of the Boltzmann machine to the kernel matrix used in various machine-learning techniques. We focus on the fact that shift-invariant kernel functions can be expressed in terms of the expected value of a spectral distribution by the Fourier transformation. Using this transformation, random Fourier feature (RFF) samples the frequencies and approximates the kernel function. In this paper, furthermore, we propose a method to obtain a spectral distribution suitable for the data using a Boltzmann machine. As a result, we show that the prediction accuracy is comparable to that of the method using the Gaussian distribution. We also sh…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2304.10144</guid>
-    </item>
-    <item>
-        <title>Bayesian Learning of Distance Metrics Beyond RMSD for Biomolecule Alignment, Clustering, and Domain Identification</title>
+        <title>超越RMSD的生物分子比对、聚类与结构域识别的贝叶斯距离度量学习</title>
         <link>https://arxiv.org/abs/2607.07352</link>
         <description><![CDATA[📚 arXiv
 
 👤 Saumyak Mukherjee, Gerhard Hummer
 
-arXiv:2607.07352v1 Announce Type: cross Abstract: Root-mean-square deviation (RMSD) is the standard metric of structural comparison in molecular dynamics (MD) simulations. In its conventional form, RMSD assigns equal weight to all atoms regardless of mobility. Hence, flexible loops and disordered regions can dominate a global RMSD, while the rigid functional core contributes negligibly to the overall metric. To address this issue, we introduce the Bayes-optimal RMSD (BRMSD), which optimizes per-atom weights jointly with structural averages by maximizing a Bayesian posterior. In a trade-off between low RMSD and weight uniformity, a position-fluctuation parameter σ controls the transition from classical RMSD (σ → infty) to a progressive focus on a rigid core (σ → 0). The BRMSD framework sup…]]></description>
+该研究针对分子动力学中传统RMSD对所有原子等权、易受柔性环区和无序区域主导的问题，提出贝叶斯最优RMSD（BRMSD）。BRMSD通过最大化贝叶斯后验联合优化逐原子权重与结构平均，并由位置涨落参数控制从经典RMSD到聚焦刚性核心的过渡。该框架支持结构比对、指定结构域聚焦比对、轨迹平滑、软K均值构象聚类和刚性结构域识别等分析，并在分子动力学体系上进行了基准测试。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.07352</guid>
     </item>
     <item>
-        <title>FDRMFL: Multimodal Federated Feature Extraction Model Based on Information Maximization and Contrastive Learning</title>
+        <title>FDRMFL：基于信息最大化与对比学习的多模态联邦特征提取模型</title>
         <link>https://arxiv.org/abs/2512.02076</link>
         <description><![CDATA[📚 arXiv
 
 👤 Haozhe Wu
 
-arXiv:2512.02076v2 Announce Type: replace-cross Abstract: We propose FDRMFL, a task-driven multimodal feature extraction framework for federated regression under non-IID data distributions. Extracting predictive features from high-dimensional multimodal inputs is particularly challenging in this setting: data cannot leave each client, local samples are scarce and heterogeneously distributed, and unsupervised dimensionality reduction discards task-relevant information while federated training introduces representation drift across communication rounds. FDRMFL addresses these challenges through a unified four-term local objective: MSE prediction loss, a correlation-based mutual information surrogate that preserves dependence between the fused representation and the continuous target, a symm…]]></description>
+该论文提出FDRMFL框架，用于非独立同分布数据下联邦回归任务中的多模态特征提取。该方法在本地目标函数中联合预测损失、互信息替代项、跨模态分布对齐惩罚和对比学习损失，以缓解数据不可共享、样本稀缺、分布异质和表示漂移等问题。在合成数据和近红外光谱真实数据上的实验与消融分析表明，各组成模块均有助于提升任务驱动的联邦表示学习效果。]]></description>
         <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2512.02076</guid>
-    </item>
-    <item>
-        <title>Artificial-Intelligence-Guided Electrochemical Oxidation for Destroying Per- and Polyfluoroalkyl Substances (PFAS) in Drinking-Water Networks: A Transferable Framework from the United States to Peru</title>
-        <link>https://www.researchsquare.com/article/rs-10285281/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 PAUL RICARDO PRUDENCIO GALVEZ
-
-Per- and polyfluoroalkyl substances (PFAS), colloquially known as "forever chemicals," persist in drinking-water sources worldwide and resist removal by conventional treatment trains. Electrochemical oxidation (EO) on boron-doped diamond (BDD) and related non-active anodes is among the few technologies capable of mineralizing PFAS rather than merely transferring it between phases, but its energy demand and operational optimization remain limiting factors, particularly for chain-length-dependent degradation kinetics. This methodological and technology-transfer article proposes and specifies an Artificial-Intelligence-guided Electrochemical Oxidation (AI-EO) framework for PFAS destruction in drinking-water networks, integrating an XGBoost-LSTM ensemble for real-time prediction and control o…]]></description>
-        <pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10285281/latest</guid>
     </item>
     <item>
         <title>大环填充端连接网络的断键粗粒化分子动力学研究</title>
