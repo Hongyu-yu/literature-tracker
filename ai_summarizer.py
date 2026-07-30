@@ -916,6 +916,13 @@ class AISummarizer:
                     # Empty-on-failure (front-end shows "—"), never leak "标题翻译失败" style placeholders.
                     "title_zh": title_zh,
                     "abstract_zh": abstract_zh,
+                    # 透传给日报卡片/focus 专区渲染：英文原文折叠、完整中文翻译、兴趣匹配三字段
+                    "abstract": article.get('abstract'),
+                    "abstract_zh_full": article.get('abstract_zh_full'),
+                    "focus_score": article.get('focus_score'),
+                    "focus_summary": article.get('focus_summary'),
+                    "focus_relation": article.get('focus_relation'),
+                    "focus_suggestion": article.get('focus_suggestion'),
                     "summary": one_sentence,
                     "link": article.get('link'),
                     "journal": article.get("journal", ""),
