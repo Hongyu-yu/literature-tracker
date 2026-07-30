@@ -1,83 +1,182 @@
 [
   {
+    "title": "MANDALA: An E(3)-Equivariant Graph Neural Network Framework for Learning Electronic-Structure Operators with Observable Guidance",
+    "title_zh": "MANDALA：E(3) 等变电子结构算符学习框架",
+    "summary": "该框架把 AI 从势能面拟合推进到电子结构算符学习，直接瞄准能带与态密度重建。对 DFT 加速和可观测量驱动的材料 ML 是很明确的方向升级。",
+    "abstract": "以 Kohn-Sham DFT 为背景，提出 MANDALA，用 E(3) 等变图神经网络学习电子结构算符，并加入可观测量指导。相较只拟合能量和力的常规 MLIP，该框架面向能带、态密度等电子结构信息恢复，补足大尺度材料模拟中“只学原子势、不学量子算符”的缺口。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.24997",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Artificial intelligence for representing and characterizing quantum systems",
+    "title_zh": "AI 表征与刻画量子系统",
+    "summary": "综述将 AI 视为复杂量子系统的通用表征工具，而不只是拟合器。它反映出量子信息科学正在与机器学习、深度学习和语言模型形成更紧密的方法共振。",
+    "abstract": "这是 Nature Reviews Physics 的技术综述，系统总结机器学习、深度学习与语言模型如何用于描述复杂量子系统。文章聚焦 AI 在量子信息科学中的角色：从量子态表征、系统刻画到复杂量子问题的新的建模语言。",
+    "category": "其他",
+    "link": "https://www.nature.com/articles/s42254-026-00962-5",
+    "journal": "Nature Reviews Physics"
+  },
+  {
     "title": "Dual-Level Atomic and Coordination Geometry Learning for Crystal Property Prediction Using Graph Neural Networks",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "原子-配位双层晶体性质学习",
+    "summary": "把配位多面体显式纳入晶体 GNN，是对传统原子级消息传递的结构性补强。对依赖局域配位单元的晶体性质预测更有针对性。",
+    "abstract": "现有 CGCNN、MEGNet、ALIGNN、SchNet 等 GNN 多在原子级表示上通过消息传递学习局域化学环境，但很多晶体性质由配位多面体等基本结构单元主导。作者因此提出原子层与配位几何层并行/耦合的双层表示，用于弥补仅原子级建模对晶体结构语义的不足。",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.24818",
     "journal": "arXiv"
   },
   {
+    "title": "Extracting Atomic Environments for Machine Learning Interatomic Potentials",
+    "title_zh": "用于机器学习原子势的原子环境提取",
+    "summary": "核心问题不是再造一个势，而是如何从大体系中高效抽取 DFT 级环境信息。它直接卡住了主动学习原子势从小盒子走向大尺度模拟的瓶颈。",
+    "abstract": "面向可达数亿原子的分子动力学，作者讨论如何从 DFT 参考中提取感兴趣区域的原子环境，因为 DFT 力计算通常只覆盖百到千原子尺度。该工作聚焦主动学习或在线训练 MLIP 所需的局域参考数据获取，以支撑大尺度材料模拟。",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.26018",
+    "journal": "arXiv"
+  },
+  {
     "title": "Integrating phase-field simulations with deep learning to predict properties from pressure-tailored microstructures in Al-Si alloys",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "相场-深度学习预测压力调控 Al-Si 微结构性能",
+    "summary": "相场给出微结构物理，深度学习负责快速映射到性能。对需要把工艺—组织—性能链条数字化的合金设计很实用。",
+    "abstract": "作者把相场模拟与深度学习耦合，用于从压力调控的 Al-Si 合金微结构预测材料性能。工作围绕微结构演化与性能映射展开，目标是把高成本微观模拟转化为更快的性能预测流程。",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02253-0",
     "journal": "npj Computational Materials"
   },
   {
+    "title": "Neural Network Learning of One-Bit Protocols for Qubit Measurement Simulation",
+    "title_zh": "神经网络学习一比特量子测量协议",
+    "summary": "这项工作把“量子统计的经典模拟”压缩到一比特可行子空间。它为测量受限场景下的通信复杂度和神经网络近似提供了新的桥梁。",
+    "abstract": "在 qubit prepare-and-measure 通信复杂度框架下，经典结果表明精确模拟任意 qubit 状态与测量至少需要两比特。作者用神经网络证明，某些受限测量族可以被单比特经典协议高精度近似，说明资源需求可低于通用极限。",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2607.23645",
+    "journal": "arXiv"
+  },
+  {
     "title": "Practical Quantum Advantage before Fault Tolerance via Quantum-Informed Machine Learning",
-    "title_zh": "通过量子感知机器学习在容错之前实现实用量子优势",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "故障前实用量子优势：量子启发机器学习",
+    "summary": "文章把量子优势具体化为“压缩记忆+双副本读出”的统计模块，而不是泛泛的速度提升。对混沌系统等难采样科学问题，这是一种更可验证的量子机学习范式。",
+    "abstract": "作者提出早期量子器件在容错前即可作为经典科学工作流中的统计模块，体现可验证的实用量子优势。以混沌动力学为例，构造一类 k 索引的高阶量子统计先验 Q-Priors，承载 n_q = kq 个量子比特上的 k 点边缘分布，并建立对应优势定义。",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.13422",
     "journal": "arXiv"
   },
   {
     "title": "Tensor Network Machine Learning for Wildfire Susceptibility Mapping: from Grokking Dynamics to Quantum Mixedness of Class Representations",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "基于张量网络的野火敏感性制图",
+    "summary": "把张量网络用于地理敏感性制图，并把 grokking 和混合度诊断纳入解释框架。它展示了量子启发模型在遥感分类中不仅能预测，还能解释类别结构。",
+    "abstract": "作者提出量子启发的张量网络框架，结合 AlphaEarth 嵌入与矩阵乘积态模型，对 Gargano 地区野火敏感性进行二分类和多分类。模型引入可解释的量子 mask，并进一步分析 binary 情况下的 grokking 转变以及多分类中的类别混淆与分层混合度。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10380924/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Convolutional Neural Networks in Vis-NIR Chemometrics: From Contradiction to Conditional Design",
+    "title_zh": "Vis-NIR 化学计量学中 CNN 的条件化设计",
+    "summary": "这篇综述的重点不是再争论 CNN 能不能用，而是把光谱任务中的条件变量补齐。对 NIR 化学计量学的模型比较和可复现实验设计很有参考价值。",
+    "abstract": "该综述讨论近红外与可见-近红外光谱中 CNN 设计为何常出现互相矛盾的结论，包括卷积核大小、网络深度、预处理、模型复杂度和迁移鲁棒性。作者认为许多“矛盾”来自实验条件不完整，而非 CNN 架构本身不可兼容。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2605.02636",
+    "journal": "arXiv"
+  },
+  {
     "title": "Data-Driven Prediction and Classification of Multi-Component Alloys Using Interpretable Machine Learning",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "多组分合金的可解释机器学习预测与分类",
+    "summary": "仅用成分就能把强度和液相线温度同时学到 R² 约 0.85，说明简单可解释模型在合金筛选中仍很强。对高通量合金设计，它强调的是“可解释且够准”的实用路线。",
+    "abstract": "作者用 2672 个多组分合金体系，基于成分单独输入构建可解释机器学习框架。多输出随机森林同时预测抗拉强度和液相线温度，测试集 R²=0.848，5 折交叉验证 R²=0.849±0.017，优于线性基线模型。",
     "category": "AI×化学·材料",
     "link": "https://www.researchsquare.com/article/rs-10504795/latest",
     "journal": "Preprints"
   },
   {
+    "title": "The Ray Tracing Sampler: Bayesian Sampling of Neural Networks for Everyone",
+    "title_zh": "雷迹采样器：面向全民的贝叶斯神经网络采样",
+    "summary": "它用“射线”代替传统哈密顿动力学来做贝叶斯采样，目标是更抗噪、更能跨势垒。对大模型或高维网络的后验采样是很新颖的几何化思路。",
+    "abstract": "作者从一个随似然 L(x) 变化折射率 n(x) 的介质出发，推导出一类基于射线路径的 MCMC 采样方法，并扩展了 isokinetic sampling。最简单的 ray tracing 方法以恒定速度在参数空间传播，相比 HMC 和 SGHMC 对“加热”更鲁棒，还能跨越任意似然势垒。",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2510.25824",
+    "journal": "arXiv"
+  },
+  {
     "title": "FPINN: A proper orthogonal decomposition-assisted fourier-gradient physics-informed neural network for navier-stokes equations and flow reconstruction",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "POD 辅助傅里叶梯度 PINN：用于 N-S 方程与流场重建",
+    "summary": "POD 负责压缩低维主模态，傅里叶特征负责补高频细节，直接对准 PINN 的谱偏置。对流场重建和不可压流求解，这是典型的“物理+表示”双修正。",
+    "abstract": "针对 PINN 在 Navier-Stokes 方程上常见的谱偏置、质量泄漏和高计算成本，作者提出 POD 与傅里叶梯度 PINN 相结合的框架。POD 先提取核心能量模态以降维，FPINN 再用傅里叶特征映射捕捉高频多尺度结构，并配合选择性训练。",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-9160993/latest",
     "journal": "Preprints"
   },
   {
-    "title": "Physics-Informed Neural Operator for Warm-Starting Background-Decomposed and Preconditioned PSFD: Enabling Scalable 3-D EUV Mask Simulation",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2607.25330",
+    "title": "Finite-momentum superconductivity with singlet-triplet mixing in an altermagnetic metal: A pairing instability analysis",
+    "title_zh": "交替磁性金属中的有限动量超导与单重-三重混合",
+    "summary": "交替磁性把自旋劈裂直接写进配对问题里，导致有限动量超导成为自然结果。它把非常规配对、宇称混合与交替磁性金属联系得更具体。",
+    "abstract": "作者研究方格子上交替磁性金属在最近邻吸引作用下的配对不稳定性，发现多种配对通道并存，包括偶宇称扩展 s 波、d 波，以及两个奇宇称 p 波通道。计算验证了交替磁性自旋劈裂会诱发不同自旋电子之间的有限动量配对，与先前预测一致。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2603.12897",
     "journal": "arXiv"
   },
   {
-    "title": "Physics-Informed Broad Learning System: An Efficient Backpropagation-Free Framework for Solving Partial Differential Equations",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2607.25608",
+    "title": "Approaching Kasteleyn transition in frustrated quantum Heisenberg antiferromagnets",
+    "title_zh": "受挫量子 Heisenberg 反铁磁体中的 Kasteleyn 转变逼近",
+    "summary": "这项工作把经典二聚体的 Kasteleyn 物理搬到了二维量子磁体里。通过精确态到二聚体覆盖的映射，受挫量子磁体的低温涨落图像变得非常清楚。",
+    "abstract": "作者指出，经典二聚体模型中的 Kasteleyn 转变同样可能出现在受挫二维量子磁体中。以自旋 1/2 Heisenberg 菱形装饰蜂窝晶格为例，部分精确本征态可映射为蜂窝晶格二聚体覆盖，低温性质可由有效二聚体模型准确描述。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2601.14382",
     "journal": "arXiv"
   },
   {
-    "title": "A Physics-Informed Neural Operator for Thermal Ranking of Low-Cost Wall Materials in Hot-Dry Climates",
-    "title_zh": "",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2607.25668",
+    "title": "The effect of side chain length on the mesomorphic properties of ferroelectric nematogens",
+    "title_zh": "侧链长度对铁电向列体介相性的影响",
+    "summary": "只改侧链长度就能重塑铁电向列相的相行为，说明分子几何对极性有序极其敏感。对软物质里设计 NF 材料，这是很直接的结构-相图线索。",
+    "abstract": "作者在一个先前报道的铁电向列体分子骨架上延长侧链，合成两个同系物，并考察侧链长度对介相性的影响。原先同系物可直接从各向同性相转入铁电向列相，侧链延长后相行为发生变化，说明分子外形对 NF 稳定性很敏感。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.25087",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ferroelectricity and antiferroelectricity in the BaS-PbS system with the rocksalt structure",
+    "title_zh": "BaS-PbS 岩盐结构中的铁电与反铁电性",
+    "summary": "BaS-PbS 岩盐体系里，尺寸失配诱发的声子失稳直接打开了铁电与反铁电窗口。它把“化学组分-结构拉伸-软模失稳”链条讲得很完整。",
+    "abstract": "作者用第一性原理 DFT 研究 BaS-PbS 体系中岩盐结构的超结构、超晶格、量子线和无序固溶体，发现其中存在铁电不稳定性。该不稳定性与线性 --Pb--S--Pb--S-- 链中的 TO 声子软化有关，其起源是大 Ba 原子引入后结构拉伸；文中还进一步发现了反铁电行为。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.25591",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Establishing the Magnetoelastic Origin of Spin-Wave Routing through Focused Ion Beam Patterning",
+    "title_zh": "聚焦离子束图案化中的磁弹性自旋波路由起源",
+    "summary": "这项工作把 FIB 图案化自旋波器件的非单调响应归结为磁弹性机制。对可编程 magnonics 而言，这是从“能做”走向“可设计”的关键一步。",
+    "abstract": "作者针对 YIG 中聚焦离子束辐照诱导的自旋波路由，指出局域改写色散可实现散射景观设计，但离子剂量增加时波长的非单调变化一直阻碍可预测设计。实验验证的框架将这一非单调 steering 归因于磁弹性效应，从而解释了 FIB 图案化的物理起源。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2602.10797",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Soft-mode nonlinearities away from ferroelectric phase transition",
+    "title_zh": "远离铁电相变的软模非线性",
+    "summary": "SrTiO3 的软模非线性不再只看作相变临界现象，而是可由局域场单独推入强非微扰区。它为理解“接近铁电但未成铁电”的材料响应提供了更细的拆分方式。",
+    "abstract": "作者研究接近铁电边界的极性介电体中软光学声子所承载的离子-电子耦合，强调局域场效应会把晶格推入非微扰区。通过探测顺电 SrTiO3，工作试图分离局域场与自发宏观极化对软模非线性的不同贡献。",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2607.26030",
+    "journal": "arXiv"
+  },
+  {
+    "title": "The interplay of crystal-field transitions and exchange spin dynamics in a ferrimagnet",
+    "title_zh": "铁磁石榴石中的晶场跃迁与交换自旋动力学耦合",
+    "summary": "这类石榴石把交换模和 THz 级 CEF 跃迁同时放进一个能谱里。它指向的是稀土磁体中低频磁动力学与高频局域激发的统一描述。",
+    "abstract": "作者聚焦稀土铁石榴石中低能激发与温度依赖磁化动力学的耦合。体系里，稀土-铁子晶格交换耦合产生高频集体自旋激发，而局域 4f 电子的强自旋轨道耦合又引入 THz 频段的晶体电场跃迁，二者之间的相互作用仍需厘清。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26026",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Anisotropic magnons in a layered honeycomb ferromagnet",
+    "title_zh": "层状蜂窝铁磁体中的各向异性磁振子",
+    "summary": "CrSiTe3 的 Dirac 磁振子能隙似乎比过去认为的更小，甚至可能没有。面外耦合对 Tc 的影响被直接拉出来，说明层状蜂窝铁磁体的低能自旋动力学仍有修正空间。",
+    "abstract": "作者通过中子散射研究层状铁磁半导体 CrSiTe3 中是否存在 Dirac 磁振子能隙。结果显示该能隙可能非常小甚至不存在，且先前测量受实验因素干扰；同时测得的面外耦合可解释 CrSiTe3 中磁转变温度随层间作用增强而升高的现象。",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2602.19935",
     "journal": "arXiv"
   }
 ]
