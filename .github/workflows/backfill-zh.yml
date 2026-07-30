@@ -15,6 +15,15 @@ on:
         description: "Max passes over dataset (retry remaining missing)"
         required: false
         default: "8"
+      full:
+        description: "Full-translation mode: backfill abstract_zh_full (--full)"
+        required: false
+        type: boolean
+        default: false
+      full_max:
+        description: "Max articles per run in full mode (newest first; 0 = unlimited)"
+        required: false
+        default: "800"
 
 permissions:
   contents: write
@@ -61,8 +70,13 @@ jobs:
           BACKFILL_SCOPE: ${{ inputs.scope }}
           AI_ZH_BATCH_SIZE: ${{ inputs.batch_size }}
           AI_ZH_MAX_PASSES: ${{ inputs.max_passes }}
+          BACKFILL_FULL_MAX: ${{ inputs.full_max }}
         run: |
-          python backfill_zh.py
+          if [ "${{ inputs.full }}" = "true" ]; then
+            python backfill_zh.py --full
+          else
+            python backfill_zh.py
+          fi
 
       - name: Commit and push
         run: |
@@ -81,13 +95,22 @@ jobs:
           echo "push failed after 5 attempts"; exit 1
 
       - name: Verify completion (fail if still missing)
+        env:
+          FULL_MODE: ${{ inputs.full }}
         run: |
           python - <<'PY'
-          import json
+          import json, os
+          full_mode = os.environ.get("FULL_MODE") == "true"
           with open("data/index.json","r",encoding="utf-8") as f:
             articles = (json.load(f) or {}).get("articles", []) or []
           missing = 0
           for a in articles:
+            if full_mode:
+                abstract = (a.get("abstract") or "").strip()
+                full = (a.get("abstract_zh_full") or "").strip()
+                if abstract and not full:
+                    missing += 1
+                continue
             if not (a.get("title_zh") or "").strip():
               missing += 1
               continue
@@ -95,5 +118,6 @@ jobs:
               missing += 1
               continue
           print("missing", missing)
-          raise SystemExit(0 if missing == 0 else 1)
+          # full 模式允许限量回填(BACKFILL_FULL_MAX),有剩余不算失败
+          raise SystemExit(0 if (missing == 0 or full_mode) else 1)
           PY

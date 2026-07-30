@@ -222,6 +222,12 @@ def main() -> int:
     if full_mode:
         # --full: 只回填 abstract_zh_full（完整翻译），不动已有 title_zh/abstract_zh
         targets = [a for a in articles if _target_needs_full(a)]
+        # 网关慢时全量回填一次跑不完：BACKFILL_FULL_MAX 限制单次条数(最新优先),
+        # 幂等设计保证多次运行收敛;0/未设 = 不限
+        full_max = int(os.environ.get("BACKFILL_FULL_MAX", "0") or "0")
+        if full_max > 0 and len(targets) > full_max:
+            targets.sort(key=lambda x: (x.get("pub_date") or ""), reverse=True)
+            targets = targets[:full_max]
         missing_fn = count_missing_full
         mode_label = "full"
     else:
