@@ -55,12 +55,15 @@ def enrich_articles_zh(
     max_items: int = 120,
     batch_size: int = 12,
     abstract_char_limit: int = 3000,
+    on_progress: Optional[Any] = None,
 ) -> int:
     """
     Mutates `articles` in-place. Returns number of articles updated.
 
     `abstract_zh` is allowed to be a concise Chinese abstract/summary (2-4 sentences).
     `abstract_zh_full` is a complete faithful Chinese translation of the full abstract.
+    `on_progress` (optional) is invoked after each processed batch so callers can
+    checkpoint-persist partial progress (protects long backfills from job timeouts).
     """
 
     provider_name = (provider_name or "").strip().lower()
@@ -146,6 +149,11 @@ def enrich_articles_zh(
                 if title_zh or abstract_zh or abstract_zh_full:
                     updated += 1
 
+            if on_progress:
+                try:
+                    on_progress()
+                except Exception:
+                    pass
             time.sleep(0.2)
 
         return updated

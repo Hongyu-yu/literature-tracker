@@ -79,6 +79,8 @@ jobs:
           fi
 
       - name: Commit and push
+        # 部分回填也要推送: 脚本在未填完时 exit 2, 但已完成的部分必须保留(幂等, 下次接着跑)
+        if: always()
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"

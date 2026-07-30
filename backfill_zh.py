@@ -254,6 +254,9 @@ def main() -> int:
             model=ai_model,
             max_items=len(targets),
             batch_size=batch_size,
+            # 每个 batch 落盘一次: 慢网关下 800 篇回填要跑数小时,
+            # 若 job 超时也能保住已完成的翻译(幂等, 下次接着跑)
+            on_progress=lambda: save_index(index_path, articles),
         )
         missing_after = missing_fn(targets)
         print(f"[backfill] pass={p} updated={updated} missing_after={missing_after}")
