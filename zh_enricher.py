@@ -1,6 +1,7 @@
 """
 Chinese enrichment utilities:
-- Ensure every article has `title_zh` and `abstract_zh`.
+- Ensure every article has `title_zh`, `abstract_zh` (2-4 句浓缩版) and
+  `abstract_zh_full` (完整忠实中文翻译, 同一次 LLM 调用产出).
 
 Strategy:
 - Prefer LLM batch translation/summarization via the configured AI provider (OpenRouter recommended).
@@ -31,6 +32,20 @@ def _default_ai_model() -> Optional[str]:
     return (os.environ.get("AI_MODEL") or "").strip() or None
 
 
+def _has_cjk(text: str) -> bool:
+    return any("\u4e00" <= ch <= "\u9fff" for ch in (text or ""))
+
+
+def _full_needs_translation(a: Dict[str, Any]) -> bool:
+    """abstract_zh_full 缺失/可疑,或原样等于英文摘要(LLM 未翻译) → 需重填。
+    已含中文且与原文一致(源摘要本身是中文)视为正常,保持幂等。"""
+    full = (a.get("abstract_zh_full") or "").strip()
+    if not full or is_suspicious_text(full):
+        return True
+    abstract = (a.get("abstract") or "").strip()
+    return bool(abstract) and full == abstract and not _has_cjk(full)
+
+
 def enrich_articles_zh(
     articles: List[Dict[str, Any]],
     *,
@@ -39,12 +54,13 @@ def enrich_articles_zh(
     model: Optional[str] = None,
     max_items: int = 120,
     batch_size: int = 12,
-    abstract_char_limit: int = 1200,
+    abstract_char_limit: int = 3000,
 ) -> int:
     """
     Mutates `articles` in-place. Returns number of articles updated.
 
     `abstract_zh` is allowed to be a concise Chinese abstract/summary (2-4 sentences).
+    `abstract_zh_full` is a complete faithful Chinese translation of the full abstract.
     """
 
     provider_name = (provider_name or "").strip().lower()
@@ -60,6 +76,7 @@ def enrich_articles_zh(
         if (
             not (a.get("title_zh") or "").strip()
             or not (a.get("abstract_zh") or "").strip()
+            or _full_needs_translation(a)
             or is_suspicious_text(a.get("title_zh"))
             or is_suspicious_text(a.get("abstract_zh"))
         )
@@ -116,13 +133,17 @@ def enrich_articles_zh(
                     continue
                 title_zh = normalize_text((item.get("title_zh") or "").strip())
                 abstract_zh = normalize_text((item.get("abstract_zh") or "").strip())
+                abstract_zh_full = normalize_text((item.get("abstract_zh_full") or "").strip())
                 if title_zh:
                     if not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
                         a["title_zh"] = title_zh
                 if abstract_zh:
                     if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
                         a["abstract_zh"] = abstract_zh
-                if title_zh or abstract_zh:
+                if abstract_zh_full:
+                    if _full_needs_translation(a):
+                        a["abstract_zh_full"] = abstract_zh_full
+                if title_zh or abstract_zh or abstract_zh_full:
                     updated += 1
 
             time.sleep(0.2)
@@ -141,6 +162,8 @@ def enrich_articles_zh(
                 a["title_zh"] = normalize_text(translate_text(a.get("title") or ""))
             if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
                 a["abstract_zh"] = normalize_text(translate_text((a.get("abstract") or "")[:2000]))
+            if _full_needs_translation(a):
+                a["abstract_zh_full"] = normalize_text(translate_text(a.get("abstract") or ""))
             updated += 1
         except Exception:
             continue
@@ -156,7 +179,7 @@ def _build_batch_prompt(items: List[Dict[str, str]]) -> str:
         )
     joined = "\n".join(lines)
 
-    return f"""你是专业的学术翻译与摘要助手。请对以下每条文献生成中文标题与中文摘要。\n\n输入列表:\n{joined}\n\n请严格输出 JSON（不要 markdown，不要多余解释）：\n{{\n  \"items\": [\n    {{\"index\": 1, \"title_zh\": \"中文标题\", \"abstract_zh\": \"中文摘要(2-4句,忠实且简洁)\"}},\n    ...\n  ]\n}}\n\n要求:\n1. items 必须包含全部输入条目，index 与输入的 [序号] 严格一致。\n2. 如果原摘要为空/过短/仅为元数据（如 EarlyView、Published online 等），abstract_zh 仍应给出基于标题与期刊信息的谨慎概述（不要编造具体数值/结论，允许以“该工作围绕...展开，详情需查阅原文”表述）。\n3. 不要输出任何链接。\n"""
+    return f"""你是专业的学术翻译与摘要助手。请对以下每条文献生成中文标题、中文摘要与完整中文翻译。\n\n输入列表:\n{joined}\n\n请严格输出 JSON（不要 markdown，不要多余解释）：\n{{\n  \"items\": [\n    {{\"index\": 1, \"title_zh\": \"中文标题\", \"abstract_zh\": \"中文摘要(2-4句,忠实且简洁)\", \"abstract_zh_full\": \"摘要的完整忠实中文翻译(逐句对应原文,不删减不浓缩)\"}},\n    ...\n  ]\n}}\n\n要求:\n1. items 必须包含全部输入条目，index 与输入的 [序号] 严格一致。\n2. 如果原摘要为空/过短/仅为元数据（如 EarlyView、Published online 等），abstract_zh 与 abstract_zh_full 仍应给出基于标题与期刊信息的谨慎概述（不要编造具体数值/结论，允许以“该工作围绕...展开，详情需查阅原文”表述）。\n3. 不要输出任何链接。\n"""
 
 
 def _parse_batch_result(data: Any) -> Dict[int, Dict[str, str]]:
@@ -179,5 +202,6 @@ def _parse_batch_result(data: Any) -> Dict[int, Dict[str, str]]:
         mapping[idx_int] = {
             "title_zh": str(item.get("title_zh", "") or ""),
             "abstract_zh": str(item.get("abstract_zh", "") or ""),
+            "abstract_zh_full": str(item.get("abstract_zh_full", "") or ""),
         }
     return mapping

@@ -331,3 +331,102 @@ def test_classify_uses_title_en_when_title_empty():
     ce = build_core_export(full)
     assert ce[0]["category"] in ("AI×物理", "AI×化学·材料")
     assert ce[0]["abstract"]
+
+
+def test_render_unified_item_prefers_abstract_zh_full():
+    from generate_daily_pages import render_unified_item
+    item = {"title": "P", "title_en": "P", "title_zh": "标题",
+            "abstract_zh": "浓缩摘要不应出现", "abstract_zh_full": "完整中文翻译应当出现",
+            "summary": "亮点", "link": "http://x", "journal": "arXiv",
+            "_tier": 2, "_enrich": None}
+    html = render_unified_item(item, 1)
+    assert "完整中文翻译应当出现" in html
+    assert "浓缩摘要不应出现" not in html  # 完整翻译优先于浓缩版
+
+
+def test_render_unified_item_falls_back_to_concise_zh():
+    from generate_daily_pages import render_unified_item
+    item = {"title": "P", "title_en": "P", "title_zh": "标题",
+            "abstract_zh": "旧数据浓缩摘要",
+            "summary": "亮点", "link": "http://x", "journal": "arXiv",
+            "_tier": 2, "_enrich": None}
+    html = render_unified_item(item, 1)
+    assert "旧数据浓缩摘要" in html  # 无 abstract_zh_full 时回退旧行为
+
+
+def test_render_unified_item_en_details_shown_and_hidden():
+    from generate_daily_pages import render_unified_item
+    base = {"title": "P", "title_en": "P", "title_zh": "标题",
+            "summary": "亮点", "link": "http://x", "journal": "arXiv",
+            "_tier": 2, "_enrich": None}
+    with_en = render_unified_item(dict(base, abstract="English abstract body"), 1)
+    assert '<details class="daily-abstract-en">' in with_en
+    assert "English abstract body" in with_en
+    without_en = render_unified_item(base, 1)
+    assert "daily-abstract-en" not in without_en
+
+
+def test_render_focus_section_cards_sorted_with_three_lines():
+    from generate_daily_pages import render_focus_section
+    items = [
+        {"title_zh": "低分文", "focus_score": 5, "focus_summary": "总结A",
+         "focus_relation": "关系A", "focus_suggestion": "建议A",
+         "link": "https://ex/a", "journal": "arXiv"},
+        {"title_zh": "高分文", "focus_score": 9, "focus_summary": "总结B",
+         "focus_relation": "关系B", "focus_suggestion": "建议B",
+         "link": "https://ex/b", "journal": "Nature"},
+    ]
+    html = render_focus_section(items)
+    assert 'id="focus-interest"' in html and "与你方向相关" in html
+    assert "2 篇" in html
+    assert "📝 简单总结" in html and "🔗 与我们工作的关系" in html
+    assert "💡 进一步工作建议" in html
+    assert "相关度 9" in html and "相关度 5" in html
+    assert html.index("高分文") < html.index("低分文")  # 按分数降序
+    assert 'href="https://ex/b"' in html
+
+
+def test_render_focus_section_skips_empty_analysis_lines():
+    from generate_daily_pages import render_focus_section
+    items = [{"title_zh": "半空文", "focus_score": 7, "focus_summary": "只有总结",
+              "focus_relation": "", "focus_suggestion": "",
+              "link": "https://ex/c", "journal": "arXiv"}]
+    html = render_focus_section(items)
+    assert "只有总结" in html
+    assert "与我们工作的关系" not in html  # 空字段跳过
+    assert "进一步工作建议" not in html
+
+
+def test_render_focus_section_hidden_when_no_focus_items():
+    from generate_daily_pages import render_focus_section
+    assert render_focus_section([]) == ""
+    assert render_focus_section(None) == ""
+    # 旧数据(无 focus 字段) → 区块整体隐藏
+    assert render_focus_section([{"title": "旧文章", "link": "http://x"}]) == ""
+
+
+def test_render_daily_html_focus_section_wired_shown_and_hidden():
+    import os, tempfile
+    from generate_daily_pages import render_daily_html
+    d = tempfile.mkdtemp()
+    focus_item = {"title_en": "Focus Paper", "title_zh": "焦点文", "summary": "s",
+                  "link": "https://ex/f", "journal": "arXiv",
+                  "focus_score": 8, "focus_summary": "总结", "focus_relation": "关系",
+                  "focus_suggestion": "建议"}
+    plain_item = {"title_en": "Plain", "summary": "s",
+                  "link": "https://ex/p", "journal": "arXiv"}
+    cwd = os.getcwd()
+    try:
+        os.chdir(d)
+        html = render_daily_html("2026-07-29",
+                                 {"overview": "o", "trends": "t", "full_list": [focus_item]})
+        assert 'id="focus-interest"' in html
+        assert 'href="#focus-interest"' in html  # 目录链接同步出现
+        # 旧数据(无新字段)渲染与之前一致:无 focus 区块、无目录链接
+        html2 = render_daily_html("2026-07-29",
+                                  {"overview": "o", "trends": "t", "full_list": [plain_item]})
+        assert 'id="focus-interest"' not in html2
+        assert 'href="#focus-interest"' not in html2
+        assert "今日文献" in html2 and "Plain" in html2
+    finally:
+        os.chdir(cwd)

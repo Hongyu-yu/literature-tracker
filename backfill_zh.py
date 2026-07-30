@@ -2,6 +2,7 @@
 """
 One-shot full backfill for Chinese fields:
 - Fill `title_zh` and `abstract_zh` for ALL articles in `data/index.json`.
+- `--full` mode: backfill `abstract_zh_full` (完整忠实中文翻译) for existing articles.
 - Write the updated file to `data/index.json`(docs/data 由 deploy job 部署期复制,
   如需额外副本可设 BACKFILL_DOCS_PATH)。
 
@@ -15,6 +16,7 @@ from __future__ import annotations
 
 import json
 import os
+import sys
 import time
 from pathlib import Path
 from typing import Any, Dict, Iterable, List, Set
@@ -46,6 +48,21 @@ def count_missing(articles: List[Dict[str, Any]]) -> int:
             n += 1
             continue
     return n
+
+
+def _target_needs_full(a: Dict[str, Any]) -> bool:
+    """--full 模式目标：有英文摘要但缺 abstract_zh_full（或可疑/未翻译）。
+    与 zh_enricher._full_needs_translation 保持一致：full 原样等于英文摘要
+    且无中文视为未翻译；源摘要本身是中文(full==abstract 且含 CJK)不算缺失。"""
+    abstract = normalize_text(a.get("abstract") or "").strip()
+    if not abstract:
+        return False
+    full = normalize_text(a.get("abstract_zh_full") or "").strip()
+    return (not full) or is_suspicious_text(full) or (full == abstract and not _has_cjk(full))
+
+
+def count_missing_full(articles: List[Dict[str, Any]]) -> int:
+    return sum(1 for a in articles if _target_needs_full(a))
 
 
 def _has_cjk(text: str) -> bool:
@@ -181,6 +198,7 @@ def _sync_site_outputs(articles: List[Dict[str, Any]]) -> None:
 
 
 def main() -> int:
+    full_mode = "--full" in sys.argv
     index_path = os.environ.get("BACKFILL_INDEX_PATH") or "data/index.json"
     # docs/data 为部署期产物(deploy job 从 data/ 复制),默认不再写副本;需要时设 BACKFILL_DOCS_PATH
     out_docs_path = os.environ.get("BACKFILL_DOCS_PATH") or ""
@@ -201,16 +219,25 @@ def main() -> int:
     max_passes = int(os.environ.get("AI_ZH_MAX_PASSES", "20"))
     sleep_s = float(os.environ.get("AI_ZH_PASS_SLEEP_SECONDS", "1.0"))
 
-    targets = _select_targets(articles, scope)
-    _prepare_targets(targets)
-    missing_before = count_missing(targets)
-    print(f"[backfill] scope={scope} total={len(articles)} targets={len(targets)} missing_before={missing_before}")
+    if full_mode:
+        # --full: 只回填 abstract_zh_full（完整翻译），不动已有 title_zh/abstract_zh
+        targets = [a for a in articles if _target_needs_full(a)]
+        missing_fn = count_missing_full
+        mode_label = "full"
+    else:
+        targets = _select_targets(articles, scope)
+        _prepare_targets(targets)
+        missing_fn = count_missing
+        mode_label = f"scope={scope}"
+
+    missing_before = missing_fn(targets)
+    print(f"[backfill] mode={mode_label} total={len(articles)} targets={len(targets)} missing_before={missing_before}")
     if missing_before == 0:
         print("[backfill] already complete; nothing to do.")
         return 0
 
     for p in range(1, max_passes + 1):
-        missing = count_missing(targets)
+        missing = missing_fn(targets)
         if missing == 0:
             break
 
@@ -222,7 +249,7 @@ def main() -> int:
             max_items=len(targets),
             batch_size=batch_size,
         )
-        missing_after = count_missing(targets)
+        missing_after = missing_fn(targets)
         print(f"[backfill] pass={p} updated={updated} missing_after={missing_after}")
 
         if updated == 0:
@@ -231,7 +258,7 @@ def main() -> int:
         else:
             time.sleep(sleep_s)
 
-    missing_final = count_missing(targets)
+    missing_final = missing_fn(targets)
     print(f"[backfill] missing_final={missing_final}")
 
     # Persist

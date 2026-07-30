@@ -113,6 +113,73 @@ def render_core_weekly_section(summary: Dict) -> str:
     """
 
 
+def render_focus_weekly_section(articles: List[Dict]) -> str:
+    """「🎯 与你方向相关」周报区块：汇总当周 focus_score 命中的文章，按分数降序，
+    卡片含 简单总结 / 与我们工作的关系 / 进一步工作建议 三行（空字段跳过）。
+    无匹配文章（旧数据无 focus 字段）时返回空串，区块整体隐藏。"""
+    import html as _html
+    def _t(s: str) -> str:
+        return _html.escape(str(s or ""), quote=True)
+    def _u(url: str) -> str:
+        url = (url or "").strip()
+        if not url:
+            return "#"
+        if not (url.startswith("http://") or url.startswith("https://")):
+            return "#"
+        return _html.escape(url, quote=True)
+
+    items = [a for a in (articles or []) if isinstance(a, dict) and a.get('focus_score')]
+    if not items:
+        return ""
+
+    def _score(a) -> float:
+        try:
+            return float(a.get('focus_score') or 0)
+        except (TypeError, ValueError):
+            return 0.0
+
+    items = sorted(items, key=_score, reverse=True)
+    cards = []
+    for i, it in enumerate(items, 1):
+        title = (it.get('title_zh') or it.get('title') or it.get('title_en') or '').strip()
+        journal = (it.get('journal') or '').strip()
+        pub_date = (it.get('pub_date') or it.get('date') or '').strip()
+        link = (it.get('link') or '').strip() or '#'
+        fs = (it.get('focus_summary') or '').strip()
+        fr = (it.get('focus_relation') or '').strip()
+        fg = (it.get('focus_suggestion') or '').strip()
+        deep = ""
+        parts = []
+        if fs: parts.append(f"<p><strong>📝 简单总结：</strong>{_t(fs)}</p>")
+        if fr: parts.append(f"<p><strong>🔗 与我们工作的关系：</strong>{_t(fr)}</p>")
+        if fg: parts.append(f"<p><strong>💡 进一步工作建议：</strong>{_t(fg)}</p>")
+        if parts:
+            deep = f"<div class='weekly-focus-deep'>{''.join(parts)}</div>"
+        meta_parts = []
+        if journal:
+            meta_parts.append(f"<span class='weekly-chip'>📖 {_t(journal)}</span>")
+        if pub_date:
+            meta_parts.append(f"<span class='weekly-chip'>📅 {_t(pub_date)}</span>")
+        meta_parts.append(f"<span class='weekly-chip weekly-chip-focus'>🎯 相关度 {_t(it.get('focus_score'))}</span>")
+        cards.append(f"""
+        <li class="weekly-focus-card" data-bookmark-key="{_t(link)}">
+          <div class="weekly-focus-number">{i:02d}</div>
+          <div class="weekly-focus-body">
+            <div class="weekly-focus-title"><a class="weekly-focus-link" href="{_u(link)}" target="_blank" rel="noopener noreferrer">{_t(title)}</a></div>
+            <div class="weekly-focus-meta">{''.join(meta_parts)}</div>
+            {deep}
+            <div class="weekly-core-actions"><a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+          </div>
+        </li>
+        """)
+    return f"""
+    <section id="focus-interest" class="weekly-section weekly-focus-section">
+      <div class="weekly-section-head"><span class="weekly-section-index">🎯</span><h2 class="weekly-section-title">与你方向相关</h2><span class="weekly-focus-count">{len(items)} 篇</span></div>
+      <ol class="weekly-focus-list">{''.join(cards)}</ol>
+    </section>
+    """
+
+
 class WeeklySummarizer:
     """周报生成器"""
     
@@ -1354,6 +1421,8 @@ class WeeklySummarizer:
                 deduped.append(article)
             all_articles = deduped
 
+        focus_articles = [a for a in all_articles if isinstance(a, dict) and a.get('focus_score')]
+
         if not week_end and week_start:
             try:
                 week_end = (datetime.strptime(week_start, '%Y-%m-%d') + timedelta(days=6)).strftime('%Y-%m-%d')
@@ -1460,7 +1529,7 @@ class WeeklySummarizer:
                 raw_date = str(article.get('pub_date') or article.get('date') or '').strip()
                 raw_authors = authors_label(article)
                 raw_ai_analysis = str(article.get('ai_analysis') or '').strip()
-                raw_abstract_zh = str(article.get('abstract_zh') or '').strip()
+                raw_abstract_zh = str(article.get('abstract_zh_full') or article.get('abstract_zh') or '').strip()
                 raw_abstract_en = str(article.get('abstract') or '').strip()
 
                 title = _safe_text(raw_title)
@@ -2240,6 +2309,23 @@ class WeeklySummarizer:
         .weekly-core-deep {{ margin-top:10px; padding:12px 14px; border-radius:12px; background:rgba(245,158,11,.06); border:1px dashed rgba(245,158,11,.35); line-height:1.75; }}
         .weekly-core-deep p + p {{ margin-top:6px; }}
         @media (max-width:720px){{ .weekly-core-card{{ grid-template-columns:1fr; }} }}
+
+        /* ---- Focus interest (与你方向相关) ---- */
+        .weekly-focus-section {{ border-radius:22px; padding:22px; margin-bottom:26px; background:linear-gradient(135deg,rgba(224,231,255,0.55),rgba(238,242,255,0.88)); border:1.5px solid rgba(99,102,241,0.4); box-shadow:0 4px 18px rgba(99,102,241,0.08); }}
+        .weekly-focus-section .weekly-section-title {{ color:var(--accent-primary); }}
+        .weekly-focus-count {{ margin-left:auto; padding:6px 12px; border-radius:999px; background:rgba(99,102,241,0.14); color:var(--accent-primary); font-weight:700; font-size:.9rem; }}
+        .weekly-focus-list {{ list-style:none; margin:0; padding:0; }}
+        .weekly-focus-card {{ display:grid; grid-template-columns:auto minmax(0,1fr); gap:14px; padding:18px; border-radius:18px; background:rgba(255,255,255,0.95); border:1px solid rgba(99,102,241,0.22); border-left:3px solid var(--accent-primary); }}
+        .weekly-focus-card + .weekly-focus-card {{ margin-top:14px; }}
+        .weekly-focus-number {{ width:40px; height:40px; display:inline-flex; align-items:center; justify-content:center; border-radius:14px; font-weight:800; color:white; background:linear-gradient(135deg,#6366f1,#818cf8); }}
+        .weekly-focus-title {{ font-size:1.08rem; font-weight:700; line-height:1.5; margin-bottom:4px; }}
+        .weekly-focus-link {{ color:inherit; text-decoration:none; }}
+        .weekly-focus-link:hover {{ color:var(--accent-primary); }}
+        .weekly-focus-meta {{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }}
+        .weekly-chip-focus {{ background:rgba(99,102,241,.16); color:var(--accent-primary); font-weight:600; }}
+        .weekly-focus-deep {{ margin-top:10px; padding:12px 14px; border-radius:12px; background:rgba(99,102,241,.06); border:1px dashed rgba(99,102,241,.32); line-height:1.75; }}
+        .weekly-focus-deep p + p {{ margin-top:6px; }}
+        @media (max-width:720px){{ .weekly-focus-card{{ grid-template-columns:1fr; }} }}
     </style>
 </head>
 <body>
@@ -2289,6 +2375,7 @@ class WeeklySummarizer:
 
                 <nav class="weekly-toc-sticky" aria-label="移动目录">
                   {'<a href="#core-focus">核心方向</a>' if summary.get('core_items') else ''}
+                  {'<a href="#focus-interest">与你相关</a>' if focus_articles else ''}
                   <a href="#overview">本周总览</a>
                   {'<a href="#cross">交叉研究</a>' if both_articles else ''}
                   {'<a href="#ferro">磁性/铁电</a>' if ferro_articles else ''}
@@ -2297,6 +2384,7 @@ class WeeklySummarizer:
                 </nav>
 
                 {render_core_weekly_section(summary)}
+                {render_focus_weekly_section(focus_articles)}
                 {''.join(sections)}
 
                 <div class="weekly-report-footer">

@@ -11,7 +11,7 @@ from config import RSS_FEEDS, KEYWORDS, DEDUP_CONFIG, AI_CONFIG
 from rss_fetcher import RSSFetcher
 from deduplicator import Deduplicator
 from notion_tg_notifier import NotionTGNotifier
-from ai_summarizer import AISummarizer
+from ai_summarizer import AISummarizer, build_provider
 from zh_enricher import enrich_articles_zh
 from relevance_enricher import batch_analyze_relevance
 from focus_filter import analyze_focus, filter_daily_focus_items, filter_focus_items, is_daily_focus, is_target_domain, is_hard_offtopic
@@ -255,9 +255,12 @@ def run_optimized_sync():
     existing_articles = [a for a in existing_articles if isinstance(a, dict) and is_target_domain(a)]
     existing_links = {a.get("link") for a in existing_articles if a.get("link")}
     new_count = 0
+    new_articles = []
     for a in filtered:
         if a.link and a.link not in existing_links:
-            existing_articles.append(a.to_dict())
+            d = a.to_dict()
+            existing_articles.append(d)
+            new_articles.append(d)
             new_count += 1
 
     zh_max_items = int(os.environ.get("AI_ZH_MAX_ITEMS", "120"))
@@ -272,6 +275,22 @@ def run_optimized_sync():
         print(f"🌐 已补全中文标题/摘要: {zh_updated} 篇 (本次新增: {new_count})")
     elif new_count:
         print(f"🌐 本次新增: {new_count} 篇 (中文字段补全: 0)")
+
+    # 4.5) 研究兴趣画像匹配：只对本次新文章（fail-soft，失败不影响其他阶段与退出码）
+    try:
+        focus_enabled = (os.environ.get("FOCUS_ENABLED", "1") or "1").strip().lower() not in ("0", "false", "no")
+        if focus_enabled and new_articles:
+            from focus_interest import enrich_focus_interest
+            try:
+                focus_max_items = int(os.environ.get("AI_FOCUS_MAX_ITEMS", "20"))
+            except Exception:
+                focus_max_items = 20
+            focus_provider = build_provider(ai_provider, ai_key, model=ai_model) if ai_key else None
+            focus_updated = enrich_focus_interest(new_articles, provider=focus_provider, max_items=focus_max_items)
+            if focus_updated:
+                print(f"🎯 兴趣画像匹配: {focus_updated} 篇当日新文章")
+    except Exception as e:
+        print(f"⚠️ 兴趣画像匹配失败(已跳过): {e}")
 
     normalize_articles_inplace(existing_articles)
     normalize_articles_inplace(ai_relevant_list)

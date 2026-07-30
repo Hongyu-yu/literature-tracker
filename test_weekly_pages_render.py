@@ -1,10 +1,52 @@
 #!/usr/bin/env python3
 """Deterministic sanity test for weekly page rendering (no network)."""
 
+import sys
+import types
 from pathlib import Path
 from tempfile import TemporaryDirectory
 
+
+def _stub_third_party(name, attrs):
+    """本机缺 bs4/deep_translator 时桩进 sys.modules(渲染路径用不到它们);
+    CI 装了真依赖则不动。返回 True 表示用的是桩。"""
+    try:
+        __import__(name)
+        return False
+    except ModuleNotFoundError:
+        mod = types.ModuleType(name)
+        for key, value in attrs.items():
+            setattr(mod, key, value)
+        sys.modules[name] = mod
+        return True
+
+
+class _UnavailableStub:
+    def __init__(self, *args, **kwargs):
+        raise RuntimeError("stubbed optional dep: not usable in tests")
+
+
+class _GoogleTranslatorStub:
+    """translator.py 在 import 时就实例化 GoogleTranslator,桩必须可构造;
+    translate 真被调用才报错(本测试路径不会触发)。"""
+    def __init__(self, *args, **kwargs):
+        pass
+
+    def translate(self, text):
+        raise RuntimeError("stubbed deep_translator: translate not usable in tests")
+
+
+_BS4_STUBBED = _stub_third_party("bs4", {"BeautifulSoup": _UnavailableStub,
+                                         "Comment": str, "NavigableString": str,
+                                         "Tag": object})
+_stub_third_party("deep_translator", {"GoogleTranslator": _GoogleTranslatorStub})
+
+import weekly_summary
 from weekly_summary import WeeklySummarizer
+
+if _BS4_STUBBED:
+    # 本机无 bs4:索引导航增强(BeautifulSoup 解析,与渲染断言无关)全局打桩跳过
+    weekly_summary.enhance_weekly_archive = lambda *a, **k: 0
 
 
 def main() -> int:
@@ -107,3 +149,93 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def _weekly_summary(articles, focus=False):
+    """构造最小周报 summary;focus=True 时给首篇文章加 focus_* 字段。"""
+    if focus and articles:
+        articles[0] = dict(articles[0], focus_score=9, focus_summary="周总结",
+                           focus_relation="周关系", focus_suggestion="周建议")
+    return {
+        "week_start": "2026-03-16", "week_end": "2026-03-22",
+        "overview": "总览", "trends": "热点", "outlook": "展望",
+        "generated_by": "test",
+        "both_articles": articles, "ferro_articles": [], "ai_articles": [],
+        "all_articles": list(articles),
+        "by_journal": {"arXiv": articles} if articles else {},
+    }
+
+
+def _render_weekly(summary):
+    summarizer = WeeklySummarizer()
+    with TemporaryDirectory() as tmpdir:
+        path = summarizer.save_summary_html(summary, tmpdir)
+        return Path(path).read_text(encoding="utf-8")
+
+
+def test_render_focus_weekly_section_cards_sorted_with_three_lines():
+    from weekly_summary import render_focus_weekly_section
+    items = [
+        {"title_zh": "低分文", "focus_score": 4, "focus_summary": "总结A",
+         "focus_relation": "关系A", "focus_suggestion": "建议A",
+         "link": "https://ex/a", "journal": "arXiv"},
+        {"title_zh": "高分文", "focus_score": 10, "focus_summary": "总结B",
+         "focus_relation": "关系B", "focus_suggestion": "建议B",
+         "link": "https://ex/b", "journal": "Nature"},
+    ]
+    html = render_focus_weekly_section(items)
+    assert 'id="focus-interest"' in html and "与你方向相关" in html
+    assert "2 篇" in html
+    assert "📝 简单总结" in html and "🔗 与我们工作的关系" in html
+    assert "💡 进一步工作建议" in html
+    assert "相关度 10" in html and "相关度 4" in html
+    assert html.index("高分文") < html.index("低分文")  # 按分数降序
+
+
+def test_render_focus_weekly_section_hidden_when_no_focus_items():
+    from weekly_summary import render_focus_weekly_section
+    assert render_focus_weekly_section([]) == ""
+    assert render_focus_weekly_section(None) == ""
+    # 旧数据(无 focus 字段) → 区块整体隐藏
+    assert render_focus_weekly_section([{"title": "旧文章", "link": "http://x"}]) == ""
+
+
+def test_weekly_collapsed_section_prefers_full_translation():
+    art = {"id": "c1", "title_zh": "中文标题", "title": "EN Title",
+           "journal": "arXiv", "authors": ["Alice"],
+           "ai_analysis": "AI 解读内容。",
+           "abstract_zh": "浓缩摘要标记", "abstract_zh_full": "完整中文翻译标记",
+           "abstract": "English body.",
+           "pub_date": "2026-03-18", "link": "https://example.com/c",
+           "is_ferro": True, "is_ai": True}
+    html = _render_weekly(_weekly_summary([art]))
+    assert "完整中文翻译标记" in html   # 折叠区中文 = 完整翻译
+    assert "浓缩摘要标记" not in html  # 浓缩版不再出现
+    assert "English body." in html
+
+
+def test_weekly_collapsed_section_falls_back_to_concise_zh():
+    art = {"id": "c2", "title_zh": "中文标题", "title": "EN Title",
+           "journal": "arXiv", "authors": ["Alice"],
+           "ai_analysis": "AI 解读内容。",
+           "abstract_zh": "旧数据浓缩摘要标记", "abstract": "English body.",
+           "pub_date": "2026-03-18", "link": "https://example.com/c2",
+           "is_ferro": True, "is_ai": True}
+    html = _render_weekly(_weekly_summary([art]))
+    assert "旧数据浓缩摘要标记" in html  # 无 abstract_zh_full 时回退旧行为
+
+
+def test_weekly_focus_section_wired_shown_and_hidden():
+    art = {"id": "c3", "title_zh": "焦点文", "title": "Focus Paper",
+           "journal": "arXiv", "authors": ["Alice"], "ai_analysis": "解读。",
+           "abstract_zh": "摘要。", "abstract": "abs.",
+           "pub_date": "2026-03-18", "link": "https://example.com/f",
+           "is_ferro": True, "is_ai": True}
+    html_focus = _render_weekly(_weekly_summary([art], focus=True))
+    assert 'id="focus-interest"' in html_focus
+    assert "周总结" in html_focus and "周关系" in html_focus and "周建议" in html_focus
+    assert 'href="#focus-interest"' in html_focus  # 目录链接同步出现
+    # 旧数据(无 focus 字段) → 无区块、无目录链接
+    html_plain = _render_weekly(_weekly_summary([art]))
+    assert 'id="focus-interest"' not in html_plain
+    assert 'href="#focus-interest"' not in html_plain

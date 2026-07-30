@@ -10,10 +10,20 @@
 RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等,唯一事实源)
                 │                        │
                 │ AI 相关性筛选/中文富化   ├─▶ articles/*.md(每篇文献一个文件)
+                │ (同一次 LLM 调用产出     │
+                │  abstract_zh 浓缩摘要 +  │
+                │  abstract_zh_full 完整翻译)│
                 ▼                        │
-   generate_daily_pages.py ──▶ docs/daily/*.html(日报)
+   阶段4.5:focus_interest.py 兴趣画像匹配
+        (规则预筛 + LLM 批量,画像来自
+         data/focus_interests.json)──▶ index.json 新增
+         focus_score/focus_summary/focus_relation/focus_suggestion
+   generate_daily_pages.py ──▶ docs/daily/*.html(日报,含「🎯 与你方向相关」区块)
    run_deep.py(APS 全文深读 + arXiv 富化 + 海报)──▶ data/aps_*.json、docs/images/posters/
-   weekly_summary.py ──▶ docs/weekly/*.html(周报)
+   weekly_summary.py ──▶ docs/weekly/*.html(周报,含同款 focus 区块)
+   update_focus_profile.py(本地抓取提交 works;dispatch workflow 只做蒸馏)──▶ data/focus_interests.json
+        (抓 Google Scholar 近五年论文 → S2/OpenAlex/arXiv 回填摘要 → LLM 蒸馏;
+         CI 用 --distill-only 不重抓 Scholar,防云端 IP 被封)
                                          │
             部署:deploy job 将 data/* 复制到 docs/data/ 后上传 Pages artifact
             (docs/data/ 不入库——这是 2026-06 优化批确立的约束)
@@ -32,6 +42,7 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
 | deploy-on-push.yml | push main | 其余推送的 Pages 部署(消息前缀过滤自动提交) |
 | smoke.yml | push/PR | py_compile + run_tests.py + 脚本式测试 |
 | backfill-daily / backfill-weekly / backfill-zh | 手动 | 历史回填 |
+| update-focus-profile.yml | 手动 | 研究兴趣画像蒸馏(`--distill-only`,不重抓 Scholar) |
 | test.yml | 手动 | 5 个 RSS 源快速连通性验证 |
 
 工程约束由 `test_actions.py` 固化(浅克隆 fetch-depth:1、push 必带 5 次 rebase

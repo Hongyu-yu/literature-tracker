@@ -123,4 +123,26 @@
     .daily-chip-core { background: rgba(245,158,11,0.18); color: #b45309; font-weight: 600; }
     .daily-core-deep { margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(245,158,11,0.06); border: 1px dashed rgba(245,158,11,0.35); line-height: 1.75; }
     .daily-core-deep p + p { margin-top: 6px; }
+    /* 完整中文摘要的英文原文折叠块 */
+    .daily-abstract-en { margin: 8px 0; border-top: 1px dashed var(--border-color); padding-top: 8px; }
+    .daily-abstract-en > summary { cursor: pointer; color: var(--accent-primary); font-weight: 600; list-style: none; }
+    .daily-abstract-en > summary::-webkit-details-marker { display: none; }
+    .daily-abstract-en-body { color: var(--text-secondary); line-height: 1.8; margin: 8px 0 0; font-size: 0.95rem; }
+    /* 🎯 与你方向相关（focus_score 画像匹配）区块 */
+    .daily-focus-section { border-radius: 22px; padding: 22px; margin-top: 26px; background: linear-gradient(135deg, rgba(224,231,255,0.55), rgba(238,242,255,0.88)); border: 1.5px solid rgba(99,102,241,0.4); box-shadow: 0 4px 18px rgba(99,102,241,0.08); }
+    .daily-focus-section .daily-section-title { color: var(--accent-primary); }
+    .daily-focus-section .daily-section-index { background: rgba(99,102,241,0.16); color: var(--accent-primary); }
+    .daily-focus-count { margin-left: auto; padding: 6px 12px; border-radius: 999px; background: rgba(99,102,241,0.14); color: var(--accent-primary); font-weight: 700; font-size: 0.9rem; }
+    .daily-focus-list { list-style: none; margin: 0; padding: 0; }
+    .daily-focus-card { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 14px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.95); border: 1px solid rgba(99,102,241,0.22); border-left: 3px solid var(--accent-primary); box-shadow: var(--shadow-sm); }
+    .daily-focus-card + .daily-focus-card { margin-top: 14px; }
+    .daily-focus-number { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; font-weight: 800; color: white; background: var(--gradient-accent); box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .daily-focus-title { font-size: 1.1rem; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+    .daily-focus-link { color: inherit; text-decoration: none; }
+    .daily-focus-link:hover { color: var(--accent-primary); }
+    .daily-focus-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .daily-chip-focus { background: rgba(99,102,241,0.16); color: var(--accent-primary); font-weight: 600; }
+    .daily-focus-deep { margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(99,102,241,0.06); border: 1px dashed rgba(99,102,241,0.32); line-height: 1.75; }
+    .daily-focus-deep p + p { margin-top: 6px; }
+    @media (max-width: 720px) { .daily-focus-card { grid-template-columns: 1fr; } .daily-focus-number { width: 38px; height: 38px; } }
   

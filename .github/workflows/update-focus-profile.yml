@@ -1,0 +1,63 @@
+name: 更新研究兴趣画像
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  update-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    concurrency:
+      group: update-focus-profile
+      cancel-in-progress: false
+    steps:
+      - name: 检出代码
+        uses: actions/checkout@v4
+        with:
+          # 浅克隆:.git 数百 MB,代码不依赖历史;rebase 仅需新 tip(fetch 会带下来)
+          fetch-depth: 1
+          token: ${{ secrets.PAT_TOKEN }}
+
+      - name: 设置Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: 'pip'
+
+      - name: 安装依赖
+        run: pip install -r requirements.txt
+
+      - name: 配置网关 hosts（网关域名 DNS 解析失败的兜底，映射存于 secret）
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+
+      # 不重抓 Scholar(云端 IP 易被封):works 由本地抓取并随仓库提交,
+      # 本 job 只做需要 AI key 的蒸馏(directions_zh/our_work_zh/keywords)
+      - name: 蒸馏研究兴趣画像（不重抓 Scholar）
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_PROVIDER: ${{ secrets.AI_PROVIDER }}
+          AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
+          KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
+          OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
+        run: python update_focus_profile.py --distill-only
+
+      - name: 提交更改
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          if git diff --staged --quiet; then echo "nothing to commit"; exit 0; fi
+          git commit -m "🎯 更新研究兴趣画像 $(date +'%Y-%m-%d %H:%M')"
+          # race-safe push: rebase onto moved origin/main and retry (parallel workflows push to main)
+          for i in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+            if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
+            sleep 5
+          done
+          echo "push failed after 5 attempts"; exit 1

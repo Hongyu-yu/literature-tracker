@@ -500,9 +500,13 @@ def render_unified_item(item: Dict, index: int) -> str:
     title_en_block = (f'<div class="daily-paper-title-en">{safe_text(title_en)}</div>'
                       if show_zh and title_en else "")
     meta_html = render_meta_chips(item)
-    abstract_zh = (item.get("abstract_zh") or "").strip()
+    abstract_zh = (item.get("abstract_zh_full") or item.get("abstract_zh") or "").strip()
     abs_html = (f'<p class="daily-paper-abstract"><strong>📄 摘要：</strong>{safe_text(abstract_zh)}</p>'
                 if abstract_zh else "")
+    abstract_en = (item.get("abstract") or "").strip()
+    abs_en_html = (f'<details class="daily-abstract-en"><summary>📖 英文原文</summary>'
+                   f'<p class="daily-abstract-en-body">{safe_text(abstract_en)}</p></details>'
+                   if abstract_en else "")
     highlight = (item.get("summary") or item.get("one_sentence_summary") or "").strip()
     hl_html = (f'<p class="daily-paper-highlight"><strong>💡 亮点：</strong>{safe_text(highlight)}</p>'
                if highlight else "")
@@ -533,11 +537,72 @@ def render_unified_item(item: Dict, index: int) -> str:
             </div>{badge}</div>
             <div class="daily-paper-meta">{meta_html}</div>
             {abs_html}
+            {abs_en_html}
             {hl_html}
             {details}
             <div class="daily-paper-actions"><a class="daily-news-link" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
         </div>
     </li>
+    """
+
+
+def render_focus_section(focus_items: List[Dict]) -> str:
+    """「🎯 与你方向相关」区块：当日 focus_score 命中的文章按分数降序排列，
+    卡片含 简单总结 / 与我们工作的关系 / 进一步工作建议 三行（空字段跳过）。
+    无匹配文章（旧数据无 focus 字段）时返回空串，区块整体隐藏。"""
+    items = [it for it in (focus_items or []) if isinstance(it, dict) and it.get("focus_score")]
+    if not items:
+        return ""
+
+    def _score(it) -> float:
+        try:
+            return float(it.get("focus_score") or 0)
+        except (TypeError, ValueError):
+            return 0.0
+
+    items = sorted(items, key=_score, reverse=True)
+    cards = []
+    for i, it in enumerate(items, 1):
+        title = (it.get("title_zh") or it.get("title_en") or it.get("title") or "").strip()
+        journal = (it.get("journal") or "").strip()
+        pub_date = (it.get("pub_date") or it.get("date") or "").strip()
+        summary_zh = (it.get("focus_summary") or "").strip()
+        relation = (it.get("focus_relation") or "").strip()
+        suggestion = (it.get("focus_suggestion") or "").strip()
+        link = safe_url(it.get("link") or "")
+        meta_parts = []
+        if journal:
+            meta_parts.append(f"<span class='daily-chip daily-chip-journal'>📖 {safe_text(journal)}</span>")
+        if pub_date:
+            meta_parts.append(f"<span class='daily-chip'>📅 {safe_text(pub_date)}</span>")
+        meta_parts.append(f"<span class='daily-chip daily-chip-focus'>🎯 相关度 {safe_text(it.get('focus_score'))}</span>")
+        analysis_parts = []
+        if summary_zh:
+            analysis_parts.append(f"<p><strong>📝 简单总结：</strong>{safe_text(summary_zh)}</p>")
+        if relation:
+            analysis_parts.append(f"<p><strong>🔗 与我们工作的关系：</strong>{safe_text(relation)}</p>")
+        if suggestion:
+            analysis_parts.append(f"<p><strong>💡 进一步工作建议：</strong>{safe_text(suggestion)}</p>")
+        analysis = f"<div class='daily-focus-deep'>{''.join(analysis_parts)}</div>" if analysis_parts else ""
+        cards.append(f"""
+        <li class="daily-focus-card" data-bookmark-key="{link}">
+            <div class="daily-focus-number">{i:02d}</div>
+            <div class="daily-focus-body">
+                <div class="daily-focus-title"><a class="daily-focus-link" href="{link}" target="_blank" rel="noopener noreferrer">{safe_text(title)}</a></div>
+                <div class="daily-focus-meta">{''.join(meta_parts)}</div>
+                {analysis}
+            </div>
+        </li>
+        """)
+    return f"""
+    <section id="focus-interest" class="daily-section daily-focus-section">
+      <div class="daily-section-head">
+        <span class="daily-section-index">🎯</span>
+        <h2 class="daily-section-title">与你方向相关</h2>
+        <span class="daily-focus-count">{len(items)} 篇</span>
+      </div>
+      <ol class="daily-focus-list">{''.join(cards)}</ol>
+    </section>
     """
 
 
@@ -558,6 +623,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
 
     items = summary.get("full_list") or summary.get("summaries") or []
     unified = build_unified_items(items, enrich_map, aps_items)
+    focus_items = [it for it in unified if it.get("focus_score")]
     enriched_count = sum(1 for it in unified if it.get("_enrich"))
     tag_list = build_daily_tags(items)
     display_date = format_date_display(date_str)
@@ -676,6 +742,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     <nav class="daily-toc-sticky" aria-label="移动目录">
       <a href="#summary">摘要</a>
       {('<a href="#core-focus">核心关注</a>' if summary.get('core_items') else '')}
+      {('<a href="#focus-interest">与你相关</a>' if focus_items else '')}
       <a href="#papers">今日文献</a>
     </nav>
     <div class="daily-layout">
@@ -708,6 +775,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         </div>
 
         {render_core_section(summary.get('core_items', []) or [], summary.get('core_direction_note') or '')}
+        {render_focus_section(focus_items)}
         <section id="summary" class="daily-section">
           <div class="daily-section-head">
             <span class="daily-section-index">01</span>
@@ -739,6 +807,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         <div class="daily-toc-card">
           <div class="daily-toc-title">目录</div>
           {'<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>' if summary.get('core_items') else ''}
+          {'<a href="#focus-interest"><span>🎯 与你相关</span><span>🔍</span></a>' if focus_items else ''}
           <a href="#summary"><span>今日摘要</span><span>01</span></a>
           <a href="#papers"><span>今日文献</span><span>📚</span></a>
 
