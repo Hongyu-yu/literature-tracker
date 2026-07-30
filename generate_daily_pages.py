@@ -661,7 +661,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
             title_en = safe_text((it.get('title_en') or it.get('title') or '').strip())
             show_zh_block = bool(title_zh) and title_zh.casefold() != title_en.casefold()
             journal = safe_text(it.get('journal') or '')
-            abstract_zh = safe_text((it.get('abstract_zh') or '').strip())
+            abstract_zh = safe_text((it.get('abstract_zh_full') or it.get('abstract_zh') or '').strip())
             one_sentence = safe_text((it.get('summary') or '').strip())
             mp = safe_text((it.get('method_point') or '').strip())
             rw = safe_text((it.get('related_work') or '').strip())

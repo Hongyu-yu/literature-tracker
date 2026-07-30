@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """AI 日报 prompt 字数要求与 clamp 阈值回归（stdlib-only, 无网络）。
-确保：摘要 ≤200 字、亮点 2~3 句 ≤100 字的硬性要求写进 prompt；
+确保：摘要 ≤200 字、亮点 3~5 句 ≤250 字、深度三字段 ≤150 字的硬性要求写进 prompt；
 clamp 阈值放行新长度（否则 AI 写够了也会被截断）。"""
 from ai_summarizer import AISummarizer, _clamp_text
 
@@ -24,10 +24,10 @@ def _make_summarizer():
 def test_daily_prompt_requires_longer_abstract_and_highlight():
     prompt = _make_summarizer()._build_prompt(_ARTS, "2026-01-01")
     assert "≤200" in prompt, "abstract_zh 应要求 ≤200 字"
-    assert "2~3" in prompt, "one_sentence_summary 应要求 2~3 句"
-    assert "≤100" in prompt, "亮点应要求 ≤100 字"
+    assert "3~5" in prompt, "one_sentence_summary 应要求 3~5 句"
+    assert "≤250" in prompt, "亮点应要求 ≤250 字"
     # 旧的过短上限不应再出现在硬性要求里
-    assert "≤120 字" not in prompt and "≤40 字" not in prompt
+    assert "≤120 字" not in prompt and "≤40 字" not in prompt and "≤100" not in prompt
 
 
 def test_daily_prompt_feeds_more_abstract_source():
@@ -46,6 +46,24 @@ def test_clamp_allows_100_chinese_chars_for_highlight():
     result = _clamp_text(long_zh, 120)
     assert len(result) >= 100, (
         f"clamp(120) 应保留 ≥100 个字符，实际保留 {len(result)}"
+    )
+
+
+def test_core_deep_prompt_uses_detailed_limits():
+    """深度三字段 prompt 应要求 2~3 句、≤150 字（2026-07-30 用户反馈"太简要"后放宽）。"""
+    import inspect
+    src = inspect.getsource(AISummarizer.generate_core_deep_fields)
+    assert "≤150" in src, "method_point/related_work/implication 应要求 ≤150 字"
+    assert "2~3" in src, "深度三字段应要求每条 2~3 句"
+    assert "≤60" not in src and "≤70" not in src, "旧的 60/70 字上限不应保留"
+
+
+def test_core_deep_clamp_allows_detailed_fields():
+    """deep_fields clamp 应放行 200 字（否则 AI 写够 150 字也会被截断）。"""
+    long_zh = "方" * 180
+    result = _clamp_text(long_zh, 200)
+    assert len(result) >= 150, (
+        f"clamp(200) 应保留 ≥150 个字符，实际保留 {len(result)}"
     )
 
 

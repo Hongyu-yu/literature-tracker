@@ -632,8 +632,10 @@ class AISummarizer:
             '  "abstract_zh": "在二维 NbOI2 薄层中观测到稳定的面外铁电翻转，矫顽场约 0.3 V/nm，"\n'
             '                "室温保持时间 > 10^4 s；通过二次谐波与压电力显微镜确认极化方向，"\n'
             '                "并给出层厚依赖的相变温度，为低维非易失存储提供候选体系。",\n'
-            '  "one_sentence_summary": "首次在二维 NbOI2 中实现室温稳定的面外铁电翻转，矫顽场低至 0.3 V/nm。'
-            '该体系兼具薄层可集成性与长保持时间，为低功耗非易失存储与可重构光电器件提供了新的二维材料平台。"\n'
+            '  "one_sentence_summary": "首次在二维 NbOI2 中实现室温稳定的面外铁电翻转，矫顽场低至 0.3 V/nm，'
+            '极化保持时间超过 10^4 秒。作者结合二次谐波与压电力显微镜直接确认极化方向，并给出层厚依赖的'
+            '铁电相变温度，排除了衬底应变的干扰。该体系兼具薄层可集成性与长保持时间，为低功耗非易失存储'
+            '与可重构光电器件提供了新的二维材料平台。"\n'
             "}\n"
         )
 
@@ -647,7 +649,8 @@ class AISummarizer:
             "**禁止**把 title_zh 填成英文原标题或英文多数词；若检测到输出的 title_zh 里中文字符占比 < 50%，视为违反要求。\n"
             "2. abstract_zh：用中文把摘要写成 ≤200 字的研究要点概括，必须写出：体系/方法/关键数值或结论，"
             "尽量多覆盖。禁止任何套话：'本研究/取得进展/具有重要意义/为…提供新思路/点击查看' 等一律不允许。\n"
-            "3. one_sentence_summary：一段 2~3 句、≤100 字的中文亮点：核心创新点 + 最强结论 + 对凝聚态/"
+            "3. one_sentence_summary：一段 3~5 句、≤250 字的中文亮点详述，必须覆盖：核心创新点 + "
+            "关键方法细节（模型架构/训练策略/关键参数）+ 最强定量结论 + 对凝聚态/"
             "AI for science 方向的意义。要落到具体材料/现象/方法，不得空泛。\n"
             "4. 全部用中文；不输出链接（程序按序号自动补全）；不得编造原文没有的数据。\n"
             "5. summaries 必须覆盖所有输入序号，index 严格一致。\n"
@@ -701,7 +704,7 @@ class AISummarizer:
       "index": 1,
       "title_zh": "中文标题（翻译原标题）",
       "abstract_zh": "摘要中文概括（≤200字，写出体系/方法/关键结论）",
-      "one_sentence_summary": "一段2~3句、≤100字的中文亮点（创新点+最强结论+方向意义）"
+      "one_sentence_summary": "一段3~5句、≤250字的中文亮点详述（创新点+方法细节+最强定量结论+方向意义）"
     }}
   ]
 }}
@@ -897,7 +900,7 @@ class AISummarizer:
                 title_zh = _clamp_text(raw_title_zh, 80)
                 abstract_zh_raw = ai_info.get('abstract_zh') or ""
                 abstract_zh = _clamp_text(abstract_zh_raw, 240)
-                one_sentence = _clamp_text(ai_info.get('one_sentence_summary') or "", 120)
+                one_sentence = _clamp_text(ai_info.get('one_sentence_summary') or "", 300)
                 if not (title_zh or abstract_zh or one_sentence):
                     missing_summary_count += 1
                 if any(
@@ -963,7 +966,7 @@ class AISummarizer:
                         "title_zh": _clamp_text(info.get('title_zh') or "", 80),
                         "abstract_zh": _clamp_text(info.get('abstract_zh') or "", 240),
                         "link": art.get('link'),
-                        "summary": _clamp_text(info.get('one_sentence_summary') or "", 120),
+                        "summary": _clamp_text(info.get('one_sentence_summary') or "", 300),
                         "reason": _clamp_text(h.get('reason') or "", 50),
                         "journal": art.get("journal", ""),
                         "authors": art.get("authors", []),
@@ -1031,10 +1034,11 @@ class AISummarizer:
             "A. direction_note（3-4 句中文）：概括本日 ML × ferro/凝聚态方向的**实质进展**，"
             "必须点名具体材料（如 NbOI2、CrI3、CrSBr、BaTiO3）与具体方法（如 equivariant GNN、"
             "MACE、NEP、DFT+U），禁止 '整体来看 / 值得关注 / 有望 / 为…提供新思路' 之类套话。\n"
-            "B. items：对每篇文章输出三条线索（全中文、信息密度高）：\n"
-            "   1) method_point（≤60 字）：核心技术/方法/模型，一针见血；\n"
-            "   2) related_work（≤70 字）：与哪些已知方法/体系/方向呼应，只写方向名不编造文献；\n"
-            "   3) implication（≤70 字）：对 ML × ferro/凝聚态研究者的具体启发。\n\n"
+            "B. items：对每篇文章输出三条线索（全中文、信息密度高，每条 2~3 句）：\n"
+            "   1) method_point（≤150 字）：核心技术/方法/模型的具体路线——架构、训练策略、"
+            "关键参数或计算设置，避免泛泛而谈；\n"
+            "   2) related_work（≤150 字）：与哪些已知方法/体系/方向呼应及异同，只写方向名不编造文献；\n"
+            "   3) implication（≤150 字）：对 ML × ferro/凝聚态研究者的具体启发，给出可执行的借鉴点。\n\n"
             "【输出格式】只输出 JSON，无 markdown、无额外文字：\n"
             "{\n"
             '  "direction_note": "...",\n'
@@ -1073,9 +1077,9 @@ class AISummarizer:
             if not link:
                 continue
             deep_fields[link] = {
-                "method_point": _clamp(entry.get("method_point", ""), 80),
-                "related_work": _clamp(entry.get("related_work", ""), 100),
-                "implication": _clamp(entry.get("implication", ""), 100),
+                "method_point": _clamp(entry.get("method_point", ""), 200),
+                "related_work": _clamp(entry.get("related_work", ""), 200),
+                "implication": _clamp(entry.get("implication", ""), 200),
             }
 
         direction_note = _clamp(data.get("direction_note", ""), 400)

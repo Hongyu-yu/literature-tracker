@@ -75,7 +75,7 @@ def render_core_weekly_section(summary: Dict) -> str:
         title_en = (it.get('title_en') or '').strip()
         journal = (it.get('journal') or '').strip()
         link = (it.get('link') or '').strip() or '#'
-        abstract_zh = (it.get('abstract_zh') or '').strip()
+        abstract_zh = (it.get('abstract_zh_full') or it.get('abstract_zh') or '').strip()
         mp = (it.get('method_point') or '').strip()
         rw = (it.get('related_work') or '').strip()
         im = (it.get('implication') or '').strip()
@@ -906,6 +906,7 @@ class WeeklySummarizer:
                     "link": a.get("link", ""),
                     "journal": a.get("journal", ""),
                     "abstract_zh": a.get("abstract_zh", ""),
+                    "abstract_zh_full": a.get("abstract_zh_full", ""),
                     "method_point": info.get("method_point", ""),
                     "related_work": info.get("related_work", ""),
                     "implication": info.get("implication", ""),
@@ -965,8 +966,10 @@ class WeeklySummarizer:
             "A. weekly_direction_note（6-8 句中文）：回顾本周 ML × ferro/凝聚态方向的实质进展，"
             "按 '新材料 / 新方法 / 新现象' 三条主线展开，必须点名具体材料、方法与关键数值或结论。"
             "禁止 '整体来看/具有重要意义/为…提供新思路' 之类套话。\n"
-            "B. items：每篇三字段（全中文）：\n"
-            "   1) method_point ≤60 字\n   2) related_work ≤70 字\n   3) implication ≤70 字\n\n"
+            "B. items：每篇三字段（全中文，每条 2~3 句）：\n"
+            "   1) method_point ≤150 字：具体技术路线（架构/训练策略/关键参数或计算设置）\n"
+            "   2) related_work ≤150 字：与已知方法/体系/方向的呼应及异同\n"
+            "   3) implication ≤150 字：具体可执行的启发与借鉴点\n\n"
             "只输出 JSON：\n"
             "{\n"
             '  "weekly_direction_note": "...",\n'
@@ -1003,9 +1006,9 @@ class WeeklySummarizer:
             if not link:
                 continue
             deep[link] = {
-                "method_point": _c(entry.get("method_point", ""), 80),
-                "related_work": _c(entry.get("related_work", ""), 100),
-                "implication": _c(entry.get("implication", ""), 100),
+                "method_point": _c(entry.get("method_point", ""), 200),
+                "related_work": _c(entry.get("related_work", ""), 200),
+                "implication": _c(entry.get("implication", ""), 200),
             }
         note = _c(data.get("weekly_direction_note", ""), 800)
         return note, deep
