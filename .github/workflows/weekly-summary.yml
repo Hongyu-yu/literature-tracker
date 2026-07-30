@@ -14,7 +14,8 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # 网关慢时周报生成可能超过 90 分钟(已连续两次超时被取消),放宽到 240
+    timeout-minutes: 240
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
