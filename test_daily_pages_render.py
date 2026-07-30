@@ -430,3 +430,49 @@ def test_render_daily_html_focus_section_wired_shown_and_hidden():
         assert "今日文献" in html2 and "Plain" in html2
     finally:
         os.chdir(cwd)
+
+
+def test_collect_daily_articles_merges_zh_and_focus_from_index():
+    """ai_relevant 条目(富化前写入,缺 zh/focus 字段)应按 link 从 index.json 条目补齐。"""
+    from generate_daily_pages import collect_daily_articles
+
+    link = "https://example.com/paper-1"
+    relevant = [{
+        "id": "x1", "link": link, "pub_date": "2026-07-29",
+        "title": "Ferroelectric test paper", "abstract": "Some abstract",
+        "journal": "PRL", "ai_score": 8,
+    }]
+    index = [{
+        "id": "x1", "link": link, "pub_date": "2026-07-29",
+        "title": "Ferroelectric test paper", "abstract": "Some abstract",
+        "journal": "PRL", "title_zh": "铁电测试", "abstract_zh": "浓缩摘要",
+        "abstract_zh_full": "完整翻译摘要", "focus_score": 8,
+        "focus_summary": "总结", "focus_relation": "关系", "focus_suggestion": "建议",
+    }]
+    out = collect_daily_articles(index, relevant, "2026-07-29")
+    item = next(a for a in out["raw_day_articles"] if a.get("link") == link)
+    assert item.get("abstract_zh") == "浓缩摘要"
+    assert item.get("abstract_zh_full") == "完整翻译摘要"
+    assert item.get("focus_score") == 8
+    assert item.get("focus_relation") == "关系"
+
+
+def test_collect_daily_articles_keeps_existing_fields_over_index():
+    """relevant 条目已有字段时不被 index 版本覆盖。"""
+    from generate_daily_pages import collect_daily_articles
+
+    link = "https://example.com/paper-2"
+    relevant = [{
+        "id": "y1", "link": link, "pub_date": "2026-07-29",
+        "title": "T", "abstract": "A", "journal": "J",
+        "abstract_zh": "已有摘要", "focus_score": 5,
+    }]
+    index = [{
+        "id": "y1", "link": link, "pub_date": "2026-07-29",
+        "title": "T", "abstract": "A", "journal": "J",
+        "abstract_zh": "index 版本摘要", "focus_score": 9,
+    }]
+    out = collect_daily_articles(index, relevant, "2026-07-29")
+    item = next(a for a in out["raw_day_articles"] if a.get("link") == link)
+    assert item.get("abstract_zh") == "已有摘要"
+    assert item.get("focus_score") == 5

@@ -899,6 +899,28 @@ def preserve_existing_entry(prev: Dict, date_str: str) -> Dict:
 
 def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[Dict], day_str: str) -> Dict:
     relevant_day = [a for a in relevant_articles if (a.get("pub_date") or "").startswith(day_str)]
+
+    # ai_relevant.json 在中文/focus 富化之前写入，条目缺 abstract_zh*/focus_* 字段；
+    # index.json 中的同 link 条目才是富化后的完整版，按 link 补齐缺失字段
+    index_by_link = {a.get("link"): a for a in index_articles if a.get("link")}
+    _MERGE_KEYS = (
+        "title_zh", "abstract_zh", "abstract_zh_full",
+        "focus_score", "focus_summary", "focus_relation", "focus_suggestion",
+    )
+
+    def _merge_from_index(a: Dict) -> Dict:
+        idx = index_by_link.get(a.get("link"))
+        if not idx:
+            return a
+        merged = a
+        for k in _MERGE_KEYS:
+            if not merged.get(k) and idx.get(k):
+                if merged is a:
+                    merged = dict(a)
+                merged[k] = idx[k]
+        return merged
+
+    relevant_day = [_merge_from_index(a) for a in relevant_day]
     relevant_links = {a.get("link") for a in relevant_day if a.get("link")}
 
     index_day = [
