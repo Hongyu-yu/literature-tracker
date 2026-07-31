@@ -1,47 +1,182 @@
 [
   {
     "title": "Thermodynamics-Informed Machine Learning for Energy Materials Discovery",
-    "title_zh": "面向能源材料发现的热力学知情机器学习",
-    "summary": "",
-    "abstract": "",
-    "category": "AI×化学·材料",
+    "title_zh": "热力学约束的能源材料机器学习发现",
+    "summary": "作者把材料发现从零温静态能量排序推进到自由能视角，明确指出相稳定与性能受有限温度热力学主导。核心思路是让模型学习热力学约束，而不是只拟合晶格能。对能源材料 AI 的意义在于把相变与温度效应纳入可计算、可筛选的目标函数。",
+    "abstract": "arXiv:2607.26296v1 Announce Type: new Abstract: Machine learning (ML) is transforming materials discovery by enabling rapid prediction of properties that previously required computationally expensive first-principles calculations. Yet most current ML models remain fundamentally limited to zero-temperature descriptions, learning static lattice energies while neglecting the thermodynamic effects that govern materials behaviour at finite temperature. Because phase stability, functional response, and performance are governed by free-energy landscapes rather than static energies alone, this limitation represents a major barrier to predictive materials design under realistic operating conditions. In this Perspective, we argue that developing thermodynamics-informed ML constitutes one of the most important and least explored frontiers in materials discovery. We examine the fundamental shortcomings of energy-based models, highlighting the essential roles of entropy and anharmonicity in determining free energies and materials functionality. We review emerging strategies, including machine-learned interatomic potentials and hybrid ML-statistical mechanics frameworks, while identifying key challenges related to data availability, transferability, and thermodynamic consistency. Building on these advances, we outline a roadmap for thermodynamics-informed ML centred on direct free-energy learning, entropy-aware representations, and adaptive sampling across temperature. We highlight the transformative opportunities this paradigm offers for energy materials and argue that the next generation of ML models must move beyond static energy predictions towards a thermodynamic description of materials behaviour under realistic operating conditions.",
+    "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.26296",
     "journal": "arXiv"
   },
   {
+    "title": "Transient Detour and Cooperative Oxygen Exchange in the Polarization Switching of Ferroelectric Hf0.5Zr0.5O2",
+    "title_zh": "Hf0.5Zr0.5O2 铁电翻转中的瞬态绕行与协同氧交换",
+    "summary": "这篇工作用电场诱导分子动力学直接追踪 Hf0.5Zr0.5O2 的极化翻转路径，强调缺陷环境下存在偏离静态最小能垒的瞬态绕行。关键机制是电场驱动下的协同氧交换与键重构，而不是单纯的能垒跨越。它把铁电开关从静态图像推进到真实动力学图像，对 HZO 存储机理理解很关键。",
+    "abstract": "arXiv:2607.26597v1 Announce Type: new Abstract: Hafnium zirconium oxide (HZO) has attracted significant attention as a core material for next-generation non-volatile memories due to its excellent ferroelectricity in the ultra-thin film regime and its CMOS process compatibility. However, the exploration of its polarization switching mechanism has predominantly relied on static energy barrier analyses, leaving the transient bond formation and cooperative dynamic mechanisms under actual electric field driving unresolved. In this study, we performed Electric-Field-Induced MD simulations on a defect-free ideal HZO lattice using a fine-tuned machine learning force field (MACEField). As a result, we successfully reproduced the P-E hysteresis loop dynamically and demonstrated that the polarization switching in HZO is driven not by conventional simple displacement models (S:N/S:T models), but by the dynamic mutual exchange of 3-coordinated oxygen (O3c) and 4-coordinated oxygen (O4c). Analysis of the oxygen atom displacement trajectories revealed that this pathway is accompanied by a unique \"detour\" behavior originating from transient cation-oxygen bond formation. Furthermore, we identified an \"internal self-compensation mechanism\" in which the local volumetric expansion and contraction accompanying the coordination number changes are effectively offset within the cell. These findings provide, from a dynamic perspective, a microscopic physical origin of for HZO's exceptional ability to sustain stable polarization switching without macroscopic strain, a property that has long distinguished HZO from conventional perovskite ferroelectrics yet lacked atomistic explanation. These findings suggest that preserving the integrity of cooperative O3c/O4c exchange pathways, rather than minimizing individual atomic displacements, is the key design principle for endurance and scalability in next-generation ferroelectric memories.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.26597",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Classifying multipartite continuous-variable entanglement structures through data-augmented neural networks",
+    "title_zh": "基于数据增强神经网络的多体连续变量纠缠分类",
+    "summary": "作者用量子数据增强补足连续变量纠缠分类的数据稀缺问题，让神经网络能更稳健地区分无限维体系中的多体纠缠结构。方法核心是先扩增训练数据，再进行神经网络分类，从而减少实验采样压力并提升准确率。对量子信息与科学机器学习的意义在于：高维量子态识别可以通过数据结构化增强而不是纯堆样本来实现。",
+    "abstract": "Nature Machine Intelligence, Published online: 30 July 2026; doi:10.1038/s42256-026-01284-y Gao et al. introduce a quantum data augmentation method to enable neural networks to classify multipartite entanglement structures in infinite-dimensional systems, substantially improving accuracy and reducing the data acquisition costs that typically limit training.",
+    "category": "AI×物理",
+    "link": "https://www.nature.com/articles/s42256-026-01284-y",
+    "journal": "Nature Machine Intelligence"
+  },
+  {
     "title": "Physics-informed Machine Learning Prediction of Hubbard Interaction Parameters",
-    "title_zh": "Hubbard 相互作用参数的物理信息机器学习预测",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "Hubbard 相互作用参数的物理约束机器学习预测",
+    "summary": "这项工作把 Hubbard U、V 参数预测做成物理约束机器学习问题，瞄准 DFT+U、DFT+DMFT 和 DFT+U+V 的关键输入。它试图用机器学习逼近 cRPA 级别的参数估计，同时摆脱经验选参的低可迁移性。对相关材料计算的价值在于，把强关联模型参数从昂贵的第一性原理流程中进一步解耦出来。",
+    "abstract": "arXiv:2607.26422v1 Announce Type: new Abstract: Accurate determination of Hubbard interaction parameters is essential for beyond-DFT approaches such as DFT+U, DFT+DMFT, and DFT+U+V in correlated materials. In practice, however, these parameters are often chosen empirically, limiting their transferability across materials. Advanced computational approaches such as the constrained random-phase approximation (cRPA) provide a rigorous route for evaluating Hubbard interactions, but their computational cost remains a bottleneck for large-scale materials screening. Here, we present machine-learning (ML) models for predicting cRPA-derived Hubbard interaction parameters: effective on-site Uₘ̊ ₑff, inter-site V, and Hund's coupling J for transition-metal oxides (TMOs). We combine ensemble-learning models with a regression-based brute-force search (BFS) approach to achieve both predictive accuracy and explicit analytical expressions. We construct features that capture electronic, structural, and atomic properties, including the TM-d bandwidth and TM-d/O-p band-center separation, as physically motivated descriptors of localization and screening. Our ensemble models achieve RMSEs of 0.148 eV, 0.062 eV, and 0.007 eV for Uₘ̊ ₑff, V, and J, respectively. The derived analytical forms directly relate Uₘ̊ ₑff to electron localization and TM-d/O-p hybridization, suggest the importance of hybridization and structural compactness in determining V, and indicate that J is governed primarily by elemental descriptors of the TM ion. Together, the present study provides an efficient approach for predicting cRPA-derived Uₘ̊ ₑff, V, and J, while offering physical insight into the factors underlying these Hubbard interactions.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.26422",
     "journal": "arXiv"
   },
   {
     "title": "Physics-Informed Graph Neural Networks for Robust AC-Optimal Power Flow",
-    "title_zh": "用于鲁棒交流最优潮流的物理信息图神经网络",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "面向鲁棒交流最优潮流的物理约束图神经网络",
+    "summary": "PINCO 把 GNN 与物理约束损失结合，用无筛选数据训练交流最优潮流模型，避免了只靠可行样本的常见限制。它特别关注 N-2 拓扑扰动下的鲁棒性，并能处理病态样本，这比多数无监督 AC-OPF 方法更接近真实电网。对科学计算的启发是：物理约束学习可以在脏数据和拓扑变化下依旧保持可用。",
+    "abstract": "arXiv:2410.04818v2 Announce Type: replace-cross Abstract: We present PINCO, an unsupervised learning framework that integrates Graph Neural Networks with physics-informed neural networks for AC optimal power flow (AC-OPF) solutions. Unlike state-of-the-art unsupervised methods that require prescreened datasets containing only feasible instances, our approach operates on unfiltered data, including ill-conditioned cases. The framework addresses two critical gaps in the literature: (1) robustness to topology changes up to N-2 contingencies, and (2) detecting optimal power flow instances that are infeasible without relying on traditional solvers for data filtering. PINCO embeds physical laws into the learning process via augmented Lagrangian multipliers. In addition, it introduces a clustering branch with learnable centroids that automatically separate feasible from infeasible solutions based on constraint-violation patterns. We evaluate the framework across systems of varying complexity, including the IEEE 30-bus, IEEE 57-bus, and Swiss transmission networks, demonstrating scalability and robustness under diverse loading conditions and topology variations. Benchmarking against DeepOPF-FT and the IPOPT solver shows that PINCO achieves comparable constraint satisfaction while delivering two to three orders of magnitude computational speedup compared to IPOPT and lower operational costs across all configurations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2410.04818",
     "journal": "arXiv"
   },
   {
+    "title": "Reinforcement Learning on Cost-Constrained Quadrupedal Hardware",
+    "title_zh": "低成本四足硬件上的强化学习控制",
+    "summary": "这篇工作把低成本四足机器人上的 >50 ms 执行器延迟明确建模为部分可观测控制问题，而不是理想马尔可夫过程。作者采用生物启发式强化学习处理延迟和噪声反馈，目标是缩小 sim-to-real 落差。对具身智能的意义在于：真实硬件上的时延与不确定性必须进入策略学习本身。",
+    "abstract": "arXiv:2607.26434v1 Announce Type: cross Abstract: Deploying learned control policies on low-cost robotic platforms introduces transport latencies and noisy motor feedback that systematically widens the sim-to-real gap. The chasm of simulation to deployment in hardware lies in the delay of the actuator reaching the commanded position. On platforms such as the Mini Pupper 2, a measured > 50 ms transport delay transforms the locomotion task from a standard Markov decision process into a partially observable one. In this paper, we take a biologically inspired approach of handling noisy and delayed feedback to close the sim-to-real gap, thereby expanding the capability of reinforcement learning on cost-constrained hardware. Using a low-cost quadrupedal hardware platform, we find that using a forward model of the average actuator delay, paired with a time-aware neural network results in robust locomotion. Additionally, our time-aware neural network learned a central pattern generator (CPG): a self-sustaining rhythmic gait that is robust to +320 ms latency perturbations, mirroring the CPGs found in the spinal cords of vertebrates. We posit that temporal self-organization may be a general strategy for cost-constrained locomotion.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2607.26434",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Automorphism-Induced Non-Canonicity in Top-k Explanations of Graph Neural Networks",
+    "title_zh": "图神经网络 Top-k 解释的自同构非唯一性",
+    "summary": "文章揭示了 GNN 解释中的结构性悖论：当输入图存在自同构时，归因必须满足置换等变性，Top-k 边却天然可能非唯一。作者用化学等价基团的例子说明，解释结果被数组顺序裁决并不代表模型真的偏好某一条边。对可解释 AI 的意义是：解释对象本身必须与对称性和规范选择问题一起定义。",
+    "abstract": "arXiv:2607.26344v1 Announce Type: new Abstract: A gradient-based GNN explainer given a molecule with two chemically equivalent nitro groups assigns them attribution scores that are equal to the last bit. It cannot do otherwise: message passing is exactly permutation equivariant, so any automorphism of the input leaves every attribution invariant. Yet the standard report, the top-k edges, names one of the two, and which one is settled by the order of an array. We show this is a structural obstruction rather than an implementation slip. When no minimal valid explanation is fixed by the input's automorphism group, no rule can be single-valued, minimal and symmetry-respecting at once. For the exact-k reports used in practice we give a parameter-free criterion, mechanised in Lean 4 with no axiom dependencies, that decides from the graph alone whether every score-optimal report of that size must split an orbit. Across 21298 instance-budget decisions the criterion agrees with a mechanical model-equivalence check without exception, and no severing case we found admitted a neutral alternative. The obstruction is common. Nontrivial automorphisms occur in 93.4% of Mutagenicity, the dataset the seminal explainability papers use, so the measure-zero dismissal of symmetric inputs, sound on the continuous domains it was made for, collapses here. At the sparsity budget those papers report, 24.0% of molecules with two interchangeable nitro groups (6 of 25) surface exactly one of them, every one arbitrary under mechanical verification. A model's blindness also manufactures symmetry: every MUTAG molecule contains atoms chemistry separates and the network provably cannot, and a matched control shows the resolution is set by what the model reads rather than how it is parameterised. Reporting orbits removes the arbitrariness at 0.11 ms and 0.43 extra edges per graph.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2607.26344",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Global monitoring of methane point sources using deep learning on hyperspectral radiance measurements from EMIT",
+    "title_zh": "基于 EMIT 高光谱辐亮度的甲烷点源全球监测",
+    "summary": "MAPL-EMIT 用端到端视觉变换器直接吃完整辐亮度谱，而不是依赖人工判读羽流形态。模型面向 EMIT 高光谱观测完成甲烷点源识别与定位，适合全球监测任务。对 AI for science 的意义在于，把遥感中的光谱-空间联合信息真正转化成自动化排放归因能力。",
+    "abstract": "arXiv:2604.10094v2 Announce Type: replace-cross Abstract: Anthropogenic methane (CH4) point sources are critical drivers of near-term climate forcing, safety hazards, and system-inefficiencies. Space-based imaging spectroscopy is an emerging tool for identifying emissions globally, but existing approaches largely rely on manual plume identification. Here, we present the Methane Analysis and Plume Localization with EMIT (MAPL-EMIT) model, an end-to-end vision transformer framework that leverages the complete radiance spectrum from the Earth Surface Mineral Dust Source Investigation (EMIT) instrument to jointly retrieve methane enhancements across all pixels within a scene. This approach brings together spectral information with spatial context to significantly lower detection limits. MAPL-EMIT simultaneously supports enhancement quantification, plume delineation, and source localization, even for overlapping plumes. The model was trained on 3.6 million physics-based synthetic plumes injected into global EMIT radiance data. Synthetic evaluation confirms the model's ability to identify plumes with high recall and precision and to capture weaker plumes relative to existing matched-filter approaches. On real-world benchmarks, MAPL-EMIT captures 84% of known hand-annotated NASA-L2B plume complexes across a test set of 1084 EMIT granules, while capturing roughly 1.5 times as many plausible plumes compared to human analysts. Further verification against coincident airborne data, top-emitting landfills, and controlled release experiments confirms the model's ability to identify previously uncaptured sources. By incorporating model-generated metrics such as spectral fit scores and estimated noise levels, the framework can limit false-positives. Overall, MAPL-EMIT enables high-throughput implementation on the full EMIT data catalog, shifting methane monitoring to a rapid, scalable paradigm for global plume mapping at the facility scale.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2604.10094",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Benchmarking Machine Learning and Seismic-Derived Heat Flow Models to Decipher the Lithospheric Thermal Architecture of the Arabian-Nubian Shield",
+    "title_zh": "阿拉伯-努比亚地盾热流预测模型对比",
+    "summary": "这项工作把热流预测中的数据驱动随机森林与速度-温度物理转换放在同一框架下比较，研究对象是构造复杂且数据稀疏的阿拉伯-努比亚地盾。作者整合 16 个多参量地球物理观测来训练数据模型，目标是刻画岩石圈热结构。对地热勘探的意义在于，机器学习与物理模型的互补性被直接量化出来了。",
+    "abstract": "Geothermal energy is a cornerstone of the global transition to sustainable power; however, its exploration is frequently hindered by sparse heat flow data in tectonically complex regions. We present a novel benchmarking framework that compares two fundamentally distinct paradigms for terrestrial heat flow prediction: a data-driven Random Forest Regression (RFR) model and a physics-based Velocity-Temperature (V-T) conversion. Applied to the tectonically diverse Arabian-Nubian Shield (ANS), we integrated sixteen multi-parametric geological and geophysical observables to train the RFR model, while simultaneously deriving deep thermal structures from S-wave tomography at depths of 56–200 km. Our results quantify significant lateral and vertical thermal heterogeneities, identifying extreme mantle temperatures (>1600 K) and lithospheric thinning (200 km) of the Arabian Platform. While both methods converge on consistent first-order thermal patterns (r = 0.86), validation against 4,240 measurements reveals that the RFR model achieves higher predictive precision (R² = 0.92) compared to the V-T approach (R² = 0.79). This discrepancy highlights their complementary nature: RFR effectively captures localized, non-linear crustal anomalies through multi-data integration, whereas the V-T method excels at characterizing large-scale lithospheric processes and providing physical constraints where surface data are absent. Feature importance analysis identifies Moho and LAB depths as the primary drivers of the region’s thermal architecture. This study demonstrates that this dual-methodology approach offers a robust, scalable framework for geothermal resource assessment in complex tectonic settings worldwide.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-9597447/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "EvoPINN: Agentic Discovery of Executable Algorithms for Physics-Informed Neural Networks",
-    "title_zh": "EvoPINN：用于物理信息神经网络的可执行算法智能体发现",
-    "summary": "",
-    "abstract": "",
+    "title_zh": "PINN 可执行算法的代理式进化发现",
+    "summary": "EvoPINN 试图把 PINN 的手工设计流程自动化，但不是放任 LLM 直接写代码，而是通过受约束的代理式进化搜索生成可执行算法。其核心痛点是同时满足数学正确性和数值稳定性，避免科学计算里常见的“能写出来但跑不动”。对 AI for science 的意义是：模型不仅要生成文本，还要生成可验证、可运行的科学算法。",
+    "abstract": "arXiv:2607.26490v1 Announce Type: cross Abstract: Physics-informed neural networks (PINNs) have emerged as a powerful paradigm for solving partial differential equations (PDEs), yet their performance heavily relies on the manual, trial-and-error engineering of neural representations, loss formulations, and optimization dynamics. While Large Language Models (LLMs) offer a promising avenue for automated design, unconstrained code generation often yields mathematically invalid or numerically unstable solutions under strict scientific computing constraints. To bridge this gap, we propose EvoPINN, an agentic framework that reformulates PINN development from labor-intensive manual design into a rigorous, execution-grounded algorithm discovery problem. EvoPINN navigates a modular search space by decoupling neural representations from training programs, utilizing an LLM agent to iteratively propose memory-conditioned programmatic modifications. To ensure scientific validity, all candidates undergo strict structural verification and budget-matched PDE evaluation. Extensive experiments across diverse PDE regimes (oscillatory, elliptic, dissipative, and nonlinear transport) demonstrate that EvoPINN discovers PDE-specialized learning algorithms that significantly reduce relative L₂ error compared to baselines. Crucially, EvoPINN autonomously invented SLRC-PINN, a novel architecture whose performance gains persist under rigorous parameter-matched comparisons, establishing the viability of execution-grounded agents for discovering genuinely new scientific computing mechanisms.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.26490",
     "journal": "arXiv"
   },
   {
-    "title": "Physics-Informed Singular-Value Learning for Cross-Covariances Forecasting in Financial Markets",
-    "title_zh": "用于金融市场交叉协方差预测的物理信息奇异值学习",
-    "summary": "",
-    "abstract": "",
+    "title": "Equivariant Eikonal Neural Networks: Grid-Free, Scalable Travel-Time Prediction on Homogeneous Spaces",
+    "title_zh": "齐性空间上等变 Eikonal 神经网络",
+    "summary": "这篇工作把 Eikonal 方程求解做成等变神经场问题，在单一共享主干上通过李群点云形式的潜变量条件化不同信号。关键优势是网格无关、可扩展且具备对称性保持的映射结构。对波前传播和旅行时间预测等问题而言，它提供了比传统离散网格方法更统一的表示方式。",
+    "abstract": "arXiv:2505.16035v3 Announce Type: replace Abstract: We introduce Equivariant Neural Eikonal Solvers, a novel framework that integrates Equivariant Neural Fields (ENFs) with Neural Eikonal Solvers. Our approach employs a single neural field where a unified shared backbone is conditioned on signal-specific latent variables - represented as point clouds in a Lie group - to model diverse Eikonal solutions. The ENF integration ensures equivariant mapping from these latent representations to the solution field, delivering three key benefits: enhanced representation efficiency through weight-sharing, robust geometric grounding, and solution steerability. This steerability allows transformations applied to the latent point cloud to induce predictable, geometrically meaningful modifications in the resulting Eikonal solution. By coupling these steerable representations with Physics-Informed Neural Networks (PINNs), our framework accurately models Eikonal travel-time solutions while generalizing to arbitrary Riemannian manifolds with regular group actions. This includes homogeneous spaces such as Euclidean, position-orientation, spherical, and hyperbolic manifolds. We validate our approach through applications in seismic travel-time modeling of 2D, 3D, and spherical benchmark datasets. Experimental results demonstrate superior performance, scalability, adaptability, and user controllability compared to existing Neural Operator-based Eikonal solver methods.",
     "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2601.07687",
+    "link": "https://arxiv.org/abs/2505.16035",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Isolation of spin-valley locked nodal-line fermions in d-wave AV₂X₂O altermagnets",
+    "title_zh": "d 波 AV₂X₂O altermagnet 中自旋-谷锁定节点线费米子",
+    "summary": "作者用第一性原理和最小紧束缚模型证明，AV₂X₂O 这类 d 波 altermagnet 可承载自旋-谷锁定的节点线费米子。低能区同时出现自旋简并与自旋极化节点线，并围绕 C4z 配对谷靠近费米能级分布。它把 altermagnet 的动量依赖自旋分裂与拓扑节点线电子结构耦合起来了。",
+    "abstract": "arXiv:2607.26150v2 Announce Type: new Abstract: Crystalline symmetries stabilize topological states with distinct electronic properties, while altermagnets exhibit momentum-dependent spin splitting without net magnetization. Here, we combine first-principles calculations with a minimal tight-binding model to realize C-paired spin-valley-locked nodal-line fermions in the d-wave altermagnet AV₂X₂O (A = Rb, Cs, or K; X = Te, Se, or S). The low-energy electronic structure hosts coexisting spin-degenerate and spin-polarized nodal lines around C₄z-paired valleys near the Fermi level. The spin-polarized nodal lines are protected by the out-of-plane mirror symmetry M_z and remain robust against spin-orbit coupling. The minimal model reveals their microscopic origin and establishes a general design principle for their isolation. Layer engineering and electronic correlations serve as material-specific knobs for realizing these isolated spin-valley-locked nodal lines near the Fermi level. Our results establish the AV₂X₂O family as a versatile platform for exploring topological spin-valley locking in d-wave altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26150",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Probing multipolar order in the candidate altermagnet MnF₂ through the elastocaloric effect under strain",
+    "title_zh": "应变下 MnF2 中多极序的弹热效应探测",
+    "summary": "这项工作把 MnF2 的弹热响应当成探测 altermagnetic 多极序的热力学手段，联用实验、自由能模型和第一性原理。核心信息是：应变与热响应耦合后，可以直接看见有限温度下的临界行为。对 altermagnet 研究的意义在于，原本偏抽象的对称性序参量开始有了可测的热力学指纹。",
+    "abstract": "arXiv:2601.19343v2 Announce Type: replace Abstract: Altermagnets break a combination of time-reversal and rotational symmetries without generating a net magnetization. As such, the order parameter of d-wave altermagnets has the same symmetry as magnetic multipoles, and couples to the product of a magnetic field and uniaxial strain. We combine elastocaloric experiments, free-energy modeling, and first-principles calculations on MnF₂ to establish a thermodynamic probe of the predicted finite-temperature altermagnetic critical point. These results pave the way to explore altermagnetic quantum criticality in d-wave materials and beyond.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2601.19343",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Electronic and magnetic properties of small one-dimensional Wigner crystals from an ab initio approach",
+    "title_zh": "一维 Wigner 晶体电子与磁性质的第一性原理研究",
+    "summary": "作者用第一性原理方法研究小尺寸一维 Wigner 晶体，重点解析电荷分布与交换耦合常数。模型以带无限侧壁的一维势阱模拟碳纳米管中的少电子晶体，从而把实验几何引入到理论计算。对低维强关联体系的意义在于，电子局域化与磁交换的定量关系被更直接地算出来了。",
+    "abstract": "arXiv:2607.26858v1 Announce Type: new Abstract: We present an emphab initio method to study the electronic and magnetic properties of small one-dimensional Wigner crystals. In particular, we focus on the calculation of the electronic charge distribution and the exchange coupling constant. Our theoretical studies are motivated by the experimental observation of few-electron Wigner crystals in a carbon nanotube [Science 364, 870 (2019)]. We model the experimental setup by confining electrons in a one-dimensional potential well with infinite side barriers. We represent the Hamiltonian of the system in a basis of Slater determinants and perform full configuration interaction to ensure we capture all the electron correlation for a given basis set. As the one-particle basis set we use particle-in-a-box wave functions which by construction satisfy the boundary conditions. With our approach, we obtain accurate electronic density profiles of small one-dimensional Wigner crystals. These profiles clearly show the localisation of the electrons. Finally, we present a simple approach to obtain the exchange coupling constant by mapping our ab initio method on a Heisenberg Hamiltonian. We illustrate our approach on a Wigner dimer. We obtain excellent agreement with a result in the literature.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26858",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Antiferromagnetism and Stripe Channel Order in the SU(N)-Symmetric Two-Channel Kondo Lattice Model",
+    "title_zh": "SU(N) 双通道 Kondo 晶格中的反铁磁与条纹通道序",
+    "summary": "这项工作用无符号问题的 DQMC 系统扫描 SU(N) 双通道 Kondo 晶格的零温相图，明确比较了 N=2、4、6、8 的差异。结果显示，弱耦合区是局域矩反铁磁序，而当 N≥6 且 Kondo 耦合足够强时会出现通道对称性破缺和条纹二聚化。它为多通道 Kondo 竞争序提供了少见的定量相图。",
+    "abstract": "arXiv:2509.12311v2 Announce Type: replace Abstract: We carry out large-scale, sign-problem-free determinant quantum Monte Carlo simulations of the square lattice SU(N)-symmetric two-channel Kondo lattice model at half-filling. We map out the zero-temperature phase diagram for N = 2, 4, 6, and 8, as a function of the Kondo coupling strength. In the weak-coupling regime, we observe antiferromagnetic order of the localized moments. Remarkably, for N ≥ 6, sufficiently strong Kondo coupling induces spontaneous channel symmetry breaking, forming a stripe dimerization pattern with a wave vector boldsymbolk=(π,0) alternating between channels. These findings are supported by a complementary large-N saddle point analysis, which identifies the striped hybridization pattern as the energetically preferred configuration. The spatial symmetry breaking results in an anisotropic Fermi surface reconstruction.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2509.12311",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Scale-dependent universality class crossover in magnetic skyrmion polymers",
+    "title_zh": "磁斯格明子聚合物的尺度依赖普适类交叉",
+    "summary": "作者把磁斯格明子链看作一维聚合物，但发现其统计力学并不服从 DNA、肌动蛋白那类通用谐振缩放。第一性原理给出的双指数配对势表明，斥力和引力来自不同长度尺度的微观机制。多尺度模拟进一步显示普适类会随尺度发生交叉，这对软物质式磁拓扑体系很有启发。",
+    "abstract": "arXiv:2607.26289v1 Announce Type: new Abstract: Dipolar magnetic skyrmions can assemble into chains with alternating helicity that act as one-dimensional polymers, yet their statistical mechanics violates the universal harmonic scaling observed in actin, DNA, and microtubules. From first principles, we compute the inter-skyrmion pair potential and find a bi-exponential form of competing interactions with two characteristic decay lengths that encode the distinct microscopic mechanisms of repulsion and attraction. Multiscale simulations reveal a power-law temperature dependence with exponent 1 in the worm-chain limit of a single bond, and exponent 1/2 in the three-bond limit. We find that the power-law behavior is remarkably independent of magnetic field strength, and the crossover is due to competing radial interactions responsible for the bonds, resulting in a quartic transverse confinement. We show that the precise form of the competing interactions (e.g., Morse or double-Yukawa) does not affect the temperature dependence.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26289",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Inferring Magnetic Material Parameters from Statistical Measures in Strongly Fluctuating Magnetization Dynamics",
+    "title_zh": "强涨落磁化动力学中的磁材参数统计反演",
+    "summary": "这篇工作不再依赖显微纹理，而是直接从热涨落磁化动力学的统计量反演交换刚度和磁各向异性。方法面向多晶、多相和强涨落场景，因而比传统图像式参数提取更稳健。它把磁材料参数识别从几何识别问题转成了统计推断问题。",
+    "abstract": "arXiv:2607.26833v1 Announce Type: new Abstract: Magnetic material parameters such as the exchange stiffness and magnetic anisotropy govern the behavior and functionality of magnetic systems, yet their local inference from magnetization data remains challenging, particularly in strongly fluctuating regimes with polycrystalline or multiphase microstructure, where conventional texture-based methods become unreliable. We introduce a magnetization-only framework for inferring material parameters from thermally driven magnetization dynamics. Using micromagnetic simulations, we extract statistical quantities such as temporal mean and latent entropy from the magnetization dynamics, fit models to these descriptors, and invert the models to infer material parameters. We show that this framework enables material-parameter inference as well as grain-boundary detection in a heterogeneous sample. Among the descriptors considered, latent entropy yields more accurate parameter estimates than the temporal mean. Our results establish latent entropy as an efficient descriptor for inferring magnetic material parameters from dynamical magnetization data and point toward its use for experimental parameter extraction at high temperatures and, more broadly, under strongly fluctuating conditions.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26833",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Anisotropic Spin Polarization and magnetic spin hall effect in Ferromagnets",
+    "title_zh": "铁磁体中的各向异性自旋极化与磁自旋霍尔效应",
+    "summary": "文章揭示强自旋轨道铁磁体里的自旋极化和磁自旋霍尔电导都高度各向异性。只要磁化离开易轴，或者电场相对晶轴旋转，输运响应就会显著变化。对自旋电子学的意义在于，铁磁体中的自旋流控制不再是标量问题，而是方向选择性很强的张量问题。",
+    "abstract": "arXiv:2607.27016v1 Announce Type: new Abstract: Spin-dependent transport in ferromagnets underpins the development of high-density spintronic memories. Spin-dependent transport in strong spin-orbit-coupled ferromagnets exhibits a significant anisotropy. Both the overall spin polarization during charge transport and the magnetic spin Hall conductivity are found to exhibit pronounced anisotropy when the magnetization is tilted away from the crystallographic easy axis or when the electric field is rotated relative to the crystal axes. These anisotropic responses originate primarily from spin-orbit coupling, which is identified as the key driver of the large anisotropy observed in ferromagnet. Furthermore, strain tunability of the magnetic spin Hall anisotropy is demonstrated, with tensile strain progressively enhancing the oscillatory amplitude of the spin Hall conductivity. These findings establish strong spin-orbit-coupled ferromagnets as a platform for anisotropic spin-current generation and field-free spintronic devices that exploit intrinsic material anisotropy for improved performance and energy efficiency.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.27016",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Ferroelectric switchable altermagnetic-like compensated ferrimagnets with charge ordering",
+    "title_zh": "可铁电切换的电荷有序补偿亚铁磁体",
+    "summary": "作者提出把铁电性和电荷有序一起并入补偿亚铁磁体设计，得到一种可切换的 altermagnetic-like 自旋分裂平台。以 Fe3O5 单层为例，理论上可同时出现近零净磁化和混合型自旋分裂机制。对功能磁性材料的意义在于，电场可直接调制非相对论自旋分裂而不依赖净磁矩。",
+    "abstract": "arXiv:2607.26971v1 Announce Type: new Abstract: Unconventional collinear magnets with almost zero magnetization but prominent nonrelativistic spin-splitting, such as altermagnets, can inherit the advantages of both ferromagnets and antiferromagnets. By incorporating more degrees of freedom such as ferroelectricity and charge ordering, these unconventional magnets can be even more interesting and functionalized. With this design principle, the Fe₃O₅ monolayer is predicted to exhibit a hybrid spin-splitting mechanism, with the superposition of the altermagnetic-like k-path alternating splitting and ferrimagnet-like Zeeman splitting. Benefiting from the hidden magnetoelectricity based on the spin-charge coupling, such spin-splitting can be fully switched by an electric field. Its conductivity is highly spin-polarized, with a polarization ratio above 99%, comparable to half-metals but with zero magnetization.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26971",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetic hopfions at room temperature",
+    "title_zh": "室温磁霍普子",
+    "summary": "这篇工作把磁霍普子从低温推到室温以上，在 Co8Zn8Mn4 中实现了稳定存在。作者借助原位光激发透射电镜和飞秒激光脉冲直接生成霍普子，并观察到其室温下的布朗式运动。对拓扑磁学的意义很直接：三维磁孤子开始具备接近器件温区的可操作性。",
+    "abstract": "arXiv:2607.26839v1 Announce Type: new Abstract: Hopfions are three-dimensional (3D) topological solitons predicted to exist in diverse magnetic systems, yet their practical utility has been largely restricted to cryogenic environments. Here, we overcome this temperature constraint by demonstrating stable magnetic hopfions in the chiral magnet Co8Zn8Mn4 at and above room temperature. Using a transmission electron microscope equipped for in situ optical excitation, we generate magnetic hopfions with femtosecond laser pulses. Long-term observations further reveal Brownian-like motion at room temperature and thermally activated collapse upon approaching the high-temperature regime. Together with micromagnetic simulations and homotopy group analysis, our experimental observations uncover the hopfion formation mechanism through the fusion of bimeron pairs. These findings establish room-temperature magnetic hopfions and provide a framework for their further studies under technologically relevant conditions.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.26839",
     "journal": "arXiv"
   }
 ]
