@@ -1104,6 +1104,12 @@ def main():
                     if summarizer is None:
                         raise ValueError("AI_API_KEY is empty; cannot generate daily summary")
                     summary = summarizer.generate_daily_summary(daily_articles, day_str)
+                    if summary.get("generated_by") == "fallback" and os.path.exists(out_path):
+                        # AI failed: don't overwrite a previously good page with the
+                        # degraded fallback (no abstracts/core/focus). Keep the old page.
+                        print(f"⚠️ AI fallback for {day_str}, preserving existing page")
+                        new_entries.append(preserve_existing_entry(prev, day_str))
+                        continue
                     summary["excluded_count"] = len(dropped_articles)
                     summary["raw_total"] = len(raw_day_articles)
                     summary["focused_total"] = len(focused_articles)
