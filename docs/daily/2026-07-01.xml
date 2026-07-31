@@ -5,38 +5,38 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-07-01.html</link>
     <description>2026-07-01 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 31 Jul 2026 06:33:53 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 31 Jul 2026 14:44:42 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-07-01.xml" rel="self" type="application/rss+xml"/>
     <item>
-        <title>神经网络原子间势的集成式不确定性量化方法比较研究</title>
+        <title>Comparative study of ensemble-based uncertainty quantification methods for neural network interatomic potentials</title>
         <link>https://arxiv.org/abs/2508.06456</link>
         <description><![CDATA[📚 arXiv
 
 👤 Yonatan Kurniawan (Department of Physics and Astronomy, Brigham Young University, Provo, Utah, USA), Mingjian Wen (Institute of Fundamental and Frontier Sciences, University of Electronic Science and Technology of China, Chengdu, China), Ellad B. Tadmor (Department of Aerospace Engineering and Mechanics, University of Minnesota, Minneapolis, Minnesota, USA), Mark K. Transtrum (Cross Stream Consulting, Springville, UT, USA)
 
-该研究系统比较了用于神经网络机器学习原子间势的多种集成式不确定性量化方法，包括 bootstrap、dropout、随机初始化和快照集成。作者关注预测精度与实际准确性之间的关系，特别是在分布内与分布外情形以及系统级性质预测中的可靠性。工作指出，仅在小规模从头算能量和力数据上验证模型并不足以保证复杂材料模拟中的涌现行为可靠，因此需要更深入评估不确定性指标作为准确性代理的适用范围。]]></description>
+arXiv:2508.06456v2 Announce Type: replace Abstract: Machine learning interatomic potentials (MLIPs) enable atomistic simulations with near first-principles accuracy at substantially reduced computational cost, making them powerful tools for large-scale materials modeling. The accuracy of MLIPs is typically validated on a held-out dataset of emphab initio energies and atomic forces. However, accuracy on these small-scale properties does not guarantee reliability for emergent, system-level behavior -- precisely the regime where atomistic simulations are most needed, but for which direct validation is often computationally prohibitive. As a practical heuristic, predictive precision -- quantified as inverse uncertainty -- is commonly used as a proxy for accuracy, but its reliability remains p…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2508.06456</guid>
     </item>
     <item>
-        <title>利用多模态机器学习与自驱动显微术加速结构—性质关系发现</title>
+        <title>Accelerating Structure-Property Relationship Discovery with Multimodal Machine Learning and Self-Driving Microscopy</title>
         <link>https://arxiv.org/abs/2603.17028</link>
         <description><![CDATA[📚 arXiv
 
 👤 Jiawei Gong, Danqing Ma, Ralph Bulanadi, Robert Moore, Rama Vasudevan, Lianfeng Zhao, Yongtao Liu
 
-该工作提出一种结合自主显微测量、双新颖性深核学习和双变分自编码器的框架，用于自适应采集并表征材料的纳米尺度结构—性质关系。深核学习模块引导显微镜优先探索结构和谱学上新颖的区域，而双 VAE 将局域结构与谱响应嵌入共享潜在空间，形成结构—性质映射。作者将该方法用于卤化物钙钛矿薄膜的导电原子力显微研究，揭示了与晶界交汇点等纳米结构特征相关的不同迟滞行为。]]></description>
+arXiv:2603.17028v2 Announce Type: replace Abstract: Microscopy combined with local spectroscopy is widely used to correlate nanoscale structure with functional properties in materials, but conventional measurements rely heavily on human-selected sampling locations and predefined targets, limiting dataset diversity and the potential for discovery. Here, we present a framework that integrates autonomous microscopy with a dual-novelty deep kernel learning (DN-DKL) for adaptive data acquisition and a dual variational autoencoder (VAE) for representation learning. DN-DKL actively guides the microscopy toward structurally and spectroscopically novel regions, enabling efficient collection of large spectral datasets. Dual-VAE embeds local structure and spectroscopic responses into a shared latent…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2603.17028</guid>
     </item>
     <item>
-        <title>机器学习势的对比正则化</title>
+        <title>Contrastive Regularization of Machine Learning Potentials</title>
         <link>https://arxiv.org/abs/2606.31660</link>
         <description><![CDATA[📚 arXiv
 
 👤 Dimitrios Tzivrailis, Georgios Sotiropoulos, Alberto Rosso, Eiji Kawasaki
 
-该文指出，机器学习原子间势虽然通常以能量和力的均方误差训练，但其实际用途是作为分子模拟采样器，因此逐点预测准确并不保证生成正确的平衡分布。作者展示了标准 MSE 训练的势即使在测试集上达到化学精度，也可能在动力学中漂移到虚假的低能极小值，导致热力学观测量严重偏离参考结果。为此，文章提出对比正则化 MSE 后训练方法，利用势函数自身定义的玻尔兹曼分布与目标分布之间的 KL 散度构造对比项，通过持久 Langevin 链发现并抬高模型偏好的异常构型，而无需新增从头算数据。]]></description>
+arXiv:2606.31660v1 Announce Type: cross Abstract: Machine learning interatomic potentials are trained to predict energies and forces but built to be sampled: their purpose is to drive molecular simulations whose observables average over the equilibrium distribution the potential defines. They exemplify a broader AI problem -- learned regressors deployed as generators -- where pointwise accuracy does not guarantee a correct distribution. We show that potentials trained by standard Mean Squared Error (MSE) minimization on Density Functional Theory (DFT) data can reach chemical accuracy on held-out data, yet still fail as samplers: their trajectories drift into spurious low-energy minima and return thermodynamic observables that depart sharply from the reference. To correct this, we introduc…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31660</guid>
     </item>
@@ -116,35 +116,13 @@ arXiv:2606.31574v1 Announce Type: cross Abstract: Accurate modeling of the diver
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31574</guid>
     </item>
     <item>
-        <title>基于主动学习的替代模型用于 LPBF Hastelloy-X 疲劳寿命预测：结合缺陷信息的有限元分析</title>
-        <link>https://www.researchsquare.com/article/rs-9916055/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Chandrashekhar Pilgar, G Gangaraju
-
-该研究提出一种结合缺陷信息的混合框架，将有限元分析与高斯过程主动学习相结合，用于预测激光粉末床熔融 Hastelloy-X 在不同应变幅、温度、成形方向和缺陷条件下的应变控制疲劳寿命。作者提出统一的缺陷敏感应变—寿命模型，仅用19个数据点校准即取得较高预测精度，并在440点数据集上优于传统模型。缺陷信息有限元分析揭示了不同缺陷引起的应力集中层级，并表明表面粗糙度与孔隙率的相互作用呈次加和特征。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-9916055/latest</guid>
-    </item>
-    <item>
-        <title>隐藏相纤锌矿 MnSe 单层中的完全补偿亚铁磁三铁性与多态输运</title>
-        <link>https://arxiv.org/abs/2606.31419</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Zhuang Ma, Hongfei Liang, Po Ma, Guangqian Ding, Xuehao Wu, Sikander Azam, Guoying Gao, Long Zhang
-
-该文预测了一种源自纤锌矿 (001) 面的隐藏相 MnSe 单层，其为本征二维完全补偿亚铁磁体，具有不由对称性关联的非等价子晶格。该材料同时表现出单极磁性半导体特征、垂直磁各向异性、铁电性和铁弹性，构成单相三铁性体系，并在一定应变范围内保持稳健。作者还提出 In2Se3/MnSe 异质结构可实现半导体态与金属态之间的非易失电控切换，相关隧道结显示出巨大的隧穿磁阻和电阻调控潜力。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.31419</guid>
-    </item>
-    <item>
-        <title>表面交替磁体 AV₂X₂O 家族中的非常规超导性</title>
+        <title>Unconventional superconductivity in AV₂X₂O family of surface altermagnets</title>
         <link>https://arxiv.org/abs/2606.30766</link>
         <description><![CDATA[📚 arXiv
 
 👤 M. Franz
 
-受层状氧硫族化物 Na₂₋ₓV₂Se₂O 中发现16.3 K超导性的启发，该文研究由 V₂O 平面构成的更广泛层状材料家族中的配对不稳定性，这些材料的单层形式被认为具有交替磁序。尽管 KV₂Se₂O 和 Rb₁₋δV₂Te₂O 等体相成员可能是常规反铁磁体且仅表现出表面交替磁性，分析仍预言等自旋三重态超导是这些材料中的主导配对不稳定性。该结果源于其独特磁性与子晶格结构使电子能带不适合常规自旋单态配对；预言的三重态超导相具有非平庸拓扑性质，并可能支持自旋极化持久电流。]]></description>
+arXiv:2606.30766v1 Announce Type: new Abstract: Motivated by the recent discovery of superconductivity at 16.3 K in layered oxychalcogenide Na₂₋ₓV₂Se₂O we investigate pairing instabilities in the broader family of layered materials composed of V₂O planes, believed to exhibit altermagnetic order in their monolayer form. Even though the bulk family members KV₂Se₂O and Rb₁₋δV₂Te₂O are likely conventional antiferromagnets that show only surface altermagnetism, our analysis predicts exotic equal-spin triplet superconductivity as the dominant pairing instability in these materials. This is a consequence of their unique magnetic and sublattice structure that renders electron bands incompatible with conventional spin-singlet pairing. The predicted triplet superconducting phases are topologically…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.30766</guid>
     </item>
@@ -160,112 +138,68 @@ arXiv:2606.30670v1 Announce Type: cross Abstract: Large spin polarization observ
         <guid isPermaLink="true">https://arxiv.org/abs/2606.30670</guid>
     </item>
     <item>
-        <title>奇波磁体中的磁性布洛赫振荡与非线性埃德尔斯坦效应</title>
-        <link>https://arxiv.org/abs/2606.30732</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jonas Habel, Johannes Knolle
-
-该文研究电场作用下奇波磁体中磁化强度的非平衡动力学，提出“磁性布洛赫振荡”概念：磁化强度可在弛豫到稳态埃德尔斯坦值之前发生布洛赫振荡。作者通过解析与数值方法在一维 p 波磁体最小模型中展示该效应，并推广至二维情形。研究还表明埃德尔斯坦磁化通常对外加电场呈非线性响应，并提出可通过太赫兹亚周期光波谱中的高次谐波产生进行实验探测。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.30732</guid>
-    </item>
-    <item>
-        <title>线偏振脉冲诱导的超快磁化广泛存在于非磁性半导体中</title>
-        <link>https://arxiv.org/abs/2606.31358</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Xiangzhou Zhu, Junfeng Qiao, Nicola Marzari, Matteo Calandra
-
-该工作通过高通量第一性原理筛选实验已知无机晶体数据库，寻找可被线偏振飞秒脉冲光激发诱导自旋极化的非磁性半导体。作者识别出近 440 种候选材料，并将该现象归因于光诱导的交换驱动不稳定性。研究还分析了晶体场环境和带边轨道特征如何影响光诱导磁态的强度与类型，为材料筛选提供了化学和周期趋势指导。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.31358</guid>
-    </item>
-    <item>
-        <title>对称性强制的二维交替磁性铁电开关</title>
+        <title>Symmetry-Enforced Ferroelectric Switching of Two-Dimensional Altermagnetism</title>
         <link>https://arxiv.org/abs/2606.31241</link>
         <description><![CDATA[📚 arXiv
 
 👤 Jiangyu Zhao, Yibo Liu, Guoli Wu, Xinru Li, Ying Dai, Baibiao Huang, Yandong Ma
 
-本文提出一种层工程策略，通过将常规反铁磁单层夹在两个相同铁电层之间，实现二维交替磁性的铁电可逆调控。面外铁电极化打破空间对称性并诱导稳健的交替磁自旋劈裂，而反转铁电极化会在整体宇称-时间组合对称性约束下精确反转自旋劈裂图样。第一性原理对 In₂Se₃/MnPTe₃/In₂Se₃ 三层结构的验证表明，该机制可导致反常霍尔信号的确定性翻转。]]></description>
+arXiv:2606.31241v1 Announce Type: new Abstract: Altermagnetism features strong momentum-dependent spin splitting despite zero net magnetization, offering a transformative platform for next-generation spintronics. However, the nonvolatile and deterministic switching between its two equivalent spin-splitting states remains a fundamental bottleneck. Here, we propose a universal layer-engineering paradigm to achieve symmetry-enforced ferroelectric switching of two-dimensional altermagnetism. By sandwiching a conventional antiferromagnetic monolayer between two identical ferroelectric layers, the out-of-plane polarization cleanly breaks the spatial symmetry to induce robust altermagnetic splitting. Crucially, the global combined parity-time symmetry dictates that reversing the ferroelectric po…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31241</guid>
     </item>
     <item>
-        <title>石墨烯莫尔异质结构中可调的扩展磁性非费米液体</title>
-        <link>https://arxiv.org/abs/2606.31028</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Yongqin Xie, Jian Wang, Moyu Chen, Chen Zhao, Fanqiang Chen, Qiao Li, Sicheng Chen, Jiao Xie, Kenji Watanabe, Takashi Taniguchi, Jin-hua Gao, Rui Wang, Shi-Jun Liang, Chunming Yin, Bin Cheng, Feng Miao
-
-该研究报道了在对齐 hBN 封装的扭转双双层石墨烯中观察到可调的扩展非费米液体行为。该非费米液体相覆盖较宽的载流子密度范围，并表现出随载流子密度变化的电阻温度指数。结合温度依赖电阻、磁输运和微分电阻测量，作者认为该体系为研究准粒子与主导量子涨落耦合关系提供了高度可调平台。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.31028</guid>
-    </item>
-    <item>
-        <title>一维易轴 XXZ 铁磁体解禁闭转变点附近低温 kink 与 magnon 的竞争</title>
+        <title>The competition between low-temperature kinks and magnons at the vicinity of the deconfinement transition point in 1D easy-axis XXZ ferromagnet</title>
         <link>https://arxiv.org/abs/2606.31000</link>
         <description><![CDATA[📚 arXiv
 
 👤 P. N. Bibikov
 
-本文研究一维易轴 XXZ 铁磁体在解禁闭转变点附近的有序相与量子超临界低温区域，并根据最低能主导激发给出物理解释。作者指出两个有序相主要由磁振子控制，而量子超临界区域则由 kink 激发主导。在这一框架下，论文还对 Ising 模型情形进行了较详细讨论。]]></description>
+arXiv:2606.31000v1 Announce Type: new Abstract: Studying the ordered phases and quantum supercritical low-temperature regime at the vicinity of the deconfinement transition point in 1D easy-axis XXZ ferromagnet, we suggest their interpretations according to the corresponding dominant lowest-energy excitations. We show, that the two ordered phases are governed by magnons, while the quantum supercritical regime is governed by kinks. Within this framework the Ising model is treated in detail.]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31000</guid>
     </item>
     <item>
-        <title>通过长程阻挫突破微磁学对斯格明子稳定性的限制</title>
+        <title>Beating micromagnetic limits on skyrmion stability by long-range frustration</title>
         <link>https://arxiv.org/abs/2606.31633</link>
         <description><![CDATA[📚 arXiv
 
 👤 Shiwei Zhu, Moritz A. Goerzen, Changsheng Song, Dongzhe Li
 
-该研究挑战了微磁学模型中斯格明子稳定性通常随尺寸或交换刚度变化的观点。作者将连续模型映射到自旋晶格哈密顿量，发现即便微磁参数相同，不同原子尺度交换相互作用也可导致显著不同的塌缩能垒。研究将这一现象归因于鞍点纹理的强非共线性，并提出长程交换阻挫优化框架，表明在现实条件下可显著提升纳米斯格明子的能垒稳定性。]]></description>
+arXiv:2606.31633v1 Announce Type: new Abstract: Skyrmion stability is commonly assumed to scale with skyrmion size or exchange stiffness within micromagnetic models. Here, we demonstrate that long-range exchange frustration can break this paradigm, enhancing the collapse energy barrier without increasing skyrmion size or magnetic energy scale. By mapping the continuum model onto a spin-lattice Hamiltonian, we find that skyrmions with identical micromagnetic parameters can exhibit significantly different energy barriers, depending on their underlying atomistic exchange interactions. We attribute this behavior to saddle point textures, whose pronounced noncollinearity captures long-range frustration beyond the micromagnetic approximation. We further develop an exchange optimization framewor…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31633</guid>
     </item>
     <item>
-        <title>三维 h 波与 j 波奇宇称磁体中的四阶和六阶非线性自旋电流整流器</title>
-        <link>https://arxiv.org/abs/2603.23915</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Motohiko Ezawa
-
-该文系统构造三维高阶 X 波磁体，并通过维度扩展方法从二维节点结构推广到三维，进而预言三维 j 波磁体。作者讨论了如何实验识别不同类型的 X 波磁体，强调非线性自旋电流可作为完整表征手段。研究预言三维 h 波奇宇称磁体仅出现四阶自旋电流，而三维 j 波奇宇称磁体仅出现六阶自旋电流；这些响应可实现与外加电场方向无关的单向自旋流整流。]]></description>
-        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2603.23915</guid>
-    </item>
-    <item>
-        <title>利用动态磁性对分布函数分析研究局域磁振子模式</title>
+        <title>Local magnon modes studied by dynamic magnetic pair-density function analysis</title>
         <link>https://arxiv.org/abs/2606.31655</link>
         <description><![CDATA[📚 arXiv
 
 👤 Shin-ichi Shamoto, Yukio Yasui, Kazuki Iida, Yasuhiro Inamura, Motoyuki Ishikado, Mitsutaka Nakamura, Lieh-Jeng Chang
 
-该工作提出并研究动态磁性对分布函数 DymPDF，它由非偏振非弹性中子散射测得的动态磁结构因子经傅里叶变换得到。作者针对简单磁模型及 FeTiO₃、YBa₂Cu₃O₆ 等代表性材料，推导低能极限下的表达式并与模拟比较。该方法揭示了实空间纳米尺度中局域磁振子模式的能量依赖特征，包括声学到光学磁振子模式的转变以及特定能量下自旋对关联的符号变化。]]></description>
+arXiv:2606.31655v1 Announce Type: new Abstract: The dynamic magnetic pair-density function (DymPDF) Dₘ̊ M(r, E) is obtained via the Fourier transform of the dynamic magnetic structure factor, Sₘ̊ M(Q, E), which is measured using nonpolarized inelastic neutron scattering. While there is a long history of magnetic excitation studies with Sₘ̊ M(Q, E), there are no reports on Dₘ̊ M(r, E). In this study, we examine simple magnet models and representative magnet examples, such as FeTiO₃ and YBa₂Cu₃O₆, to investigate the real-space dynamics of Dₘ̊ M(r, E). We derive the Dₘ̊ M(r, E) equations for simple magnet models in a low energy limit. By comparing these equations to the simulations, we demonstrate the characteristic energy dependence of real-space local magnon modes, including the transition…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31655</guid>
     </item>
     <item>
-        <title>PT 对称反铁磁体中由量子度量诱导的广义磁光效应</title>
+        <title>Quantum metric-induced generalized magneto-optical effects in PT-symmetric antiferromagnets</title>
         <link>https://arxiv.org/abs/2503.04312</link>
         <description><![CDATA[📚 arXiv
 
 👤 Yongpan Li, Yichen Liu, Cheng-Cheng Liu
 
-该研究提出由量子度量即量子几何实部诱导的广义磁光效应，以突破传统磁光效应主要源于贝里曲率的理解框架。作者建立了适用于三维和二维 PT 对称反铁磁体的 Kerr 角与 Faraday 角通用公式，并结合紧束缚模型和第一性原理计算进行了验证。该理论解释了零净磁矩 PT 对称反铁磁体中仍可观测到 Kerr 转角的微观来源，为探测反铁磁相变提供了新的磁光机制。]]></description>
+arXiv:2503.04312v2 Announce Type: replace Abstract: The magneto-optical effects (MOEs), as fundamental physical phenomena, can reveal the electronic structures of materials. The related probing methods are widely used in the study of magnetic materials. The conventional MOEs are understood to arise from the Berry curvature (the imaginary part of the quantum geometry). Within the framework of conventional MOEs, space-time inversion (PT) symmetric antiferromagnets are magneto-optically inactive. Here, we propose quantum metric (the real part of the quantum geometry) induced generalized MOEs and build generic formulas with quantum metric for Kerr and Faraday angles in three-dimensional and two-dimensional PT-symmetric antiferromagnets. Combining the tight-binding model and first-principles c…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2503.04312</guid>
     </item>
     <item>
-        <title>d 电子 Kagome 系统中倾斜反铁磁有序引发的拓扑霍尔响应</title>
+        <title>Topological Hall Response from Canted Antiferromagnetic Order in d-Electron Kagome Systems</title>
         <link>https://arxiv.org/abs/2509.10976</link>
         <description><![CDATA[📚 arXiv
 
 👤 Waquar Ahmed, Steffen Schaeffer, Pierre Lombardo, Roland Hayn, Imam Makhfudz
 
-该研究分析二维 Kagome 单层中 d 电子与非共线自旋有序相互作用所产生的非平庸本征贝里曲率。即使没有外磁场、显式自旋轨道耦合或相对论效应，底层反铁磁交换诱导的自旋结构也可导致量子反常霍尔效应。对于具有面外分量的倾斜自旋构型，有限标量自旋手征性可使布里渊区积分得到量子化霍尔电导；在理想情形下，非平庸能隙内的费米能级可对应最大 Chern 数 C=±5。作者还讨论了候选材料及实际材料中各向异性跃迁导致较小 Chern 数的可能性。]]></description>
+arXiv:2509.10976v3 Announce Type: replace Abstract: In a two-dimensional kagome monolayer, a nontrivial intrinsic Berry curvature may arise in the d-electron system from the interaction with a non-collinear spin order induced by an underlying antiferromagnetic exchange. This opens the route for a quantum anomalous Hall effect in the multi-orbital system, even without an external magnetic field, explicit spin-orbit coupling or relativistic effects. For spin orders with an out-of-plane component, the scalar spin chirality is finite, and the integration of the Berry curvature over the Brillouin zone may yield integer Hall conductivities in units of e²/h. For a Fermi level within a nontrivial gap, the canted configuration offers, at least in principle, the possibility of a maximal Chern numbe…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2509.10976</guid>
     </item>
@@ -391,13 +325,13 @@ Author(s): Justin J. Michel, Jose Flores, and Fengyuan Yang Electrical switching
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/rd8g-crf5</guid>
     </item>
     <item>
-        <title>利用储备池计算推断耦合玻色约瑟夫森结中的测度同步</title>
+        <title>Inferring measure synchronization in coupled bosonic Josephson junctions with reservoir computing</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae7cdc</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 Han Zhang, Huawei Fan, Haibo Qiu, Jianlong Qiu, Xiangyong Chen, Qingguo Xiao and Xingang Wang
 
-该研究针对保守系统中混沌与同步行为的数据驱动推断问题，提出一种基于参数感知储备池计算的无模型方法，用于识别耦合玻色约瑟夫森结中的测度同步。作者利用不同耦合强度下生成的多个系统状态时间序列训练机器，使其在耦合系数引导下推断测度同步出现的临界耦合，并预测系统序参量在去同步到同步转变过程中的变化。结果表明，参数感知储备池计算有望用于高维哈密顿系统动力学推断，并为量子多体系统集体动力学的无模型分析奠定基础。]]></description>
+Whereas model-free, data-driven inference of chaos in dissipative systems has been extensively studied, little attention has been paid to the inference of chaos in conservative systems. Here, leveraging the technique of parameter-aware reservoir computing (RC) in machine learning, we present a model-free approach to the inference of measure synchronization (MS) in coupled bosonic Josephson junctions. We demonstrate that, using time series of several system states generated at different coupling strengths, a machine can be trained which, guided by the coupling coefficient, is able to infer not only the critical couplings at which MS emerges, but also the variation of the system order parameters during the transition from desynchronization to synchronization. The results highlight the poten…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae7cdc</guid>
     </item>
@@ -424,6 +358,17 @@ arXiv:2412.13141v2 Announce Type: replace-cross Abstract: Time crystals have bee
         <guid isPermaLink="true">https://arxiv.org/abs/2412.13141</guid>
     </item>
     <item>
+        <title>Fully compensated ferrimagnetic triferroics and multistate transport in hidden-phase wurtzite MnSe monolayer</title>
+        <link>https://arxiv.org/abs/2606.31419</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zhuang Ma, Hongfei Liang, Po Ma, Guangqian Ding, Xuehao Wu, Sikander Azam, Guoying Gao, Long Zhang
+
+arXiv:2606.31419v1 Announce Type: cross Abstract: Fully compensated ferrimagnets (fFIMs) have attracted interest due to their compensated moments and nonrelativistic spin splitting across the Brillouin zone. Known fFIMs, however, are mostly restricted to complex three-dimensional (3D) systems or require external fields in two-dimensional (2D) heterostructures, leaving intrinsic fFIM monolayers unexplored. We identify a hidden-phase MnSe monolayer, derived from the (001) planes of wurtzite, as an intrinsic fFIM featuring inequivalent sublattices not linked by any symmetry. It is a unipolar magnetic semiconductor (UMS) with perpendicular magnetic anisotropy (528.60 * 10⁻³ eV per unit cell) and simultaneously exhibits ferroelectricity (polarization 4.63 * 10⁻¹⁰ C/m) and ferroelasticity (sign…]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.31419</guid>
+    </item>
+    <item>
         <title>Measurement-Induced Landscape Transitions and Coding Barren Plateaus in Hybrid Variational Quantum Circuits</title>
         <link>https://arxiv.org/abs/2312.09135</link>
         <description><![CDATA[📚 arXiv
@@ -435,13 +380,13 @@ arXiv:2312.09135v3 Announce Type: replace-cross Abstract: The entanglement-induc
         <guid isPermaLink="true">https://arxiv.org/abs/2312.09135</guid>
     </item>
     <item>
-        <title>具有时间反演对称自旋轨道耦合的超导体中的普适谱幻影能隙</title>
+        <title>Universal Spectral Mirage Gaps in Superconductors with Time-Reversal-Symmetric Spin-Orbit Coupling</title>
         <link>https://arxiv.org/abs/2606.31841</link>
         <description><![CDATA[📚 arXiv
 
 👤 Xusheng Wang, Gaomin Tang, Shuai-Hua Ji
 
-该文指出，谱幻影能隙并非仅限于具有伊辛自旋轨道耦合的超导体，而是可在任意时间反演对称自旋轨道耦合的超导体中普遍出现。只要外加磁场包含垂直于自旋轨道耦合纹理的分量，便会在自旋轨道能标附近产生幻影能隙；平行分量则主要在超导能隙附近产生塞曼分裂谱特征。作者以 Rashba 和 Rashba-Ising 自旋轨道耦合超导体为例展示了这一原理，强调场依赖谱学可用于探测自旋轨道耦合纹理与强度。]]></description>
+arXiv:2606.31841v1 Announce Type: new Abstract: Spectral mirage gaps, regarded as evidence of finite-energy pairing correlations, have so far been mainly studied in superconductors with Ising spin-orbit coupling (SOC). Here, we show that superconductors with any time-reversal-symmetric SOC can generate mirage gaps near the SOC energy scale when the applied magnetic field has a component perpendicular to the SOC texture, whereas the parallel component produces Zeeman-split spectral features near the superconducting gap. We demonstrate this general principle in superconductors with Rashba and Rashba-Ising SOC. These universal field-dependent signatures establish superconducting spectroscopy as a powerful probe of SOC textures and strengths.]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31841</guid>
     </item>
@@ -468,6 +413,17 @@ arXiv:2511.15576v2 Announce Type: replace-cross Abstract: Non-local magic is the
         <guid isPermaLink="true">https://arxiv.org/abs/2511.15576</guid>
     </item>
     <item>
+        <title>Magnetic Bloch Oscillations in Odd-Wave Magnets and the Nonlinear Edelstein Effect</title>
+        <link>https://arxiv.org/abs/2606.30732</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jonas Habel, Johannes Knolle
+
+arXiv:2606.30732v1 Announce Type: new Abstract: Bloch oscillations (BOs) are a quantum phenomenon in which electrons subjected to an electric field in a periodic potential exhibit an oscillating current without a net drift. In real conductors, scattering reduces the coherence required for BOs driving the system toward a steady state with a DC current. While previous studies have focused on charge transport, charge carriers also possess spin, raising the question of whether BOs can emerge in magnetic observables. Here, we show that the magnetization of odd-wave magnets can undergo BOs before relaxing to the steady-state Edelstein value, a phenomenon we term magnetic BOs. Using analytical and numerical methods, we demonstrate this effect in a minimal one-dimensional model of a p-wave magnet…]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.30732</guid>
+    </item>
+    <item>
         <title>Overcoming Configuration Bottleneck: Modular Pathways to Stable Semiconductor Spin-Qubit Arrays</title>
         <link>https://arxiv.org/abs/2606.30883</link>
         <description><![CDATA[📚 arXiv
@@ -479,13 +435,24 @@ arXiv:2606.30883v1 Announce Type: cross Abstract: Over the past decade, semicond
         <guid isPermaLink="true">https://arxiv.org/abs/2606.30883</guid>
     </item>
     <item>
-        <title>p 波磁体-超导体异质结构中的 Floquet 马约拉纳平带与涌现库珀对对称性</title>
+        <title>Ultrafast magnetization induced by linearly polarized pulses is widespread in nonmagnetic semiconductors</title>
+        <link>https://arxiv.org/abs/2606.31358</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Xiangzhou Zhu, Junfeng Qiao, Nicola Marzari, Matteo Calandra
+
+arXiv:2606.31358v1 Announce Type: new Abstract: Ultrafast optical on-off switching of magnetic order promises near-petahertz information processing. Recently, it has been proposed that non-magnetic semiconductors with narrow band edges or strong exchange interactions could display ultrafast magnetization when photoexcited with linearly polarized femtoseconds pulses, but the experimental detection of this effect remains a challenge, mostly for the lack of suitable candidate compounds. Here, we present a high-throughput first-principles screening of the MC3D database of experimentally known inorganic crystals, identifying nearly 440 non-magnetic semiconductors that develop spin polarization under photoexcitation with linearly polarized pulses via a light-induced exchange-driven instability.…]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.31358</guid>
+    </item>
+    <item>
+        <title>Floquet Majorana flat bands and emergent Cooper pair symmetries in p-wave magnet-superconductor heterostructure</title>
         <link>https://arxiv.org/abs/2606.31550</link>
         <description><![CDATA[📚 arXiv
 
 👤 Subhendu Kumar Patra, Gaurab Kumar Dash, Manisha Thakurathi
 
-该工作研究 p 波磁体与 s 波超导体二维界面处拓扑超导性的形成。通过分析节点能隙闭合，作者识别出七种节点拓扑相，它们伴随马约拉纳零能平带和量子化零偏压电导峰。研究还揭示了偶频奇宇称、奇频偶宇称等自旋三重态配对关联，并指出周期驱动可产生零能和 π 模的 Floquet 马约拉纳平带及更高绕数的多节点拓扑结构。]]></description>
+arXiv:2606.31550v1 Announce Type: new Abstract: We investigate the emergence of topological superconductivity at the two-dimensional heterostructure interface between a p-wave magnet (pWM) and an s-wave superconductor. By analyzing nodal gap closings, we identify seven distinct nodal topological phases, each characterized by the presence of Majorana zero-energy flat bands and quantized zero-bias conductance peaks. We demonstrate that the effective p-wave nature of the system gives rise to spin-triplet pairing correlations with even-frequency, odd-parity and odd-frequency, even-parity symmetries. Notably, the introduction of inter-orbital hopping induces an exotic orbital-singlet term characterized by simultaneous odd-parity and odd-frequency. Furthermore, we explore the transition from st…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31550</guid>
     </item>
@@ -501,35 +468,68 @@ arXiv:2606.31540v1 Announce Type: new Abstract: Shallow strained Ge quantum well
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31540</guid>
     </item>
     <item>
-        <title>纳米尺度电子相分离的量子传感</title>
+        <title>Quantum sensing of nanoscale electronic phase segregation</title>
         <link>https://arxiv.org/abs/2606.30904</link>
         <description><![CDATA[📚 arXiv
 
 👤 Izidor Benedičič, J. Paul Attfield, Denis Arčon
 
-该研究利用嵌入含锰掺杂 CaFe₃O₅ 粉末压片中的纳米金刚石 NV 色心量子磁ometry，在弱铁磁转变附近探测纳米尺度静态与动态磁场。ODMR 谱的分裂和展宽在低于临界温度时呈现类似序参量的增强，NV 自旋-晶格弛豫率也在临界温度附近显著上升。谱线拟合与拉伸指数型磁化恢复共同支持材料中存在电荷有序与电荷平均区域的电子相分离。]]></description>
+arXiv:2606.30904v1 Announce Type: new Abstract: Doping of transition metal oxides such as CaFe₃O₅ offers a controlled way to tune the interplay of charge, spin, and lattice degrees of freedom, yet local-probe studies remain difficult because strong correlations and dynamic charge-spin fluctuations obscure fine spectroscopic features in powder samples. Here, we employ quantum magnetometry based on nitrogen-vacancy (NV) centers in nanodiamonds impressed into an Mn-doped CaFe₃O₅ powder pellet to probe static and dynamic magnetic fields at the nanoscale across the weak ferromagnetic transition. The splitting and broadening of the optically detected magnetic resonance (ODMR) spectra exhibit an order-parameter-like increase by ~ 15 MHz upon cooling below the critical temperature, Tₘ̊ c. Concomi…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.30904</guid>
     </item>
     <item>
-        <title>稀土量子磁体中准各向同性交换的设计原则</title>
+        <title>Tunable Extended Magnetic Non-Fermi Liquid in Graphene Moiré Heterostructures</title>
+        <link>https://arxiv.org/abs/2606.31028</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yongqin Xie, Jian Wang, Moyu Chen, Chen Zhao, Fanqiang Chen, Qiao Li, Sicheng Chen, Jiao Xie, Kenji Watanabe, Takashi Taniguchi, Jin-hua Gao, Rui Wang, Shi-Jun Liang, Chunming Yin, Bin Cheng, Feng Miao
+
+arXiv:2606.31028v1 Announce Type: new Abstract: Exploring exotic quantum metallic states beyond Landau's Fermi liquid theory remains a central focus in condensed matter physics. Such non-Fermi liquid behavior is mostly observed near quantum criticality, yet growing attention is directed toward extended NFL phases with intrinsic quantum fluctuations rooted in the extended ground state. While these extended NFL states have been previously reported only in a limited set of d- and f-electron systems, realizing a single, highly tunable platform capable of exhibiting multiple resistance exponent values is essential for uncovering the connection between the resistance exponent and the dominant quantum fluctuations coupled to quasiparticles. However, corresponding experimental progress remains el…]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.31028</guid>
+    </item>
+    <item>
+        <title>Design Principles for Quasi-Isotropic Exchange in Rare-Earth Quantum Magnets</title>
         <link>https://arxiv.org/abs/2606.31558</link>
         <description><![CDATA[📚 arXiv
 
 👤 Kotaro Shimizu, Esteban Agustin Ghioldi, Filip Ronning, Cristian D. Batista
 
-该工作研究 Ce³⁺ 和 Yb³⁺ 基绝缘体中边共享八面体结构下超交换相互作用的微观起源。基于多轨道 Hubbard 模型的简并微扰理论，作者指出各向同性交换主要来自基态 Kramers 双重态内部的虚跃迁，而各向异性相互作用主要源于涉及激发多重态的过程。由此提出轨道设计原则：当基态双重态相对于垂直于超交换平面的量子化轴具有强最大角动量特征时，更有利于实现准各向同性交换。]]></description>
+arXiv:2606.31558v1 Announce Type: new Abstract: Rare-earth quantum materials provide a promising platform for emergent phenomena ranging from quantum spin liquids with long-range entanglement to topological magnetic textures. However, the strong spin-orbit coupling that stabilizes their low-energy pseudospin degrees of freedom also tends to generate strongly anisotropic exchange interactions, complicating the realization of quasi-isotropic Heisenberg magnetism. Here we investigate the microscopic origin of superexchange in Ce³⁺- and Yb³⁺-based insulators with edge-sharing octahedral geometry. Using degenerate perturbation theory for a multiorbital Hubbard model, we show that isotropic exchange originates predominantly from virtual hopping within the ground-state Kramers doublet, whereas a…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2606.31558</guid>
     </item>
     <item>
-        <title>整数量子霍尔转变：随机网络的 S 矩阵方法</title>
+        <title>Electron-electron scattering processes in quantum wells in a quantizing magnetic field: I. Intrasubband scattering</title>
+        <link>https://arxiv.org/abs/2505.08028</link>
+        <description><![CDATA[📚 arXiv
+
+👤 M. P. Telenkov, Yu. A. Mityagin
+
+arXiv:2505.08028v3 Announce Type: replace Abstract: Electron-electron scattering processes in a quantum well in a quantizing magnetic field are considered. A matrix of electron-electron scattering rates containing all types of transitions between Landau levels within a single subband is calculated. This matrix is analyzed, and the relative magnitude of transition rates of different types is determined.]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2505.08028</guid>
+    </item>
+    <item>
+        <title>Energy-time entanglement from a monolithically integrated quantum dot on silicon</title>
+        <link>https://arxiv.org/abs/2606.31775</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Marcel Hohn, Imad Limame, Peter Ludewig, Chirag C. Palekar, Aris Koulas-Simos, Kerstin Volz, Stephan Reitzenstein
+
+arXiv:2606.31775v1 Announce Type: new Abstract: Scalable quantum photonic technologies require deterministic sources of entangled photons that are compatible with established semiconductor manufacturing platforms. While self-assembled III--V semiconductor quantum dots are among the most promising sources of on-demand entanglement generation, their integration with silicon-based architectures remains a central challenge. Here, we demonstrate energy--time entanglement from a single InGaAs/GaAs quantum dot monolithically grown on a silicon substrate. Under coherent two-photon excitation, we achieve coherent control of the biexciton--exciton cascade, evidenced by Rabi oscillations and dressed-state formation. Using a four-channel Franson interferometer, we observe phase-dependent two-photon i…]]></description>
+        <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.31775</guid>
+    </item>
+    <item>
+        <title>The integer quantum Hall transition: an S-matrix approach to random networks</title>
         <link>https://arxiv.org/abs/2407.04132</link>
         <description><![CDATA[📚 arXiv
 
 👤 Hrant Topchyan, Ilya Gruzberg, Win Nuding, Andreas Klümper, Ara Sedrakyan
 
-该文提出一种用于网络模型数值模拟的新型 S 矩阵方法，并将其应用于作者此前提出的整数量子霍尔转变随机网络模型。随机网络是 Chalker-Coddington 模型的改进形式，更能反映强磁场与平滑无序势中电子运动的物理图像。相较转移矩阵方法，新方法具有明显优势，并给出随机网络中局域化长度临界指数约为ν≈2.4，接近实验值νₑₓₚ≈2.38，但显著不同于 CC 模型值ν_CC≈2.6。]]></description>
+arXiv:2407.04132v2 Announce Type: replace Abstract: In this paper we propose a new S-matrix approach to numerical simulations of network models and apply it to random networks that we proposed in a previous work 10.1103/PhysRevB.95.125414. Random networks are modifications of the Chalker-Coddington (CC) model for the integer quantum Hall transition that more faithfully capture the physics of electrons moving in a strong magnetic field and a smooth disorder potential. The new method has considerable advantages compared to the transfer matrix approach, and gives the value ν approx 2.4 for the critical exponent of the localization length in a random network. This finding confirms our previous result and is surprisingly close to the experimental value νₑₓₚ approx 2.38 observed at the integer…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2407.04132</guid>
     </item>
@@ -611,13 +611,13 @@ arXiv:2604.05439v2 Announce Type: replace-cross Abstract: Recent empirical studi
         <guid isPermaLink="true">https://arxiv.org/abs/2604.05439</guid>
     </item>
     <item>
-        <title>用于 Anderson 杂质问题的改进时间平移不变张量网络影响泛函方法</title>
+        <title>Improved time-translationally invariant tensor network influence functional method for Anderson impurity problems</title>
         <link>https://arxiv.org/abs/2510.11459</link>
         <description><![CDATA[📚 arXiv
 
 👤 Zhijie Sun, Zhenyu Li, Chu Guo
 
-本文针对 Anderson 杂质模型长时间动力学模拟中的数值挑战，提出一种更高效的时间域矩阵乘积态影响泛函构造方法。若杂化函数可近似表示为 n 个指数函数之和，该方法通过相乘 O(n) 个键维数为 2 的小型矩阵乘积态系统构造影响泛函。作者给出了实时间和虚时间演化下键维数最坏情形标度，并在两类常用浴谱函数上展示所需键维数显著小于最坏估计。]]></description>
+arXiv:2510.11459v2 Announce Type: replace Abstract: The Anderson impurity model (AIM) is of fundamental importance in condensed matter physics for studying strongly correlated phenomena. However, accurately simulating its long-time dynamics still remains a significant numerical challenge. A class of recently developed numerical approaches represents the Feynman-Vernon influence functional (IF), which encodes all the bath effects on the impurity, as a matrix product state (MPS) in the temporal domain. The computational cost of this approach is largely determined by the bond dimension ḩi of the temporal MPS. In this work, we propose an efficient and accurate method that, when the hybridization function in the IF can be approximated as a sum of n exponential functions, systematically constru…]]></description>
         <pubDate>Wed, 01 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2510.11459</guid>
     </item>
