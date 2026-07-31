@@ -25,6 +25,7 @@ from rss_generator import generate_daily_rss_feed
 from text_normalizer import normalize_articles_inplace, normalize_text
 from focus_core import classify_taxonomy, is_core_focus
 from link_utils import normalize_link
+from research_context import build_direction_note, ensure_relation_fields, load_research_profile
 
 
 def beijing_today() -> str:
@@ -415,6 +416,33 @@ def build_unified_items(full_list, enrich_map, aps_items):
     return items
 
 
+def daily_quality_report(summary: Dict) -> Dict[str, int]:
+    """Return non-empty required-field counts for a daily summary."""
+    items = summary.get("full_list") or summary.get("summaries") or []
+    return {
+        "total": len(items),
+        "title_zh": sum(bool(str(x.get("title_zh") or "").strip()) for x in items),
+        "abstract_zh": sum(bool(str(x.get("abstract_zh") or "").strip()) for x in items),
+        "abstract_zh_full": sum(bool(str(x.get("abstract_zh_full") or "").strip()) for x in items),
+        "summary": sum(bool(str(x.get("summary") or "").strip()) for x in items),
+        "relation": sum(all(bool(str(x.get(k) or "").strip()) for k in ("method_point", "related_work", "implication")) for x in items),
+    }
+
+
+def daily_quality_ok(summary: Dict) -> bool:
+    report = daily_quality_report(summary)
+    total = report["total"]
+    if total <= 0:
+        return bool(summary.get("overview"))
+    detailed_ok = all(
+        all(len(str(x.get(k) or "").strip()) >= 180 for k in ("method_point", "related_work", "implication"))
+        for x in items
+    )
+    return all(report[k] == total for k in ("title_zh", "abstract_zh", "summary", "relation")) and detailed_ok and bool(
+        summary.get("overview") and summary.get("trends")
+    )
+
+
 TOPIC_LABELS = {
     "physics": "物理 / 凝聚态",
     "chemistry": "化学 / 分子",
@@ -493,6 +521,7 @@ def render_unified_item(item: Dict, index: int) -> str:
     """单列表条目：列表态 = 中文标题 + 一句话亮点 + 标签(+含图深析徽标)；
     富化时 <details> 展开 = 信息图 + 中文5要素 + 深析正文。"""
     en = item.get("_enrich")
+    ensure_relation_fields(item, load_research_profile())
     title_en = (item.get("title_en") or item.get("title") or "").strip()
     title_zh = (item.get("title_zh") or (en or {}).get("title_zh") or "").strip()
     show_zh = bool(title_zh) and title_zh.casefold() != title_en.casefold()
@@ -510,6 +539,13 @@ def render_unified_item(item: Dict, index: int) -> str:
     highlight = (item.get("summary") or item.get("one_sentence_summary") or "").strip()
     hl_html = (f'<p class="daily-paper-highlight"><strong>💡 亮点：</strong>{safe_text(highlight)}</p>'
                if highlight else "")
+    relation_html = (
+        '<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary>'
+        f'<p><strong>📐 方法要点：</strong>{safe_text(item.get("method_point") or "")}</p>'
+        f'<p><strong>🔗 相关工作关联：</strong>{safe_text(item.get("related_work") or "")}</p>'
+        f'<p><strong>💡 对你方向的启示：</strong>{safe_text(item.get("implication") or "")}</p>'
+        '</details>'
+    )
     link = safe_url(item.get("link") or "")
     badge = '<span class="enrich-badge">📊 含图深析</span>' if en else ""
     details = ""
@@ -539,6 +575,7 @@ def render_unified_item(item: Dict, index: int) -> str:
             {abs_html}
             {abs_en_html}
             {hl_html}
+            {relation_html}
             {details}
             <div class="daily-paper-actions"><a class="daily-news-link" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
         </div>
@@ -636,8 +673,12 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     unified_html = "".join(render_unified_item(it, i) for i, it in enumerate(unified, 1)) \
         or '<li class="daily-summary-card"><p>今日无目标方向文献。</p></li>'
 
-    overview = safe_text(summary.get('overview', ''))
-    trends = safe_text(summary.get('trends', ''))
+    profile = load_research_profile()
+    for it in items:
+        ensure_relation_fields(it, profile)
+    overview = safe_text(summary.get('overview', '') or f"今日共收录{len(items)}篇文献。")
+    trends = safe_text(summary.get('trends', '') or "今日热点围绕机器学习、计算物理和功能材料展开，具体结论以原文摘要为准。")
+    direction_note = safe_text(summary.get('research_direction_note', '') or build_direction_note(items, profile))
     tags_html = "".join(f"<span class='daily-tag'>{safe_text(tag)}</span>" for tag in tag_list)
     tagline = " | ".join(safe_text(tag) for tag in tag_list)
 
@@ -657,6 +698,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         note_html = f"<p class='daily-core-note'>{safe_text(note)}</p>" if note else ""
         cards = []
         for i, it in enumerate(core_items, 1):
+            ensure_relation_fields(it, load_research_profile())
             title_zh = safe_text((it.get('title_zh') or '').strip())
             title_en = safe_text((it.get('title_en') or it.get('title') or '').strip())
             show_zh_block = bool(title_zh) and title_zh.casefold() != title_en.casefold()
@@ -784,6 +826,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
           <div class="daily-summary-card">
             <p><strong>总览：</strong>{overview}</p>
             <p><strong>热点：</strong>{trends}</p>
+            <p><strong>与我们研究方向的总体关系：</strong>{direction_note}</p>
           </div>
         </section>
 
@@ -1163,6 +1206,10 @@ def main():
                 # --rerender-only can re-render HTML with FRESH enrichment (arxiv_core/aps)
                 # WITHOUT calling AI again. Never break generation on sidecar failure.
                 try:
+                    quality = daily_quality_report(summary)
+                    print(f"📋 daily quality {day_str}: {quality}")
+                    if not daily_quality_ok(summary):
+                        raise ValueError(f"daily quality gate failed: {quality}")
                     with open(os.path.join("data", f"daily_summary_{day_str}.json"), "w", encoding="utf-8") as sf:
                         json.dump(summary, sf, ensure_ascii=False)
                 except Exception as e:

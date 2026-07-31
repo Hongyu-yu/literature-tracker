@@ -53,7 +53,7 @@ def test_core_deep_prompt_uses_detailed_limits():
     """深度三字段 prompt 应要求 2~3 句、≤150 字（2026-07-30 用户反馈"太简要"后放宽）。"""
     import inspect
     src = inspect.getsource(AISummarizer.generate_core_deep_fields)
-    assert "≤150" in src, "method_point/related_work/implication 应要求 ≤150 字"
+    assert "180~320" in src, "method_point/related_work/implication 应要求详细段落"
     assert "2~3" in src, "深度三字段应要求每条 2~3 句"
     assert "≤60" not in src and "≤70" not in src, "旧的 60/70 字上限不应保留"
 
@@ -65,6 +65,31 @@ def test_core_deep_clamp_allows_detailed_fields():
     assert len(result) >= 150, (
         f"clamp(200) 应保留 ≥150 个字符，实际保留 {len(result)}"
     )
+
+
+def test_daily_prompt_requires_research_relation_fields():
+    prompt = _make_summarizer()._build_prompt(_ARTS, "2026-01-01")
+    assert "method_point" in prompt
+    assert "related_work" in prompt
+    assert "implication" in prompt
+    assert "DREAM 尚未开展" in prompt
+    assert "团队研究方向背景" in prompt
+    assert "机器学习势" in prompt
+
+
+def test_fallback_summary_has_nonempty_content():
+    s = _make_summarizer()
+    out = s.fallback_summary([{
+        "title": "Machine learning potential for ferroelectric switching",
+        "title_zh": "铁电翻转机器学习势",
+        "abstract": "We use molecular dynamics to study polarization switching.",
+        "abstract_zh": "用分子动力学研究极化翻转。",
+        "abstract_zh_full": "我们使用分子动力学研究极化翻转。",
+        "link": "https://example.com/1",
+    }], "2026-01-01")
+    item = out["full_list"][0]
+    assert out["overview"] and out["trends"] and out["research_direction_note"]
+    assert all(item.get(k) for k in ("title_zh", "abstract_zh", "abstract_zh_full", "summary", "method_point", "related_work", "implication"))
 
 
 if __name__ == "__main__":

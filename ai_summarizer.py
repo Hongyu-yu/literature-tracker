@@ -25,6 +25,8 @@ try:
 except ImportError:
     repair_json = None
 
+from research_context import build_direction_note, ensure_relation_fields, load_research_profile, profile_direction_digest
+
 
 def _clamp_text(text: str, max_chars: int) -> str:
     """Clamp text to max_chars (character count, not bytes). Empty input → empty output."""
@@ -602,6 +604,8 @@ class AISummarizer:
     
     def _build_prompt(self, articles: List[Dict], date: str) -> str:
         """构建提示词，增加序列号锚点防止链接错位"""
+        profile = load_research_profile()
+        research_context = profile_direction_digest(profile, max_chars=5200)
         
         articles_text = []
         for i, article in enumerate(articles, 1):
@@ -642,6 +646,8 @@ class AISummarizer:
         return (
             f"你将分析 {date} 的 {len(articles)} 篇学术文献（凝聚态物理 / 计算材料科学 / AI for science 方向），"
             "生成一份面向同行研究者的高信息密度中文日报。\n\n"
+            f"【团队研究方向背景】\n{research_context or '团队聚焦机器学习材料模拟、铁电/磁性材料、缺陷与有限温度动力学。'}\n"
+            "请据此判断每篇文献与团队工作的真实交叉点；没有直接关系时明确说明，不要为了关联而臆测。\n\n"
             f"【文献列表】（格式: [序号] Title / Journal / Authors / Abstract）\n{articles_str}\n\n"
             "【写作硬性要求】\n"
             "1. title_zh：**必须**把英文标题翻成中文，不超过 40 字。只有**化学式/材料符号/缩写**"
@@ -653,8 +659,10 @@ class AISummarizer:
             "关键方法细节（模型架构/训练策略/关键参数）+ 最强定量结论 + 对凝聚态/"
             "AI for science 方向的意义。要落到具体材料/现象/方法，不得空泛。\n"
             "4. 全部用中文；不输出链接（程序按序号自动补全）；不得编造原文没有的数据。\n"
-            "5. summaries 必须覆盖所有输入序号，index 严格一致。\n"
-            "6. highlights：仅挑选 ≤3 篇**真正**最突出的工作（创新点、方法论或关键结论）。"
+            "5. 每篇额外输出 method_point、related_work、implication，每段 180~320 字，说明与团队研究方向的关系；"
+            "不能臆测 DREAM 尚未开展的具体机制，信息不足时明确说明。\n"
+            "6. summaries 必须覆盖所有输入序号，index 严格一致。\n"
+            "7. highlights：仅挑选 ≤3 篇**真正**最突出的工作（创新点、方法论或关键结论）。"
             "reason ≤25 字，必须落到具体材料/现象/方法，不得写 '重要进展/意义重大' 之流。\n\n"
             f"{example_block}\n"
             "【输出格式】只输出以下 JSON，不要任何额外文字、不要 markdown 代码块标记：\n"
@@ -662,7 +670,7 @@ class AISummarizer:
             '  "overview": "今日文献总览（中文，2-3句，含具体方向与代表性工作）",\n'
             '  "trends": "研究热点分析（中文，3-5句）",\n'
             '  "summaries": [\n'
-            '    {"index": 1, "title_zh": "...", "abstract_zh": "...", "one_sentence_summary": "..."},\n'
+            '    {"index": 1, "title_zh": "...", "abstract_zh": "...", "one_sentence_summary": "...", "method_point": "详细方法路线...", "related_work": "与团队已有工作连接...", "implication": "可执行迁移方案..."},\n'
             f'    ... (共 {len(articles)} 条)\n'
             "  ],\n"
             '  "highlights": [\n'
@@ -914,7 +922,7 @@ class AISummarizer:
                     truncated_count += 1
                 # lazy import to avoid circular deps at module top
                 from focus_core import is_core_focus as _icf, core_score as _cs
-                full_list.append({
+                row = {
                     "title_en": article.get('title'),
                     # Empty-on-failure (front-end shows "—"), never leak "标题翻译失败" style placeholders.
                     "title_zh": title_zh,
@@ -936,7 +944,12 @@ class AISummarizer:
                     "arxiv_category": article.get("arxiv_category", ""),
                     "is_core_focus": _icf(article),
                     "core_score": _cs(article),
-                })
+                    "method_point": ai_info.get("method_point") or "",
+                    "related_work": ai_info.get("related_work") or "",
+                    "implication": ai_info.get("implication") or "",
+                }
+                ensure_relation_fields(row, load_research_profile())
+                full_list.append(row)
             if truncated_count:
                 print(f"ℹ️ _parse_response: clamped {truncated_count} over-long field(s)")
             if missing_summary_count:
@@ -987,6 +1000,8 @@ class AISummarizer:
                 'full_list': full_list,
                 'ml_highlights': ml_highlights,
                 'ferro_highlights': ferro_highlights,
+                'research_direction_note': build_direction_note(full_list, load_research_profile()),
+                'core_items': [x for x in full_list if x.get('is_core_focus')][:8],
                 'generated_by': self.provider_name
             }
         except Exception as e:
@@ -1035,10 +1050,10 @@ class AISummarizer:
             "必须点名具体材料（如 NbOI2、CrI3、CrSBr、BaTiO3）与具体方法（如 equivariant GNN、"
             "MACE、NEP、DFT+U），禁止 '整体来看 / 值得关注 / 有望 / 为…提供新思路' 之类套话。\n"
             "B. items：对每篇文章输出三条线索（全中文、信息密度高，每条 2~3 句）：\n"
-            "   1) method_point（≤150 字）：核心技术/方法/模型的具体路线——架构、训练策略、"
+                "   1) method_point（180~320 字）：核心技术/方法/模型的具体路线——输入、架构、训练策略、"
             "关键参数或计算设置，避免泛泛而谈；\n"
-            "   2) related_work（≤150 字）：与哪些已知方法/体系/方向呼应及异同，只写方向名不编造文献；\n"
-            "   3) implication（≤150 字）：对 ML × ferro/凝聚态研究者的具体启发，给出可执行的借鉴点。\n\n"
+                "   2) related_work（180~320 字）：与哪些已知方法/体系/方向呼应及异同，并联系团队五位研究人员的已有方向；\n"
+                "   3) implication（180~320 字）：结合团队已有材料和方法给出可执行迁移方案，包括数据、模拟条件和验证方式。\n\n"
             "【输出格式】只输出 JSON，无 markdown、无额外文字：\n"
             "{\n"
             '  "direction_note": "...",\n'
@@ -1077,26 +1092,30 @@ class AISummarizer:
             if not link:
                 continue
             deep_fields[link] = {
-                "method_point": _clamp(entry.get("method_point", ""), 200),
-                "related_work": _clamp(entry.get("related_work", ""), 200),
-                "implication": _clamp(entry.get("implication", ""), 200),
+                "method_point": _clamp(entry.get("method_point", ""), 420),
+                "related_work": _clamp(entry.get("related_work", ""), 420),
+                "implication": _clamp(entry.get("implication", ""), 520),
             }
 
         direction_note = _clamp(data.get("direction_note", ""), 400)
         return deep_fields, direction_note
 
     def fallback_summary(self, articles: List[Dict], date: str) -> Dict:
+        profile = load_research_profile()
+        from focus_core import is_core_focus as _is_core_focus, core_score as _core_score
         data = {
             'date': date,
             'total': len(articles),
-            'overview': f"今日共收录{len(articles)}篇文献。",
-            'trends': "",
+            'overview': f"今日共收录{len(articles)}篇文献，覆盖机器学习、计算物理和功能材料方向。",
+            'trends': "文献主要涉及结构—性质建模、有限温度/动力学模拟以及材料电子与磁性问题；缺少原文细节的条目不作定量推断。",
             'full_list': [
-                {
+                ensure_relation_fields({
                     "title_en": a.get('title'),
                     "title_zh": a.get('title_zh') or "",
-                    "abstract_zh": "",
-                    "summary": "",
+                    "abstract": a.get('abstract') or "",
+                    "abstract_zh": a.get('abstract_zh') or "",
+                    "abstract_zh_full": a.get('abstract_zh_full') or "",
+                    "summary": a.get('summary') or "",
                     "link": a.get('link'),
                     "journal": a.get("journal", ""),
                     "authors": a.get("authors", []),
@@ -1104,10 +1123,19 @@ class AISummarizer:
                     "ai_score": a.get("ai_score"),
                     "source_url": a.get("source_url", ""),
                     "arxiv_category": a.get("arxiv_category", ""),
-                } for a in articles
+                    "focus_score": a.get("focus_score"),
+                    "focus_summary": a.get("focus_summary"),
+                    "focus_relation": a.get("focus_relation"),
+                    "focus_suggestion": a.get("focus_suggestion"),
+                    "is_core_focus": a.get("is_core_focus") if a.get("is_core_focus") is not None else _is_core_focus(a),
+                    "core_score": a.get("core_score") if a.get("core_score") is not None else _core_score(a),
+                }, profile) for a in articles
             ],
             'generated_by': 'fallback'
         }
+        data["research_direction_note"] = build_direction_note(data["full_list"], profile)
+        data["core_items"] = [x for x in data["full_list"] if x.get("is_core_focus")][:8]
+        data["core_direction_note"] = data["research_direction_note"] if data["core_items"] else ""
         data["summaries"] = data.get("full_list", [])
         return data
 

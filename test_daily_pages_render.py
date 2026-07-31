@@ -29,6 +29,8 @@ def main() -> int:
     assert "Test English Title" in html
     assert "测试中文标题" in html
     assert "测试中文一句话总结" in html
+    assert "与我们研究方向的关系" in html
+    assert "方法要点" in html
     assert "https://example.com/paper" in html
     assert "arXiv" in html
     assert "Alice Smith, Bob Jones, Carol Chen" in html
@@ -119,6 +121,24 @@ def test_daily_html_unified_list_includes_enriched():
     assert "poster-overlay" not in html
     # 交叉重点/完整速览 sections removed
     assert "完整速览" not in html and "交叉重点" not in html
+
+
+def test_daily_html_prefers_full_translation_and_renders_relation():
+    html = render_daily_html("2026-06-02", {
+        "overview": "总览", "trends": "热点",
+        "full_list": [{
+            "title_en": "Ferroelectric switching", "title_zh": "铁电翻转",
+            "abstract": "English source", "abstract_zh": "浓缩摘要",
+            "abstract_zh_full": "完整中文翻译优先", "summary": "中文亮点",
+            "method_point": "方法关系" + "。该方法需要核对输入、标签、训练策略、物理约束和验证集，并与团队已有的第一性原理或机器学习势基准进行对照。" * 3,
+            "related_work": "关联关系" + "。它与团队已有材料、有效 Hamiltonian、有限温度动力学或电子结构计算的连接，需要通过同一体系和跨分布测试确认。" * 3,
+            "implication": "启示关系" + "。建议先在已有 DFT 数据的铁电、磁性或缺陷体系上做小规模复现，再比较跨温度、应变和缺陷浓度的可迁移性。" * 3,
+            "link": "https://example.com/full", "journal": "arXiv",
+        }],
+    })
+    assert "完整中文翻译优先" in html
+    assert "浓缩摘要" not in html
+    assert "方法上" in html and "关联关系" in html and "对当前研究最具体的启示" in html
 
 
 def test_build_core_export_has_category_and_link():
@@ -282,7 +302,7 @@ def test_render_unified_item_plain_has_no_details():
     item = {"title": "Plain", "title_en": "Plain", "summary": "brief",
             "link": "http://x", "journal": "arXiv", "_tier": 2, "_enrich": None}
     html = render_unified_item(item, 2)
-    assert "<details" not in html
+    assert 'class="daily-research-relation"' in html
     assert "enrich-badge" not in html
     assert "brief" in html
     assert 'data-bookmark-key="http://x"' in html
