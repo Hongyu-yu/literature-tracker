@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-08-02 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-08-02.xml" rel="alternate" title="2026-08-02 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-08-02.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-08-02</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-08-01.html">← 前一天 · 2026-08-01</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/08/02</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">2</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">4</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">2</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 4 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 4 篇主线相关文献中精选 2 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-08-01.html">前一天 · 2026-08-01</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-02.html">最新一期 · 2026-08-02</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-02.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">2 篇</span>
+</div>
+<p class="daily-core-note">今天两篇工作把“结构连续调控”推进到两个极端：一篇在全有机气凝胶里用机器学习把导电率做成连续梯度，直接瞄准超宽带、超低反射电磁屏蔽；另一篇在超薄 RuO2 里通过晶格应变把原本近非磁的氧化物推向磁有序，说明磁性可由厚度和外延失配共同打开。前者更接近对 NbOI2、CrI3、CrSBr、BaTiO3 这类可做成分/应变/界面梯度体系的工程化优化，后者则把 RuO2 这类常被当作导电氧化物的材料重新拉回磁性氧化物范畴。方法上，一边是 ML 代理模型驱动的梯度设计，一边是应变外延结合 DFT+U、非共线磁计算去锁定交换相图。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">机器学习辅助的连续导电梯度全有机气凝胶</div>
+<div class="daily-core-title-en">Continuous‐Conductivity‐Gradient All‐Organic Aerogels with Machine‐Learning‐Assisted Design toward Ultrabroadband, Ultralow‐Reflection Electromagnetic Shielding</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Advanced Materials，早期在线发表。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕全有机气凝胶提出连续导电梯度设计，并用机器学习辅助筛选结构参数，以兼顾超宽频屏蔽和超低反射。给定材料未披露具体模型架构、训练策略或屏蔽提升数值，因此只能确认其核心方法是数据驱动的梯度功能复合设计，而非凝聚态电子结构计算。对 AI for science 的启发在于把 ML 用于多尺度电磁功能材料的反向设计，但与团队主线仅有方法学交叉。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>这篇的核心路线不是单纯堆高电导，而是把导电梯度本身当成设计变量：输入应包含组分比例、孔隙率、密度、厚度、层数/梯度步长以及对应的频段响应，用机器学习代理模型去回归屏蔽效能、反射损耗和吸收占比。标题里的“continuous-conductivity-gradient”说明目标是让阻抗在厚度方向连续过渡，从而削弱界面反射；因此训练集大概率来自实验测量与电磁仿真闭环，而不是单一材料点优化。</p><p><strong>🔗 相关工作关联：</strong>这类工作与石墨烯/CNT/MXene/导电聚合物气凝胶的梯度屏蔽体系一脉相承，但区别在于把“连续梯度”作为主角，而不是简单的高填料含量。若对照 NbOI2、CrI3、CrSBr、BaTiO3 这类体系，前者是在本征相变/磁性上做调控，后者是在介电与导电网络上做结构优化；团队里做 equivariant GNN、MACE 或 NEP 的成员，可把这里的配方—孔结构—频响映射成可学习的多尺度代理问题。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队现有的聚合物/二维填料复合体系：先收集导电率、孔隙率、密度、厚度、压缩回弹和 2–40 GHz 屏蔽数据，建立多目标回归模型，再用 FDTD 或 CST 对梯度层数、梯度函数形式和界面过渡长度做反演优化。实验上建议做三组对照：均匀、分段梯度、连续梯度；用矢网测 SER/SEA/SET，并同步做截面 SEM 与四探针剖面导电映射，确认梯度是否真正连续而非表层富集。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">晶格应变诱导超薄 RuO2 显磁</div>
+<div class="daily-core-title-en">Unusual metal oxide shows signs of magnetism under lattice strain in ultrathin layers</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Physics News</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二氧化钌（RuO2）是一种金属氧化物，通常作为重要的金属导体、量子材料和工业电催化剂。尽管围绕RuO2的磁性质一直存在争论，但人们通常认为其块体形态是非磁性的。但现在，一项发表在《Science Advances》上的新研究发现，当RuO2的晶格处于应变状态时，其非常薄的层可以变得具有磁性。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>新闻转述的 Science Advances 结果显示，RuO2 在超薄层并受晶格应变时可出现磁性迹象，打破其块体通常被视为非磁性的经验判断。当前给定信息未说明磁矩大小、应变阈值、测量手段或理论模型，因此不能进一步推断其微观交换机制。该现象与团队关注的低维磁性、应变调控、自旋-晶格耦合和氧化物量子材料高度相关，适合作为后续第一性原理与自旋模型的候选体系。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>这条线索的关键变量是厚度和外延应变：把 RuO2 做到超薄后，再通过晶格失配基底施加双轴或单轴应变，观察磁响应是否从“无磁”转为可探测磁序。若结合常规固体物理流程，方法应包括外延生长、厚度标定、XRD/HR-TEM 确认应变状态，以及 SQUID、MOKE 或 XMCD 之类的磁学测量；理论上通常还会配 DFT+U 或非共线自旋计算去判断 Ru 4d 轨道在应变下的交换分裂。</p><p><strong>🔗 相关工作关联：</strong>这与 CrI3、CrSBr 等二维磁体的层数依赖磁性相呼应，也与 BaTiO3、SrTiO3 上的应变调控思路一致，但这里的对象是原本常被视作导电氧化物的 RuO2，材料身份更“反直觉”。相较于 NbOI2 这类本征各向异性和铁电/极化候选体系，RuO2 的亮点在于通过外延失配把磁性从结构参数里“诱出来”；团队里若有做 DFT+U、磁各向异性和薄膜表征的成员，这篇可直接对接。</p><p><strong>💡 对你方向的启示：</strong>可把团队已有氧化物薄膜平台扩展到 RuO2/TiO2、RuO2/SrTiO3、RuO2/Al2O3 等基底组合，系统扫描 1–10 个晶胞厚度与 ±1% 到 ±5% 的双轴应变窗口。计算上先做 DFT+U 扫描应变—磁矩—交换常数的相图，再筛选最可能出现磁信号的基底；实验上用 RSM、STEM-EELS、MOKE 和 XMCD 交叉验证，并用温度依赖磁化曲线区分真正长程磁序与缺陷引起的顺磁尾。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日两篇材料文献分别落在“机器学习辅助功能复合材料设计”和“应变调控低维氧化物磁性”两条线索上。前者是全有机气凝胶的连续导电梯度与电磁屏蔽设计，后者则指向超薄 RuO2 在晶格应变下出现磁性迹象，和团队关注的低维磁性、自旋-晶格耦合有直接关联。</p>
+<p><strong>热点：</strong>第一类趋势是把机器学习前移到材料结构设计阶段，用于梯度、多孔和复合体系的功能优化，而不只是在传统晶体材料上做性质预测。第二类趋势是低维氧化物与应变工程继续成为发现新磁性的高频手段，尤其适合把块体非磁材料“激活”为薄层磁体。两篇工作共同体现出研究重心正从静态材料表征转向“结构/应变/组分”协同调控。对团队而言，真正可迁移的是方法论：数据驱动反演设计与第一性原理、哈密顿量建模仍然可以形成闭环，但两篇文献的物理对象差异很大。</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在机器学习与物理建模，并落到磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">2 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" rel="noopener noreferrer" target="_blank">晶格应变诱导超薄 RuO2 显磁</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" rel="noopener noreferrer" target="_blank">Unusual metal oxide shows signs of magnetism under lattice strain in ultrathin layers</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Physics News</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>二氧化钌（RuO2）是一种金属氧化物，通常作为重要的金属导体、量子材料和工业电催化剂。尽管围绕RuO2的磁性质一直存在争论，但人们通常认为其块体形态是非磁性的。但现在，一项发表在《Science Advances》上的新研究发现，当RuO2的晶格处于应变状态时，其非常薄的层可以变得具有磁性。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Ruthenium dioxide (RuO2) is a metal oxide that commonly serves as an important metallic conductor, quantum material and industrial electrocatalyst. While there have been debates surrounding the magnetic properties of RuO2, it is generally thought to be nonmagnetic in its bulk form. But now, a new study, published in Science Advances, has found that very thin layers of RuO2 can become magnetic when its lattice is placed under strain.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>新闻转述的 Science Advances 结果显示，RuO2 在超薄层并受晶格应变时可出现磁性迹象，打破其块体通常被视为非磁性的经验判断。当前给定信息未说明磁矩大小、应变阈值、测量手段或理论模型，因此不能进一步推断其微观交换机制。该现象与团队关注的低维磁性、应变调控、自旋-晶格耦合和氧化物量子材料高度相关，适合作为后续第一性原理与自旋模型的候选体系。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>这条线索的关键变量是厚度和外延应变：把 RuO2 做到超薄后，再通过晶格失配基底施加双轴或单轴应变，观察磁响应是否从“无磁”转为可探测磁序。若结合常规固体物理流程，方法应包括外延生长、厚度标定、XRD/HR-TEM 确认应变状态，以及 SQUID、MOKE 或 XMCD 之类的磁学测量；理论上通常还会配 DFT+U 或非共线自旋计算去判断 Ru 4d 轨道在应变下的交换分裂。</p><p><strong>🔗 相关工作关联：</strong>这与 CrI3、CrSBr 等二维磁体的层数依赖磁性相呼应，也与 BaTiO3、SrTiO3 上的应变调控思路一致，但这里的对象是原本常被视作导电氧化物的 RuO2，材料身份更“反直觉”。相较于 NbOI2 这类本征各向异性和铁电/极化候选体系，RuO2 的亮点在于通过外延失配把磁性从结构参数里“诱出来”；团队里若有做 DFT+U、磁各向异性和薄膜表征的成员，这篇可直接对接。</p><p><strong>💡 对你方向的启示：</strong>可把团队已有氧化物薄膜平台扩展到 RuO2/TiO2、RuO2/SrTiO3、RuO2/Al2O3 等基底组合，系统扫描 1–10 个晶胞厚度与 ±1% 到 ±5% 的双轴应变窗口。计算上先做 DFT+U 扫描应变—磁矩—交换常数的相图，再筛选最可能出现磁信号的基底；实验上用 RSM、STEM-EELS、MOKE 和 XMCD 交叉验证，并用温度依赖磁化曲线区分真正长程磁序与缺陷引起的顺磁尾。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-07-unusual-metal-oxide-magnetism-lattice.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" rel="noopener noreferrer" target="_blank">机器学习辅助的连续导电梯度全有机气凝胶</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" rel="noopener noreferrer" target="_blank">Continuous‐Conductivity‐Gradient All‐Organic Aerogels with Machine‐Learning‐Assisted Design toward Ultrabroadband, Ultralow‐Reflection Electromagnetic Shielding</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Yue Liu, Na Wu, Qilong Zhao, Sinan Zheng, Jin Zhou, Jishang Liu, Jingpeng Lin, Mingrui Han, Fei Pan, Jiurong Liu, Zhihui Zeng</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Advanced Materials，早期在线发表。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕全有机气凝胶提出连续导电梯度设计，并用机器学习辅助筛选结构参数，以兼顾超宽频屏蔽和超低反射。给定材料未披露具体模型架构、训练策略或屏蔽提升数值，因此只能确认其核心方法是数据驱动的梯度功能复合设计，而非凝聚态电子结构计算。对 AI for science 的启发在于把 ML 用于多尺度电磁功能材料的反向设计，但与团队主线仅有方法学交叉。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>这篇的核心路线不是单纯堆高电导，而是把导电梯度本身当成设计变量：输入应包含组分比例、孔隙率、密度、厚度、层数/梯度步长以及对应的频段响应，用机器学习代理模型去回归屏蔽效能、反射损耗和吸收占比。标题里的“continuous-conductivity-gradient”说明目标是让阻抗在厚度方向连续过渡，从而削弱界面反射；因此训练集大概率来自实验测量与电磁仿真闭环，而不是单一材料点优化。</p><p><strong>🔗 相关工作关联：</strong>这类工作与石墨烯/CNT/MXene/导电聚合物气凝胶的梯度屏蔽体系一脉相承，但区别在于把“连续梯度”作为主角，而不是简单的高填料含量。若对照 NbOI2、CrI3、CrSBr、BaTiO3 这类体系，前者是在本征相变/磁性上做调控，后者是在介电与导电网络上做结构优化；团队里做 equivariant GNN、MACE 或 NEP 的成员，可把这里的配方—孔结构—频响映射成可学习的多尺度代理问题。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队现有的聚合物/二维填料复合体系：先收集导电率、孔隙率、密度、厚度、压缩回弹和 2–40 GHz 屏蔽数据，建立多目标回归模型，再用 FDTD 或 CST 对梯度层数、梯度函数形式和界面过渡长度做反演优化。实验上建议做三组对照：均匀、分段梯度、连续梯度；用矢网测 SER/SEA/SET，并同步做截面 SEM 与四探针剖面导电映射，确认梯度是否真正连续而非表层富集。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74414?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-08-01.html">← 前一天 · 2026-08-01</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-08-01.html">前一天 · 2026-08-01</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-02.html">最新一期 · 2026-08-02</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-02.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>2</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>2</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">晶格应变诱导超薄 RuO2 显磁<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">机器学习辅助的连续导电梯度全有机气凝胶<span class="daily-outline-meta">02</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-01.html">前一天 · 2026-08-01</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-02.html">最新一期 · 2026-08-02</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-02.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
