@@ -5,7 +5,7 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-07-02.html</link>
     <description>2026-07-02 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Mon, 03 Aug 2026 02:47:18 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 03 Aug 2026 14:56:54 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-07-02.xml" rel="self" type="application/rss+xml"/>
     <item>
         <title>Holographic Quantum Transformer: A Generalist Neuro-Symbolic Architecture for Solving Frustrated Systems via Generative Attention</title>
@@ -19,35 +19,35 @@ arXiv:2607.00398v1 Announce Type: new Abstract: Simulating two-dimensional frust
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00398</guid>
     </item>
     <item>
-        <title>用于求解柱状等离子体逆散射问题的双重机器学习框架</title>
+        <title>A dual machine learning framework for the solution of the inverse scattering problem in cylindrical plasmas</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae7d86</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 Christos Vagkidis, Ewout Devlaminck, Mirko Ramisch, Günter E M Tovar and Alf Köhn-Seemann
 
-该工作提出由随机森林和神经网络组成的双重机器学习框架，用于加速并反演柱状等离子体中的微波散射问题。随机森林首先替代 COMSOL 三维全波仿真，根据电子密度剖面预测散射后的微波功率分布；随后利用其生成的合成数据训练神经网络。该神经网络能够根据束流功率分布反推出电子密度剖面的参数化描述，并在新的 COMSOL 数据上得到验证。]]></description>
+Machine learning algorithms are widely used to replace or accelerate high-fidelity codes and to provide physical insight in complex problems. In this work, a random forest is applied to replace a 3D full-wave simulation performed using the COMSOL Multiphysics software. In our simulation, a microwave beam is propagating through a cylindrically shaped plasma and is scattered by it. The training data of the random forest consist of the electron density profiles and the corresponding distributions of the microwave beam power after the interaction with the plasma. The random forest accurately reproduces the resulting scattered beam distribution for a given density profile. A synthetic dataset is then created with the forest, which in turn is used to train a neural network (NN). The NN is train…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae7d86</guid>
     </item>
     <item>
-        <title>利用电荷稳定图的神经网络分割实现 300 mm 硅量子点电荷态自动调谐</title>
+        <title>Automatic charge state tuning of 300 mm silicon quantum dots using neural network segmentation of charge stability diagram</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae7cda</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 Peter Samaha, Amine Torki, Ysaline Renaud, Sam Fiette, Emmanuel Chanrion, Pierre-André Mortemousque and Yann Beilliard
 
-该研究提出一种基于深度学习语义分割的自动调谐流程，通过识别完整电荷稳定图中的跃迁线，为硅量子点单电荷区间给出栅压目标。作者构建并人工标注了 1015 张来自 FD-SOI 量子点器件的实验图像，涵盖多种设计、晶圆和工艺批次，并训练了带 MobileNetV2 编码器的 U-Net 模型。模型在离线单电荷区定位中的总体成功率为 80.0%，部分设计超过 88%，并可支持面向器件设计和工艺反馈的物理特征提取。]]></description>
+Tuning of gate-defined semiconductor quantum dots (QDs) is a major bottleneck for scaling spin-qubit technologies. We present a deep learning driven, semantic-segmentation pipeline that performs charge auto-tuning by locating transition lines in full charge stability diagrams (CSDs) and returns gate voltage targets for the single charge regime. We assemble and manually annotate a large, heterogeneous dataset of 1015 experimental CSDs measured from fully depleted silicon-on-insulator (FD-SOI) QD devices, spanning nine design geometries, multiple wafers, and fabrication runs. A U-Net style convolutional neural network with a MobileNetV2 encoder is trained and validated through five-fold group cross-validation. Our model achieves an overall offline tuning success of 80.0% in locating the sin…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae7cda</guid>
     </item>
     <item>
-        <title>跨分子动力学轨迹的 GW 计算机器学习框架</title>
+        <title>Machine learning framework for GW calculations across molecular dynamics trajectories</title>
         <link>https://iopscience.iop.org/article/10.1088/2632-2153/ae7eca</link>
         <description><![CDATA[📚 Machine Learning: Science and Technology
 
 👤 Ragab A Abdelghany, Chih-En Hsu, Hung-Chung Hsueh, Yuan-Hong Tsai and Ming-Chiang Chung
 
-该研究利用 LightGBM 梯度提升模型预测准粒子能量，以缓解多体微扰理论中 GW 计算在分子动力学采样中的高昂代价。模型仅使用计算成本较低的平均场密度泛函理论本征值和交换-相关势作为输入，并在硅和氮化硼的少量分子动力学快照上训练。结果显示其可将误差控制在 0.1 eV 以下，重现实空间分辨的能带结构和态密度，并对未见过的时间、热状态和晶体多型表现出一定可迁移性。]]></description>
+Machine learning offers a transformative approach to overcoming the computational bottlenecks of quasiparticle energy calculations in many-body perturbation theory. While the approximation provides a rigorous description of excited-state electronic properties, its high computational cost—driven by the evaluation of the inverse dielectric matrix—renders it prohibitive for molecular dynamics (MD) simulations that require sampling thousands of thermal configurations. We present a gradient-boosting framework (LightGBM) that predicts quasiparticle energies with high efficiency using only computationally inexpensive mean-field density functional theory eigenvalues and exchange-correlation potentials. Trained on a minimal subset (25%) of MD snapshots for silicon and boron nitride, the model achi…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae7eca</guid>
     </item>
@@ -118,13 +118,13 @@ arXiv:2607.00178v1 Announce Type: new Abstract: emphBackground: Standard numeric
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00178</guid>
     </item>
     <item>
-        <title>电荷有序交替磁体中的原子选择性自旋极化输运</title>
+        <title>Atom-selective spin-polarized transport in a charge-ordered altermagnet</title>
         <link>https://arxiv.org/abs/2607.00506</link>
         <description><![CDATA[📚 arXiv
 
 👤 Liu Yang, Yuan-Yuan Jiang, Xiao-Yan Guo, Yi-Dong Liu, Xian-Zhe Chen, Wen-Jian Lu, Yu-Ping Sun, Ming Li, Ding-Fu Shao
 
-该工作利用第一性原理计算和量子输运模拟研究电荷有序交替磁体 α-Fe₂PO₅，发现其在费米能级附近交替磁自旋劈裂较弱的情况下仍可表现出实空间自旋选择性。电荷有序使每个子晶格中的 Fe²⁺ 与 Fe³⁺ 位点不等价，而褶皱 C 型反铁磁堆垛抑制子晶格间输运，使电子和空穴掺杂分别主要激活 Fe³⁺ 和 Fe²⁺ 通道。两类原子选择性通道在两个反铁磁子晶格上携带相反自旋极化，形成整体补偿但具有隐藏 Néel 自旋特征的电荷流；作者还提出基于 α-Fe₂PO₅ 的隧道结以实现显著电导调制。]]></description>
+arXiv:2607.00506v1 Announce Type: new Abstract: Altermagnets provide a promising platform for spin-polarized transport without net magnetization, but their transport properties are usually discussed in terms of momentum-space spin splitting. Here, using first-principles calculations and quantum transport simulations, we show that the charge-ordered altermagnet α-Fe₂PO₅ exhibits a distinct form of real-space spin selectivity despite weak altermagnetic spin splitting near the Fermi level. The charge order creates inequivalent Fe²⁺ and Fe³⁺ sites within each sublattice, while the puckered C-type antiferromagnetic stacking suppresses inter-sublattice transport. As a result, electron and hole doping activate spin-polarized transport predominantly through Fe³⁺- and Fe²⁺-based channels, respecti…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00506</guid>
     </item>
@@ -184,35 +184,24 @@ arXiv:2607.00993v1 Announce Type: new Abstract: Altermagnets, distinguished by c
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00993</guid>
     </item>
     <item>
-        <title>磁性拓扑半金属中反常霍尔角的调控</title>
-        <link>https://arxiv.org/abs/2607.00396</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jinying Yang, Yanxing Shang, Xingchen Liu, Yibo Wang, Xuebin Dong, Qingqi Zeng, Meng Lv, Shen Zhang, Yang Liu, Binbin Wang, Hongxiang Wei, Yizheng Wu, Stuart Parkin, Gangqin Liu, Claudia Felser, Enke Liu, Baogen Shen
-
-该文研究磁性 Weyl 半金属 Co3Sn2S2 中反常霍尔角的调控，反常霍尔角反映纵向驱动电流转化为横向自旋极化霍尔电流的效率。作者提出 tanθA 可表示为电阻率与反常霍尔电导乘积的函数，并据此实现最高约 0.46 的调控幅度，对应约 25° 的角度。基于 Fe 掺杂 Co3Sn2S2 单晶纳米片的微加工反常霍尔器件表现出较高霍尔灵敏度和磁场探测能力，显示其在磁传感方面的潜力。]]></description>
-        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.00396</guid>
-    </item>
-    <item>
-        <title>自旋霍尔效应的普适标度</title>
+        <title>Universal Scaling of the Spin Hall Effect</title>
         <link>https://arxiv.org/abs/2607.00343</link>
         <description><![CDATA[📚 arXiv
 
 👤 Atsuo Shitade, Naoto Nagaosa
 
-该研究从自旋与磁矩积累系数角度考察 Dirac 电子体系中的自旋霍尔效应，并在自洽 T 矩阵近似下纳入短程非磁性杂质散射。作者类比反常霍尔效应的普适标度，发现随纵向电导变化存在三个区域：由偏斜散射主导的超洁净区、响应近似恒定的中等脏区，以及具有新标度律的脏区。该结果试图建立一种不依赖自旋流定义歧义的自旋霍尔效应统一理论。]]></description>
+arXiv:2607.00343v1 Announce Type: new Abstract: We study the spin Hall (SH) effect for the Dirac electrons in terms of the spin and magnetic-moment accumulation coefficients -Γ⁰⁰ gₛ₍ₘ₎zphaⁿtoms⁽m⁾z xy. We take short-range nonmagnetic impurities into account within the self-consistent T-matrix approximation. Similarly to the universal scaling for the anomalous Hall (AH) effect, we find three disctinct regimes by changing the electric conductivity σyy; the superclean regime with -Γ⁰⁰ gₛ₍ₘ₎zphaⁿtoms⁽m⁾z xy propto σyy owing to the skew scattering, moderately dirty regime with almost constant -Γ⁰⁰ gₛ₍ₘ₎zphaⁿtoms⁽m⁾z xy, and dirty regime with a new scaling relation -Γ⁰⁰ gₛ₍ₘ₎zphaⁿtoms⁽m⁾z xy propto (σyy)⁰.⁶ whose exponent differs from that of the AH conductivity. Our results construct a unified…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00343</guid>
     </item>
     <item>
-        <title>纳米晶化诱导 NiS₂ 中的弱铁磁性</title>
+        <title>Weak Ferromagnetism in NiS₂ under Nanocrystallization</title>
         <link>https://arxiv.org/abs/2607.00474</link>
         <description><![CDATA[📚 arXiv
 
 👤 Hayato Miyazaki, Tomohiko Yoshinaga, Ojiro Miyazaki, Akira Matsuo, Koichi Kindo, Hirofumi Ishii, Tatsuya Kawae, Tetsuya Kida, Masashi Nantoh, Yoichi Ishiwata
 
-该研究表明，平均直径为 27.0 ± 6.5 nm、结构有序的 NiS₂ 纳米晶仍保留体材料中的两步反铁磁相变。低温相变以下，纳米晶表现出具有大矫顽力、交换偏置和场冷后垂直回线偏移的滞后铁磁响应，而相变以上的 M-H 响应近似线性。作者将这些现象归因于低温反铁磁序在纳米晶表面终止时产生的未补偿表面磁矩，并认为其结果限制了均匀自旋倾斜模型，间接支持体相 NiS₂ 弱铁磁性的畴壁机制。]]></description>
+arXiv:2607.00474v1 Announce Type: new Abstract: Structurally well-ordered NiS₂ nanocrystals with an average diameter of 27.0 ± 6.5 nm retain the bulk-like two-step antiferromagnetic transitions, as shown by magnetization and heat-capacity measurements. Below the lower transition, the nanocrystals exhibit a hysteretic ferromagnetic response with large coercivity, exchange bias, and a vertical loop shift after field cooling, whereas the M-H response just above the transition is nearly linear. These features are best explained by uncompensated surface moments generated where the low-temperature antiferromagnetic order terminates at the nanocrystal surface. The absence of a clear additional bulk-like weak-ferromagnetic component constrains homogeneous-canting models and indirectly favors a do…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00474</guid>
     </item>
@@ -283,37 +272,6 @@ Science, Volume 393, Issue 6806, Page 76-79, July 2026.]]></description>
         <guid isPermaLink="true">https://www.science.org/doi/abs/10.1126/science.adw1808?af=R</guid>
     </item>
     <item>
-        <title>重费米子铁磁体中的巨反常霍尔效应与能斯特效应</title>
-        <link>https://www.sciencedirect.com/science/article/pii/S2095927326003907?dgcid=rss_sd_all</link>
-        <description><![CDATA[📚 ScienceDirect Publication: Science Bulletin
-
-该文研究重费米子铁磁体中的反常霍尔效应和反常能斯特效应，重点关注其可能出现的巨大横向输运响应。原始信息主要为出版元数据，尚未提供详细摘要；具体材料、测量条件和物理机制需参考原文。]]></description>
-        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S2095927326003907?dgcid=rss_sd_all</guid>
-    </item>
-    <item>
-        <title>通过剪切与磁场诱导组装工程化层状磁性水凝胶用于细胞定位</title>
-        <link>https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73847?af=R</link>
-        <description><![CDATA[📚 Wiley: Advanced Materials: Table of Contents
-
-👤 Guillermo Camacho, Jose R. Morillas, Jesús García‐Gutiérrez, Stefania Nardecchia, Óscar Martínez‐Cano, Juan de Vicente
-
-该工作围绕层状磁性水凝胶的构筑展开，旨在利用剪切作用和磁场诱导组装实现对细胞空间位置的调控。由于原始摘要仅提供 EarlyView 元数据，具体材料体系、实验结果和生物应用效果需查阅原文。]]></description>
-        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.73847?af=R</guid>
-    </item>
-    <item>
-        <title>基于磁性 Fe3O4/CoFe2O4/Ce-BDC 杂化纳米酶的硫化物双模式比色与 RGB 检测</title>
-        <link>https://www.researchsquare.com/article/rs-10070984/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Qingyuan Weng, Xinyi Wen, Tianyuan Wei, Qing Zhang, Wanying Zhu, Junli Hong
-
-该研究构建了一种用于硫化物检测的双模式传感策略，将磁性 Fe3O4/CoFe2O4/Ce-BDC 纳米酶与 TMB/H2O2 显色体系结合。该纳米酶具有类过氧化物酶活性，可催化 TMB 氧化生成蓝色产物；硫化物在酸性条件下清除活性氧并还原氧化态 TMB，使 651 nm 吸光度降低并产生由蓝到无色的可视变化。该方法可通过分光光度法和智能手机 RGB 比色实现定量检测，检测限分别为 0.29 µM 和 31.26 µM。]]></description>
-        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10070984/latest</guid>
-    </item>
-    <item>
         <title>Bridging Quantum Computing Paradigms toward Semiconductor Yield: A Controlled CV-versus-DV Comparison on Wafer-Map Defect Classification</title>
         <link>https://arxiv.org/abs/2607.00961</link>
         <description><![CDATA[📚 arXiv
@@ -380,13 +338,13 @@ arXiv:2607.00903v1 Announce Type: new Abstract: Recently, tantalum (Ta) has gain
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00903</guid>
     </item>
     <item>
-        <title>利用双层石墨烯量子点实现谷依赖电子光学</title>
+        <title>Valley-dependent electron optics using quantum dots in bilayer graphene</title>
         <link>https://arxiv.org/abs/2607.00271</link>
         <description><![CDATA[📚 arXiv
 
 👤 Fereshte Ildarabadi, Stephen R. Power
 
-该文提出一种基于伯纳尔堆垛双层石墨烯中静电定义量子点的可调平台，用于实现无磁场、无应变和无自旋轨道耦合条件下的谷依赖电子光学。层反对称栅控可局域打开能隙，并在两个谷中产生符号相反的类质量项，从而导致强烈的谷依赖散射。作者利用四能带连续模型和多重散射方法表明，单量子点可产生谷依赖偏转，多量子点阵列可作为谷分束器，而反向栅控量子点对可作为谷过滤器。]]></description>
+arXiv:2607.00271v1 Announce Type: new Abstract: Electrostatically defined quantum dots (QDs) with layer-antisymmetric gating in Bernal-stacked bilayer graphene (BLG) open a local gap and generate a mass-like term with opposite sign in the two valleys, producing strongly valley-dependent scattering without magnetic fields, strain, or spin-orbit coupling. Building on this mechanism, we propose a tunable platform based on such QDs for valley-dependent electron optics in BLG. Using a four-band continuum model and a generalized multiple-scattering formalism, we analyze scattering of Gaussian electron beams from single- and multi-dot architectures and compute valley-resolved currents and angular profiles. A single dot produces distinct valley-dependent deflection, while multi-dot configurations…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00271</guid>
     </item>
@@ -413,26 +371,37 @@ arXiv:2607.00914v1 Announce Type: new Abstract: Nanoscale inhomogeneities are a 
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00914</guid>
     </item>
     <item>
-        <title>基于单个应变电子学磁隧道结的模拟交流电压放大器</title>
+        <title>An analog ac voltage amplifier based on a single straintronic magnetic tunnel junction</title>
         <link>https://arxiv.org/abs/2607.00104</link>
         <description><![CDATA[📚 arXiv
 
 👤 Cael Johnson, Rahnuma Rahman, Supriyo Bandyopadhyay
 
-该文讨论应变电子学磁隧道结在模拟电压放大中的应用，这类器件的电导可通过栅压诱导的机械应变连续调控。作者指出其电导-栅压转移特性存在近似线性区，若在该区中点叠加小交流信号，可在不明显失真的条件下实现交流电压放大。与晶体管放大器不同，该放大倍数可通过外部电源电压调节，并受到输入幅度不得超出线性区的限制。]]></description>
+arXiv:2607.00104v1 Announce Type: new Abstract: Magnetic tunnel junctions (MTJs) are known for their digital applications (memory and logic). A special class of them called "straintronic" magnetic tunnel junctions (s-MTJ) has lately emerged as a potential platform for analog applications because their conductance can be varied continuously with mechanical strain generated with a gate voltage. The conductance versus gate voltage (transfer) characteristic always has a linear region and that can be leveraged for a variety of analog applications. Here, we discuss one such application, namely analog voltage amplification. If the s-MTJ's gate voltage is fixed around the midpoint of the linear region and a small ac voltage is superimposed on it, then the ac voltage can be amplified without disto…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00104</guid>
     </item>
     <item>
-        <title>颗粒各向异性对纳米颗粒复合材料中“双量子”磁共振激发的影响</title>
+        <title>Effect of granules anisotropy on "double quantum" magnetic resonance excitation in nanogranular composites</title>
         <link>https://arxiv.org/abs/2607.00526</link>
         <description><![CDATA[📚 arXiv
 
 👤 A. B. Drovosekov, M. Yu. Dmitrieva, A. V. Sitnikov, S. N. Nikolaev, V. V. Rylkov
 
-该研究用电子自旋共振方法考察了不同 CoFeB 铁磁相含量的金属-绝缘体纳米颗粒复合薄膜 (CoFeB)x(Al2O3)100-x，频率范围为 7–80 GHz、温度范围为 4.2–300 K。除常规铁磁共振信号外，谱中还出现有效 g 因子约为 4 的额外吸收峰，作者将其解释为 CoFeB 铁磁颗粒中“双量子”跃迁的激发。通过改变铁磁相浓度和退火温度调控颗粒尺寸与各向异性，研究分析了这些因素对“双量子”峰强度及 ESR 谱参数的影响。]]></description>
+arXiv:2607.00526v1 Announce Type: new Abstract: Films of metal-insulator nanogranular composites (CoFeB)x(Al2O3)100-x with different contents of the metal ferromagnetic (FM) phase CoFeB (x ~ 15-50 at.%) are investigated by the method of electron spin resonance (ESR) in a wide range of frequencies (f = 7-80 GHz) and temperatures (T = 4.2-300 K). Besides the conventional FM resonance signal, the experimental spectra demonstrate an additional absorption peak with a double effective g-factor g ~ 4 which is explained within the quantum mechanical "giant spin" model by excitation of "double quantum" transitions in FM granules CoFeB. According to the theory, the intensity of this "double quantum" peak is a complex function of frequency and temperature, including as parameters the granule magneti…]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00526</guid>
+    </item>
+    <item>
+        <title>Modulation of anomalous Hall angle in a magnetic topological semimetal</title>
+        <link>https://arxiv.org/abs/2607.00396</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jinying Yang, Yanxing Shang, Xingchen Liu, Yibo Wang, Xuebin Dong, Qingqi Zeng, Meng Lv, Shen Zhang, Yang Liu, Binbin Wang, Hongxiang Wei, Yizheng Wu, Stuart Parkin, Gangqin Liu, Claudia Felser, Enke Liu, Baogen Shen
+
+arXiv:2607.00396v1 Announce Type: new Abstract: The anomalous Hall angle (θA) is a measure of the efficiency of converting a longitudinal driving current to a transverse spin-polarized Hall current. For anomalous Hall sensing, a large anomalous Hall angle can improve the sensitivity of magnetic field detection. However, modulation of this angle is challenging and magnetic materials typically have low angles of 0.1 to 3deg. Here, we report modulation of the anomalous Hall angle in the magnetic Weyl semimetal Co3Sn2S2. We propose that the angle parameter tanθA can be formulated as a function of the product of electrical resistivity and anomalous Hall conductivity. Our scheme was utilized to demonstrate the modulation of tanθA up to a magnitude of 0.46, corresponding to an angle of around 25…]]></description>
+        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.00396</guid>
     </item>
     <item>
         <title>Measurement-and Feedback-Driven Non-Equilibrium Phase Transitions on a Quantum Processor</title>
@@ -578,6 +547,50 @@ arXiv:2607.00413v1 Announce Type: cross Abstract: Spin correlations are among th
         <guid isPermaLink="true">https://arxiv.org/abs/2607.00413</guid>
     </item>
     <item>
+        <title>Bridging quantum mechanics and nonlinear optics in Raman scattering</title>
+        <link>https://arxiv.org/abs/2607.00463</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Naoki Fukutake, Hideaki Kano
+
+arXiv:2607.00463v1 Announce Type: cross Abstract: We present a theoretical framework for spontaneous Raman scattering that fundamentally bridges quantum-mechanical and nonlinear-optical approaches. By conceptualizing spontaneous Raman scattering as a stimulated Raman gain or loss event seeded by the quantum vacuum field, we rigorously derive the spontaneous Raman cross-section directly from the third-order nonlinear susceptibility. Crucially, this framework predicts the existence of a hitherto unrecognized phenomenon: "spontaneous Raman loss" (sRL), which acts as the vacuum-seeded counterpart to stimulated Raman loss, complementing traditional spontaneous Raman scattering (spontaneous Raman gain, sRG). Furthermore, we establish a rigorous connection to the traditional Kramers-Heisenberg-D…]]></description>
+        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.00463</guid>
+    </item>
+    <item>
+        <title>Surface charges in a Rydberg atom-nanowaveguide hybrid quantum system</title>
+        <link>https://arxiv.org/abs/2607.00513</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Aswathy Raj, Anna Kortel, Krishna Jadeja, Dylan J. Brown, Alexey Vylegzhanin, Robert Löw, Síle Nic Chormaic
+
+arXiv:2607.00513v1 Announce Type: new Abstract: Hybrid quantum platforms based on highly excited Rydberg atoms coupled to nanophotonics devices offer a promising route toward scalable quantum networks and integrated quantum technologies. However, the close proximity of Rydberg atoms to dielectric nanostructures makes these systems particularly susceptible to uncontrolled surface electric fields that can lead to a degradation of the excitation process. Here, we experimentally investigate Rydberg excitation of laser-cooled ⁸⁷Rb atoms via the evanescent field of an optical nanofiber in the presence of fiber-guided red- and blue-detuned light fields as used to trap ground state atoms in fiber-based dipole traps. We observe a time evolution of the Rydberg excitation spectrum when both the dipo…]]></description>
+        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.00513</guid>
+    </item>
+    <item>
+        <title>Improved Particle Confinement with Resonant Magnetic Perturbations in DIII-D Tokamak H-Mode Plasmas</title>
+        <link>https://arxiv.org/abs/2607.00287</link>
+        <description><![CDATA[📚 arXiv
+
+👤 N. C. Logan, Q. Hu, C. Paz-Soldan, R. Nazikian, T. Rhodes, T. Wilks, S. Munaretto, A. Bortolon, F. Laggner, F. Scotti, R. Hong, H. Wang
+
+arXiv:2607.00287v1 Announce Type: new Abstract: Experiments on the DIII-D tokamak have identified a novel regime in which applied resonant magnetic perturbations (RMPs) increase the particle confinement and overall performance. This Letter details a robust range of counter-current rotation over which RMPs cause this density pump-in effect for high confinement (H mode) plasmas. The pump in is shown to be caused by a reduction of the turbulent transport and to be correlated with a change in the sign of the induced neoclassical transport. This novel reversal of the RMP induced transport has the potential to significantly improve reactor relevant, three-dimensional magnetic confinement scenarios.]]></description>
+        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.00287</guid>
+    </item>
+    <item>
+        <title>New Bounds on Exotic Long-Range Spin-Spin Interactions</title>
+        <link>https://arxiv.org/abs/2607.00200</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Nathan B. Clayburn, Andrew Glassford, Thomas Uelmen, Ashley R. Kyung, Yana Boneva, Saif Salim, Alison S. Weiss, Flanagan Waldherr, Claire Carlin, Stephen K. Peck, Larry R. Hunter
+
+arXiv:2607.00200v1 Announce Type: new Abstract: Many proposed extensions to the Standard Model of particle physics introduce new bosons that can mediate forces which couple to particle spin. Here we describe a search for such forces coupling spin-polarized neutrons and protons in our magnetometer to spin-polarized electrons within Earth. We measure these interactions by varying the orientation of an optical ¹⁹⁹Hg-¹³³Cs free-precession comagnetometer mounted upon a precision rotation platform. From these measurements, we establish upper bounds on the dimensionless coupling constants associated with the axial-axial potential V₂ and the axial-vector potential V₁₁ as a function of the force's range łambda. For the electron-neutron and electron-proton potential V₂ at infinite range, we find |g…]]></description>
+        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.00200</guid>
+    </item>
+    <item>
         <title>Topologically Engineered Nematic Networks with Ultrastrong Adhesion and Light-Debonding on Demand</title>
         <link>https://www.researchsquare.com/article/rs-10018087/latest</link>
         <description><![CDATA[📚 Preprints
@@ -653,17 +666,6 @@ Background Fire frequency and severity are increasing in subtropical regions und
 Science, Volume 393, Issue 6806, Page 105-112, July 2026.]]></description>
         <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.science.org/doi/abs/10.1126/science.aee6277?af=R</guid>
-    </item>
-    <item>
-        <title>5G 中的可解释边缘智能：专用网络 QoS 异常的实时根因分析</title>
-        <link>https://www.researchsquare.com/article/rs-9997432/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Prajwal V, R Ashok Kumar
-
-该研究提出可解释边缘智能框架 IEI，用于 5G 多接入边缘计算环境中 QoS 异常的实时检测与根因分析。框架结合 LSTM 自编码器与经 K-Means 压缩的 KernelSHAP 归因引擎，面向通用 MEC 硬件并与 3GPP NWDAF 标准对齐。在 5G-NIDD 基准上的评估显示其具有较高的 AUC-ROC 和 F1 分数，推理延迟满足 URLLC 需求；现场实验还表明，本地再校准可显著降低跨接口部署时的误报率。]]></description>
-        <pubDate>Thu, 02 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-9997432/latest</guid>
     </item>
 </channel>
 </rss>
