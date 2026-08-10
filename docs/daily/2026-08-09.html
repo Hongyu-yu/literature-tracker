@@ -239,40 +239,52 @@
 <div class="daily-stats">
 <div class="daily-stat">
 <div class="daily-stat-label">日报精选</div>
-<div class="daily-stat-value">4</div>
+<div class="daily-stat-value">5</div>
 </div>
 <div class="daily-stat">
 <div class="daily-stat-label">主线候选</div>
-<div class="daily-stat-value">6</div>
+<div class="daily-stat-value">8</div>
 </div>
 <div class="daily-stat">
 <div class="daily-stat-label">期刊 / 来源</div>
-<div class="daily-stat-value">1</div>
+<div class="daily-stat-value">2</div>
 </div>
 <div class="daily-stat">
 <div class="daily-stat-label">arXiv 相关</div>
 <div class="daily-stat-value">0</div>
 </div>
 </div>
-<p class="daily-filter-note">原始候选 6 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 6 篇主线相关文献中精选 4 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<p class="daily-filter-note">原始候选 8 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 8 篇主线相关文献中精选 5 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
 <div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
 <section class="daily-section daily-core-section" id="core-focus">
 <div class="daily-section-head">
 <span class="daily-section-index">🎯</span>
 <h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
-<span class="daily-core-count">1 篇</span>
+<span class="daily-core-count">2 篇</span>
 </div>
-<p class="daily-core-note">你给定的列表里，唯一的实质进展并不来自 NbOI2、CrI3、CrSBr 或 BaTiO3 这类铁电/磁性体系，而是来自借氢催化的数据饥饿问题：作者把自动化虚拟反应探索和机器学习筛选耦合，用于发现 p 区金属催化剂。这里的关键推进不是单次性能报数，而是把反应空间生成、候选催化剂排序和数据回流串成闭环，形成可扩展的发现流程。方法论上，这种闭环完全可以迁移到 NbOI2、CrI3、CrSBr、BaTiO3 的组成-结构-性质搜索，并接入 equivariant GNN、MACE、NEP、DFT+U 做下一轮筛选。</p>
+<p class="daily-core-note">今天的实质进展不是单点性能刷新，而是把多层结构逆设计与反应发现都改写成可迭代的机器学习闭环：前者可直接迁移到 CrI3、CrSBr、BaTiO3 与 NbOI2 的层状堆叠优化，后者则把 p 区金属借氢催化从低样本筛选推进到主动学习搜索。方法上，真正有分量的是把结构—性质映射交给 equivariant GNN、MACE、NEP，并用 DFT+U 或高水平第一性原理补足局域电子结构与界面电荷。对凝聚态课题组而言，这类流程已经足以把磁各向异性、铁电极化和电磁屏蔽统一进同一优化框架，而不是继续做彼此割裂的经验配方。</p>
 <ol class="daily-core-list">
-<li class="daily-core-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R">
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R">
 <div class="daily-core-number">01</div>
 <div class="daily-core-body">
-<div class="daily-core-title-zh">虚拟反应探索发现p区金属催化剂</div>
+<div class="daily-core-title-zh">机器学习指导多层气凝胶电磁屏蔽</div>
+<div class="daily-core-title-en">Machine Learning‐Guided Additive Manufacturing of Multilayer Aerogels for Ultrabroadband, Ultralow‐Reflection Electromagnetic Shielding</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题名显示作者将机器学习用于增材制造多层气凝胶，目标为超宽带、超低反射电磁屏蔽。当前未给出材料组成、模型类型、频段、反射损耗或屏蔽效能数值，无法进一步核验性能来源。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作把机器学习与增材制造结合，用于设计多层气凝胶电磁屏蔽结构，核心目标是同时实现超宽带响应和超低反射。题名表明优化对象可能涉及层数、厚度、孔结构或组分梯度，但原始摘要未提供模型架构、训练策略、样本量和电磁参数。最强结论只能确定为面向电磁屏蔽的多层气凝胶设计路线，而不能编造具体屏蔽效能或频带。对AI材料方向的价值在于把数据驱动优化推进到可制造的宏观多层结构。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这一路线与分层超材料、梯度阻抗匹配和轻质吸波材料设计直接呼应，但区别在于把工艺制造而非单一材料参数作为优化对象。若与团队内负责 DFT+U、equivariant GNN、MACE/NEP、薄膜生长和电磁测试的五位同事对接，可把界面极化、导电通路和层间散射拆成可学习标签，进一步外推到 CrI3/CrSBr 磁层、BaTiO3 铁电层或 NbOI2 低维极化层的堆叠设计。</p><p><strong>💡 对你方向的启示：</strong>可执行的迁移方案是先建立多层气凝胶数据表，记录层序、孔隙率、密度、填料类型、固化温度与频段内 RL/SEₜₒₜₐₗ，再用贝叶斯优化或主动学习压缩打印试验次数。若转向凝聚态体系，可把同一管线改写为 BaTiO3/CrI3/CrSBr/NbOI2 薄膜的层数、应变、厚度和介电常数输入，配合 2–18 GHz 或 THz 反射测试、PFM/MFM 与截面 SEM 验证层间匹配是否真的降低反射。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">自动虚拟反应探索发现p区金属催化剂</div>
 <div class="daily-core-title-en">Overcoming Data Starvation: Automated Virtual Reaction Exploration and Machine Learning Discovery of p‐Block Metal Catalysts for Borrowing Hydrogen</div>
 <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley</span></div>
 <p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《克服数据匮乏：自动化虚拟反应探索与机器学习发现用于借氢反应的 p 区金属催化剂》，作者为 Zhe Chen、Xiaoyu Zhou、Chuanyi Xiong、Yubang Liu、Ruzhao Chen、Fuyi Yang、Huayu Liang、Jiaxin Lin、Jiaqi Su、Yinwu Li、Zhuofeng Ke。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕自动化虚拟反应探索和机器学习在借氢催化剂发现中的应用展开，具体方法和发现需查阅原文。</p>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是把自动化虚拟反应探索用于借氢催化数据生成，再以机器学习寻找p区金属催化剂。题录未披露模型架构、训练集规模、反应能垒标签或筛选阈值，因此无法判断采用图神经网络、描述符模型还是主动学习。对AI for science的直接价值在于数据饥饿化学空间中的闭环生成与筛选范式，而非凝聚态材料物性本身。</p>
-<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队已有的铁电/磁性筛选框架：把借氢中的“反应组合生成”替换为“组分-应变-缺陷-磁序”候选生成，先用 DFT/DFT+U 或小规模实验构建稀疏标签，再以主动学习驱动下一轮计算。若落到 NbOI2、CrI3、CrSBr、BaTiO3，可用对称性相关描述符或 equivariant GNN、MACE、NEP 预测极化、交换能和磁各向异性，并用增量式闭环验证模型是否真的提升命中率。</p></div>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作面向借氢反应中的p区金属催化剂发现，将自动化虚拟反应探索与机器学习结合以解决数据稀缺问题。可确定的创新点是用计算生成反应空间并训练模型筛选催化剂，但摘要未披露反应网络构建规则、量化化学方法、模型架构和候选命中率。最强结论仅能表述为发现p区金属催化剂的自动化路线，不能补充具体活化能、选择性或金属种类。对AI for science的启示在于小数据化学反应空间可通过自动探索生成训练样本。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这与自动反应网络生成、催化剂逆向设计和自驱动实验同属一类方法学，但它把 p 区金属体系作为主战场，而不是传统过渡金属。若联系团队五位研究者的分工，可以让一位做 DFT+U/过渡态计算，一位做 equivariant GNN 或 MACE 学局域配位，一位做 NEP/ML 势做大规模采样，一位做高通量筛选，一位负责 GC-MS/NMR 定量验证，形成从理论到实验的闭环。</p><p><strong>💡 对你方向的启示：</strong>建议把团队已有的 p 区金属与低维材料数据库并入同一图结构，节点编码金属中心、氧化态、配体和底物官能团，边编码关键中间体与能垒。先用 50–200 个 DFT 或高精度量化结果训练一个 GNN/主动学习模型，再在无水溶剂、70–120°C、惰性气氛下做 10–20 个候选催化剂的对照实验，用产率、选择性和循环稳定性三类标签回填模型，验证其是否能在低样本条件下稳定找到真正活性位点。</p></div>
 <div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
 </div>
 </li>
@@ -284,8 +296,8 @@
 <h2 class="daily-section-title">今日摘要</h2>
 </div>
 <div class="daily-summary-card">
-<p><strong>总览：</strong>今日 4 篇文献集中在机器学习化学反应探索、热电材料磁-声子协同调控、含硫聚合物网络合成和有机太阳能界面层活化。与团队方向交叉最强的是机器学习催化筛选与热电输运调控；有机太阳能多层界面对界面电荷转移与光伏器件物理有间接参考，含硫聚合物合成与现有计算凝聚态方向关联较弱。</p>
-<p><strong>热点：</strong>数据稀缺场景下的自动化虚拟反应探索和机器学习筛选正在从无机材料扩展到均相催化与反应网络。热电方向继续强调多自由度协同：局域磁矩可能调控载流子散射或能带简并，晶格软化则针对低热导率。光伏界面工程从单分子层转向自组装多层和π共轭网络，以提升有机太阳能电池效率。高分子合成文献展示低温、非烯烃路线构筑富硫网络，但目前缺少可直接映射到团队主线的电子结构或输运问题。</p>
+<p><strong>总览：</strong>今日 5 篇文献集中在机器学习辅助材料/化学探索、热电输运调控、功能聚合物与有机光伏界面工程。与团队方向最接近的是局域磁矩和晶格软化协同提升热电性能，以及机器学习指导的多层气凝胶电磁屏蔽；有机太阳能电池自组装多层的π共轭激活可与光电界面和载流子动力学研究形成弱交叉。</p>
+<p><strong>热点：</strong>机器学习继续从性质预测扩展到实验工艺与反应空间搜索，但今日条目中多数摘要信息不足，难以判断模型结构、训练集规模和验证策略。热电材料方向强调自旋/磁矩与晶格动力学共同调控，显示磁性自由度正在进入传统声子热输运优化框架。有机光伏研究仍围绕界面层分子堆积、电荷抽取和复合抑制展开，21.1%效率说明自组装层工程已进入高性能器件区间。硫富聚合物与p区金属催化更偏合成化学，与团队现有计算凝聚态和AI材料模拟交叉有限。</p>
 <p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在机器学习与物理建模，并落到磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
 </div>
 </section>
@@ -293,67 +305,82 @@
 <div class="daily-section-head">
 <span class="daily-section-index">📚</span>
 <h2 class="daily-section-title">今日文献</h2>
-<span class="daily-core-count">4 篇 · 0 含图深析</span>
+<span class="daily-core-count">5 篇 · 0 含图深析</span>
 </div>
 <ol class="daily-paper-list">
-<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" id="paper-1">
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" id="paper-1">
 <span class="daily-paper-number">01</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">虚拟反应探索发现p区金属催化剂</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">Overcoming Data Starvation: Automated Virtual Reaction Exploration and Machine Learning Discovery of p‐Block Metal Catalysts for Borrowing Hydrogen</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" rel="noopener noreferrer" target="_blank">机器学习指导多层气凝胶电磁屏蔽</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" rel="noopener noreferrer" target="_blank">Machine Learning‐Guided Additive Manufacturing of Multilayer Aerogels for Ultrabroadband, Ultralow‐Reflection Electromagnetic Shielding</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
 </div></div>
-<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Zhe Chen, Xiaoyu Zhou, Chuanyi Xiong, Yubang Liu, Ruzhao Chen, Fuyi Yang, Huayu Liang, Jiaxin Lin, Jiaqi Su, Yinwu Li, Zhuofeng Ke</span></div>
-<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《克服数据匮乏：自动化虚拟反应探索与机器学习发现用于借氢反应的 p 区金属催化剂》，作者为 Zhe Chen、Xiaoyu Zhou、Chuanyi Xiong、Yubang Liu、Ruzhao Chen、Fuyi Yang、Huayu Liang、Jiaxin Lin、Jiaqi Su、Yinwu Li、Zhuofeng Ke。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕自动化虚拟反应探索和机器学习在借氢催化剂发现中的应用展开，具体方法和发现需查阅原文。</p>
-<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是把自动化虚拟反应探索用于借氢催化数据生成，再以机器学习寻找p区金属催化剂。题录未披露模型架构、训练集规模、反应能垒标签或筛选阈值，因此无法判断采用图神经网络、描述符模型还是主动学习。对AI for science的直接价值在于数据饥饿化学空间中的闭环生成与筛选范式，而非凝聚态材料物性本身。</p>
-<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队已有的铁电/磁性筛选框架：把借氢中的“反应组合生成”替换为“组分-应变-缺陷-磁序”候选生成，先用 DFT/DFT+U 或小规模实验构建稀疏标签，再以主动学习驱动下一轮计算。若落到 NbOI2、CrI3、CrSBr、BaTiO3，可用对称性相关描述符或 equivariant GNN、MACE、NEP 预测极化、交换能和磁各向异性，并用增量式闭环验证模型是否真的提升命中率。</p></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Jin Zhou, Wei Liu, Mingrui Han, Jingpeng Lin, Jiurong Liu, Fei Pan, Wenlong Xu, Na Wu, Zhihui Zeng</span><span class="daily-chip daily-chip-score">🔥 AI 98</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题名显示作者将机器学习用于增材制造多层气凝胶，目标为超宽带、超低反射电磁屏蔽。当前未给出材料组成、模型类型、频段、反射损耗或屏蔽效能数值，无法进一步核验性能来源。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作把机器学习与增材制造结合，用于设计多层气凝胶电磁屏蔽结构，核心目标是同时实现超宽带响应和超低反射。题名表明优化对象可能涉及层数、厚度、孔结构或组分梯度，但原始摘要未提供模型架构、训练策略、样本量和电磁参数。最强结论只能确定为面向电磁屏蔽的多层气凝胶设计路线，而不能编造具体屏蔽效能或频带。对AI材料方向的价值在于把数据驱动优化推进到可制造的宏观多层结构。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这一路线与分层超材料、梯度阻抗匹配和轻质吸波材料设计直接呼应，但区别在于把工艺制造而非单一材料参数作为优化对象。若与团队内负责 DFT+U、equivariant GNN、MACE/NEP、薄膜生长和电磁测试的五位同事对接，可把界面极化、导电通路和层间散射拆成可学习标签，进一步外推到 CrI3/CrSBr 磁层、BaTiO3 铁电层或 NbOI2 低维极化层的堆叠设计。</p><p><strong>💡 对你方向的启示：</strong>可执行的迁移方案是先建立多层气凝胶数据表，记录层序、孔隙率、密度、填料类型、固化温度与频段内 RL/SEₜₒₜₐₗ，再用贝叶斯优化或主动学习压缩打印试验次数。若转向凝聚态体系，可把同一管线改写为 BaTiO3/CrI3/CrSBr/NbOI2 薄膜的层数、应变、厚度和介电常数输入，配合 2–18 GHz 或 THz 反射测试、PFM/MFM 与截面 SEM 验证层间匹配是否真的降低反射。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74565?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
 </div>
 </li>
-<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" id="paper-2">
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" id="paper-2">
 <span class="daily-paper-number">02</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">局域磁矩与晶格软化增强热电性能</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">Synergetic Enhancement in Thermoelectric Performance via Localized Magnetic Moments and Lattice Softening</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">自动虚拟反应探索发现p区金属催化剂</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">Overcoming Data Starvation: Automated Virtual Reaction Exploration and Machine Learning Discovery of p‐Block Metal Catalysts for Borrowing Hydrogen</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Zhe Chen, Xiaoyu Zhou, Chuanyi Xiong, Yubang Liu, Ruzhao Chen, Fuyi Yang, Huayu Liang, Jiaxin Lin, Jiaqi Su, Yinwu Li, Zhuofeng Ke</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《克服数据匮乏：自动化虚拟反应探索与机器学习发现用于借氢反应的 p 区金属催化剂》，作者为 Zhe Chen、Xiaoyu Zhou、Chuanyi Xiong、Yubang Liu、Ruzhao Chen、Fuyi Yang、Huayu Liang、Jiaxin Lin、Jiaqi Su、Yinwu Li、Zhuofeng Ke。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕自动化虚拟反应探索和机器学习在借氢催化剂发现中的应用展开，具体方法和发现需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作面向借氢反应中的p区金属催化剂发现，将自动化虚拟反应探索与机器学习结合以解决数据稀缺问题。可确定的创新点是用计算生成反应空间并训练模型筛选催化剂，但摘要未披露反应网络构建规则、量化化学方法、模型架构和候选命中率。最强结论仅能表述为发现p区金属催化剂的自动化路线，不能补充具体活化能、选择性或金属种类。对AI for science的启示在于小数据化学反应空间可通过自动探索生成训练样本。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这与自动反应网络生成、催化剂逆向设计和自驱动实验同属一类方法学，但它把 p 区金属体系作为主战场，而不是传统过渡金属。若联系团队五位研究者的分工，可以让一位做 DFT+U/过渡态计算，一位做 equivariant GNN 或 MACE 学局域配位，一位做 NEP/ML 势做大规模采样，一位做高通量筛选，一位负责 GC-MS/NMR 定量验证，形成从理论到实验的闭环。</p><p><strong>💡 对你方向的启示：</strong>建议把团队已有的 p 区金属与低维材料数据库并入同一图结构，节点编码金属中心、氧化态、配体和底物官能团，边编码关键中间体与能垒。先用 50–200 个 DFT 或高精度量化结果训练一个 GNN/主动学习模型，再在无水溶剂、70–120°C、惰性气氛下做 10–20 个候选催化剂的对照实验，用产率、选择性和循环稳定性三类标签回填模型，验证其是否能在低样本条件下稳定找到真正活性位点。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">局域磁矩与晶格软化协同增强热电性能</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">Synergetic Enhancement in Thermoelectric Performance via Localized Magnetic Moments and Lattice Softening</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Somnath Acharya, Sujin Kim, Seunghun Cha, Jong‐Soo Rhyee, Yunseok Shin, Ji Hoon Shim, Junphil Hwang, Sung‐Jin Kim, Woochul Kim</span></div>
 <p class="daily-paper-abstract"><strong>📄 摘要：</strong>Advanced Functional Materials，EarlyView。该文题为《通过局域磁矩与晶格软化协同增强热电性能》，作者为 Somnath Acharya、Sujin Kim、Seunghun Cha、Jong‐Soo Rhyee、Yunseok Shin、Ji Hoon Shim、Junphil Hwang、Sung‐Jin Kim、Woochul Kim。由于原始摘要仅提供 EarlyView 元数据，无法逐句翻译研究细节；根据题名，该研究围绕局域磁矩与晶格软化对热电性能的协同增强作用展开，具体材料、数据和结论需查阅原文。</p>
 <details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>亮点在于把局域磁矩和晶格软化作为协同变量来增强热电性能，可能同时影响能带、散射和声子热导。题录未披露具体化合物、测量温区、第一性原理或输运模型细节，也未给出最高ZT。对凝聚态方向的价值在于把自旋自由度引入热电优化，这与磁-声子耦合、电子-声子耦合和热输运计算可自然衔接。</p>
-<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>该主题与团队的磁性材料、自旋-晶格耦合、电子-声子耦合和热输运方向有真实交叉。Hongjun Xiang和Hongyu Yu关注复杂自旋相互作用、非共线磁性及自旋-晶格动力学；Xin-Gao Gong和Ji-Hui Yang长期做Boltzmann输运、电子-声子耦合、声子限制迁移率和能源材料输运。若该文含磁矩诱导能带调控或软声子降低晶格热导的定量分析，可直接作为磁性热电材料计算建模案例。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《局域磁矩与晶格软化增强热电性能》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作把局域磁矩引入热电性能优化，并与晶格软化协同作用联系起来，核心物理是磁性自由度和声子输运共同调节热电响应。题名未给出材料化学式、测量温区、ZT峰值或理论模型，因此不能推断具体载流子散射机制和声子软化模式。最强结论是磁矩诱导的电子结构效应与软晶格降低热导可能协同增强热电性能。对凝聚态方向的意义在于热电设计不再仅依赖能带汇聚和低热导，也可纳入自旋/磁矩调控。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这是五篇中与团队凝聚态方向最接近的一篇。团队长期关注磁性材料、自旋-晶格耦合、电子-声子耦合、热输运和功能材料设计；局域磁矩与晶格软化的协同正好落在自旋、声子和输运耦合问题上。若全文包含第一性原理声子谱、磁构型能量、玻尔兹曼输运或自旋-晶格耦合分析，可直接与Hongyu Yu、Hongjun Xiang和Xin-Gao Gong相关方向对接。当前缺少材料体系，不能判断是否与团队已研究的硫族化合物、钙钛矿或低维材料重合。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《局域磁矩与晶格软化协同增强热电性能》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
 </div>
 </li>
-<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" id="paper-3">
-<span class="daily-paper-number">03</span>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" id="paper-4">
+<span class="daily-paper-number">04</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">活化π共轭自组装多层有机太阳能</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">Activating π‐Electron Conjugated Networks of Self‐Assembled Multilayers for 21.1% Efficiency Organic Solar Cells</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">激活自组装多层π共轭网络有机太阳能电池</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">Activating π‐Electron Conjugated Networks of Self‐Assembled Multilayers for 21.1% Efficiency Organic Solar Cells</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Junbo Chen, Yuanpeng Xie, Jingfu Tian, Xiaxia Yang, Yingxin Tian, Kequan Chen, Shunlin Zhang, Dianyong Tang, Yanming Sun, Menglan Lv</span></div>
 <p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《激活自组装多层膜的 π 电子共轭网络以实现 21.1% 效率的有机太阳能电池》，作者为 Junbo Chen、Yuanpeng Xie、Jingfu Tian、Xiaxia Yang、Yingxin Tian、Kequan Chen、Shunlin Zhang、Dianyong Tang、Yanming Sun、Menglan Lv。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究讨论自组装多层膜中 π 电子共轭网络的激活及其在高效率有机太阳能电池中的作用，具体结果需查阅原文。</p>
 <details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>亮点是把自组装多层界面中的π电子共轭网络作为调控对象，将有机太阳能电池效率推至21.1%。题录未披露多层分子结构、组装条件、界面偶极或电荷提取参数，因此不能展开具体机理。对凝聚态和光伏计算的意义在于界面有序化、能级匹配和电荷转移可通过电子结构与非绝热动力学进一步解析。</p>
-<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《活化π共轭自组装多层有机太阳能》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作通过调控自组装多层的π电子共轭网络提升有机太阳能电池效率，题名给出的最强定量结果是21.1%光电转换效率。核心方法应是界面或传输层分子自组装，使多层结构中的共轭连通性被激活，但摘要未说明分子设计、沉积工艺和器件结构。对凝聚态与AI for science的意义在于有机界面层的分子堆积和电荷抽取仍是高效率光伏的关键变量，可与界面电荷转移和非辐射复合模拟问题对接。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>该文与团队在光电材料、界面电荷转移、非辐射复合和载流子动力学方面存在中等强度交叉，但材料体系是有机太阳能电池，和团队更常研究的卤化物钙钛矿、二维半导体、硫族化合物及无机缺陷体系不同。Weibin Chu方向中的激发态动力学、界面电荷转移和电子-声子耦合方法可提供机制分析工具；Ji-Hui Yang方向的光伏界面与输运建模也有方法关联。不能假设团队已有该类自组装分子体系研究。</p><p><strong>💡 对你方向的启示：</strong>对《激活自组装多层π共轭网络有机太阳能电池》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
 </div>
 </li>
-<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" id="paper-4">
-<span class="daily-paper-number">04</span>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" id="paper-5">
+<span class="daily-paper-number">05</span>
 <div class="daily-paper-body">
 <div class="daily-paper-head"><div class="daily-paper-titles">
-<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">环氧化学低温逆硫化富硫网络</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
-<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">Inverse Vulcanization Through Epoxide Chemistry: A Low Temperature Non‐Olefin Route to Sulfur‐Rich Polymer Networks</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">环氧化学低温非烯烃逆硫化</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">Inverse Vulcanization Through Epoxide Chemistry: A Low Temperature Non‐Olefin Route to Sulfur‐Rich Polymer Networks</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
 </div></div>
 <div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Pan Yang, Youfu Wang, Xinyuan Zhu, Jinhong Jia, Xiaofeng Wu, Tom Hasell</span></div>
 <p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《通过环氧化学实现逆硫化：一种制备富硫聚合物网络的低温非烯烃路线》，作者为 Pan Yang、Youfu Wang、Xinyuan Zhu、Jinhong Jia、Xiaofeng Wu、Tom Hasell。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕利用环氧化学在较低温度下构建富硫聚合物网络的非烯烃逆硫化路线展开，具体内容需查阅原文。</p>
 <details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
-<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是用环氧反应替代传统烯烃路径进行逆硫化，在较低温度下形成富硫聚合物网络。题录没有给出催化剂、温度窗口、硫比例、网络结构表征或性能指标，无法评价其材料物性优势。与凝聚态计算和AI材料模拟的交叉较弱，除非原文进一步讨论电子、离子、光学或界面功能。</p>
-<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《环氧化学低温逆硫化富硫网络》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
-<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作属于高分子合成化学，核心创新是用环氧化学替代传统烯烃单体，在较低温度下构筑富硫聚合物网络。题名没有披露反应机理、催化剂、聚合温度、硫比例或材料性能，因此无法判断网络均匀性和功能优势。最强结论仅能限定为低温非烯烃逆硫化路线。与凝聚态/AI材料模拟的关系较弱，除非全文进一步展示电子、离子输运或红外/光学功能。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《环氧化学低温非烯烃逆硫化》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
 </div>
 </li>
 </ol>
@@ -371,9 +398,9 @@
 <a href="#papers"><span>今日文献</span><span>📚</span></a>
 <div class="daily-sidebar-block">
 <div class="daily-sidebar-title">专题分布</div>
-<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>4</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>5</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>2</strong></div></div>
 </div>
-<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">虚拟反应探索发现p区金属催化剂<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">局域磁矩与晶格软化增强热电性能<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">活化π共轭自组装多层有机太阳能<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">环氧化学低温逆硫化富硫网络<span class="daily-outline-meta">04</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">机器学习指导多层气凝胶电磁屏蔽<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">自动虚拟反应探索发现p区金属催化剂<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">局域磁矩与晶格软化协同增强热电性能<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">激活自组装多层π共轭网络有机太阳能电池<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">环氧化学低温非烯烃逆硫化<span class="daily-outline-meta">05</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
 <div class="daily-sidebar-title">阅读建议</div>
 <ul class="insight-note-list">
 <li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
