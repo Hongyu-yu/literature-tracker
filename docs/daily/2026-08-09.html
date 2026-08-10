@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-08-09 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-08-09.xml" rel="alternate" title="2026-08-09 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-08-09.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-08-09</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-08-08.html">← 前一天 · 2026-08-08</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/08/09</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">4</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">6</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">1</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 6 篇中，已剔除 0 篇明显偏离主线的内容，并从剩余 6 篇主线相关文献中精选 4 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">1 篇</span>
+</div>
+<p class="daily-core-note">你给定的列表里，唯一的实质进展并不来自 NbOI2、CrI3、CrSBr 或 BaTiO3 这类铁电/磁性体系，而是来自借氢催化的数据饥饿问题：作者把自动化虚拟反应探索和机器学习筛选耦合，用于发现 p 区金属催化剂。这里的关键推进不是单次性能报数，而是把反应空间生成、候选催化剂排序和数据回流串成闭环，形成可扩展的发现流程。方法论上，这种闭环完全可以迁移到 NbOI2、CrI3、CrSBr、BaTiO3 的组成-结构-性质搜索，并接入 equivariant GNN、MACE、NEP、DFT+U 做下一轮筛选。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">虚拟反应探索发现p区金属催化剂</div>
+<div class="daily-core-title-en">Overcoming Data Starvation: Automated Virtual Reaction Exploration and Machine Learning Discovery of p‐Block Metal Catalysts for Borrowing Hydrogen</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《克服数据匮乏：自动化虚拟反应探索与机器学习发现用于借氢反应的 p 区金属催化剂》，作者为 Zhe Chen、Xiaoyu Zhou、Chuanyi Xiong、Yubang Liu、Ruzhao Chen、Fuyi Yang、Huayu Liang、Jiaxin Lin、Jiaqi Su、Yinwu Li、Zhuofeng Ke。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕自动化虚拟反应探索和机器学习在借氢催化剂发现中的应用展开，具体方法和发现需查阅原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是把自动化虚拟反应探索用于借氢催化数据生成，再以机器学习寻找p区金属催化剂。题录未披露模型架构、训练集规模、反应能垒标签或筛选阈值，因此无法判断采用图神经网络、描述符模型还是主动学习。对AI for science的直接价值在于数据饥饿化学空间中的闭环生成与筛选范式，而非凝聚态材料物性本身。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队已有的铁电/磁性筛选框架：把借氢中的“反应组合生成”替换为“组分-应变-缺陷-磁序”候选生成，先用 DFT/DFT+U 或小规模实验构建稀疏标签，再以主动学习驱动下一轮计算。若落到 NbOI2、CrI3、CrSBr、BaTiO3，可用对称性相关描述符或 equivariant GNN、MACE、NEP 预测极化、交换能和磁各向异性，并用增量式闭环验证模型是否真的提升命中率。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日 4 篇文献集中在机器学习化学反应探索、热电材料磁-声子协同调控、含硫聚合物网络合成和有机太阳能界面层活化。与团队方向交叉最强的是机器学习催化筛选与热电输运调控；有机太阳能多层界面对界面电荷转移与光伏器件物理有间接参考，含硫聚合物合成与现有计算凝聚态方向关联较弱。</p>
+<p><strong>热点：</strong>数据稀缺场景下的自动化虚拟反应探索和机器学习筛选正在从无机材料扩展到均相催化与反应网络。热电方向继续强调多自由度协同：局域磁矩可能调控载流子散射或能带简并，晶格软化则针对低热导率。光伏界面工程从单分子层转向自组装多层和π共轭网络，以提升有机太阳能电池效率。高分子合成文献展示低温、非烯烃路线构筑富硫网络，但目前缺少可直接映射到团队主线的电子结构或输运问题。</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在机器学习与物理建模，并落到磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">4 篇 · 0 含图深析</span>
+</div>
+<ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">虚拟反应探索发现p区金属催化剂</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">Overcoming Data Starvation: Automated Virtual Reaction Exploration and Machine Learning Discovery of p‐Block Metal Catalysts for Borrowing Hydrogen</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Zhe Chen, Xiaoyu Zhou, Chuanyi Xiong, Yubang Liu, Ruzhao Chen, Fuyi Yang, Huayu Liang, Jiaxin Lin, Jiaqi Su, Yinwu Li, Zhuofeng Ke</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《克服数据匮乏：自动化虚拟反应探索与机器学习发现用于借氢反应的 p 区金属催化剂》，作者为 Zhe Chen、Xiaoyu Zhou、Chuanyi Xiong、Yubang Liu、Ruzhao Chen、Fuyi Yang、Huayu Liang、Jiaxin Lin、Jiaqi Su、Yinwu Li、Zhuofeng Ke。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕自动化虚拟反应探索和机器学习在借氢催化剂发现中的应用展开，具体方法和发现需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是把自动化虚拟反应探索用于借氢催化数据生成，再以机器学习寻找p区金属催化剂。题录未披露模型架构、训练集规模、反应能垒标签或筛选阈值，因此无法判断采用图神经网络、描述符模型还是主动学习。对AI for science的直接价值在于数据饥饿化学空间中的闭环生成与筛选范式，而非凝聚态材料物性本身。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>可直接迁移到团队已有的铁电/磁性筛选框架：把借氢中的“反应组合生成”替换为“组分-应变-缺陷-磁序”候选生成，先用 DFT/DFT+U 或小规模实验构建稀疏标签，再以主动学习驱动下一轮计算。若落到 NbOI2、CrI3、CrSBr、BaTiO3，可用对称性相关描述符或 equivariant GNN、MACE、NEP 预测极化、交换能和磁各向异性，并用增量式闭环验证模型是否真的提升命中率。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4351270?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">局域磁矩与晶格软化增强热电性能</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">Synergetic Enhancement in Thermoelectric Performance via Localized Magnetic Moments and Lattice Softening</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Somnath Acharya, Sujin Kim, Seunghun Cha, Jong‐Soo Rhyee, Yunseok Shin, Ji Hoon Shim, Junphil Hwang, Sung‐Jin Kim, Woochul Kim</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Advanced Functional Materials，EarlyView。该文题为《通过局域磁矩与晶格软化协同增强热电性能》，作者为 Somnath Acharya、Sujin Kim、Seunghun Cha、Jong‐Soo Rhyee、Yunseok Shin、Ji Hoon Shim、Junphil Hwang、Sung‐Jin Kim、Woochul Kim。由于原始摘要仅提供 EarlyView 元数据，无法逐句翻译研究细节；根据题名，该研究围绕局域磁矩与晶格软化对热电性能的协同增强作用展开，具体材料、数据和结论需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>亮点在于把局域磁矩和晶格软化作为协同变量来增强热电性能，可能同时影响能带、散射和声子热导。题录未披露具体化合物、测量温区、第一性原理或输运模型细节，也未给出最高ZT。对凝聚态方向的价值在于把自旋自由度引入热电优化，这与磁-声子耦合、电子-声子耦合和热输运计算可自然衔接。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>该主题与团队的磁性材料、自旋-晶格耦合、电子-声子耦合和热输运方向有真实交叉。Hongjun Xiang和Hongyu Yu关注复杂自旋相互作用、非共线磁性及自旋-晶格动力学；Xin-Gao Gong和Ji-Hui Yang长期做Boltzmann输运、电子-声子耦合、声子限制迁移率和能源材料输运。若该文含磁矩诱导能带调控或软声子降低晶格热导的定量分析，可直接作为磁性热电材料计算建模案例。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《局域磁矩与晶格软化增强热电性能》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77472?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">活化π共轭自组装多层有机太阳能</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">Activating π‐Electron Conjugated Networks of Self‐Assembled Multilayers for 21.1% Efficiency Organic Solar Cells</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Junbo Chen, Yuanpeng Xie, Jingfu Tian, Xiaxia Yang, Yingxin Tian, Kequan Chen, Shunlin Zhang, Dianyong Tang, Yanming Sun, Menglan Lv</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《激活自组装多层膜的 π 电子共轭网络以实现 21.1% 效率的有机太阳能电池》，作者为 Junbo Chen、Yuanpeng Xie、Jingfu Tian、Xiaxia Yang、Yingxin Tian、Kequan Chen、Shunlin Zhang、Dianyong Tang、Yanming Sun、Menglan Lv。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究讨论自组装多层膜中 π 电子共轭网络的激活及其在高效率有机太阳能电池中的作用，具体结果需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>亮点是把自组装多层界面中的π电子共轭网络作为调控对象，将有机太阳能电池效率推至21.1%。题录未披露多层分子结构、组装条件、界面偶极或电荷提取参数，因此不能展开具体机理。对凝聚态和光伏计算的意义在于界面有序化、能级匹配和电荷转移可通过电子结构与非绝热动力学进一步解析。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《活化π共轭自组装多层有机太阳能》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4154577?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">环氧化学低温逆硫化富硫网络</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">Inverse Vulcanization Through Epoxide Chemistry: A Low Temperature Non‐Olefin Route to Sulfur‐Rich Polymer Networks</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-journal">📖 Wiley</span><span class="daily-chip daily-chip-authors">👤 Pan Yang, Youfu Wang, Xinyuan Zhu, Jinhong Jia, Xiaofeng Wu, Tom Hasell</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Angewandte Chemie International Edition，第65卷，第33期，2026年8月10日。该文题为《通过环氧化学实现逆硫化：一种制备富硫聚合物网络的低温非烯烃路线》，作者为 Pan Yang、Youfu Wang、Xinyuan Zhu、Jinhong Jia、Xiaofeng Wu、Tom Hasell。由于原始摘要仅提供期刊卷期元数据，无法逐句翻译研究细节；根据题名，该研究围绕利用环氧化学在较低温度下构建富硫聚合物网络的非烯烃逆硫化路线展开，具体内容需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, Volume 65, Issue 33, 10 August 2026.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新点是用环氧反应替代传统烯烃路径进行逆硫化，在较低温度下形成富硫聚合物网络。题录没有给出催化剂、温度窗口、硫比例、网络结构表征或性能指标，无法评价其材料物性优势。与凝聚态计算和AI材料模拟的交叉较弱，除非原文进一步讨论电子、离子、光学或界面功能。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《环氧化学低温逆硫化富硫网络》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.7470442?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+</ol>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-08-08.html">← 前一天 · 2026-08-08</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>4</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>1</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">虚拟反应探索发现p区金属催化剂<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">局域磁矩与晶格软化增强热电性能<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">活化π共轭自组装多层有机太阳能<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">环氧化学低温逆硫化富硫网络<span class="daily-outline-meta">04</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-08.html">前一天 · 2026-08-08</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-09.html">最新一期 · 2026-08-09</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-09.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
