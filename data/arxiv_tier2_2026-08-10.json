@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Permutation invariant neural network prediction of vacancy formation under deformation and varying chemical environment in FCC high entropy alloys",
+    "title_zh": "面心立方高熵合金中变形与变化化学环境下空位形成的置换不变神经网络预测",
+    "summary": "该研究开发了一种原子尺度信息驱动、置换不变的机器学习框架，用于预测 FCC 高熵合金中随应变变化的空位形成能。模型结合空位中心局域几何描述符与局域变形梯度不变量，可统一学习化学无序和有限变形的耦合作用。结果显示体积变形主导平均空位形成能变化，而局域化学环境决定显著的位点间统计差异。",
+    "abstract": "arXiv:2608.07445v1 Announce Type: new Abstract: Vacancy formation energies govern diffusion, irradiation damage, phase stability, and dynamic failure in high-entropy alloys (HEAs), yet their strong dependence on local chemical environments and mechanical deformation makes atomistic calculations prohibitively expensive for large-scale studies. Here, we develop an atomistically informed permutation invariant machine learning framework for predicting strain dependent vacancy formation energies in FCC HEAs from local atomic environments. The model employs a vacancy-centered representation constructed from objective geometric descriptors together with invariants of the local deformation gradient, enabling the coupled effects of chemical disorder and finite deformation to be learned within a unified framework. Atomistic simulations reveal that volumetric deformation is the dominant factor controlling the average variation in vacancy formation energy, whereas shear deformation has a comparatively minor influence. At the same time, substantial site to site variability persists under identical macroscopic loading, demonstrating that local chemical environments govern the statistical distribution of vacancy energetics beyond species-averaged trends. The proposed framework accurately predicts vacancy formation energies across diverse deformation states while providing orders-of-magnitude faster evaluation than direct atomistic simulations. These results establish an efficient route for incorporating stress-dependent defect energetics into multiscale models of diffusion, irradiation damage, and dynamic failure in chemically complex alloys.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2608.07445",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Cross-Geometry Transferability Assessment of Universal Machine Learning Interatomic Potentials: From Bulk Materials to Atomic Nanowires",
+    "title_zh": "文献研究：Cross-Geometry Transferability Assessment of Universal Machine Learning Interatomic Potentials: From Bulk Materials to Atomic Nanowires",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.06662v1 Announce Type: new Abstract: Foundation machine-learning interatomic potentials (MLIPs) enable atomistic simulations at substantially lower computational cost than first-principles methods, but their reliability across structural geometries remains insufficiently understood. Here, we construct a density-functional-theory dataset of ZrO2 configurations spanning bulk, slab, particle, neck, and atomically thin wire environments motivated by an experimentally observed ZrO2 desintering process involving neck thinning and atomic wire formation. We first benchmark 26 pretrained MLIPs and observe pronounced geometry-dependent degradation in zero-shot predictions. Without any training, after only reference-energy alignment, the best zero-shot model (ORB-V3) reaches energy and force root-mean-square errors of 6 meV/atom and 197.3 meV/Å, respectively, with the largest force errors in neck and wire configurations. We then compare zero-shot inference, fine-tuning, and training from scratch strategies. Fine-tuning yields lower energy and force errors than training from scratch, while both require comparable wall-clock time. Geometry-specific fine-tuning improves in-domain accuracy but frequently produces negative transfer to other structural classes, whereas mixed-geometry fine-tuning reduces cross-geometry errors. Evaluations of elastic and vibrational properties, surface energies, and neck dynamics further show that rankings based on average energy and force errors do not universally predict property-level behavior. These results demonstrate that geometry-diverse target data and independent physical validations are necessary when adapting foundation MLIPs to low-coordination (ionic) nanostructures.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2608.06662",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Joint Quantum Computing, Neural Network and Embedding Theory Approach for the Derivation of the Universal Functional",
+    "title_zh": "一种结合量子计算、神经网络与嵌入理论的通用泛函推导方法",
+    "summary": "本文提出一种结合量子计算、机器学习与约化密度矩阵泛函理论的新方法，目标是借助量子算法训练深度神经网络来获得通用泛函。作者进一步引入密度矩阵嵌入理论，以扩大可应用该泛函的哈密顿量范围，从而有望在量子化学与凝聚态物理中实现累积性的量子优势。",
+    "abstract": "arXiv:2512.13138v2 Announce Type: replace-cross Abstract: We introduce a novel approach that exploits the intersection of quantum computing, machine learning and reduced density matrix functional theory to leverage the potential of quantum computing to improve simulations of interacting quantum particles. Our method focuses on obtaining the universal functional using a deep neural network trained with quantum algorithms. In addition, we use density matrix embedding theory to strengthen our approach by substantially expanding the space of Hamiltonians for which the obtained functional can be applied without the need for additional quantum resources. Since the obtained universal functional can be reused for any system where the interactions within the embedded fragment are identical, our work demonstrates a way to potentially achieve a cumulative quantum advantage within quantum computing applications for quantum chemistry and condensed matter physics.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2512.13138",
+    "journal": "arXiv"
+  },
+  {
+    "title": "CrystalGRPO: Target-Aligned and Coverage-Preserving Reinforcement Learning for Flow-Based Crystal Structure Prediction",
+    "title_zh": "文献研究：CrystalGRPO: Target-Aligned and Coverage-Preserving Reinforcement Learning for Flow-Based Crystal Structure Prediction",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.06582v1 Announce Type: new Abstract: Flow-based generative models can efficiently produce candidate structures for crystal structure prediction (CSP), but their pretrained objectives do not directly optimize downstream target recovery. Reinforcement-learning post-training offers a flexible solution, yet existing approaches rely primarily on energy rewards and coordinate-only stochastic policies. Predicted energy does not identify the reference polymorph, while reward-driven concentration can reduce the candidate coverage required for Top-N recovery. We introduce CrystalGRPO, a CSP-aligned post-training framework that extends existing ODE-to-SDE policy constructions to the joint coordinate--lattice state. CrystalGRPO combines MACE-predicted energy with a StructureMatcher-based recovery score and provides two operating modes: CrystalGRPO-Q, which prioritizes single-draw recovery, and CrystalGRPO-C, which combines full-trajectory reference regularization with a coverage-aware group advantage to preserve finite-budget target recovery. Across MP-20 and MPTS-52 with PXRDGen and OMatG backbones, both variants reduce one- and twenty-sample RMSE relative to coordinate-only reinforcement in all four backbone--dataset settings. CrystalGRPO-Q consistently improves Top-1, whereas CrystalGRPO-C achieves a higher Top-20 across all settings.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.06582",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Quantum Feature Amplification Network (QFAN) as An Autoregressive Quantum Generative Model",
+    "title_zh": "文献研究：Quantum Feature Amplification Network (QFAN) as An Autoregressive Quantum Generative Model",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2605.16044v3 Announce Type: replace-cross Abstract: Simulating calorimeter showers is one of the largest computing costs in high-energy physics, and quantum generative models have been proposed as compact alternatives. Their progress is blocked by a resource problem: in existing gate-model proposals the register must grow with the image, so benchmark geometries with thousands of cells are out of reach. We introduce the Quantum Feature Amplification Network (QFAN), which breaks the link between register size and image size. QFAN splits an image into consecutive blocks of b pixels and generates them one at a time, every block produced by the same small circuit conditioned on a fixed-length summary of the pixels already generated, so the qubit count is set by the block size rather than the image dimension. The circuit is used as a sampler: each block is decoded from a finite set of Born measurement records, so the stochasticity of the generated shower is measurement randomness rather than classical noise, and a trained fraction of records is shared between the pixels of a block to control their correlation. Training minimizes a characteristic-function maximum mean discrepancy with exact analytic gradients. Using three qubits and 12 to 18 shared parameters, QFAN reproduces per-pixel spectra, inter-pixel correlations and total deposited energy at d=12 and d=25 pixels, on a noiseless simulator and on IBM hardware. Removing one element of the pipeline at a time locates what the quantum component contributes. Replacing the sampled records by their conditional means, which removes only the measurement randomness, does not degrade the model but collapses it to a single deterministic image. Freezing the circuit at its untrained initialization, with every classical stage refitted, leaves a model reproducing neither observable: it transports under a tenth of the inter-pixel correlation of the data and its per-pixel spectra degrade twofold.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2605.16044",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Beyond optimization: Harnessing quantum annealer dynamics for machine learning",
+    "title_zh": "文献研究：Beyond optimization: Harnessing quantum annealer dynamics for machine learning",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "Author(s): Akitada Sakurai, Aoi Hayashi, Tadayoshi Matsumori, Daisuke Kaji, Tadashi Kadowaki, and Kae Nemoto Quantum annealing is typically regarded as a tool for combinatorial optimization, but its coherent dynamics also offer potential for machine learning. We present a model that encodes classical data into an Ising Hamiltonian, evolves it on a quantum annealer, and uses the resulting probability distri… [Phys. Rev. Research 8, 033161] Published Mon Aug 10, 2026",
+    "category": "AI×物理",
+    "link": "http://link.aps.org/doi/10.1103/dcvc-blqy",
+    "journal": "Phys. Rev. Research"
+  },
+  {
+    "title": "Iterative Training of Physics-Informed Neural Networks with Fourier-enhanced Features",
+    "title_zh": "结合傅里叶增强特征的物理信息神经网络迭代训练",
+    "summary": "神经网络倾向于先学习低频特征，这种谱偏置是物理信息神经网络训练中的经典难题。本文提出 IFeF-PINN，通过随机傅里叶特征增强潜在空间，并将训练拆分为基空间估计与增强基系数回归两个阶段。作者证明，在底层线性模型下后者是凸优化问题，且整个迭代训练过程收敛；实验还表明该方法在高频 PDE 逼近上具有更强表达能力。",
+    "abstract": "arXiv:2510.19399v2 Announce Type: replace Abstract: Spectral bias, the tendency of neural networks to learn low-frequency features first, is a well-known issue with many training algorithms for physics-informed neural networks (PINNs). To overcome this issue, we propose IFeF-PINN, an algorithm for iterative training of PINNs with Fourier-enhanced features. The key idea is to enrich the latent space using high-frequency components through Random Fourier Features. This creates a two-stage training problem: (i) estimate a basis in the feature space, and (ii) perform regression to determine the coefficients of the enhanced basis functions. For an underlying linear model, it is shown that the latter problem is convex, and we prove that the iterative training scheme converges. Furthermore, we empirically establish that Random Fourier Features enhance the expressive capacity of the network, enabling accurate approximation of high-frequency PDEs. Through extensive numerical evaluation on classical benchmark problems, the superior performance of our method over state-of-the-art algorithms is shown, and the improved approximation across the frequency domain is illustrated.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2510.19399",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Theory of spin-wave transport in ferromagnet-superconductor heterostructures: Negative refraction, perfect imaging and temperature-controlled spin-wave optics",
+    "title_zh": "铁磁体-超导体异质结构中的自旋波输运理论：负折射、完美成像与温度控制的自旋波光学",
+    "summary": "作者研究了铁磁绝缘体-超导体异质结构中的自旋波输运，并建立了适用于这类混合体系的自旋波光学理论框架。结果表明，超导体的迈斯纳屏蔽可导致负相速度和负群速度折射，以及与光学中不同的反射和折射定律。该框架还预言了可随温度调控的自旋波镜和折射元件，以及用于完美成像、波导和干涉器件的近乎平直等频线。",
+    "abstract": "arXiv:2608.06476v1 Announce Type: new Abstract: We investigate spin-wave transport in ferromagnetic insulator-superconductor (FMI-SC) heterostructures and develop a general theoretical framework for spin-wave optics in these hybrid systems. We demonstrate that Meissner screening by the superconductor gives rise to a range of unconventional wave phenomena, including negative phase- and group-velocity refraction, and reflection and refraction laws that differ fundamentally from their optical counterparts. Within this framework, we derive the spin-wave Fresnel equations governing reflection and transmission at FMI-SC interfaces and show that the scattering properties exhibit a pronounced temperature dependence, enabling tunable spin-wave mirrors and refractive elements. Most strikingly, we find that superconducting screening can produce nearly straight isofrequency contours, far flatter than the kinked, intrinsically curved contours attainable in conventional dipolar spin-wave systems. We show that these straight contours enable functionalities such as perfect spin-wave imaging, efficient waveguiding, and interferometric elements, such as phase shifters and beam splitters, with unconventional properties. Our results establish FMI-SC heterostructures as a versatile platform for temperature-tunable spin-wave optics and interferometric magnonic devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.06476",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Out-of-equilibrium spin-valley dynamics of ferromagnets in topological Chern bands",
+    "title_zh": "拓扑陈带中铁磁体的非平衡自旋-谷动力学",
+    "summary": "扭转 MoTe2 双层为研究远离平衡态的量子物质提供了有前景的平台，因为它同时具有强库仑相互作用、非平庸能带几何和光学控制能力。本文利用聚焦圆偏振光脉冲，在外磁场相反方向上创建局域磁畴，并在低温时空分辨实验中直接成像其后续的自旋-谷弛豫。结果表明，在整数与分数陈绝缘态附近，动力学机制与铁磁金属显著不同：陈畴不是通过收缩而塌缩，而是通过热激活“熔化”，因此其自旋演化过程和弛豫时间都明显不同且更长。",
+    "abstract": "arXiv:2608.07041v1 Announce Type: new Abstract: Understanding quantum matter far from equilibrium is a central goal of modern physics. Twisted MoTe2 bilayers constitute a promising platform for exploring this frontier by combining strong Coulomb interactions, nontrivial band geometry, and optical control. Here, we exploit this setting to investigate the role of topology and many-body correlations in the out-of-equilibrium dynamics of ferromagnets in Chern bands. Using a focused circularly polarized light pulse, we create a local magnetic domain oriented opposite to an external magnetic field and directly image its subsequent spin-valley relaxation in spatially and time-resolved low-temperature experiments. We demonstrate that in the vicinity of both integer and fractional Chern insulating states, the dynamics is governed by qualitatively different mechanisms than in ferromagnetic metals. Whereas metallic domains collapse by shrinking, Chern domains melt via thermal activation, resulting in drastically different temporal spin evolution and orders-of-magnitude longer relaxation times. These findings demonstrate the influence of topology and strong correlations on far-from-equilibrium collective spin phases, opening new opportunities for dynamical control of ferromagnets in the quantum Hall regime.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07041",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Spin-group theory on Edelstein effect and spin-orbit torque in Collinear Ferromagnets",
+    "title_zh": "文献研究：Spin-group theory on Edelstein effect and spin-orbit torque in Collinear Ferromagnets",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.06964v1 Announce Type: new Abstract: Current-induced spin-orbit torques (SOTs) are central to the electrical manipulation of magnetic order in spintronic devices. In transition-metal/collinear ferromagnet bilayers, field-like and damping-like torques have been described only phenomenologically via the spin or orbital Hall effect, lacking a rigorous symmetry-based foundation. The precise role of spin-orbit coupling (SOC) in both the Edelstein effect and SOTs has remained unresolved. Here we develop a spin-group symmetry theory for the Edelstein effect and SOTs in collinear ferromagnets, treating SOC as a symmetry-breaking perturbation. For 4mm (C4v) point group symmetry, we derive the full forms of field-like and damping-like torques, which arise predominantly from first- and second-order SOC. We further show that SOTs in both orbital-Hall-dominated Ti/Ni and spin-Hall-dominated Pt/CoFe bilayers originate at first-order SOC. Taking the 3m (C3v) torque as a paradigmatic example, we elucidate the role of second- and higher-order SOC torques in field-free switching of perpendicular magnetic anisotropy. Remarkably, in PtMnSb, we demonstrate that SOTs under certain point group symmetries deviate from the conventional form: zeroth- and first-order SOC contributions vanish identically, with the leading SOT emerging at second order. All symmetry-based predictions from spin-group theory are in excellent quantitative agreement with first-principles calculations. Our work establishes a unified symmetry framework for the microscopic understanding of the Edelstein effect and current-induced spin torques in ferromagnetic systems.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.06964",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Floquet spintronics: tuning the current-induced spin polarization of topological surface states with light",
+    "title_zh": "文献研究：Floquet spintronics: tuning the current-induced spin polarization of topological surface states with light",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.06786v1 Announce Type: new Abstract: Topological surface states are a promising platform for spintronics due to spin-momentum locking. Spin-momentum locking can induce a net spin polarization in topological surface states via an electric current, a phenomenon known as the Edelstein effect. In this work, using Floquet theory, we show that the current-induced spin polarization of topological surface states can be tuned by illuminating them with light, thereby modifying their spin texture in momentum space. Specifically, the electric spin susceptibility of topological surface states can be controlled and even reversed by varying the electric-field strength of high-frequency, circularly polarized light.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.06786",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Topological surface altermagnets in SSH-stacked magnetic layers",
+    "title_zh": "SSH 堆叠磁性层中的拓扑表面交替磁体",
+    "summary": "表面交替磁性为自旋电子学开辟了新方向，因为它能在常规反铁磁体的边界处解锁交替磁性的自旋分裂，从而绕开体交替磁体严格的对称性要求。本文提出通过按 Su-Schrieffer-Heeger 模式堆叠磁性层来构造拓扑表面交替磁体。我们表明，虽然体系体相是一个由 PT 对称保护能带简并的标准反铁磁体，但边界处局域对称性的破缺会在拓扑能隙中产生受拓扑保护的表面交替磁性态。",
+    "abstract": "arXiv:2608.07099v1 Announce Type: new Abstract: Surface altermagnetism opens new avenues in spintronics by unlocking altermagnetic spin-splitting at the boundaries of conventional antiferromagnets, bypassing the strict symmetry requirements of bulk altermagnets. In this work, we propose creating topological surface altermagnet by stacking magnetic layers in a Su-Schrieffer-Heeger pattern. We show that while the bulk of the system is a standard antiferromagnet with degenerate bands protected by PT symmetry, breaking the local symmetry at the boundary gives rise to a topologically protected surface altermagnetic state residing within the topological gap. Furthermore, we propose that this effect can be experimentally detected by applying a perpendicular electric field. Besides, this approach can be readily generalized to surface altermagnetism of different types. Our work establishes topological boundaries as a natural platform for surface altermagnetism, offering a distinct route for realizing and manipulating topological surface altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07099",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Local magnetic properties of the rare-earth intermetallics RMn₂Ge₂ (R=Ce, Pr, Nd)",
+    "title_zh": "稀土互金属 RMn₂Ge₂（R=Ce、Pr、Nd）的局域磁性性质",
+    "summary": "本文研究了稀土互金属材料 RMn₂Ge₂（R=Ce、Pr、Nd），这些材料据报道在室温下支持斯格明子气泡晶格。三种材料的磁性都表现为：随着温度升高，磁态由锥形磁结构转变为共线反铁磁结构时，局域涨落开始出现。在这一已报道为斯格明子气泡纹理存在的温区内，观测到与其他斯格明子宿主材料相似的动力学行为。",
+    "abstract": "arXiv:2608.07013v1 Announce Type: new Abstract: We present an investigation of the rare-earth intermetallic materials, RMn₂Ge₂ (R=Ce, Pr, Nd), reported to host a lattice of skyrmionic bubbles at room temperature. The magnetism of all three materials is characterised by the onset of local fluctuations as the magnetic state changes from a conical magnetic structure to a collinear antiferromagnetic one as temperature T is increased. In this T regime, where skyrmion-bubble textures have been reported, we see dynamics similar to those observed in other skyrmion-hosting materials. The level of disorder above this transition increases across the series from R=Ce to Nd. At low temperatures the magnetism is affected by the ordering of the rare-earth ions, resulting in distinct behaviour for the different members of the series.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07013",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Temperature-tunable spin-wave refraction using superconducting control elements",
+    "title_zh": "利用超导控制元件实现温度可调的自旋波折射",
+    "summary": "该工作利用超导控制元件的磁屏蔽作用来调节局域自旋波色散，从而在薄膜磁绝缘体中实现温度可控的自旋波折射。基于钻石中自旋的磁成像，作者表征了折射率，并演示了正折射、负折射以及由超导体塑形的波前。结果表明，超导体可充当可调自旋波光学元件。",
+    "abstract": "arXiv:2608.06555v1 Announce Type: new Abstract: Spin waves are promising signal carriers for microwave control at the micrometer scale. However, realizing low-damping, tunable control of spin-wave propagation remains a central challenge. Here we use magnetic shielding by superconducting control elements to tune the local spin-wave dispersion and realize temperature-controlled refraction of spin waves in a thin-film magnetic insulator. Using magnetic imaging based on spins in diamond, we characterize the refractive index and demonstrate both positive and negative refraction as well as wavefront shaping by the superconductors. The observed refraction is explained by a geometrical analysis of the superconductivity-induced modification of the hyperbolic spin-wave dispersion. Our results demonstrate that superconductors enable tunable spin-wave optical elements, opening new opportunities for microwave control in classical or quantum information devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.06555",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Emergent magnetic pseudogap from phase fluctuations and hierarchy of scales in two-dimensional superconductors",
+    "title_zh": "二维超导体中由相位涨落与尺度层级产生的涌现磁性赝能隙",
+    "summary": "预成对与相位涨落被认为在预测二维超导体正常态中的电荷赝能隙方面起着重要作用。本文在此基础上进一步提出，纯粹由相位涨落即可产生涌现磁性赝能隙，而无需引入任何竞争序。我们通过微扰理论计算泡图贡献和一阶顶角修正，研究 NMR 弛豫率 1/T₁T。",
+    "abstract": "arXiv:2608.07238v1 Announce Type: new Abstract: Preformed pairs and phase fluctuations are believed to play a vital role in predicting the charge pseudogap in the normal state of two-dimensional superconductors. In this work, we extend this idea and further identify the emergent magnetic pseudogap from pure phase fluctuations without invoking any competing order. We examine the NMR relaxation rate 1/T₁T by evaluating the bubble contribution and leading-order vertex correction within perturbation theory. It is found that the magnetic pseudogap, manifesting as a smooth suppression of 1/T₁T in the normal state, is characterized by a temperature scale TₘPG distinct from the superconducting gap Δ_SC and transition temperature T_c. The onset scales of both charge and magnetic pseudogap are dominated by the competition of BKT correlation length ξ(T) and BCS coherence length ξ_BCS. Moreover, the vertex correction is shown to be irrelevant for d-wave pairing, while it becomes prominent in s-wave systems and drives a coherent enhancement of 1/T₁T at lower temperatures just above T_c. We attribute this normal-state enhancement of 1/T₁T to the diverging coherence peak at the s-wave superconducting gap edge, which shares the same spirit as the celebrated Hebel-Slichter peak in the BCS theory. Analogous to the coherent Hebel-Slichter peak, regularization by Fermi-liquid-like scatterings is important and is characterized by a scattering length ell. The normal-state coherent enhancement of 1/T₁T is hence described by the competition of ξ(T) and ell, through which the coherence scale T_coh is determined. As a result, the complete evolution of 1/T₁T is understood quantitatively in a unified picture as the interplay among hierarchy of scales ξ(T), ξ_BCS and ell.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07238",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Fractional Spin Ferroelectric and Sliding Spin Current in Magnetic Sliding Ferroelectrics",
+    "title_zh": "磁性滑移铁电体中的分数量子自旋铁电与滑移自旋电流",
+    "summary": "本文研究磁性滑移铁电体中的分数量子自旋铁电（FSFE）现象。在这类体系中，铁电翻转不仅表现为面外电极化的反转，还伴随着分数量化的面内自旋电子极化变化。我们表明，FSFE 中的层间滑移可以自然地产生一种由对称性保护的纯自旋流，称为滑移自旋电流。",
+    "abstract": "arXiv:2608.07305v1 Announce Type: new Abstract: We investigate the fractional spin ferroelectric (FSFE) in magnetic sliding ferroelectrics (SFEs), where ferroelectric switching is characterized not only by the reversal of the out-of-plane electric polarization but also by a variation of fractional in-plane spin electronic polarization. We show that interlayer sliding in FSFEs can naturally lead to a symmetry-protected pure spin current, termed the sliding spin current here. The underlying mechanism is that, during switching, the contributions of valence electrons and ions to the in-plane charge transfer cancel each other, whereas the in-plane spin transfer, which stems solely from valence electrons, persists, leading to a pure spin current. We demonstrate our ideas in various material candidates, including H-stacked bilayer CrI₃, whose few-layer form has been experimentally confirmed to be a magnetic SFE, and R-stacked bilayers 2H-VX₂ (X= S, Se, Te), which have been experimentally synthesised. For a typical switching time of about 1 ns, the estimated spin-current densities for bilayer CrI₃ and VX₂ reach 10⁹ (hbar/2e)A/m² and 10⁸ (hbar/2e)A/m², respectively. This means that by applying a periodic out-of-plane electric field, a significant alternating spin current can be generated in magnetic SFEs. Thus, our findings propose a compelling new mechanism for the all-electrical generation of pure spin current, and predict concrete realistic materials for experimental verification.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07305",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Type-II Mirror Chern Insulator in Altermagnets",
+    "title_zh": "交替磁体中的 II 型镜面对称陈绝缘体",
+    "summary": "该研究预言二维交替磁体中存在一种由镜面对称保护的拓扑晶体绝缘体，其边缘模在动量空间中分离。基于方形-八边形晶格模型，作者表明交替磁有序可产生谷极化狄拉克节点，并在自旋轨道耦合作用下形成镜面陈数 CM=2 的绝缘相。论文进一步提出 PbSe/V₂Se₂O 异质双层作为可能材料平台。",
+    "abstract": "arXiv:2608.07374v1 Announce Type: new Abstract: Altermagnets with momentum-dependent spin splitting despite zero net magnetization can support unique topological states under broken time-reversal symmetry. We predict a mirror-symmetry-protected topological crystalline insulator with momentum-separated edge modes in a two-dimensional altermagnet. Using a square-octagon lattice model, we show that altermagnetic order generates symmetry-related valley-polarized Dirac nodes, which are gapped by spin-orbit coupling to yield a mirror Chern insulator with CM=2. In contrast to conventional mirror Chern insulators, where the two mirror-protected edge modes cross at the same momentum to form a Dirac cone, altermagnetic spin splitting and valley-selective band inversion separate these edge modes in momentum. We refer to this phase as a type-II mirror Chern insulator. We further propose a PbSe/V₂Se₂O heterobilayer as a candidate material for realizing this phase through the altermagnetic proximity effect. Our results establish altermagnetism as a route to mirror-protected topological phases with momentum-separated edge modes.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.07374",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Effect of polar distortions on the linear and nonlinear anomalous Hall conductivity of altermagnetic α-MnTe",
+    "title_zh": "极化畸变对反铁磁α-MnTe线性与非线性反常霍尔电导的影响",
+    "summary": "具有奈尔矢量沿 y 轴的代替磁性 α-MnTe 具有有限的反常霍尔电导和沿 z 轴的弱铁磁性。本文指出，在表面上，晶体对称性破缺与奈尔矢量取向的相互作用会将空间群从六方 P6₃/mmc 降低为正交 Amm2。作者进一步研究了电场诱导的极化与内禀反常霍尔效应的耦合，表明极化效应可显著改变反常霍尔电导，并与非线性反常霍尔效应共存。",
+    "abstract": "arXiv:2606.12311v2 Announce Type: replace Abstract: Altermagnetic α-MnTe with Néel vector along the y-axis exhibits a finite anomalous Hall conductivity (AHC) and weak ferromagnetism along the z-axis. As already demonstrated in the bulk, there is the breaking of the C₆ symmetry by the in-plane Néel vector, leaving a C₂₋ₜype magnetic symmetry. The surface of α-MnTe breaks the C₂, leaving only a time-reversed mirror symmetry with respect to the x=0 plane. Therefore, we demonstrate that on the surface, the interplay between breaking of the crystal symmetry and Néel vector orientation produces a reduction of the space group from hexagonal P6₃/mmc to orthorhombic Amm2. As a result, the surface exhibits not only a polar distortion along the z-axis, but also a polar distortion and a weak ferrimagnetism along the y-axis. To describe the surface of MnTe in an accessible way, we simplify the problem and examine the effect of the in-plane electric field in bulk MnTe. Moreover, as a doped ionic semiconductor, the properties of MnTe can be influenced by lattice polarization under an applied electric field. We investigate the interplay between the intrinsic anomalous Hall effect and lattice polarization, showing that polarization effects can substantially affect the AHC. Since the electric field breaks inversion symmetry, this contribution from the lattice polarization coexists with the non-linear anomalous Hall effect, highlighting the rich transport phenomenology of altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.12311",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Quantum-geometry-driven exact ferromagnetic ground state in a nearly flat band",
+    "title_zh": "近乎平带中由量子几何驱动的精确铁磁基态",
+    "summary": "本文构造了一个 Hubbard 模型，其中近乎平带的量子几何可以独立于能量色散和库仑相互作用进行调控。作者证明，在该近乎平带半填充时，模型的精确基态呈现铁磁性，而且这种铁磁性由量子度量通过自旋刚度所稳定。进一步地，仅调控量子几何就足以驱动磁相变，揭示了铁磁性的量子几何起源。",
+    "abstract": "arXiv:2603.01922v2 Announce Type: replace Abstract: We construct a Hubbard model with a nearly flat band whose quantum geometry can be tuned independently of the energy dispersion and the Coulomb interaction. We show that, when the nearly flat band is half-filled, the exact ground state of the model exhibits ferromagnetism and that this ferromagnetism is stabilized by the quantum metric through the spin stiffness. Furthermore, we demonstrate that tuning the quantum geometry alone drives a magnetic phase transition. Our nonperturbative results without resorting to mean-field approximations reveal the quantum-geometric origin of ferromagnetism and the underlying many-body physics in dispersive-band systems.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2603.01922",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Time-resolved imaging of antiferromagnetic skyrmion interactions",
+    "title_zh": "反铁磁斯格明子相互作用的时间分辨成像",
+    "summary": "反铁磁斯格明子相互作用的时间分辨动力学一直难以直接观测，这限制了对其集体行为的调控。该工作在薄膜多层结构中实时可视化了其超快动力学，为理解和操控反铁磁斯格明子提供了新手段。",
+    "abstract": "Nature Physics, Published online: 10 August 2026; doi:10.1038/s41567-026-03383-4 Understanding the time-resolved dynamics of antiferromagnetic skyrmion interactions remains a challenge, limiting control over their collective behaviour. Now their ultrafast dynamics is visualized in real time in thin-film multilayers.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.nature.com/articles/s41567-026-03383-4",
+    "journal": "Nature Physics"
+  }
+]
