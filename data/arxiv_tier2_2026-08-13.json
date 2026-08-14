@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Hamilton-Zero: A Neural Tensor-Network Foundation Model for Ground States of Arbitrary Quadratic Qubit Hamiltonians",
+    "title_zh": "文献研究：Hamilton-Zero: A Neural Tensor-Network Foundation Model for Ground States of Arbitrary Quadratic Qubit Hamiltonians",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11911v1 Announce Type: cross Abstract: A central promise of useful quantum advantage is the ability to compute ground states of Hamiltonian systems beyond the reach of classical simulation methods. Here we demonstrate that this problem can be effectively amortized across an arbitrary and universal set of Hamiltonians by a foundation model with sim0.5B variational parameters, trained with contemporary techniques from large language models and deep reinforcement learning. To do this, we formulate spin-1/2 quantum ground-state learning as manifold variational optimisation over centrally odd scalar functions on SU(2)^N. This replaces explicit Hilbert-space vector amplitudes with manifold functions on which the Hamiltonian acts through Lie derivatives, evaluated by custom automatic differentiation primitives. We prove that the resulting variational principle on this manifold preserves the spin-1/2 sector's ground-state upper bound using the Peter-Weyl theorem, then pre-train our foundation model on a dataset of hundreds of thousands of different Hamiltonian systems, varying the connection topology, system size, interaction types and strengths, bringing together a century of many-body literature. Using a novel SU(2) replica-exchange Langevin sampler and sharded natural-gradient optimisation, we train our model with our own extension of the Kronecker-Factored Approximate Curvature (KFAC) optimiser on system sizes up to 64 qubits. On a held-out generalisation dataset, we fine-tune our model on system sizes of up to 1024 qubits, and evaluate on systems up to 8100 qubits.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.11911",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Optimizing Expert-Designed Crystal Graph Networks for Band-Gap Prediction with an Autonomous LLM Research Loop",
+    "title_zh": "文献研究：Optimizing Expert-Designed Crystal Graph Networks for Band-Gap Prediction with an Autonomous LLM Research Loop",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2606.29717v2 Announce Type: replace Abstract: Predicting a material's properties from its structure is a central, fast-advancing problem in computational materials science. A decade of work has produced standard public benchmarks and many published machine-learning models for the task (Dunn et al., 2020). The task's fixed metric and these baselines make it a natural setting for autonomous agent research (Karpathy, 2026). On the MatBench band-gap benchmark (>100k crystals), a general-purpose coding agent autonomously built the most accurate model trained without external pretraining, ahead of all seventeen expert-designed models reported for the task. A closer analysis shows it reached this by implementing known methods: either already standard in crystal neural-network models, or borrowed from other areas of machine learning. The contributing implementations include element-pair features on each message-passing edge and a crystal space-group embedding. The work not only demonstrates that LLM-agent autonomous research can optimize an expert-designed machine learning model for material property prediction, but also investigates the limitations of such autonomous research.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2606.29717",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
+    "title_zh": "文献研究：Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "Publication date: 5 September 2026 Source: Computational Materials Science, Volume 274 Author(s): Ronak Shoghi, Lukas Morand, Dirk Helm, Alexander Hartmaier",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004982?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Study of Machine Learning Techniques for Performance Prediction in Low-Power Hall Effect Thruster Operating on Monoatomic and Molecular Propellants",
+    "title_zh": "文献研究：Study of Machine Learning Techniques for Performance Prediction in Low-Power Hall Effect Thruster Operating on Monoatomic and Molecular Propellants",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "The transition to low-power Hall effect thrusters (HETs) and the increasing demand for alternative molecular propellants require predictive modeling techniques that transcend the limitations of traditional, monatomic empirical scaling laws. This study develops a robust, propellant-agnostic machine learning (ML) framework to predict critical performance metrics, namely thrust, beam current, and discharge current, in low-power regimes across varied propellants (Xe, Kr, Ar, CO2, N2). Utilizing empirical data obtained from the CAMILA and CAM200 thrusters, a comprehensive data pre-processing pipeline is designed to mitigate the inherent sparsity of vacuum facility testing. This pipeline incorporates truncated Gaussian resampling for missing data imputation, ensuring preservation of natural variance, and a Monte Carlo augmentation to expand the dataset synthetically. Ten ML regression algorithms, spanning ordinary least squares, kernel, tree, and boosting architectures, were benchmarked. Ablation studies reveal that incorporating physics-informed theoretical input injection (injecting theoretical similarity parameters such as Hall parameter proxies directly into the feature space) alongside data augmentation systematically enhances model accuracy. Tree-based and boosting models, specifically XGBoost, demonstrated exceptional predictive capabilities, achieving R2 values exceeding 98% for thrust prediction. Ultimately, this data-driven methodology provides a highly adaptable tool for predicting stable operating points, accelerating the optimization of next-generation thruster configurations while reducing reliance on expensive experimental campaigns.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10583210/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Comprehensive calculations of Fe-Si system via deep learning force field: the core structure of Mercury",
+    "title_zh": "文献研究：Comprehensive calculations of Fe-Si system via deep learning force field: the core structure of Mercury",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "Hybrid approaches combining deep learning and ab initio molecular dynamics (AIMD) provide comprehensive calculations abilities of large systems with full physical quantities coverage owing to the accelerated computation speed and ab initio accuracy advantages. Here we propose a unified framework to systematically and precisely extract the variation patterns of all relevant physical quantities as a function of state variables. A direct calculation, including the equation of states, thermoelastic properties, adiabatic curves, melting curves and transport properties, were conducted in Fe-Si (<25 at. %) system to unveil the Mercury’s core structure. Except for solid phase at low temperatures, the viscosity and diffusion coefficients lie in the order of mPa s and 10- 9 m2 s- 1 26 respectively, validating the rationality of the predicted melting curves. The adiabatic and melting curves reveal a considerable solid inner core without top-down crystallization. The estimated total thermal conductivity of 48.0 W/m/K suggest the possibility of thermal stratification on top of Mercury's core. Analyzing six plausible structure mechanisms, the solid inner core with thermal stratified layer on top of the inner core were elucidated in the Mercury's core.",
+    "category": "AI×化学·材料",
+    "link": "https://www.researchsquare.com/article/rs-10418196/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Dimensional crossover and local strain induced deflection of the spin spiral state in multiferroic NiI2",
+    "title_zh": "文献研究：Dimensional crossover and local strain induced deflection of the spin spiral state in multiferroic NiI2",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11944v1 Announce Type: new Abstract: Low-dimensional multiferroics hold great promise for integrated magnetoelectric devices. Spin spiral state has recently been shown to induce ferroelectricity in single-layer van der Waals (vdW) material NiI2. However, how this state evolves and can be tuned towards the two-dimensional limit remain unclear. Here, we combine spin-polarized scanning tunneling microscopy, layer-by-layer film growth, and multi-scale theoretical modeling to investigate the spin spirals in NiI2 thin films. As the film thickness increases from 1 to 7 monolayers, we observed a continuous increase of spin-spiral wavelength and a rotation of wavevector from near [110] to [1-10] direction, which evidences a dimensional crossover primarily driven by enhanced interlayer exchange energy. Moreover, we find that the film wrinkles can cause deflection of the spin spiral wavevector, which is caused by local curvature induced modification of exchange interactions. Our findings establish thickness and local strain as two tuning methods for engineering non-collinear helical magnetism and accompanied electric polarization in vdW multiferroics.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.11944",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Large bias-tunable magnetoresistance from spin-dependent interlayer hybridization in van der Waals antiferromagnet CrSBr-based heterostructures",
+    "title_zh": "文献研究：Large bias-tunable magnetoresistance from spin-dependent interlayer hybridization in van der Waals antiferromagnet CrSBr-based heterostructures",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11389v1 Announce Type: new Abstract: We explore the large magnetoresistance (MR) in ȩhBN/few-layer-graphene/ȩCrSBr/few-layer-graphene heterostructures and reveal the mechanism behind its non-monotonic bias dependence. Using bias voltage and temperature as independent tuning knobs, we achieve MR up to SI350percent at SI20K, characterized by symmetric M-shaped maxima around ± 0.5,V. Continuous tuning of the magnetization angle θ via a hard-axis magnetic field shows that the barrier band-edge offset varies linearly with o̧s(θ/2), a first-order signature of spin-dependent interlayer hybridization. This linear relationship rules out the Jullière model and a spin-filter projection. We conclude that the magnetic-configuration-dependent band edge, rather than electrode spin polarization, dictates the large magnetoresistance in ȩCrSBr junctions.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.11389",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Lectures on ultrathin film ferromagnetism",
+    "title_zh": "文献研究：Lectures on ultrathin film ferromagnetism",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.12189v1 Announce Type: new Abstract: In these Lecture Notes we review some of the fundamental principles that have emerged from research on the ferromagnetism of ultrathin films consisting of 3d transition-metal overlayers. Their growth is often layer-by-layer. This growth mode produces quantum wells along the vertical direction that profoundly impact any physical property of the materials. In addition, the vertical confinement establishes spin ensembles that extend to macroscopic distances along the in-plane directions and are finite along the vertical (perpendicular) direction, i.e. they are two-dimensional. Accordingly, they display ground state properties that originate from the two-dimensionality, such as ``dead'' magnetic layers or ``enhanced magnetic moments'', an oscillatory interlayer magnetic coupling and an anomalous perpendicular versus in-plane magnetic anisotropy that produces, in some specific situations, a perpendicular collective orientation of the spins. At finite temperatures, ferromagnetic order is observed to persist and an analysis of the magnetic order of ultrathin films in terms of the renormalization group provides a suitable framework for explaining this observation. The ferromagnetic order is lost at a phase transition which follows closely the two-dimensional Ising universality class, as shown by an accurate analysis of data in the vicinity of the critical point. The perpendicular spin orientation is often observed to turn in-plane by a reorientation phase transition which is also properly described by a renormalization group argument. Finally, the perpendicular spin orientation introduces topological excitations of the ferromagnetic order, consisting of stripes of reversed perpendicular spin direction. The stripe order undergoes a phase transition to the paramagnetic state that is not yet completely understood.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.12189",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Mismatch between Raman shear modes and ferroelectric polarization in 3R-MoS₂",
+    "title_zh": "文献研究：Mismatch between Raman shear modes and ferroelectric polarization in 3R-MoS₂",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11988v1 Announce Type: new Abstract: Sliding ferroelectricity in parallel-stacked two-dimensional van der Waals materials enables a broad range of novel device concepts, but exploiting it requires reliable, non-destructive assignment of the underlying stacking order and polarization state. Here, we combine Kelvin-probe force microscopy (KPFM) with low-frequency Raman spectroscopy to probe the polarization domains and stacking configurations of a exfoliated trilayer 3R-MoS₂ flake on a hBN substrate. We find that ABA and BAB - both stackings with zero net polarization - are indistinguishable in KPFM, yet show drastically different low-frequency shear modes. This observation is reproduced across multiple flakes and is corroborated by low-temperature photoluminescence. Notably, the standard bond-polarizability model does not account for the difference in shear-mode activity between the ABA and BAB configurations, indicating that the interlayer Raman response of these stackings is governed by physics beyond a simple polarizability picture. Our results show that none of the here-used individual techniques alone is sufficient to assign sliding-ferroelectric stacking order and motivate a combined spectroscopic-scanning-probe approach.",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2608.11988",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Spin-polarized supercurrents and Josephson diode effect in altermagnets",
+    "title_zh": "文献研究：Spin-polarized supercurrents and Josephson diode effect in altermagnets",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11906v1 Announce Type: new Abstract: We present a systematic theoretical study of the Josephson effect in junctions consisting of a d-wave altermagnet (AM) placed between two BCS superconductors (SC). In general, the SC/AM interfaces are spin-active and modeled by spin-dependent δ potentials, allowing for an arbitrary direction of the local exchange field vector. The model is formulated within the fully quantum (Gor'kov) and quasiclassical (Eilenberger) Green's function technique, applied to two distinct cases of (i) a weakly spin-polarized AM (exchange field much smaller compared to the Fermi energy) and (ii) a strongly spin-polarized AM (exchange field comparable to the Fermi energy). We apply our model to the SC/AM/SC geometry, accounting for the Josephson current-phase relation (CPR). In the weakly spin-polarized regime, the CPR displays the normal Josephson effect. Irrespective of the orientation of the altermagnet, the junction undergoes the 0-π transition. Depending on the orientation, the system displays the features similar to those of a ferromagnetic or an antiferromagnetic junction. To investigate the spin-polarized currents and nonreciprocal transport as the central results of the present work, we put the main focus on the strongly spin-polarized regime. Within this regime, we distinguish two cases. A coplanar exchange field profile across the junctions displays the normal Josephson effect; however, with a pure and stable long-range second harmonic in the CPR. In contrast, a noncoplanar exchange field profile gives rise to the so-called quantum geometric phases across the junction, leading to the absence of the phase-inversion center in the Josephson CPR. As a result, a Josephson diode effect emerges with a significant charge diode efficiency larger than 30% and a perfect spin diode efficiency of 100%.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.11906",
+    "journal": "arXiv"
+  },
+  {
+    "title": "The electrical transport of intrinsic two-dimensional ferroelectric metal PtBi2",
+    "title_zh": "文献研究：The electrical transport of intrinsic two-dimensional ferroelectric metal PtBi2",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.12152v1 Announce Type: new Abstract: Breaking the conventional stereotype that ferroelectrics are necessarily insulating, two-dimensional (2D) ferroelectric metals combine seemingly incompatible switchable electric polarization and metallic conductivity, providing a fertile ground for the discovery of novel electrical transport phenomena and the development of innovative electronic devices. Using the semiclassical Boltzmann equation and first-principles calculations, we systematically investigate the linear and nonlinear transport responses of the intrinsic 2D ferroelectric metal ḩPtBi2 to an applied electric field. Our ab initio molecular dynamics simulations reveal that it possesses a high Curie temperature reaching 800~K. We propose that the crystal structure of its high-temperature paraelectric phase can be explicitly distinguished through simple measurements of the in-plane electrical conductivity. Quantitative calculations of the Edelstein effect and the intrinsic spin Hall effect demonstrate a sizable charge-to-spin conversion efficiency, highlighting its potential in spintronics. We also find that a Berry curvature dipole-induced nonlinear Hall effect emerges in uniaxially strained ḩPtBi2. Furthermore, we highlight the unique advantages of 2D ferroelectric metals in gate-controlled transport applications. Based on the domain wall scattering mechanism, we conceptually design a novel ferroelectric metal field-effect transistor (FEM-FET) capable of nonvolatile switching between high-resistance and low-resistance states under a gate voltage. Our work not only unveils the rich transport physics in 2D ferroelectric metals but also provides valuable insights into the design of next-generation nonvolatile memory and spintronic devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.12152",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Two routes to quantum anomalous Hall states in altermagnets",
+    "title_zh": "文献研究：Two routes to quantum anomalous Hall states in altermagnets",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.12124v1 Announce Type: new Abstract: We theoretically propose two possible routes to realizing quantum anomalous Hall states in altermagnetic materials. We consider a minimal square-lattice Hubbard model with antisymmetric spin-orbit coupling associated with an orthorhombic crystal structure, which supports a topologically trivial altermagnetic state. By incorporating Rashba-type spin-orbit coupling and external perturbations, we demonstrate that this trivial state can be turned into topological altermagnetic phases in two distinct ways. The first route is driven by a staggered potential that breaks the symmetry connecting crystallographically equivalent sublattices, leading to a topological altermagnetic ground state characterized by a quantized Hall conductivity łeft| σₓy i̊ght|=e²/h and a Chern number C=1. The second route is realized by applying a magnetic field perpendicular to the two-dimensional plane. The resulting topological state appears as a metastable state in the magnetic hysteresis loop, exhibiting a quantized Hall conductivity łeft| σₓy i̊ght|=2e²/h associated with a Chern number C=2. We show that these topological transitions are accompanied by characteristic gap closings at the Brillouin-zone boundary, with the number of gap-closing points determining the Chern number. Ribbon-geometry calculations reveal chiral edge states consistent with the bulk topological invariants and demonstrate distinct spin polarizations between the C=1 and C=2 states. Our results establish experimentally accessible routes to quantized anomalous Hall responses in altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.12124",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Room-temperature multiferroicity in all–van der Waals heterostructures",
+    "title_zh": "文献研究：Room-temperature multiferroicity in all–van der Waals heterostructures",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "Science, Volume 393, Issue 6812, Page 714-718, August 2026.",
+    "category": "铁电·极化",
+    "link": "https://www.science.org/doi/abs/10.1126/science.adq0420?af=R",
+    "journal": "AAAS: Science: Table of Contents"
+  },
+  {
+    "title": "Uniaxial strain reveals new way to tune electron flow in altermagnet material",
+    "title_zh": "文献研究：Uniaxial strain reveals new way to tune electron flow in altermagnet material",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "Altermagnetism is a new, third type of magnetism of great interest for spin-transport applications like computer memory. If properly harnessed, it could combine the benefits of the two existing types of magnetism, ferromagnetism and antiferromagnetism, ultimately reducing or eliminating heat during information transfer and increasing the ability to miniaturize next-generation technologies. Rice University's Pengcheng Dai recently published a paper in Physical Review X describing the first successful efforts to put a proposed altermagnetic material into a single magnetic-domain state, allowing the research team to characterize the material's intrinsic magnetic structure.",
+    "category": "磁性·自旋电子学",
+    "link": "https://phys.org/news/2026-08-uniaxial-strain-reveals-tune-electron.html",
+    "journal": "Physics News"
+  },
+  {
+    "title": "Deep-Learning-Accelerated Dopant Selection for High-k HfO2 Dielectrics: A Disorder-Resolved Study of Y, Si and Al",
+    "title_zh": "文献研究：Deep-Learning-Accelerated Dopant Selection for High-k HfO2 Dielectrics: A Disorder-Resolved Study of Y, Si and Al",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11725v1 Announce Type: new Abstract: Hafnium oxide (HfO2) is the cornerstone high-k dielectric in modern silicon technology. Since the constraints of silicon device fabrication rule out replacing the material itself, dopant incorporation is the principal means available to engineer its band gap and dielectric constant within existing process flows. However, dopant selection is still largely empirical due to the coupled interplay among thermodynamic stability, electronic insulation, and dielectric response. Here, we present a high-throughput computational framework integrating special quasi-random structures (SQS), machine-learning potentials (SevenNet), and graph neural networks (ALIGNN) to systematically evaluate doped-HfO2 compositions across three dopants (Al, Si, Y) and two technologically relevant polymorphs (monoclinic and orthorhombic). Our analysis uncovers a fundamental design principle: formation energy, band gap, and dielectric constant are decoupled parameters requiring application-specific prioritization rather than simultaneous optimization. Yttrium achieves the lowest formation energy (-3.763 eV/atom) and favors orthorhombic phase stabilization at process-compatible thermal budgets; silicon preserves near-pristine band gaps (around 5.72 eV) critical for suppressing leakage in gate dielectric applications; and aluminum enables concentration-tunable band gap widening (5.6-5.9 eV) suited for voltage scaling. Validation against experimental literature and density functional theory (DFT) confirms quantitative accuracy (0.02 eV band gap error for Si-doping, mean absolute error less than 0.001 eV/atom formation energy). This framework provides rational, property-decoupled guidance for dopant engineering in HfO2-based dielectrics and related high-k oxide systems.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.11725",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Physics-Informed Implicit Neural Representations for Improved Myocardial Perfusion MRI Quantification",
+    "title_zh": "文献研究：Physics-Informed Implicit Neural Representations for Improved Myocardial Perfusion MRI Quantification",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11282v1 Announce Type: cross Abstract: Quantifying myocardial perfusion from cardiac magnetic resonance (CMR) can be achieved by fitting tracer-kinetic models to the dynamic contrast-enhanced MR data. However, fitting the observed data with multi-compartment exchange models, which describe the evolution of the contrast agent in the tissue, to estimate perfusion parameters is a challenging inverse problem that is sensitive to noise and acquisition variability. Previously, physics-informed neural networks (PINNs) have been proposed as an alternative to conventional non-linear least squares fitting methods with promising results for quantitative perfusion CMR. In this work, we extend the previously proposed PINN framework with spatiotemporal implicit neural representations (INRs) to represent the MR signal as a continuous spatiotemporal function and to improve the accuracy, smoothness, and physical consistency of the PINN model. In realistic simulated CMR datasets, our proposed PINN with INRs demonstrates improved robustness and parameter estimation accuracy over the previously established methods. The code is available at https://github.com/q-cardIA/pinn-inr.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.11282",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Acoustic Plasmon Resonance: Breaking the Anderson Stiffness Paradigm in Quasi-Two-Dimensional Superconducting Films",
+    "title_zh": "文献研究：Acoustic Plasmon Resonance: Breaking the Anderson Stiffness Paradigm in Quasi-Two-Dimensional Superconducting Films",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11610v1 Announce Type: new Abstract: Recent experiments on superconducting films have revealed an acoustic plasmon mode that depends critically on the superconducting transition, directly challenging the long-standing Anderson-Higgs paradigm regarding the stiffness of the plasma spectrum in superconductors. In this Letter, we provide a microscopic theoretical framework that explains this behavior and establishes the physical conditions under which classical Anderson-Higgs constraints are bypassed. We demonstrate that in films of finite thickness, the transverse redistribution of normal and superfluid charge densities enables a unique coupling mechanism to electromagnetic radiation - a feature fundamentally absent in the conventional Carlson-Goldman scenario. Our theory predicts an acoustic mode whose dispersion, temperature scaling, and dependence on film thickness are in remarkable agreement with recent experimental observations. By delineating the regime of this acoustic response, we reconcile the observed electromagnetic activity of collective excitations with the fundamental principles of superconductivity.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.11610",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Conditional dependence and Scrooge ensembles in shallow random quantum circuits",
+    "title_zh": "文献研究：Conditional dependence and Scrooge ensembles in shallow random quantum circuits",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.12255v1 Announce Type: cross Abstract: The output state of a 2D geometrically local shallow random quantum circuit does not have long range correlations due to its lightcone structure. But this changes if one measures a subset of the qubits: long-range entanglement can be induced by the measurement process, leading to conditional correlations between distant qubits. In this paper we investigate the structure of conditional dependence in these circuits and its consequences for quantum advantage. For a tripartition ABC of the qubits, we consider the ensemble of post-measurement states on A that is conditioned on a specific measurement outcome on B and ranges over all possible measurement outcomes on C. For circuit depths exceeding a constant critical value d^*, we conjecture that this ensemble is well approximated by a certain generalization of the Haar ensemble, called the Scrooge ensemble~[Jozsa et al., hrefhttps://doi.org/10.1103/PhysRevA.49.668Phys. Rev. A 49, 668 (1994)]; we also provide supporting numerical and analytical evidence. Our conjecture describes a precise sense in which the state retains its lightcone structure on the remaining unmeasured qubits, but also develops some globally random features arising from the measurement. A consequence is that n-qubit shallow random quantum circuits in two dimensions are classically efficiently simulable in the presence of a tiny depolarizing noise rate Ømega(łog(n)/n).",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2608.12255",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Discriminating superconducting fluctuations from the pseudogap in Bi₂Sr₂Caₙ₋₁CuₙO₂ₙ₊₄₊δ (n = 2,3): A magnetotransport study",
+    "title_zh": "文献研究：Discriminating superconducting fluctuations from the pseudogap in Bi₂Sr₂Caₙ₋₁CuₙO₂ₙ₊₄₊δ (n = 2,3): A magnetotransport study",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.11284v1 Announce Type: new Abstract: Understanding the normal state is essential for uncovering the mechanism of high-T_c superconductivity. We investigate magnetotransport in Bi₂Sr₂CaCu₂O₈₊δ and Bi₂Sr₂Ca₂Cu₃O₁₀₊δ single crystals over a wide doping range. While the in-plane resistivity and Hall coefficient show strong pseudogap-induced temperature dependence, the T² Hall-angle behavior and the modified Kohler's rule remain robust across all dopings. The onset temperatures of the pseudogap are clearly distinct from superconducting fluctuations, although they scale with the pseudogap magnitudes with a factor consistent with a d-wave superconductor. These results demonstrate that the pseudogap does not arise from superconducting fluctuations and instead suggest that it may originate from preformed Cooper pairing in the BCS-BEC crossover regime.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.11284",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Emergent heavy fermion and superconductivity near Mott transition in twisted bilayer graphene",
+    "title_zh": "文献研究：Emergent heavy fermion and superconductivity near Mott transition in twisted bilayer graphene",
+    "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    "abstract": "arXiv:2608.12319v1 Announce Type: new Abstract: Near a bandwidth-tuned Mott transition, the Fermi velocity v_F and quasiparticle residue Z of a metal often vanish. Here, we show that analogous phenomena emerge in twisted bilayer graphene (TBG) at integer fillings and can be captured by an emergent heavy-fermion framework within a projective active-band limit. Unlike models incorporating remote bands, our effective heavy-fermion description arises from mixed-valence Mott physics via decoupled charge and local-moment sectors. In the charge sector, active bands c(k) hybridize with an emergent emphorthogonal fermion ψ(k) to open a large Mott gap at |k| > k_* (k_* sets the momentum-patch size) and a quadratic band-touching semimetal near k=0 at neutrality (ν=0). The orthogonal fermion is a linear combination of the doublon and holon excitations and may be written as ψᵢ sim (δ n^fᵢ₊frac12)⁻¹ fᵢ. An emergent Kondo coupling J_K sim U (U is the local Hubbard interaction) between ψ and local moments ψ' frames the Mott transition as a Kondo screening transition, tuned by the twist angle θ. Away from the magic angle, a Kondo-screened heavy semimetal develops below T_K (the Kondo temperature) with vanishing Z. Introducing anti-Hund's coupling J_A generates an s-wave fully gapped or nematic, nodally gapped superconducting dome near the Mott boundary even at ν=0. At other integer fillings ν = ± 1, ± 2, increasing bandwidth first drives the small-gap Mott state into an intermediate quadratic band-touching semimetal before entering a heavy Fermi liquid with large Fermi surfaces. Our results establish a unified framework for emergent heavy fermion physics with both itinerant carriers and local moments from the f orbital.",
+    "category": "超导",
+    "link": "https://arxiv.org/abs/2608.12319",
+    "journal": "arXiv"
+  }
+]
