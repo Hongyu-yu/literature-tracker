@@ -1,8 +1,8 @@
 [
   {
     "title": "SR-CGCNN: Shared Recurrent Convolution in Crystal Graph Neural Networks for Materials Property Prediction",
-    "title_zh": "SR-CGCNN：用于材料性质预测的晶体图神经网络中的共享递归卷积",
-    "summary": "晶体图神经网络通过在局域原子环境上传播信息来预测材料性质。本文提出共享递归 CGCNN，将主要的晶体图卷积权重在多个递归消息传递步之间共享，以检验重复应用同一局部更新是否能够逼近更深层 CGCNN 的效果。结果表明，在材料项目数据集上，三步 SR-CGCNN 以更少参数取得了接近标准三层 CGCNN 的精度。",
+    "title_zh": "共享递归卷积晶体图网络用于材料性质预测",
+    "summary": "SR-CGCNN 的核心创新是用共享参数的递归卷积替代逐层独立参数，从而在增加传播深度时控制模型规模。方法针对晶体局域环境反复执行同一消息传递更新，直接检验深层 CGCNN 的性能来源。摘要未给出具体误差和基准结果，因此无法判断其在不同性质上的收益幅度。该架构与材料性质预测及物理结构归纳偏置高度相关，可作为团队图网络和等变模型的轻量化路线。",
     "abstract": "arXiv:2605.01304v4 Announce Type: replace Abstract: Crystal graph neural networks predict materials properties by propagating information through local atomic environments. In conventional crystal graph convolutional neural networks (CGCNNs), this propagation depth is increased by stacking independently parameterized convolutional layers. This coupling between message-passing depth and parameter count raises a simple question: can repeated application of the same learned local update recover most of the benefit of a deeper CGCNN? We address this question by introducing a shared-recurrent CGCNN (SR-CGCNN), in which the main crystal-graph convolutional weights are tied across recurrent message-passing steps. The graph construction, pooling operation, and prediction head are kept unchanged, allowing a controlled comparison with standard CGCNN baselines. On Materials Project-derived formation-energy and band-gap datasets, a three-step SR-CGCNN approaches the accuracy of a standard three-layer CGCNN while using only 34.5% of its trainable convolutional parameters. The formation-energy test mean absolute error changes from 0.0945 to 0.0986~mathrmeV,atom⁻¹, while the band-gap error changes from 0.4346 to 0.4503~eV. These results indicate that repeated shared message passing can provide a parameter-efficient approximation to stacked CGCNN depth, offering a compact recurrent interpretation of crystal graph convolution.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2605.01304",
@@ -10,8 +10,8 @@
   },
   {
     "title": "Classical Limits of Spectral Filtering in Quantum Generative Models",
-    "title_zh": "量子生成模型中谱滤波的经典极限",
-    "summary": "谱滤波被提出作为量子生成模型中的一种正则化途径，但本文考察这种相干操作是否能产生经典后处理无法匹配的效果。作者将滤波与在相同采样成本下的对称概率核卷积比较，并推导两者差距消失的充要条件。结果表明，幅度衰减滤波不会带来量子-经典分离，剩余分离只继承自输入态的谱相位；在对角族内，纯相位滤波是唯一不受这些约束的谱操作。",
+    "title_zh": "量子生成模型谱滤波的经典极限",
+    "summary": "文章针对量子生成模型的谱滤波提出一个基础问题：相干频域操作是否真正提供经典样本后处理无法达到的能力。分析对象是量子傅里叶变换、Born 机振幅谱和对角高频抑制，而非具体凝聚态材料。摘要没有给出完整的复杂度结论或实验规模。对 AI for science 的直接价值是帮助辨析量子生成模型在材料分布学习中的真实增益边界，避免把量子表示优势误当成可用加速。",
     "abstract": "arXiv:2608.14169v1 Announce Type: cross Abstract: Spectral filtering has been proposed as a route to regularization in quantum generative models: the quantum Fourier transform exposes the amplitude spectrum of a quantum circuit Born machine, and a diagonal filter suppresses the high frequencies associated with finite-sample noise, an operation whose classical counterpart seemingly requires manipulating an exponentially long amplitude vector. We examine whether this coherent operation produces anything that classical post-processing of samples from the unfiltered model cannot match. Measuring the filter against convolution with a symmetric probability kernel at matched sampling cost, which accounts for the post-selection overhead of attenuation, we derive necessary and sufficient conditions for the gap between the two to vanish. Magnitude (attenuating) filters obey a dichotomy: at a fixed affordability threshold, the filtered output is either a constant-size Fourier object with an efficient classical sampler, or the passband must widen until no fixed frequency is attenuated and the filter no longer smooths. In neither case does the filter create a quantum-classical separation. Whatever separation survives is inherited from the spectral phase of the input state. Numerical experiments on trained circuit Born machines confirm the classification and show that the deciding phases are invisible to the Born-rule training loss and set by the initialization. Within the diagonal family, pure phase filters remain the only spectral operations exempt from these constraints.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.14169",
@@ -19,8 +19,8 @@
   },
   {
     "title": "Particle tracking with physics-informed deep learning methods",
-    "title_zh": "基于物理信息深度学习方法的粒子跟踪",
-    "summary": "该工作探索使用SympNet和DeepONet等机器学习工具加速电磁场中带电粒子运动模拟。作者提出对传统SympNet结构进行修改，使其能够学习含参数的哈密顿动力学，并在包含两类四极磁铁的环形加速器玩具模型上训练测试。结果显示所有模型推理速度均快于辛积分器，但精度显著降低，其中SympNet的均方误差最低。",
+    "title_zh": "基于物理信息深度学习的粒子跟踪",
+    "summary": "工作把物理信息深度学习用于带电粒子轨迹预测，针对辛积分在大规模粒子和多参数优化中的成本问题。核心方法应在学习模型中嵌入电磁动力学约束，但给定摘要未展示具体网络架构和训练策略。摘要也没有提供能量守恒误差、轨迹偏差或加速比。它与团队材料动力学的交叉仅在物理约束机器学习和长时间尺度模拟，材料体系与凝聚态问题并不直接对应。",
     "abstract": "arXiv:2608.14247v1 Announce Type: new Abstract: Simulating the motion of charged particles in electromagnetic fields is essential for designing and optimising particle accelerators. Conventional tools rely on symplectic integration schemes, which provide high accuracy but are computationally expensive. As a consequence, optimisation in moderate to high-dimensional parameter spaces as well as simulations of tens of thousands to millions of particles can be computationally prohibitive. This contribution explores the possibilities of employing modern machine-learning based tools, in particular SympNet and DeepONet, to enable fast particle simulations. A major novelty is the modification of the conventional SympNet architecture to enable learning of parametric Hamiltonian dynamics. The models are trained and tested on a toy setup of a circular accelerator comprising two different types of quadrupole magnets with varying field strengths. All models achieved faster inference than the symplectic integrator, at the expanse of significantly reduced accuracy. The SympNet implementation achieved the lowest mean squared error. Additionally, a DeepONet was employed to predict the evolution of particle densities, derived from the single-particle simulations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.14247",
@@ -28,17 +28,26 @@
   },
   {
     "title": "Properties of holographic superconductors from Machine Learning",
-    "title_zh": "通过机器学习研究全息超导体的性质",
-    "summary": "该研究使用受机器学习启发的现代优化技术研究全息超导体。作者通过最小化本征值 λ² 的变分泛函，并比较余弦试探函数与指数多项式试探函数，计算临界温度及其随 Δ 的变化。结果与文献中的解析预言吻合，说明解析试探函数结合现代数值优化可高效探索全息超导体。",
+    "title_zh": "机器学习研究全息超导体性质",
+    "summary": "文章把机器学习式优化引入全息超导体的变分本征值问题，用试探函数参数化序参量并最小化 λ²。余弦单参数 ansatz 与指数多项式 ansatz 分别提供低维和高柔性近似，且自动满足边界条件。摘要未涉及真实超导材料、电子-声子耦合或第一性原理数据，也未给出与传统数值法的误差和速度比较。与团队的直接交叉很弱，主要是变分优化思想。",
     "abstract": "arXiv:2608.13731v1 Announce Type: cross Abstract: We investigate holographic superconductors using modern optimisation techniques inspired by machine learning. The critical temperature is obtained by minimising the variational functional for the eigenvalue łambda² with two complementary trial functions: a simple cosine ansatz F(z)=o̧s(a z) and a flexible exponential polynomial F(z)=exp(sumₙ₌₂N aₙ zⁿ⁾, both of which automatically satisfy the standard boundary conditions. For the cosine ansatz, we perform a one-parameter minimisation and obtain łambda²⁽Δ) and T_c/sqrth̊o over a wide range of Δ, including the exact values at Δ=1 and Δ=2 to high accuracy. The exponential polynomial ansatz, with up to 19 coefficients, is optimised using a multi-start L-BFGS-B algorithm with warm-starting, yielding even better agreement with known exact results. Our numerical data for łambda²⁽Δ) and T_c/sqrth̊o match the analytical predictions from the literature, confirming the robustness of the variational approach. This work; therefore, demonstrates that a combination of analytic trial functions and modern numerical optimisation provides a powerful, flexible, and efficient tool for exploring holographic superconductors, and can be readily extended to include backreaction or other sectors in this field.",
     "category": "超导",
     "link": "https://arxiv.org/abs/2608.13731",
     "journal": "arXiv"
   },
   {
+    "title": "Machine learning prediction of organic compound melting points informed by condensed-phase and electronic descriptors",
+    "title_zh": "融合凝聚相与电子描述符预测有机物熔点",
+    "summary": "工作将凝聚相信息与电子结构描述符联合用于有机物熔点预测，针对分子堆积和分子间相互作用被传统分子级模型忽略的问题。创新点在于把固态环境因素纳入机器学习输入，而不是只依赖二维结构或静态分子描述符。摘要没有给出特征构造、模型架构和误差数值。与团队的直接材料体系交叉有限，但对晶体结构、缺陷和界面性质预测中的环境感知建模具有方法启发。",
+    "abstract": "Melting point (MP) is an important thermophysical property for the chemical process industry, yet accurate prediction of MP for organic compounds in the absence of experimental data remains challenging due to the complex interplay between molecular packing, intermolecular interactions, and electronic structure. Traditional group contribution and quantitative structure–property relationship models, which rely primarily on static molecular descriptors, often fail to capture these critical condensed-phase effects. In this study, we present a hybrid machine learning framework that integrates cheminformatics descriptors with quantum chemical features and dynamic condensed-phase descriptors derived from molecular dynamics (MD) simulations. Using a curated subset of the DIPPR 801 database, multiple machine learning architectures, including light gradient boosting machine (LightGBM) and graph convolutional networks, were evaluated with feature sets of increasing physical fidelity. The best-performing model, based on LightGBM trained on Dragon descriptors augmented with MD and quantum chemical features, achieves a mean absolute error of 22.5 K, outperforming descriptor-only models and structure-based deep learning baselines. Shapley additive explanations interpretability analysis reveals that melting behavior is governed primarily by molecular topology, surface-area-weighted electronic descriptors, and condensed-phase interaction properties. In contrast, many isolated functional group and single molecule electronic descriptors contribute negligibly once these effects are accounted for. These results demonstrate that incorporating physics-informed, multi-scale descriptors enables more accurate and physically interpretable MP predictions.",
+    "category": "AI×物理",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/7/074101/3401250/Machine-learning-prediction-of-organic-compound",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
     "title": "ArGEnT: Arbitrary Geometry-encoded Transformer for Operator Learning",
-    "title_zh": "ArGEnT：用于算子学习的任意几何编码 Transformer",
-    "summary": "本文提出任意几何编码 Transformer（ArGEnT），一种几何条件化注意力框架，用于在任意几何上学习解算子。该方法将几何编码与查询点求值解耦，并提供自注意力、交叉注意力和混合注意力三种变体。流体、固体力学和电化学系统基准表明，ArGEnT 相比多类基线具有更好的精度、泛化能力和训练效率。",
+    "title_zh": "任意几何编码变换器用于算子学习",
+    "summary": "ArGEnT 的核心是把任意几何编码引入变换器算子学习，使模型能够在不规则和演化几何上进行任意位置查询。它针对多查询模拟与物理信息学习中的几何表示瓶颈，重点解决几何编码和解查询采样耦合的问题。摘要没有公布注意力结构、位置编码、训练策略或定量精度。对团队的大尺度分子动力学、界面输运和缺陷演化模拟具有较强方法相关性，但尚未证明适用于电子结构算子。",
     "abstract": "arXiv:2602.11626v3 Announce Type: replace-cross Abstract: Learning solution operators on arbitrary geometries remains a central challenge in scientific machine learning, especially for many-query simulation, physics-informed learning, and evolving geometries requiring accurate, geometry-aware predictions at arbitrary spatial locations. Existing operator-learning methods often rely on structured discretizations, explicit geometry parameterizations, or point-cloud formulations that couple geometric representation with solution-query sampling, limiting flexibility on irregular and non-parameterized domains. We propose the Arbitrary Geometry-encoded Transformer (ArGEnT), a geometry-conditioned attention framework that decouples geometry encoding from query-point evaluation. We develop three variants: self-attention, cross-attention, and hybrid-attention. ArGEnT can be used independently or integrated with neural operators to incorporate non-geometric physical inputs. In the cross-attention variant, geometry is represented by an independently sampled point cloud used to construct keys and values, while arbitrary solution-query points construct queries. This design enables mesh-independent field prediction, reduces sensitivity to query-point distribution, and allows compact geometric representations to condition large-scale solution evaluations. Across benchmarks in fluid dynamics, solid mechanics, and electrochemical systems, ArGEnT consistently improves accuracy and generalization over standard DeepONet, point-cloud-based operator learning, and geometry-aware transformer baselines. In several cases, it reduces prediction errors by more than an order of magnitude while requiring substantially lower training cost than transformer-based baselines. These results demonstrate that decoupled geometry-query attention provides an accurate, scalable, and flexible framework for operator learning on arbitrary geometries.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2602.11626",
@@ -46,8 +55,8 @@
   },
   {
     "title": "Coupling-Robust Accuracy in Multiphysics Physics Informed Neural Networks via Kronecker-Preconditioned Optimization",
-    "title_zh": "通过克罗内克预条件优化实现多物理场物理信息神经网络的耦合鲁棒精度",
-    "summary": "物理信息神经网络在求解耦合多物理场系统时，其精度会随着方程间耦合增强而系统性下降，仅依靠逆梯度范数损失平衡也无法可靠避免这一问题。本文通过神经切线核分析说明，标准核的谱半径会随耦合强度平方增长，而块对角高斯-牛顿预条件能够使其与耦合强度无关。基于克罗内克预条件优化器 SOAP 与 GradNorm 的组合在 222 个实验中表现出有界退化，表明预条件器结构是训练强耦合、刚性多物理场 PINN 的关键。",
+    "title_zh": "克罗内克预条件优化提升多物理 PINN 耦合鲁棒性",
+    "summary": "文章针对强耦合多物理 PINN 的训练病态，提出克罗内克预条件优化并用神经切线核解释精度随耦合增强而下降的原因。方法重点是利用方程耦合结构重塑优化器，而非继续手动调节损失权重。摘要给出理论上的耦合鲁棒性主张，但没有列出具体系统、训练步数或误差降低比例。它与团队的电子-声子、自旋-晶格和载流子-晶格耦合模拟具有明确方法交叉。",
     "abstract": "arXiv:2605.23391v3 Announce Type: replace Abstract: Physics-informed neural networks (PINNs) offer a mesh-free route to solving coupled multiphysics systems, but their accuracy degrades systematically as inter-equation coupling strengthens, and inverse-gradient-norm loss balancing alone does not reliably prevent this failure. This study explains why coupling degrades PINN training and identifies an optimizer structure that removes the dependence, replacing case-by-case tuning with a principled remedy. Through a neural tangent kernel analysis, we prove that the standard kernel's spectral radius grows as Ømega(γ²⁾ with coupling strength γ, whereas block-diagonal Gauss-Newton (GN) preconditioning bounds it by the number of networks S, independent of γ; no diagonal preconditioner recovers this bound for any coupling type or loss weighting. We realize block-diagonal GN preconditioning through the Kronecker-preconditioned optimizer SOAP combined with inverse-gradient-norm loss balancing (SOAP+GradNorm) and evaluate it across 222 experiments on four benchmarks of increasing difficulty. Across all systems, SOAP+GradNorm is the only configuration whose degradation remains bounded in every regime tested: it preserves weak-coupling accuracy in linear problems and limits degradation to 2.3× in the nonlinear Nernst-Planck-Poisson system, whereas Adam-based training leaves the L₂ error above the 0.1 failure threshold. The same effect applies to a six-residual, four-network, 2D electro-osmotic flow where the electric double layer is resolved down to a Debye length of ǎrepsilon = 0.01 on an x-invariant reference solution. These results recast coupling-induced accuracy loss as a problem of the preconditioner's structure rather than loss weighting and identify Kronecker preconditioning as a structural lever for training PINNs on strongly coupled, stiff multiphysics systems.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2605.23391",
@@ -55,8 +64,8 @@
   },
   {
     "title": "Probing intrinsic magnetic phases in low-dimensional nearly twin-free NiPS₃ single crystals",
-    "title_zh": "低维近乎无孪晶NiPS3单晶中本征磁性相的探测",
-    "summary": "本文通过控制晶体孪晶，研究了低维范德华反铁磁体NiPS3的本征热学与磁学性质。利用近乎无孪晶单晶，作者分辨出通常在多畴样品中被掩盖的本征各向异性、清晰的自旋翻转转变以及Néel温度附近的涨落区间。实验与理论结果一致，表明处理晶体孪晶是揭示范德华磁体本征性质的有效途径。",
+    "title_zh": "近无孪晶 NiPS3 单晶中的本征磁相",
+    "summary": "研究通过制备近无孪晶 NiPS3 单晶，分离通常被多畴效应掩盖的本征低维反铁磁响应。磁化测量解析出强各向异性的尖锐自旋翻转转变，热力学和输运则显示宽广涨落区间。摘要未说明晶体取向、临界温度和输运定量结果。该工作与团队二维范德华磁体、自旋哈密顿量和自旋-晶格耦合方向直接相关，尤其适合作为无序和孪晶效应建模的实验基准。",
     "abstract": "arXiv:2608.14189v1 Announce Type: new Abstract: We report the intrinsic thermal and magnetic properties of the low-dimensional van der Waals (vdW) antiferromagnet NiPS₃ and explore its emergent magnetic phases by controlling crystallographic twinning. Using nearly twin-free crystals, we resolve intrinsic properties that are typically obscured by multidomain effects in bulk samples. Magnetization results reveal a highly anisotropic, sharp spin-flop transition, confirming the high domain purity of our crystals. Furthermore, high-precision thermodynamic and transport data reveal a broad fluctuation regime around the Néel temperature (TN = 157.5 K), with a heat capacity anomaly and a concurrent suppression of thermal conductivity. Field-dependent thermal transport shows a small but distinct contribution from spin-lattice coupling, as evidenced by the dip at the spin-flop transition. We develop a theoretical model to explain these properties reported in this paper, with good agreement between experiment and theory. Our work establishes a definitive baseline for bulk properties of NiPS₃ and demonstrates the feasibility of resolving intrinsic anisotropies by addressing crystallographic twinning in vdW magnets.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.14189",
@@ -65,7 +74,7 @@
   {
     "title": "Linear response across interaction regimes in two-dimensional ferromagnets",
     "title_zh": "二维铁磁体跨相互作用区间的线性响应",
-    "summary": "该研究发展了一种高效求解二维铁磁体量子 Boltzmann 方程线性响应的方法。作者用高斯函数和表示分布函数，使多维碰撞积分可处理，并揭示从低动量弱相互作用磁振子主导的弹道区到高动量强相互作用模式支配的集体流体动力学区的温度驱动跨越。应用于单层 CrCl₃ 时，该方法与近期氮-空位中心退相干实验中异常磁噪声的观测相符。",
+    "summary": "文章建立跨相互作用区间描述二维铁磁体线性响应的理论框架，处理从低动量弱相互作用磁振子到高动量强散射集体流体的连续过渡。核心问题是传统单一输运极限无法同时覆盖弹道和流体动力学行为。摘要未说明采用的具体场论、近似阶数和可观测量数值。它与团队二维磁体、自旋哈密顿量、磁振子输运和自旋-晶格耦合研究有直接理论交叉。",
     "abstract": "arXiv:2608.14477v1 Announce Type: new Abstract: Recent discoveries of two-dimensional (2D) ferromagnets have stimulated intense interest in understanding and controlling their spin transport properties. A central microscopic feature of these systems is that exchange-driven magnon--magnon interactions are strongly momentum dependent: low-momentum magnons interact weakly, while high-momentum ones can scatter strongly and exhibit collective hydrodynamic behavior. Understanding transport in such systems therefore requires a microscopic description capable of capturing ballistic and hydrodynamic regimes on equal footing. The natural framework is the quantum Boltzmann equation (QBE), whose solution is notoriously difficult because of the multidimensional collision integrals. Here, we develop a method based on an efficient representation of distribution functions as sums of Gaussians, which renders the collision integrals tractable. This approach enables accurate solution of the linearized QBE and computation of momentum- and frequency-resolved linear response in 2D ferromagnets across a broad range of temperatures and magnetic fields. In particular, we resolve a temperature-driven crossover from a ballistic regime dominated by weakly interacting low-momentum magnons to a collective hydrodynamic regime governed by strongly interacting high-momentum modes. Applying this method to monolayer CrCl₃, we obtain good agreement with recent nitrogen-vacancy-center dephasing experiments that reported anomalous magnetic noise consistent with magnon sound. More broadly, our work establishes a general framework for computing momentum- and frequency-resolved linear response in interacting 2D quantum systems describable within quantum Boltzmann kinetics.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.14477",
@@ -73,8 +82,8 @@
   },
   {
     "title": "Autferroics-based true random number generators with enhanced performance",
-    "title_zh": "基于自铁电材料的性能增强型真随机数发生器",
-    "summary": "本文提出将自铁电体用于构建真随机数发生器。借助其强烈的“跷跷板式”磁电耦合所带来的独特能量景观，随机数生成性能可显著提升，并通过标准统计检验。该方案还表现出多场可调性和本征多态随机性，为随机电路中复杂数运算及量子混合态概率分布模拟提供了新的硬件路径。",
+    "title_zh": "基于自铁电体的高性能真随机数发生器",
+    "summary": "工作把自铁电体引入真随机数发生器，利用其强跷跷板型磁电耦合和特殊能量景观产生物理熵。创新点在于将多铁类耦合机制直接转化为随机计算器件功能，而非仅用于存储或传感。摘要没有提供材料化学式、能垒、随机比特率或统计检验结果。它与团队铁电、多铁、磁电耦合和极化能量景观研究高度相关，可连接有效哈密顿量、蒙特卡洛和缺陷疲劳建模。",
     "abstract": "arXiv:2608.13838v1 Announce Type: new Abstract: Physical entropy-driven true random number generators are essential for emerging probabilistic computing paradigms, but conventional implementations based on magnetic tunneling junctions have reached their performance plateaus limited by inherent tradeoffs and weak tunability. Here, autferroics, a sister branch of multiferroics, is proposed to construct true random number generators. Benefiting from its unique energy landscape due to strong seesaw-type magnetoelectricity, the performance of true random number generation can be significantly enhanced in autferroic tunneling junctions, verified by passing standard statistical tests. Furthermore, autferroics-based random number generators can exhibit multi-field tunability and intrinsic multi-state randomness, opening an avenue for efficient hardware realization of the complex-number arithmetic and simulation of probability distributions of quantum mixed states within stochastic circuits.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.13838",
@@ -82,8 +91,8 @@
   },
   {
     "title": "Chirality Transfer to the Magnetic Sublattice in the Hybrid Perovskite (R)-/(S)-3-Fluoropyrrolidinium Copper(II) Chloride",
-    "title_zh": "杂化钙钛矿 (R)-/(S)-3-氟吡咯烷鎓氯化铜(II) 中向磁性子晶格的手性转移",
-    "summary": "本文报道一种新的二维磁性手性金属卤化物钙钛矿 (R)- 和 (S)-(C4H9FN)2CuCl4，其中手性有机阳离子诱导了手性磁有序。尽管无机子晶格本身几乎在结构上中心对称，手性阳离子的引入仍使材料表现出磁手性；相应外消旋变体则没有手性磁有序证据。磁化率、比热和二阶磁电效应测量共同表明，手性有机组分可用于设计兼具手性磁性与结构手性带来光电性质的杂化材料。",
+    "title_zh": "杂化钙钛矿中手性向磁性子晶格的传递",
+    "summary": "该体系展示有机手性阳离子如何把手性传递到二维 Cu-Cl 磁性子晶格，形成手性磁序。材料是 (R)/(S)-(C4H9FN)2CuCl4，核心结构因素是手性有机层与无机磁层的耦合。摘要没有给出磁序温度、结构畸变幅度或手性光学响应的定量值。它与团队杂化钙钛矿、二维范德华磁体、自旋-晶格耦合和磁电功能研究有直接材料交叉，但具体机制仍需计算验证。",
     "abstract": "arXiv:2604.22952v3 Announce Type: replace Abstract: Incorporating chiral organic cations into organic-inorganic hybrid materials has been shown to enable the inorganic sublattice to display chiroptical properties. We report a new two-dimensional magnetic (S=1/2) chiral metal halide perovskite, (R)- and (S)-(C₄H₉FN)₂CuCl₄ (where (C₄H₉FN)⁺ is 3-fluoropyrrolidinium), which consists of Cu-Cl inorganic layers separated by (C₄H₉FN)⁺ organic cations. The presence of the chiral (C₄H₉FN)⁺ organic cation induces formation of chiral magnetic order, even though the inorganic sublattice itself is nearly structurally centrosymmetric. We also report the racemic variant, containing an equal amount of (R)- and (S)- cations, which shows no evidence of chiral magnetic order. When the magnetic susceptibility is measured perpendicular to inorganic Cu-Cl layer propagation direction, an antiferromagnetic phase transition at Néel temperature T_N = 2.23~K is observed in both the chiral and racemic materials, and the existence of the magnetic phase transition is supported by specific heat capacity measurements. Field-induced magnetic chirality is observed through the existence of a second-order magnetoelectric effect in the chiral variant, while no magnetoelectric signal is observed for the racemic material, indicating the absence of magnetic chirality. Our findings demonstrate that materials exhibiting chiral magnetic order can be created through the incorporation of a chiral cation into an organic-inorganic hybrid magnetic material, potentially allowing for the design of tailored materials that combine chiral magnetism with other desirable optical and electronic properties that come from structural chirality.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2604.22952",
@@ -91,8 +100,8 @@
   },
   {
     "title": "Harmonic Hierarchy of Altermagnetic Spin Splitting from Symmetry-Adapted Wavefunctions",
-    "title_zh": "来自对称适配波函数的反磁性自旋分裂谐波层级",
-    "summary": "反磁体结合了磁补偿与在无自旋轨道耦合条件下的自旋-动量锁定分裂，但现有主要基于自旋对称性和晶格几何的描述，对其角谐波形式的电子结构视角提供的洞见有限。本文从波函数层面建立了二维方格晶格中反磁性的框架，说明动量空间自旋分裂的谐波结构源于可由晶体场选择的电子波函数几何。结果表明，线性与二次波函数的交织分别产生 d 波和 g 波反磁各向异性，并将这一层级与不等价的同自旋跃迁通道联系起来。",
+    "title_zh": "对称性适配波函数揭示交替磁性自旋劈裂谐波层级",
+    "summary": "文章把交替磁性自旋劈裂的角向谐波结构追溯到对称性适配波函数，而不只从自旋群和晶格几何进行分类。方法对象是二维方格晶格，核心工具为对称性适配多项式波函数和动量空间劈裂分析。摘要未列出具体材料、谐波阶数对应的能量数值或第一性原理验证。它与团队交替磁性、群论、磁性有效哈密顿量和自旋输运方向直接相关。",
     "abstract": "arXiv:2605.25128v2 Announce Type: replace Abstract: Altermagnets combine magnetic compensation with spin-momentum-locked splitting in the absence of spin-orbit coupling, yet existing descriptions, formulated primarily in terms of spin symmetry and lattice geometry, provide limited insight into the electric-structure perspective of its angular harmonic form. Here, we identify a wavefunction-level framework for altermagnetism in two-dimensional square lattices. Using symmetry-adapted polynomial wavefunctions, we show that the harmonic structure of momentum-space spin splitting is inherited from the geometry of the electronic wavefunctions which can be selected by crystal fields. Identical orbital sectors preserve conventional antiferromagnetic degeneracy, whereas intertwined linear and quadratic wavefunctions generate d-wave and g-wave altermagnetic anisotropies, respectively. Tight-binding analysis connects this hierarchy to inequivalent same-spin hopping channels. First-principles calculations on the g-wave mcm-type reticular material platforms confirm high-symmetry-linear degeneracy together with finite generic-k splitting. Our results establish a hierarchy linking wavefunction geometry, orbital realization, microscopic hopping anisotropy, and altermagnetic electronic structure.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2605.25128",
@@ -100,8 +109,8 @@
   },
   {
     "title": "Non-reciprocity and exchange-spring delay of domain-wall Walker breakdown in magnetic nanowires with azimuthal magnetization",
-    "title_zh": "具有方位角磁化的磁性纳米线中畴壁 Walker 击穿的非互易性与交换弹簧延迟",
-    "summary": "本文研究三维纳米磁体系中畴壁运动的 Walker 击穿延迟机制，重点关注具有涡旋态畴和方位角磁化的纳米线。作者发现磁化分布拓扑可通过交换弹簧效应内禀且稳健地延迟 Walker 击穿，同时运动仍保持稳态。曲率还会诱导强非互易效应，使击穿是否延迟取决于畴壁两侧方位角畴手性的排列顺序，而与运动方向无关。",
+    "title_zh": "方位磁化纳米线中畴壁沃克击穿的非互易与延迟",
+    "summary": "工作揭示三维涡旋态磁畴的拓扑磁化结构能够改变畴壁内部自由度，产生非互易运动和交换弹簧延迟，从而推迟沃克击穿。研究对象是方位磁化纳米线，关注外场或自旋极化电流驱动下的畴壁速度崩塌。摘要仅给出常规体系约 100 m/s 的背景量，未报告新体系的速度、临界场或延迟幅度。它与团队磁畴壁、有效自旋哈密顿量、自旋动力学和拓扑磁态方向有直接交叉。",
     "abstract": "arXiv:2603.03715v2 Announce Type: replace Abstract: Domain-wall (DW) motion is a crucial process involved in magnetization reversal, be it under magnetic field or spin-polarized current stimulus. In most cases the DW speed does not exceed approx100m/s and collapses above a given threshold of the stimulus, an effect known as Walker breakdown. A few specific material properties have been identified to delay the breakdown of speed by increasing the energy barrier preventing internal precession. We show that in a 3D nanomagnetic system, here with vortex-state domains, the topology of the magnetization distribution may intrinsically and robustly delay the Walker breakdown due to an exchange-spring effect. However, in contrast to situations in lower dimension, the motion remains steady-state. In addition, curvature induces a major non-reciprocal effect, delaying or not the Walker breakdown depending on the sequence of chiralities of the azimuthal domains on both sides of the DW, independent of its direction of motion.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2603.03715",
@@ -109,8 +118,8 @@
   },
   {
     "title": "Quantized Spin Hall Effect in Three-Dimensional Nodal-Ring Semimetal: Geometric Scaling and Symmetry-Engineered Spin Response",
-    "title_zh": "三维节环半金属中的量子化自旋霍尔效应：几何标度与对称性工程化自旋响应",
-    "summary": "该工作研究三维节环半金属中的量子化自旋霍尔效应，并将其与磁性 Weyl 半金属中异常霍尔电导随 Weyl 节点动量间距线性标度的几何范式相类比。摘要片段显示，作者发现了自旋霍尔效应中的类似现象，即量子化自旋霍尔电导。具体模型、对称性条件和结果需查阅原文。",
+    "title_zh": "三维节点环半金属中的量子化自旋霍尔效应",
+    "summary": "文章提出三维节点环半金属中的量子化自旋霍尔效应，并把自旋霍尔电导与节点环几何联系起来。核心创新是将 Weyl 节点动量分离控制异常霍尔响应的几何范式推广到节点环和自旋响应。摘要未给出具体材料、量子化数值或对称性条件的完整形式。它与团队拓扑材料、自旋输运、Wannier 计算和对称性分析有明确交叉，但尚未涉及缺陷、磁晶格动力学或器件输运。",
     "abstract": "Author(s): Jiali Chen, Chaoxi Cui, Zhi-Ming Yu, Wei Jiang, and Yugui Yao The anomalous Hall conductivity in magnetic Weyl semimetals scales linearly with the momentum separation between Weyl nodes, establishing a geometric paradigm for three-dimensional Hall responses. Here, we discover an analogous phenomenon in the spin Hall effect: a quantized spin Hall conductivity (… [Phys. Rev. Lett. 137, 086301] Published Mon Aug 17, 2026",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/74ky-d71n",
@@ -118,17 +127,35 @@
   },
   {
     "title": "Multi-quantum-channel mediated tunable single-photon skyrmions from metasurfaces",
-    "title_zh": "由超表面实现的多量子通道介导可调单光子斯格明子",
-    "summary": "本文利用超表面实现偏振纠缠光子对的多通道量子态分发，并在自旋和空间维度诱导双光子聚束效应。在空间聚束端口，通过调控自旋-轨道相互作用生成可调单光子斯格明子对，其拓扑性质由多通道量子测量介导和控制。该方法还可定制斯格明子的局域化与纹理螺旋性，为抗噪声高维量子信息处理提供路径。",
+    "title_zh": "多量子通道可调单光子斯格明子超表面",
+    "summary": "研究用超表面把偏振和空间自由度结合起来，生成多量子通道可调的单光子斯格明子态。核心机制是对偏振纠缠光子对进行超表面调控，并在自旋与空间维度观察双光子聚束。摘要没有提供拓扑荷、通道数、保真度和效率等定量结果。它与团队量子功能材料和非线性光学只有较远交叉，不直接涉及凝聚态材料电子结构、缺陷动力学或磁性哈密顿量。",
     "abstract": "arXiv:2608.13984v1 Announce Type: new Abstract: Quantum optical skyrmions, as topologically robust quantum information carriers, hold transformative potential for resilient high-dimensional quantum information networks. However, their practical exploitation was still restricted to a single quantum channel, which precludes the multiplexing essential for practical high-capacity quantum networks. Here, we utilize a metasurface to achieve multi-channel quantum state distribution of the polarization-entangled photon pairs, inducing a two-photon bunching effect in both the spin and spatial dimensions with compact flat optics. At the spatial bunching port, controlled manipulation of the spin-orbit interaction enables the generation of a tunable single-photon skyrmion pair. In contrast to any prior skyrmion generation, the single-photon skyrmions are mediated and topologically controlled by quantum measurement in multiple channels. Concurrently, during the amplitude and phase modulation process, both the skyrmion localization and the texture helicity can be precisely customized. The proposed tunable single-photon skyromions offer multidimensional controllability and topological stability provide a viable path toward noise-resilient high-dimensional quantum information processing.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.13984",
     "journal": "arXiv"
   },
   {
+    "title": "Engineering Hidden Ferroelectric‐Like Distortion for Ultralow Thermal Conductivity in Polar van der Waals Tetradymite",
+    "title_zh": "极性范德华四方硫族化物中的隐性铁电畸变与超低热导",
+    "summary": "工作把隐性类铁电畸变作为调控极性范德华四方硫族化物热输运的结构自由度，目标是实现超低热导。其潜在创新在于通过局域极性畸变增强声子散射或改变软模，而不是仅依赖重元素和弱层间结合。输入摘要没有给出材料化学式、热导率、声子寿命或验证方法。与团队二维滑移铁电、极性材料、声子输运和机器学习势方向存在直接主题交叉，但定量关系尚不能判断。",
+    "abstract": "Advanced Functional Materials, EarlyView.",
+    "category": "铁电·极化",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77725?af=R",
+    "journal": "Wiley"
+  },
+  {
+    "title": "Tailoring a Solar‐Blind Ultraviolet Ferroelectric for Nonlinear Optics Through a Local Symmetry‐Breaking Cascaded Strategy",
+    "title_zh": "局域对称性破缺级联调控日盲紫外铁电体非线性光学",
+    "summary": "文章提出利用局域对称性破缺级联策略设计日盲紫外铁电体，以同时获得铁电性和增强非线性光学响应。核心材料问题是局域结构单元如何累积并放大宏观极性与光学易感率。输入摘要没有提供材料组成、带隙、倍频系数、极化或稳定性数据。它与团队铁电、极性材料、非线性光学、群论和第一性原理结构设计方向直接相关，但目前只能确认设计主题，不能评估性能优势。",
+    "abstract": "Advanced Materials, EarlyView.",
+    "category": "铁电·极化",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74665?af=R",
+    "journal": "Wiley: Advanced Materials: Table of Contents"
+  },
+  {
     "title": "Atomic-scale structure of antiferromagnetic domain walls in NiO",
-    "title_zh": "NiO 中反铁磁畴壁的原子尺度结构",
-    "summary": "该研究利用原子自旋模拟揭示反铁磁 NiO 中孪晶畴壁和自旋畴壁的内部结构。结果表明，自旋畴壁主要对应简单连续的自旋旋转，而孪晶畴壁由旋转与倾斜共同构成；其混合特征是理解 NiO 畴壁结构的关键。",
+    "title_zh": "NiO 反铁磁畴壁的原子尺度结构",
+    "summary": "研究用原子尺度自旋模拟区分 NiO 中自旋畴壁与孪晶畴壁的内部构型，发现前者主要是连续自旋旋转，后者同时包含旋转和倾斜。核心贡献是揭示晶体孪晶自由度会改变反铁磁畴壁的微观结构，而非把所有壁简化为单一旋转。摘要没有给出畴壁能、宽度和参数来源。它与团队反铁磁、自旋哈密顿量、非共线磁性和畴壁动力学高度直接相关。",
     "abstract": "Author(s): Alban Simonnot, Frédéric Miserque, Jean-Baptiste Moussy, Jean-Yves Chauleau, Michel Viret, and Alain Chartier Atomistic spin simulations have been used to provide insights into the internal structures of twin (T) and spin (S) domain walls (DWs) in antiferromagnetic NiO. While S DWs imply simple continuous spin rotations, T DWs are composed of a combination of rotations and canting. The hybrid nature of thes… [Phys. Rev. B 114, 094419] Published Mon Aug 17, 2026",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/77lg-1d1s",
@@ -136,8 +163,8 @@
   },
   {
     "title": "C₃ symmetry induced antisymmetric planar Hall effect and magnetoresistance in single-crystalline ferromagnets",
-    "title_zh": "C₃ 对称性诱导的单晶铁磁体中的反对称平面霍尔效应与磁阻",
-    "summary": "该工作讨论了单晶铁磁体中由 C₃ 对称性引发的反对称平面霍尔效应和磁阻。通常平面霍尔效应按 Onsager 互易关系在磁场反转下应为对称，而近期研究发现反对称平面霍尔效应是磁性体系中的重要扩展；本文关注常规因素在其中的作用。",
+    "title_zh": "C3 对称性诱导铁磁单晶反对称面内霍尔效应",
+    "summary": "文章揭示 C3 晶体对称性与铁磁序结合后可产生反对称面内霍尔效应和相应磁阻响应，挑战将面内霍尔信号简单视为磁场反转对称的处理。核心分析应区分 Onsager 约束、磁化方向和三重旋转对称性带来的角向项。摘要没有给出具体材料和定量幅值。它与团队磁性材料、对称性分析、Wannier 输运和自旋相关响应有方法交叉，但与铁电和缺陷动力学没有直接关系。",
     "abstract": "Author(s): Weijie Qin, Kaiyuan Wang, Dingwen Zhang, Bin Yang, Yuanzhe Tian, Bowen Zheng, Biying Huang, Yuben Yang, Wenqin Zou, Xiangang Wan, Di Wu, and Peng Wang The planar Hall effect (PHE) is typically symmetric under magnetic field reversal, as required by the Onsager reciprocity relations. Recent advances have identified the antisymmetric PHE as an intriguing extension in magnetic systems. While new mechanisms have been proposed, the role of conventional… [Phys. Rev. B 114, 094420] Published Mon Aug 17, 2026",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/xbkm-nyrf",
@@ -145,38 +172,11 @@
   },
   {
     "title": "Enhancement of superconductivity by polarization of magnetic impurities in disordered films",
-    "title_zh": "无序薄膜中通过磁性杂质极化增强超导性",
-    "summary": "该工作研究含磁性杂质的脏超导薄膜在使杂质自旋极化的磁场中的非平庸行为。根据 Kharitonov 和 Feigelman 的预测，杂质自旋极化会降低交换散射率，从而可能影响并增强超导性质。具体理论分析、适用条件和结果需查阅原文。",
+    "title_zh": "无序薄膜中磁性杂质极化增强超导性",
+    "summary": "文章讨论无序超导薄膜中磁性杂质自旋被磁场极化后，交换散射减弱并可能增强超导性的机制。核心现象是磁场并非只破坏超导，平行场下杂质极化可降低自旋翻转散射，从而产生非单调响应。摘要没有给出 Tc 变化、临界场或材料参数。它与团队超导材料筛选和电子-声子耦合研究存在一般理论交叉，但不直接涉及第一性原理材料设计或低维磁性体系。",
     "abstract": "Author(s): Gleb S. Seleznev and Yakov V. Fominov Dirty superconducting films with magnetic impurities can exhibit nontrivial behavior in a magnetic field that polarizes the impurity spins. As predicted by Kharitonov and Feigelman (KF) [ JETP Lett. 82 , 421 (2005) ], this polarization reduces the exchange scattering rate. Consequently, a parallel magn… [Phys. Rev. B 114, 074505] Published Mon Aug 17, 2026",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/2tnp-l8dr",
     "journal": "Phys. Rev. B"
-  },
-  {
-    "title": "Evolution of low-temperature electron spin resonance in Yb(Rh₀.₇₃Co₀.₂₇)₂Si₂ upon entering ferromagnetic order",
-    "title_zh": "Yb(Rh₀.₇₃Co₀.₂₇)₂Si₂ 进入铁磁有序时低温电子自旋共振的演化",
-    "summary": "该研究报道了重费米子铁磁体 Yb(Rh₀.₇₃Co₀.₂₇)₂Si₂ 取向粉末的低温电子自旋共振实验。实验温区覆盖约 0.75 K 至 4 K，并包含其进入铁磁有序的转变区间；摘要片段被截断，具体谱线演化与结论需查阅原文。",
-    "abstract": "Author(s): I. Fazlizhanov, Z. Y. Seidov, H.-A. Krug von Nidda, C. Krellner, C. Klingner, L. Pedrero, S. Lausberg, M. Brando, C. Geibel, F. Steglich, and J. Sichelschmidt We report electron spin resonance (ESR) experiments conducted on oriented powder of the heavy-fermion ferromagnet Yb(Rh₀.₇₃Co₀.₂₇)₂Si₂ in the temperature range 0.75 ≤T≤4phantomůle0.16em0exK, which includes the transition b… [Phys. Rev. B 114, 115117] Published Mon Aug 17, 2026",
-    "category": "磁性·自旋电子学",
-    "link": "http://link.aps.org/doi/10.1103/csyd-6npb",
-    "journal": "Phys. Rev. B"
-  },
-  {
-    "title": "Origin of anomalous size effects in ferroelectric hafnia thin films",
-    "title_zh": "铁电氧化铪薄膜中反常尺寸效应的起源",
-    "summary": "该论文研究超薄 HfO₂ 薄膜中铁电性持续存在以及相关反常尺寸效应的起源。特别是，薄膜厚度减小时面外晶格间距反而增大，这一现象与传统理论不符，也不同于钙钛矿铁电体中的常见行为。",
-    "abstract": "Author(s): Tianyuan Zhu, Jingxuan Li, Zuhuang Chen, and Shi Liu The persistence of ferroelectricity in ultrathin HfO₂ films challenges conventional theories, particularly given the paradoxical observation that the out-of-plane lattice spacing increases as the film thickness decreases, an anomalous size effect absent in perovskite ferroelectrics. … [Phys. Rev. B 114, 115408] Published Mon Aug 17, 2026",
-    "category": "铁电·极化",
-    "link": "http://link.aps.org/doi/10.1103/wzs5-nc7c",
-    "journal": "Phys. Rev. B"
-  },
-  {
-    "title": "Domain Engineering and Anisotropic Domain‐Wall Photovoltaic Effects in Ferroelectric SnS",
-    "title_zh": "铁电 SnS 中的畴工程与各向异性畴壁光伏效应",
-    "summary": "该文聚焦铁电 SnS 的畴结构调控及其畴壁相关光伏响应，属于面向低维铁电材料功能开发的研究。题录未提供摘要正文，因此具体实验设计、定量结果和机制细节需以原文为准。",
-    "abstract": "Advanced Functional Materials, EarlyView.",
-    "category": "铁电·极化",
-    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.77741?af=R",
-    "journal": "Wiley"
   }
 ]
