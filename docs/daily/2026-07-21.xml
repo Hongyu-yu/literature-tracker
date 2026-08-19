@@ -5,7 +5,7 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-07-21.html</link>
     <description>2026-07-21 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Wed, 19 Aug 2026 04:57:26 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 19 Aug 2026 13:11:29 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-07-21.xml" rel="self" type="application/rss+xml"/>
     <item>
         <title>利用基础机器学习原子间势和潜特征 Delta 学习将 DFT 形成能校正至接近实验精度</title>
@@ -107,13 +107,13 @@
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16871</guid>
     </item>
     <item>
-        <title>交通流建模中物理信息机器学习的潜在失效：理论与实验分析</title>
+        <title>Potential failures of physics-informed machine learning in traffic flow modeling: theoretical and experimental analysis</title>
         <link>https://arxiv.org/abs/2505.11491</link>
         <description><![CDATA[📚 arXiv
 
 👤 Yuan-Zheng Lei, Yaobang Gong, Dianwei Chen, Yao Cheng, Xianfeng Terry Yang
 
-该文分析物理信息机器学习在宏观交通流建模中可能失效的原因，并将失效定义为模型显著劣于纯数据驱动和纯物理基线的情形。研究认为，在该问题中物理残差本身并非优化障碍，关键在于数据梯度和物理梯度需同时与真实梯度成锐角，而低分辨率环形检测器数据难以满足这一条件。由于神经网络难以准确逼近密度与速度，且由离散采样和时间平均构造的物理残差会丧失刻画 PDE 动力学的能力，从而导致 PIML 失败。]]></description>
+arXiv:2505.11491v4 Announce Type: replace-cross Abstract: This study investigates why physics-informed machine learning (PIML) can fail in macroscopic traffic flow modeling. We define failure as cases where a PIML model underperforms both purely data-driven and purely physics-based baselines by a given threshold. Unlike in other fields, physics residuals themselves do not hinder optimization in this setting. Instead, effective updates require both data and physics gradients to form acute angles with the true gradient, a condition difficult to satisfy with low-resolution loop data. In such cases, neural networks cannot accurately approximate density and speed, and the constructed physics residuals, already degraded by discrete sampling and temporal averaging, lose their ability to capture…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2505.11491</guid>
     </item>
@@ -129,13 +129,13 @@
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16570</guid>
     </item>
     <item>
-        <title>用于耦合电动力学与弹性动力学波传播建模的统一物理信息神经网络：三阶段损失优化方法</title>
+        <title>A Unified Physics-Informed Neural Network for Modeling Coupled Electro- and Elastodynamic Wave Propagation Using Three-Stage Loss Optimization</title>
         <link>https://arxiv.org/abs/2602.13811</link>
         <description><![CDATA[📚 arXiv
 
 👤 Suhas Suresh Bharadwaj, Reuben Thomas Thovelil
 
-本文研究物理信息神经网络（PINN）在一维耦合电-弹性动力学系统中的应用，该系统用于描述应力-电荷形式的线性压电问题，并由弹性动力学与电动力学方程控制。模型采用前馈神经网络，将时空坐标映射为机械位移和电势，并通过三阶段损失优化提高求解效果。结果显示，位移和电势的全局相对 L2 误差分别约为 2.34% 和 4.87%，表明 PINN 可作为耦合含时偏微分方程的无网格求解器，但在误差累积和耦合本征值系统刚性方面仍存在挑战。]]></description>
+arXiv:2602.13811v2 Announce Type: replace-cross Abstract: Physics-Informed Neural Networks present a novel approach in SciML that integrates physical laws in the form of partial differential equations directly into the NN through soft constraints in the loss function. This work studies the application of PINNs to solve a one dimensional coupled electro-elastodynamic system modeling linear piezoelectricity in stress-charge form, governed by elastodynamic and electrodynamic equations. Our simulation employs a feedforward architecture, mapping space-time coordinates to mechanical displacement and electric potential. Our PINN model achieved global relative L2 errors of 2.34 and 4.87 percent for displacement and electric potential respectively. The results validate PINNs as effective mesh free…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2602.13811</guid>
     </item>
@@ -151,26 +151,15 @@ Author(s): Adam Hložný, Jozef Haniš, Martin Gmitra, and Marko Milivojević Id
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/7zvs-rnmt</guid>
     </item>
     <item>
-        <title>南亚大气变化的仿真替代建模：深度学习模型框架与比较</title>
+        <title>Emulating the South Asian Atmospheric Variations: Framework and Inter-Comparison of Deep Learning Models</title>
         <link>https://www.researchsquare.com/article/rs-10393479/latest</link>
         <description><![CDATA[📚 Preprints
 
 👤 S Harithasree, Parishi Shah, Akash Ganguly, Imran Girach, Narendra Ojha
 
-该研究构建了一个用于模拟南亚区域大气变化的深度学习替代模型框架，以降低传统 WRF-Chem 化学输送模拟的计算成本。作者使用 ERA5 气象场和 CAM-Chem 化学场作为输入，训练 CNN、ConvLSTM 以及两种 U-Net 结构，以仿真温度、比湿、地表臭氧和 PM2.5 等 WRF-Chem 输出。结果显示模型能较好捕捉气象变量，但对化学成分和气溶胶的仿真难度更高，体现了不同架构在区域大气替代建模中的性能差异。]]></description>
+High-resolution atmospheric simulations including the meteorological variables, trace gases, and aerosols are essential for weather, climate, and air quality assessments. However, systematic observations are often limited in developing regions, while the high computational cost of conventional chemistry-transport models restricts their frequent applications. Here, we design a framework for emulating the atmospheric variations over South Asia, computed from regional model - Weather Research and Forecasting model coupled with Chemistry (WRF-Chem). Four different DL architectures: convolutional neural network (CNN), convolutional long short-term memory network (ConvLSTM), and two U-Net configurations (3blk, 4blk) have been trained with > 1000 WRF-Chem frames for the summer conditions. The fr…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10393479/latest</guid>
-    </item>
-    <item>
-        <title>用于端侧机器学习的全传感智能眼镜平台</title>
-        <link>https://arxiv.org/abs/2607.16222</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Andrea Giudici, Christian Veronesi, Pietro Bartoli, Mario Caliò, Aurelio Teliti, Giacomo Gervasoni, Diana Trojaniello, Franco Zappa
-
-该论文提出ARGO智能眼镜平台，旨在兼顾佩戴舒适性、高计算吞吐和能效，并通过STM32N6微控制器及其神经处理单元实现本地机器学习，降低延迟并保护隐私。作者围绕硬件、固件和人工智能进行协同设计，部署经优化的YOLOv11模型用于实时城市障碍物识别，并提出Head-wise Parallel Attention以适配目标加速器。平台集成RGB相机、飞行时间传感器、麦克风和环境传感器，在严格内存约束下实现了较小模型占用和实时感知能力。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.16222</guid>
     </item>
     <item>
         <title>用于平面光学中最优光束整形的物理信息神经网络</title>
@@ -305,17 +294,6 @@ Author(s): Adam Hložný, Jozef Haniš, Martin Gmitra, and Marko Milivojević Id
         <guid isPermaLink="true">https://arxiv.org/abs/2510.07996</guid>
     </item>
     <item>
-        <title>铁磁共振的光磁非热调控</title>
-        <link>https://arxiv.org/abs/2604.07555</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Nika Gribova, Anatoly Zvezdin, Shixun Cao, Vladimir Belotelov
-
-该文研究线偏振光通过反 Cotton-Mouton 效应在磁体中引起的铁磁共振频率光致偏移。作者采用磁化动力学的拉格朗日描述，推导了面内和面外平衡构型下的共振频率解析表达式。结果表明，共振频率取决于光的偏振角和传播方向，且该非热光磁效应可超过热效应，并与数值模拟和铋掺杂钇铁石榴石实验数据相符。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2604.07555</guid>
-    </item>
-    <item>
         <title>部分翻转纤锌矿铁电体中长达三百万年的反向态数据保持</title>
         <link>https://arxiv.org/abs/2607.16665</link>
         <description><![CDATA[📚 arXiv
@@ -338,13 +316,13 @@ Author(s): Adam Hložný, Jozef Haniš, Martin Gmitra, and Marko Milivojević Id
         <guid isPermaLink="true">https://www.nature.com/articles/s41928-026-01673-6</guid>
     </item>
     <item>
-        <title>Co 掺杂 Fe5GeTe2 外延单层中的高温铁磁性</title>
+        <title>High Temperature Ferromagnetism in Epitaxial Monolayers of Co-Doped Fe₅GeTe₂</title>
         <link>http://link.aps.org/doi/10.1103/j5rj-f4w4</link>
         <description><![CDATA[📚 Phys. Rev. Lett.
 
 👤 Jules Courtin, Fatima Ibrahim, Davide Benettin, Djordje Dosenovic, Roberto Sant, Pâmella Vasconcelos Borges Pinho, Vincent Polewczyk, Alain Marty, Isabelle Gomes de Moraes, Matthieu Jamet, Denis Jalabert, Fadi Choueikani, Philippe Ohresser, Nicholas B. Brookes, Hanako Okuno, Mairbek Chshiev, and Frédéric Bonell
 
-本文研究 Co 掺杂 Fe5GeTe2 外延单层中的铁磁性，聚焦二维范德华磁体在原子级薄膜极限下实现高温磁有序的可能性。现有范德华磁体多研究于块体或少层薄片，单层样品制备困难，且通常长程磁有序温度低于约 150 K。该工作表明通过外延生长和化学掺杂调控，有望提升单层范德华磁体的磁性工作温度，具体实验细节和性能指标需查阅原文。]]></description>
+Author(s): Jules Courtin, Fatima Ibrahim, Davide Benettin, Djordje Dosenovic, Roberto Sant, Pâmella Vasconcelos Borges Pinho, Vincent Polewczyk, Alain Marty, Isabelle Gomes de Moraes, Matthieu Jamet, Denis Jalabert, Fadi Choueikani, Philippe Ohresser, Nicholas B. Brookes, Hanako Okuno, Mairbek Chshiev, and Frédéric Bonell Magnetic van der Waals materials have mainly been investigated in their bulk form or as few-layer flakes. Because of the challenges in producing atomically thin films, only a few have been isolated as monolayers, which typically exhibit long-range magnetic order below 150 K. In this Letter, we use m… [Phys. Rev. Lett. 137, 046703] Published Tue Jul 21, 2026]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/j5rj-f4w4</guid>
     </item>
@@ -358,37 +336,26 @@ Author(s): Adam Hložný, Jozef Haniš, Martin Gmitra, and Marko Milivojević Id
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S1369702126002713?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>面向人工智能无人机检测系统的紧凑型卷积神经网络</title>
+        <title>Compact convolutional neural networks for AI-based drone detection system</title>
         <link>https://arxiv.org/abs/2607.16455</link>
         <description><![CDATA[📚 arXiv
 
 👤 Gábor Farkas, Gábor Fazekas, Karakai Patrik, András Németh, Gábor Farkas
 
-该研究面向第一视角无人机在复杂电磁环境中的早期探测，利用其机载视频发射机产生的射频辐射信号进行自动检测。作者将软件定义无线电采集的信号样本转换为栅格化时域图像，并设计多种轻量级卷积神经网络，在约4万张标注图像上比较准确率、模型大小和推理性能。模型还被集成到 GNU Radio 信号处理链中进行实时评估，结果表明紧凑模型可在低计算开销下实现较高检测精度，适合嵌入式应用。]]></description>
+arXiv:2607.16455v1 Announce Type: new Abstract: The increasing use of first-person-view drones in modern conflicts has created a demand for compact and reliable detection systems capable of operating in complex electromagnetic environments. These drones continuously transmit video signals through onboard video transmitters, generating radio-frequency emissions that can be exploited for early detection. This study investigates the use of lightweight convolutional neural networks for automated detection of drone signals captured by a software-defined radio-based electronic warfare framework. Samples are converted into rasterized time-domain images, providing a computationally efficient input representation suitable for embedded systems. Several custom model architectures were designed and b…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16455</guid>
     </item>
     <item>
-        <title>用于构网型逆变器电磁暂态级替代建模的神经受控微分方程</title>
+        <title>Neural Controlled Differential Equations for EMT-Level Surrogate Modeling of Grid-Forming Inverters</title>
         <link>https://arxiv.org/abs/2607.16258</link>
         <description><![CDATA[📚 arXiv
 
 👤 Jiagang Qu, Yong Tao, Dan Wang, Enyi Li, Jingjing Qi, Ding Wang
 
-该论文提出基于神经受控微分方程的连续时间替代建模框架，用于构网型逆变器的电磁暂态仿真，以缓解固定采样率限制并支持多时间尺度控制分析。作者进一步设计了具有快慢双通道的仿射控制结构，以刻画电力电子变换器的层级化、多尺度动态，并引入物理启发正则化提升稳定性和一致性。基于EMT轨迹的评估表明，该模型能够较准确复现暂态响应、保持有效阻尼和主导振荡特征，并在长时域滚动预测中保持有界。]]></description>
+arXiv:2607.16258v1 Announce Type: new Abstract: The application of artificial intelligence methods in power electronic converter modeling is becoming increasingly widespread, but existing applications still face many challenges, such as difficulties in multi-time-scale hybrid analysis and the lack of physics-aware evaluation criteria and constraints, resulting in poor performance. This paper proposes a Neural Controlled Differential Equation (Neural CDE) framework for learning continuous-time surrogate models of grid-forming inverters for electromagnetic transient (EMT) simulation, which relaxes the constraint of fixed sampling rates and enables multi-time-scale control analysis. Then, an affine-control formulation with dual slow/fast pathways is proposed to capture the hierarchical and m…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16258</guid>
-    </item>
-    <item>
-        <title>理解大脑深层功能的一种创新视角：闭合神经网络几何的共振假说</title>
-        <link>https://www.researchsquare.com/article/rs-10396887/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Hasan Niazi
-
-该理论论文提出“闭合神经网络几何共振”（RCNNG）框架，将感知与意识解释为循环神经回路中共振动力学的内禀属性。作者认为，具有时间结构的感觉输入可诱导形成物理实现的闭合神经几何，其共振谱反映输入的时间—频谱结构；感知相似性并不依赖物理结构的几何或拓扑相似，而源于更高维共振状态空间中的相同共振身份。该框架试图为稳定且可重复的知觉状态如何由神经动力学产生提供一种机制性解释。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10396887/latest</guid>
     </item>
     <item>
         <title>悬浮铁磁陀螺仪的量子动力学</title>
@@ -424,13 +391,13 @@ Author(s): S. H.-Y. Huang, S. Petit, B. Yuan, Z. W. Cronkwright, C. Pinvidic, Y.
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/9wx4-qd4h</guid>
     </item>
     <item>
-        <title>通过 CrI₃ 纳米带局域边缘应变增强拓扑磁振子驱动的自旋流</title>
+        <title>Enhancement of topological magnon-driven spin currents through local edge strain in CrI₃ nanoribbons</title>
         <link>http://link.aps.org/doi/10.1103/lb9h-yb5j</link>
         <description><![CDATA[📚 Phys. Rev. Materials
 
 👤 David Sanz Ruiz and David Soriano
 
-该研究考察了锯齿形 CrI₃ 纳米带中边缘应变对拓扑磁振子输运的影响。作者利用第一性原理计算获得应变下的交换耦合参数，并通过次近邻 Dzyaloshinskii-Moriya 相互作用引入拓扑性质。结果表明，局域边缘应变可用于调控并增强磁振子驱动的自旋流。]]></description>
+Author(s): David Sanz Ruiz and David Soriano This work describes topological magnon transport in zigzag CrI₃ nanoribbons in the presence of edge strain. Exchange coupling terms under strain are obtained from first-principles calculations and the topological properties are introduced via second-neighbor Dzyaloshinskii-Moriya int… [Phys. Rev. Materials 10, 074005] Published Tue Jul 21, 2026]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/lb9h-yb5j</guid>
     </item>
@@ -446,6 +413,50 @@ Author(s): Zefei Han, Haojin Wang, and Yuanchang Li Much is known about the magn
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/29w5-wf3b</guid>
     </item>
     <item>
+        <title>Bipolarized Weyl semimetals and quantum crystal valley Hall effect in two-dimensional altermagnetic materials</title>
+        <link>http://link.aps.org/doi/10.1103/b7cy-vpmr</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Chao-Yang Tan, Ze-Feng Gao, Huan-Cheng Yang, Kai Liu, Peng-Jie Guo, and Zhong-Yi Lu
+
+Author(s): Chao-Yang Tan, Ze-Feng Gao, Huan-Cheng Yang, Kai Liu, Peng-Jie Guo, and Zhong-Yi Lu Magnetism and topology are two major areas of condensed matter physics. The combination of magnetism and topology gives rise to more novel physical effects, which have attracted strongly theoretical and experimental attention. Recently, the concept of altermagnetism has been introduced, characterize… [Phys. Rev. B 114, 055125] Published Tue Jul 21, 2026]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/b7cy-vpmr</guid>
+    </item>
+    <item>
+        <title>Enhanced anisotropy in magnetism and spin decay in slightly Ni-doped van der Waals ferromagnet Fe₅GeTe₂</title>
+        <link>http://link.aps.org/doi/10.1103/wpgr-lv1t</link>
+        <description><![CDATA[📚 Phys. Rev. Applied
+
+👤 Yang Yang, Wei Liu, Fanying Meng, Jingjing Ma, Aina Wang, Min Ge, Xuguang Liu, Jun Zhao, Zhe Qu, and Lei Zhang
+
+Author(s): Yang Yang, Wei Liu, Fanying Meng, Jingjing Ma, Aina Wang, Min Ge, Xuguang Liu, Jun Zhao, Zhe Qu, and Lei Zhang Two-dimensional (2D) van der Waals (vdW) ferromagnet Fe₅GeTe₂ (F5GeT2) is a promising candidate for spintronic applications due to its intrinsic near-room-temperature ferromagnetism, magnetic anisotropy, excellent tunability, and emergent topological magnetic textures. Howe… [Phys. Rev. Applied 26, 014061] Published Tue Jul 21, 2026]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/wpgr-lv1t</guid>
+    </item>
+    <item>
+        <title>Magnetic-field-induced topological transitions of spin textures in ferrimagnetic Gd/Fe thin films</title>
+        <link>http://link.aps.org/doi/10.1103/t253-8yj1</link>
+        <description><![CDATA[📚 Phys. Rev. Applied
+
+👤 T. Schmidt, S. Koraltan, T. Niermann, L. Niermann, D. Suess, and M. Albrecht
+
+Author(s): T. Schmidt, S. Koraltan, T. Niermann, L. Niermann, D. Suess, and M. Albrecht Magnetic skyrmions are topologically distinct spin textures that hold significant potential for applications in information storage and processing. In this study, we investigate the transformation of various dipolar-stabilized spin textures present in amorphous ferrimagnetic Gd/Fe multilayers under … [Phys. Rev. Applied 26, 014060] Published Tue Jul 21, 2026]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/t253-8yj1</guid>
+    </item>
+    <item>
+        <title>Ho3+ 取代 Ni–Zn–Co 纳米铁氧体的结构、磁性与辐射屏蔽性能</title>
+        <link>https://www.researchsquare.com/article/rs-10326276/latest</link>
+        <description><![CDATA[📚 Preprints
+
+👤 M. Sadeq, Fiasl Anzy, ABeer Ghamdy, MOhammed Abdo
+
+该研究通过柠檬酸盐燃烧法制备 Ni0.4Zn0.3Co0.3HoxFe2−xO4 纳米铁氧体，并系统考察 Ho3+ 掺杂对其结构、磁性和辐射屏蔽性能的影响。XRD 结果表明所有组成均形成单相立方尖晶石结构，随着 Ho3+ 含量增加，晶格参数非线性增大而晶粒尺寸减小。磁性测试显示饱和磁化强度和矫顽力随 Ho3+ 掺入而增强，这与八面体—四面体超交换作用增强和磁晶各向异性提高有关，同时材料的高频应用潜力和电离辐射衰减能力也得到改善。]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10326276/latest</guid>
+    </item>
+    <item>
         <title>用于相互作用玻色子开放量子动力学的神经规范-P表象</title>
         <link>https://arxiv.org/abs/2607.17534</link>
         <description><![CDATA[📚 arXiv
@@ -457,26 +468,26 @@ Author(s): Zefei Han, Haojin Wang, and Yuanchang Li Much is known about the magn
         <guid isPermaLink="true">https://arxiv.org/abs/2607.17534</guid>
     </item>
     <item>
-        <title>开放量子系统中谱密度函数的学习</title>
-        <link>https://arxiv.org/abs/2602.24056</link>
+        <title>Quantum critical origin of strange-metals at the end of a pseudogap phase in infinite-layer nickelates</title>
+        <link>https://arxiv.org/abs/2510.12786</link>
         <description><![CDATA[📚 arXiv
 
-👤 Felipe Peleteiro, João Victor Shiguetsugo Kawanami Lima, Pedro Marcelo Prado, Felipe Fernandes Fanchini, Ariel Norambuena
+👤 C. Iorio-Duval, E. Beauchesne-Blanchet, F. Perreault, J. L. Santana González, S. Üstün Kaykusuz, W. Sun, D. Graf, Y. F. Nie, A. Gourgout, G. Grissonnanche
 
-谱密度函数刻画环境模与量子系统的耦合，并决定开放量子系统的动力学；从时域测量反演其频率依赖形式是病态逆问题。本文利用可精确求解的自旋-玻色子模型，在纯退相干和振幅阻尼通道中从含噪模拟数据重构谱密度函数。作者提出基于机器学习回归的参数估计方法，并结合余弦变换反演与受约束神经网络，以保证正性和正确渐近行为，从而稳健地恢复结构化谱密度。]]></description>
+arXiv:2510.12786v2 Announce Type: replace Abstract: The quantum-critical origin of strange metals remains debated, particularly in cuprates where T-linear resistivity emerges at the end of the pseudogap phase, a regime without long-range order whose nature remains one of the largest mysteries of quantum materials~i̧teMichon2019Thermodynamic, zhong₂₀₂₂. Superconducting infinite-layer nickelates provide a new platform to revisit this issue, given their close similarities to cuprates. Here too, T-linear resistivity onsets at a critical doping x^star near the middle of the superconducting dome. Establishing whether x^star is a quantum critical point (QCP) -- a zero-temperature phase transition -- typically relies on the electronic specific heat Cₘ̊ ₑₗ, which follows Cₘ̊ ₑₗ/T propto łog(T) at…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2602.24056</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2510.12786</guid>
     </item>
     <item>
-        <title>从费米子谱进行全息学习：在奇异金属现象学中的应用</title>
-        <link>https://arxiv.org/abs/2607.02861</link>
+        <title>铁离子二维材料赋能的可编程光子学</title>
+        <link>https://arxiv.org/abs/2607.18061</link>
         <description><![CDATA[📚 arXiv
 
-👤 Hong-Zhi Xiao, Zhan-Zhi He, Zhuo-Yu Xian, Shao-Feng Wu
+👤 Ghada Dushaq, Srinivasa R Tamalampudiand, Solomon Serunjogi, Mahmoud Rasras
 
-本文提出一种基于神经常微分方程的数据驱动框架，用边界费米子谱函数学习静态平面对称黑洞的有效体度规函数以及带电荷权重的规范势。该方法先在 Einstein–Maxwell 和 Gubser–Rocha 模型中验证了较高精度，随后在半全息框架下应用于铜氧化物奇异金属的节点谱现象学。作者指出无质量探针费米子对共形因子不敏感，从而带来坐标/Weyl 冗余，而谱归一化还会引入缩放 Hawking 温度的简并性；在识别这些非唯一性后，低温近最优掺杂情形可由一族接近共形 AdS2×R2 黑洞类的有效几何描述。]]></description>
+该文讨论铁离子二维材料在可编程光子学中的潜力，背景是人工智能计算对低能耗、低延迟光神经网络硬件的需求不断增长。与传统铁电材料不同，铁离子体系可通过电场驱动离子重新分布，实现连续、稳定且可重构的多级状态。作者概述了这些材料动力学如何用于非易失光相位控制和多级光子态，并指出其后端集成有望带来可调非线性等多功能特性。]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.02861</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.18061</guid>
     </item>
     <item>
         <title>Tearing mode instability prediction in EAST tokamak using multi-task contrastive learning and multimodal diagnostics</title>
@@ -490,26 +501,48 @@ Accurate prediction of tearing-mode (TM) characteristics from heterogeneous diag
         <guid isPermaLink="true">https://iopscience.iop.org/article/10.1088/2632-2153/ae894d</guid>
     </item>
     <item>
-        <title>通过虚拟传感与物理信息学习连接电池设计和健康评估</title>
+        <title>Bridging battery design and health assessment through virtual sensing and physics-informed learning</title>
         <link>https://arxiv.org/abs/2607.16864</link>
         <description><![CDATA[📚 arXiv
 
 👤 Wendi Guo, Søren Byg Vilsen, Daniel Ioan Stroe, Yaqi Li, Yicun Huang, Ashima Verma, Daniel Brandell
 
-该论文提出一种结合虚拟传感的物理信息学习框架，用于从标准电池管理系统测量中推断难以直接测量的锂离子电池设计参数，如固态扩散系数、电极厚度、离子浓度和颗粒尺寸。作者将数字孪生得到的颗粒开裂机制作为软约束嵌入模型，在多种快充策略和驾驶工况下，相比先进机器学习基线显著降低轨迹和寿命预测误差，并且仅需少量早期寿命观测。研究强调，准确的退化外推不一定依赖完整控制方程，经过验证的局部机理与数据联合优化即可提升可解释健康评估和电池设计能力。]]></description>
+arXiv:2607.16864v1 Announce Type: new Abstract: Supercharging of lithium-ion batteries (LiBs) requires robust health monitoring to ensure durability, safety, and user confidence, particularly for emerging vehicle-to-grid applications with bidirectional energy flows. Yet battery management remains largely disconnected from the material and structural origins of aging, limiting both interpretable health assessment and informed battery design. Here we propose a physics-informed learning framework with virtual sensing that infers hard-to-measure design parameters, including solid-state diffusion coefficient, electrode thickness, ion concentration, and particle size, directly from standard battery management system (BMS) measurements. Across diverse fast-charging strategies and driving profile…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16864</guid>
     </item>
     <item>
-        <title>FlashPDE：面向神经偏微分方程求解器的即插即用融合 Triton 算子库</title>
+        <title>FlashPDE: A Drop-in Fused Triton Operator Library for Neural PDE Solvers</title>
         <link>https://arxiv.org/abs/2607.18020</link>
         <description><![CDATA[📚 arXiv
 
 👤 Peiyu Zang, Bosen Xie, Ruoxiang Xu, Yongqiang Cai
 
-该论文提出 FlashPDE，一个面向网格科学机器学习的即插即用融合算子库，用于缓解物理信息神经网络在大规模 PDE 问题中面临的自动微分内存开销和网格算子执行低效问题。FlashPDE 用可微 Triton 内核替代碎片化的 PyTorch 有限差分执行，并在统一的 torch.autograd.Function 接口中融合模板计算、解析离散伴随反向传播和边界梯度修正。该库覆盖 1D 至 3D 椭圆、抛物和 Navier–Stokes 系统的多种可微 PDE 算子；在 A100 GPU 上，相比坐标自动微分显著降低峰值内存，并减少相对 eager PyTorch 有限差分实现的 CUDA 内核启动次数。]]></description>
+arXiv:2607.18020v1 Announce Type: new Abstract: Physics-Informed Neural Networks (PINNs) solve PDEs by incorporating physical constraints into neural-network training, but large-scale problems are limited by automatic-differentiation memory overhead and inefficient execution of grid-based PDE operators. We present FlashPDE, a drop-in fused operator library for grid-based scientific machine learning. FlashPDE replaces fragmented PyTorch finite-difference execution with differentiable Triton kernels. Each operator integrates fused stencil evaluation, an analytic discrete-adjoint backward pass, and boundary-gradient correction within a unified torch.autograd.Function interface. The library provides 14 differentiable PDE operators covering 17 configurations across 1D--3D elliptic, parabolic,…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.18020</guid>
+    </item>
+    <item>
+        <title>Structural and Vibrational Properties of D₃Se from First Principles: Anharmonic Quantum and Isotope Effects</title>
+        <link>https://arxiv.org/abs/2607.18095</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Wenjie Ma, Yao Ma, Mi Pan, Pugeng Hou, Francesco Belli
+
+arXiv:2607.18095v1 Announce Type: new Abstract: Hydrogen-rich superconductors have garnered considerable interest following the discovery of hot superconductivity in high pressure H₃S, reviving prospects for room temperature superconductors under high-pressures. Using H₃Se as a reference system, we investigate the vibrational and superconducting properties of D₃Se in the Imbar3m phase across 60-200 GPa by combining first-principles calculations with the stochastic self-consistent harmonic approximation to treat ionic quantum and anharmonic effects. These effects introduce significant renormalization to the phonon spectra and stabilize the lattice down to at least 70 GPa, well below the harmonic prediction of >110 GPa. Ultimately, the phonon renormalizations alter the electron-phonon coupl…]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.18095</guid>
+    </item>
+    <item>
+        <title>Layer-engineered quantum anomalous Hall effect in twisted rhombohedral graphene</title>
+        <link>https://arxiv.org/abs/2601.14014</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zhangyuan Chen, Naitian Liu, Jiannan Hua, Hanxiao Xiang, Wenqiang Zhou, Jing Ding, Xinjie Fang, Linfeng Wu, Le Zhang, Qianmei Chen, Xuanyu Chen, Kenji Watanabe, Takashi Taniguchi, Na Xin, Wei Zhu, Shuigang Xu
+
+arXiv:2601.14014v2 Announce Type: replace Abstract: Realizing programmable topological states in quantum anomalous Hall (QAH) insulators requires the ability to design and dynamically tune their topological invariant, the Chern number C. Here, we report a designer QAH platform based on twisted rhombohedral graphene family, in which C becomes a programmable and electrically tunable degree of freedom. By engineering the layer configuration in twisted monolayer-rhombohedral N-layer graphene, denoted as (1+N)L, we realize QAH states with C=N at moire filling v=1, where the layer number N=3,4,5 directly sets the Chern number. Beyond such static layer programming, we demonstrate in-situ electrical control. In a twisted monolayer-trilayer device, the sign of C (chirality) can be switched by elec…]]></description>
+        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2601.14014</guid>
     </item>
     <item>
         <title>网络上高阶SIS流行病模型的原则性闭合框架</title>
@@ -534,37 +567,15 @@ Accurate prediction of tearing-mode (TM) characteristics from heterogeneous diag
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16445</guid>
     </item>
     <item>
-        <title>面向抗 DDoS 量子网络的智能引导自适应纯化：基于 CUDA-Q 的研究</title>
+        <title>Intelligence-Guided Adaptive Purification for DDoS-Resilient Quantum Networks: A CUDA-Q based Study</title>
         <link>https://arxiv.org/abs/2607.16276</link>
         <description><![CDATA[📚 arXiv
 
 👤 Santanu Ganguly
 
-本文研究量子中继网络中的自适应纠缠纯化控制，目标是在纠缠生成率、端到端保真度、纯化开销和存储延迟之间取得平衡，并考虑经典控制平面遭受网络异常或拒绝服务流量影响的情形。作者构建 CUDA-Q 与 SeQUeNCe 的联合仿真流程，用噪声量子内核估计基本纯化和交换行为，并用事件层模型刻画随机链路生成、存储衰减、纯化失败与端到端交换。在 8 节点链中，资源惩罚的风险感知预测策略相较固定纯化提高了达标交付概率，同时降低延迟和纯化开销。]]></description>
+arXiv:2607.16276v1 Announce Type: cross Abstract: Quantum-repeater networks require adaptive control policies that balance entanglement generation rate, end-to-end fidelity, purification overhead, and memory-induced latency. This tradeoff becomes more complex when the classical control plane is degraded by cyber anomalies or denial-of-service traffic. We develop a CUDA-Q/SeQUeNCe co-simulation workflow for studying adaptive entanglement purification in heterogeneous linear repeater chains. CUDA-Q noisy quantum kernels are used to estimate primitive entanglement purification and swapping behavior, while SeQUeNCe provides an event-layer model for stochastic link generation, waiting-time-dependent memory decay, purification failure, and end-to-end swapping. Under stationary conditions, we co…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16276</guid>
-    </item>
-    <item>
-        <title>通量—规范面积律的量子完备化：从 SU(N) 自旋网络到全息纠缠</title>
-        <link>https://www.researchsquare.com/article/rs-10403639/latest</link>
-        <description><![CDATA[📚 Preprints
-
-👤 Mohammad Hannan
-
-该论文围绕一种将定义在动态图链路上的禁闭非阿贝尔 SU(N) 规范连接作为经典时空几何微观起源的方案展开。已有构造可通过组合微态计数得到黑洞和边界割熵，并与全息纠缠熵的比特线程最大流—最小割表述相匹配，但这种匹配本身并未证明特定量子态的纠缠熵。本文旨在弥合这一缺口，重述通量—规范连接系综、重整化粗粒化、涌现度规与牛顿常数识别，并尝试将组合面积律提升为与量子波函数和纠缠结构相关的推导。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10403639/latest</guid>
-    </item>
-    <item>
-        <title>Building2Building：面向可泛化真实世界强化学习的大规模基准</title>
-        <link>https://arxiv.org/abs/2607.16534</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Vincent Taboga, Justin Veilleux, Doseok Jang, Anushree Rankawat, Pierre-Luc Bacon
-
-该论文提出 Building2Building（B2B），一个基于 EnergyPlus 建筑仿真器的大规模真实 HVAC 控制环境套件，用于研究强化学习在真实场景中的泛化能力。B2B 兼容 Gymnasium 接口，并提供参数化建筑生成器，可系统生成具有异构观测空间和动作空间的多样建筑配置。作者据此定义了目标适应、动力学适应、动作空间变化和跨域迁移等基准任务，为强化学习的迁移、多任务和元学习研究提供标准化测试平台。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.16534</guid>
     </item>
     <item>
         <title>RuNNer 2.0：用于高维神经网络势的软件套件</title>
@@ -589,57 +600,46 @@ Accurate prediction of tearing-mode (TM) characteristics from heterogeneous diag
         <guid isPermaLink="true">https://arxiv.org/abs/2607.17297</guid>
     </item>
     <item>
-        <title>RELIC：多智能体规划中通过显露原则学习可解释可组合技能</title>
+        <title>RELIC: Revealed Principles for Learning Interpretable Composable Skills in Multi-Agent Planning</title>
         <link>https://arxiv.org/abs/2607.16745</link>
         <description><![CDATA[📚 arXiv
 
 👤 Nguyen Viet Tuan Kiet, Bui Dinh Pham, Duong Quoc Chinh, Dao Van Tung, Tran Cong Dao, Huynh Thi Thanh Binh
 
-本文关注多智能体在保持内部实现私有的同时改进专门决策技能并进行协作的问题。RELIC 框架让每个智能体通过私有的 LLM 引导搜索改进自身程序化技能，同时由可信编排器仅依据团队层面表现评估更新。成功行为不会以代码形式共享，而是抽象为可迁移的原则，供其他智能体在自身接口中实例化并与本地策略组合，从而在异构技能签名和隐私约束下实现跨智能体迁移。]]></description>
+arXiv:2607.16745v1 Announce Type: new Abstract: Multi-agent planning becomes substantially harder when agents must improve specialized decision-making skills while keeping their internal implementations private. This regime arises when agents are developed independently, expose different interfaces and capabilities, and must nevertheless coordinate without sharing executable policies. Prior research has largely assumed centralized optimization, shared policy access, or common skill representations, making it poorly suited to privacy-constrained cooperation. We introduce RELIC, a framework for learning interpretable and composable skills via revealed principles. Each agent refines its own programmatic skill through private LLM-guided search, while a trusted orchestrator evaluates proposed…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16745</guid>
     </item>
     <item>
-        <title>面向边缘设备低延迟 EEG 分类的可微逻辑门网络</title>
-        <link>https://arxiv.org/abs/2607.18149</link>
+        <title>Building2Building: A Large Scale Benchmark for Generalizable Real-World Reinforcement Learning</title>
+        <link>https://arxiv.org/abs/2607.16534</link>
         <description><![CDATA[📚 arXiv
 
-👤 Shyamal Y. Dharia, Stephen D. Smith, Camilo E. Valderrama
+👤 Vincent Taboga, Justin Veilleux, Doseok Jang, Anushree Rankawat, Pierre-Luc Bacon
 
-该研究探索可微逻辑门网络（Diff-Logic）作为传统神经网络的硬件原生替代方案，用于边缘设备上的实时 EEG 分类，并可将模型编译为通过按位 CPU 操作执行的纯布尔电路。作者在四个 EEG 数据集、两个分类任务和四个参数规模层级上，将 Diff-Logic 与等容量 MLP 和二值神经网络基线进行严格比较。在痴呆筛查任务中，Diff-Logic 的 Macro F1 优于 MLP；在情绪识别中，MLP 仍有一定性能优势，但在低功耗 Jetson Orin Nano CPU 部署时延迟更高、模型更大。结果表明 Diff-Logic 的推理时间随模型规模增长几乎保持稳定，在最大规模层级相对 MLP 获得明显加速。]]></description>
+arXiv:2607.16534v1 Announce Type: new Abstract: Reinforcement learning (RL) has achieved strong results in control, yet learned policies remain brittle to changes in dynamics, action spaces, observation spaces, or goals, a critical limitation for real-world deployment. Existing benchmarks offer limited diversity and complexity, making it difficult to rigorously study transfer, multi-task learning, and meta-learning in RL. We introduce Building2Building (B2B), a large-scale suite of realistic Heating, Ventilation, and Air Conditioning (HVAC) control environments built on EnergyPlus, a state-of-the-art building simulator. B2B is fully compatible with the Gymnasium interface and features a parametric building generator, enabling the systematic generation of diverse building configurations wi…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.18149</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.16534</guid>
     </item>
     <item>
-        <title>Cu-Ni-Si-Mn 合金中的析出相选择与晶界形貌：基于机器学习原子间势的研究</title>
-        <link>https://arxiv.org/abs/2606.09023</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Aadil Fayaz Wani, Il-Seok Jeong, Haekwan Jeon, Jaesun Kim, SuDong Park, Eun-Ae Choi, Seung Zeon Han, Seungwu Han, Byungki Ryu
-
-该文利用机器学习原子间势计算，研究 Cu-Ni-Si 合金中 Mn 添加对晶界析出相选择和形貌的影响。计算在界面成键和微结构构型能量方面达到接近 DFT 的可靠性，并预测 Mn 添加会促进晶界处 Mn₆Ni₁₆Si₇（G 相）而非 Ni₂Si 的析出。结合实验观察，Mn-free 合金中 Ni₂Si 析出物形貌不规则，而 Mn 添加合金中 G 相更倾向形成膜状析出，这有助于解释其力学性能差异。]]></description>
-        <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2606.09023</guid>
-    </item>
-    <item>
-        <title>面向阿尔及利亚住宅建筑早期能耗快速预测的 AI-BIM 集成框架：基于随机森林与 XGBoost 的机器学习方法</title>
+        <title>An AI–BIM Integrated Framework for Rapid Early-Stage Energy Performance Prediction in Algerian Residential Buildings: A Machine Learning Approach Using Random Forest and XGBoost</title>
         <link>https://www.researchsquare.com/article/rs-10397923/latest</link>
         <description><![CDATA[📚 Preprints
 
 👤 BESSAI Hadjer
 
-该研究面向阿尔及利亚住宅建筑设计早期能效评估，提出一种 AI-BIM 集成框架，为建筑师提供即时能耗反馈。作者基于 Revit 和 OpenStudio 生成 864 个参数化设计情景，覆盖朝向、窗墙比、保温水平以及阿尔及利亚不同气候区，并训练随机森林和 XGBoost 回归模型预测建筑能耗。模型通过自定义 pyRevit 扩展部署到建模界面中，用于在概念设计阶段快速替代复杂热工模拟并支持可持续设计决策。]]></description>
+Building energy efficiency remains a critical challenge, as early-stage architectural decisions significantly dictate long-term performance, yet traditional simulation tools are often too cumbersome for rapid conceptual iterations. This research addresses this gap by developing an AI-BIM integrated framework specifically for the Algerian residential context, aimed at providing architects in Algeria with instantaneous energy feedback. A parametric dataset of 864 design scenarios was generated using Revit and OpenStudio, varying key parameters such as building orientation, window-to-wall ratio, and insulation levels across distinct Algerian climatic zones, including Algiers and Ghardaïa. Based on this dataset, Random Forest and XGBoost regression models were trained to predict building ener…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-10397923/latest</guid>
     </item>
     <item>
-        <title>复杂空间过程的神经条件模拟</title>
+        <title>Neural Conditional Simulation for Complex Spatial Processes</title>
         <link>https://arxiv.org/abs/2508.20067</link>
         <description><![CDATA[📚 arXiv
 
 👤 Julia Walchessen, Andrew Zammit-Mangion, Raphaël Huser, Mikael Kuusela
 
-本文提出神经条件模拟（NCS），用于在给定部分观测空间场和过程参数的条件下，从未观测位置的预测分布中进行空间条件模拟。该方法基于条件得分扩散模型，通过空间掩码将高斯噪声逐步转化为预测分布样本，训练时仅需来自空间过程的无条件样本。训练完成后，模型可对观测值、观测数量与位置以及空间过程参数进行摊销式适配，从而服务于空间预测和不确定性量化。]]></description>
+arXiv:2508.20067v3 Announce Type: replace-cross Abstract: A key objective in spatial statistics is to simulate from the distribution of a spatial process at a selection of unobserved locations conditional on observations (i.e., a predictive distribution) to enable spatial prediction and uncertainty quantification. However, exact conditional simulation from this predictive distribution is intractable or inefficient for many spatial process models. In this paper, we propose neural conditional simulation (NCS), a general method for spatial conditional simulation that is based on neural diffusion models. Specifically, using spatial masks, we implement a conditional score-based diffusion model that evolves Gaussian noise into samples from a predictive distribution when given a partially observ…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2508.20067</guid>
     </item>
@@ -655,13 +655,13 @@ Accurate prediction of tearing-mode (TM) characteristics from heterogeneous diag
         <guid isPermaLink="true">https://arxiv.org/abs/2607.16606</guid>
     </item>
     <item>
-        <title>使用 NVIDIA RTX 神经着色器实现实时神经流体渲染的可行性评估</title>
+        <title>Assessing the Feasibility of Real-Time Neural FluidRendering Using NVIDIA RTX Neural Shaders</title>
         <link>https://www.researchsquare.com/article/rs-9463162/latest</link>
         <description><![CDATA[📚 Preprints
 
 👤 Srihari Acharya, Thotreithem Hongray
 
-该研究评估 NVIDIA RTX Neural Shaders 是否可用 GPU Tensor Core 加速的神经推理替代实时流体渲染中的传统顶点位移和像素着色逻辑。作者实现了双 MLP 管线：顶点着色器 MLP 用于基于波参数的网格变形，像素着色器 MLP 用于物理 BSDF 评估。结果表明，像素管线可快速收敛并在 RTX 4060 上以约 100 FPS 生成多种流体材质的视觉效果，但顶点管线受到框架限制，出现网格畸变、空白输出、网络规模受限和外部权重导入困难等问题。]]></description>
+Real-time fluid rendering requires balancing visual clarity with computational efficiency, traditionally achieved through manual mathematical shaders. Thiswork investigates whether NVIDIA’s RTX Neural Shaders (RTXNS) framework canreplace conventional vertex displacement and pixel shading logic in real-time fluidrendering pipelines using GPU Tensor Core accelerated neural inferencing. A dualMLP training pipeline was implemented: a vertex shader MLP for mesh-vertex displacement with wave parameter based deformation, and a pixel shader MLP forphysically-based BSDF evaluation. The pixel pipeline achieved successful convergence within seconds, producing visually accurate fluid appearance across diversematerials (water, oils, viscous fluids) at 100 FPS with 60–70 µs per-pixel inferenceon RTX 40…]]></description>
         <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://www.researchsquare.com/article/rs-9463162/latest</guid>
     </item>
