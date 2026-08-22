@@ -28,12 +28,17 @@ from link_utils import normalize_link
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile
 
 
-def _guarantee_daily_highlights(items: List[Dict]) -> int:
-    """Best-effort generation-time highlight completion; never breaks a report."""
-    try:
-        max_items = max(0, int(os.environ.get("AI_HIGHLIGHT_MAX_ITEMS", "60")))
-    except (TypeError, ValueError):
-        max_items = 60
+def _guarantee_daily_highlights(items: List[Dict], max_items: Optional[int] = None) -> int:
+    """Best-effort generation-time highlight completion; never breaks a report.
+
+    max_items=None → 读环境变量(单日默认预算);传入具体值 → 用它(供跨天全局预算)。"""
+    if max_items is None:
+        try:
+            max_items = max(0, int(os.environ.get("AI_HIGHLIGHT_MAX_ITEMS", "60")))
+        except (TypeError, ValueError):
+            max_items = 60
+    else:
+        max_items = max(0, int(max_items))
     if not items or max_items <= 0:
         return 0
     api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
@@ -53,12 +58,17 @@ def _guarantee_daily_highlights(items: List[Dict]) -> int:
         return 0
 
 
-def _enrich_daily_focus(items: List[Dict]) -> int:
-    """Best-effort focus-score coverage for the final daily set."""
-    try:
-        max_items = max(0, int(os.environ.get("AI_FOCUS_DAILY_MAX", "60")))
-    except (TypeError, ValueError):
-        max_items = 60
+def _enrich_daily_focus(items: List[Dict], max_items: Optional[int] = None) -> int:
+    """Best-effort focus-score coverage for the final daily set.
+
+    max_items=None → 读环境变量;传入具体值 → 用它(供跨天全局预算)。"""
+    if max_items is None:
+        try:
+            max_items = max(0, int(os.environ.get("AI_FOCUS_DAILY_MAX", "60")))
+        except (TypeError, ValueError):
+            max_items = 60
+    else:
+        max_items = max(0, int(max_items))
     if not items or max_items <= 0:
         return 0
     api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
@@ -76,6 +86,28 @@ def _enrich_daily_focus(items: List[Dict]) -> int:
     except Exception as exc:
         print(f"⚠️ focus 日报富化跳过: {exc}")
         return 0
+
+
+def _new_daily_enrich_budget() -> Dict[str, int]:
+    """整次 generate 调用的【全局】富化预算(跨天共享),避免 --days N 把 AI 调用放大 N 倍。"""
+    def _cap(name: str, default: str) -> int:
+        try:
+            return max(0, int(os.environ.get(name, default)))
+        except (TypeError, ValueError):
+            return int(default)
+    return {"hl": _cap("AI_HIGHLIGHT_MAX_ITEMS", "60"), "fs": _cap("AI_FOCUS_DAILY_MAX", "60")}
+
+
+def _apply_daily_enrichment(items: List[Dict], budget: Dict[str, int]) -> None:
+    """对单日 daily 集做一次富化(focus + 亮点),消耗共享全局预算(就地扣减)。"""
+    if not items:
+        return
+    if budget.get("fs", 0) > 0:
+        used = _enrich_daily_focus(items, max_items=budget["fs"]) or 0
+        budget["fs"] = max(0, budget["fs"] - used)
+    if budget.get("hl", 0) > 0:
+        used = _guarantee_daily_highlights(items, max_items=budget["hl"]) or 0
+        budget["hl"] = max(0, budget["hl"] - used)
 
 
 def beijing_today() -> str:
@@ -1057,9 +1089,10 @@ def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[D
     focused_articles, dropped_articles = filter_focus_items(raw_day_articles)
     focused_articles = sorted(focused_articles, key=focus_priority)
     daily_articles, overflow_articles = filter_daily_focus_items(focused_articles, min_keep=12, max_keep=60)
-    _enrich_daily_focus(daily_articles)
+    # AI 富化(focus/亮点)已移出本热函数:collect_daily_articles 在主循环(每天)+
+    # sync_daily_rss_feeds(每条最多 120 次)都会被调用,若在此调 AI 会把调用量放大到 ~124×
+    # 导致 generate step 撞 90min 超时。改在 main() 生成路径按【全局预算】每天调一次。
     daily_articles = sorted(daily_articles, key=lambda item: (priority_tier(item), focus_priority(item)))
-    _guarantee_daily_highlights(daily_articles)
     return {
         "raw_day_articles": raw_day_articles,
         "focused_articles": focused_articles,
@@ -1192,6 +1225,8 @@ def main():
         summarizer = None
 
     base_dt = datetime.strptime(date_str, "%Y-%m-%d")
+    # 跨天共享的【全局】富化预算:只在真正生成非空页时消耗,--days N 不再放大 AI 调用。
+    enrich_budget = _new_daily_enrich_budget()
     # Generate newest -> oldest to keep logs intuitive.
     for i in range(days):
         day_dt = base_dt - timedelta(days=i)
@@ -1241,6 +1276,10 @@ def main():
                         "focused_total": len(focused_articles),
                     }
                 else:
+                    # 富化(focus 覆盖 + 亮点保障)只在真正生成非空页时进行,按【全局预算】
+                    # 每天调一次(跳过的天不浪费 AI),然后按优先级重排。
+                    _apply_daily_enrichment(daily_articles, enrich_budget)
+                    daily_articles = sorted(daily_articles, key=lambda item: (priority_tier(item), focus_priority(item)))
                     if summarizer is None:
                         raise ValueError("AI_API_KEY is empty; cannot generate daily summary")
                     summary = summarizer.generate_daily_summary(daily_articles, day_str)

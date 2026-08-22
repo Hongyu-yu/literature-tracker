@@ -498,6 +498,54 @@ def test_collect_daily_articles_keeps_existing_fields_over_index():
     assert item.get("focus_score") == 5
 
 
+def test_collect_daily_articles_is_ai_free_even_with_key():
+    """回归护栏:collect_daily_articles 是热函数(主循环每天 + sync_daily_rss_feeds 每条最多120次都调),
+    绝不能触发 AI 富化,否则 --days N 下 AI 调用爆炸导致 step 超时。"""
+    import os
+    from unittest import mock
+    import generate_daily_pages
+
+    link = "https://example.com/p-aifree"
+    relevant = [{"id": "z1", "link": link, "pub_date": "2026-07-29",
+                 "title": "Neural network potential", "abstract": "abc", "journal": "arXiv"}]
+    with mock.patch.dict(os.environ, {"AI_API_KEY": "test", "AI_HIGHLIGHT_MAX_ITEMS": "60",
+                                      "AI_FOCUS_DAILY_MAX": "60"}, clear=False), \
+         mock.patch("ai_summarizer.build_provider", return_value=object()), \
+         mock.patch("highlight_guarantee.ensure_highlights") as hl, \
+         mock.patch("focus_interest.enrich_focus_interest") as fs:
+        generate_daily_pages.collect_daily_articles([], relevant, "2026-07-29")
+    assert hl.call_count == 0, "collect_daily_articles 不应调用 ensure_highlights"
+    assert fs.call_count == 0, "collect_daily_articles 不应调用 enrich_focus_interest"
+
+
+def test_daily_enrichment_respects_global_budget_across_days():
+    """主循环富化用【全局预算】(整次调用封顶),而非每天各 N 次,避免 --days 4 放大 4 倍。"""
+    import os
+    from unittest import mock
+    import generate_daily_pages as g
+
+    seen = {"hl": 0, "fs": 0}
+
+    def fake_hl(items, max_items=None):
+        n = min(len(items), max_items or 0)
+        seen["hl"] += n
+        return n
+
+    def fake_fs(items, max_items=None):
+        n = min(len(items), max_items or 0)
+        seen["fs"] += n
+        return n
+
+    with mock.patch.dict(os.environ, {"AI_HIGHLIGHT_MAX_ITEMS": "5", "AI_FOCUS_DAILY_MAX": "5"}, clear=False), \
+         mock.patch.object(g, "_guarantee_daily_highlights", side_effect=fake_hl), \
+         mock.patch.object(g, "_enrich_daily_focus", side_effect=fake_fs):
+        budget = g._new_daily_enrich_budget()
+        # 模拟 3 天,每天 4 篇;全局预算 5 → 总共最多补 5 篇,而非 3*5=15
+        for _ in range(3):
+            g._apply_daily_enrichment([{"title": "t"}] * 4, budget)
+    assert seen["hl"] <= 5 and seen["fs"] <= 5
+
+
 def test_unified_sort_prioritizes_research_layer_before_enrichment_tier():
     from generate_daily_pages import build_unified_items
     p1_plain = {
