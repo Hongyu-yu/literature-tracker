@@ -496,3 +496,64 @@ def test_collect_daily_articles_keeps_existing_fields_over_index():
     item = next(a for a in out["raw_day_articles"] if a.get("link") == link)
     assert item.get("abstract_zh") == "已有摘要"
     assert item.get("focus_score") == 5
+
+
+def test_unified_sort_prioritizes_research_layer_before_enrichment_tier():
+    from generate_daily_pages import build_unified_items
+    p1_plain = {
+        "title": "Neural network potential for electronic structure",
+        "link": "https://example.com/p1",
+    }
+    p2_enriched = {
+        "title": "Ferroelectric polarization",
+        "link": "https://example.com/p2",
+    }
+    enriched = {"https://example.com/p2": {"image": "images/posters/p2.webp"}}
+    result = build_unified_items([p2_enriched, p1_plain], enriched, [])
+    assert result[0]["link"] == "https://example.com/p1"
+
+
+def test_daily_html_renders_three_priority_groups_with_p1_first():
+    from generate_daily_pages import render_daily_html
+    summary = {
+        "overview": "o", "trends": "t",
+        "full_list": [
+            {"title": "General materials workflow", "summary": "general", "link": "https://ex/3"},
+            {"title": "Ferroelectric polarization", "summary": "ferro", "link": "https://ex/2"},
+            {"title": "Neural network potential for electronic structure", "summary": "p1", "link": "https://ex/1"},
+        ],
+    }
+    page = render_daily_html("2026-07-29", summary)
+    headings = [
+        "神经网络势 · 电子结构（重点）",
+        "铁电 · 铁磁 · 多铁（物理）",
+        "其他交叉 / 方法",
+    ]
+    assert all(heading in page for heading in headings)
+    assert page.index(headings[0]) < page.index(headings[1]) < page.index(headings[2])
+    assert page.index("Neural network potential") < page.index("Ferroelectric polarization")
+
+
+def test_daily_focus_enrichment_failure_is_soft():
+    import os
+    from unittest import mock
+    import generate_daily_pages
+
+    with mock.patch.dict(os.environ, {"AI_API_KEY": "test", "AI_FOCUS_DAILY_MAX": "60"}, clear=False), \
+         mock.patch("ai_summarizer.build_provider", return_value=object()), \
+         mock.patch("focus_interest.enrich_focus_interest", side_effect=RuntimeError("offline")):
+        assert generate_daily_pages._enrich_daily_focus([{"title": "x"}]) == 0
+
+
+def test_daily_html_has_overview_svgs_relevance_bar_and_category_chip():
+    from generate_daily_pages import render_daily_html
+    item = {
+        "title": "Neural network potential for electronic structure",
+        "summary": "亮点", "link": "https://ex/1", "journal": "arXiv",
+        "focus_score": 8.5,
+    }
+    page = render_daily_html("2026-07-29", {"overview": "o", "trends": "t", "full_list": [item]})
+    assert "📊 今日概览" in page
+    assert page.count("class=\"daily-viz-svg\"") == 3
+    assert "daily-relevance-bar" in page and "8.5" in page
+    assert "daily-chip-category" in page and "AI×物理" in page

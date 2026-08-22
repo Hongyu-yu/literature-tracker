@@ -1,7 +1,22 @@
 #!/usr/bin/env python3
 """Deterministic sanity tests for focus filtering heuristics."""
 
-from focus_filter import analyze_focus, filter_focus_items, is_daily_focus, is_target_domain, topic_bucket
+from focus_filter import analyze_focus, filter_daily_focus_items, filter_focus_items, focus_priority, is_daily_focus, is_target_domain, topic_bucket
+
+
+def test_focus_priority_uses_focus_score_first_within_same_priority_layer():
+    low = {"title": "Ferroelectric polarization", "focus_score": 2, "core_score": 0.9}
+    high = {"title": "Ferroelectric switching", "focus_score": 9, "core_score": 0.1}
+    assert focus_priority(high) < focus_priority(low)
+
+
+def test_daily_selection_budget_keeps_p1_before_lower_priority():
+    p1 = {"title": "Density matrix reconstruction for electronic systems", "journal": "arXiv"}
+    p3 = {"title": "Machine learning catalyst materials discovery", "journal": "arXiv"}
+    kept, _ = filter_focus_items([p1])
+    assert kept == [p1]
+    selected, _ = filter_daily_focus_items([p3, p1], min_keep=1, max_keep=1)
+    assert selected == [p1]
 
 
 def main() -> int:

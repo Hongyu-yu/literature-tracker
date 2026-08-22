@@ -40,6 +40,8 @@ jobs:
           AI_RESPONSE_JSON: "1"
           AI_DAILY_MAX_PER_CALL: "20"
           AI_DAILY_WAIT_MAX_SECONDS: "1800"
+          AI_HIGHLIGHT_MAX_ITEMS: ${{ vars.AI_HIGHLIGHT_MAX_ITEMS || '60' }}
+          AI_FOCUS_DAILY_MAX: ${{ vars.AI_FOCUS_DAILY_MAX || '60' }}
         run: python generate_daily_pages.py --days 4 --force
       # run_deep SECOND: APS full-text deep+poster, enrich tier2 (abstract-level + infographic),
       # sole writer of arxiv_core_<date>.json (deep_analysis/image/poster_elements) — no clobber.
@@ -63,6 +65,18 @@ jobs:
           DEEP_MAX_NEW_PER_RUN: "24"
           DEEP_WORKERS: "6"
         run: python run_deep.py
+      - name: Backfill daily Top-12 posters
+        env:
+          AI_API_KEY: ${{ secrets.AI_API_KEY }}
+          AI_PROVIDER: aigw
+          AI_MODEL: gpt-5.5
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          IMAGE_API_KEY: ${{ secrets.AI_API_KEY }}
+          IMAGE_API_BASE: ${{ secrets.AI_BASE_URL }}
+          IMAGE_TIMEOUT_SECONDS: "600"
+          IMAGE_MAX_RETRIES: "2"
+          TOP_POSTER_MAX: ${{ vars.TOP_POSTER_MAX || '12' }}
+        run: python backfill_top_posters.py --max 12
       # 自愈：run_deep 幂等只认 deep_analysis 不认图，图生成失败的海报不会被重跑。
       # 这步扫「有深读但缺图」的条目，复用已存 elements 只补图(不重跑深读)，限量防超时。
       - name: Backfill missing posters (image-only, reuse cached elements)
@@ -79,7 +93,13 @@ jobs:
       # THIRD: re-render daily HTML so TODAY's pages pick up the enrichment run_deep just wrote
       # (daily ran BEFORE run_deep, so its pages had no arxiv_core yet). No AI / no fetch.
       - name: Re-render daily pages with fresh enrichment
-        run: python generate_daily_pages.py --rerender-only --days 4
+        env:
+          EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          SITE_BASE_URL: https://hongyu-yu.github.io/literature-tracker
+          EMAIL_ENABLED: ${{ vars.EMAIL_ENABLED || '1' }}
+          EMAIL_POSTER_MAX: "5"
+        run: python generate_daily_pages.py --rerender-only --days 4 --send-email
       - name: Commit and push (race-safe)
         run: |
           git config user.email action@github.com

@@ -85,7 +85,7 @@ class EmailNotifier:
             print(f"❌ 邮件配置不完整: {error_msg}")
             print("   请检查环境变量 EMAIL_SENDER 和 EMAIL_PASSWORD 是否已设置")
             return False
-        
+
         # 验证收件人
         if not recipient or '@' not in recipient:
             print(f"❌ 收件人邮箱无效: {recipient}")
@@ -176,6 +176,32 @@ class EmailNotifier:
             print(f"❌ 邮件发送失败: 未知错误")
             print(f"   错误类型: {type(e).__name__}")
             print(f"   错误详情: {e}")
+            return False
+
+    def send_html(self, recipient: str, subject: str, html_content: str) -> bool:
+        """Send caller-built rich HTML.  All SMTP errors are fail-soft."""
+        is_valid, error_msg = self.validate_config()
+        if not is_valid:
+            print(f"⚠️ 邮件跳过: {error_msg}")
+            return False
+        if not recipient or "@" not in recipient:
+            print("⚠️ 邮件跳过: 收件人无效")
+            return False
+        try:
+            msg = MIMEMultipart("alternative")
+            msg["Subject"] = subject
+            msg["From"] = self.sender_email
+            msg["To"] = recipient
+            msg.attach(MIMEText("请使用支持 HTML 的邮件客户端查看每日文献日报。", "plain", "utf-8"))
+            msg.attach(MIMEText(html_content, "html", "utf-8"))
+            context = ssl.create_default_context()
+            with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port, context=context, timeout=30) as server:
+                server.login(self.sender_email, self.sender_password)
+                server.sendmail(self.sender_email, recipient, msg.as_string())
+            print(f"✅ 邮件发送成功 → {recipient}")
+            return True
+        except Exception as exc:
+            print(f"⚠️ 每日邮件发送失败，日报流程继续: {type(exc).__name__}: {exc}")
             return False
     
     def _generate_html(self, articles: list) -> str:

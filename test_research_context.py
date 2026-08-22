@@ -1,4 +1,6 @@
-from research_context import build_direction_note, ensure_relation_fields
+from pathlib import Path
+
+from research_context import build_direction_note, ensure_relation_fields, pick_summary
 
 
 def test_relation_fields_are_nonempty_for_ml_ferro_article():
@@ -47,3 +49,44 @@ def test_profile_digest_contains_five_research_directions():
     assert "Hongyu Yu" in digest
     assert "HfO2" in digest or "HfO₂" in digest
     assert "非绝热" in digest
+
+
+def test_pick_summary_falls_back_to_truncated_english_abstract():
+    abstract = "Electronic structure is predicted from a learnable Hamiltonian. " * 8
+    item = {"title_en": "A paper", "abstract": abstract}
+    summary = pick_summary(item)
+    assert summary
+    assert summary.startswith("Electronic structure")
+    assert len(summary) <= 201
+    assert summary.endswith("…")
+    ensure_relation_fields(item)
+    assert item["summary"] == summary
+    assert "摘要信息不足" not in item["summary"]
+    assert "需查阅原文确认具体方法与结论" not in item["summary"]
+
+
+def test_pick_summary_priority_and_metadata_only_copy():
+    item = {
+        "one_sentence_summary": "AI 中文亮点",
+        "abstract_zh": "中文摘要",
+        "abstract_zh_full": "完整中文摘要",
+        "abstract": "English abstract",
+    }
+    assert pick_summary(item) == "AI 中文亮点"
+    assert "信息不足" not in pick_summary({"title": "metadata only"})
+
+
+def test_research_context_has_no_degraded_default_summary_literal():
+    source = Path("research_context.py").read_text(encoding="utf-8")
+    assert '"摘要信息不足，需查阅原文确认具体方法与结论。"' not in source
+
+
+def test_existing_degraded_summary_is_replaced_during_rerender():
+    item = {
+        "title": "Electronic structure",
+        "abstract": "We predict the electronic structure from density matrices.",
+        "summary": "摘要信息不足，需查阅原文确认具体方法与结论。",
+    }
+    ensure_relation_fields(item)
+    assert item["summary"].startswith("We predict")
+    assert "信息不足" not in item["summary"]

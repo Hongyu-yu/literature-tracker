@@ -59,6 +59,20 @@
     .daily-chip-authors { background: rgba(16,185,129,0.08); }
     .daily-chip-score { background: rgba(245,158,11,0.12); }
     .daily-chip-topic { background: rgba(139,92,246,0.12); color: var(--accent-primary); }
+    .daily-chip-category { font-weight: 700; }
+    .daily-chip-priority-p1 { background: rgba(220,38,38,0.12); color: #b91c1c; }
+    .daily-chip-priority-p2 { background: rgba(245,158,11,0.14); color: #b45309; }
+    .daily-chip-priority-p3 { background: rgba(59,130,246,0.11); color: #1d4ed8; }
+    .daily-relevance { display: grid; grid-template-columns: auto minmax(80px, 180px) auto; gap: 8px; align-items: center; color: var(--text-secondary); font-size: .82rem; margin: 0 0 10px; }
+    .daily-relevance-track { height: 7px; overflow: hidden; border-radius: 999px; background: rgba(99,102,241,.12); }
+    .daily-relevance-bar { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#6366f1,#f59e0b); }
+    .daily-viz { margin-top: 24px; }
+    .daily-viz h2 { font-size: 1.05rem; margin: 0 0 12px; }
+    .daily-viz-grid { display: grid; grid-template-columns: repeat(3,minmax(280px,1fr)); gap: 12px; overflow-x: auto; }
+    .daily-viz-svg { min-width: 280px; padding: 10px; border: 1px solid var(--border-color); border-radius: 16px; background: rgba(255,255,255,.55); }
+    .daily-priority-group + .daily-priority-group { margin-top: 28px; }
+    .daily-priority-group > h3 { margin: 0 0 4px; }
+    .daily-priority-group > p { margin: 0 0 12px; color: var(--text-secondary); }
     .daily-news-summary, .daily-paper-summary { color: var(--text-primary); line-height: 1.8; }
     .daily-paper-abstract { color: var(--text-primary); line-height: 1.85; margin: 4px 0 8px; }
     .daily-paper-abstract strong { color: var(--accent-primary); }

@@ -103,7 +103,7 @@ if __name__ == "__main__":
 
 # ── New taxonomy tests (run via run_tests.py) ─────────────────────────────────
 
-from focus_core import classify_taxonomy  # noqa: E402  (appended below main block)
+from focus_core import classify_taxonomy, priority_tier  # noqa: E402  (appended below main block)
 
 
 def test_ai_physics_is_tier1_core():
@@ -135,3 +135,18 @@ def test_empty_dict_robustness():
     assert is_core_focus({}) is False
     assert core_score({}) == 0.0
     assert classify_taxonomy({}) == "其他"
+
+
+def test_priority_tier_terms_match_decided_research_order():
+    assert priority_tier({"title": "Neural network potential for electronic structure"}) == 0
+    assert priority_tier({"title": "Learnable Hamiltonian from the density matrix"}) == 0
+    assert priority_tier({"title_zh": "机器学习哈密顿量预测电荷密度与电子结构"}) == 0
+    assert priority_tier({"title": "Room-temperature ferroelectric polarization"}) == 2
+    assert priority_tier({"title": "Antiferromagnetic multiferroic ordering"}) == 2
+    assert priority_tier({"title": "Medieval poetry"}) == 3
+
+
+def test_priority_tier_zero_adds_core_score_weight():
+    p1 = {"title": "Neural network potential for electronic structure"}
+    assert is_core_focus(p1)
+    assert core_score(p1) >= 0.70

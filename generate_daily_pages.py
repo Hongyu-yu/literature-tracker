@@ -23,9 +23,59 @@ from author_utils import authors_label
 from focus_filter import analyze_focus, filter_daily_focus_items, filter_focus_items, focus_priority, topic_bucket
 from rss_generator import generate_daily_rss_feed
 from text_normalizer import normalize_articles_inplace, normalize_text
-from focus_core import classify_taxonomy, is_core_focus
+from focus_core import classify_taxonomy, core_score, is_core_focus, priority_tier
 from link_utils import normalize_link
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile
+
+
+def _guarantee_daily_highlights(items: List[Dict]) -> int:
+    """Best-effort generation-time highlight completion; never breaks a report."""
+    try:
+        max_items = max(0, int(os.environ.get("AI_HIGHLIGHT_MAX_ITEMS", "60")))
+    except (TypeError, ValueError):
+        max_items = 60
+    if not items or max_items <= 0:
+        return 0
+    api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
+    if not api_key:
+        print("⏭️ 亮点保障跳过：未配置 AI key")
+        return 0
+    try:
+        from ai_summarizer import build_provider
+        from highlight_guarantee import ensure_highlights
+        provider = build_provider(os.environ.get("AI_PROVIDER") or "kimi", api_key,
+                                  model=(os.environ.get("AI_MODEL") or "").strip() or None)
+        updated = ensure_highlights(items, provider=provider, max_items=max_items)
+        print(f"✨ 亮点保障补全 {updated} 篇")
+        return updated
+    except Exception as exc:
+        print(f"⚠️ 亮点保障跳过: {exc}")
+        return 0
+
+
+def _enrich_daily_focus(items: List[Dict]) -> int:
+    """Best-effort focus-score coverage for the final daily set."""
+    try:
+        max_items = max(0, int(os.environ.get("AI_FOCUS_DAILY_MAX", "60")))
+    except (TypeError, ValueError):
+        max_items = 60
+    if not items or max_items <= 0:
+        return 0
+    api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
+    if not api_key:
+        print("⏭️ focus 日报富化跳过：未配置 AI key")
+        return 0
+    try:
+        from ai_summarizer import build_provider
+        from focus_interest import enrich_focus_interest
+        provider = build_provider(os.environ.get("AI_PROVIDER") or "kimi", api_key,
+                                  model=(os.environ.get("AI_MODEL") or "").strip() or None)
+        updated = enrich_focus_interest(items, provider=provider, max_items=max_items)
+        print(f"🎯 focus 日报富化补全 {updated} 篇")
+        return updated
+    except Exception as exc:
+        print(f"⚠️ focus 日报富化跳过: {exc}")
+        return 0
 
 
 def beijing_today() -> str:
@@ -202,37 +252,32 @@ def collect_focus_highlights(summary: Dict, items: List[Dict], limit: int = 8) -
 
 def group_daily_items(items: List[Dict]) -> List[Dict]:
     groups = {
-        "physics": {
-            "title": "AI × 物理 / 凝聚态",
-            "description": "量子、自旋、凝聚态、电子结构与相关物理方法。",
+        "p1": {
+            "title": "🔬 神经网络势 · 电子结构（重点）",
+            "description": "神经网络势、哈密顿量、密度矩阵、电荷密度与电子结构。",
             "items": [],
         },
-        "chemistry": {
-            "title": "AI × 化学 / 分子 / 催化",
-            "description": "分子设计、反应、催化、电化学与化学计算。",
+        "p2": {
+            "title": "🧲 铁电 · 铁磁 · 多铁（物理）",
+            "description": "铁电、铁磁、反铁磁、多铁及其耦合物理。",
             "items": [],
         },
-        "materials": {
-            "title": "AI × 材料 / 器件",
-            "description": "材料发现、结构、器件、表界面与性能预测。",
-            "items": [],
-        },
-        "methods": {
-            "title": "相关方法 / 计算工具",
-            "description": "AI 方法、模拟工具与具有直接科研支撑价值的工作。",
+        "p3": {
+            "title": "🧩 其他交叉 / 方法",
+            "description": "其他 AI × Science 交叉研究、材料与计算方法。",
             "items": [],
         },
     }
 
     for item in items:
-        bucket = topic_bucket(item)
-        if bucket not in groups:
-            bucket = "methods"
-        groups[bucket]["items"].append(item)
+        tier = priority_tier(item)
+        key = "p1" if tier == 0 else "p2" if tier == 2 else "p3"
+        groups[key]["items"].append(item)
 
     ordered = []
-    for key in ("physics", "chemistry", "materials", "methods"):
+    for key in ("p1", "p2", "p3"):
         if groups[key]["items"]:
+            groups[key]["items"].sort(key=focus_priority)
             ordered.append(groups[key])
     return ordered
 
@@ -412,7 +457,7 @@ def build_unified_items(full_list, enrich_map, aps_items):
         items.append(it)
         if link:
             seen.add(link)
-    items.sort(key=lambda x: (x.get("_tier", 2), focus_priority(x)))
+    items.sort(key=lambda x: (priority_tier(x), x.get("_tier", 2), focus_priority(x)))
     return items
 
 
@@ -459,7 +504,13 @@ def render_meta_chips(item: Dict) -> str:
     ai_score = item.get("ai_score")
     bucket = topic_bucket(item)
     topic_name = safe_text(TOPIC_LABELS.get(bucket, "相关"))
-    meta_parts = [f"<span class='daily-chip daily-chip-topic'>🧭 {topic_name}</span>"]
+    category = safe_text(classify_taxonomy(item))
+    tier = priority_tier(item)
+    priority_label = "P1" if tier == 0 else "P2" if tier == 2 else "P3"
+    meta_parts = [
+        f"<span class='daily-chip daily-chip-topic'>🧭 {topic_name}</span>",
+        f"<span class='daily-chip daily-chip-category daily-chip-priority-{priority_label.lower()}'>{priority_label} · {category}</span>",
+    ]
     if journal:
         if arxiv_cat:
             meta_parts.append(f"<span class='daily-chip daily-chip-journal'>📖 {journal} / {arxiv_cat}</span>")
@@ -529,6 +580,17 @@ def render_unified_item(item: Dict, index: int) -> str:
     title_en_block = (f'<div class="daily-paper-title-en">{safe_text(title_en)}</div>'
                       if show_zh and title_en else "")
     meta_html = render_meta_chips(item)
+    try:
+        relevance = float(item.get("focus_score")) if item.get("focus_score") is not None else core_score(item) * 10
+    except (TypeError, ValueError):
+        relevance = core_score(item) * 10
+    relevance = max(0.0, min(10.0, relevance))
+    relevance_label = f"{relevance:.1f}".rstrip("0").rstrip(".")
+    relevance_html = (
+        f'<div class="daily-relevance" aria-label="相关度 {relevance_label} / 10">'
+        f'<span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:{relevance * 10:.1f}%"></i></div>'
+        f'<strong>{relevance_label}</strong></div>'
+    )
     abstract_zh = (item.get("abstract_zh_full") or item.get("abstract_zh") or "").strip()
     abs_html = (f'<p class="daily-paper-abstract"><strong>📄 摘要：</strong>{safe_text(abstract_zh)}</p>'
                 if abstract_zh else "")
@@ -572,6 +634,7 @@ def render_unified_item(item: Dict, index: int) -> str:
                 {title_en_block}
             </div>{badge}</div>
             <div class="daily-paper-meta">{meta_html}</div>
+            {relevance_html}
             {abs_html}
             {abs_en_html}
             {hl_html}
@@ -670,8 +733,18 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     raw_total = int(summary.get("raw_total") or (len(items) + excluded_count))
     focused_total = int(summary.get("focused_total") or len(items))
 
-    unified_html = "".join(render_unified_item(it, i) for i, it in enumerate(unified, 1)) \
-        or '<li class="daily-summary-card"><p>今日无目标方向文献。</p></li>'
+    grouped_html = []
+    item_index = 1
+    for group in group_daily_items(unified):
+        cards = []
+        for item in group["items"]:
+            cards.append(render_unified_item(item, item_index))
+            item_index += 1
+        grouped_html.append(
+            f'<section class="daily-priority-group"><h3>{safe_text(group["title"])}</h3>'
+            f'<p>{safe_text(group["description"])}</p><ol class="daily-paper-list">{"".join(cards)}</ol></section>'
+        )
+    unified_html = "".join(grouped_html) or '<ol class="daily-paper-list"><li class="daily-summary-card"><p>今日无目标方向文献。</p></li></ol>'
 
     profile = load_research_profile()
     for it in items:
@@ -686,6 +759,14 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         f"<div class='daily-sidebar-fact'><span>文献总数</span><strong>{len(unified)}</strong></div>"
         f"<div class='daily-sidebar-fact'><span>含图深析</span><strong>{enriched_count}</strong></div>"
         f"<div class='daily-sidebar-fact'><span>期刊数</span><strong>{journal_count}</strong></div>"
+    )
+    from daily_viz import render_priority_svg, render_source_split_svg, render_topic_distribution_svg
+    daily_viz_html = (
+        '<section class="daily-viz" aria-label="今日概览"><h2>📊 今日概览</h2><div class="daily-viz-grid">'
+        + render_topic_distribution_svg(unified)
+        + render_source_split_svg(unified)
+        + render_priority_svg(unified)
+        + '</div></section>'
     )
 
     filtered_note = ''
@@ -813,6 +894,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
               <div class="daily-stat-value">{arxiv_count}</div>
             </div>
           </div>
+          {daily_viz_html}
           {filtered_note}
         </div>
 
@@ -836,7 +918,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
             <h2 class="daily-section-title">今日文献</h2>
             <span class="daily-core-count">{len(unified)} 篇 · {enriched_count} 含图深析</span>
           </div>
-          <ol class="daily-paper-list">{unified_html}</ol>
+          {unified_html}
         </section>
 
         {date_nav_bottom}
@@ -975,7 +1057,9 @@ def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[D
     focused_articles, dropped_articles = filter_focus_items(raw_day_articles)
     focused_articles = sorted(focused_articles, key=focus_priority)
     daily_articles, overflow_articles = filter_daily_focus_items(focused_articles, min_keep=12, max_keep=60)
-    daily_articles = sorted(daily_articles, key=focus_priority)
+    _enrich_daily_focus(daily_articles)
+    daily_articles = sorted(daily_articles, key=lambda item: (priority_tier(item), focus_priority(item)))
+    _guarantee_daily_highlights(daily_articles)
     return {
         "raw_day_articles": raw_day_articles,
         "focused_articles": focused_articles,
@@ -1021,6 +1105,7 @@ def main():
     parser.add_argument('--force', action='store_true', help='强制重新生成（忽略 summaries.json 中的 digest/total 缓存）。')
     parser.add_argument('--rerender-only', action='store_true',
                         help='只重渲染最近 N 天的 HTML（复用 data/daily_summary_*.json 缓存 + 新鲜 arxiv_core/aps 富化），不调用 AI、不抓取。')
+    parser.add_argument('--send-email', action='store_true', help='为目标日期发送一次富 HTML 日报邮件（带防重）。')
     args = parser.parse_args()
 
     # 默认生成“北京时间昨天”的日报：与 Actions 的抓取频率 (08:00/20:00) 匹配，避免当天数据不全导致“摘要缺失/为0”。
@@ -1040,6 +1125,7 @@ def main():
                         reverse=True)
         n = 0
         rerendered_files = []
+        email_summary = None
         for ds in wanted:
             summ = _load_cached_summary(ds)
             if not summ:
@@ -1049,6 +1135,8 @@ def main():
             with open(os.path.join("docs/daily", f"{ds}.html"), "w", encoding="utf-8") as f:
                 f.write(html)
             rerendered_files.append(f"{ds}.html")
+            if ds == date_str:
+                email_summary = summ
             n += 1
             print(f"♻️  re-rendered {ds} with fresh enrichment")
         # Re-apply the enhancer post-processing (day-nav / single-page outline / title links):
@@ -1061,6 +1149,15 @@ def main():
             except Exception as e:
                 print(f"⚠️ rerender enhancer skipped: {e}")
         print(f"♻️  re-rendered {n} daily page(s) (no AI)")
+        if args.send_email:
+            try:
+                if email_summary:
+                    from daily_email import send_daily_email
+                    send_daily_email(email_summary, date_str)
+                else:
+                    print(f"⏭️ 每日邮件跳过：无 {date_str} summary")
+            except Exception as exc:
+                print(f"⚠️ 每日邮件跳过，日报流程继续: {exc}")
         return
 
     # Prefer full daily list from index.json, but always union with ai_relevant.json
@@ -1241,6 +1338,16 @@ def main():
     from daily_page_enhancer import enhance_daily_archive
     enhanced = enhance_daily_archive("docs/daily/summaries.json")
     print(f"🧭 Enhanced daily navigation/TOC for {enhanced} page(s)")
+    if args.send_email:
+        try:
+            summary = _load_cached_summary(date_str)
+            if summary:
+                from daily_email import send_daily_email
+                send_daily_email(summary, date_str)
+            else:
+                print(f"⏭️ 每日邮件跳过：无 {date_str} summary")
+        except Exception as exc:
+            print(f"⚠️ 每日邮件跳过，日报流程继续: {exc}")
 
 
 if __name__ == '__main__':

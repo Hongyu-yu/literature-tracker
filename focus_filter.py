@@ -249,8 +249,9 @@ def is_hard_offtopic(item: Mapping[str, Any]) -> bool:
 def filter_focus_items(items: Iterable[Mapping[str, Any]]) -> Tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
     kept: List[Mapping[str, Any]] = []
     dropped: List[Mapping[str, Any]] = []
+    from focus_core import priority_tier
     for item in items:
-        if is_target_domain(item):
+        if priority_tier(item) == 0 or is_target_domain(item):
             kept.append(item)
         else:
             dropped.append(item)
@@ -377,11 +378,12 @@ def filter_daily_focus_items(
     max_keep: int = 60,
 ) -> Tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
     """筛选日报文献：只保留满足标题关键词组合的文章"""
-    # 使用is_daily_focus筛选符合条件的文章
-    eligible = [item for item in items if is_daily_focus(item)]
-    
+    from focus_core import priority_tier
+    # P1 是明确研究主线，即使旧关键词组合未覆盖也必须进入日报候选。
+    eligible = [item for item in items if priority_tier(item) == 0 or is_daily_focus(item)]
+
     # 按优先级排序
-    eligible = sorted(eligible, key=daily_focus_priority)
+    eligible = sorted(eligible, key=lambda item: (priority_tier(item), daily_focus_priority(item)))
 
     def item_key(item: Mapping[str, Any]) -> str:
         return str(item.get('link') or item.get('title') or item.get('title_en') or item.get('title_zh') or '')
@@ -432,11 +434,16 @@ def focus_priority(item: Mapping[str, Any]) -> tuple:
         ai_score = float(item.get('ai_score') or 0)
     except Exception:
         ai_score = 0.0
+    try:
+        focus_score = float(item.get('focus_score') or 0)
+    except Exception:
+        focus_score = 0.0
     journal = _normalize_text(item.get('journal') or '')
     is_arxiv = journal == 'arxiv'
     direct_bonus = 0 if signals['direct_science'] else 1
     cscore = core_score(item)  # 0.0 iff not core — derive flag from score, avoids 2× full-text scan
     return (
+        -focus_score,                 # 层内先按五位学者画像相关度排序
         0 if cscore > 0.0 else 1,  # 核心关注永远置顶
         -cscore,                    # 核心分数高者靠前
         0 if signals['ai_science'] else 1,

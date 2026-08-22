@@ -35,6 +35,23 @@ CORE_FERRO_TERMS: Tuple[str, ...] = (
     "自旋波", "磁各向异性", "交换相互作用",
 )
 
+# Highest-priority research terms.  This is the single source used by sorting,
+# grouping, visualisations and poster backfill.
+PRIORITY_TERMS: Tuple[str, ...] = (
+    "neural network potential", "machine learning potential", "ml potential", "mlip",
+    "interatomic potential", "ml hamiltonian", "learnable hamiltonian",
+    "density matrix", "charge density", "electron density", "electronic structure",
+    "wavefunction", "dft hamiltonian", "equivariant",
+    "神经网络势", "机器学习势", "原子间势", "哈密顿量", "密度矩阵",
+    "电荷密度", "电子密度", "电子结构", "波函数",
+)
+
+PRIORITY_FERRO_TERMS: Tuple[str, ...] = (
+    "ferroelectric", "ferromagnet", "antiferromagnet", "multiferroic",
+    "ferroelectricity", "ferromagnetic", "antiferromagnetic", "magnetic", "magnetism",
+    "铁电", "铁磁", "反铁磁", "多铁", "磁性",
+)
+
 # ── Taxonomy: tiered research-focus categories ────────────────────────────────
 TAXONOMY: Dict[str, Dict[str, Any]] = {
     "AI×物理": {
@@ -78,7 +95,10 @@ def _text(article: Any) -> str:
     """Return lowercased concatenated text from title/summary/abstract fields."""
     if not article:
         return ""
-    return " ".join(str(article.get(k, "") or "") for k in ("title", "summary", "abstract")).lower()
+    return " ".join(
+        str(article.get(k, "") or "")
+        for k in ("title", "title_en", "title_zh", "summary", "abstract", "abstract_zh")
+    ).lower()
 
 
 def classify_taxonomy(article: Any) -> str:
@@ -129,10 +149,24 @@ def _has_any(text: str, terms: Tuple[str, ...]) -> bool:
     return any(term in text for term in terms)
 
 
+def priority_tier(item: Mapping[str, Any]) -> int:
+    """Return research priority: 0=P1, 2=P2, 3=all remaining work."""
+    if not item:
+        return 3
+    text = _item_fulltext(item)
+    if _has_any(text, PRIORITY_TERMS):
+        return 0
+    if _has_any(text, PRIORITY_FERRO_TERMS):
+        return 2
+    return 3
+
+
 def is_core_focus(item: Mapping[str, Any]) -> bool:
     """核心关注 = 同时命中方法侧与 ferro/凝聚态侧，或命中 tier1/tier2 taxonomy。"""
     if not item:
         return False
+    if priority_tier(item) == 0:
+        return True
     text = _item_fulltext(item)
     # Original signal: ML method + ferro/condensed-matter
     if _has_any(text, CORE_METHOD_TERMS) and _has_any(text, CORE_FERRO_TERMS):
@@ -153,6 +187,7 @@ def core_score(item: Mapping[str, Any]) -> float:
       - +0.05 for cond-mat arXiv source
       - +0.05 for high-impact journal
       - Taxonomy tier bonus: tier1 +0.10, tier2 +0.05, tier3 +0.01
+      - +0.20 for the decided P1 neural-potential/electronic-structure cluster
     """
     if not item:
         return 0.0
@@ -160,6 +195,8 @@ def core_score(item: Mapping[str, Any]) -> float:
         return 0.0
     title = _item_title_text(item)
     score = 0.5
+    if priority_tier(item) == 0:
+        score += 0.20
     if _has_any(title, CORE_METHOD_TERMS):
         score += 0.15
     if _has_any(title, CORE_FERRO_TERMS):

@@ -67,6 +67,13 @@ TOPIC_PLANS = {
     "structure": {"terms": ("crystal structure prediction", "genetic algorithm", "structure search", "high-throughput", "materials discovery"), "anchor": "晶体结构搜索、高通量筛选和材料信息学", "materials": "新型铁电、磁性、钙钛矿、二维和能源材料候选", "workflow": "用 ML 代理能量和不确定性缩小结构搜索，再对候选做对称性、动力学稳定性、极化/磁序和有限温度筛选，避免只按 0 K 单点能排序"},
 }
 
+_DEGRADED_SUMMARY_FRAGMENTS = ("摘要信息不足", "需查阅原文确认具体方法与结论")
+
+
+def _usable_summary(value: Any) -> str:
+    text = str(value or "").strip()
+    return "" if any(fragment in text for fragment in _DEGRADED_SUMMARY_FRAGMENTS) else text
+
 
 def load_research_profile(path: str = "data/focus_interests.json") -> Dict[str, Any]:
     try:
@@ -175,6 +182,20 @@ def build_direction_note(items: List[Dict[str, Any]], profile: Dict[str, Any] | 
     )
 
 
+def pick_summary(item: Dict[str, Any], max_english_chars: int = 200) -> str:
+    """Pick the best available highlight without inventing missing findings."""
+    for key in ("one_sentence_summary", "abstract_zh", "abstract_zh_full"):
+        value = _usable_summary(item.get(key))
+        if value:
+            return value
+    abstract = str(item.get("abstract") or "").strip()
+    if abstract:
+        if len(abstract) > max_english_chars:
+            return abstract[:max_english_chars].rstrip() + "…"
+        return abstract
+    return "本条目仅有出版元数据，完整信息请见原文。"
+
+
 def ensure_relation_fields(item: Dict[str, Any], profile: Dict[str, Any] | None = None) -> Dict[str, Any]:
     out = item
     fields = build_relation_fields(out, profile)
@@ -198,6 +219,6 @@ def ensure_relation_fields(item: Dict[str, Any], profile: Dict[str, Any] | None 
         out["abstract_zh"] = full[:240].rstrip() + ("…" if len(full) > 240 else "")
     if not full and abstract:
         out["abstract_zh_full"] = abstract
-    if not str(out.get("summary") or "").strip():
-        out["summary"] = abstract or full or "摘要信息不足，需查阅原文确认具体方法与结论。"
+    if not _usable_summary(out.get("summary")):
+        out["summary"] = pick_summary(out)
     return out
