@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-08-22 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-08-22.xml" rel="alternate" title="2026-08-22 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-08-22.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-08-22</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-08-21.html">← 前一天 · 2026-08-21</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#focus-interest">与你相关</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/08/22</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">5</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">5</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">3</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<section aria-label="今日概览" class="daily-viz"><h2>📊 今日概览</h2><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 154"><title>主题分布</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">2</text><text class="vl" x="8" y="78">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="64"></rect><text class="vn" x="243.0" y="78">1</text><text class="vl" x="8" y="106">超导</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="92"></rect><text class="vn" x="243.0" y="106">1</text><text class="vl" x="8" y="134">软物质·流体·统计</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="120"></rect><text class="vn" x="243.0" y="134">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">5</text></svg><svg aria-label="优先级分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>优先级分层</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">优先级分层</text><text class="vl" x="8" y="50">P1 神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="47.5" x="142" y="36"></rect><text class="vn" x="195.5" y="50">1</text><text class="vl" x="8" y="78">P2 铁电·铁磁·多铁</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="64"></rect><text class="vn" x="148.0" y="78">0</text><text class="vl" x="8" y="106">P3 其余</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">4</text></svg></div></section>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-08-21.html">前一天 · 2026-08-21</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-22.html">最新一期 · 2026-08-22</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-22.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-focus-section" id="focus-interest">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">与你方向相关</h2>
+<span class="daily-focus-count">2 篇</span>
+</div>
+<ol class="daily-focus-list">
+<li class="daily-focus-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10335052/latest">
+<div class="daily-focus-number">01</div>
+<div class="daily-focus-body">
+<div class="daily-focus-title"><a class="daily-focus-link" href="https://www.researchsquare.com/article/rs-10335052/latest" rel="noopener noreferrer" target="_blank">莫尔半导体拉曼呼吸模增强的干涉电子-声子耦合</a></div>
+<div class="daily-focus-meta"><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip">📅 2026-08-22</span><span class="daily-chip daily-chip-focus">🎯 相关度 8</span></div>
+<div class="daily-focus-deep"><p><strong>📝 简单总结：</strong>这篇工作研究扭转莫尔半导体中的电子-声子耦合，结合拉曼谱和机器学习第一性原理计算，在超大超胞中按模态提取耦合强度。作者发现耦合受“干涉选择定则”控制，呼应了拉曼中观测到的呼吸模，并指出强耦合与超导出现的扭角区间相关。</p><p><strong>🔗 与我们工作的关系：</strong>与我们在二维范德华体系、莫尔材料、电子-声子耦合和机器学习辅助第一性原理计算方向高度相关，也涉及超导相关材料的微观机制分析。可借鉴其对超大尺度超胞中 EPC 的机器学习计算框架和模态分辨分析思路。</p><p><strong>💡 进一步工作建议：</strong>可进一步关注其机器学习第一性原理计算的具体实现方式，以及如何将干涉选择定则推广到其他莫尔半导体或层状异质结。若团队做莫尔超导或热输运，也值得结合 EPC 与声子模态局域化机制开展系统研究。</p></div>
+</div>
+</li>
+<li class="daily-focus-card" data-bookmark-key="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html">
+<div class="daily-focus-number">02</div>
+<div class="daily-focus-body">
+<div class="daily-focus-title"><a class="daily-focus-link" href="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" rel="noopener noreferrer" target="_blank">现实固体模型让量子自旋液体中的分形子更接近探测</a></div>
+<div class="daily-focus-meta"><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip">📅 2026-08-22</span><span class="daily-chip daily-chip-focus">🎯 相关度 3</span></div>
+<div class="daily-focus-deep"><p><strong>📝 简单总结：</strong>这则报道讨论了在量子自旋液体中与磁畴壁相关的 fracton 准粒子，以及将其作为潜在量子信息存储载体的可能性。核心内容偏向凝聚态基础物理与新奇准粒子可观测性，而不是具体材料设计或计算模拟。</p><p><strong>🔗 与我们工作的关系：</strong>它与我们团队的磁性材料、自旋结构和畴壁相关主题有一定交叉，但更偏理论概念和实验前景，和常见的第一性原理、有效哈密顿量或机器学习材料模拟关系不强。可作为理解复杂磁序与拓扑激发的背景阅读。</p><p><strong>💡 进一步工作建议：</strong>若后续关注自旋液体、畴壁激发或新型磁激发的材料实现，可进一步查找与具体晶格模型、交换作用和数值模拟相关的原始论文。也可以对照团队在自旋哈密顿量和磁畴壁动力学方面的方法看看是否能建立联系。</p></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日文献覆盖量子自旋液体中的分形子、莫尔半导体电子-声子耦合、纳米限域反应网络、气候驱动沙尘暴以及活体神经储备池计算。与团队研究最直接的交叉集中在扭曲 WSe2/MoTe2 中的拉曼呼吸模、机器学习第一性原理计算和电子-声子耦合，其余工作与团队材料计算主线关联有限或信息不足。</p>
+<p><strong>热点：</strong>莫尔半导体中的超大规模电子-声子耦合计算正从小模型近似转向机器学习辅助的真实超胞、逐模解析与实验谱学联合反演。量子自旋液体研究继续探索受限运动准粒子及其固体可探测性，但给定材料和计算细节尚不充分。描述符预测、储备池计算等工作显示，机器学习正在扩展到反应网络拓扑和生物神经系统；气候与沙尘暴文献则属于地球系统统计建模，与团队现有材料物理问题缺乏直接交叉。</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在第一性原理标注与结构优化，并落到磁性、自旋以及自旋—晶格耦合、缺陷、畴壁、成核和开关动力学、声子、有限温度和输运性质、晶体结构、功能材料和结构—性质关系。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">5 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🔬 神经网络势 · 电子结构（重点）</h3><p>神经网络势、哈密顿量、密度矩阵、电荷密度与电子结构。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" rel="noopener noreferrer" target="_blank">现实固体模型让量子自旋液体中的分形子更接近探测</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" rel="noopener noreferrer" target="_blank">Realistic solid-state model brings fractons in quantum spin liquids closer to detection</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p1">P1 · 磁性·自旋电子学</span><span class="daily-chip daily-chip-journal">📖 Physics News</span></div>
+<div aria-label="相关度 3 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:30.0%"></i></div><strong>3</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>文章介绍量子自旋液体中的分形子：它们位于不同自旋有序区之间的磁畴壁顶点，几乎不能独立移动，只能由其他分形子推动位移。现实固体模型被用于讨论其探测可能性，但摘要未给出具体材料、哈密顿量、计算方法或数值结果。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Quasiparticles arise from the complex interaction of many particles in solids; for example, we describe lattice vibrations in crystals as phonons. Fractons are exotic quasiparticles that occur at the vertices of magnetic domain walls between different spin orders. What makes them special is that they are virtually immobile and can only be displaced by other fractons. In theory, this limited mobility could be exploited to robustly store quantum information.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心对象是磁畴壁顶点上的受限运动分形子，其近乎静止的动力学区别于普通声子或磁振子。摘要只说明采用现实固体模型，未披露自旋哈密顿量、晶格结构、参数拟合或训练策略，也没有给出能标和实验信号的定量值。其对团队的直接启发限于复杂自旋序、畴壁和量子信息功能之间的概念联系，尚不足以支持具体材料迁移。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 缺陷、畴壁、成核和开关动力学对应的结构或物理量。若迁移到团队流程，应采用“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题已经出现在团队的方向画像中，可对应到HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合, 缺陷、畴壁、成核和开关动力学, 声子、有限温度和输运性质在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题嵌入现有材料模拟链：先在HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物中选择一个已有 DFT 数据基础的体系，按“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”补充训练/验证集，再比较《现实固体模型让量子自旋液体中的分形子更接近探测》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-08-realistic-solid-state-fractons-quantum.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧩 其他交叉 / 方法</h3><p>其他 AI × Science 交叉研究、材料与计算方法。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10335052/latest" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10335052/latest" rel="noopener noreferrer" target="_blank">莫尔半导体拉曼呼吸模增强的干涉电子-声子耦合</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10335052/latest" rel="noopener noreferrer" target="_blank">Interference-Enhanced Large Electron--Phonon Coupling from Raman-active Breathing Modes in Moiré Semiconductors</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 超导</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Yang Zhang, Ning Mao, Shaozheng Wang, Xumin Chang, Kenji Watanabe, Takashi Taniguchi 等9位作者</span></div>
+<div aria-label="相关度 8 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:80.0%"></i></div><strong>8</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>针对扭曲 WSe2 和 MoTe2 中超导配对机制，作者将填充依赖的拉曼光谱与机器学习第一性原理计算结合，在最大数万原子的真实莫尔超胞中逐模提取电子-声子耦合。研究聚焦拉曼活性呼吸模及其干涉增强效应；摘要截断，未给出耦合常数等最终数值。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Superconductivity was recently observed in twisted WSe₂ and MoTe₂, raising a central question: is the pairing driven by electronic correlations, by phonons, or by both? Answering it requires determining the electron--phonon coupling (EPC) in these moiré semiconductors, whose calculation in realistic supercells of thousands of atoms lies beyond the reach of direct first-principles methods. Here we combine filling-dependent Raman spectroscopy with machine-learning first-principles calculations to obtain the EPC mode by mode in supercells of up to tens of thousands of atoms. Raman reveals only a few moiré phonons whose frequencies shift strongly with filling; we trace this to an interference selection rule: a phonon couples strongly only when its displacement texture matches the static lattice-reconstruction pattern, and is otherwise suppressed by destructive interference. The rule selects the low- and high-frequency breathing modes seen in Raman and makes the coupling peak at large twist angles, near those at which superconductivity appears. Lattice-reconstruction interference thus emerges as an organizing principle for moiré EPC, pointing to a substantial, potentially dominant, phonon contribution to large-angle pairing.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>工作把填充依赖拉曼光谱与机器学习辅助第一性原理计算结合，用于解析扭曲 WSe2 和 MoTe2 莫尔超胞中的逐模电子-声子耦合。计算规模扩展到数万原子，关键对象是拉曼活性呼吸模及其干涉增强，但摘要未说明模型架构、训练集规模、损失函数和耦合强度数值。该路线直接连接团队的机器学习哈密顿量、电子-声子耦合和二维范德华体系研究，可用于研究莫尔超晶格中的声子介导配对与输运。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入非绝热分子动力学、电子—声子耦合、Wannier/GW-BSE 和载流子输运。从摘要能确认的线索包括：第一性原理标注与结构优化，以及声子、有限温度和输运性质, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“先用高精度电子结构和声子/电子—声子矩阵元建立小规模基准，再训练可迁移 Hamiltonian 或 ML 势，最后在长时间尺度非绝热 MD、输运或界面电荷转移中验证”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>这是五篇中与团队现有方向最直接的交叉之一。团队已长期开展二维半导体、范德华磁体、莫尔或扭转体系中的电子-声子耦合、载流子输运、机器学习势和等变神经网络哈密顿量研究；文中对扭曲 WSe2、MoTe2 以及大规模超胞的处理，与 Hongyu Yu、Hongjun Xiang、Xin-Gao Gong 和 Ji-Hui Yang 的方法背景均相容。现有摘要尚不能确认具体算法与团队实现相同。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的非绝热分子动力学、电子—声子耦合、Wannier/GW-BSE 和载流子输运嵌入现有材料模拟链：先在卤化物钙钛矿、二维半导体、FeSe、光电界面和能源材料中选择一个已有 DFT 数据基础的体系，按“先用高精度电子结构和声子/电子—声子矩阵元建立小规模基准，再训练可迁移 Hamiltonian 或 ML 势，最后在长时间尺度非绝热 MD、输运或界面电荷转移中验证”补充训练/验证集，再比较《莫尔半导体拉曼呼吸模增强的干涉电子-声子耦合》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10335052/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10335052/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10696721/latest" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10696721/latest" rel="noopener noreferrer" target="_blank">更宽的冬季温度变率增强春季沙尘暴</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10696721/latest" rel="noopener noreferrer" target="_blank">Wider Winter Temperature Variability Fuels Stronger Spring Dust Storms</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Yuzhi Liu, weiqi tang, Linxia Wang, Ying Wang, Yangyang Huang, Jie Gao 等7位作者</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>文章研究气候变化对沙尘暴活动的影响，指出外部强迫造成的长期变暖倾向于抑制全球沙尘暴频率，而冬季内部气候变率增大、尤其是温度波动增强，会提高随后春季沙尘暴强度。摘要未提供数据集、模型配置、空间区域、统计显著性或效应量。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Dust storms are a fundamental Earth system process, influencing global climate, biogeochemical cycles, and human health. However, how a changing climate reshapes their activity remains largely uncertain. Here we show that while externally forced long-term warming tends to suppress the global frequency of dust storms, increased internal climate variability, manifesting as greater temperature fluctuations, paradoxically enhances the spring dust storm intensity. Simply put, the greater the temperature variability during the preceding winter, the stronger the ensuing spring dust storm activity. We resolve this paradox by identifying a cross-seasonal soil-memory effect driven by winter minimum temperature variability. Increased temperature variability in the preceding winter dries out deeper soil layers, leaving a persistent, highly erodible surface primed for intense dust emission in the subsequent spring. This soil-memory pathway forms a physical bridge, teleconnecting winter thermal anomalies over the North Atlantic to spring dust activity across global source regions. A machine-learning model, leveraging these winter precursors, predicts spring dust intensity with unprecedented skill, thereby independently validating this physical framework. Our findings thus establish preceding-winter minimum temperature variability as a critical, previously overlooked driver of spring dust storms, offering a new framework for seasonal predictability of terrestrial processes in the Earth system.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>主要结论是长期外部变暖与内部气候变率对沙尘暴存在相反影响：前者倾向于降低全球频率，后者通过增强冬季温度波动提高春季活动强度。摘要没有说明采用观测分析、气候模式集合还是因果统计模型，也未给出温度变率与沙尘强度之间的定量系数。该工作不涉及凝聚态材料、电子结构或材料人工智能，和团队研究只有极弱的统计建模层面联系。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：声子、有限温度和输运性质。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《更宽的冬季温度变率增强春季沙尘暴》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10696721/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10696721/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0009261426003441?dgcid=rss_sd_all" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003441?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">纳米限域反应网络拓扑切换的描述符预测</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003441?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Descriptor-based prediction of topology switching in nanoconfined reaction networks</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>题目指向利用描述符预测纳米限域反应网络中的拓扑切换。所给信息仅包含 Chemical Physics Letters 2026 年 10 月出版信息和作者 Xuan Peng，未提供反应体系、描述符类型、机器学习模型、训练数据、拓扑定义或预测精度，且出版日期晚于本日报日期。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: October 2026 Source: Chemical Physics Letters, Volume 897 Author(s): Xuan Peng</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>现有条目只表明研究主题是纳米限域反应网络的拓扑切换预测，核心创新、模型架构、训练策略和关键参数均未给出。摘要缺失导致反应物、限域环境、网络表示方式及定量预测结果无法确认。它与团队的材料机器学习和高通量筛选存在方法层面的潜在远距离联系，但不足以建立具体材料或物理机制交叉。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及缺陷、畴壁、成核和开关动力学对应的结构或物理量。若迁移到团队流程，应采用“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题已经出现在团队的方向画像中，可对应到HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注缺陷、畴壁、成核和开关动力学在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题嵌入现有材料模拟链：先在HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物中选择一个已有 DFT 数据基础的体系，按“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”补充训练/验证集，再比较《纳米限域反应网络拓扑切换的描述符预测》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003441?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003441?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10680995/latest" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10680995/latest" rel="noopener noreferrer" target="_blank">通过微流控轴突导向实现活体深层储备池计算</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10680995/latest" rel="noopener noreferrer" target="_blank">Living deep reservoir computing by microfluidic axon routing</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 软物质·流体·统计</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Ke Wang, Wanqi Dai, Yawen Li, Zhuo Han, Jinshuai Du, Yin Deng 等12位作者</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>作者构建多级微流控芯片，以单向轴突导向通道调控体外轴突定向生长，实现活体深层储备池计算；并制作具有双向直通道的拓扑匹配浅层储备池作为对照。芯片配备输入输出接口，用于任务信号传递和神经元响应读取。摘要未给出网络规模、任务准确率或训练参数。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">This study develops and implements living deep reservoir computing based on a multistage microfluidic chip featuring unidirectional axon-routing channels for the regulation of directed in vitro axonal growth. To elucidate the specific contribution of unidirectional axon routing to the performance of living deep reservoir computing systems, a topology-matched living non-deep reservoir with bidirectional straight channels was fabricated as the control group. To enable task-signal delivery and neuronal-response readout, a dedicated input/output interface was coupled with the microfluidic chip containing cultured neurons to construct the complete living reservoir computing system. This interface consists of three core components: a task-specific encoding module, an all-optical neuronal stimulation and recording platform, and a readout layer. The predictive and classification performance of the proposed living deep reservoir and the control group was comprehensively benchmarked on two canonical tasks, including Mackey–Glass chaotic time-series prediction and GTZAN music genre classification. The results demonstrate that the living deep reservoir constrains intermodule neuronal signal propagation to occur predominantly in the forward direction and achieves higher Pearson correlation coefficients and higher mean classification accuracies than the control group. This work introduces a novel computing paradigm that uses in vitro neuronal networks with directed axonal growth as computational substrates, supporting investigations into biological information processing and providing a technological foundation for high-efficiency bio-hybrid computing systems and next-generation brain-inspired computing devices.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>核心创新是用多级微流控芯片和单向轴突导向通道构造具有层级拓扑的活体深层储备池，并以双向直通道系统进行拓扑匹配对照。方法细节包括定向体外轴突生长以及专用输入输出接口，但摘要没有说明神经元数量、通道尺寸、信号编码、读出层训练策略和任务性能。该工作属于生物神经形态计算，与团队材料模拟和电子结构机器学习没有直接材料交叉。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《通过微流控轴突导向实现活体深层储备池计算》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10680995/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10680995/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-08-21.html">← 前一天 · 2026-08-21</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-08-21.html">前一天 · 2026-08-21</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-22.html">最新一期 · 2026-08-22</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-22.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#focus-interest"><span>🎯 与你相关</span><span>🔍</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>5</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>3</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">现实固体模型让量子自旋液体中的分形子更接近探测<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">莫尔半导体拉曼呼吸模增强的干涉电子-声子耦合<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">更宽的冬季温度变率增强春季沙尘暴<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">纳米限域反应网络拓扑切换的描述符预测<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">通过微流控轴突导向实现活体深层储备池计算<span class="daily-outline-meta">05</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-21.html">前一天 · 2026-08-21</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-22.html">最新一期 · 2026-08-22</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-22.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>

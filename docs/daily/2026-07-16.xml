@@ -5,73 +5,18 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-07-16.html</link>
     <description>2026-07-16 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Sat, 22 Aug 2026 03:39:27 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 23 Aug 2026 04:30:46 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-07-16.xml" rel="self" type="application/rss+xml"/>
     <item>
-        <title>Physics-Informed Residual Deep Learning for Constitutive Modeling of Hot Deformation and Dynamic Recrystallization in a Mo-Rich α+β Titanium Alloy</title>
-        <link>https://arxiv.org/abs/2607.13467</link>
+        <title>DeepCormack: Fermi surface tomography using model-based data-driven algorithms</title>
+        <link>https://arxiv.org/abs/2607.13107</link>
         <description><![CDATA[📚 arXiv
 
-👤 Prashil S. Joshi, Diksha Mahadule, Rajesh K. Khatirkar
+👤 Georg F. B. Lovric, Bryn Drury, Carola-Bibiane Schönlieb, Stephen B. Dugdale, Ander Biguri
 
-arXiv:2607.13467v1 Announce Type: new Abstract: Accurate constitutive modeling of hot deformation behavior is essential for designing thermomechanical processes in advanced structural alloys. Conventional Arrhenius-type and empirical models do not adequately capture the combined effects of strain hardening, dynamic recovery (DRV), and dynamic recrystallization (DRX) across broad processing conditions. In this study, two Stacked Residual Physics-Informed Neural Networks (STAR-PINNs) were developed to simulate the hot deformation response of a Mo-rich α+β titanium alloy (Ti-6Al-4Mo-1V-0.1Si). The Enhanced STAR-PINN incorporated thermomechanical constitutive constraints, while the DRX-Aware STAR-PINN employed a dual-output architecture to account for recrystallization kinetics. Both models u…]]></description>
+arXiv:2607.13107v1 Announce Type: new Abstract: The experimental reconstruction of the 3D two-photon momentum density (TPMD) via angular correlation of electron-positron annihilation radiation (ACAR) is a particularly useful method for studying material Fermi surfaces. It does not rely on low temperatures, UHV conditions, or strong magnetic fields, and enables the study of the spin-resolved electronic structure of materials. Yet, it remains a challenging inverse problem. Typically, 10⁸ positron annihilation events are measured for 3--6 projections of the TPMD at different angles. The standard reconstruction approach is an ACAR adaptation of Cormack's method (the MCM) that leverages the inherent symmetry in the crystal's structure. However, the poor signal-to-noise ratio means collecting d…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13467</guid>
-    </item>
-    <item>
-        <title>Overfitting by design: neural network density functionals for water</title>
-        <link>https://www.nature.com/articles/s41524-026-02224-5</link>
-        <description><![CDATA[📚 npj Computational Materials
-
-👤 Karim K. Alaa El-Din, Antonius von Strachwitz, Ana Coutinho Dutra, Sam M. Vinko
-
-npj Computational Materials, Published online: 16 July 2026; doi:10.1038/s41524-026-02224-5 Overfitting by design: neural network density functionals for water]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.nature.com/articles/s41524-026-02224-5</guid>
-    </item>
-    <item>
-        <title>Towards quantum machine learning for assessing the resilience of post-quantum cryptography</title>
-        <link>https://arxiv.org/abs/2607.13722</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jarosław A. Miszczak
-
-arXiv:2607.13722v1 Announce Type: cross Abstract: The potential capabilities of quantum computers motivated the development of cryptographic protocols suitable for securing communication against adversaries with access to large fault-tolerant quantum computers. However, even though current quantum computers are limited in terms of size and precision, they can still be useful for finding loopholes and weaknesses in the post-quantum cryptographic protocols. In this work, we present an attempt to utilize the capabilities of Quantum Generative Adversarial Networks (QGANs), one of the promising architectures used in quantum machine learning, for this purpose. We describe an example application of QGAN architecture for the purpose of loading the probability distribution of the hash-based digita…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13722</guid>
-    </item>
-    <item>
-        <title>Spectral-Informed Neural Networks Outperform Spectral Methods in High-dimensional PDEs</title>
-        <link>https://arxiv.org/abs/2607.13566</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Tianchi Yu, Ivan Oseledets
-
-arXiv:2607.13566v1 Announce Type: cross Abstract: For low-dimensional problems (dłeq3), spectral methods can achieve exceptionally high accuracy. For middle-dimensional problems (4 łeq d łesssim 10), spectral methods remain feasible through specific techniques such as sparse grids or hyperbolic cross. However, for high-dimensional problems (dgg 10), spectral methods suffer frome the curse of dimensionality. Physics-informed neural networks (PINNs) have emerged as a promising approach to overcome this challenge, offering scalability to high dimensions, but often suffer from limited accuracy and efficiency. Recently proposed spectral-informed neural networks (SINNs) combine spectral methods with PINNs, operating directly in the spectral domain to avoid spatial derivative computations and to…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13566</guid>
-    </item>
-    <item>
-        <title>Automatic Differentiation from Scratch: How PyTorch Computes Gradients in Physics-Informed Neural Networks</title>
-        <link>https://arxiv.org/abs/2607.13042</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Abdeladhim Tahimi
-
-arXiv:2607.13042v1 Announce Type: new Abstract: This paper traces, with explicit numerical values, how PyTorch's automatic differentiation (AD) engine computes gradients for Physics-Informed Neural Network (PINN) training -- a setting that requires two levels of differentiation: computing the physics derivative haty'(t)=dhaty/dt through the network, and computing parameter gradients nabla_θ L of a loss that itself depends on haty'(t). Using a 1-3-3-1 multilayer perceptron and the initial value problem y'(t)+y(t)=0, y(0)=1, we trace the complete pipeline at every node: the computational graph built during the forward pass, the reverse-mode backward traversal that computes all 22 parameter gradients in a single pass, and the graph-on-graph mechanism by which textttcreate_graph=True enables…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13042</guid>
-    </item>
-    <item>
-        <title>Dirac topology, anomalous Hall response, and giant magnetoresistance in carrier-compensated altermagnetic semimetal NiS</title>
-        <link>https://arxiv.org/abs/2607.13400</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Shovan Gayen, Sk. Soyeb Ali, S K Panda
-
-arXiv:2607.13400v1 Announce Type: new Abstract: We combine first-principles density-functional theory, Berry-curvature analysis, semiclassical Boltzmann transport, and atomistic spin dynamics to establish hexagonal NiS as a compensated 3d altermagnetic semimetal in which topology, magnetism, and lattice dynamics are intrinsically intertwined. The rotational coset symmetry of the NiAs lattice produces momentum-dependent spin splitting characteristic of altermagnetism. With spin-orbit coupling, gapped Dirac-like crossings generate intense Berry-curvature hot spots and nearly compensated electron-hole pockets. This leads to a large and anisotropic intrinsic spin Hall conductivity comparable to that of several 4d, 5d metals, a symmetry-allowed anomalous Hall response despite zero net magnetiz…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13400</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13107</guid>
     </item>
     <item>
         <title>Altermagnetic spin-split Fermi surfaces in CrSb revealed by quantum oscillation measurements</title>
@@ -85,15 +30,121 @@ arXiv:2601.19105v2 Announce Type: replace Abstract: We report a comprehensive qu
         <guid isPermaLink="true">https://arxiv.org/abs/2601.19105</guid>
     </item>
     <item>
-        <title>Precision quantum simulation of magnon spectra and interactions</title>
-        <link>https://arxiv.org/abs/2607.13301</link>
+        <title>Ultrafast altermagnetophononics</title>
+        <link>https://arxiv.org/abs/2607.13863</link>
         <description><![CDATA[📚 arXiv
 
-👤 Trond I. Andersen, Nikita Astrakhantsev, Jeronimo Martinez, Will Morong, Johannes Motruk, Dario Rossi, Brayden Ware, Bryce Kobrin, Weijie Wu, Elizabeth Bennewitz, Manuel Rudolph, Tom Westerhout, Amira Abbas, Rajeev Acharya, Laleh Aghababaie Beni, Ross Alcaraz, Sayra Alcaraz, Markus Ansmann, Frank Arute, Kunal Arya, Walt Askew, Juan Atalaya, Christopher Ayala, Ryan Babbush, Brian Ballard, Joseph Bardin, Hector Bates, Andreas Bengtsson, Majid Bigdeli Karimi, Alexander Bilmes, Simon Bilodeau, Felix Borjans, Alexandre Bourassa, Jenna Bovaird, Dylan Bowers, Leon Brill, Peter Brooks, Michael Broughton, David Browne, Brett Buchea, Bob Buckley, Tim Burger, Brian Burkett, Jamal Busnaina, Nicholas Bushnell, Jonas Bylander, Anthony Cabrera, Juan Campero, Hung-Shen Chang, Silas Chen, Zijun Chen, Ben Chiaro, Liang-Ying Chih, Agnetta Cleland, Bryan Cochrane, Matt Cockrell, Josh Cogan, Paul Conner, Tom Connolly, Harold Cook, Rodrigo Cortinas, William Courtney, Alexander Crook, Benjamin Curtin, Adam Dally, Sayan Das, Martin Damyanov, Dripto Debroy, Himadri Dey, Stijn de Graaf, Laura De Lorenzo, Sean Demura, Lucia De Rose, Agustin Di Paolo, Leon Ding, Howard Dobbs, Paul Donohoe, Ebru Dogan, Ilya Drozdov, Andrew Dunsworth, Rasmus Edholm, Valerie Ehimhen, Alec Eickbusch, Aviv Elbag, Lior Ella, Mahmoud Elzouka, David Enriquez, Catherine Erickson, Lara Faoro, Vinicius Ferreira, Marcos Flores, Leslie Flores Burgos, Sam Fontes, Ebrahim Forati, Jeremiah Ford, Brooks Foxen, Masaya Fukami, Alan Fung, Lenny Fuste, Suhas Ganjam, Gonzalo Garcia, Christopher Garrick, Robert Gasca, Helge Gehring, Robert Geiger, Élie Genois, William Giang, Dar Gilboa, James Goeders, Edward Gonzales, Raja Gosula, Alejandro Grajales Dau, Dietrich Graumann, Joel Grebel, Alex Greene, Jonathan Gross, Jose Guerrero, Tan Ha., Steve Habegger, Tanner Hadick, Ali Hadjikhani, Michael Hamilton, Monica Hansen, Matthew Harrigan, Sean Harrington, Jeanne Hartshorn, Stephen Heslin, Paula Heu, Oscar Higgott, Reno Hiltermann, Jeremy Hilton, Hsin-Yuan Huang, Michael Hucka, Christopher Hudspeth, Ashley Huff, William Huggins, Aditya Jayaraman, Evan Jeffrey, Shaun Jevons, Zhang Jiang, Xiaoxuan Jin, Cody Jones, Chaitali Joshi, Kelsey Josund, Pavol Juhas, Andreas Kabel, Bharath Kannan, Hui Kang, Kiseo Kang, Amir Karamlou, Ryan Kaufman, Tanuj Khattar, Mostafa Khezri, Seon Kim, Paul Klimov, Can Knaut, Alexander Korotkov, Fedor Kostritsa, John Mark Kreikebaum, Ryuho Kudo, Arun Kumar, Ben Kueffler, Vladislav Kurilovich, Vitali Kutsko, Nathan Lacroix, Tiano Lange-Dei, Brandon Langley, Pavel Laptev, Kim-Ming Lau, Emma Leavell, Loïck Le Guevel, Justin Ledford, Joy Lee, Kenny Lee, Brian Lester, Wendy Leung, Matthew Lloyd, Lily Li, Wing Li, Ming Li, Alexander Lill, Mike Lindmark, William Livingston, Aditya Locharla, Erik Lucero, Daniel Lundahl, Aaron Lunt, Sid Madhuk, Donald Macaskill, Aniket Maiti, Ashley Maloney, Salvatore Mandra, Leigh Martin, Orion Martin, Eric Mascot, Paul Masih Das, Anselme Massimino, Melvin Mathews, Cameron Maxfield, Jarrod McClean, Matthew McEwen, Seneca Meeks, Anthony Megrant, Tim Menke, Kevin Miao, Zlatko Minev, Reza Molavi, Sebastian Molina, Shirin Montazeri, Akira Nakamura, Charles Neill, Konstantin Nesterov, Michael Newman, Roselle Ngaloy, Anthony Nguyen, Murray Nguyen, Chia-Hung Ni, Murphy Niu, Nicholas Noll, Sergey Novikov, Logan Oas, Ricky Oliver, Will Oliver, Raymond Orosco, Kristoffer Ottosson, Alice Pagano, Manan Patel, Sherman Peek, David Peterson, Alex Pizzuto, Thomas Plumb-Reyes, Elias Portoles, Rebecca Potter, Orion Pritchard, Sam Probst, Michael Qian, Chris Quintana, Matthew Rakher, Arpit Ranadive, Ganesh Ramachandran, Armin Razavi, Matthew Reagor, Rachel Resnick, David Rhodes, Daniel Riley, Gabrielle Roberts, Roberto Rodriguez, Emma Ropes, Eliott Rosenberg, Emma Rosenfeld, Dario Rosenstock, Elizabeth Rossi, Pedram Roushan, David Rower, Robert Salazar, Kannan Sankaragomathi, Murat Sarihan, Kevin Satzinger, Max Schaefer, Sebastian Schroeder, Henry Schurkus, Aria Shahingohar, Michael Shearn, Aaron Shorter, Shvarts Vladimir, Vlad Sivak, Spencer Small, W. Clarke Smith, David Sobel, Barrett Spells, Sofia Springer, George Sterling, Scott Stonemeyer, John Su, Jordan Suchard, Youngkyu Sung, Aaron Szasz, Alex Sztein, Tomoyuki Tanaka, Madeline Taylor, Jothi Thiruraman, Douglas Thor, Brandur Thorgrimsson, Dogan Timucin, Eifu Tomita, Alfredo Torres, M. Mert Torunbalci, Hao Tran, Abeer Vaishnav, Justin Vargas, Gopinath Vasalamarri, Sergey Vdovichev, Guifre Vidal, Benjamin Villalonga, Meghan Voorhees, Steven Waltman, Jonathan Waltz, Shannon Wang, Danni Wang, James Watson, Yonghua Wei, Travis Weidel, Theodore White, Kristi Wong, Bryan Woo, Christopher Wood, Maddy Woodson, Cheng Xing, Z. Jamie Yao, Ping Yeh, Bicheng Ying, Juhwan Yoo, Noureldin Yosri, Elliot Young, Grayson Young, Adam Zalcman, Ran Zhang, Yaxing Zhang, Yiqing Zhou, Ningfeng Zhu, Nicholas Zobrist, Zhenjie Zou, Sergio Boixo, Yu Chen, Julian Kelly, Hartmut Neven, Vadim Smelyanskiy, Dvir Kafri, L. B. Ioffe, Kostyantyn Kechedzhi, Xiao Mi, Dmitry Abanin
+👤 Chenyu Wang, Yaxian Wang, Sheng Meng
 
-arXiv:2607.13301v1 Announce Type: cross Abstract: Quantum simulation promises to advance materials discovery by accurately simulating complex states of matter, their microscopic excitations, and macroscopic response functions. The central challenge in resolving the underlying interacting dynamics is to combine high-fidelity evolution with the sophisticated control necessary to manipulate individual quasi-particles in quantum many-body states. Here, we report on high-precision simulation of both linear and non-linear response functions in a 2D XY spin-1/2 magnet using an analog-digital superconducting processor of up to 97 qubits. By interleaving digital gates with analog evolution precisely characterized via Hamiltonian learning, we selectively excite magnons at tunable energy densities.…]]></description>
+arXiv:2607.13863v1 Announce Type: new Abstract: Altermagnets feature symmetry-dictated nontrivial spin splitting in electronic structure promising for next-generation spintronics, yet their ultrafast dynamical manipulation remains largely unexplored. Here, we establish altermagnetophononics as an efficient route for magnetic control via selective symmetry breaking induced by coherent phonons. Using the prototypical altermagnet α-MnTe as an example, we demonstrate that the targeted excitation of B₁g mode selectively lifts the symmetry constraints protecting altermagnetism (AM), driving ultrafast transition into a transient compensated ferrimagnetic (cFiM) phase characterized by a global spin splitting without net magnetization. Further, we show that the proposed mechanism is broadly applic…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13301</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13863</guid>
+    </item>
+    <item>
+        <title>The WEST code for large-scale excited-state materials simulations</title>
+        <link>https://arxiv.org/abs/2607.14025</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Victor Wen-zhe Yu, Siyuan Chen, Yu Jin, Vrindaa Somjit, Stefano Paolo Villani, Jiawei Zhan, Marco Govoni, Giulia Galli
+
+arXiv:2607.14025v1 Announce Type: new Abstract: We present WEST, an open-source plane-wave pseudopotential code for large-scale excited-state materials simulations, and describe its theoretical foundations, software architecture, and capabilities. WEST implements full-frequency GW, quantum defect embedding theory, the Bethe-Salpeter equation, and time-dependent density functional theory within a common algorithmic framework that avoids the explicit computation of virtual electronic states. By combining density functional and density matrix perturbation theory, low-rank representations of the dielectric screening and exact exchange, and localization techniques, WEST achieves favorable computational scaling with system size. The code supports the calculation of quasi-particle and neutral ex…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.14025</guid>
+    </item>
+    <item>
+        <title>Efficient grand canonical global optimization with on-the-fly-trained machine-learning interatomic potentials</title>
+        <link>https://pubs.aip.org/aip/jcp/article/165/3/034115/3398567/Efficient-grand-canonical-global-optimization-with</link>
+        <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
+
+The characterization of nanostructured materials under reactive environments is challenging due to the complexity of the structural motifs involved and their chemical transformations. Global optimization approaches allow predicting stable structures for targeted materials, but addressing the configurational and compositional search spaces is both computationally demanding and inefficient, especially when first-principles calculations are required. In this work, we implement and evaluate a computationally efficient grand canonical global optimization algorithm able to identify stable structures and chemical states of targeted systems under given reaction conditions (e.g., reactant pressure and temperature). The algorithm leverages an on-the-fly trained machine-learning interatomic potentia…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/3/034115/3398567/Efficient-grand-canonical-global-optimization-with</guid>
+    </item>
+    <item>
+        <title>Aromatic Molecule Solvation in Liquid Water with Coupled Cluster Accuracy: The Balance of Pi-Interactions and Hydrophobicity</title>
+        <link>https://arxiv.org/abs/2607.13261</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Nore Stolte, Harald Forbert, Yury Lysogorskiy, Ralf Drautz, Dominik Marx
+
+arXiv:2607.13261v1 Announce Type: new Abstract: Aromatic organic solutes in water exhibit a delicate balance between hydrophobic solvation and directional O-Hḑots π hydrogen bonds, yet widely used force fields and state-of-the-art density functional approaches struggle to provide a consistent picture of these pivotal interactions. We introduce a data-efficient upfitting strategy to train a machine learning interatomic potential (MLIP) based on the graph atomic cluster expansion for aqueous aromatic molecules with CCSD(T) accuracy for condensed phase simulations, using only finite molecular clusters. We apply our method to aqueous toluene (C₆H₅CH₃₎. The resulting CCSD(T)-quality MLIP reproduces coupled cluster energies and forces in bulk and reveals that commonly employed methods do not ca…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13261</guid>
+    </item>
+    <item>
+        <title>Three-Dimensional Non-Foliated Fractional Quantum Hall Phases with Irrational Anyons in Twisted van der Waals Multilayers</title>
+        <link>https://arxiv.org/abs/2607.13127</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Seyoung Jin, Hyeonseo Lim, Youngwook Kim, Gil Young Cho
+
+arXiv:2607.13127v1 Announce Type: new Abstract: Three-dimensional fractional quantum Hall phases offer a route to intrinsically higher-dimensional topological order beyond simple stacks of two-dimensional quantum Hall liquids. Such phases can exhibit non-foliated, intrinsically three-dimensional entanglement structures, exponentially large topological degeneracies and quasiparticles with irrational braiding statistics. Their microscopic realization has remained elusive because Landau quantization in three dimensions generally leaves dispersive one-dimensional bands, favoring metallic and density-wave states over incompressible fractional liquids. Here we show that large-angle twisted van der Waals multilayers provide a practical route around this obstruction. Large twist angles suppress c…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13127</guid>
+    </item>
+    <item>
+        <title>Disorder Suppression of Charge Density Waves in the Honeycomb Holstein Model</title>
+        <link>https://arxiv.org/abs/2512.01487</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Guangchao Li, Lifei Zhang, Tianxing Ma, Qionglin Dai, Lufeng Zhang
+
+arXiv:2512.01487v4 Announce Type: replace Abstract: The formation of charge-density-wave order in Dirac fermion systems via electron-phonon coupling represents a significant topic in condensed matter physics. In this work, we investigate this phenomenon within the Holstein model on the honeycomb lattice, with a specific focus on the effect of disorder. While the interplay between electron-electron interactions and disorder has long been a central theme in the field, recent attention has increasingly turned to the combined influence of disorder and electron-phonon coupling. Using determinant quantum Monte Carlo simulations, we concentrate on the phase transitions of charge-density-wave order on the honeycomb lattice. Disorder is introduced through the random hopping of electrons in the sys…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2512.01487</guid>
+    </item>
+    <item>
+        <title>Research progress in high-pressure tuning of layered magnetic materials</title>
+        <link>https://arxiv.org/abs/2607.13632</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yue Dongdong, Gao Xin, Mu Congpu, Liu Zhongyuan, Zhai Kun
+
+arXiv:2607.13632v1 Announce Type: new Abstract: Two-dimensional van der Waals materials have enormous potential applications in many fields due to their unique layered structure and excellent properties. Compared with three-dimensional bulk materials, layered systems are coupled by weak van der Waals interactions between layers, endowing them with much higher structural compressibility, particularly along the interlayer direction, which is more sensitive to external pressure. High pressure can expand the accessible phase space, enabling the synthesis of new materials or the retention of metastable phases. On the microscopic level, pressure can significantly tune the interlayer structure and interactions, induce changes in the electronic structure, and consequently give rise to a variety o…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13632</guid>
+    </item>
+    <item>
+        <title>Realization and manipulation of spiral charge density waves in a two-dimensional metal</title>
+        <link>https://arxiv.org/abs/2607.13878</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Lili Zhou, Ruizi Zhang, Chen Si, Zhaoteng Dong, Mengya Ren, Keru Guo, Can Zhang, Jizheng Wu, Fudi Zhou, Huixia Yang, Yaxin Zhao, Guoyuan Yang, Xiaolong Xu, Yuanxiao Ma, Xiao Kong, Yu Zhang, Yeliang Wang
+
+arXiv:2607.13878v1 Announce Type: new Abstract: Nearly degenerate charge-density-wave (CDW) states play a central role in the competition among collective phenomena. In real materials, however, these states are often intertwined by disorder, hindering their disentanglement and control. Here we show that strain can lift this near-degeneracy and spatially separate distinct CDW states in NbSe2. Using van der Waals (vdW) interactions, we stabilize a micron-scale strain network that produces spatially inhomogeneous strain fields. Within this landscape, the intrinsic 3 * 3 CDW superlattice of pristine NbSe2 transforms into an isolated unidirectional 4 * 1 order under 1D-confined compression, and into a 2 * 2 order under biaxial tension. The 4 * 1 CDW has a multiband origin and exhibits markedly…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13878</guid>
+    </item>
+    <item>
+        <title>Girsanov Reweighting for Uncertainty Propagation in Rare-Event Kinetics</title>
+        <link>https://arxiv.org/abs/2607.13757</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Leonard Moracchini, Thomas Pigeon, Morgane Menz, Thibault Faney, Thomas D. Swinburne, Mihai-Cosmin Marinica
+
+arXiv:2607.13757v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) have become a powerful tool for rare event sampling in molecular dynamics, offering near ab initio accuracy at a fraction of the computational cost. However, the uncertainty associated with these models remains a major challenge. Existing uncertainty quantification approaches have largely focused on point-wise quantities, such as energies and forces, or on equilibrium thermodynamic observables. In this work, we introduce a framework for propagating MLIP uncertainty to the averaged committor probability, a kinetic observable that enables reaction-rate calculations. Our approach combines rare event sampling methods such as Adaptive Multilevel Splitting with Girsanov reweighting to estimate the se…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13757</guid>
+    </item>
+    <item>
+        <title>Quantum scattering of NO A 2 Σ + + Ne: Benchmarking the potential energy surface of the collision complex</title>
+        <link>https://pubs.aip.org/aip/jcp/article/165/3/034108/3398558/Quantum-scattering-of-NO-A2-Ne-Benchmarking-the</link>
+        <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
+
+A new van der Waals potential energy surface (PES) for the NO A 2 Σ + + Ne collision complex is reported. This system provides a great test for electronic structure by directly contrasting exact quantum scattering simulations on generated potential energy surfaces with the experiment. The need for a new PES for this system is apparent due to discrepancies in calculated differential cross sections for inelastic rotational scattering on older PESs compared to recent experimental data. We thus perform a detailed benchmarking of the effects of electron correlation, basis set size and type, core correlation, non-Born–Oppenheimer effects, and relativistic effects. Following this, we then construct a new PES and compare time-independent quantum scattering on this new potential to two older ones.…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/3/034108/3398558/Quantum-scattering-of-NO-A2-Ne-Benchmarking-the</guid>
+    </item>
+    <item>
+        <title>Dirac topology, anomalous Hall response, and giant magnetoresistance in carrier-compensated altermagnetic semimetal NiS</title>
+        <link>https://arxiv.org/abs/2607.13400</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Shovan Gayen, Sk. Soyeb Ali, S K Panda
+
+arXiv:2607.13400v1 Announce Type: new Abstract: We combine first-principles density-functional theory, Berry-curvature analysis, semiclassical Boltzmann transport, and atomistic spin dynamics to establish hexagonal NiS as a compensated 3d altermagnetic semimetal in which topology, magnetism, and lattice dynamics are intrinsically intertwined. The rotational coset symmetry of the NiAs lattice produces momentum-dependent spin splitting characteristic of altermagnetism. With spin-orbit coupling, gapped Dirac-like crossings generate intense Berry-curvature hot spots and nearly compensated electron-hole pockets. This leads to a large and anisotropic intrinsic spin Hall conductivity comparable to that of several 4d, 5d metals, a symmetry-allowed anomalous Hall response despite zero net magnetiz…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13400</guid>
     </item>
     <item>
         <title>Dissipationless dynamics of spin supersolid states in a spin-1/2 triangular antiferromagnet with impurities</title>
@@ -127,17 +178,6 @@ arXiv:2607.13923v1 Announce Type: new Abstract: We theoretically demonstrate tha
 arXiv:2607.14031v1 Announce Type: new Abstract: Topological insulators have been explored extensively for spin-charge interconversion via magnetic interfaces, yet the true response of their spin-charge conversion, particularly in the absence of an external magnetic field, remains to be studied. Here, we report electric-field control of spin-charge conversion in the topological insulator Bi₂Te₃ with the antiferromagnetic multiferroic BiFeO₃, employing a nonlocal spin transport device. A systematic thickness dependence of the spin transport across the interface between Bi₂Te₃ and BiFeO₃ reveals a signature of topological surface-state-dominated spin transport in the bilayer system. The spin-charge conversion remains robust for thicknesses above 10 nm but falls rapidly with reducing thicknes…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.14031</guid>
-    </item>
-    <item>
-        <title>Ultrafast altermagnetophononics</title>
-        <link>https://arxiv.org/abs/2607.13863</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Chenyu Wang, Yaxian Wang, Sheng Meng
-
-arXiv:2607.13863v1 Announce Type: new Abstract: Altermagnets feature symmetry-dictated nontrivial spin splitting in electronic structure promising for next-generation spintronics, yet their ultrafast dynamical manipulation remains largely unexplored. Here, we establish altermagnetophononics as an efficient route for magnetic control via selective symmetry breaking induced by coherent phonons. Using the prototypical altermagnet α-MnTe as an example, we demonstrate that the targeted excitation of B₁g mode selectively lifts the symmetry constraints protecting altermagnetism (AM), driving ultrafast transition into a transient compensated ferrimagnetic (cFiM) phase characterized by a global spin splitting without net magnetization. Further, we show that the proposed mechanism is broadly applic…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13863</guid>
     </item>
     <item>
         <title>Ferroelectric skyrmion crystal with honeycomb structure</title>
@@ -228,46 +268,15 @@ Author(s): Bo Huang, Churen Gui, Ao Zhang, Zhixiong Yang, Shu-Zong Li, Zhenqing 
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/f58d-vqf9</guid>
     </item>
     <item>
-        <title>Implementations of Quantum and Classical Topology-Aligned Architectures for Molecular Property Prediction</title>
-        <link>https://arxiv.org/abs/2607.13737</link>
+        <title>Direct Imaging of Temperature Evolution of Polar Nanoregions and Chemically Ordered Regions in PMN Relaxor: Evidence for Polar Phase Percolation</title>
+        <link>https://arxiv.org/abs/2607.13364</link>
         <description><![CDATA[📚 arXiv
 
-👤 James T. Pegg, Hubert Okadome Valencia, Ronin Wu
+👤 Kohei Hino, Daisuke Morikawa, Desheng Fu, Mitsuru Itoh, Kenji Tsuda
 
-arXiv:2607.13737v1 Announce Type: new Abstract: For low-data and resource-constrained regimes typical of quantum chemistry, parameter-efficient learning is a key objective. Here, we propose a topology-aligned inductive bias in which the model architecture mirrors the molecular bond graph: atoms map to a fixed register of computational units, and bonds determine which pairs interact through shared learnable parameters. This principle is instantiated in two architectures: a variational quantum circuit (Iso-QGNN), and a parameter-matched classical message-passing model (Iso-CGNN). The models are benchmarked on HOMO-LUMO and dipole moment binary classification tasks over the QM9 benchmark. With 64 trainable parameters, the implementations achieve test AUCs of approximately 0.88 (quantum) and…]]></description>
+arXiv:2607.13364v1 Announce Type: new Abstract: Polar nanoregions (PNRs) are central to understanding the exceptional dielectric and piezoelectric properties of relaxor ferroelectrics and are key to advancing dielectrics for high-energy storage. However, direct real-space imaging of their formation and evolution remains a major challenge in condensed matter physics. Here, we report the real-space mappings of both PNRs and chemically ordered regions (CORs) in the prototypical relaxor Pb(Mg1/3Nb2/3)O3 and their temperature dependence using convergent-beam electron diffraction (CBED) combined with four-dimensional scanning transmission electron microscopy (4D-STEM). The results reveal that CORs, with sizes of 2-5 nm, remain static with temperature and act to suppress PNR growth. In contrast,…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13737</guid>
-    </item>
-    <item>
-        <title>Quantum Topological Data Encoding</title>
-        <link>https://arxiv.org/abs/2607.13847</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Adam Wesołowski, Dimitrios Thanos, Daniel Leykam, Lirandë Pira
-
-arXiv:2607.13847v1 Announce Type: cross Abstract: Many datasets encountered across a wide range of domains possess rich geometric and topological structure that is difficult to capture using conventional vector-based representations. Quantum machine learning offers the possibility of processing high-dimensional data in Hilbert spaces, but its practical success depends critically on how classical data is encoded into quantum states. We introduce emphquantum topological data encoding (QTDE), a general framework for encoding topological information into quantum states via topology-driven quantum evolution. Our method generalises an existing topology-driven quantum encoding framework to higher-dimensional data. We test the proposed method on clique-complexes classification tasks, and provide…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13847</guid>
-    </item>
-    <item>
-        <title>Quantum kernel-based delta (Δ)-learning for correcting a semiempirical method in the prediction of reaction barrier heights</title>
-        <link>https://pubs.aip.org/aip/jcp/article/165/3/034110/3398556/Quantum-kernel-based-delta-learning-for-correcting</link>
-        <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
-
-A quantum machine learning based Δ-learning framework is presented for the prediction of reaction barrier heights of organic molecules. Corrections learned by quantum kernel-based models are applied to mitigate the underlying errors of the semiempirical PM7 method, improving its predictive accuracy toward results obtained at the ω B97X-D3/def2-TZVP level of theory. Both fidelity and projected quantum kernels are implemented using seven distinct encoding circuits and passed to three classical regression algorithms, namely, support vector regression, kernel ridge regression, and Gaussian process regression, yielding a total of 840 benchmarked model configurations across circuit widths of up to 9 qubits and circuit depths of up to five layer repetitions. The encoding circuits are additionall…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/3/034110/3398556/Quantum-kernel-based-delta-learning-for-correcting</guid>
-    </item>
-    <item>
-        <title>Theoretical prediction of structural stability and superconductivity in T-hexagonal molybdenum dihydrides Monolayer</title>
-        <link>https://arxiv.org/abs/2607.13297</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jakkapat Seeyangnok, Udomsilp Pinsook
-
-arXiv:2607.13297v1 Announce Type: new Abstract: The realization of ambient-pressure, high-temperature superconductivity in hydrogen-rich materials remains a major pursuit in condensed-matter physics. While bulk hydrides require extreme pressures to stabilize, two-dimensional (2D) transition-metal hydrides offer a promising alternative to bypass these compression constraints. In this work, we investigate the structural stability, electronic properties, and phonon-mediated superconductivity of a hexagonal molybdenum dihydride (MoH2) monolayer using first-principles calculations. Total-energy evaluations reveal that the octahedral T-phase is energetically more favorable than the previously reported trigonal prismatic H-phase by 0.198 eV, establishing the T-phase as the true ground-state conf…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13297</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13364</guid>
     </item>
     <item>
         <title>Emergent induction in magnetic Weyl semimetals</title>
@@ -281,6 +290,17 @@ arXiv:2607.13559v1 Announce Type: new Abstract: We theoretically study emergent 
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13559</guid>
     </item>
     <item>
+        <title>Resistivity in Dilute Cu-3d Alloys Governed by Disorder-Induced Band Broadening</title>
+        <link>https://arxiv.org/abs/2607.13419</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Kenji Yamaguchi
+
+arXiv:2607.13419v1 Announce Type: new Abstract: The mechanism governing the resistivity in dilute Cu-3d transition-metal alloys at ambient temperature -- the regime relevant to most practical applications and distinct from the low-temperature, Kondo-screened regime addressed by earlier theoretical work -- is investigated using first-principles calculations based on the Korringa--Kohn--Rostoker coherent potential approximation combined with the Kubo--Greenwood formalism. The paramagnetic state is described within the disordered local moment (DLM) framework, corresponding to a local-moment paramagnet rather than a Pauli paramagnet. We show that the experimentally observed resistivity trends are reproduced only within the DLM description, while nonmagnetic and ferromagnetic states fail to ca…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13419</guid>
+    </item>
+    <item>
         <title>Direct observation of photon-induced vortices in superconducting films</title>
         <link>https://arxiv.org/abs/2607.13664</link>
         <description><![CDATA[📚 arXiv
@@ -290,28 +310,6 @@ arXiv:2607.13559v1 Announce Type: new Abstract: We theoretically study emergent 
 arXiv:2607.13664v1 Announce Type: new Abstract: Nucleation of vortex-antivortex pairs (VAPs) is believed to play a central role in the photon detection mechanism of superconducting detectors; however, their direct dynamic observation has remained challenging. Here, we report the direct observation of photon-induced VAP dynamics in a current-carrying superconductor as quantized voltage signals following photon absorption. The observed signals are interpreted as discrete phase-slip events, where each vortex traversal induces a 2-pi phase change of the superconducting order parameter, resulting in a quantized voltage pulse whose time integral is given by the magnetic flux quantum. We analyze the resulting quantized signals as a function of bias current, base temperature, and input photon-num…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13664</guid>
-    </item>
-    <item>
-        <title>Nanoscale Spatial Tuning of Superconductivity in Cuprate Thin Films via Direct Laser Writing</title>
-        <link>https://arxiv.org/abs/2601.09513</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Irene Biancardi, Valerio Levati, Jordi Alcalà, Thomas Günkel, Nicolas Lejeune, Riccardo Girelli, Alejandro V. Silhanek, Valeria Russo, Narcís Mestres, Daniela Petti, Anna Palau, Edoardo Albisetti
-
-arXiv:2601.09513v2 Announce Type: replace Abstract: Cuprate high-temperature superconductors, such as Yttrium Barium Copper Oxide (YBCO), are extremely promising for emerging technologies such as low-power computing, data storage, quantum sensors and superconducting electronics. However, the realization of high-performance functional nanostructures presents formidable challenges due to the difficulty of applying conventional nanofabrication methods to such sensitive materials, making the search for alternative methods a key enabling factor. Since YBCO's superconducting and normal-state properties are highly dependent on oxygen stoichiometry, precise nanoscale control of the oxygen content represents a highly appealing approach for creating advanced nanoengineered devices. In this work, we…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2601.09513</guid>
-    </item>
-    <item>
-        <title>Zero-energy bound state trapped in line-shaped vortex in topological superconductor</title>
-        <link>https://arxiv.org/abs/2607.13194</link>
-        <description><![CDATA[📚 arXiv
-
-👤 P. Schlottmann
-
-arXiv:2607.13194v1 Announce Type: new Abstract: Fermion bound states in the core of a line-shaped vortex of a two-dimensional topological superconductor are investigated. The superconducting pairing potential, described in terms of elliptical coordinates, vanishes along a line defect with the two foci at the endpoints. The superconductivity is induced into a topological insulator via proximity effect with a type II s-wave superconductor. The spin and the momentum are perpendicularly locked by the strong spin-orbit coupling via Rashba interaction. A zero-energy Majorana state arises from the Berry phase together with a sequence of equally spaced fermion exitations. By solving the Bogoliubov-de Gennes equations using the method employed by Caroli, de Gennes and Matricon we calculate the ene…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13194</guid>
     </item>
     <item>
         <title>Quantum-classical crossover in finite spin-1/2 rings with Dzyaloshinsky-Moriya interaction</title>
@@ -325,15 +323,15 @@ arXiv:2607.13572v1 Announce Type: new Abstract: We study finite spin-tfrac12 rin
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13572</guid>
     </item>
     <item>
-        <title>SiMOS quantum-dot spin qubits enabled by extreme-ultraviolet lithography</title>
-        <link>https://arxiv.org/abs/2607.13121</link>
+        <title>Stoner transitions beyond mean-field in two-dimensional electronic systems: a diagrammatic Monte Carlo study</title>
+        <link>https://arxiv.org/abs/2607.13675</link>
         <description><![CDATA[📚 arXiv
 
-👤 Thomas Van Caekenberghe, Paul Steinacker, Bart Raes, Sofie Beyne, Clement Godfrin, Jacques Van Damme, Sylvain Baudot, Arne Loenders, Gulzat Jaliel, Stefan Kubicek, Johan De Backer, Yannick Hermans, Sugandha Sharma, Shuchi Kaushik, Yuchao Jiang, Yosuke Shimura, Roger Loo, Vukan Levajac, Kristof Moors, George Simion, Florian K. Unseld, Ensar Vahapoglu, Ajit Dash, Tuomo Tanttu, Chris C. Escott, Chih Hwan Yang, Andre Saraiva, Arne Laucht, Wee Han Lim, Nard Dumoulin Stuyck, Massimo Mongillo, Danny Wan, Andrew S. Dzurak, Kristiaan De Greve
+👤 Yueh-Chen Lee, Nikolay P. Prokof'ev, Andrey V. Chubukov
 
-arXiv:2607.13121v1 Announce Type: new Abstract: The realization of large-scale silicon quantum processors requires spin qubits compatible with advanced semiconductor manufacturing technologies, demanding lithographic processes that combine nanometer-scale precision with exceptional uniformity. Although the highest-performing silicon spin qubits demonstrated to date have relied on electron-beam (e-beam) lithography, its serial exposure process limits reproducibility studies and wafer-scale fabrication. Here, we demonstrate high-performance silicon metal-oxide-semiconductor (SiMOS) spin qubits fabricated using extreme-ultraviolet (EUV) lithography in a 300 mm semiconductor pilot line. We report wafer-scale quantum-dot uniformity metrics, including 100 % room-temperature gate-to-gate leakage…]]></description>
+arXiv:2607.13675v1 Announce Type: new Abstract: Stoner instabilities for fermions with repulsive interaction have been well studied within the mean-field (ladder) approximation. In this study, we consider two-dimensional electronic systems with one or two valleys and discuss a Stoner transition beyond the ladder approximation. At weak coupling, the corrections to the ladder approximation come predominantly from the renormalization of the particle-hole vertex in the particle-particle channel, and the lowest-order corrections are logarithmically singular in the low-density limit. To investigate the problem beyond the lowest order, we apply the diagrammatic Monte Carlo algorithm and treat ladder and non-ladder renormalizations on equal footing. We find that in a one-valley system, a Stoner t…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13121</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13675</guid>
     </item>
     <item>
         <title>On-chip quantum sensing of Kondo spins in a high-mobility quasi-one-dimensional nanoconstriction</title>
@@ -345,17 +343,6 @@ arXiv:2607.13121v1 Announce Type: new Abstract: The realization of large-scale s
 arXiv:2607.13397v1 Announce Type: new Abstract: The precise nature of Kondo spins has remained enigmatic when extended to multiple spin impurities or, more intriguingly, when the localized spin itself may already be the consequence of many-body interactions in a presumably-delocalized open nanoconstriction, such as a quantum point contact (QPC). It is experimentally challenging to distinguish the Kondo state from other coexisting many-body spin states in such a strongly correlated system. Here we lithographically define an all-on-chip electronic resonator (ER) and a QPC in a high-mobility GaAs/AlGaAs heterostructure transistor. Local Kondo screening of the QPC spin and nonlocal spin singlet across the ER-QPC integration are controllable in response to ER occupancy parity. We also show tha…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13397</guid>
-    </item>
-    <item>
-        <title>Three-Dimensional Non-Foliated Fractional Quantum Hall Phases with Irrational Anyons in Twisted van der Waals Multilayers</title>
-        <link>https://arxiv.org/abs/2607.13127</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Seyoung Jin, Hyeonseo Lim, Youngwook Kim, Gil Young Cho
-
-arXiv:2607.13127v1 Announce Type: new Abstract: Three-dimensional fractional quantum Hall phases offer a route to intrinsically higher-dimensional topological order beyond simple stacks of two-dimensional quantum Hall liquids. Such phases can exhibit non-foliated, intrinsically three-dimensional entanglement structures, exponentially large topological degeneracies and quasiparticles with irrational braiding statistics. Their microscopic realization has remained elusive because Landau quantization in three dimensions generally leaves dispersive one-dimensional bands, favoring metallic and density-wave states over incompressible fractional liquids. Here we show that large-angle twisted van der Waals multilayers provide a practical route around this obstruction. Large twist angles suppress c…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13127</guid>
     </item>
     <item>
         <title>Transverse order and longitudinal fluctuations in a near-Ising spin supersolid</title>
@@ -380,15 +367,26 @@ arXiv:2607.13680v1 Announce Type: new Abstract: Magnetization control via magnet
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13680</guid>
     </item>
     <item>
-        <title>Quantum circuit algorithm for topological invariants of second order topological many-body quantum magnets</title>
-        <link>https://arxiv.org/abs/2512.19615</link>
+        <title>Temperature-driven sodium-ion dynamical-to-static crossover in the zig-zag ordered phase of Na₀.₅CoO₂</title>
+        <link>https://arxiv.org/abs/2607.13848</link>
         <description><![CDATA[📚 arXiv
 
-👤 Sebastián Domínguez-Calderón, Marcel Niedermeier, Jose L. Lado, Pascal M. Vecsei
+👤 Shangfei Wu, Hengxin Tan, Dong Wu, Mingshu Tan, Xinyu Zhou, Tianchen Hu, Tao Dong, Feng Jin, Qingming Zhang, Nanlin Wang
 
-arXiv:2512.19615v2 Announce Type: replace-cross Abstract: Topological quantum matter represents a flexible playground to engineer unconventional excitations. While non-interacting topological single-particle systems have been studied in detail, topology in quantum many-body systems remains an open problem. Specifically, in the quantum many-body limit, one of the challenges lies in the computational complexity of obtaining the many-body ground state and its many-body topological invariant. While algorithms to compute ground states with quantum computers have been heavily investigated, algorithms to compute topological invariants in a quantum computer are still under active development. Here we demonstrate a quantum circuit to compute the many-body topological invariant of a second-order to…]]></description>
+arXiv:2607.13848v1 Announce Type: new Abstract: We employ polarization-resolved Raman spectroscopy combined with first-principles calculations to study the sodium-ion lattice dynamics in a sodium zig-zag ordered cobaltate compound Na₀.₅CoO₂. We detect two sodium phonon modes for the first time, and their mode frequencies are consistent with first-principles phonon calculations based on an orthorhombic unit cell. We find that they appear below around T^*sim300±50K with large linewidth broadening, much lower than the sodium zig-zag ordering temperature T_Ssim460K, and then narrow at lower temperatures. We interpret the sodium-phonon anomalies occurring at T^* as a dynamical-to-static crossover involving mainly the motion of sodium ions. Our results suggest that the gradual freezing of the s…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2512.19615</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13848</guid>
+    </item>
+    <item>
+        <title>Aharonov-Casher-induced electric quadrupole of charge-neutral particles</title>
+        <link>https://arxiv.org/abs/2607.13745</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Hojun Lee, Youngjae Jeon, Suik Cheon, Hyun-Woo Lee
+
+arXiv:2607.13745v1 Announce Type: new Abstract: For charged particles, their orbital angular momentum (OAM) in solid have a direct magnetic manifestation as an orbital magnetization. For charge-neutral particles, however, the physical manifestation of the OAM in solid remains unclear. Here, we show that a charge-neutral particle carrying a magnetic moment couples to electric-field gradient through the Aharonov-Casher (AC) effect, thereby exhibiting the electric quadrupole in crystalline solids. This AC-induced electric quadrupole (AC-EQ) contains the scalar, toroidal dipole, and reduced quadrupole components, which are conjugate to the divergence, circulation, and shear of the electric field, respectively. As representative examples, we calculate the AC-EQ of magnons in two magnetic syste…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13745</guid>
     </item>
     <item>
         <title>Towards stealthy hyperuniform networks with optimal isotropic complete photonic band gaps using a novel inverse design procedure</title>
@@ -402,28 +400,6 @@ arXiv:2607.13199v1 Announce Type: cross Abstract: We present a two-stage inverse
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13199</guid>
     </item>
     <item>
-        <title>Simultaneous High-Fidelity Single-Qubit Gates in a Spin Qubit Array</title>
-        <link>https://arxiv.org/abs/2507.11918</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Yi-Hsien Wu, Leon C. Camenzind, Patrick Bütler, Ik Kyeong Jin, Akito Noiri, Kenta Takeda, Takashi Nakajima, Takashi Kobayashi, Giordano Scappucci, Hsi-Sheng Goan, Seigo Tarucha
-
-arXiv:2507.11918v2 Announce Type: replace-cross Abstract: Silicon spin qubits offer a promising path to scalable quantum computing due to their compatibility with industrial semiconductor manufacturing and recent advances in multi-qubit integration. A key requirement for scaling quantum processors is the ability to perform high-fidelity operations in parallel across many qubits. In silicon spin systems, however, simultaneous control remains a major challenge, as fidelities typically degrade under parallel operation. In a five-qubit silicon spin array, we identify microwave-drive-induced AC Stark shifts as the dominant source of this degradation. We address this by introducing a scalable mitigation protocol based solely on pairwise phase calibrations. Using tailored control pulses on a sha…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2507.11918</guid>
-    </item>
-    <item>
-        <title>Phase transitions in coupled Ising chains and SO(N)-symmetric spin chains</title>
-        <link>https://arxiv.org/abs/2602.17029</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Yohei Fuji, Sylvain Capponi, Lukas Devos, Philippe Lecheminant
-
-arXiv:2602.17029v3 Announce Type: replace Abstract: We investigate the nature of quantum phase transitions in a (1+1)-dimensional field theory composed of N copies of the Ising conformal field theory interacting via competing relevant perturbations. The field theory governs the competition between a mass term and an interaction involving the product of N order-parameter fields, which is realized, e.g. in coupled Ising chains, two-leg spin ladders, and SO(N)-symmetric spin chains. By combining a perturbative renormalization group analysis and large-scale matrix-product state simulations, we systematically determine the nature of the phase transition as a function of N. For N=2 and N=3, we confirm that the transition is continuous, belonging to the Ising and four-state Potts universality cl…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2602.17029</guid>
-    </item>
-    <item>
         <title>Basis Adaptive Algorithm for Quantum Many-Body Systems on Quantum Computers</title>
         <link>https://arxiv.org/abs/2512.12753</link>
         <description><![CDATA[📚 arXiv
@@ -435,15 +411,26 @@ arXiv:2512.12753v2 Announce Type: replace Abstract: We introduce a Basis Adaptiv
         <guid isPermaLink="true">https://arxiv.org/abs/2512.12753</guid>
     </item>
     <item>
-        <title>Research progress in high-pressure tuning of layered magnetic materials</title>
-        <link>https://arxiv.org/abs/2607.13632</link>
+        <title>The Sample Pre-selection and Characterization Station at the SECUF: Instrumentation, Capabilities, and Representative Scientific Achievements</title>
+        <link>https://arxiv.org/abs/2607.13375</link>
         <description><![CDATA[📚 arXiv
 
-👤 Yue Dongdong, Gao Xin, Mu Congpu, Liu Zhongyuan, Zhai Kun
+👤 Xu Chen, Tao Sun, Huifen Ren, Minjie Cui, Jun Luo, Shuai Zhang, Shaokui Su
 
-arXiv:2607.13632v1 Announce Type: new Abstract: Two-dimensional van der Waals materials have enormous potential applications in many fields due to their unique layered structure and excellent properties. Compared with three-dimensional bulk materials, layered systems are coupled by weak van der Waals interactions between layers, endowing them with much higher structural compressibility, particularly along the interlayer direction, which is more sensitive to external pressure. High pressure can expand the accessible phase space, enabling the synthesis of new materials or the retention of metastable phases. On the microscopic level, pressure can significantly tune the interlayer structure and interactions, induce changes in the electronic structure, and consequently give rise to a variety o…]]></description>
+arXiv:2607.13375v1 Announce Type: new Abstract: The Synergetic Extreme Condition User Facility (SECUF) is a comprehensive, state-of-the-art user facility designed to provide integrated extreme physical conditions-including ultrahigh pressure, ultralow temperature, strong magnetic fields, and ultrafast optical fields-for frontier research in condensed matter physics and materials science. Within SECUF, the F2 Sample Pre-selection and Characterization Station plays a pivotal supporting role. Its mission is to provide comprehensive sample synthesis, processing, pre-screening, and characterization services to prepare high-quality specimens for subsequent experiments under extreme conditions. This paper details the specifications and performance of ten core instrument systems within these unit…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13632</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13375</guid>
+    </item>
+    <item>
+        <title>Ligand Field Exciton Annihilation in Bulk CrCl3</title>
+        <link>https://arxiv.org/abs/2405.15528</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Samanvitha Sridhar, Ario Khansari, Shaun O'Donnell, Alexandra T. Barth, Evgeny O. Danilov, Felix N. Castellano, Paul A. Maggard, Daniel B. Dougherty
+
+arXiv:2405.15528v2 Announce Type: replace Abstract: The layered van der Waals material CrCl3 exhibits very strongly bound ligand field excitons that control optoelectronic applications and are connected with magnetic ordering by virtue of their d-orbital origin. Time-resolved photoluminescence of these exciton populations at room temperature shows that their relaxation is dominated by exciton-exciton annihilation and that the spontaneous decay lifetime is very long. These observations allow the rough quantification of the exciton annihilation rate constant and contextualization in light of a recent theory of universal scaling behavior of the annihilation process.]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2405.15528</guid>
     </item>
     <item>
         <title>Collective Magnetic Excitations in a Photo-excited Electron-doped Cuprate Superconductor</title>
@@ -468,26 +455,15 @@ arXiv:2607.13949v1 Announce Type: new Abstract: Equilateral triangular lattice m
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13949</guid>
     </item>
     <item>
-        <title>Phonon down-conversion by normal metals for superconducting devices</title>
-        <link>https://arxiv.org/abs/2607.13870</link>
+        <title>Thermodynamic and electrical transport properties of the half-Heusler plumbide TbAuPb</title>
+        <link>https://arxiv.org/abs/2607.14011</link>
         <description><![CDATA[📚 arXiv
 
-👤 Guglielmo La Magna, Gianluigi Catelani
+👤 Abhinav Agarwal, Snehashish Chatterjee, Maciej J. Winiarski, Orest Pavlosiuk, Dorota A. Kowalska, Piotr Wisniewski, Dariusz Kaczorowski
 
-arXiv:2607.13870v1 Announce Type: new Abstract: Thanks to low dissipation, superconducting devices are promising for a number of applications, such as detectors and implementations of quantum computation. However, their working can be adversely impacted by quasiparticles, which is why so-called quasiparticle poisoning mechanisms and their mitigation are under intense investigation. Here we focus on one poisoning mechanism, namely pair-breaking phonons, and its mitigation through down-conversion by a normal-metal film - the process in which scattering of high-energy phonons by electrons lowers the energy of the former below the pair-breaking threshold. To study the down-conversion, we introduce a model based on kinetic equations, which we solve both analytically (approximately) and numeric…]]></description>
+arXiv:2607.14011v1 Announce Type: new Abstract: Structural, thermodynamic and electrical transport properties of TbAuPb were investigated on single crystals. The compound was found to crystallize with the cubic MgAgAs-type structure characteristic of half-Heusler materials. It orders antiferromagnetically at TN = 5 K and undergoes a transition into a different antiferromagnetic phase emerging in high magnetic fields. Electrical transport in TbAuPb exhibits a multiband character, with a predominance of hole-like carriers. Angular magnetoresistance evolves systematically with applied magnetic field and changes its symmetry near the spin-reorientation transition, highlighting strong coupling between the charge transport and the magnetic order. The results of first-principles calculations ind…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13870</guid>
-    </item>
-    <item>
-        <title>Superconducting proximity effect in a strongly correlated charge-transfer insulator</title>
-        <link>https://arxiv.org/abs/2607.13873</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Mengya Ren, Yaoyao Chen, Fudi Zhou, Can Zhang, Zhaoteng Dong, Lili Zhou, Quanzhen Zhang, Huixia Yang, Xiaolong Xu, Yuanxiao Ma, Yu Zhang, Yeliang Wang
-
-arXiv:2607.13873v1 Announce Type: new Abstract: Proximity-induced superconductivity in strongly correlated insulators provides a versatile route for engineering quantum states of matter and artificial systems with tailored functionalities. However, microscopic interplay between superconductivity and correlated insulating states remains poorly understood. Here we use ultralow-temperature scanning tunnelling microscopy (STM) to systemically investigate superconducting proximity effects in a charge-transfer insulator. Via STM tip manipulation, atomically sharp lateral junctions composed of superconducting monolayer H-NbSe2 and charge-transfer insulating monolayer T-NbSe2 are constructed, enabling direct access to tunable coupling regimes. In the weak-coupling regime, there is a robust proxim…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13873</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.14011</guid>
     </item>
     <item>
         <title>Unified Terahertz Framework for Magnetic and Lattice Responses Reveals an Elusive Ordering Transition in Gd₂Ru₂O₇</title>
@@ -501,17 +477,6 @@ arXiv:2607.14029v1 Announce Type: new Abstract: Magnetic order in materials comb
         <guid isPermaLink="true">https://arxiv.org/abs/2607.14029</guid>
     </item>
     <item>
-        <title>Pseudo point nodal superconducting gap in spin-triplet UTe 2</title>
-        <link>https://www.nature.com/articles/s41467-026-75566-9</link>
-        <description><![CDATA[📚 Nature Communications
-
-👤 S. Hosoi, K. Imamura, M. M. Bordelon, E. D. Bauer, S. M. Thomas, F. Ronning 等10位作者
-
-Nature Communications, Published online: 16 July 2026; doi:10.1038/s41467-026-75566-9 The authors report thermal conductivity measurements on UTe2 down to 50 mK. From the data, they argue that UTe2 exhibits a fully-gapped state with a pseudo point-nodal structure, where gap minima along the b axis approach but never reach zero.]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.nature.com/articles/s41467-026-75566-9</guid>
-    </item>
-    <item>
         <title>Absorption of Broadband Low‐Frequency Sound Beyond the Thermodynamics Limit: An Acoustic Resonator With Magnetic Bearing</title>
         <link>https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76584?af=R</link>
         <description><![CDATA[📚 Wiley: Advanced Science: Table of Contents
@@ -523,26 +488,114 @@ Advanced Science, EarlyView.]]></description>
         <guid isPermaLink="true">https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.76584?af=R</guid>
     </item>
     <item>
-        <title>Gate-tunable polarity inversions and three-fold rotation symmetry of the superconducting diode effect</title>
-        <link>https://www.nature.com/articles/s41535-026-00923-2</link>
-        <description><![CDATA[📚 npj Quantum Materials
+        <title>Microwave Signature of the Emerging Abrikosov Lattice above Hc₂</title>
+        <link>http://link.aps.org/doi/10.1103/j8wg-6d9d</link>
+        <description><![CDATA[📚 Phys. Rev. Lett.
 
-👤 William F. Schiela, Melissa Mikalsen, Daniel Crawford, Stefan Ilić, William M. Strickland, F. Sebastian Bergeret 等7位作者
+👤 Hang Zhou, Zhanghai Chen, A. A. Varlamov, Andreas Glatz, and Yuriy Yerin
 
-npj Quantum Materials, Published online: 16 July 2026; doi:10.1038/s41535-026-00923-2 Gate-tunable polarity inversions and three-fold rotation symmetry of the superconducting diode effect]]></description>
+Author(s): Hang Zhou, Zhanghai Chen, A. A. Varlamov, Andreas Glatz, and Yuriy Yerin The emergence of the Abrikosov lattice in the normal phase of type-II superconducting films as the magnetic field approaches the critical field Hc₂ from above was predicted in Glatz et al. [Fluctuation spectroscopy of disordered two-dimensional superconductors, Phys. Rev. B 84 , 104510 (2011) ]… [Phys. Rev. Lett. 137, 036001] Published Thu Jul 16, 2026]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://www.nature.com/articles/s41535-026-00923-2</guid>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/j8wg-6d9d</guid>
     </item>
     <item>
-        <title>PQFA: Parallel Quantum Feature Augmentation of Fused Representations for Multimodal Classification</title>
-        <link>https://arxiv.org/abs/2607.13466</link>
+        <title>Photoinduced Switching of Magnetization in the Epsilon-Near-Zero Regime</title>
+        <link>http://link.aps.org/doi/10.1103/ltgt-kbj7</link>
+        <description><![CDATA[📚 Phys. Rev. Lett.
+
+👤 Héloïse Damas, Carl S. Davies, Petr M. Vetoshko, Vladimir I. Belotelov, Andrzej Stupakiewicz, and Andrei Kirilyuk
+
+Author(s): Héloïse Damas, Carl S. Davies, Petr M. Vetoshko, Vladimir I. Belotelov, Andrzej Stupakiewicz, and Andrei Kirilyuk Midinfrared laser pulses tuned to optical phonon frequencies can induce magnetization switching in magnetic dielectrics, but the underlying mechanisms remain unclear, since excitations of the crystal lattice can simultaneously produce heating and nonthermal strain. Here, we study the response of lab… [Phys. Rev. Lett. 137, 036704] Published Thu Jul 16, 2026]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/ltgt-kbj7</guid>
+    </item>
+    <item>
+        <title>A laser plasma soliton fusion scheme</title>
+        <link>https://arxiv.org/abs/2601.03943</link>
         <description><![CDATA[📚 arXiv
 
-👤 Mingzhu Wang, Yun Shang
+👤 Pisin Chen, Yung-Kun Liu, Gerard Mourou
 
-arXiv:2607.13466v1 Announce Type: new Abstract: Most multimodal learning methods improve how heterogeneous representations are aligned and fused, while post-fusion enhancement remains less explored. We propose Parallel Quantum Feature Augmentation (PQFA), a hybrid quantum-classical framework that applies multiple shallow variational quantum circuits to fused multimodal features. Text and image representations extracted by frozen RoBERTa and ViT encoders are processed through bidirectional cross-attention, attentive pooling, and adaptive gated fusion. The fused feature is then amplitude-encoded into parallel quantum circuits, whose measurement readouts are concatenated with the classical representation for prediction. We evaluate PQFA on MM-IMDb and N24News through controlled comparisons u…]]></description>
+arXiv:2601.03943v2 Announce Type: replace Abstract: We introduce a novel and generic fusion scheme enabled by laser-plasma solitons, which promises to overcome several fundamental obstructions to reaching the breakeven condition. To demonstrate that, we invoke both deuterium-tritium (DT) and proton-boron (pB) as fuels. The intense electromagnetic field trapped inside the soliton significantly enhances the DT and pB fusion cross sections. Its ponderomotive potential evacuates electrons almost instantly, while the ions left behind are accelerated by the unshielded Coulomb field to kinetic energies suitable for fusion reaction on a longer time scale. Such a difference in time scales renders a time window for fusion to occur efficiently in an electron-free environment. We inject two consecuti…]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13466</guid>
+        <guid isPermaLink="true">https://arxiv.org/abs/2601.03943</guid>
+    </item>
+    <item>
+        <title>EM-GANSim: Real-time and Accurate EM Simulation Using Conditional GANs for 3D Indoor Scenes</title>
+        <link>https://arxiv.org/abs/2405.17366</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ruichen Wang, Dinesh Manocha
+
+arXiv:2405.17366v3 Announce Type: replace Abstract: We present a novel machine-learning (ML) approach (EM-GANSim) for real-time electromagnetic (EM) propagation that is used for wireless communication simulation in 3D indoor environments. Our approach uses a modified conditional Generative Adversarial Network (GAN) that incorporates encoded geometry and transmitter location while adhering to the electromagnetic propagation theory. The overall physically-inspired learning is able to predict the power distribution in 3D scenes, which is represented using heatmaps. We evaluated our method on 15 complex 3D indoor environments, with 4 additional scenarios later included in the results, showcasing the generalizability of the model across diverse conditions. Our overall accuracy is comparable to…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2405.17366</guid>
+    </item>
+    <item>
+        <title>jaxFMM: An Adaptive, GPU-Parallel Implementation of the Fast Multipole Method in JAX</title>
+        <link>https://arxiv.org/abs/2511.15269</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Robert Kraft, Florian Bruckner, Dieter Suess, Claas Abert
+
+arXiv:2511.15269v2 Announce Type: replace Abstract: We introduce jaxFMM, an open-source, adaptive, highly parallel point-charge Fast Multipole Method implementation for the Laplace kernel written in JAX. It is based on a non-uniform refinement strategy with on-the-fly rotation-based transforms tailored around JAX's just-in-time compiler, which results in extremely concise and simple code. Benchmarks show that the algorithm performs well at moderate accuracies, even for highly non-uniform charge distributions. JaxFMM already massively speeds up stray-field computations in micromagnetics and with JAX features like autodiff, novel applications such as inverse-design problems and machine-learning tasks can be tackled with ease in the future.]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2511.15269</guid>
+    </item>
+    <item>
+        <title>Optically Incoherent Photonic Mutual Information</title>
+        <link>https://arxiv.org/abs/2607.13153</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Francis J. Chen, Alessio Amaolo, Pengning Chao, Sean Molesky, Zin Lin, Alejandro W. Rodriguez
+
+arXiv:2607.13153v1 Announce Type: new Abstract: While traditional evaluations of optical information transfer rely on disjointed abstractions to bridge electromagnetic propagation, coherence, and communication theory, we introduce an end-to-end framework that directly connects rigorous subwavelength wave physics to Shannon mutual information. By lifting the Maxwell current-to-field Green's function to propagate second-order field correlations (the mutual intensity), we establish a unified linear channel model that encapsulates coherent communication, phase retrieval, and incoherent imaging. Applying this framework, we demonstrate that the mutual-information-optimized photonic front end is dictated jointly by available spatial degrees of freedom, source statistics, and detection laws. For…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13153</guid>
+    </item>
+    <item>
+        <title>A robust and modular cesium magneto-optical trap using diverging laser beams</title>
+        <link>https://arxiv.org/abs/2607.13145</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Paola Luna, Kenneth Nakasone, Andrei Zhukov, Philip Wondrak, Brian P. Anderson, Benjamin F. Kanzer, Cristian D. Panda
+
+arXiv:2607.13145v1 Announce Type: new Abstract: Magneto-optical traps (MOTs) are a workhorse technology for neutral-atom quantum sensing, simulation, and computing. Here, we demonstrate a MOT optimized for inertial quantum sensing and precision metrology applications. Our MOT traps 4×10⁸ cesium (Cs) atoms in a robust, modular system that achieves stable operation through two design features: (1) we use diverging cooling laser beams to reduce unwanted reflections and (2) optical elements are mounted in a fiber-coupled, compact, and modular cage rigidly attached to the vacuum chamber. Following polarization-gradient cooling (PGC), the system produces atom samples with temperatures below 10 μK, similar to those achieved in conventional MOTs that use collimated laser beams. In addition, we ob…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13145</guid>
+    </item>
+    <item>
+        <title>Exactly Solvable Diffraction-Grating Scattering Problems for TE and TM waves</title>
+        <link>https://arxiv.org/abs/2607.13287</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Farhang Loran, Ali Mostafazadeh
+
+arXiv:2607.13287v1 Announce Type: new Abstract: In J.~Phys.~A bf 31, 3493 (1998), Berry provides an analytic solution of the problem of determining the diffracted beam intensities for atoms incident upon a grating given by the potential, v(x,y):=iV₀₍ₑⁱmathfrakK,y-1) for 0łeq xłeqell and v(x,y):=0 otherwise, where V₀, mathfrakK, and ell are positive real parameters. This result, which relies on the paraxial approximation, readily applies to the diffraction of transverse electric (TE) waves by the nonmagnetic optical grating given by the relative permittivity, hatǎrepsilon(x,y):=1-v(x,y)/k², where k is the incident wavenumber. We show that Berry's grating belongs to a larger class of possibly magnetic diffraction gratings whose scattering problem for both TE and transverse magnetic (TM) wav…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13287</guid>
+    </item>
+    <item>
+        <title>Maximum non reciprocity in metasurfaces of gyrotropic rods</title>
+        <link>https://arxiv.org/abs/2607.13843</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ioannis Katsantonis, Constantinos Valagiannopoulos, Anna C. Tasolamprou
+
+arXiv:2607.13843v1 Announce Type: new Abstract: Efficiently breaking time-reversal symmetry at the subwavelength scale remains a cornerstone challenge for advanced electromagnetic wave manipulation. This work presents a rigorous analytical framework, based on cylindrical wave expansion, to investigate and optimize the nonreciprocal scattering of transverse electric waves by magnetically biased plasmonic rods. An intuitive metric is introduced to quantify the breaking of time-reversal symmetry via the asymmetric lifting of degeneracy between azimuthal modes of opposite angular momentum, hosted by the gyrotropic particles. Leveraging this metric, a comprehensive mapping of the multiparametric space of operational frequency, cyclotron frequency, and cylinder optical size isolates regimes of…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13843</guid>
+    </item>
+    <item>
+        <title>Ion-Scale Current Sheets Embedded in Reconnection Jet Shear Layer of the Near-Sun Heliospheric Current Sheet</title>
+        <link>https://arxiv.org/abs/2607.13534</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Dae-Young Lee, Dooyoung Choi, Kyung-Eun Choi, Sung Jun Noh
+
+arXiv:2607.13534v1 Announce Type: cross Abstract: Context. Magnetic reconnection in the heliospheric current sheet (HCS) plays an important role in restructuring the solar wind magnetic topology and generating plasma jets and magnetic islands. While large-scale signatures of HCS reconnection have been reported in many observational studies, the kinetic-scale structure embedded within reconnection regions remains less well understood. Aims. We investigate the ion-scale currents sheets (CSs) embedded within an HCS reconnection region and their relationship to the flow-shear layer at the edge of a reconnection jet. Methods. We analyzed an HCS crossing observed by the Parker Solar Probe on March 29, 2024, using high-time-resolution magnetic field measurements. We focused on ion-scale magnetic…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13534</guid>
     </item>
     <item>
         <title>Chiral Landau levels induced by two in-plane pseudomagnetic fields in underwater acoustic metamaterials</title>
@@ -556,6 +609,28 @@ arXiv:2607.13426v1 Announce Type: new Abstract: The chiral zeroth Landau levels 
         <guid isPermaLink="true">https://arxiv.org/abs/2607.13426</guid>
     </item>
     <item>
+        <title>Parity-Lifted Radiative Degeneracy: Orthogonal Dipoles over Parallel Dipoles in Achiral Dielectric Cavities</title>
+        <link>https://arxiv.org/abs/2607.13603</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zhong-Jian Yang, Ya-Pei Wang, Lin Ma, Jian-Hua Liang, Yue You, Jun He
+
+arXiv:2607.13603v1 Announce Type: new Abstract: Parity symmetry enforces radiative degeneracy of parity-conjugated emitters in free space. We selectively lift this degeneracy in an achiral dielectric cavity via coupling-induced global parity breaking: the cavity and individual dipoles each preserve parity, while their fixed relative orientation breaks global parity, enabling differential decay. This mechanism exhibits a structure-function trend in marked contrast to the Rosenfeld rule: orthogonal electric-magnetic dipoles yield radiative asymmetry approaching the theoretical limit of 2, whereas parallel ones show negligible differentiation. A semi-analytical model, validated across multiple modes, confirms generality. These findings establish a new paradigm for symmetry engineering withou…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13603</guid>
+    </item>
+    <item>
+        <title>łambdaPIC: A callback-centric particle-in-cell framework</title>
+        <link>https://arxiv.org/abs/2607.13507</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Xuesong Geng, Yunwei Cui, Lingang Zhang, Liangliang Ji
+
+arXiv:2607.13507v1 Announce Type: new Abstract: We present łambdaPIC, a Python-based electromagnetic particle-in-cell framework built around a callback-centric architecture. Existing PIC codes typically tie high performance to static, pre-compiled timestep loops, hindering implementation of custom physics, diagnostics, or output logic. łambdaPIC breaks this coupling by exposing every stage of the loop as a named stage (hook), permitting attaching arbitrary Python functions that operate on the full simulation state, enabling custom algorithms and in-situ analysis without modifying the core algorithms. Under this flexible framework, performance-critical kernels are written in C extensions and Numba, fields and particles are stored in NumPy arrays, and MPI parallelism is paired with graph pa…]]></description>
+        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.13507</guid>
+    </item>
+    <item>
         <title>Mapping metastable magnetic textures in (Fe₀.₅Co₀.₅)₅GeTe₂ with in situ Lorentz transmission electron microscopy</title>
         <link>http://link.aps.org/doi/10.1103/ml5v-s55s</link>
         <description><![CDATA[📚 Phys. Rev. Materials
@@ -567,101 +642,26 @@ Author(s): Reed Yalisove, Hongrui Zhang, Xiang Chen, Fanhao Meng, Jie Yao, Rober
         <guid isPermaLink="true">http://link.aps.org/doi/10.1103/ml5v-s55s</guid>
     </item>
     <item>
-        <title>Kinetic instability and superconductivity in Li₂AuH₆ and Li₂AgH₆ at ambient pressure</title>
-        <link>http://link.aps.org/doi/10.1103/w7rx-sknt</link>
+        <title>Creation of polar bubbles in a lead zirconate titanate nanodot</title>
+        <link>http://link.aps.org/doi/10.1103/8nmt-bvvl</link>
         <description><![CDATA[📚 Phys. Rev. B
 
-👤 Yucheng Ding, Haoran Chen, and Junren Shi
+👤 Shuai Yuan, Zhiyuan Wang, Yongxin Bai, and Runyu Xiao
 
-Author(s): Yucheng Ding, Haoran Chen, and Junren Shi Li₂AuH₆ and Li₂AgH₆ have been proposed as promising candidates for high-temperature superconductors under ambient pressure. While previous studies confirm the dynamic stability of these two thermodynamically unstable systems, their kinetic … [Phys. Rev. B 114, 014508] Published Thu Jul 16, 2026]]></description>
+Author(s): Shuai Yuan, Zhiyuan Wang, Yongxin Bai, and Runyu Xiao Ferroelectric topological textures have attracted growing interest as nanoscale polarization states with rich structural and functional behavior. Here, using phase-field simulations, we study the controlled formation and stability of polar bubbles in square lead zirconate titanate nanodots. We show … [Phys. Rev. B 114, 024105] Published Thu Jul 16, 2026]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/w7rx-sknt</guid>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/8nmt-bvvl</guid>
     </item>
     <item>
-        <title>Photon-mediated entanglement between spin qubits beyond the dispersive regime</title>
-        <link>http://link.aps.org/doi/10.1103/y6d1-nsxs</link>
+        <title>Quantum-geometric thermal conductivity of superconductors</title>
+        <link>http://link.aps.org/doi/10.1103/hsyt-nv2n</link>
         <description><![CDATA[📚 Phys. Rev. B
 
-👤 Andrei I. Nikitchenko and Guido Burkard
+👤 Maximilian Buthenhoff and Yusuke Nishida
 
-Author(s): Andrei I. Nikitchenko and Guido Burkard Dispersively coupled distant qubits in a shared cavity can become entangled through virtual photon exchange with energy-conserving phase evolution of their quantum states. This interaction can potentially be accelerated by operating on resonance, allowing for the exchange of real photons. In this th… [Phys. Rev. B 114, 045420] Published Thu Jul 16, 2026]]></description>
+Author(s): Maximilian Buthenhoff and Yusuke Nishida By coupling Bardeen-Cooper-Schrieffer (BCS) theory with isolated bands to an external gravitomagnetic vector potential via a gravitomagnetic Peierls substitution, we identify a quantum-geometric contribution to the electronic contribution of the thermal conductivity. This contribution is governed by… [Phys. Rev. B 114, 024508] Published Thu Jul 16, 2026]]></description>
         <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/y6d1-nsxs</guid>
-    </item>
-    <item>
-        <title>Evaluation of State-of-the-Art Deep Learning Architectures for Aerodynamical Predictions</title>
-        <link>https://arxiv.org/abs/2607.13866</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jan Scherz, Derrick Hines, Philipp Bekemeyer
-
-arXiv:2607.13866v1 Announce Type: new Abstract: Surrogate models are used to substitute classical numerical solvers in engineering applications where the computational cost of the latter becomes infeasible. For instance, in aerodynamics such models offer cost-effective alternatives to computational fluid dynamics in problems such as shape optimization and load analysis, which oftentimes require high-fidelity simulations for a multitude of different parameter combinations. A specific class of deep learning-based surrogate models termed operator learning models directly approximates the solution operators to the partial differential equations underlying the physical phenomenon, thereby learning to replicate solutions to entire families of problems. However, while nowadays numerous architect…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13866</guid>
-    </item>
-    <item>
-        <title>Leveraging unlabelled data for generalizable neural population decoding</title>
-        <link>https://arxiv.org/abs/2607.14086</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Ximeng Mao, Nanda H. Krishna, Avery Hee-Woon Ryoo, Matthew G. Perich, Guillaume Lajoie
-
-arXiv:2607.14086v1 Announce Type: new Abstract: Robust and accurate neural decoders are integral to neurotechnologies such as brain-computer interfaces and closed-loop experiments. Recent work has shown that tokenizing neural data at the spike level facilitates multi-session pretraining and delivers state-of-the-art decoding performance. However, current spike-based models are restricted to supervised learning (SL), limiting training to datasets with paired behavioural labels. To address this limitation, we introduce MOJO (Masked autOencoder-based JOint training), a training framework for spike-tokenizing models that jointly leverages self-supervised learning (SSL) via masked autoencoding and SL objectives. We evaluate MOJO on three spiking datasets spanning monkey motor cortex during rea…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.14086</guid>
-    </item>
-    <item>
-        <title>Machine learning methods for subpixel trajectory reconstruction in discretized position detectors</title>
-        <link>https://arxiv.org/abs/2512.20645</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Matthew Mark Romano, Zhengzhi Liu, JungHyun Bae
-
-arXiv:2512.20645v2 Announce Type: replace Abstract: In this study, we demonstrate that compared with traditional centroid-based methods, machine learning methods (particularly transformer-based architectures) achieve superior subpixel position and therefore angular resolution in discretized particle detectors. Using Geant4 Monte Carlo simulated cosmic ray muon data from an 8x8 segmented scintillator detector array, we compare four reconstruction approaches: transformer neural networks, convolutional neural networks, linear regression, and energy-weighted centroids. The transformer architecture achieves the best angular reconstruction with a root mean square error of 1.14deg and a position mean absolute error of 0.24 cm, representing improvements of 2.22x and 6.33x, respectively, over the…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2512.20645</guid>
-    </item>
-    <item>
-        <title>Tensor-Network Finite Elements for Analytic Operator Equations</title>
-        <link>https://arxiv.org/abs/2607.13129</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Abhijatmedhi Chotrattanapituk, Michael J. Landry, Chu-Liang Fu, Mingda Li
-
-arXiv:2607.13129v1 Announce Type: cross Abstract: Operator equations (OEs) underpin quantitative modeling across science and engineering. Finite-element (FE) methods discretize continuous OEs into finite-dimensional algebraic systems, whereas tensor networks (TNs) provide flexible variational representations of correlated discrete systems. Here, we develop a framework that connects FE with TN for analytic OEs. The power of this method comes from its ability to convert highly non-linear partial differential equations into linear matrix equations. In particular, we show that FE discretization induces a hierarchy of multilinear interaction tensors, through which differential, integral, nonlinear, memory, and delay equations can be expressed within a common algebraic structure. The resulting…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13129</guid>
-    </item>
-    <item>
-        <title>Reducing the computational cost scaling of tensor network algorithms via field-programmable gate array parallelism</title>
-        <link>http://link.aps.org/doi/10.1103/ktzw-t6fx</link>
-        <description><![CDATA[📚 Editors' Suggestions
-
-👤 Songtai Lv, Yang Liang, Rui Zhu, Qibin Zheng, and Haiyuan Zou
-
-Author(s): Songtai Lv, Yang Liang, Rui Zhu, Qibin Zheng, and Haiyuan Zou By implementing a novel quad-tile partitioning strategy on field-programmable gate arrays (FPGAs), researchers have drastically reduced the computational cost scaling of fundamental tensor network algorithms. This highly parallel, hardware-driven approach significantly outperforms traditional CPU computations, opening new pathways for efficient, large-scale simulations of quantum many-body systems. [APS Open Sci. 1, 000064] Published Thu Jul 16, 2026]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/ktzw-t6fx</guid>
-    </item>
-    <item>
-        <title>Efficient grand canonical global optimization with on-the-fly-trained machine-learning interatomic potentials</title>
-        <link>https://pubs.aip.org/aip/jcp/article/165/3/034115/3398567/Efficient-grand-canonical-global-optimization-with</link>
-        <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
-
-The characterization of nanostructured materials under reactive environments is challenging due to the complexity of the structural motifs involved and their chemical transformations. Global optimization approaches allow predicting stable structures for targeted materials, but addressing the configurational and compositional search spaces is both computationally demanding and inefficient, especially when first-principles calculations are required. In this work, we implement and evaluate a computationally efficient grand canonical global optimization algorithm able to identify stable structures and chemical states of targeted systems under given reaction conditions (e.g., reactant pressure and temperature). The algorithm leverages an on-the-fly trained machine-learning interatomic potentia…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/3/034115/3398567/Efficient-grand-canonical-global-optimization-with</guid>
-    </item>
-    <item>
-        <title>Mono-Z Dark Matter Search with Neural Spline Flows Using CMS Run 2015D Open Data</title>
-        <link>https://arxiv.org/abs/2607.13771</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Hitesh Rasineni (VIT-AP University, Amaravati, India), Bhavishya Chebrolu (Mohan Babu University, Tirupati, India)
-
-arXiv:2607.13771v1 Announce Type: new Abstract: We report a search for dark matter (DM) produced in association with a leptonically decaying (Z) boson at (sqrts=13) TeV using CMS Run 2015D open data corresponding to an integrated luminosity of (2.32,fb⁻¹) together with simplified-model Monte Carlo simulation. Events are selected in the mono-(Zi̊ghtarrowell⁺ell⁻) final state in both the (μμ) and (ee) channels. Forty kinematic observables are extracted from MINIAOD and MINIAODSIM, cleaned with physics-motivated selections, and reduced to a 37-dimensional feature vector. Five Neural Spline Flows are trained independently to model Standard Model background and mediator-specific DM signal densities. The per-event test statistic is constructed from the log-likelihood ratio between the signal an…]]></description>
-        <pubDate>Thu, 16 Jul 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2607.13771</guid>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/hsyt-nv2n</guid>
     </item>
 </channel>
 </rss>
