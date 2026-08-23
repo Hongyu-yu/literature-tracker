@@ -42,7 +42,9 @@ jobs:
           AI_DAILY_WAIT_MAX_SECONDS: "1800"
           AI_HIGHLIGHT_MAX_ITEMS: ${{ vars.AI_HIGHLIGHT_MAX_ITEMS || '60' }}
           AI_FOCUS_DAILY_MAX: ${{ vars.AI_FOCUS_DAILY_MAX || '60' }}
-        run: python generate_daily_pages.py --days 4 --force
+        # --days 2(而非4):此步的 AI 日报摘要是 generate-deep 的耗时瓶颈(历史常撞超时)。
+        # 深读/海报/邮件只需覆盖目标日+1天缓冲;4 天回填由 fetch.yml 负责,末尾免AI重渲染仍覆盖4天。
+        run: python generate_daily_pages.py --days 2 --force
       # run_deep SECOND: APS full-text deep+poster, enrich tier2 (abstract-level + infographic),
       # sole writer of arxiv_core_<date>.json (deep_analysis/image/poster_elements) — no clobber.
       - name: Run deep pipeline (enrich arxiv_core/aps)
