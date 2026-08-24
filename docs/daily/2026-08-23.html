@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-08-23 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-08-23.xml" rel="alternate" title="2026-08-23 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-08-23.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-08-23</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-08-22.html">← 前一天 · 2026-08-22</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#focus-interest">与你相关</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/08/23</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">8</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">9</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">3</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<section aria-label="今日概览" class="daily-viz"><h2>📊 今日概览</h2><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 210"><title>主题分布</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">2</text><text class="vl" x="8" y="78">量子信息·计算</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="64"></rect><text class="vn" x="338" y="78">2</text><text class="vl" x="8" y="106">AI×物理</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="92"></rect><text class="vn" x="243.0" y="106">1</text><text class="vl" x="8" y="134">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="120"></rect><text class="vn" x="243.0" y="134">1</text><text class="vl" x="8" y="162">超导</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="148"></rect><text class="vn" x="243.0" y="162">1</text><text class="vl" x="8" y="190">铁电·极化</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="176"></rect><text class="vn" x="243.0" y="190">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">8</text></svg><svg aria-label="优先级分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>优先级分层</title><style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style><text class="vt" x="8" y="20">优先级分层</text><text class="vl" x="8" y="50">P1 神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="36"></rect><text class="vn" x="148.0" y="50">0</text><text class="vl" x="8" y="78">P2 铁电·铁磁·多铁</text><rect class="vb" height="18" rx="5" width="63.3" x="142" y="64"></rect><text class="vn" x="211.3" y="78">2</text><text class="vl" x="8" y="106">P3 其余</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">6</text></svg></div></section>
+<p class="daily-filter-note">原始候选 10 篇中，已剔除 1 篇明显偏离主线的内容，并从剩余 9 篇主线相关文献中精选 8 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-08-22.html">前一天 · 2026-08-22</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-23.html">最新一期 · 2026-08-23</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-23.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">2 篇</span>
+</div>
+<p class="daily-core-note">本日实质进展分成两条路线：TiI3/Sc2CO2把二维磁性层与铁电/极化层的界面电荷重排、磁电耦合和非易失切换联系起来，但现有信息尚不足以确认其采用的交换关联泛函、DFT+U参数或界面堆垛结论。Reliableformer则把忆阻器单元读出误差、编程波动、阵列红外压降和温度依赖保持特性显式注入六模块多头视觉Transformer的数据通路，并以电路—软件协同缓解恢复准确率。对团队材料方向，NbOI2、CrI3、CrSBr和BaTiO3可分别作为极化、二维磁性、磁激发与体铁电基准体系；方法上应将DFT+U生成的数据与equivariant GNN、MACE或NEP势函数结合，形成从界面结构到器件扰动的统一验证链。</p>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">用于非易失性切换的二维TiI3/Sc2CO2多铁异质结界面电子性质</div>
+<div class="daily-core-title-en">The interfacial electronic properties of two-dimensional TiI 3 /Sc 2 CO 2 multiferroic heterojunctions for nonvolatile switching</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作研究了用于非易失性切换的二维TiI3/Sc2CO2多铁异质结的界面电子性质。原始信息未提供论文摘要，具体研究方法、计算结果和结论需查阅原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕二维TiI3/Sc2CO2多铁异质结的界面电子性质及其在非易失性切换中的应用展开。原始信息仅提供题名、期刊、作者和在线发表日期，具体计算方法、界面特征及切换性能需查阅论文全文。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>当前给出的原始信息只有题名、作者、期刊和在线日期，未披露TiI3/Sc2CO2的堆垛构型、层间距、磁序、交换关联泛函、DFT+U参数、SOC处理、k点网格或声子稳定性，因此不能可靠复述具体计算路线。可确认的研究对象是二维TiI3磁性层与Sc2CO2极化层形成的多铁异质结，核心问题应包括界面态、极化翻转引起的能带或自旋变化，以及这些变化能否支撑非易失电阻/磁态切换。</p><p><strong>🔗 相关工作关联：</strong>该题目与CrI3/铁电层、CrSBr异质界面和BaTiO3表面磁电耦合研究同属“极化控制磁性或输运”的第一性原理体系，但TiI3/Sc2CO2的具体界面化学和稳定磁序不能由题名外推。与团队五位研究人员的既有方向也无法逐一对应，因为人员姓名、分工及已发表体系未提供；方法层面可与团队的DFT+U、界面电荷分析、磁各向异性能和机器学习势函数工作建立候选连接，但不能虚构已有结果。</p><p><strong>💡 对你方向的启示：</strong>建议先按论文全文补齐结构和计算设置，再建立TiI3/Sc2CO2界面数据集：枚举高对称堆垛、层间距、极化方向和FM/AFM自旋构型，使用含SOC的DFT+U计算总能、带边、差分电荷、磁矩和势垒。随后以NbOI2、CrI3、CrSBr和BaTiO3作迁移基准，用equivariant GNN或MACE拟合能量与力、用NEP进行大尺度界面弛豫，最后通过极化翻转后的能带、磁交换参数和非易失态保持模拟与原始DFT交叉验证。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10644911/latest">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">Reliableformer：面向可靠忆阻器变压器加速器的器件感知框架</div>
+<div class="daily-core-title-en">Reliableformer: A Device Aware Framework for Reliable Memristor Transformer Accelerators</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Preprints</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Transformer网络驱动着现代人工智能，但在数据中心规模下，其能源和冷却需求限制了可持续部署。忆阻器交叉阵列上的模拟存内计算有望实现数量级的节能，但也会使计算暴露于降低准确率的器件非理想因素之中。由于制造成本高昂，经过流片前校准且具有物理一致性的数字孪生模型能够降低设计风险。Reliableformer是一种器件感知框架，它将一个六模块、多头的CIFAR-10视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并将非理想因素从器件层、经过阵列层和架构层传播到计算层。该框架量化了读出精度和单元精度、电导以及编程波动带来的准确率、面积和能耗权衡，并在红外压降和温度依赖的保持物理条件下评估每个交叉阵列。在强波动条件下，通过采用电路和软件层面的缓解措施，准确率可恢复到46%至64%；在保持应力之后，可恢复到16%至80%。由于材料选择决定保持特性和开关比，且主导非理想因素会随情景变化，工程师需要据此采用相应的对策。据我们所知，这是首个面向Transformer的端到端、具有物理一致性的数字孪生模型。与卷积神经网络实现不同，该模型包含动态生成的注意力乘积、数字softmax和归一化层，以及交叉阵列内的有符号编码。与已制造的全模拟钙钛矿Transformer引擎进行基准比较，证实了这些策略在方向上的现实性，并得到七项可迁移的设计原则。这些以物理学为基础的发现可迁移到其他架构的忆阻器加速器中。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Reliableformer是一种器件感知框架，用于将六模块多头视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并从器件、阵列和架构层面传播非理想因素。该框架量化了读出与单元精度、电导和编程波动带来的准确率、面积和能耗权衡，并评估了红外压降和温度依赖保持特性。通过电路和软件层面的缓解措施，模型在强波动和保持应力下的准确率得到恢复；研究还总结了七项可迁移的设计原则，并以已制造的全模拟钙钛矿Transformer引擎验证策略的方向性现实性。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>摘要给出的路线是把六模块多头视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并在器件、阵列和架构三级传播非理想因素。输入包括读出/单元精度误差、电导与编程波动、阵列红外压降及温度依赖保持扰动；输出联合评估准确率、面积和能耗，再用电路级与软件级缓解恢复模型性能。摘要未提供数据集、器件数量、位宽、阵列尺寸、训练轮数或噪声分布参数，不能补写为确定设置。</p><p><strong>🔗 相关工作关联：</strong>Reliableformer呼应硬件感知训练、噪声注入量化、模拟交叉阵列IR-drop建模、Transformer映射和忆阻器保持性分析；其区别在于把多种器件非理想因素贯穿注意力数据通路，并同时报告准确率、面积和能耗，而非只做静态权重噪声测试。与团队五位研究人员的既有方向无法逐一对应，因人员信息缺失；若团队已有铁电/钙钛矿器件、DFT材料建模、神经网络势或器件可靠性研究，可分别接入材料参数、噪声模型、阵列仿真和算法补偿环节。</p><p><strong>💡 对你方向的启示：</strong>可将团队已有BaTiO3及其他铁电/钙钛矿器件数据转成温度、脉冲宽度、循环次数、保持时间到电导状态的联合分布，并把CrI3、CrSBr等磁性器件作为不同开关噪声和状态数的对照。先在软件中对六模块ViT逐层注入实测编程误差、读出噪声、IR-drop和保持漂移，再用SPICE或紧凑模型校准阵列级结果；以浮点模型、理想阵列和实测噪声阵列比较准确率、面积、能耗及长期保持误差，验证缓解策略是否跨器件迁移。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10644911/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section daily-focus-section" id="focus-interest">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">与你方向相关</h2>
+<span class="daily-focus-count">3 篇</span>
+</div>
+<ol class="daily-focus-list">
+<li class="daily-focus-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10721601/latest">
+<div class="daily-focus-number">01</div>
+<div class="daily-focus-body">
+<div class="daily-focus-title"><a class="daily-focus-link" href="https://www.researchsquare.com/article/rs-10721601/latest" rel="noopener noreferrer" target="_blank">YbMn2Ge2中的非平凡自旋与轨道纹理</a></div>
+<div class="daily-focus-meta"><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip">📅 2026-08-23</span><span class="daily-chip daily-chip-focus">🎯 相关度 9</span></div>
+<div class="daily-focus-deep"><p><strong>📝 简单总结：</strong>该预印本结合角分辨光电子能谱和第一性原理计算，在 YbMn2Ge2 表面解析出由表面诱导对称性破缺产生的二维交替磁性电子态。工作还识别了受对称性保护的表面 p 波轨道角动量纹理，并将其与体态量子化 Berry 相联系。</p><p><strong>🔗 与我们工作的关系：</strong>与我们的交替磁性、磁性拓扑性质、第一性原理电子结构、二维/表面磁态和自旋轨道耦合方向高度相关。其表面诱导二维交替磁性的机制可为低维磁性与拓扑界面态研究提供直接参考。</p><p><strong>💡 进一步工作建议：</strong>建议跟进其对称性分析、Berry 相判据和表面态计算细节，并与我们已有的二维磁体、范德华磁体和磁性拓扑材料筛选框架对接。可进一步研究不同表面终止、应变或异质结界面对交替磁性自旋劈裂和轨道纹理的调控。</p></div>
+</div>
+</li>
+<li class="daily-focus-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all">
+<div class="daily-focus-number">02</div>
+<div class="daily-focus-body">
+<div class="daily-focus-title"><a class="daily-focus-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">用于非易失性切换的二维TiI3/Sc2CO2多铁异质结界面电子性质</a></div>
+<div class="daily-focus-meta"><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span><span class="daily-chip">📅 2026-08-23</span><span class="daily-chip daily-chip-focus">🎯 相关度 8</span></div>
+<div class="daily-focus-deep"><p><strong>📝 简单总结：</strong>该论文研究二维TiI3/Sc2CO2多铁异质结的界面电子性质，面向非易失性开关应用。其核心结论应涉及界面电荷重排、磁电耦合以及可通过外场调控的电子结构变化。</p><p><strong>🔗 与我们工作的关系：</strong>与我们的二维范德华体系、多铁材料、磁性材料、界面电荷转移和非易失性铁电开关方向高度相关。可借鉴其异质结构设计、界面磁电耦合分析及开关态电子性质计算方法。</p><p><strong>💡 进一步工作建议：</strong>可进一步开展基于第一性原理的界面电荷转移、极化翻转路径、磁交换相互作用和自旋轨道耦合研究。建议结合应变、层间滑移、缺陷和栅压调控，评估其实际开关稳定性与载流子输运性能。</p></div>
+</div>
+</li>
+<li class="daily-focus-card" data-bookmark-key="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html">
+<div class="daily-focus-number">03</div>
+<div class="daily-focus-body">
+<div class="daily-focus-title"><a class="daily-focus-link" href="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" rel="noopener noreferrer" target="_blank">超薄镍酸盐的超导能隙出乎预期</a></div>
+<div class="daily-focus-meta"><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip">📅 2026-08-23</span><span class="daily-chip daily-chip-focus">🎯 相关度 5</span></div>
+<div class="daily-focus-deep"><p><strong>📝 简单总结：</strong>该论文讨论超薄镍酸盐中的超导能隙性质，指出其表现偏离传统预期。研究重点是低维镍酸盐的超导电子结构及其可能存在的非常规配对机制。</p><p><strong>🔗 与我们工作的关系：</strong>与我们的超导材料、电子结构计算和强关联量子功能材料方向相关，但现有信息不足以判断其是否涉及第一性原理、声子耦合或自旋涨落计算。其对超薄极限下超导能隙和界面效应的讨论具有一定参考价值。</p><p><strong>💡 进一步工作建议：</strong>可进一步阅读其关于能隙测量、层数依赖和配对机制的完整研究，并结合GW、杂化泛函或有效模型分析超薄镍酸盐的电子结构。还可研究应变、界面耦合、缺陷和磁性对超导能隙及临界温度的影响。</p></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日共收录8篇文献，覆盖机器学习、计算物理和功能材料方向。</p>
+<p><strong>热点：</strong>文献主要涉及结构—性质建模、有限温度/动力学模拟以及材料电子与磁性问题；缺少原文细节的条目不作定量推断。</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在第一性原理标注与结构优化、强化学习和闭环控制，并落到铁电/多铁、极化翻转和电场驱动过程、磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系、非共线磁性、DMI/Kitaev 相互作用和交替磁性。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">8 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🧲 铁电 · 铁磁 · 多铁（物理）</h3><p>铁电、铁磁、反铁磁、多铁及其耦合物理。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10721601/latest" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10721601/latest" rel="noopener noreferrer" target="_blank">YbMn2Ge2中的非平凡自旋与轨道纹理</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10721601/latest" rel="noopener noreferrer" target="_blank">Nontrivial spin and orbital textures in YbMn2Ge2</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p2">P2 · 磁性·自旋电子学</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Junzhang Ma, Xin Liang, Weihang Liang, Yutong Feng, Zihan Lin, Yuhao Wang 等15位作者</span><span class="daily-chip daily-chip-score">🔥 AI 97</span></div>
+<div aria-label="相关度 9 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:90.0%"></i></div><strong>9</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>交错磁性作为一种无需净磁化的新型自旋电子学功能平台，已经引起了广泛研究兴趣。将交错磁性扩展到二维对于应用十分理想，但仍然充满挑战，因为大多数二维共线磁性材料的对称性会保持自旋简并，使得经过实验验证的本征二维交错磁体在块体材料中仍难以实现。近期理论研究表明，在层状反铁磁材料中通过表面诱导的对称性破缺，可以实现二维交错磁性。我们结合角分辨光电子能谱和第一性原理计算，直接解析了YbMn2Ge2表面上的这类本征二维交错磁性电子态；尽管其体相具有磁补偿有序，这些表面态仍然出现。这些表面态由体相态的量子化贝里相所保证，量子化贝里相强制其在终止表面出现。除了实现纯粹的二维交错磁性之外，我们还发现了局域于表面的、受对称性保护的p波轨道角动量纹理，揭示了非常规p波磁有序的轨道对应物。此外，我们还观测到了反常霍尔效应；对于具有时间反演与反演联合对称性的纯净YbMn2Ge2而言，这一现象出乎意料。我们的工作通过实验确立了反铁磁表面是一种可实现且多用途的平台，可用于实现二维交错磁性，并揭示了通向磁性材料中自旋—轨道量子现象的一条路径。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Altermagnetism has attracted considerable research interest as a new platform for spintronic functionalities without net magnetization. Extending altermagnetism to two dimensions is highly desirable for applications but remains challenging because the symmetries of most two-dimensional (2D) collinear magnetic materials preserve spin degeneracy, rendering experimentally verified intrinsic two-dimensional altermagnets elusive in bulk materials. Recent theoretical advances demonstrate a route to two-dimensional altermagnetism through surface-induced symmetry breaking in layered antiferromagnetic materials. Using angle-resolved photoemission spectroscopy and first-principles calculations, we directly resolve such intrinsic 2D altermagnetic electronic states on the surface of YbMn2Ge2 that emerge despite the magnetically compensated bulk order. These surface states are guaranteed by the quantized Berry phase of the bulk states which enforces their emergence at the terminating surface. Beyond the realization of pure 2D altermagnetism, we further identify a symmetry-protected p-wave orbital angular momentum texture localized at the surface, revealing an orbital analogue of unconventional p-wave magnetic order. Moreover, the anomalous Hall effect is observed, which is unexpected in pristine YbMn2Ge2 with combined time reversal and inversion symmetry. Our work experimentally establishes antiferromagnetic surfaces as a realizable versatile platform for realizing two-dimensional altermagnetism and uncovers a route toward spin–orbital quantum phenomena in magnetic materials.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>研究利用角分辨光电子能谱和第一性原理计算，直接解析了YbMn2Ge2表面由对称性破缺诱导的内禀二维交错磁性电子态，尽管其体相具有磁补偿有序。研究表明，这些表面态由体相态的量子化贝里相所保证，并进一步发现了局域于表面的、受对称性保护的p波轨道角动量纹理。实验还观测到原本具有时间反演与反演联合对称性的纯净YbMn2Ge2中出人意料的反常霍尔效应，确立了反铁磁表面作为实现二维交错磁性和自旋—轨道量子现象的平台。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：第一性原理标注与结构优化，以及铁电/多铁、极化翻转和电场驱动过程, 磁性、自旋以及自旋—晶格耦合对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注铁电/多铁、极化翻转和电场驱动过程, 磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《YbMn2Ge2中的非平凡自旋与轨道纹理》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10721601/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10721601/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">用于非易失性切换的二维TiI3/Sc2CO2多铁异质结界面电子性质</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">The interfacial electronic properties of two-dimensional TiI 3 /Sc 2 CO 2 multiferroic heterojunctions for nonvolatile switching</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p2">P2 · 铁电·极化</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<div aria-label="相关度 8 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:80.0%"></i></div><strong>8</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作研究了用于非易失性切换的二维TiI3/Sc2CO2多铁异质结的界面电子性质。原始信息未提供论文摘要，具体研究方法、计算结果和结论需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: Available online 22 August 2026 Source: Chemical Physics Letters Author(s): Shiying Guo, Chengxu Ge, Chen Zhuang, Mengke Xie, Jing Pan, Jingguo Hu</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕二维TiI3/Sc2CO2多铁异质结的界面电子性质及其在非易失性切换中的应用展开。原始信息仅提供题名、期刊、作者和在线发表日期，具体计算方法、界面特征及切换性能需查阅论文全文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>当前给出的原始信息只有题名、作者、期刊和在线日期，未披露TiI3/Sc2CO2的堆垛构型、层间距、磁序、交换关联泛函、DFT+U参数、SOC处理、k点网格或声子稳定性，因此不能可靠复述具体计算路线。可确认的研究对象是二维TiI3磁性层与Sc2CO2极化层形成的多铁异质结，核心问题应包括界面态、极化翻转引起的能带或自旋变化，以及这些变化能否支撑非易失电阻/磁态切换。</p><p><strong>🔗 相关工作关联：</strong>该题目与CrI3/铁电层、CrSBr异质界面和BaTiO3表面磁电耦合研究同属“极化控制磁性或输运”的第一性原理体系，但TiI3/Sc2CO2的具体界面化学和稳定磁序不能由题名外推。与团队五位研究人员的既有方向也无法逐一对应，因为人员姓名、分工及已发表体系未提供；方法层面可与团队的DFT+U、界面电荷分析、磁各向异性能和机器学习势函数工作建立候选连接，但不能虚构已有结果。</p><p><strong>💡 对你方向的启示：</strong>建议先按论文全文补齐结构和计算设置，再建立TiI3/Sc2CO2界面数据集：枚举高对称堆垛、层间距、极化方向和FM/AFM自旋构型，使用含SOC的DFT+U计算总能、带边、差分电荷、磁矩和势垒。随后以NbOI2、CrI3、CrSBr和BaTiO3作迁移基准，用equivariant GNN或MACE拟合能量与力、用NEP进行大尺度界面弛豫，最后通过极化翻转后的能带、磁交换参数和非易失态保持模拟与原始DFT交叉验证。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0009261426003969?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧩 其他交叉 / 方法</h3><p>其他 AI × Science 交叉研究、材料与计算方法。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" rel="noopener noreferrer" target="_blank">超薄镍酸盐的超导能隙出乎预期</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" rel="noopener noreferrer" target="_blank">The superconducting gap of an ultrathin nickelate defies expectations</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 超导</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 95</span></div>
+<div aria-label="相关度 5 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:50.0%"></i></div><strong>5</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>超导体是一类在低于特定临界温度时能够以零电阻传导电流的材料。在传统超导体中，向超导态的转变通常发生在极低温度下。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Superconductors are materials that carry electrical current with zero resistance below a specific critical temperature. In conventional superconductors, the transition to superconductivity generally occurs at very low temperatures.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该文讨论超薄镍酸盐材料中的超导能隙及其与传统预期之间的差异。超导体在低于特定临界温度时能够以零电阻传导电流，而传统超导体通常在极低温度下发生超导转变。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《超薄镍酸盐的超导能隙出乎预期》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-08-superconducting-gap-ultrathin-nickelate-defies.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10644911/latest" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10644911/latest" rel="noopener noreferrer" target="_blank">Reliableformer：面向可靠忆阻器变压器加速器的器件感知框架</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10644911/latest" rel="noopener noreferrer" target="_blank">Reliableformer: A Device Aware Framework for Reliable Memristor Transformer Accelerators</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · AI×物理</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Ankush Kumar, Rupanjan Bhattacharyya</span><span class="daily-chip daily-chip-score">🔥 AI 98</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>Transformer网络驱动着现代人工智能，但在数据中心规模下，其能源和冷却需求限制了可持续部署。忆阻器交叉阵列上的模拟存内计算有望实现数量级的节能，但也会使计算暴露于降低准确率的器件非理想因素之中。由于制造成本高昂，经过流片前校准且具有物理一致性的数字孪生模型能够降低设计风险。Reliableformer是一种器件感知框架，它将一个六模块、多头的CIFAR-10视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并将非理想因素从器件层、经过阵列层和架构层传播到计算层。该框架量化了读出精度和单元精度、电导以及编程波动带来的准确率、面积和能耗权衡，并在红外压降和温度依赖的保持物理条件下评估每个交叉阵列。在强波动条件下，通过采用电路和软件层面的缓解措施，准确率可恢复到46%至64%；在保持应力之后，可恢复到16%至80%。由于材料选择决定保持特性和开关比，且主导非理想因素会随情景变化，工程师需要据此采用相应的对策。据我们所知，这是首个面向Transformer的端到端、具有物理一致性的数字孪生模型。与卷积神经网络实现不同，该模型包含动态生成的注意力乘积、数字softmax和归一化层，以及交叉阵列内的有符号编码。与已制造的全模拟钙钛矿Transformer引擎进行基准比较，证实了这些策略在方向上的现实性，并得到七项可迁移的设计原则。这些以物理学为基础的发现可迁移到其他架构的忆阻器加速器中。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Transformer networks power modern artificial intelligence, yet at data-centre scale their energy and cooling demand limits sustainable deployment. Analog in-memory computing on memristor crossbars promises order-of-magnitude savings, but exposes computation to accuracy-eroding device non-idealities. Because fabrication is expensive, a pre-tapeout-calibrated physically-consistent digital twin de-risks the design. Reliableformer, a device-aware framework, maps a six-block, multi-head Vision Transformer for CIFAR-10 onto a cascaded memristor-crossbar attention datapath, propagating non-idealities from device, through array and architecture, to the computing level. It quantifies the accuracy/area/energy trade-offs of read-out and cell precision, conductance, and programming variation, evaluates each crossbar under IR-drop and temperature-dependent retention physics. Circuit- and software-level mitigations are adopted to recover accuracy through, 46% to 64% under strong variation, 16% to 80% after retention stress. Since material choice determines retention and the on/off ratio, and the dominant non-ideality shifts with scenario, engineers adopt counter-measures accordingly. It is, to our knowledge, the first end-to-end physically-consistent twin for transformers, constituting, unlike CNN implementations, dynamically generated attention products, digital softmax and normalisation layers, and signed in-crossbar encoding. Benchmarking against a fabricated fully-analog perovskite transformer engine confirms these strategies' directional realism, yielding seven transferable design principles. These physics-grounded findings are transferable to memristor accelerators for other architectures.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>Reliableformer是一种器件感知框架，用于将六模块多头视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并从器件、阵列和架构层面传播非理想因素。该框架量化了读出与单元精度、电导和编程波动带来的准确率、面积和能耗权衡，并评估了红外压降和温度依赖保持特性。通过电路和软件层面的缓解措施，模型在强波动和保持应力下的准确率得到恢复；研究还总结了七项可迁移的设计原则，并以已制造的全模拟钙钛矿Transformer引擎验证策略的方向性现实性。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>摘要给出的路线是把六模块多头视觉Transformer映射到级联忆阻器交叉阵列注意力数据通路，并在器件、阵列和架构三级传播非理想因素。输入包括读出/单元精度误差、电导与编程波动、阵列红外压降及温度依赖保持扰动；输出联合评估准确率、面积和能耗，再用电路级与软件级缓解恢复模型性能。摘要未提供数据集、器件数量、位宽、阵列尺寸、训练轮数或噪声分布参数，不能补写为确定设置。</p><p><strong>🔗 相关工作关联：</strong>Reliableformer呼应硬件感知训练、噪声注入量化、模拟交叉阵列IR-drop建模、Transformer映射和忆阻器保持性分析；其区别在于把多种器件非理想因素贯穿注意力数据通路，并同时报告准确率、面积和能耗，而非只做静态权重噪声测试。与团队五位研究人员的既有方向无法逐一对应，因人员信息缺失；若团队已有铁电/钙钛矿器件、DFT材料建模、神经网络势或器件可靠性研究，可分别接入材料参数、噪声模型、阵列仿真和算法补偿环节。</p><p><strong>💡 对你方向的启示：</strong>可将团队已有BaTiO3及其他铁电/钙钛矿器件数据转成温度、脉冲宽度、循环次数、保持时间到电导状态的联合分布，并把CrI3、CrSBr等磁性器件作为不同开关噪声和状态数的对照。先在软件中对六模块ViT逐层注入实测编程误差、读出噪声、IR-drop和保持漂移，再用SPICE或紧凑模型校准阵列级结果；以浮点模型、理想阵列和实测噪声阵列比较准确率、面积、能耗及长期保持误差，验证缓解策略是否跨器件迁移。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10644911/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10644911/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-08-quantum-microscope-significantly-electron-microscopy.html" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-08-quantum-microscope-significantly-electron-microscopy.html" rel="noopener noreferrer" target="_blank">量子计算机显微镜有望显著提升电子显微镜性能</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-08-quantum-microscope-significantly-electron-microscopy.html" rel="noopener noreferrer" target="_blank">Quantum computer microscope is set to significantly improve electron microscopy</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 量子信息·计算</span><span class="daily-chip daily-chip-journal">📖 Physics News</span><span class="daily-chip daily-chip-score">🔥 AI 98</span></div>
+<div aria-label="相关度 5.5 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:55.0%"></i></div><strong>5.5</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>在任何需要成像极小细节的场合，都会使用电子显微镜。但从严格的物理学角度来看，传统电子显微镜中的每一个电子都代表着一次被错失的机会：如果所做的只是计数电子，那么它们携带的任何额外量子信息都没有被利用。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Electron microscopes are used wherever particularly small details need to be imaged. But from a strictly physical point of view, every electron in a conventional electron microscope represents a missed opportunity: If all you do is count electrons, any additional quantum information they carry remains unused.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该文介绍了一种利用量子计算机改进电子显微镜的设想。电子显微镜用于成像特别微小的细节，但从严格的物理学角度看，传统电子显微镜若只对电子进行计数，就没有利用这些电子所携带的其他量子信息。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《量子计算机显微镜有望显著提升电子显微镜性能》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-08-quantum-microscope-significantly-electron-microscopy.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://phys.org/news/2026-08-quantum-microscope-significantly-electron-microscopy.html" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10677044/latest" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10677044/latest" rel="noopener noreferrer" target="_blank">关系约化保护可编程量子网络中的无质量自旋2模</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10677044/latest" rel="noopener noreferrer" target="_blank">Relational reduction protects massless spin-2 modes in a programmable quantum network</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 量子信息·计算</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Shalender Singh, Vishnu Priya Singh Parmar</span><span class="daily-chip daily-chip-score">🔥 AI 88</span></div>
+<div aria-label="相关度 5.5 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:55.0%"></i></div><strong>5.5</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>正定量子响应度量似乎与协变自旋2作用量中的不定标量方向不相容。我们建立了一条可迁移的设计规则，在取连续极限之前消除这一障碍。我们为一个正定的满秩量子图表配备精确的关系复形；将其响应约化为二维上同调；并在进行任何导数展开之前检验完整的有限谱核。我们证明，正定表示与协变表示之间的差异随后仅表现为所施加约束的一个二次型，并且高斯量子反馈保持商空间、无质量性以及物理谱测度。该定理适用于所述形式的任意有限精确复形，并通过了3000次随机化测试，图表条件数最高达到10¹⁰。一个八路径、四端口的酉网络提供了具体实现，其中包含正定的六坐标 Gram 图表、两个张量模和一个Stieltjes正响应。我们给出了一种五量子比特闭时路径协议，在全连接架构上需要57个原生纠缠门，并配备了用于检验螺旋度简并、阈下噪声、留数正性以及根—阈值交错关系的定量判据。该协议直接检验关系保护，而不要求对其作出引力解释。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Positive quantum response metrics seem incompatible with the indefinite scalar direction of covariant spin-2 actions. We establish a transferable design rule that removes this obstacle before a continuum limit is taken. A positive full-rank quantum chart is equipped with an exact relational complex; its response is reduced to a two-dimensional cohomology; and the complete finite spectral kernel is tested before any derivative expansion. We prove that positive and covariant representatives then differ only by a quadratic form in the imposed constraint, and that Gaussian quantum feedback preserves the quotient, masslessness and physical spectral measure. The theorem holds for arbitrary finite exact complexes of the stated form and passes 3,000 randomized tests with chart condition numbers up to 1010. An eight-route, four-port unitary network supplies an explicit realization with a positive six-coordinate Gram chart, two tensor modes and a Stieltjes-positive response. We give a five-qubit closed-time-path protocol requiring 57 native entanglers on an all-to-all architecture, with quantitative gates for helicity degeneracy, subthreshold noise, residue positivity and root--threshold interlacing. The protocol tests relational protection directly, without requiring a gravitational interpretation.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>研究针对协变自旋2作用量中不定标量方向与正定量子响应度量之间的矛盾，提出了一种在连续极限之前实施关系约化的设计规则。通过精确关系复形、二维上同调约化和有限谱核检验，作者证明正定协变表示之间的差异仅为施加约束的二次型，且高斯量子反馈保持商空间、无质量性和物理谱测度。研究还给出了八路径四端口酉网络和五量子比特闭时路径协议，用于直接检验关系保护，而不要求引入引力解释。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《关系约化保护可编程量子网络中的无质量自旋2模》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10677044/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10677044/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10755274/latest" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10755274/latest" rel="noopener noreferrer" target="_blank">奖励并非语法：深度强化学习英语屈折变化的奖励—动作有效性审计</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10755274/latest" rel="noopener noreferrer" target="_blank">When Reward Is Not Grammar: A Reward-Action Validity Audit of Deep Reinforcement Learning for English Inflection</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Nikesh Adhikari, Shankar Ghimire, Sagar Neupane</span><span class="daily-chip daily-chip-score">🔥 AI 18</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>小规模强化学习演示正越来越多地被用于论证智能体在没有大型语言模型的情况下习得了语言规则。即使训练曲线表现良好，这类论断也可能无效：奖励可能接受形式错误的输出，动作接口可能无法表达标准答案，而观测编码器还可能在不同次执行之间发生变化。我们提出了一种奖励—动作有效性审计，并将其应用于一个给定的深度Q网络笔记本，该笔记本旨在处理英语名词复数、过去时构成和主谓一致。实验笔记本分别报告了64.86%、100.00%和69.57%的代理准确率。对全部180个上下文—动作对进行穷举表明，获得正奖励的复数配对中只有40%是精确匹配，获得正奖励的时态配对中只有25%是精确匹配。此外，对于复数上下文，仅有66.7%的上下文能够到达精确目标；对于时态上下文，这一比例为50.0%。规则型预言机本身与标准英语输出的一致率，在复数上下文、时态上下文和一致关系上下文中分别为83.3%、83.3%和62.5%。观测映射采用Python带盐的hash()函数再对50取模；在256个解释器哈希种子中，71.5%的映射至少包含一个状态别名，38.7%的映射包含将具有冲突的最优奖励动作的上下文合并在一起的别名。最后，环境将同一上下文重复30步，并使状态转移独立于动作，从而把所声称的序列任务简化为类似上下文老虎机的分类问题，同时引入人为的自举过程。这些发现并不能证明DQN无法建模形态学。它们证明的是，该笔记本的奖励、动作、状态、评估和可视化契约不足以支持其关于语法习得的论断。我们最后提出了一套修复方案，包括精确的字符串评估、具有表达能力的编辑动作、稳定编码、词汇不相交的测试集、多随机种子报告以及经过测量的迁移分析。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Small reinforcement-learning demonstrations are increasingly used to argue that an agent has acquired linguistic rules without a large language model. Such claims can be invalid even when the training curve is favorable: the reward may accept malformed outputs, the action interface may be unable to express the gold form, and the observation encoder may change between executions. We introduce a reward-action validity audit and apply it to a supplied Deep Q-Network notebook that targets English noun pluralization, past-tense formation, and subject-verb agreement. The experimented notebook reports proxy accuracies of 64.86%, 100.00%, and 69.57%, respectively. Exhaustive enumeration of all 180 context-action pairs shows that only 40% of positively rewarded plural pairs and 25% of positively rewarded tense pairs are exact matches. Moreover, exact targets are reachable for only 66.7% of plural contexts and 50.0% of tense contexts. The rulebased oracle itself agrees with standard English outputs for 83.3% of plural contexts, 83.3% of tense contexts, and 62.5% of agreement contexts. The observation mapping uses Python’s salted hash() modulo 50; across 256 interpreter hash seeds, 71.5% of mappings contain at least one state alias and 38.7% contain an alias that merges contexts with conflicting reward-optimal actions. Finally, the environment repeats a fixed context for 30 steps and makes transitions independent of action, reducing the claimed sequential task to a contextual-bandit-like classification problem with artificial bootstrapping. These findings do not establish that DQN cannot model morphology. They establish that the notebook’s reward, action, state, evaluation, and visualization contracts do not support a claim of grammar acquisition. We conclude with a repair protocol based on exact string evaluation, expressive edit actions, stable encodings, lexically disjoint tests, multi-seed reporting, and measured transfer analyses.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>研究提出了奖励—动作有效性审计，并将其应用于一个用于英语名词复数、过去时和主谓一致学习的深度Q网络笔记本。审计发现，虽然实验笔记本报告的代理准确率较高，但正奖励并不总是对应准确输出，动作空间也无法表达部分标准答案；此外，状态编码和环境转移进一步削弱了语法学习结论的有效性。作者据此提出基于精确字符串评估、可表达的编辑动作、稳定编码、词汇不相交测试、多随机种子报告和迁移分析的修复方案。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合。从摘要能确认的线索包括：强化学习和闭环控制，以及AI for science 与材料/物理问题的结构化分析对应的结构或物理量。若迁移到团队流程，应采用“把电荷态、有限尺寸修正、局域配位和缺陷迁移路径纳入标注；用小超胞 DFT+U/GW 或缺陷形成能基准校准，再扩展到大超胞和有限温度扩散”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合已经出现在团队的方向画像中，可对应到SiO₂、SiC、GaN、卤化物钙钛矿、HfO₂ 氧空位和二维半导体。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注AI for science 与材料/物理问题的结构化分析在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合嵌入现有材料模拟链：先在SiO₂、SiC、GaN、卤化物钙钛矿、HfO₂ 氧空位和二维半导体中选择一个已有 DFT 数据基础的体系，按“把电荷态、有限尺寸修正、局域配位和缺陷迁移路径纳入标注；用小超胞 DFT+U/GW 或缺陷形成能基准校准，再扩展到大超胞和有限温度扩散”补充训练/验证集，再比较《奖励并非语法：深度强化学习英语屈折变化的奖励—动作有效性审计》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10755274/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10755274/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10404284/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10404284/latest" rel="noopener noreferrer" target="_blank">基于Franz扩散池分析交联海藻衍生生物贴片中的过氧化氢传输：一种用于活性氧响应型伤口管理的模型</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10404284/latest" rel="noopener noreferrer" target="_blank">Franz Diffusion Cell Analysis of Hydrogen Peroxide Transport across Cross- linked Seaweed-Derived Bio-Patches: a model for Reactive Oxygen Species- Responsive Wound Management</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Moustafa Hussien Moustafa, Alaa Magdy Attya, Hany A Elkhadary Fellow</span><span class="daily-chip daily-chip-score">🔥 AI 75</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>开发能够动态调节氧化微环境的智能伤口敷料，对于慢性伤口护理至关重要。本研究利用改进的垂直Franz型扩散池，并结合实时比色淀粉—碘化物分光光度法，系统表征了过氧化氢（H2O2）在离子交联海藻衍生生物贴片（石莼（Ulva lactuca）和马尾藻属（Sargassum sp.））中的跨膜传输动力学。通过傅里叶变换红外光谱（FTIR）和X射线衍射（XRD）进行的结构表征表明，将无定形硫酸化石莼多糖混入半结晶海藻酸钙基体后，可形成一种具有可调堆积密度的中间分子筛。在60分钟的质量传输评估期间，不同配方表现出不同的传输机制。纯石莼多糖薄膜对照样品（M-G100-Thin）表现出最高的稳态通量，为5.163 × 10−4 mmol·cm−2·min−1（表观渗透系数P = 5.163 × 10−5 cm·min−1），并且由于其高度开放、亲水的网络结构而具有较短的滞后期。相比之下，纯海藻酸盐薄膜对照样品（M-B100-Thin）的致密“蛋盒”交联结构显著限制了传输，使稳态通量降至3.513 × 10−4 mmol·cm−2·min−1（P = 3.513 × 10−5 cm·min−1）。优化的异质聚合物共混膜（M-Blend-Thin）成功平衡了上述性质，提供了可靠的基线稳态通量，为3.739 × 10−4 mmol·cm−2·min−1（P = 3.739 × 10−5 cm·min−1，R2 = 0.9789）。此外，将物理厚度从约50 µm增加到约100 µm（M-Blend-Thick）表现出严格的菲克行为，传输阻力增加，使通量显著降低至2.518 × 10−4 mmol·cm−2·min−1（P = 2.518 × 10−5 cm·min−1，R2 = 0.9997），并使滞后期延长至15分钟。通过Shapiro–Wilk检验和Levene检验进行的统计建模验证了总体正态性和方差齐性，确认共混样品曲线中的轻微取样异常属于孤立的操作事件，而不是基体降解。这些发现建立了一个直接的结构—性能框架，可用于调节海洋来源生物贴片，使其维持重要的生理性传输，同时防止细胞氧化冲击。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">The development of intelligent wound dressings capable of dynamically regulating the oxidative microenvironment is vital for chronic wound care. This study systematically characterizes the transmembrane transport kinetics of hydrogen peroxide (H2O2) across ionic cross-linked seaweed-derived bio-patches (Ulva lactuca and Sargassum sp.) utilizing an adapted vertical Franz-type diffusion cell coupled with real-time colorimetric starch–iodide spectrophotometry. Structural characterization via FTIR and XRD demonstrated that blending amorphous sulfated ulvan into a semi-crystalline calcium-alginate matrix establishes an intermediate molecular sieve with adjustable packing density. Mass transport evaluations over a 60-minute window revealed distinct formulation-dependent transport mechanisms. Pure ulvan thin control (M-G100-Thin) displayed the highest steady-state flux of 5.163 × 10− 4 mmol·cm− 2·min− 1 (apparent permeability P = 5.163 × 10− 5 cm·min− 1) and a short lag phase due to its highly open, hydrophilic network. Conversely, the dense 'egg-box' cross-linked structure of pure alginate thin control (M-B100-Thin) significantly restricted transport, minimizing steady-state flux to 3.513 × 10− 4 mmol·cm− 2·min− 1 (P = 3.513 × 10− 5 cm·min− 1). The optimized heteropolymeric blend film (M-Blend-Thin) successfully balanced these properties, delivering a reliable baseline steady-state flux of 3.739 × 10− 4 mmol•cm− 2•min− 1 (P = 3.739 × 10− 5 cm·min− 1, R2 = 0.9789). Furthermore, scaling physical thickness from ~ 50 to ~ 100 µm (M-Blend-Thick) demonstrated rigorous Fickian behavior, increasing transport resistance to yield a significantly lower flux of 2.518 × 10− 4 mmol·cm− 2·min− 1 (P = 2.518 × 10− 5 cm·min− 1, R2 = 0.9997) and an extended lag phase of 15 minutes. Statistical modeling via Shapiro-Wilk and Levene's tests validated population normality and homoscedasticity, confirming that minor sampling anomalies in the blend profile were isolated procedural events rather than matrix degradation. These findings establish a direct structure-property framework for tailoring marine-derived bio-patches to sustain vital physiological transport while preventing cellular oxidative shock.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>研究采用改进的垂直Franz型扩散池和实时淀粉—碘化物比色分光光度法，系统表征了过氧化氢在离子交联海藻衍生生物贴片中的跨膜传输动力学。结构表征显示，将无定形硫酸化石莼多糖混入半结晶海藻酸钙基体，可形成具有可调堆积密度的中间分子筛。不同配方表现出明显不同的传输机制：纯石莼多糖薄膜通量最高，纯海藻酸盐薄膜通量最低，而优化的共混薄膜在传输稳定性和阻隔能力之间取得平衡；增加膜厚则表现出严格的菲克行为并延长滞后期。研究建立了结构—性能关系，为调控海洋来源生物贴片的生理性传输并避免细胞氧化冲击提供依据。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入非绝热分子动力学、电子—声子耦合、Wannier/GW-BSE 和载流子输运。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及声子、有限温度和输运性质, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“先用高精度电子结构和声子/电子—声子矩阵元建立小规模基准，再训练可迁移 Hamiltonian 或 ML 势，最后在长时间尺度非绝热 MD、输运或界面电荷转移中验证”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：非绝热分子动力学、电子—声子耦合、Wannier/GW-BSE 和载流子输运已经出现在团队的方向画像中，可对应到卤化物钙钛矿、二维半导体、FeSe、光电界面和能源材料。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注声子、有限温度和输运性质, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的非绝热分子动力学、电子—声子耦合、Wannier/GW-BSE 和载流子输运嵌入现有材料模拟链：先在卤化物钙钛矿、二维半导体、FeSe、光电界面和能源材料中选择一个已有 DFT 数据基础的体系，按“先用高精度电子结构和声子/电子—声子矩阵元建立小规模基准，再训练可迁移 Hamiltonian 或 ML 势，最后在长时间尺度非绝热 MD、输运或界面电荷转移中验证”补充训练/验证集，再比较《基于Franz扩散池分析交联海藻衍生生物贴片中的过氧化氢传输：一种用于活性氧响应型伤口管理的模型》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10404284/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10404284/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-08-22.html">← 前一天 · 2026-08-22</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-08-22.html">前一天 · 2026-08-22</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-23.html">最新一期 · 2026-08-23</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-23.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#focus-interest"><span>🎯 与你相关</span><span>🔍</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>8</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>3</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">YbMn2Ge2中的非平凡自旋与轨道纹理<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">用于非易失性切换的二维TiI3/Sc2CO2多铁异质结界面电子性质<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">超薄镍酸盐的超导能隙出乎预期<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">Reliableformer：面向可靠忆阻器变压器加速器的器件感知框架<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">量子计算机显微镜有望显著提升电子显微镜性能<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">关系约化保护可编程量子网络中的无质量自旋2模<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">奖励并非语法：深度强化学习英语屈折变化的奖励—动作有效性审计<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">基于Franz扩散池分析交联海藻衍生生物贴片中的过氧化氢传输：一种用于活性氧响应型伤口管理的模型<span class="daily-outline-meta">08</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-08-22.html">前一天 · 2026-08-22</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-08-23.html">最新一期 · 2026-08-23</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-08-23.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
