@@ -1,17 +1,35 @@
 [
   {
     "title": "Scalable photoexcitation-induced molecular dynamics with machine-learned Hamiltonians",
-    "title_zh": "利用机器学习哈密顿量实现可扩展的光激发诱导分子动力学",
-    "summary": "本文提出时间依赖从头算传播与电子机器学习框架（TDAP-eML），将电子演化显式纳入光激发诱导晶格动力学的可扩展模拟。该方法结合机器学习电子结构和原子传播，能够描述光激发对结构运动所处能量景观及作用力的重塑，并在硅和FeSe等体系中再现第一性原理时间依赖密度泛函理论得到的关键响应。其计算优势随体系尺寸增大而提升，在所研究的大型体系中计算成本降低近三个数量级。",
+    "title_zh": "机器学习哈密顿量驱动的可扩展光激发分子动力学",
+    "summary": "核心创新是把电子演化而非仅势能面纳入可扩展光激发动力学。方法以时变从头算传播结合机器学习电子结构，目标是模拟光生载流子与晶格的耦合演化，但给定摘要没有披露网络架构、时间步长、训练策略和定量误差。对团队而言，它直接连接机器学习Kohn–Sham哈密顿量、非绝热分子动力学及热载流子弛豫问题。",
     "abstract": "arXiv:2608.20994v1 Announce Type: new Abstract: Ultrafast photoexcitation offers a controllable route to steer structural dynamics in solids, yet predicting how nonequilibrium electronic excitation drives lattice motion across extended spatial and temporal scales remains a major computational challenge. Here we introduce time-dependent ab-initio propagation with electronic machine learning (TDAP-eML), a framework that explicitly incorporates electronic evolution into scalable simulations of photoexcitation-induced lattice dynamics. By integrating machine-learned electronic structure with atomistic propagation, TDAP-eML describes how photoexcitation reshapes the evolving energy landscapes and forces governing structural motion. Across representative examples including silicon and FeSe, the framework reproduces key photoexcited lattice responses obtained from first-principles time-dependent density functional theory calculations and captures coherent phonon dynamics together with their dependence on excitation conditions. Its computational advantage increases with system size, reaching nearly three orders of magnitude reduction in computational cost for the large systems examined. TDAP-eML thus establishes a scalable framework for coupled electronic and lattice evolution, linking nonequilibrium excitation to photoinduced forces, predictive structural dynamics, and experimentally accessible observables.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.20994",
     "journal": "arXiv"
   },
   {
+    "title": "First-principles design of main-group dimer defects in ZnO as candidate quantum defects",
+    "title_zh": "ZnO主族二聚缺陷的第一性原理设计",
+    "summary": "工作提出在ZnO中用主族供体—受体双替位复合体构造光学活性量子缺陷。核心方法是杂化泛函DFT系统比较复合缺陷的电子结构和缺陷物理，但摘要没有给出具体缺陷构型、形成能、跃迁能或自旋性质。它对团队半导体缺陷、色心和带电缺陷电子结构研究有直接参考价值，尤其是缺陷复合而非孤立杂质的设计思路。",
+    "abstract": "arXiv:2608.20837v1 Announce Type: new Abstract: Zinc oxide (ZnO), a wide-band-gap semiconductor with mature growth techniques, is a promising host for optically active quantum spins. Yet, optically active quantum defects in ZnO remain largely unexplored. Here, we identify and characterize a family of double substitutional impurities in ZnO, formed by main-group donor-acceptor (DA) pairs, as candidates for optically active quantum defects. Using hybrid density functional theory (DFT), we systematically investigate double substitutional DA complexes and their defect physics, including electronic structure, thermodynamic stability, and optical properties. The proposed defects exhibit isolated defect states, strong spin localization on the acceptor site, and C₃ᵥ symmetry. Importantly, the electronic structure of the DA pairs is largely determined by the atomic properties of their constituent atoms. We further examine their optical characteristics, including zero-phonon lines (ZPLs), radiative lifetimes, and nonradiative decay to assess their viability as color centers. Notably, among the dimers, (SiZₙ-B_O)⁺ and (GeZₙ-B_O)⁺ exhibit visible optical transitions with sub-microsecond radiative lifetimes and robust charge states against optical ionization, while (SiZₙ-C_O)²⁺ shows the smallest Huang-Rhys factor, approximately 5.6. Our results propose a new family of main-group donor-acceptor defects in ZnO as promising candidates for optically active spin defects.",
+    "category": "其他凝聚态",
+    "link": "https://arxiv.org/abs/2608.20837",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Machine Learning Guided Discovery of Corundum High Entropy Oxides",
+    "title_zh": "机器学习引导的刚玉型高熵氧化物发现",
+    "summary": "工作以近500种三价阳离子组合为搜索空间，利用机器学习原子间势预测刚玉型A2O3高熵氧化物的可合成性。创新在于把复杂构型稳定性和组合空间筛选交给MLIP，而非依赖离子半径经验规则。摘要未披露训练数据、模型误差及实验命中率，但方法与团队机器学习势、高通量结构筛选和复杂氧化物设计高度相容。",
+    "abstract": "arXiv:2608.20596v1 Announce Type: new Abstract: Early thinking in the field of high entropy oxides (HEOs) emphasized their likely abundance, with combinatorial arguments hinting at a myriad of new materials. The experimental reality has proven more challenging: the stability of HEOs cannot be straightforwardly predicted based on ionic radii, lattice geometry, and charge-balancing considerations alone. In this work, we employ machine learning interatomic potentials (MLIPs) to predict the synthesizability of HEOs of the form A₂O₃ derived from a selection of trivalent cations. From nearly 500 possible compositions, we identify 16 promising candidates for experimental validation with solid-state and combustion synthesis. We discover three new HEOs in the corundum structure, including (Al,Cr,Fe,Rh,Sc)₂O₃, and one novel cation-ordered phase, (Al,Fe,Ga,Sc)₂O₃. By far the most common synthesis outcome was a mixture of competing phases, sometimes involving redox reactions. Our results also reveal profound synthesis method dependence for the final product, where qualitatively equivalent outcomes between the two synthesis methods were only observed for 3 of the 16 tested compositions. We conclude that the occurrence rate of HEOs is far rarer than initially believed and that machine learning approaches can effectively guide us to the \"needle in the haystack\".",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.20596",
+    "journal": "arXiv"
+  },
+  {
     "title": "Systematic global structure search of bismuth-based binary systems under pressure using machine learning potentials",
-    "title_zh": "利用机器学习势对压力下铋基二元体系进行系统性全局结构搜索",
-    "summary": "机器学习势能够高效且准确地评估材料性质，从而推动全局晶体结构预测。本文利用针对 11 个铋基二元体系开发的多项式机器学习势，在 0 至 20 GPa 压力范围内开展全局结构搜索。研究发现了大量文献中未曾报道的化合物，并识别出探索构型空间内所有已知实验化合物，显示出该方法的稳健性和可靠性。",
+    "title_zh": "机器学习势系统搜索高压铋基二元体系结构",
+    "summary": "作者对11个铋基二元体系进行0—20 GPa全局结构搜索，采用针对各体系构建的多项式机器学习势。方法同时发现未报道化合物并复现所有可表示的已知实验相，最强结论是搜索覆盖了全部已知基准相。该工作与团队机器学习势、结构搜索和高压量子材料设计直接相连，但摘要未给出新相数量、势能误差或超导拓扑性质。",
     "abstract": "arXiv:2511.05188v2 Announce Type: replace Abstract: Machine learning potentials (MLPs) have significantly advanced global crystal structure prediction by enabling efficient and accurate property evaluations. In this study, global structure searches are performed for 11 bismuth-based binary systems, including Na-Bi, Ca-Bi, and Eu-Bi, under pressures ranging from 0 to 20 GPa, employing polynomial MLPs developed specifically for these systems. The searches reveal numerous compounds not previously reported in the literature and identify all experimentally known compounds that are representable within the explored configurational space. These results highlight the robustness and reliability of the current MLP-based structure search. The study provides valuable insights into the discovery and design of novel bismuth-based materials under both ambient and high-pressure conditions.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2511.05188",
@@ -19,8 +37,8 @@
   },
   {
     "title": "HIP: Hessian Interatomic Potentials without derivatives",
-    "title_zh": "HIP：无需求导的海森矩阵原子间势",
-    "summary": "分子海森矩阵是势能的二阶导数，对计算化学中的许多流程至关重要，但其计算成本高且随体系规模扩展性较差。本文提出海森矩阵原子间势HIP，一种无需自动微分或有限差分、能够直接预测海森矩阵的深度学习模型。HIP利用图神经网络计算的最高阶为l=2的SE(3)等变不可约表示特征构造对称海森矩阵，并在过渡态搜索、几何优化、零点能修正和振动分析等任务中展现出更快、更准确和更高效的性能。",
+    "title_zh": "无导数Hessian原子间势",
+    "summary": "HIP直接学习分子势能面的二阶导数Hessian，绕过自动微分与有限差分。其方法学创新是把通常由能量模型导出的响应量改为独立预测对象，但给定摘要没有说明网络、旋转协变处理、训练标签成本和定量精度。对团队而言，该模型可能服务于声子、电子—声子耦合和分子动力学，但固体周期体系适用性尚未由摘要证明。",
     "abstract": "arXiv:2509.21624v4 Announce Type: replace-cross Abstract: Molecular Hessians, the second derivatives of the potential energy, are fundamental to many workflows in computational chemistry. Usually, accurate Hessians are computationally expensive to calculate and scale poorly with system size, whether computed using quantum chemistry methods or machine-learning interatomic potentials (MLIPs). In this work, we introduce Hessian interatomic potentials (HIPs), a deep learning model that directly predicts Hessians without relying on automatic differentiation or finite differences. To do so, we construct SE(3)-equivariant, symmetric Hessians from irreducible representation (irrep) features up to degree l=2, computed by a graph neural network. HIP Hessians are one to two orders of magnitude faster, more accurate, more memory efficient, easier to train, and exhibit more favourable scaling with system size. We validate our predictions across a wide range of downstream tasks, demonstrating consistently superior performance in transition state search, geometry optimization, zero-point energy corrections, and vibrational analysis. We open-source the HIP code and model weights.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2509.21624",
@@ -28,107 +46,62 @@
   },
   {
     "title": "Chemical Control of Electronic Structure and Topology in Tellurium-Encapsulated Silicene",
-    "title_zh": "碲封装硅烯中电子结构与拓扑性质的化学调控",
-    "summary": "我们通过第一性原理计算研究了二维 Si₂X₂Te₂（X = B、Al、Ga、In）单层材料中电子、光学和拓扑性质的化学调控。所有化合物均为动力学稳定的半导体，其振动和电子性质随 III 族元素替换呈系统性演化；包含自旋轨道耦合的杂化泛函计算显示，带边主要由 p 轨道构成，且从 B 到 In 的相对论效应逐渐增强。Z₂ 不变量表明 Si₂In₂Te₂ 可能是量子自旋霍尔绝缘体，而 B、Al 和 Ga 基单层保持拓扑平庸。结果说明，III 族元素替换是调控电子结构并推动该类单层材料由平庸拓扑转变为非平庸拓扑的简单化学途径。",
+    "title_zh": "碲包覆硅烯中的电子结构与拓扑化学调控",
+    "summary": "研究比较B、Al、Ga、In取代的碲包覆硅烯Si2X2Te2，发现四类单层均动力学稳定且为半导体，带边以p轨道为主，重元素取代增强相对论效应。方法为第一性原理、杂化泛函和SOC，并计算Z2拓扑不变量，但摘要没有给出带隙、拓扑分类或应变响应。它与团队二维材料、拓扑性质和高通量设计方向直接相连。",
     "abstract": "arXiv:2608.21295v1 Announce Type: new Abstract: We investigate chemical control of the electronic, optical, and topological properties of two-dimensional ȩSi2X2Te2 (ȩX = ȩB, ȩAl, ȩGa, and ȩIn) monolayers using first-principles calculations. All compounds are dynamically stable semiconductors, with their vibrational and electronic properties evolving systematically upon group-III substitution. Hybrid-functional calculations including spin--orbit coupling reveal predominantly p-orbital band edges and increasingly pronounced relativistic effects from B to In. Most notably, the calculated Z₂ invariant identifies ȩSi2In2Te2 as a candidate quantum spin Hall insulator, while the B-, Al-, and Ga-based monolayers remain topologically trivial. Bethe--Salpeter calculations further show that electron--hole interactions redistribute oscillator strength near the absorption onset while preserving a weak in-plane optical anisotropy. Our results establish group-III substitution as a simple chemical route to tune the electronic structure and drive a transition from trivial to nontrivial topology in ȩSi2X2Te2 monolayers.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2608.21295",
     "journal": "arXiv"
   },
   {
-    "title": "First-principles design of main-group dimer defects in ZnO as candidate quantum defects",
-    "title_zh": "ZnO中主族二聚体缺陷的第一性原理设计：候选量子缺陷",
-    "summary": "研究利用混合密度泛函理论系统考察了ZnO中的主族供体–受体双替位杂质对，评估其电子结构、热力学稳定性和光学性质。所提出的缺陷具有孤立缺陷态、局域于受体位点的强自旋以及C3v对称性。特别是（Si_Zn-B_O）+和（Ge_Zn-B_O）+表现出可见光跃迁、亚微秒辐射寿命和抗光电离的稳健电荷态，而（Si_Zn-C_O)2+具有约5.6的最小Huang–Rhys因子，表明这类缺陷可作为光学活性自旋缺陷。",
-    "abstract": "arXiv:2608.20837v1 Announce Type: new Abstract: Zinc oxide (ZnO), a wide-band-gap semiconductor with mature growth techniques, is a promising host for optically active quantum spins. Yet, optically active quantum defects in ZnO remain largely unexplored. Here, we identify and characterize a family of double substitutional impurities in ZnO, formed by main-group donor-acceptor (DA) pairs, as candidates for optically active quantum defects. Using hybrid density functional theory (DFT), we systematically investigate double substitutional DA complexes and their defect physics, including electronic structure, thermodynamic stability, and optical properties. The proposed defects exhibit isolated defect states, strong spin localization on the acceptor site, and C₃ᵥ symmetry. Importantly, the electronic structure of the DA pairs is largely determined by the atomic properties of their constituent atoms. We further examine their optical characteristics, including zero-phonon lines (ZPLs), radiative lifetimes, and nonradiative decay to assess their viability as color centers. Notably, among the dimers, (SiZₙ-B_O)⁺ and (GeZₙ-B_O)⁺ exhibit visible optical transitions with sub-microsecond radiative lifetimes and robust charge states against optical ionization, while (SiZₙ-C_O)²⁺ shows the smallest Huang-Rhys factor, approximately 5.6. Our results propose a new family of main-group donor-acceptor defects in ZnO as promising candidates for optically active spin defects.",
-    "category": "其他凝聚态",
-    "link": "https://arxiv.org/abs/2608.20837",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Matrix-free algorithms for fast ab initio calculations on distributed CPU architectures using finite-element discretization",
-    "title_zh": "利用有限元离散在分布式 CPU 架构上进行快速第一性原理计算的无矩阵算法",
-    "summary": "有限元离散已成为大规模 Kohn–Sham 密度泛函理论计算的有力实空间替代方案，但其主要瓶颈是迭代本征求解过程中对大批量试探向量反复施加离散稀疏哈密顿量。作者提出无矩阵有限元 DFT 算法，利用一维基函数和求积数据上的结构化张量收缩进行即时计算，从而减少内存和数据移动开销。在多种超级计算机架构上，算法相较单元矩阵方法取得了1.5至4倍的加速；全电子 DFT 中最高加速达到5.8倍。",
-    "abstract": "arXiv:2512.08571v3 Announce Type: replace Abstract: Finite-element (FE) discretisations have emerged as a powerful real-space alternative to large-scale Kohn-Sham density functional theory (DFT) calculations, offering systematic convergence, excellent parallel scalability, while accommodating generic boundary conditions. However, the dominant computational bottleneck in FE-based DFT arises from the repeated application of the discretised sparse Hamiltonian to large blocks of trial vectors during iterations in an iterative eigensolver. Traditional sparse matrix-vector multiplications and FE cell-matrix approaches encounter memory limitations and high data-movement overheads, particularly at higher polynomial orders, typically used in DFT calculations. To overcome these challenges, this work develops matrix-free algorithms for FE-discretised DFT that substantially accelerate these products by doing on-the-fly operations that utilize structured tensor contractions over 1D basis functions and quadrature data. A unified multilevel batched data layout that handles both real and complex-valued operators is introduced to maximise cache reuse and SIMD utilisation on Frontier (AVX2), Param Pravega (AVX512) and Fugaku (SVE). We also combine terms for optimal cache reuse, even-odd decomposition to reduce FLOP, and mixed-precision intrinsics. Extensive benchmarks show that for large multivector pseudopotential DFT calculations, the matrix-free kernels deliver 1.5-4x speedups over the state-of-the-art cell-matrix approach baselines. For all-electron DFT calculations, the matrix-free operator achieves gains of up to 5.8x due to its efficient implementation and superior arithmetic intensity. When integrated with an error-tolerant Chebyshev-filtered subspace iteration eigensolver, the matrix-free formalism yields substantial reductions in end-to-end time-to-solution using FE meshes that deliver desired accuracies in ground-state properties.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2512.08571",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Reentrant behavior and possible 2/3 magnetization plateau on the double-trillium langbeinite K₂Ni₂₍SO₄₎₃",
-    "title_zh": "双三角螺旋langbeinite化合物K₂Ni₂(SO₄)₃中的再入行为与可能的2/3磁化平台",
-    "summary": "K₂Ni₂(SO₄)₃由相互交织的两个S=1三角螺旋晶格组成，其中一个强耦合、另一个弱耦合，并由额外的晶格间相互作用形成高度受挫的海森堡模型。脉冲磁场实验与经典蒙特卡罗计算揭示了低场和中间场区域的一系列相变，以及由强耦合晶格的1/3磁化相和弱耦合晶格的完全极化相组成的2/3磁化平台特征。该平台样结构导致随磁场增强而恢复哈密顿量对称性的再入现象，并可能存在于更广泛的双三角螺旋langbeinite化合物中。",
-    "abstract": "arXiv:2605.13263v2 Announce Type: replace Abstract: K₂Ni₂₍SO₄₎₃ is a member of the langbeinite family, consisting of two intertwined S=1 trillium lattices, out of which one is strongly coupled (strong-TL) and the other is weakly coupled (weak-TL). Further inter-trillium interactions give rise to a highly-frustrated Heisenberg Hamiltonian. Despite ordering at low temperatures, K₂Ni₂₍SO₄₎₃ lies close in parameter space to a spin-liquid region that surrounds the tetratrillium limit, where each triangle belonging to strong-TL turns into a tetrahedron by connecting to a single spin from weak-TL. Here, we compare the experimentally determined magnetization process using pulsed magnetic fields up to 40 T with classical Monte Carlo calculations, uncovering a series of phase transitions at both low and intermediate fields. Furthermore, we reveal a signature of a 2/3 magnetization plateau consisting of a 1/3 phase on strong-TL and a fully polarized phase on weak-TL. Although in the classical limit no plateau is expected, we find a very prominent dome structure reflecting the tendency of the system to stabilize this particular spin configuration. The presence of a dome leads to a reentrant phenomenon in which the system recovers the Hamiltonian symmetries when increasing the magnetic field. Finally, we show that this plateau-like phase is also present in the classical Heisenberg model on the single trillium and tetratrillium lattices, indicating its possible presence in the large family of double-trillium langbeinite compounds. Our findings motivate future studies on the presence of the plateau phase in the quantum limit of both trillium and double-trillium materials within the langbeinite family.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2605.13263",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Machine Learning Guided Discovery of Corundum High Entropy Oxides",
-    "title_zh": "机器学习引导的刚玉型高熵氧化物发现",
-    "summary": "本研究利用机器学习原子间势预测由三价阳离子构成的A₂O₃型高熵氧化物的可合成性，并从近500种组成中筛选出16种候选物进行实验验证。研究发现了3种刚玉结构的新型高熵氧化物，包括（Al、Cr、Fe、Rh、Sc）₂O₃，以及一种新颖的阳离子有序相（Al、Fe、Ga、Sc）₂O₃。结果表明，多相竞争和合成方法依赖性十分显著，高熵氧化物的实际生成远少于早期预期，而机器学习能够有效引导候选材料发现。",
-    "abstract": "arXiv:2608.20596v1 Announce Type: new Abstract: Early thinking in the field of high entropy oxides (HEOs) emphasized their likely abundance, with combinatorial arguments hinting at a myriad of new materials. The experimental reality has proven more challenging: the stability of HEOs cannot be straightforwardly predicted based on ionic radii, lattice geometry, and charge-balancing considerations alone. In this work, we employ machine learning interatomic potentials (MLIPs) to predict the synthesizability of HEOs of the form A₂O₃ derived from a selection of trivalent cations. From nearly 500 possible compositions, we identify 16 promising candidates for experimental validation with solid-state and combustion synthesis. We discover three new HEOs in the corundum structure, including (Al,Cr,Fe,Rh,Sc)₂O₃, and one novel cation-ordered phase, (Al,Fe,Ga,Sc)₂O₃. By far the most common synthesis outcome was a mixture of competing phases, sometimes involving redox reactions. Our results also reveal profound synthesis method dependence for the final product, where qualitatively equivalent outcomes between the two synthesis methods were only observed for 3 of the 16 tested compositions. We conclude that the occurrence rate of HEOs is far rarer than initially believed and that machine learning approaches can effectively guide us to the \"needle in the haystack\".",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2608.20596",
-    "journal": "arXiv"
-  },
-  {
-    "title": "TopoHSE-DB: a topological materials database for generative and predictive models",
-    "title_zh": "TopoHSE-DB：面向生成模型和预测模型的拓扑材料数据库",
-    "summary": "本文介绍了TopoHSE-DB，这是一个利用包含部分精确Hartree–Fock交换的屏蔽杂化泛函HSE06计算得到的非磁性晶体材料拓扑分类数据集。研究表明，预测的拓扑性质对交换-相关泛函高度敏感，采用杂化泛函时被归入非平庸拓扑类别的材料比例更低。该数据库为训练用于发现和设计新拓扑材料的生成模型与预测模型提供了系统化资源。",
-    "abstract": "We introduce TopoHSE-DB, a dataset of topological classifications for non-magnetic crystalline materials computed using the screened hybrid functional HSE06, which incorporates a fraction of exact Hartree–Fock exchange. While previous high-throughput catalogs of topological materials (TMs) have predominantly relied on semi-local exchange–correlation functionals, our workflow uses a consistent set of relaxed structures for electronic-structure calculations performed with both semi-local and hybrid functionals. The resulting electronic structures are analyzed within the topological quantum chemistry formalism to assign materials to topological classes. Comparison with semi-local classifications shows that the predicted topological character is highly sensitive to the exchange–correlation functional, with HS assigning a smaller fraction of materials to nontrivial topological classes. In a benchmark of 20 experimentally reported TMs, PBE and HS retained 70% and 40%, respectively. These retention rates highlight the limitations of comparing ideal-bulk, symmetry-based classifications directly with heterogeneous experimental reports. TopoHSE-DB provides a systematically generated resource for training generative and predictive models aimed at the discovery and design of new TMs.",
-    "category": "磁性·自旋电子学",
-    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae97d8",
-    "journal": "Machine Learning: Science and Technology"
-  },
-  {
-    "title": "Charge imprinting biases topology of correlated insulator in hBN-aligned rhombohedral multilayer graphene",
-    "title_zh": "电荷印记偏置hBN对齐菱面体多层石墨烯中关联绝缘体的拓扑",
-    "summary": "研究利用Hartree-Fock计算考察了hBN对齐菱面体多层石墨烯中关联绝缘体的形成，并揭示了远离莫尔界面时电荷印记对其拓扑的强烈影响。在填充数ν=1时，hBN对齐方式通过界面附近价带电荷纹理和长程库仑作用，为掺杂导带电子提供远程静电模板。该模板可分别促进平庸绝缘体中的三角形电荷局域化，或与陈绝缘体相容的蜂窝状电荷网络。",
-    "abstract": "arXiv:2606.20377v2 Announce Type: replace Abstract: Rhombohedral multilayer graphene aligned with hexagonal boron nitride (RMG-hBN) hosts correlated Chern phases, but the microscopic role of hBN stacking remains unclear, especially when the active carriers are displaced away from the moiré interface. Using Hartree-Fock calculations over layer numbers, twist angles, displacement fields, fillings, and hBN alignments, we show that correlated insulators are most robust at small twist angles and intermediate layer number (Nsimeq 6), where bandwidth suppression is balanced by layer delocalization of the wavefunctions of the active carriers. Under moiré-distant conditions at filling ν=1, the topology of the insulating state is strongly biased by charge imprinting: the hBN alignment shapes the occupied valence-band charge texture near the interface via moiré potential, which acts through long-range Coulomb interactions as a remote electrostatic template for doped conduction electrons. Depending on the alignment, this template favors either triangular charge localization associated with trivial insulators or honeycomb-like charge networks compatible with Chern insulators. Our results identify valence-band charge textures as a microscopic route by which a remote moiré interface controls correlated topology in multilayer graphene.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2606.20377",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Quasi-one-dimensional topological band structure and van Hove singularities in monolayer TaIrTe₄ from laser μ-ARPES",
-    "title_zh": "通过激光微区角分辨光电子能谱研究单层 TaIrTe₄ 中的准一维拓扑能带结构与范霍夫奇异性",
-    "summary": "近期输运实验报道，偏离电荷中性的单层 1T-TaIrTe₄ 中存在量子自旋霍尔绝缘体相，并将其归因于假定范霍夫奇异性处强关联诱导的电子不稳定性。作者利用微聚焦激光角分辨光电子能谱研究剥离的单层材料，发现其能带结构高度各向异性并易发生密度波不稳定性，同时观测到态密度中的鞍点奇异性。然而，该鞍点对应的载流子密度处输运实验并未发现异常，准粒子线宽也表明电子关联较弱，说明范霍夫奇异性和电子关联在其输运相图中的作用可能是次要的。",
-    "abstract": "arXiv:2608.20978v1 Announce Type: new Abstract: Recent transport experiments reported a quantum spin Hall insulator phase in monolayer 1T-TaIrTe₄ gated away from charge neutrality. This phase is not predicted by band structure calculations and has been attributed to an electronic instability induced by strong correlations at a putative van Hove singularity. Here, we investigate the electronic structure of exfoliated monolayer 1T-TaIrTe₄ using micro-focus laser angle resolved photoemission. We find a strongly anisotropic band structure susceptible to density wave instabilities. Our data further reveal a saddle point singularity in the density of states. However, we find that the saddle point lies at a density for which transport experiments found no anomalies. Moreover, the quasiparticle line widths suggest weak electron correlations only. This points to a secondary role of van Hove singularities and electron correlations in the transport phase diagram of monolayer 1T-TaIrTe₄.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2608.20978",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Quantum critical behavior in chains of hindered dipolar planar rotors",
-    "title_zh": "受阻偶极平面转子链中的量子临界行为",
-    "summary": "本文研究了受六重现场势限制的偶极平面转子线性链基态性质，该模型受到受限于绿柱石六边形孔洞中的水分子启发。利用密度矩阵重整化群计算，作者通过冯·诺伊曼纠缠熵和极化Binder比定位无序相与铁电有序相之间的量子相变。结果表明，增强六重钉扎会使临界偶极耦合移向更小值，说明晶场阻碍可能促进而非抑制偶极有序。",
-    "abstract": "arXiv:2608.20501v1 Announce Type: new Abstract: We study the ground-state properties of linear chains of dipolar planar rotors hindered by a six-fold on-site potential, a model motivated by water molecules confined in the hexagonal cavities of beryl. Using density matrix renormalization group (DMRG) calculations, we locate the quantum phase transition between the disordered and ferroelectrically ordered phases using the von Neumann entanglement entropy and the Binder ratio of the polarization. A sweep of the six-fold pinning strength shows that increasing hindrance shifts the critical dipolar coupling gc to smaller values. These results suggest that crystal-field hindrance can promote, rather than suppress, dipolar ordering. This work has implications for ferroelectricity and quantum-device tuning in confined molecular rotors",
-    "category": "铁电·极化",
-    "link": "https://arxiv.org/abs/2608.20501",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Quantum-corrected NMR crystallography at scale",
-    "title_zh": "大规模量子修正核磁共振晶体学",
-    "summary": "作者提出量子核修正核磁共振晶体学（QNC-NMR）方法，以处理化学位移驱动的 NMR 晶体学中热运动和量子核运动造成的误差。该方法利用可迁移于分子晶体的机器学习原子间势 PET-MOLS 高效生成量子系综，使氢键质子的实验符合度提高33%。该方法还可根据实验屏蔽值微调模型，并由于具有良好的体系规模扩展性而适用于非晶材料。",
-    "abstract": "arXiv:2603.06236v2 Announce Type: replace Abstract: Structure determination by chemical-shift-driven NMR crystallography relies on comparing chemical shieldings measured in solid-state NMR experiments with simulations. However, computational cost limits the accuracy of shielding predictions, that usually rely on low-level electronic-structure approximations and neglect thermal and quantum mechanical nuclear motion, leading to large errors, especially for highly informative hydrogen-bonded protons. To address these limitations, we introduce a quantum-nuclei-corrected (QNC-NMR) approach. We generate inexpensively quantum ensembles using PET-MOLS, a novel machine-learning learning model of the interatomic potential transferable across molecular crystals. Using them as inputs to a chemical-shift model results in a 33 % improvement of the agreement with experiments for hydrogen-bonded protons, without the need for empirical corrections. The ability to sample structures consistent with the experimental conditions enables further refinement of the shielding model by finetuning it against measured shieldings. The favorable scaling with system size allows similar improvements for amorphous materials that are otherwise inaccessible to explicit DFT simulations.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2603.06236",
-    "journal": "arXiv"
-  },
-  {
     "title": "Spin models with critical ground space degeneracy from Lie algebra relations",
-    "title_zh": "源于李代数关系的具有临界基态空间简并度的自旋模型",
-    "summary": "本文从 so(3) 李代数的代数结构出发，构造了一个具有 SO(3) 对称性的自旋模型。其开放边界条件下的基态简并度呈二次增长，每个奇数维不可约表示各贡献一个基态；周期边界条件下则呈线性增长，并包含单态和铁磁态。作者还将构造推广到 SO(d) 及其他紧致简单李群，并指出临界行为源于所采用的小尺度母哈密顿量。",
+    "title_zh": "由李代数关系产生临界基态简并的自旋模型",
+    "summary": "作者从so(3)生成元与单位矩阵构造MPS，再定义其最近邻母哈密顿量，得到SO(3)对称并具有临界基态空间简并的自旋模型。开放边界下基态简并度呈二次关系，并由单个不可约表示刻画。工作主要是代数构造与严格模型分析，未涉及真实材料、第一性原理参数、自旋—晶格耦合或机器学习，因此与团队的直接材料研究交叉很弱。",
     "abstract": "arXiv:2608.20849v1 Announce Type: cross Abstract: We introduce an SO(3)-symmetric spin model derived from the algebraic structure of mathfrakso(3): It is obtained as the nearest-neighbor parent Hamiltonian of a Matrix Product State (MPS) built from the generators of the Lie algebra mathfrakso(3) and the identity matrix, and therefore encodes the quadratic relations of the Lie algebra. We characterize the ground space structure of the resulting model and show that for open boundary conditions (OBC), it exhibits a quadratic ground space degeneracy, given by one irreducible representation (irrep) of each odd dimension (integer spin). For periodic boundary conditions (PBC), it has a linear ground space degeneracy, consisting of a singlet --- namely, the MPS underlying the model --- and a ferromagnet (the irrep with maximal spin), and thus exhibits gapless excitations. We also generalize the construction and the analysis of the OBC ground space to SO(d) and other compact simple Lie groups. The MPS on which the model is based is an injective MPS, and therefore, its 3-site parent Hamiltonian has a unique ground space and is gapped. The observed critical behavior thus has its origin in the small parent Hamiltonian considered. The model's algebraic ground space scaling thus provides an example distinct from that reported in (Schuch et al., 2025, arXiv:2503.10767), where it was shown that small parent Hamiltonians of injective MPS generically have unique ground states, and examples with an exponential ground space degeneracy were given.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.20849",
     "journal": "arXiv"
   },
   {
+    "title": "TopoHSE-DB: a topological materials database for generative and predictive models",
+    "title_zh": "TopoHSE-DB：面向生成与预测模型的拓扑材料数据库",
+    "summary": "TopoHSE-DB以一致弛豫结构和HSE06电子结构为非磁性晶体生成拓扑分类标签，减少半局域泛函带隙误判对高通量数据库的影响。核心方法是半局域与混合泛函并行计算，再用拓扑量子化学分析分类；摘要未给出材料条目数、标签分布或模型基准。它与团队拓扑材料筛选、机器学习数据集和高精度电子结构工作高度相关。",
+    "abstract": "We introduce TopoHSE-DB, a dataset of topological classifications for non-magnetic crystalline materials computed using the screened hybrid functional HSE06, which incorporates a fraction of exact Hartree–Fock exchange. While previous high-throughput catalogs of topological materials (TMs) have predominantly relied on semi-local exchange–correlation functionals, our workflow uses a consistent set of relaxed structures for electronic-structure calculations performed with both semi-local and hybrid functionals. The resulting electronic structures are analyzed within the topological quantum chemistry formalism to assign materials to topological classes. Comparison with semi-local classifications shows that the predicted topological character is highly sensitive to the exchange–correlation functional, with HS assigning a smaller fraction of materials to nontrivial topological classes. In a benchmark of 20 experimentally reported TMs, PBE and HS retained 70% and 40%, respectively. These retention rates highlight the limitations of comparing ideal-bulk, symmetry-based classifications directly with heterogeneous experimental reports. TopoHSE-DB provides a systematically generated resource for training generative and predictive models aimed at the discovery and design of new TMs.",
+    "category": "磁性·自旋电子学",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/ae97d8",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Quantum critical behavior in chains of hindered dipolar planar rotors",
+    "title_zh": "受限偶极平面转子链中的量子临界行为",
+    "summary": "工作用DMRG研究六重现场势限制的偶极平面转子链，定位无序相到铁电有序相的量子相变。冯·诺依曼纠缠熵与极化Binder比共同作为临界判据，六重钉扎强度控制临界位置；摘要未给出临界指数或具体临界参数。模型与团队铁电相变、有效哈密顿量和蒙特卡洛研究存在方法及现象联系，但并非具体材料计算。",
+    "abstract": "arXiv:2608.20501v1 Announce Type: new Abstract: We study the ground-state properties of linear chains of dipolar planar rotors hindered by a six-fold on-site potential, a model motivated by water molecules confined in the hexagonal cavities of beryl. Using density matrix renormalization group (DMRG) calculations, we locate the quantum phase transition between the disordered and ferroelectrically ordered phases using the von Neumann entanglement entropy and the Binder ratio of the polarization. A sweep of the six-fold pinning strength shows that increasing hindrance shifts the critical dipolar coupling gc to smaller values. These results suggest that crystal-field hindrance can promote, rather than suppress, dipolar ordering. This work has implications for ferroelectricity and quantum-device tuning in confined molecular rotors",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2608.20501",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Charge imprinting biases topology of correlated insulator in hBN-aligned rhombohedral multilayer graphene",
+    "title_zh": "电荷印记偏置hBN对齐菱面体多层石墨烯关联绝缘体拓扑",
+    "summary": "Hartree–Fock计算揭示hBN堆垛诱导的电荷印记可在菱面体多层石墨烯中选择性偏置关联绝缘体的拓扑，最稳健区域位于小扭角和约6层的中等层数。作者联合扫描层数、扭角、位移场、填充和对齐方式，指出带宽抑制与层间离域的平衡是关键。该工作与团队二维范德华体系、拓扑和多场调控相关，但与机器学习和第一性原理材料设计仅间接相交。",
+    "abstract": "arXiv:2606.20377v2 Announce Type: replace Abstract: Rhombohedral multilayer graphene aligned with hexagonal boron nitride (RMG-hBN) hosts correlated Chern phases, but the microscopic role of hBN stacking remains unclear, especially when the active carriers are displaced away from the moiré interface. Using Hartree-Fock calculations over layer numbers, twist angles, displacement fields, fillings, and hBN alignments, we show that correlated insulators are most robust at small twist angles and intermediate layer number (Nsimeq 6), where bandwidth suppression is balanced by layer delocalization of the wavefunctions of the active carriers. Under moiré-distant conditions at filling ν=1, the topology of the insulating state is strongly biased by charge imprinting: the hBN alignment shapes the occupied valence-band charge texture near the interface via moiré potential, which acts through long-range Coulomb interactions as a remote electrostatic template for doped conduction electrons. Depending on the alignment, this template favors either triangular charge localization associated with trivial insulators or honeycomb-like charge networks compatible with Chern insulators. Our results identify valence-band charge textures as a microscopic route by which a remote moiré interface controls correlated topology in multilayer graphene.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2606.20377",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Structural Origin of Water Heat Capacity Anomaly from Classical and Quantum Simulations",
+    "title_zh": "经典与量子模拟揭示水热容异常的结构起源",
+    "summary": "经典与路径积分分子动力学结合机器学习势，分离了水热容异常中的振动和结构贡献。核量子效应主要压低高频振动，过冷区热容温变则由第二溶剂壳层侵入导致的结构涨落控制，并可用序参量和两态映射描述。该工作与团队机器学习势、路径积分动力学和有限温材料模拟直接相交，但水体系本身不属于团队主要材料范围。",
+    "abstract": "arXiv:2607.08957v2 Announce Type: replace Abstract: Water isobaric heat capacity is anomalously large under ambient conditions and exhibits a sharp maximum upon supercooling. Using classical and path-integral molecular dynamics with accurate machine-learning interatomic potentials, we show that nuclear quantum effects primarily act by suppressing high-frequency vibrations, while the anomalous temperature dependence of the isobaric heat capacity originates from structural fluctuations, quantified by the second-solvent-shell intruder order parameter. A simple two-state mapping reveals an effective enthalpy scale of about 4 kJ/mol associated with the interconversion of low- and high-density-like local structures, providing a microscopic link between their population changes and the excess heat capacity from supercooled to ambient conditions.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2607.08957",
+    "journal": "arXiv"
+  },
+  {
     "title": "PT and anti-PT phase transitions in a trimerized Su--Schrieffer--Heeger chain with nonreciprocal Rashba spin-orbit coupling",
-    "title_zh": "具有非互易Rashba自旋轨道耦合的三聚化Su–Schrieffer–Heeger链中的PT与反PT相变",
-    "summary": "本文理论研究了具有三个子晶格、并受到非互易Rashba自旋轨道耦合的一维三聚化Su–Schrieffer–Heeger链。借助自旋翻转对称性，非厄米哈密顿量可分解为两个独立自旋扇区，从而能够分别分析非厄米皮肤效应和系统对称性。研究得到包含四种体相和两种边缘态相的丰富相图，并利用非布洛赫能带理论与Cardano方法推导相边界，建立各自旋扇区的体边对应关系。",
+    "title_zh": "非互易Rashba自旋轨道耦合三聚SSH链中的PT相变",
+    "summary": "该模型将三聚SSH链、非互易Rashba自旋—轨道耦合与非厄米对称性结合，利用自旋翻转对称性分解为独立自旋扇区。作者获得四类体相和两类边缘态相，并分析PT/反PT未破缺区及自旋分辨皮肤效应。摘要未给出材料实现、相边界数值或无序稳定性，因此与团队真实材料和第一性原理工作没有直接关系。",
     "abstract": "arXiv:2608.20520v1 Announce Type: new Abstract: We theoretically investigate a one-dimensional trimerized Su--Schrieffer--Heeger chain with three sublattices per unit cell subjected to a nonreciprocal Rashba spin-orbit coupling. Invoking a spin-flip symmetry, the non-Hermitian Hamiltonian decomposes into two independent spin sectors, enabling a spin-resolved analysis of non-Hermitian skin effects and system symmetries. We identify a rich phase diagram consisting of four bulk phases and two edge-state phases. The bulk phases include fully PT-unbroken (real-spectrum) and fully anti-PT-unbroken (imaginary-spectrum) regimes, as well as two mixed phases where one band remains on the real or imaginary axis while the other two form complex-conjugate pairs. The two edge-state phases correspond to topological edge modes with either PT-unbroken (real) or anti-PT-unbroken (imaginary) energies. Using non-Bloch band theory and Cardano's method, we derive closed-form expressions for phase boundaries and establish the bulk-edge correspondence for each spin sector. Calculations of Berry phase and directional inverse participation ratios confirm our analytical predictions. Our results provide a minimal platform for realizing spin-resolved non-Hermitian topology and edge-selective symmetry preservation, in which the bulk and edge states belong to distinct symmetry classes.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2608.20520",
@@ -136,26 +109,26 @@
   },
   {
     "title": "Machine-Learned NMR Shieldings in Molecular Solids with Built-In Hybrid-Functional Molecular Corrections",
-    "title_zh": "具有内置混合泛函分子修正的分子固体机器学习核磁屏蔽",
-    "summary": "作者提出了 ShiftML4，这是一种直接基于单体修正计算训练的核磁屏蔽张量模型，用于近似 PBE0 级别的结果。该模型涵盖分子有机固体中12种常见核种，在实验基准中改善了 13C、15N 及屏蔽张量各向异性的预测精度，同时保持了与前代模型相近的 1H 性能。结合 PET-MOLS 优化得到的高质量结构后，预测误差可进一步降低。",
+    "title_zh": "带内置杂化泛函分子修正的分子晶体机器学习NMR屏蔽",
+    "summary": "ShiftML4把分子晶体NMR屏蔽张量的学习目标从PBE提升到带单体修正的PBE0近似，直接处理参考电子结构质量限制。核心对象是张量性质，方法重点在分子晶体数据和混合泛函校准；摘要未给出架构、训练策略或误差改善幅度。它与团队等变张量性质预测、机器学习哈密顿量有方法论交叉，但与凝聚态缺陷、磁性和铁电功能问题没有直接材料联系。",
     "abstract": "arXiv:2608.21313v1 Announce Type: new Abstract: Fast and accurate chemical shielding estimators are essential for shielding-driven Nuclear Magnetic Resonance (NMR) crystallography. Machine-learning models for shielding predictions have matured significantly and today are primarily limited by the electronic structure reference data they are trained on. Here, we introduce ShiftML4, a shielding-tensor model trained directly on monomer-corrected calculations that approximate PBE0, rather than the PBE reference targeted by earlier ShiftML models. ShiftML4 is trained on a diverse set of structures containing 12 of the most common NMR nuclei in molecular organic solids. On experimental benchmark sets, the 13C isotropic RMSE against experiment is 1.67 ppm, compared with 2.34 ppm for GIPAW-PBE on the same geometries. ShiftML4 gives a similar 1H prediction RMSE to ShiftML3 (0.5 ppm) and improves the 15N RMSE from 7.24 to 6.08 ppm. The model also reduces errors in the shielding-tensor anisotropy, with an RMSE of 4.63 ppm on 13C CSA principal components against 5.85 ppm for GIPAW. The improvements in prediction accuracy are retained on better geometries. Basing shift predictions on structures relaxed with PET-MOLS, a recent machine-learned interatomic potential that reaches approximate hybrid-DFT geometries in seconds, lowers the ShiftML4 errors further to 0.48 ppm (1H), 1.49 ppm (13C) and 3.66 ppm (15N).",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.21313",
     "journal": "arXiv"
   },
   {
-    "title": "Structural Origin of Water Heat Capacity Anomaly from Classical and Quantum Simulations",
-    "title_zh": "经典与量子模拟揭示水热容反常的结构起源",
-    "summary": "研究利用结合机器学习原子间势的经典分子动力学和路径积分分子动力学，分析了水在常压下异常大的等压热容及其过冷时的尖锐极大值。结果表明，核量子效应主要通过抑制高频振动发挥作用，而等压热容的反常温度依赖性源于结构涨落，可由第二溶剂壳层侵入序参量量化。两态映射给出了约4 kJ/mol的有效焓尺度，将低密度样和高密度样局域结构的转化与过冷至环境条件下的过量热容联系起来。",
-    "abstract": "arXiv:2607.08957v2 Announce Type: replace Abstract: Water isobaric heat capacity is anomalously large under ambient conditions and exhibits a sharp maximum upon supercooling. Using classical and path-integral molecular dynamics with accurate machine-learning interatomic potentials, we show that nuclear quantum effects primarily act by suppressing high-frequency vibrations, while the anomalous temperature dependence of the isobaric heat capacity originates from structural fluctuations, quantified by the second-solvent-shell intruder order parameter. A simple two-state mapping reveals an effective enthalpy scale of about 4 kJ/mol associated with the interconversion of low- and high-density-like local structures, providing a microscopic link between their population changes and the excess heat capacity from supercooled to ambient conditions.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2607.08957",
+    "title": "Intracavity Photon Statistics from Correlated Molecular Electronic Structure",
+    "title_zh": "关联分子电子结构的腔内光子统计",
+    "summary": "工作把腔内光子统计从原始场矩推进到基于累积量的规范与原点稳健描述，并用QED-CCSD-22密度和Pauli–Fierz精确对角化验证。关键物理是偶极约定或坐标原点导致的基态相干位移，二阶及更高阶累积量可消除该人为依赖。它与团队激发态和界面电荷动力学仅有概念交叉，当前没有直接材料体系联系。",
+    "abstract": "arXiv:2608.21071v1 Announce Type: new Abstract: Quantum optics characterizes light through photon correlations, but ab initio cavity quantum electrodynamics (QED) has only calculated raw field moments at present. In this study, intracavity photon statistics of cavity-coupled molecules are computed from QED coupled-cluster (QED-CCSD-22) densities and validated against exact diagonalization of the Pauli-Fierz Hamiltonian. A change of coordinate origin or dipole convention displaces the ground state coherently, so second-order and higher cumulants of the cavity field are well defined even for molecular ions. The photon subsystem of QED Hartree-Fock is exactly coherent, so the invariant statistics measure electron-photon correlation. The field fluctuations are super-Poissonian, and their degree of second-order coherence is set by the cavity frequency rather than by the coupling strength, falling from 18.5 to 4.9 for H2 as the cavity is detuned from 5 to 20 eV. A parity selection rule makes the sign of the third cumulant a probe of the orientation of the molecular charge asymmetry along the cavity polarization.",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2608.21071",
     "journal": "arXiv"
   },
   {
     "title": "Neural quantum states in condensed matter: advances, best practices, and prospects",
-    "title_zh": "凝聚态物质中的神经量子态：进展、最佳实践与前景",
-    "summary": "神经量子态通过将神经网络参数化与蒙特卡罗采样相结合，为量子多体波函数提供了灵活的变分表示。本文综述其在受挫量子磁体、相互作用晶格费米子和非平衡动力学中的最新应用，并讨论网络架构、对称性约束、优化方法及采样策略。文章还总结了可靠模拟的实践指南，分析了符号与相位结构学习、变分偏差控制、物理对称性施加、大规模网络优化及稳定实时演化等挑战，并展望其拓展强关联量子物质经典模拟能力的方向。",
+    "title_zh": "凝聚态神经量子态：进展、实践与展望",
+    "summary": "该综述系统梳理神经网络变分波函数与蒙特卡洛采样在受挫磁体、晶格费米子和非平衡动力学中的应用。重点不是新材料数值结论，而是架构、对称性、优化和采样的实践规范。它与团队自旋哈密顿量、蒙特卡洛和AI for science存在方法交叉，但不能替代团队已有的第一性原理参数化和材料尺度模拟。",
     "abstract": "arXiv:2608.21291v1 Announce Type: new Abstract: Neural quantum states provide flexible variational representations of quantum many-body wave functions by combining neural-network parametrizations with Monte Carlo sampling. In this perspective, we review recent advances in their application to condensed-matter systems, focusing on frustrated quantum magnets, interacting lattice fermions, and non-equilibrium dynamics. We discuss the architectures, symmetry constraints, optimization methods, and sampling strategies underlying state-of-the-art calculations, and summarize practical guidelines for reliable simulations. We also examine the principal remaining challenges, including learning non-trivial sign and phase structures, controlling variational bias, enforcing physical symmetries, scaling optimization to large networks, and achieving stable real-time evolution. Finally, we outline promising directions in which neural quantum states may extend the reach of classical simulations of strongly correlated quantum matter.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.21291",
@@ -163,8 +136,8 @@
   },
   {
     "title": "Predicting Resource Efficient Hamiltonian Decomposition for Continuous-Time Quantum Walk Simulations",
-    "title_zh": "连续时间量子游走模拟中资源高效哈密顿量分解的预测",
-    "summary": "在量子计算的电路模型中模拟图上的连续时间量子游走，需要将其哈密顿量分解为可通过Trotter化映射到硬件原生门的项。本文比较标准Pauli分解和匹配分解，并训练机器学习模型预测给定图采用哪种分解能够获得更少的CX门。模型使用全部11117个连通八顶点图进行训练和评估，结果表明主要预测信号来自分解项数量而非图的拓扑特征；在更大结构化图和Erdős-Rényi图上测试时，模型表现出良好的迁移能力。",
+    "title_zh": "连续时间量子行走的资源高效哈密顿量分解预测",
+    "summary": "工作用机器学习预测连续时间量子行走应采用Pauli分解还是matching分解，以减少当前硬件中主导误差和运行时间的CX门。核心结论是稀疏图倾向matching分解、稠密图倾向Pauli分解的既有规律被转化为自动选择问题，但摘要没有定量门数、数据集或模型性能。它与团队凝聚态哈密顿量分解和量子模拟仅属间接方法联系。",
     "abstract": "arXiv:2608.20660v1 Announce Type: cross Abstract: Simulating a continuous-time quantum walk (CTQW) on a graph in the circuit model of quantum computing requires decomposing its Hamiltonian into terms that can be Trotterized into hardware-native gates. We consider two such decompositions: the standard Pauli decomposition and the recently introduced matching decomposition. Prior work suggests that the matching decomposition uses fewer CX gates on sparse graphs, while the Pauli decomposition uses fewer on denser graphs. Since CX gates dominate error and runtime on current hardware, we train machine learning models to predict, for a given graph, which of the two decompositions produces the smaller CX gate count. We train and evaluate on the complete population of all 11,117 connected eight-vertex graphs from Brendan McKay's database, so the class balance and overlap are measured directly rather than estimated. We use twelve features: ten topological properties of the graph and two that count the terms the Pauli and matching decompositions produce (n_Pauli and nₘₐₜch), both computable without transpiling the simulation circuit. Standard topological properties alone provide little predictive power. Instead, the dominant signal comes from n_Pauli, a property of the Hamiltonian decomposition rather than an intrinsic property of the graph; degree variance is the only other feature that carries signal. Across a range of models the Matthews correlation coefficient (MCC) falls in a narrow band, from 0.569 untuned to 0.593 after tuning, so no single architecture stands out. We adopt a single-hidden-layer neural network at MCC 0.593. Applied frozen to a held-out, class-balanced test set of larger graphs (up to 256 vertices) from structured and Erdos-Renyi families, the model transfers, with MCC rising from 0.785 at N=8 to 1 at N>=64.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.20660",
@@ -172,11 +145,38 @@
   },
   {
     "title": "Generalizing Soft Tissue Deformation and Force Prediction Across Material Stiffness and Geometry",
-    "title_zh": "文献研究：Generalizing Soft Tissue Deformation and Force Prediction Across Material Stiffness and Geometry",
-    "summary": "arXiv:2608.20967v1 Announce Type: new Abstract: Accurate soft tissue simulation is essential for surgical training, pre-operative planning, and haptic feedback systems. While learning-based surrogate…",
+    "title_zh": "跨材料刚度与几何泛化的软组织变形和力预测",
+    "summary": "该工作针对有限元监督的软组织代理模型，系统考察超弹性本构模型选择对跨刚度、跨几何泛化的影响。核心贡献是把材料参数校准与代理模型可靠性联系起来，而非单纯追求单一条件下的预测精度。由于对象是生物软组织，且摘要没有网络和定量结果，与团队凝聚态材料模拟、机器学习势和电子结构方向没有直接关系。",
     "abstract": "arXiv:2608.20967v1 Announce Type: new Abstract: Accurate soft tissue simulation is essential for surgical training, pre-operative planning, and haptic feedback systems. While learning-based surrogate models trained on data using the finite element method (FEM) offer a promising path to real-time inference, their reliability depends on well-calibrated constitutive models. Existing approaches neither provide systematic guidance on model selection across stiffness levels, nor generalize across different tissue stiffnesses or geometries. We perform a comprehensive calibration of hyperelastic constitutive models in the SOFA Framework using gravity-loaded silicone beams with different stiffnesses. Using calibrated simulations as training data, we use a softness conditioned equivariant graph neural network, enabling deformation and force prediction across multiple tissue types and unseen geometries. Our model achieves sub-millimeter mean deformation accuracy at 0.010s inference time, while showing that force prediction quality is directly tied to upstream calibration consistency.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2608.20967",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Superfluid weight in disordered flat-band superconductors as a competition between localization functionals",
+    "title_zh": "无序平带超导体的超流权重与局域化竞争",
+    "summary": "工作指出无序平带超导体中能隙和超流权重可呈反直觉分离：无序降低超导序参量，却通常不直接显著压低超流权重。作者以解析分析说明超流刚度取决于不同局域化泛函的竞争，修正了将普通金属无序直觉直接用于平带体系的做法。它与团队超导、平带材料和电子结构兴趣相关，但未涉及第一性原理材料筛选或机器学习。",
+    "abstract": "arXiv:2510.05224v2 Announce Type: replace Abstract: According to Anderson's theorem, the gap of a time-reversal symmetric weak-coupling superconductor is unaffected by non-magnetic disorder. However, the superfluid weight (stiffness) is reduced in the disordered limit by a factor of Δ τ, a product of the scattering time τ and the superconducting order parameter Δ. Here we show that the opposite holds true in flat-band superconductors. While non-magnetic disorder does reduce the order parameter, we find that its direct effect on superfluid weight is mostly negligible. We show analytically that the effect of disorder is to lowest order given in terms of the difference between the intraband and interband parts of the localization functional of impurity wavefunctions, finding it to be typically vanishing.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2510.05224",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Robustness of real-space topology in moiré systems",
+    "title_zh": "莫尔体系实空间拓扑的稳健性",
+    "summary": "工作系统检验莫尔体系层分辨波函数纹理产生的实空间Chern数，指出这一类似Pontryagin指标的标记通常是脆弱的，只在特定极限保留。该结论限制了将虚拟磁场作为分数量子Chern绝缘体普适解释的做法。它与团队二维范德华、莫尔拓扑和Wannier电子结构方向直接相交，但摘要未涉及材料缺陷、磁性或机器学习。",
+    "abstract": "arXiv:2507.00130v2 Announce Type: replace Abstract: The appearance of fractional Chern insulators in moiré systems can be rationalized by the presence of a fictitious magnetic field associated with the spatial texture of layer-resolved electronic wavefunctions. Here, we present a systematic study of real-space topology and the associated fictitious magnetic fields in moiré systems. We first show that at the level of individual Bloch wavefunctions, the real-space Chern number, akin to a Pontryagin index, is a fragile marker. It generically vanishes except for specific limits where the Bloch functions exhibit fine-tuned zeroes within the unit cell, such as the chiral limit of twisted bilayer graphene (TBG) or the adiabatic regime of twisted homobilayer transition metal dichalcogenides (TMD). We then show that these limitations do not apply to textures associated with ensembles of Bloch wavefunctions, such as entire bands or the ensemble of states at a given energy. The Chern number of these textures defines a robust topological index protected by a spectral gap. We find that symmetries constrain it to be nonzero for both twisted TMDs and TBG across all twist angles and levels of corrugation, implying experimental signatures in scanning tunneling microscopy measurements. By projection to the band ensemble texture, a single-component Hamiltonian under fictitious magnetic field emerges in a broad regime, enabling a direct comparison of multicomponent bands to Landau-level wavefunctions. We also study real-space topology within the topological heavy fermion model of TBG, finding that the real-space topological features are supported only by the light c-electrons.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2507.00130",
+    "journal": "arXiv"
+  },
+  {
+    "title": "The transverse matter Hamiltonian",
+    "title_zh": "横向物质哈密顿量",
+    "summary": "作者通过全量子正则变换消去横向矢势，将光—物质耦合改写为电流—电流和电流—电流—密度相互作用，构造保持规范的纯物质哈密顿量。创新是系统处理横向电磁自由度而不仅保留纵向库仑项，但摘要未给出具体材料、近似阶数或数值验证。它与团队电子结构、输运和腔耦合问题有基础理论关联，直接应用仍不明确。",
+    "abstract": "arXiv:2608.21211v1 Announce Type: cross Abstract: Enrico Fermi in 1932 used classical Gauss equation to derive the Coulomb density--density interaction from the longitudinal electromagnetic potential. In this work we extend the Fermi procedure to the transverse component of the vector potential. By using a fully quantum canonical transformation, we replace the transverse vector potential with a current--current and current--current--density interactions. The transformed Hamiltonian is, then, projected in the fermionic space providing a matter--only, totally incoherent and gauge respecting Hamiltonian. The removal of coherence will avoid the breakdown of perturbation theory predicted by Haag's theorem, and make possible to introduce, in the transformed space, the diagrammatic approach. After discussing the implications of the transverse interactions on the current theories based on the Fermi procedure, we conclude by showing how the transverse Hamiltonian provides the quantum origin of the electromagnetic longitudinal--transverse splitting of phonons and other elemental excitations.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.21211",
     "journal": "arXiv"
   }
 ]
