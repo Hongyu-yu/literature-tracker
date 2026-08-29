@@ -1,125 +1,89 @@
 [
   {
-    "title": "Learning the Kohn-Sham map with neural operators for quasi-linear scaling density functional theory",
-    "title_zh": "用神经算子学习 Kohn-Sham 映射",
-    "summary": "核心创新是把 Kohn-Sham 问题表述为可学习的密度到有效映射，而不是拟合轨道自由 DFT 的动能泛函。方法采用神经算子以处理函数空间映射，目标是在保持 Kohn-Sham 精度时接近准线性复杂度；摘要未披露网络结构、训练集规模和误差数值。若完整论文证明可扩展到材料体系，它将直接影响大尺度缺陷、界面和分子动力学中的电子结构求解。",
-    "abstract": "arXiv:2608.23895v1 Announce Type: cross Abstract: Kohn--Sham density functional theory (DFT) underpins electronic-structure simulations, but repeated orbital diagonalizations lead to cubic scaling, restricting quantum calculations to modest scales only. Eliminating these auxiliary orbitals while retaining Kohn--Sham accuracy is the central goal of orbital-free DFT, but both analytical and machine-learning methods have so far fallen short. Prior learning approaches either try to learn the variational kinetic-energy functionals, which are ill-conditioned, or directly predict the ground state, which extrapolate poorly to larger systems. Instead, we identify the Kohn--Sham map as the right learning target for orbital-free DFT. It maps a Kohn--Sham potential directly to the corresponding density and noninteracting kinetic energy, quantities otherwise obtained through an orbital diagonalization. Focusing on the density component in this work, a domain-invariant SE(3)-equivariant Fourier neural operator learns to predict it from the potential as input on real-space grids, enabling stable quasi-linear scaling SCFs. Trained jointly on 8,504 molecules and solids, a single model generalizes to out-of-distribution organic molecules, insulators, and metals. For the first time, the same method converges SCFs across these systems without explicitly constructing Kohn--Sham orbitals, while reproducing densities, electronic spectra, and structural observables at Kohn--Sham DFT accuracy. Linear-scaling SCFs additionally allow converging magnesium dislocation densities containing up to 82,500 valence electrons on a single GPU.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2608.23895",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Atomistic machine learning with irreducible Cartesian natural tensors",
-    "title_zh": "不可约笛卡尔自然张量的原子机器学习",
-    "summary": "亮点是把不可约笛卡尔张量作为几何学习的统一对象，使能量、力和高秩弹性张量在同一框架内预测。CarNet 通过张量表示保留旋转对称性和张量变换规律，覆盖从标量势能面到复杂高秩响应性质的任务；摘要未给出最强数值结果，只称达到领先精度。对 AI 材料模拟而言，它把机器学习势与张量性质预测放进同一对称性语言。",
-    "abstract": "Nature Communications, Published online: 27 August 2026; doi:10.1038/s41467-026-77263-z A theory of Cartesian tensors gives rise to CarNet, a unified machine learning framework that predicts the properties of molecules and materials with leading accuracy, from interatomic potential energies to complex, high-rank elastic tensors.",
-    "category": "AI×化学·材料",
-    "link": "https://www.nature.com/articles/s41467-026-77263-z",
-    "journal": "Nature Communications"
-  },
-  {
-    "title": "Intercalation of Alkali Metal into WTe2, the Crystal Structure of A0.5WTe2 and Observation of a Metal-to-Semiconductor Transition",
-    "title_zh": "碱金属插层 WTe2 与金属半导体转变",
-    "summary": "核心现象是通过碱金属阳离子插层把 WTe2 调控到 A0.5WTe2，并伴随金属-半导体转变。作者结合粉末衍射、红外漫反射和变温电导，并用 DFT 解释插层后的结构与电子性质变化；最强结论是 K/Rb/Cs 三类插层化合物均可形成明确化学计量。该结果对层状硫族化合物的载流子调控和相工程有参考价值。",
-    "abstract": "arXiv:2608.25090v1 Announce Type: new Abstract: We explore the cationic intercalation of tungsten ditelluride (WTe2) with potassium (K), rubidium (Rb), and cesium (Cs), yielding intercalation compounds of the form A0.5WTe2 (A = K, Rb, Cs). Structural characterization was performed using powder X-ray diffraction (PXRD), while diffuse reflectance infrared Fourier transform (DRIFT) spectroscopy and temperature-dependent conductivity measurements were employed to investigate the electronic properties. Density functional theory (DFT) calculations were carried out to support the experimental findings and to provide insight into the intercalation mechanisms and the resulting material characteristics. All synthesized compounds display semiconducting behavior with narrow band gaps, emphasizing the influence of alkali metal intercalation on the electronic structure and transport properties of WTe2. These results advance the fundamental understanding of property modulation in transition-metal dichalcogenides (TMDCs) and highlight their potential for electronic device applications.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2608.25090",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Tuning Dirac-Rashba and Double Dirac Cone Surface States of Topological Crystalline Insulator Pb₁₋ₓSnₓSe by Transition Metal Adsorbate",
-    "title_zh": "金属吸附调控 PbSnSe 拓扑表面态",
-    "summary": "该文围绕 Pb1-xSnxSe/过渡金属吸附界面，系统观察拓扑晶体绝缘体表面态随金属覆盖度的演化。方法以 ARPES 为主，直接区分 Dirac-Rashba 和双 Dirac 锥表面态的变化；摘要未列出能隙、Rashba 参数或覆盖度阈值。它对自旋轨道界面、磁性吸附和拓扑表面态工程有直接参考价值。",
-    "abstract": "arXiv:2608.25156v1 Announce Type: new Abstract: The electronic structure of topological insulator/magnetic metal (TI/MM) interfaces is of great importance for understanding of exotic spin-dependent phenomena and realization of advanced spin-orbitronic devices. Here, we employ a model system of submonolayer transition metal (TM) deposited on the surface of a topological crystalline insulator (TCI) of Pb₁₋ₓSnₓSe to systematically map out the modification of the surface electronic structure by angle-resolved photoemission spectroscopy (ARPES) as a function of coverage. For the polar (111) Pb₁₋ₓSnₓSe surface, we observe the coexistence of the Dirac topological surface states (TSS) and Rashba-split surface states (RSS) induced by the combined effects of inversion-symmetry breaking, surface band bending and orbital angular momentum effects. In particular, we demonstrate very large Rashba splittings can be obtained and the Rashba parameter (α_R) can be tuned over a remarkably wide range from 0 to 3.5 eV ḑot mathringA, depending on the type and coverage of the TM adatoms. Model-Hamiltonian calculations corroborate the experimental findings and reveal that this coexistence results from the filling of the TSS by the surface doping caused by the TM. In contrast, for the nonpolar (001) surface exhibiting a double Dirac cone topological surface state, the inversion symmetry is preserved and hence no Rashba-split surface states emerge. Instead, surface charge imbalance induces dephasing of the wave functions of the double Dirac cones that diminishes the momentum-space separation between them. These findings shed light on novel phenomena occurring at the topological insulator / transition metal interface, offering a versatile platform for future spintronic and quantum devices.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.25156",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Symmetry Origins of the Field-Free Superconducting Diode Effect in the Kagome Superconductor CsV₃Sb₅",
-    "title_zh": "CsV3Sb5 零场超导二极管效应的对称性起源",
-    "summary": "核心问题是中心对称 CsV3Sb5 为何能出现零场超导二极管效应。作者从对称性出发，将非互易超导输运与反演破缺、内禀时间反演破缺及 CDW 序联系起来；摘要未给出临界电流非互易比、温度区间或器件几何。该工作对 kagome 超导中隐藏序与非线性输运的关系有针对性价值。",
-    "abstract": "arXiv:2608.26022v1 Announce Type: new Abstract: Field-free superconducting diode effects require both inversion-symmetry breaking and an internal time-reversal-symmetry (TRS) breaking field, making them sensitive probes of hidden order in superconductors. In centrosymmetric kagome AV₃Sb₅, the inversion symmetry generally should generally preclude the observation of the superconducting diode effect. Furthermore, though TRS breaking has been reported in the superconducting regime of CsV₃Sb₅, whether it is generated by superconductivity or inherited from charge-density-wave (CDW) order remains unresolved. Here we show that pristine CsV₃Sb₅ devices exhibit no intrinsic field-free superconducting diode effect, whereas surface oxidation or asymmetric etching activates a large nonreciprocal supercurrent. Moreover, the response is stochastic, with sweep-dependent polarity and magnitude, indicating metastable TRS-breaking domain configurations. Small out-of-plane magnetic fields stabilize the superconducting diode response, consistent with field selection of such domains. Finally, when long-range CDW order is suppressed by Ti doping, the SDE disappears. Our results establish the symmetry requirements for the field-free SDE in CsV₃Sb₅, reveal its stochastic domain-controlled character, and link superconducting-state TRS breaking to CDW-related order.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.26022",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Configurational entropy as a potential metric for empirical potential development and validation",
-    "title_zh": "构型熵评估经验势开发与验证",
-    "summary": "该文提出用液态 Si 的构型熵和振动熵衡量经验势对势能面形状的描述能力。作者横向比较七个 Si 经验势，关注能量景观参数而非只看结构或热力学单点性质；摘要未给出各势的熵数值或排名。对机器学习势开发而言，熵可作为检验外推动力学和相空间采样质量的补充指标。",
-    "abstract": "Empirical interatomic potentials remain widely used due to their high computational efficiency. Yet their development and validation protocols typically emphasize properties that have limited sensitivity to the overall shape of the potential energy landscape (PEL) and can give rise to poor transferability to other properties. Here, we consider the configurational and vibrational entropy of liquid silicon (Si) predicted by seven widely utilized empirical potentials with a view of using these energy landscape parameters to assess potentials more broadly. Both vibrational and configurational entropy contributions are found to be remarkably sensitive to the form of the potential, revealing substantial differences in basin curvature, basin density, and overall PEL topology that are not captured by conventional fitting targets. With a view toward using this information for future potential development, we also show that the Debye–Waller parameter u2 provides a practical experimental proxy for configurational entropy through the localization model of relaxation.",
-    "category": "其他",
-    "link": "https://pubs.aip.org/aip/jcp/article/165/8/084502/3403195/Configurational-entropy-as-a-potential-metric-for",
-    "journal": "The Journal of Chemical Physics Current Issue"
-  },
-  {
-    "title": "Equivariant Covariance Tensors: Guaranteed SPD Uncertainty for Tensor-Valued Geometric Learning",
-    "title_zh": "等变协方差张量用于张量不确定度",
-    "summary": "创新点是把张量输出的不确定度从标量方差推广到完整协方差张量，并保持 E(3) 等变性。方法以六维 Kelvin-Mandel 坐标表示二阶对称张量，预测均值和 6×6 协方差且保证正定；摘要未给出校准误差或数据集表现。它直接补足等变材料模型在应力、介电和弹性等张量性质预测中的可信度问题。",
-    "abstract": "arXiv:2608.24386v1 Announce Type: cross Abstract: Tensor-valued prediction is fundamental to geometric deep learning, yet uncertainty quantification (UQ) for such outputs remains an open challenge. While E(3)-equivariant neural networks excel at point estimates, they lack rigorous confidence measures. We focus on symmetric rank-2 tensor prediction, where the target has six Kelvin--Mandel coordinates and full uncertainty is represented by a 6×6 covariance matrix. We introduce a framework for E(3)-equivariant UQ, modeling the full predictive distribution where both mean and covariance preserve rotational symmetry. Our approach decomposes the covariance into irreducible representations Sym²⁽h̊o_c) o̧ng 2×(l=0) øplus 2×(l=2) øplus 1×(l=4). By mapping from the flat Lie algebra mathfraksym(6) to the curved SPD manifold via matrix exponentiation, we strictly ensure positive-definite covariances while maintaining exact equivariance. Furthermore, we formulate a Log-Euclidean Equivariant Scoring Objective (LE-ESO)---a robust surrogate loss based on the Multivariate Laplace distribution---providing robustness to heavy-tailed errors and stable optimization. Validation on ModelNet40 inertia tensors and Materials Project dielectric tensors demonstrates that our method achieves competitive performance and provides physically consistent, symmetry-preserving uncertainty estimates with useful risk and OOD sensitivity.",
-    "category": "AI×化学·材料",
-    "link": "https://arxiv.org/abs/2608.24386",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Non-Hermitian topological Euler insulators",
-    "title_zh": "非厄米拓扑欧拉绝缘体",
-    "summary": "核心贡献是把脆弱拓扑中的 Euler 类概念扩展到非厄米多带系统。作者聚焦二维三带非厄米晶格，讨论 PT 或 C2T 对称性下如何定义并释放非平庸欧拉拓扑；摘要未给出具体可观测平台或谱数值。该工作偏理论拓扑分类，对开放量子系统和非厄米材料模型有概念价值。",
-    "abstract": "arXiv:2608.25411v1 Announce Type: new Abstract: Topological Euler insulators emerge in multiband systems with real Bloch Hamiltonians and wavefunctions. Their fragile topologies are characterized by the Euler class of degenerate bands and protected by the PT or C₂T symmetry in two dimensions, which go beyond the tenfold K-theory classification of topological matter. In this work, we extend the conception of topological Euler insulators to non-Hermitian systems and propose a theoretical framework to unlock their nontrivial Euler topology. Focusing on two-dimensional, three-band non-Hermitian lattice models with symmetric Hamiltonians, we formulate a comprehensive description of their topological Euler bands, entanglement spectrum and bulk-boundary correspondence. Three typical models of non-Hermitian Euler insulators are constructed and investigated explicitly to illustrate our theory. Unique topological phase transitions and anomalous edge-band overlaps with non-Hermitian origins are further identified. Our study establishes the presence of topological Euler bands in non-Hermitian systems and unveils their intriguing physical characteristics, thereby broadening the existing territory of topological matter in non-Hermitian open systems.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2608.25411",
-    "journal": "arXiv"
-  },
-  {
-    "title": "An embedding method with constant potential boundary conditions",
-    "title_zh": "恒定势边界条件的嵌入方法",
-    "summary": "该文把非平衡格林函数中的自能边界引入有限簇自洽场计算，实现恒定势边界条件。方法从宽带近似出发推导一粒子密度矩阵更新，可嵌入 Hartree-Fock 与 DFT；摘要未给出测试体系误差。它对电极-分子、表面簇和电化学边界建模有方法价值。",
-    "abstract": "arXiv:2608.25154v1 Announce Type: new Abstract: We present a self-consistent field framework for finite embedded quantum-chemical clusters with constant potential boundary conditions. The coupling is realized through an energy-independent self-energy commonly employed in quantum-transport calculations within the wide-band approximation. Starting from the corresponding non-equilibrium Green's function formalism, we derive an analytic expression for the one-particle density matrix update that can be incorporated into conventional Hartree--Fock and density functional theory. The resulting non-Hermitian self-consistent field equations are solved using adapted Pulay-type mixing schemes. Applications to a quasi-periodic hydrogen ring demonstrate that a finite fragment coupled through an optimized self-energy accurately reproduces the polarization response of the extended system, while calculations on a lithium cluster capture metallic charge transfer and fractional occupations under open-boundary conditions. The proposed framework establishes practical grand-canonical boundary conditions for finite quantum-chemical clusters and lays the methodological foundation for quantum embedding methods for electrochemical systems.",
-    "category": "铁电·极化",
-    "link": "https://arxiv.org/abs/2608.25154",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Exploring electron transport in carbon wire systems using a wave function-based multiconfigurational non-equilibrium Green's function approach",
-    "title_zh": "多组态格林函数研究碳线输运",
-    "summary": "亮点是把 NEGF 与多组态成对密度泛函结合，用于强关联碳线分子结输运。方法采用非周期波函数框架，适合处理一维碳线中单参考 DFT 可能失效的电子相关；摘要未给出电导数值、长度依赖或 I-V 曲线。其意义集中在量子输运方法，对团队材料主线为间接参考。",
-    "abstract": "arXiv:2608.25112v1 Announce Type: new Abstract: One-dimensional carbon wire materials are an interesting class of materials which have potentially useful applications in sub-nanoscale junction technology due to their unique quantum transport properties. In this work, we apply a non-equilibrium Green's function approach based on multiconfiguration pair-density functional theory (NEGF-MCPDFT). NEGF-MCPDFT is a wave-function-based non-periodic framework to study electron transport in systems exhibiting strong correlation. The advantage of this approach is multiconfigurational wave functions are used which offer enhanced abilities to describe strong electron correlation beyond single-determinant approaches. MC-PDFT necessitates the use of an active space, and a key step in such calculations is the determination of which orbitals to include. In application of this theory to carbon wire junctions of various lengths, we find that NEGF-MCPDFT is capable of reproducing trends from recent experimental results, and we use our findings to further the development of best practices in active space design for transport calculations of this type.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2608.25112",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Incommensurate spin fluctuations in one-dimensional Kondo metal CeCo2Ga8",
-    "title_zh": "一维 Kondo 金属 CeCo2Ga8 的非公度自旋涨落",
-    "summary": "该文把 CeCo2Ga8 的一维电子结构与非公度自旋涨落直接对应起来。实验上结合非弹性中子散射和 ARPES，理论上用一维 Kondo 晶格模型的 DMRG 解释谱函数；最强结论是模型能复现实验散射谱。它对低维强关联磁性和自旋涨落建模有清晰价值。",
-    "abstract": "arXiv:2608.26071v1 Announce Type: new Abstract: We present an experimental and numerical study of the spin fluctuations in 1D Kondo metal CeCo₂Ga₈. Using inelastic neutron spectroscopy, we measure highly one-dimensional magnetism with low-energy incommensurate short-ranged magnetic fluctuations. ARPES similarly shows a highly one-dimensional electronic band structure, confirming the one-dimensional nature of the system. We use density matrix renormalization group (DMRG) simulations of the 1D Kondo lattice model to interpret the measured spectrum, which successfully reproduce the neutron scattering features. We are thus able to place CeCo₂Ga₈ within the emergent incommensurate phase of the 1D Kondo lattice phase diagram, and demonstrate that the Kondo lattice simulated non-perturbatively is an accurate microscopic model for heavy fermion physics. This shows CeCo₂Ga₈ to be one-dimensional despite its complexities, and reveals a coexistence of low-energy Kondo and magnetic features in its inelastic spectrum.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.26071",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Reply to Comment on: Microscopic signatures of an imaginary charge density wave in a kagome metal",
-    "title_zh": "回应 kagome 金属虚电荷密度波争议",
-    "summary": "该文是围绕 kagome 金属虚电荷密度波微观证据的技术性回应。作者用 NMR 谱形约束反驳晶体马赛克性解释，强调需要额外且位点依赖的 EFG 不对称参数分布才可能拟合；摘要未说明新的实验数据。它对 kagome 隐藏序的判据有参考价值，但属于争议澄清。",
-    "abstract": "arXiv:2608.24927v1 Announce Type: new Abstract: We address a recent Comment [I. Nikolov it et al., arXiv:2608.13579 (2026)] proposing crystalline mosaicity as an alternative explanation for the asymmetric nuclear magnetic resonance (NMR) spectra reported in our study [S. Suetsugu it et al., Nat. Phys. bf 22, 1251--1256 (2026)]. We show that this scenario requires substantial temperature- and site-dependent distributions of crystallographic orientations and additional site-dependent distributions of the electric field gradient (EFG) asymmetry parameter, none of which follow from ordinary crystalline mosaicity. We therefore conclude that crystalline mosaicity cannot account for the observed site-selective spectral asymmetry and does not provide an alternative explanation for the central spectroscopic observation underlying our interpretation.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.24927",
-    "journal": "arXiv"
-  },
-  {
     "title": "High-throughput Discovery of Magnetic Rare Earth Transition Metal Alloys",
-    "title_zh": "高通量发现稀土过渡金属磁合金",
-    "summary": "该文把扩散式晶体结构生成用于稀土-过渡金属永磁候选的高通量发现。流程覆盖 3000 多个组成和约 24 万个生成结构，并用机器学习原子间势进行分级过滤，再兼顾磁化强度与热力学稳定性。它把生成模型、势函数和磁性筛选连接成材料发现闭环，和 AI 磁性材料设计高度相关。",
+    "title_zh": "稀土过渡金属磁体高通量发现",
+    "summary": "该工作把扩散生成晶体结构、机器学习原子间势和分级稳定性筛选接入稀土过渡金属永磁合金发现。候选空间覆盖 Y、Sm、Fe/Co/Ni 及多种第三过渡金属元素，约 24 万个生成结构被逐级过滤，以同时优化磁化强度和热力学稳定性。对凝聚态与材料设计而言，它展示了生成模型不只做结构补全，也可服务磁性功能指标导向的闭环发现。",
     "abstract": "arXiv:2608.25270v1 Announce Type: new Abstract: We present an accelerated materials discovery framework that combines diffusion-based crystal structure generation with hierarchical screening to identify new rare-earth--transition-metal magnets simultaneously achieving high magnetization and thermodynamic stability. Using this workflow, we systematically explored over 3000 binary (R-T) and ternary (R-T-T') compositions spanning R~in Y, Sm, T~in Fe, Co, Ni, and T' in Ti, V, Cr, Mn, Cu, Zn, and filtered approximately 240,000 generated crystal structures through machine-learning interatomic potential prescreening and spin-polarized density functional theory validation. We identify 300+ low-energy magnetic candidates within 0.1~eV/atom above the convex hull at the DFT level, including 5 thermodynamically stable phases. The highest saturation magnetization reaches sim1.8~T in Fe-rich binary and ternary phases (SmFe₁₂, YFe₁₂, YFe₁₈Ti and Sm₂Fe₁₆Mn). Symmetry analysis reveals that the majority of ternary candidates are subgroup derivatives of known binary prototypes through Wyckoff site splitting that accommodates T' substitution. Site-resolved magnetic moment analysis further shows that Mn aligns ferromagnetically with the Fe sublattice with minimal magnetization loss, whereas Cr couples antiferromagnetically, providing systematic guidance for dopant selection. These findings demonstrate a generalizable strategy for targeted magnetic materials discovery and suggest that extending generative searches to larger unit cells (>20 atoms) with higher Fe fractions is a promising route toward stable phases with saturation magnetization exceeding 1.8~T.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.25270",
     "journal": "arXiv"
   },
   {
+    "title": "Atomistic machine learning with irreducible Cartesian natural tensors",
+    "title_zh": "不可约笛卡尔自然张量原子机器学习",
+    "summary": "CarNet 的核心是用不可约笛卡尔自然张量构建原子机器学习表示，把标量能量和高秩弹性张量纳入同一协变框架。相较只输出能量或力的势函数模型，它面向复杂张量性质给出统一预测形式，并在分子与材料基准上报告领先精度。对科学智能材料模拟而言，这类张量原生架构直接对应弹性、介电、压电、磁各向异性等团队常算性质。",
+    "abstract": "Nature Communications, Published online: 27 August 2026; doi:10.1038/s41467-026-77263-z A theory of Cartesian tensors gives rise to CarNet, a unified machine learning framework that predicts the properties of molecules and materials with leading accuracy, from interatomic potential energies to complex, high-rank elastic tensors.",
+    "category": "AI×化学·材料",
+    "link": "https://www.nature.com/articles/s41467-026-77263-z",
+    "journal": "Nature Communications"
+  },
+  {
+    "title": "Nuclearity of Copper Clusters on hBN/SiC Heterostructure Modulates Molecular Adsorption",
+    "title_zh": "hBN/SiC 上铜团簇调控分子吸附",
+    "summary": "该工作针对 hBN/SiC 异质结构中的缺陷锚定位点，比较不同核数铜团簇的稳定性和分子吸附调制。方法上用 DFT 给出电子结构和吸附能，再用机器学习分子动力学考察热稳定和动力学过程。对计算材料方向的价值在于，它把二维异质界面、缺陷工程和 MLMD 连到金属团簇反应活性调控，但摘要未给出具体吸附能或扩散势垒数值。",
+    "abstract": "arXiv:2608.25640v1 Announce Type: new Abstract: Defect engineering can transform inert two-dimensional (2D) materials into chemically active and electronically tunable platforms by creating anchoring sites for metal atoms and clusters. Nevertheless, precise control over the formation, thermodynamic and kinetic stability, electronic structure, and chemical reactivity of metal species confined at these defect sites remains a challenge. Here, we use density functional theory (DFT) calculations assisted by machine-learning molecular dynamics (MLMD) simulations to elucidate the stability, electronic structure, and reactivity of Cu clusters anchored at boron vacancies (VB) in hBN/SiC heterostructures. Systematic variation of the Cu-to-vacancy ratio reveals a transition from isolated Cu atoms to multiatom Cu clusters at VB sites, with cluster growth reshaping the stability, electronic structure, and surface reactivity. Our results show that a single VB defect can be passivated by three Cu atoms, which compensate the local charge deficiency and stabilize the defect through Cu-N coordination. Capturing further Cu introduces localized midgap states that could influence the reactivity of the Cu-decorated defect sites. We probe the response of the Cu-decorated surface to chemically relevant gases CO, H2, O2, N2, H2S, and CO2, revealing implications for surface reactivity and stability. The calculations show pronounced cluster-size-dependent reactivity of Cu clusters at VB sites, with CO forming strong Cu-C bonds and O2 undergoing enhanced adsorption and molecular activation. Overall, this work identifies defect-engineered hBN/SiC as a versatile 2D platform for stabilizing Cu clusters and tuning gas-surface reactivity. By correlating Cu nuclearity at VB sites with electronic structure, molecular activation, and environmental robustness, our findings provide design guidelines for nuclearity-dependent metal functionalization of 2D heterostructures.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2608.25640",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Substitution effects in RuO₂ single crystals",
+    "title_zh": "RuO2 单晶中的替代效应",
+    "summary": "这篇实验工作把 RuO2 交替磁性争议转向受控 V 替代的单晶样品，考察结构、输运和磁性响应。核心问题是纯 RuO2 缺少清晰反铁磁或交替磁信号时，10% V 掺杂能否揭示邻近磁不稳定性。对凝聚态方向而言，它提示交替磁性候选材料必须区分本征磁序、掺杂诱导效应和样品依赖性；摘要未给出磁矩、转变温度或输运异常数值。",
+    "abstract": "arXiv:2608.25615v1 Announce Type: new Abstract: RuO₂ has emerged as one of the leading candidates for investigating altermagnetism. Recent quantum oscillation and angle-resolved photoemission spectroscopy measurements found the absence of altermagnetism or antiferromagnetism in pure RuO₂ crystals. The continuing debate over intrinsic magnetic order in RuO₂ may reflect its proximity to an altermagnetic instability. In this work, we grow single crystals of Ru₀.₉V₀.₁O₂ and investigate their structural, transport, and magnetic properties. X-ray photoelectron spectroscopy reveals an average V oxidation state near +4. The paramagnetic susceptibility remains nearly unchanged up to room temperature, with no evidence of magnetic ordering. Thus, the 10% V-substitution in RuO₂ does not induce altermagnetism. Electronic structure calculations for the V-substituted systems using two methods suggest that a higher level of V-substitution leads to a significant change in the density of states. These findings underscore the potential of nonmagnetic substitution in RuO₂ as an attractive candidate for probing altermagnetic transitions and their experimental signatures.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.25615",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Heat to energy conversion: Unlocking high thermoelectric performance in NaMgBi-based half-Heusler compounds via Lithium alloying",
+    "title_zh": "Li 合金化提升 NaMgBi 半赫斯勒热电性",
+    "summary": "该预印本用 DFT+SOC 和 Boltzmann 输运评估 Li 合金化 NaMgBi 半赫斯勒的热电潜力。关键变量是 Na1-xLixMgBi 中 x=0.25、0.50、0.75 的取代比例，结论是 Li 替代不破坏结构和力学稳定，并通过晶格软化改善热电性能。对计算材料而言，它是常规合金化调控输运的案例；摘要未给出 ZT、功率因子或晶格热导率数值，定量说服力有限。",
+    "abstract": "A thermoelectric material converts heat to electricity. Alkali-metal magnesium bismuthides are promising thermoelectric materials due to their favourable electronic structures and low lattice thermal conductivity. Using density functional theory, including the effect of spin-orbit coupling and in combination with semiclassical Boltzmann transport, we study the thermoelectric properties of pristine and Lithium (Li)-alloyed NaMgBi of stoichiometries Na1−xLixMgBi (x = 0.25, 0.50, 0.75). Li atomic substitution preserves structural and mechanical stability, induces lattice softening, and enhances phonon scattering while reducing the lattice thermal conductivity. Also, band structure modifications suppress electron–hole compensation and enhance the Seebeck coefficient without significantly affecting electrical conductivity. Consequently, Li-alloyed NaMgBi attains enhanced figure-of-merit (ZT) relative to the pristine NaMgBi for the temperature range considered. Specifically, we found that Na0.75Li0.25MgBi achieves a maximum ZT ~ 1.78 albeit at an elevated temperature. Our study suggests that alkali-metal alloying can effectively optimize both electronic and phonon transport in semi-metallic half-Heusler thermoelectrics, in particular magnesium bismuthides, with attendant increase in the ZT.",
+    "category": "拓扑·电子结构",
+    "link": "https://www.researchsquare.com/article/rs-10821167/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Distinct Surface and Bulk Superconductivity in the Kagome Superconductor SrSn₃",
+    "title_zh": "kagome 超导体 SrSn3 的表面与体超导",
+    "summary": "该实验通过隧穿结电阻调控，在 SrSn3 外延薄膜中分辨表面和体超导谱信号。核心发现是两个通道拥有不同超导能隙、上临界场和涡旋芯电子态，而不是单一谱线的简单展宽。对量子材料研究而言，这为 kagome 超导中表面态参与配对和涡旋局域态提供直接实验切入，但摘要未列出具体能隙或临界场数值。",
+    "abstract": "arXiv:2608.25271v1 Announce Type: new Abstract: Surface and bulk superconductivity may possess fundamentally different superconducting properties in quantum materials with nontrivial electronic structures, yet their superimposed spectroscopic signatures often prevent direct experimental access to each superconducting channel. Here we reveal, in epitaxial films of the kagome superconductor SrSn₃, distinct surface and bulk superconducting channels with markedly different superconducting gaps, upper critical fields, and vortex-core electronic states by tuning the tunneling junction resistance in scanning tunneling spectroscopy. The surface superconductivity is characterized by a thickness-independent superconducting gap and an enhanced upper critical field, whereas the bulk superconducting channel exhibits a larger superconducting gap that decreases with reducing film thickness and a much lower upper critical field. Within magnetic vortex cores, robust non-split zero-bias conductance peaks are observed exclusively in the surface superconducting channel, while pronounced zero-bias suppression is consistently associated with the bulk superconducting channel. These findings demonstrate that the vortex-core electronic structure depends sensitively on the underlying superconducting channel, providing new insight into vortex-bound states in topological quantum materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.25271",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Equivariant Covariance Tensors: Guaranteed SPD Uncertainty for Tensor-Valued Geometric Learning",
+    "title_zh": "等变协方差张量用于张量学习不确定度",
+    "summary": "该工作把 E(3) 等变学习从点估计扩展到张量预测的不确定度量化。它针对对称二阶张量，用六维 Kelvin-Mandel 坐标描述输出，并要求均值和完整 6×6 协方差在旋转下保持正确变换且为正定。对 AI for science 很关键，因为弹性、介电、应力和扩散张量预测需要可信置信区间，而不是只给一个数值。",
+    "abstract": "arXiv:2608.24386v1 Announce Type: cross Abstract: Tensor-valued prediction is fundamental to geometric deep learning, yet uncertainty quantification (UQ) for such outputs remains an open challenge. While E(3)-equivariant neural networks excel at point estimates, they lack rigorous confidence measures. We focus on symmetric rank-2 tensor prediction, where the target has six Kelvin--Mandel coordinates and full uncertainty is represented by a 6×6 covariance matrix. We introduce a framework for E(3)-equivariant UQ, modeling the full predictive distribution where both mean and covariance preserve rotational symmetry. Our approach decomposes the covariance into irreducible representations Sym²⁽h̊o_c) o̧ng 2×(l=0) øplus 2×(l=2) øplus 1×(l=4). By mapping from the flat Lie algebra mathfraksym(6) to the curved SPD manifold via matrix exponentiation, we strictly ensure positive-definite covariances while maintaining exact equivariance. Furthermore, we formulate a Log-Euclidean Equivariant Scoring Objective (LE-ESO)---a robust surrogate loss based on the Multivariate Laplace distribution---providing robustness to heavy-tailed errors and stable optimization. Validation on ModelNet40 inertia tensors and Materials Project dielectric tensors demonstrates that our method achieves competitive performance and provides physically consistent, symmetry-preserving uncertainty estimates with useful risk and OOD sensitivity.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2608.24386",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Tuning Dirac-Rashba and Double Dirac Cone Surface States of Topological Crystalline Insulator Pb₁₋ₓSnₓSe by Transition Metal Adsorbate",
+    "title_zh": "过渡金属吸附调控 PbSnSe 表面态",
+    "summary": "该文以 Pb1-xSnxSe 拓扑晶体绝缘体表面为模型，系统改变过渡金属亚单层覆盖度并用 ARPES 观察表面态演化。核心是磁性金属吸附对 Dirac-Rashba 态和双 Dirac 锥表面态的调控，可直接反映界面杂化、磁性扰动和自旋轨道耦合。对凝聚态方向的价值在于，它给拓扑绝缘体/磁金属界面工程提供可测谱学约束，但摘要未给出能隙打开或能带位移数值。",
+    "abstract": "arXiv:2608.25156v1 Announce Type: new Abstract: The electronic structure of topological insulator/magnetic metal (TI/MM) interfaces is of great importance for understanding of exotic spin-dependent phenomena and realization of advanced spin-orbitronic devices. Here, we employ a model system of submonolayer transition metal (TM) deposited on the surface of a topological crystalline insulator (TCI) of Pb₁₋ₓSnₓSe to systematically map out the modification of the surface electronic structure by angle-resolved photoemission spectroscopy (ARPES) as a function of coverage. For the polar (111) Pb₁₋ₓSnₓSe surface, we observe the coexistence of the Dirac topological surface states (TSS) and Rashba-split surface states (RSS) induced by the combined effects of inversion-symmetry breaking, surface band bending and orbital angular momentum effects. In particular, we demonstrate very large Rashba splittings can be obtained and the Rashba parameter (α_R) can be tuned over a remarkably wide range from 0 to 3.5 eV ḑot mathringA, depending on the type and coverage of the TM adatoms. Model-Hamiltonian calculations corroborate the experimental findings and reveal that this coexistence results from the filling of the TSS by the surface doping caused by the TM. In contrast, for the nonpolar (001) surface exhibiting a double Dirac cone topological surface state, the inversion symmetry is preserved and hence no Rashba-split surface states emerge. Instead, surface charge imbalance induces dephasing of the wave functions of the double Dirac cones that diminishes the momentum-space separation between them. These findings shed light on novel phenomena occurring at the topological insulator / transition metal interface, offering a versatile platform for future spintronic and quantum devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.25156",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Incommensurate spin fluctuations in one-dimensional Kondo metal CeCo2Ga8",
+    "title_zh": "一维 Kondo 金属 CeCo2Ga8 的非公度自旋涨落",
+    "summary": "该工作把中子散射、ARPES 和 DMRG 结合，确认 CeCo2Ga8 中磁性和电子结构均高度一维。最关键结论是低能非公度短程自旋涨落可由一维 Kondo 晶格模型复现，说明重费米子金属中的低维关联不是简单结构类比。对凝聚态理论而言，它提供了实验约束充分的一维 Kondo 格点模型实现。",
+    "abstract": "arXiv:2608.26071v1 Announce Type: new Abstract: We present an experimental and numerical study of the spin fluctuations in 1D Kondo metal CeCo₂Ga₈. Using inelastic neutron spectroscopy, we measure highly one-dimensional magnetism with low-energy incommensurate short-ranged magnetic fluctuations. ARPES similarly shows a highly one-dimensional electronic band structure, confirming the one-dimensional nature of the system. We use density matrix renormalization group (DMRG) simulations of the 1D Kondo lattice model to interpret the measured spectrum, which successfully reproduce the neutron scattering features. We are thus able to place CeCo₂Ga₈ within the emergent incommensurate phase of the 1D Kondo lattice phase diagram, and demonstrate that the Kondo lattice simulated non-perturbatively is an accurate microscopic model for heavy fermion physics. This shows CeCo₂Ga₈ to be one-dimensional despite its complexities, and reveals a coexistence of low-energy Kondo and magnetic features in its inelastic spectrum.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.26071",
+    "journal": "arXiv"
+  },
+  {
     "title": "Switchable heavy-hole/light-hole spin qubit",
-    "title_zh": "可切换重空穴轻空穴自旋量子比特",
-    "summary": "核心设计是在双层 Ge 异质结构中电控切换重空穴和轻空穴特性。作者利用 SiGeSn 势垒调节应变与能级，使量子比特在弱自旋轨道、长相干的重空穴态和强线性自旋轨道的轻空穴态之间切换；摘要未给出 Rabi 频率或相干时间。该方案属于半导体量子信息器件理论。",
+    "title_zh": "可切换重空穴/轻空穴自旋量子比特",
+    "summary": "该理论方案面向 Ge 基空穴自旋量子比特，提出在 SiGeSn 势垒双层 Ge 异质结构中切换重空穴和轻空穴态。核心创新是把重空穴的较好相干特性与轻空穴的强本征线性动量自旋轨道耦合放在同一器件设计中。对量子材料和半导体方向而言，它强调能带工程对应变量子比特可控性，但摘要未给出 Rabi 频率、退相干时间或门保真度数值。",
     "abstract": "arXiv:2608.25914v1 Announce Type: new Abstract: Compressively strained Ge quantum wells in planar SiGe/Ge heterostructures are the state-of-the-art platform for hole spin qubits. While they exhibit robust coherence times, they possess weak intrinsic spin-orbit interaction (SOI) due to the heavy-hole (HH) character of the wavefunction. Recently, light-hole (LH) qubits were proposed in GeSn/Ge heterostructures, offering strong, intrinsic, linear-in-momentum SOI. In this work, we propose a switchable HH-LH spin qubit in a bilayer Ge heterostructure with SiGeSn barriers, combining the advantages of HH and LH devices. The character of the qubit can be changed by shuttling from an LH well to an HH well, which also enables fast, hopping-based single-qubit rotations. Additionally, we observe an HH-LH resonance introduced by the in-plane confinement, resulting in g-factor peaks and first-order charge noise sweet spots. Our calculations reveal a sweet spot with Rabi frequencies on the order of 100 MHz, comparable to the LH regime, but with a more than tenfold increase in coherence time, on the order of 100 μs.",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2608.25914",
@@ -127,56 +91,92 @@
   },
   {
     "title": "Observation of Quantized Charge Accumulation in a Quantum Anomalous Hall System",
-    "title_zh": "量子反常霍尔体系中的量子化电荷积累",
-    "summary": "该文从电荷积累而非传统输运角度验证量子反常霍尔响应。作者在磁掺杂拓扑绝缘体 Corbino 和圆盘器件中使用面外电容探测，直接对应 σxy=e2/h 的表面电荷积累；摘要未给出电荷量平台精度或温度。它为拓扑电磁响应提供了更直接的实验观测方式。",
+    "title_zh": "量子反常霍尔体系中量子化电荷积累",
+    "summary": "该实验不只测量量子反常霍尔电导，而是用垂直电容方法直接观测场诱导表面电荷积累。核心定量基准是 σxy=e2/h 对应的量子化电荷响应，并通过 Corbino 与圆盘器件交叉验证。对拓扑凝聚态而言，它把 Hall 响应的电荷积累侧面变成可直接测量量，为磁掺杂拓扑绝缘体器件提供新的诊断方式。",
     "abstract": "arXiv:2509.08701v2 Announce Type: replace Abstract: The quantum anomalous Hall effect in magnetically doped topological insulators exhibits a quantized Hall conductance σₓy = e²/h arising from the two-dimensional surface states. While conventional transport probes confirm this quantization, they remain insensitive to the field-induced surface charge accumulation as a direct manifestation of σₓy. Here, we experimentally validate an out-of-plane capacitive method that directly detects this quantized charge accumulation in a quantum anomalous Hall system. Using Corbino and simple disk devices, we measure charge accumulation proportional to field variation Δ B, with dissipation characterized by longitudinal conductance σₓₓ and frequency f. A quantitative dissipation model extracts the intrinsic quantized charge density η₀ = (e²/h)Δ B, which is confirmed through f- and σₓₓ-dependent measurements. Under ultra-low dissipation (σₓₓ approx 10⁻⁹ S), we directly resolve the fully quantized charge accumulation. This methodology establishes a direct charge-accumulation probe and provides a pathway toward detecting the topological magnetoelectric effect, a condensed matter manifestation of the four-dimensional quantum Hall effect.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2509.08701",
     "journal": "arXiv"
   },
   {
+    "title": "Symmetry Origins of the Field-Free Superconducting Diode Effect in the Kagome Superconductor CsV₃Sb₅",
+    "title_zh": "CsV3Sb5 零场超导二极管效应的对称性起源",
+    "summary": "该工作围绕 CsV3Sb5 中无需外磁场的超导二极管效应，追问中心对称 kagome 晶体为何能出现非互易超导临界电流。核心物理是反演对称破缺与内部时间反演破缺场的共同来源，尤其区分超导诱导 TRS 破缺和 CDW 继承的隐藏序。对 kagome 超导研究而言，它把二极管效应作为诊断隐藏序和对称性降低的敏感探针。",
+    "abstract": "arXiv:2608.26022v1 Announce Type: new Abstract: Field-free superconducting diode effects require both inversion-symmetry breaking and an internal time-reversal-symmetry (TRS) breaking field, making them sensitive probes of hidden order in superconductors. In centrosymmetric kagome AV₃Sb₅, the inversion symmetry generally should generally preclude the observation of the superconducting diode effect. Furthermore, though TRS breaking has been reported in the superconducting regime of CsV₃Sb₅, whether it is generated by superconductivity or inherited from charge-density-wave (CDW) order remains unresolved. Here we show that pristine CsV₃Sb₅ devices exhibit no intrinsic field-free superconducting diode effect, whereas surface oxidation or asymmetric etching activates a large nonreciprocal supercurrent. Moreover, the response is stochastic, with sweep-dependent polarity and magnitude, indicating metastable TRS-breaking domain configurations. Small out-of-plane magnetic fields stabilize the superconducting diode response, consistent with field selection of such domains. Finally, when long-range CDW order is suppressed by Ti doping, the SDE disappears. Our results establish the symmetry requirements for the field-free SDE in CsV₃Sb₅, reveal its stochastic domain-controlled character, and link superconducting-state TRS breaking to CDW-related order.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.26022",
+    "journal": "arXiv"
+  },
+  {
     "title": "Exact analytical spectrum, eigenstates, and quantum geometry of the quarter-flux Harper-Hofstadter model",
-    "title_zh": "四分之一磁通 Harper-Hofstadter 模型的解析谱与量子几何",
-    "summary": "核心贡献是为四分之一磁通 Harper-Hofstadter 四带模型写出完整闭式解。解析结果覆盖能谱、本征态和量子几何，弥补多带模型中量子度量与 Berry 曲率难以显式表达的问题；摘要未列出具体公式或拓扑数值。它对平带、拓扑响应和人工量子模拟平台有理论参考价值。",
+    "title_zh": "四分之一磁通 Harper-Hofstadter 模型的精确谱与量子几何",
+    "summary": "该理论工作为四分之一磁通 Harper-Hofstadter 模型给出少见的四能带解析谱、本征态和量子几何公式。核心贡献在于超越常见二能带模型，直接得到量子度规和 Berry 几何等封闭表达。对凝聚态理论而言，它为多能带拓扑响应、平带几何和人工量子模拟平台提供了可检验基准，但不涉及具体材料预测。",
     "abstract": "arXiv:2608.26099v1 Announce Type: new Abstract: Quantum geometry has emerged as a guiding principle across atomic and condensed-matter physics, shaping the topological responses of Bloch bands and the stability of the correlated phases they host. Beyond two-band models, however, closed-form expressions for both the spectrum and the quantum geometry are rare. Here we provide such expressions for a paradigmatic four-band model that has recently been realized experimentally with ultracold atoms, photons and in superconducting circuits: the Harper-Hofstadter model at quarter flux, describing charged particles on a two-dimensional square lattice subjected to a uniform magnetic field. We achieve this by first showing that the model possesses a sublattice symmetry, which renders its Bloch Hamiltonian anti-block-diagonal allowing us to derive the spectrum and the eigenstates analytically. From that we also obtain closed-form expressions for the full quantum geometric tensor (QGT), including both the Berry curvature and the quantum metric, for all the bands of the model. For this purpose we first derive a general expression for the QGT for sublattice-symmetric systems in terms of contributions from the individual sublattice sectors. Finally, we evaluate fractional-Chern-insulator stability criteria analytically and quantify the lowest band of the quarter-flux Harper-Hofstadter model to be a nearly ideal Chern band.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26099",
     "journal": "arXiv"
   },
   {
-    "title": "Distinct Surface and Bulk Superconductivity in the Kagome Superconductor SrSn₃",
-    "title_zh": "kagome 超导体 SrSn3 的表面与体超导",
-    "summary": "该文直接分辨 SrSn3 中表面和体超导的不同谱学响应。作者在外延薄膜上调节隧穿结电阻，选择性增强表面或体通道，观测到不同能隙、上临界场和涡旋芯态；摘要未给出能隙大小和临界场数值。它对 kagome 超导、表面态超导和拓扑相关配对研究有参考价值。",
-    "abstract": "arXiv:2608.25271v1 Announce Type: new Abstract: Surface and bulk superconductivity may possess fundamentally different superconducting properties in quantum materials with nontrivial electronic structures, yet their superimposed spectroscopic signatures often prevent direct experimental access to each superconducting channel. Here we reveal, in epitaxial films of the kagome superconductor SrSn₃, distinct surface and bulk superconducting channels with markedly different superconducting gaps, upper critical fields, and vortex-core electronic states by tuning the tunneling junction resistance in scanning tunneling spectroscopy. The surface superconductivity is characterized by a thickness-independent superconducting gap and an enhanced upper critical field, whereas the bulk superconducting channel exhibits a larger superconducting gap that decreases with reducing film thickness and a much lower upper critical field. Within magnetic vortex cores, robust non-split zero-bias conductance peaks are observed exclusively in the surface superconducting channel, while pronounced zero-bias suppression is consistently associated with the bulk superconducting channel. These findings demonstrate that the vortex-core electronic structure depends sensitively on the underlying superconducting channel, providing new insight into vortex-bound states in topological quantum materials.",
+    "title": "Reply to Comment on: Microscopic signatures of an imaginary charge density wave in a kagome metal",
+    "title_zh": "回应 kagome 金属虚电荷密度波显微信号评论",
+    "summary": "这是一篇针对 kagome 金属虚电荷密度波显微 NMR 证据的回复文章。作者反驳晶体镶嵌性解释，强调对方模型必须引入温度和位点依赖的取向分布及 EFG 不对称参数分布，超出普通晶体缺陷或取向弥散可解释范围。对 kagome 隐藏序研究而言，它关乎 NMR 谱不对称是否能作为非常规 CDW 的微观证据。",
+    "abstract": "arXiv:2608.24927v1 Announce Type: new Abstract: We address a recent Comment [I. Nikolov it et al., arXiv:2608.13579 (2026)] proposing crystalline mosaicity as an alternative explanation for the asymmetric nuclear magnetic resonance (NMR) spectra reported in our study [S. Suetsugu it et al., Nat. Phys. bf 22, 1251--1256 (2026)]. We show that this scenario requires substantial temperature- and site-dependent distributions of crystallographic orientations and additional site-dependent distributions of the electric field gradient (EFG) asymmetry parameter, none of which follow from ordinary crystalline mosaicity. We therefore conclude that crystalline mosaicity cannot account for the observed site-selective spectral asymmetry and does not provide an alternative explanation for the central spectroscopic observation underlying our interpretation.",
     "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.25271",
+    "link": "https://arxiv.org/abs/2608.24927",
     "journal": "arXiv"
   },
   {
     "title": "Immittance formulas for exact blackbox quantization and divergence-free effective models in circuit QED",
-    "title_zh": "电路 QED 黑箱量子化的导纳阻抗公式",
-    "summary": "该文为电路 QED 的黑箱量子化给出直接由阻抗/导纳矩阵构造哈密顿量的公式。方法适用于 Josephson 结量子比特与多端口、多模、互易或非互易被动环境的电容、电感或电流耦合，并在弱耦合下得到无发散有效模型；摘要未给出实验器件验证。它主要服务超导量子电路理论。",
+    "title_zh": "电路 QED 精确黑箱量子化的导纳公式",
+    "summary": "该理论工作面向电路 QED，提出利用阻抗或导纳矩阵进行精确黑箱量子化的简单公式。它覆盖多端口、多模、离散或连续、互易或非互易线性环境，并在弱耦合极限给出无发散有效色散哈密顿量。对超导量子电路建模很实用，但与常规计算材料和凝聚态材料设计交叉较弱。",
     "abstract": "arXiv:2608.26027v1 Announce Type: cross Abstract: Building on the first-order circuit quantization method [arXiv:2304.12252, arXiv:2401.09120], we provide simple formulas to construct exact Hamiltonians for Josephson-junction-based superconducting qudits capacitively, inductively, or galvanically coupled to passive linear environments. These environments may be multiport, multimode, discrete or continuous, reciprocal or nonreciprocal, and are characterized directly by their impedance or admittance matrices. In the weak-coupling regime, we further derive emphdivergence-free dispersive Hamiltonians for mode-resolved environments and transition-resolved weak-coupling master equations for dissipative continua. Mode structure, frequency renormalizations, environment-mediated interactions, decay rates, and directional cross couplings then follow from the same causal immittance response, while spurious Lamb-shift divergences arising from uncontrolled approximations in previous treatments are made explicit and avoided. We apply the theory to a set of illustrative circuits comprising a discrete resonator filter, finite-band metamaterial environments, nonreciprocal waveguide-QED systems, and superconducting giant atoms, for which analytical response matrices can be obtained, although the method is particularly well suited to numerical responses from electromagnetic solvers or experimental characterization. We thereby extend the black-box quantization framework to multiport, dissipative, and nonreciprocal settings, establishing a simple and scalable route toward optimized and automated electromagnetic design of large-scale superconducting quantum hardware.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26027",
     "journal": "arXiv"
   },
   {
-    "title": "Substitution effects in RuO₂ single crystals",
-    "title_zh": "RuO2 单晶中的替位效应",
-    "summary": "该文针对 RuO2 交替磁性争议，考察 10% V 替位对单晶结构、输运和磁性的影响。动机是纯 RuO2 可能接近交替磁性不稳定点，替位掺杂或可调节磁序；摘要未给出磁矩、转变温度或电阻率异常数值。它与交替磁性材料设计和掺杂调控高度相关。",
-    "abstract": "arXiv:2608.25615v1 Announce Type: new Abstract: RuO₂ has emerged as one of the leading candidates for investigating altermagnetism. Recent quantum oscillation and angle-resolved photoemission spectroscopy measurements found the absence of altermagnetism or antiferromagnetism in pure RuO₂ crystals. The continuing debate over intrinsic magnetic order in RuO₂ may reflect its proximity to an altermagnetic instability. In this work, we grow single crystals of Ru₀.₉V₀.₁O₂ and investigate their structural, transport, and magnetic properties. X-ray photoelectron spectroscopy reveals an average V oxidation state near +4. The paramagnetic susceptibility remains nearly unchanged up to room temperature, with no evidence of magnetic ordering. Thus, the 10% V-substitution in RuO₂ does not induce altermagnetism. Electronic structure calculations for the V-substituted systems using two methods suggest that a higher level of V-substitution leads to a significant change in the density of states. These findings underscore the potential of nonmagnetic substitution in RuO₂ as an attractive candidate for probing altermagnetic transitions and their experimental signatures.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.25615",
-    "journal": "arXiv"
-  },
-  {
     "title": "Yang-Lee Criticality as a Dissipative Dynamical Phase Transition: Quantum Simulation of non-Hermitian Physics without Post-selection",
-    "title_zh": "杨-李临界作为耗散动力学相变",
-    "summary": "该文把 Yang-Lee 临界映射为开放量子系统中的耗散动力学相变。构造依赖局域幺正演化和工程耗散，无需后选择，通过欠阻尼到过阻尼的时间响应变化识别临界行为；摘要未给出临界指数或具体硬件平台参数。它属于非厄米和开放量子模拟理论。",
+    "title_zh": "Yang-Lee 临界性的耗散动力学相变模拟",
+    "summary": "该理论方案把 d+0 维 Yang-Lee 临界性映射到 (d-1)+1 维开放量子系统动力学中，避免依赖后选择。核心机制是局域幺正演化与工程耗散竞争，使特定线性观测量从欠阻尼振荡跨到过阻尼指数衰减。对非厄米临界和量子模拟有价值，但与材料计算方向只有很间接的理论联系。",
     "abstract": "arXiv:2608.26082v1 Announce Type: cross Abstract: We show that the d+0-dimensional Yang-Lee theory describing classical Ising spins in an imaginary magnetic field can be realized, without post-selection, within a (d-1)+1 open quantum system whose dynamics consist of local unitaries and engineered dissipation. Competition between the coherent unitary and dissipative dynamics drives a transition wherein the time-dependence of a particular class of linear observables changes from damped oscillatory \"underdamped\" to purely exponential \"overdamped\" decay. Our construction relies on an extensive number of weak-symmetries of the Lindbladian fixed by the choice of observable but is otherwise exact. Consequently, we show that the dynamics are described by the non-Hermitian generator of the Yang-Lee transfer matrix, leading to an effective Yang-Lee theory defined on the spacetime history of the open system. By locally modifying the dynamics, we directly measure spin correlation functions of the Yang-Lee theory as well as a related \"Loschmidt Echo\" correlator which we detail. We explicitly show that the required dissipation channels can be obtained through local 2-qubit gates and discuss potential realization on near-term quantum simulator devices. Finally, we generalize our construction to embed arbitrary non-Hermitian Hamiltonians within an open quantum system under Lindbladian time-evolution without post-selection, drawing connections between unconditional open quantum dynamics, exceptional point physics, and non-unitary statistical mechanics.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26082",
+    "journal": "arXiv"
+  },
+  {
+    "title": "The temperature-dependent non-Abelian gauge potential",
+    "title_zh": "温度依赖非阿贝尔规范势",
+    "summary": "该理论稿把时间演化算符解释为规范变换，并将含自旋体系推广到 SU(2) 或 SU(3) 非阿贝尔形式。具体凝聚态场景是自旋极化电流驱动铁磁体磁化动力学，在绝热近似下引入温度依赖的热规范势。它与自旋动力学有概念关联，但摘要没有给出可检验材料、方程细节或定量预测。",
+    "abstract": "arXiv:2608.25437v1 Announce Type: cross Abstract: This study shows that the usual time evolution operator can act as a U(1) gauge transformation on the initial wavefuntion. When considering the spin freedom in the system, the time evolution operator corresponds to a non-Abelian SU(2) gauge transformation for spin-1/2 particles and a SU(3) gauge transformation for spin-1 particles. If we adopt the adiabatic approximation in the magnetization dynamics of a ferromagnetic system driven by a spin-polarized current, a temperature-dependent non-Abelian thermal gauge potential will appear. We can employ a temperature-dependent Landau-Lifshitz-Gilbert (LLG) equation to describe the magnetization dynamics in the semi-classical limit, a linear approximated solution for this equation is given analytically.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.25437",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Classification of Invertible Stabilizer Codes",
+    "title_zh": "可逆稳定子码分类",
+    "summary": "该数学物理工作分类的是更一般局域通勤投影哈密顿量产生的可逆稳定子码，而不限于 Pauli 码。核心结果是在凝聚和与简单码稳定化的等价关系下，计算任意空间维数中的 Witt 等价类。它面向量子纠错和拓扑序分类，对材料计算团队的直接关联很弱。",
+    "abstract": "arXiv:2512.01142v2 Announce Type: replace-cross Abstract: We develop a framework for the classification of invertible translation-invariant stabilizer codes modulo condensation and stabilization with simple codes. Our stabilizer codes generalize the Pauli codes: they are extracted from local commuting projector Hamiltonians whose terms are made of local alphabets more general than the Pauli operators. In particular, not all such codes can be entangled/disentangled with Clifford Quantum Cellular Automata. We compute their Witt-equivalence classes in any spatial dimension in terms of relative L-theory groups. In particular, we show that the group of equivalence classes of such codes in three spatial dimensions is isomorphic to the Witt group of abelian topological orders in two spatial dimensions. In four spatial dimensions we obtain a group of order two, conjecturally corresponding to the non-trivial invertible phase. Additionally, we propose a representing spectrum for the generalized cohomology theory corresponding to the invertible stabilizer codes.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2512.01142",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Non-Hermitian topological Euler insulators",
+    "title_zh": "非厄米拓扑欧拉绝缘体",
+    "summary": "该理论工作把欧拉绝缘体的脆弱拓扑概念推广到非厄米多能带系统。它聚焦二维三能带非厄米晶格，讨论 PT 或 C2T 对称性保护下如何定义和识别非平庸欧拉拓扑。对拓扑凝聚态而言，它连接了非厄米物理和超越十重分类的实波函数拓扑，但摘要未给出材料实现或实验可观测量。",
+    "abstract": "arXiv:2608.25411v1 Announce Type: new Abstract: Topological Euler insulators emerge in multiband systems with real Bloch Hamiltonians and wavefunctions. Their fragile topologies are characterized by the Euler class of degenerate bands and protected by the PT or C₂T symmetry in two dimensions, which go beyond the tenfold K-theory classification of topological matter. In this work, we extend the conception of topological Euler insulators to non-Hermitian systems and propose a theoretical framework to unlock their nontrivial Euler topology. Focusing on two-dimensional, three-band non-Hermitian lattice models with symmetric Hamiltonians, we formulate a comprehensive description of their topological Euler bands, entanglement spectrum and bulk-boundary correspondence. Three typical models of non-Hermitian Euler insulators are constructed and investigated explicitly to illustrate our theory. Unique topological phase transitions and anomalous edge-band overlaps with non-Hermitian origins are further identified. Our study establishes the presence of topological Euler bands in non-Hermitian systems and unveils their intriguing physical characteristics, thereby broadening the existing territory of topological matter in non-Hermitian open systems.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2608.25411",
+    "journal": "arXiv"
+  },
+  {
+    "title": "An embedding method with constant potential boundary conditions",
+    "title_zh": "恒定势边界条件嵌入方法",
+    "summary": "该方法把量子输运中的宽带自能引入有限量子化学团簇，使其在恒定势边界条件下自洽求解。核心技术是从非平衡 Green 函数形式推导解析一粒子密度矩阵更新，可接入常规 HF 和 DFT。对界面、电极和开边界材料模拟很有参考价值，尤其适合处理有限团簇与电势库耦合问题。",
+    "abstract": "arXiv:2608.25154v1 Announce Type: new Abstract: We present a self-consistent field framework for finite embedded quantum-chemical clusters with constant potential boundary conditions. The coupling is realized through an energy-independent self-energy commonly employed in quantum-transport calculations within the wide-band approximation. Starting from the corresponding non-equilibrium Green's function formalism, we derive an analytic expression for the one-particle density matrix update that can be incorporated into conventional Hartree--Fock and density functional theory. The resulting non-Hermitian self-consistent field equations are solved using adapted Pulay-type mixing schemes. Applications to a quasi-periodic hydrogen ring demonstrate that a finite fragment coupled through an optimized self-energy accurately reproduces the polarization response of the extended system, while calculations on a lithium cluster capture metallic charge transfer and fractional occupations under open-boundary conditions. The proposed framework establishes practical grand-canonical boundary conditions for finite quantum-chemical clusters and lays the methodological foundation for quantum embedding methods for electrochemical systems.",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2608.25154",
     "journal": "arXiv"
   }
 ]
