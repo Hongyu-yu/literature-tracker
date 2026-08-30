@@ -1,8 +1,8 @@
 [
   {
     "title": "Learning and retrieval for warm-starting charge-self-consistent DFT+DMFT",
-    "title_zh": "用于热启动电荷自洽 DFT+DMFT 的学习与检索",
-    "summary": "本文比较了两种为电荷自洽 DFT+DMFT 固定点迭代提供热启动的方法：从最相似的已收敛结构中检索，以及利用 E(3) 等变模型预测具有物理结构的自能和费米能级。学习方法将 Fe、FeO 和 NiO 中达到持续收敛所需的典型迭代次数分别从 8、8 和 6 次降至 3、3 和 1 次。端到端流程还生成了铁在地核条件下的相关能量和力标签，并据此训练等变原子间势，得到 330 GPa 下固液共存熔点 6225 ± 42 K。",
+    "title_zh": "用于电荷自洽 DFT+DMFT 热启动的学习与检索",
+    "summary": "工作把相似结构检索和 E(3) 等变模型用于电荷自洽 DFT+DMFT 的初始猜测。模型直接预测物理结构化自能与费米能级，最终结果仍经过完整自洽循环而非接受近似输出。金属 Fe、关联 FeO 和莫特绝缘体构成跨关联强度测试，但摘要未给出具体加速倍数。其价值在于把等变机器学习嵌入强关联电子结构迭代，可启发材料电子结构计算中的物理约束热启动。",
     "abstract": "arXiv:2512.25061v4 Announce Type: replace Abstract: Charge-self-consistent (CSC) DFT+DMFT delivers quantitative correlated-electron physics one configuration at a time, making ensemble sampling dependent on reliable warm starts for its expensive fixed-point iteration. Here we compare retrieval from the most similar converged structure with an E(3)-equivariant model that predicts a physics-structured self-energy and Fermi level. Because the full CSC loop refines both initializations, every production result remains a converged DFT+DMFT solution. Across metallic Fe, correlated FeO, and Mott-insulating NiO, learning reduces the typical iterations to sustained convergence from 8 to 3, 8 to 3, and 6 to 1. Retrieval matches this median speed when a dense same-state archive is available, but several poor transplants reveal that structural similarity does not predict transplant quality. In a pre-registered volume window excluded from training and donor pools, learning retains its speed, whereas retrieval starts 3.4× farther from the fixed point and approaches cold-start cost. Either initialization can select a distinct near-degenerate branch on a rugged CSC landscape. Applied end to end, the workflow generates over one thousand correlated energy and force labels for iron at Earth's-core conditions and trains an equivariant interatomic potential. Solid--liquid coexistence with 9216 atoms gives Tₘ = 6225 ± 42,Kₛₜₐₜ at 330~GPa, consistent with recent experiments. A 50-configuration DFT+DMFT audit resolves the potential's energy calibration but does not justify a corrected melting temperature, because four-atom cells cannot realize a liquid. The resulting regime map favors retrieval within dense coverage, amortized learning at and beyond its boundary, and solver refinement throughout.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2512.25061",
@@ -10,8 +10,8 @@
   },
   {
     "title": "Benchmarking of Fast and Interpretable UF Machine Learning Potentials",
-    "title_zh": "文献研究：Benchmarking of Fast and Interpretable UF Machine Learning Potentials",
-    "summary": "arXiv:2608.27277v1 Announce Type: new Abstract: Machine learning interatomic potentials (MLIPs) have emerged as a powerful alternative to density functional theory (DFT) for molecular dynamics simulat…",
+    "title_zh": "快速且可解释的 UF³ 机器学习势基准",
+    "summary": "工作评估采用线性回归、三次 B 样条及有效二体和三体项的 UF³ 势，针对机器学习原子势速度和可解释性之间的权衡。研究目标是接近 DFT 精度并降低分子动力学成本，但给定摘要没有列出材料体系、训练策略、数据规模或定量误差。其方法与团队的机器学习势和大尺度分子动力学方向直接相邻，尤其适合需要快速采样而不要求复杂高阶表示的材料问题。是否能描述缺陷、电荷或磁性相互作用仍缺乏证据。",
     "abstract": "arXiv:2608.27277v1 Announce Type: new Abstract: Machine learning interatomic potentials (MLIPs) have emerged as a powerful alternative to density functional theory (DFT) for molecular dynamics simulations, offering near-DFT accuracy at a fraction of the computational cost. However, many state-of-the-art MLIPs remain computationally demanding and act as black boxes, limiting physical interpretability. In this work, we evaluate the ultra-fast force field (UF³⁾ potential, which employs linear regression with cubic B-spline basis to represent effective two- and three-body interactions. We show that UF³ displays accuracy comparable to established models such as GAP, MTP, NNP (Behler Parrinello), and qSNAP MLIPs. We further investigate the transferability of UF³ by computing melting points for six elemental systems with potentials fitted without any solid-liquid interface configurations or explicit thermodynamic information about melting. The model reproduces experimental melting points within sim6% for simple metals (Ni, Cu, Li), but substantially underestimates them for Mo and Si and fails to yield a stable potential for Ge, reflecting the limitations of a fixed expansion truncated at the three-body term for systems with strong angular or covalent bonding. We further illustrate how UF³'s spline-based formulation allows direct visualization of the learned interactions, enabling identification of unphysical behavior that black-box approaches often obscure.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.27277",
@@ -19,8 +19,8 @@
   },
   {
     "title": "Strain-driven orbital-selective reconstruction and bicollinear-to-stripe evolution in FeTe",
-    "title_zh": "应变驱动的轨道选择性重构与 FeTe 中双列磁序到条纹磁序的演化",
-    "summary": "FeTe 是研究轨道选择性关联、磁性与非常规超导性相互作用的理想平台。结合密度泛函理论、动力学平均场理论和 Heisenberg 模型分析，作者揭示了 FeTe 关联电子结构的轨道选择性重构，以及由应变驱动的从双列反铁磁序经竞争性错列 n 聚体反铁磁区间到条纹反铁磁序的演化。适度应变可使更具相干性的准粒子与受抑制的局域磁矩共存，而更强应变则导致不相干关联态和由 Fe-3d_z² 轨道主导的低能态。",
+    "title_zh": "应变驱动 FeTe 轨道选择性重构与双共线到条纹演化",
+    "summary": "该工作把 DFT+DMFT 的轨道分辨关联电子结构与 Heisenberg 模型结合，考察应变驱动的 FeTe 磁序变化。核心结论是应变引发轨道选择性重构，并伴随双共线磁序向条纹磁序演化。给定摘要没有报告临界应变、轨道占据、质量重整化或交换常数，因此定量强度尚不能判断。它与团队的自旋哈密顿量、磁性、应变调控和强关联材料设计方向有明确方法交叉。",
     "abstract": "arXiv:2608.26652v1 Announce Type: new Abstract: FeTe, as a representative parent material among iron-based superconductors, provides an ideal platform for exploring the interplay among orbital-selective correlations, magnetism, and unconventional superconductivity. However, a unified picture of the correlated electronic structure and magnetism of FeTe under strain remains to be fully clarified. Here, combining density functional theory plus dynamical mean-field theory and Heisenberg model analysis, we uncover an orbital-selective reconstruction of the correlated electronic structure and reveal a strain-driven trajectory from bicollinear to stripe antiferromagnetism (AFM) via an intermediate competing staggered n-mer AFM regime in FeTe. Moderate strain gives rise to a regime where more coherent quasiparticles coexist with suppressed local moments. Further strain drives FeTe into an incoherent correlated regime with robust local moments and Fe-3dz^₂-dominated low-energy states. These results establish a strain-driven trajectory across distinct magnetic and correlated electronic states in FeTe.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26652",
@@ -28,8 +28,8 @@
   },
   {
     "title": "Grain-Boundary Premelting in High-Entropy Transition Metal Carbides",
-    "title_zh": "文献研究：Grain-Boundary Premelting in High-Entropy Transition Metal Carbides",
-    "summary": "arXiv:2608.27273v1 Announce Type: new Abstract: Grain-boundary segregation and thermally induced interfacial disordering were investigated in four high-entropy transition metal carbides using Monte Ca…",
+    "title_zh": "高熵过渡金属碳化物中的晶界预熔化",
+    "summary": "研究将蒙特卡洛化学采样与 MACE-OMAT-0 分子动力学结合，解析四种高熵过渡金属碳化物的晶界偏析和预熔化。Cr、Mo 或 W 以及 Zr 在晶界的第 VI 族元素含量约达到 45 at.%，并与 STEM-EDS 观测一致。升温过程用晶界 Lindemann 指数刻画原子距离无序化，建立成分偏析与热稳定性的联系。该工作对团队的机器学习势、晶界、缺陷和高温结构动力学具有直接参考价值。",
     "abstract": "arXiv:2608.27273v1 Announce Type: new Abstract: Grain-boundary segregation and thermally induced interfacial disordering were investigated in four high-entropy transition metal carbides using Monte Carlo (MC) sampling and molecular dynamics (MD) with the universal MACE-OMAT-0 machine-learning interatomic potential. MC sampling segregated the group-VI element (Cr, Mo, or W) and Zr to grain boundaries, where the group-VI content reached approximately 45 at.%, consistent with STEM-EDS observations. During MD heating, the grain-boundary Lindemann index, a normalized measure of interatomic distance fluctuations, reached the liquid-like threshold of δ=0.15 near 1390ⁱ̧rcC for the Cr-containing carbides, 1660ⁱ̧rcC for Mo, and 1890ⁱ̧rcC for W, while the grain interiors remained below the threshold. A chemically random (Cr,Hf,Ta,Ti,Zr)C reference crossed about 60ⁱ̧rcC later and showed less boundary-localized disorder, highlighting the role of interfacial chemistry in premelting. Species-resolved displacements showed enhanced grain-boundary mobility, particularly for carbon. Overall, Cr-rich interfaces showed the earliest and most extensive premelting-like response, followed by Mo- and W-containing boundaries.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2608.27273",
@@ -37,8 +37,8 @@
   },
   {
     "title": "Electronic Structure and Band-Edge Character of Ga-Substituted α-Al₂O₃: A First-Principles Study",
-    "title_zh": "文献研究：Electronic Structure and Band-Edge Character of Ga-Substituted α-Al₂O₃: A First-Principles Study",
-    "summary": "arXiv:2608.26977v1 Announce Type: new Abstract: We present a first-principles density functional theory study of substitutional Ga incorporation in an α-Al₂O₃₋derived host, isolating chemical embeddin…",
+    "title_zh": "Ga 替位 α-Al2O3 的电子结构与带边特征",
+    "summary": "研究在 30 原子 α-Al2O3 超胞中放置两个替位 Ga，比较三种不等价 Ga-Ga 构型。作者将构型能、局域配位变化、Ga 中心畸变度量与电子结构联系起来，隔离化学嵌入效应而不引入显式几何量子限域。摘要未报告带隙、带边偏移或构型能差，因此最强定量结论仅限于模型规模和构型数。该问题与团队的缺陷电子结构、掺杂、带边和半导体材料设计存在有限但真实的交叉。",
     "abstract": "arXiv:2608.26977v1 Announce Type: new Abstract: We present a first-principles density functional theory study of substitutional Ga incorporation in an α-Al₂O₃₋derived host, isolating chemical embedding effects without explicit geometric quantum confinement. Using a 30-atom α-Al₂O₃ supercell with two substituted Ga atoms, we examine three nonequivalent Ga-pair configurations and combine configuration-dependent energetics, local structural analysis, Ga-centered distortion metrics, and electronic-structure calculations.% to establish the relationship between local coordination distortion and band-edge modification. The energetically preferred configuration is governed not solely by Ga--O bond expansion but by the ability of the host lattice to accommodate bond-length and angular distortions around substituted Ga centers. Ga incorporation narrows the band gap relative to pristine α-Al₂O₃ without generating mid-gap states, primarily modifying the conduction-band manifold while preserving the oxygen-dominated valence edge. Band-edge charge densities and charge-density-difference maps show that the electronic response remains localized around the Ga-centered coordination environment. These results establish a chemically resolved baseline for understanding Ga incorporation in ultrawide-band-gap oxides and for future studies of confinement and interface effects in Ga-containing oxide nanostructures.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2608.26977",
@@ -46,53 +46,89 @@
   },
   {
     "title": "Emergent compositional control of martensitic transformation in NiTi-like shape memory alloys revealed by manifold learning",
-    "title_zh": "文献研究：Emergent compositional control of martensitic transformation in NiTi-like shape memory alloys revealed by manifold learning",
-    "summary": "Predicting martensitic transformation temperatures in NiTi-based shape memory alloys remains challenging due to the complex interplay between composition, electronic structure, and chemical disorder.…",
+    "title_zh": "流形学习揭示 NiTi 类形状记忆合金马氏体转变的成分调控",
+    "summary": "工作以二元至多组分 NiTi 类形状记忆合金为对象，用物理动机成分描述符构建数据流形，并通过目标信息选择扩散坐标。第五个非平凡坐标 ψ5 被识别为与马氏体起始温度关联最强的潜变量。摘要没有给出样本量、相关系数或外推误差，因而不能判断其预测能力。对团队而言，价值主要在于成分空间降维和相变温度筛选方法，而非铁电或磁性机制本身。",
     "abstract": "Predicting martensitic transformation temperatures in NiTi-based shape memory alloys remains challenging due to the complex interplay between composition, electronic structure, and chemical disorder. A curated dataset of NiTi-like alloys spanning binary to multi-component compositions was analyzed using physically motivated compositional descriptors and manifold learning with target-informed coordinate selection. Analysis ofthe intrinsic geometry of the descriptor space revealed that the fifth nontrivial diffusioncoordinate (ψ5) exhibits the strongest correlation with martensitic start temperature(Ms). This coordinate was reconstructed as an interpretable emergent variable derived from compositional descriptors, revealing a consistent monotonic trend in transformation temperature across diverse alloy families. The emergent variable exhibits a significant statistical association with Ms across the compositional manifold and shows preliminary transferability across chemically distinct subsystems, providing a compact framework forunder standing and designing NiTi-based shape memory alloys.",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-10688245/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Neural network–augmented Pfaffian wave-functions for scalable simulations of interacting fermions",
+    "title_zh": "用于可扩展相互作用费米子模拟的神经网络增广 Pfaffian 波函数",
+    "summary": "该工作将神经网络引入 Pfaffian 波函数，以描述二维相互作用费米子并扩展量子多体模拟规模。Pfaffian 结构适合处理配对与费米反对称性，神经网络则补充复杂相关振幅。给定摘要未说明网络架构、优化算法、边界条件、粒子数或能量误差，也没有具体材料结果。它与团队的强关联磁性、超导和人工智能量子模拟有方法交叉，但与第一性原理材料设计的直接连接有限。",
+    "abstract": "Proceedings of the National Academy of Sciences, Volume 123, Issue 35, September 2026. SignificanceUnderstanding how electrons interact in two-dimensional materials is essential for explaining phenomena like high-temperature superconductivity, but existing numerical methods are often limited by systematic biases. Neural quantum states offer ...",
+    "category": "AI×物理",
+    "link": "https://www.pnas.org/doi/abs/10.1073/pnas.2535288123?af=R",
+    "journal": "PNAS"
+  },
+  {
     "title": "Automatic generation of exchange-correlation response kernels",
-    "title_zh": "文献研究：Automatic generation of exchange-correlation response kernels",
-    "summary": "arXiv:2608.26440v1 Announce Type: new Abstract: Computing density-functional response properties requires contracting derivatives of the exchange--correlation (xc) energy with perturbed densities on a…",
+    "title_zh": "交换-相关响应核的自动生成",
+    "summary": "工作自动生成交换-相关响应核的外围收缩代码，解决不同泛函、自旋情形和响应性质反复手工推导的问题。核心不是重新构造 Libxc 等泛函导数，而是自动实现导数与网格基组、密度数据之间的链式法则。摘要未给出支持的最高导数阶数、性能提升、验证体系或响应误差。对团队的机器学习 Kohn-Sham 哈密顿量、电子-声子耦合和光学响应计算而言，它提供了软件工程与可微计算层面的直接启发。",
     "abstract": "arXiv:2608.26440v1 Announce Type: new Abstract: Computing density-functional response properties requires contracting derivatives of the exchange--correlation (xc) energy with perturbed densities on a grid. While the xc functional's derivatives have long been available to high orders from libraries such as Libxc, the surrounding contraction layer - the chain rule that combines them with the grid-based basis-function and density data into the total xc contribution - has instead been hand-derived and hand-coded in every program, for every functional family, spin case, and property. We present libxckernel, a library that automatically generates this layer by symbolic differentiation. The xc functional's ingredients are expressed as sesquilinear forms in the density matrix, so the xc energy can be differentiated to any order while the functional derivatives remain opaque. The basis functions and the orbital coefficients may both be complex. The chain rule then produces any xc matrix element: Fock matrices, orbital Hessians, and response terms of any order. Terms sharing a pattern are collapsed for efficiency. Extensible plugins emit the expressions as NumPy Einstein sums, compiled C kernels with C++/Fortran interfaces, or host-program specific source code. libxckernel is free and open-source software under the BSD-3-Clause license, enabling rapid implementation of functionality missing from many electronic structure programs. We demonstrate it by extending Psi4 with meta-generalized gradient approximation (mGGA) response kernels for orbital stability analysis and time-dependent density-functional theory (TD-DFT), GGA and mGGA analytic nuclear Hessians, and exact quadrature grid response, and by extending GPAW with mGGA and triplet TD-DFT kernels and gradient-corrected kernels for periodic dielectric response.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2608.26440",
     "journal": "arXiv"
   },
   {
-    "title": "Time and Momentum Resolved Tunneling Spectroscopy of Floquet dynamics",
-    "title_zh": "Floquet 动力学的时间与动量分辨隧穿谱",
-    "summary": "周期驱动量子系统能够通过外场调控有效哈密顿量，从而工程化构造新型物态，但传统处理通常局限于高频极限，忽略驱动启动瞬间的瞬态过程。本文提出一种时间和动量分辨的隧穿谱方案，用于探测超越高频极限的 Floquet 驱动体系的瞬时能谱，同时捕捉涌现效应和非绝热现象，而无需显式重构完整的含时格林函数。该方法通过非相互作用费米子模型进行基准测试，并借助含时密度矩阵重整化群推广到强关联体系；作者还给出了共振驱动下隙内态出现的微观描述，并简要讨论了有限温度情形。",
-    "abstract": "arXiv:2608.26270v1 Announce Type: new Abstract: Periodically driven quantum systems provide a powerful route to engineer novel states of matter by controlling their effective Hamiltonians through external fields. However, most treatments are usually simplified by considering the high-frequency limit, and do not account for the processes taking place in the transient regime during the onset of the drive. In this work, we introduce a time and momentum resolved tunneling spectroscopy protocol to probe the instantaneous energy spectrum of Floquet-driven systems beyond the high-frequency regime, capturing both emergent effects and non-adiabatic phenomena without requiring explicit reconstruction of the full time-dependent Green's function. We benchmark the method on driven non-interacting fermionic models, and then generalize the approach to strongly correlated systems with the aid of time-dependent density matrix renormalization group techniques. We also provide a microscopic description to the emergence of in-gap states under resonant driving, and briefly explore its finite temperature analog.",
+    "title": "Dynamical signatures of deconfined spinons in dimerized sawtooth chains",
+    "title_zh": "二聚锯齿链中退禁闭自旋子的动力学特征",
+    "summary": "作者用保持 U(1) 对称性的 DMRG 和含时变分原理计算二聚锯齿链 Heisenberg 模型的基态与零温 Szz(q,ω)。体系围绕精确可解价键固体点展开，并考察二聚相中对称键不等价导致的价键序。动力学结构因子被用来识别退禁闭自旋子的谱学特征，但摘要未给出峰位置、速度或临界参数。该文与团队自旋哈密顿量、蒙特卡洛和量子磁性研究有模型层面的交叉。",
+    "abstract": "arXiv:2608.26347v1 Announce Type: new Abstract: We study the ground-state properties and dynamical response of the Heisenberg model on the sawtooth chain in and away from the exactly solvable valence-bond-solid (VBS) point. We employ U(1)-symmetric density-matrix renormalization group (DMRG) and time-dependent variational principle (TDVP) methods to compute equilibrium diagnostics and the zero-temperature dynamical structure factor (DSF) Szz(q,ømega) across the dimerized phase, a valence-bond-ordered state in which the two symmetry-equivalent apex--base bonds of each triangle develop unequal spin correlations, probing the approach to the continuous lower phase boundary, the exact VBS point, and the approach to the first-order upper boundary. In every regime, the DSF is a broad continuum dominated by a bright band at its lower edge, with the intensity at the one-triplon energy ømega simeq JAB suppressed. We identify the spectrum as a deconfined two-spinon continuum of kink and antikink domain walls between the two degenerate singlet coverings. Closed-form spinon dispersions fix the continuum edges and track the dominant band across the zone in all three regimes, while an explicit finite-separation two-kink calculation in a constrained Hilbert space reproduces the measured intensity distribution. Our results provide a microscopic picture of fractionalized excitations in the dimerized sawtooth chain and are relevant to the recently discovered Ti³⁺ kagome fluorides, where strongly anisotropic exchange interactions can generate sawtooth-chain building blocks.",
     "category": "其他",
-    "link": "https://arxiv.org/abs/2608.26270",
+    "link": "https://arxiv.org/abs/2608.26347",
     "journal": "arXiv"
   },
   {
     "title": "Exceptional point induced by hyperbolicity in an electrostatic spherical shell",
-    "title_zh": "静电球壳中由双曲性诱导的例外点",
-    "summary": "作者表明，各向异性核壳纳米颗粒的径向静电问题可以在没有增益、损耗或非互易性的条件下实现例外点。将问题写在对数径向坐标中后，它可映射为阻尼振子以及两格点 Hatano-Nelson 哈密顿量，非厄米性表现为空间而非时间中的有效效应，唯一控制参数是介电各向异性比值。超过双曲性阈值后，壳层内电场由单调衰减转为径向空间振荡，并在中间半径产生热点，可用于荧光、强耦合、传感和隐身调控。",
+    "title_zh": "双曲性诱导的静电球壳异常点",
+    "summary": "该工作在各向异性核-壳纳米颗粒的静电径向问题中发现由双曲性诱导的异常点，不依赖通常的增益损耗平衡或非互易机制。对数径向坐标把 Cauchy-Euler 方程映射为阻尼振子，并进一步对应两站点 Hatano-Nelson 哈密顿量。摘要未给出介电张量、壳层厚度、异常点位置或实验可观测量。与团队的光电材料和界面计算只有有限的非厄米与纳米结构方法交叉。",
     "abstract": "arXiv:2608.26905v1 Announce Type: new Abstract: Exceptional points (EPs) are non--Hermitian degeneracies at which both eigenvalues and eigenvectors coalesce, usually engineered through balanced gain and loss or non--reciprocity. In this work, we show that the radial electrostatic problem of an anisotropic core--shell nanoparticle realizes an EP without any of the alluded conditons. Written in the logarithmic radial coordinate, the problem is a Cauchy--Euler equation that maps onto a damped oscillator and, equivalently, onto a two-site Hatano--Nelson Hamiltonian, so that the non-Hermiticity is emulated in space rather than in time and the sole control parameter is the degree of dielectric anisotropy, ǎrepsilonₜ/ǎrepsilonᵣ. The shell is passive, reciprocal, and lossless, yet it hosts an EP and a non--Hermitian phase transition governed by hyperbolicity alone. Beyond a hyperbolicity threshold the electric field inside the shell turns from monotonic decay into spatial oscillation, producing hotspots at intermediate radii which can be exploited to tailor fluorescence, strong coupling, sensing, or cloaking. More broadly, this establishes hyperbolic media as a platform to simulate non--Hermitian physics without gain, loss, or non--reciprocity.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2608.26905",
     "journal": "arXiv"
   },
   {
+    "title": "Time and Momentum Resolved Tunneling Spectroscopy of Floquet dynamics",
+    "title_zh": "Floquet 动力学的时间与动量分辨隧穿谱",
+    "summary": "作者提出时间和动量分辨隧穿谱，以追踪 Floquet 驱动体系在非高频区和驱动开启瞬间的瞬时能谱。核心创新是把暂态能带信息纳入隧穿测量，而不是只用高频有效哈密顿量描述稳态。摘要未说明具体模型、驱动频率、振幅、脉冲包络、时间分辨率或与现有谱学的定量差异。它与团队的非平衡电子结构、光电材料和界面载流子动力学存在方法层面的交叉。",
+    "abstract": "arXiv:2608.26270v1 Announce Type: new Abstract: Periodically driven quantum systems provide a powerful route to engineer novel states of matter by controlling their effective Hamiltonians through external fields. However, most treatments are usually simplified by considering the high-frequency limit, and do not account for the processes taking place in the transient regime during the onset of the drive. In this work, we introduce a time and momentum resolved tunneling spectroscopy protocol to probe the instantaneous energy spectrum of Floquet-driven systems beyond the high-frequency regime, capturing both emergent effects and non-adiabatic phenomena without requiring explicit reconstruction of the full time-dependent Green's function. We benchmark the method on driven non-interacting fermionic models, and then generalize the approach to strongly correlated systems with the aid of time-dependent density matrix renormalization group techniques. We also provide a microscopic description to the emergence of in-gap states under resonant driving, and briefly explore its finite temperature analog.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2608.26270",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Hamiltonian benchmark of a solid-state spin-photon interface for computation",
+    "title_zh": "面向计算的固态自旋-光子界面哈密顿量基准",
+    "summary": "工作针对固态量子发射体与传播光脉冲的耦合，提出面向量子计算的哈密顿量基准。研究对象是自旋和能量自由度与光子自由度之间的可逆信息传输，而非传统材料性质预测。摘要没有列出发射体材料、哈密顿量项、耦合强度、退相干时间或计算保真度。与团队的 SiC 色心、缺陷电子结构和自旋相关研究存在潜在方向交叉，但目前缺少足以确认具体体系连接的信息。",
+    "abstract": "Author(s): Tejas Acharya, Loïc Lanco, Olivier Krebs, Hui Khoon Ng, Alexia Auffèves, and Maria Maffei Quantum interfaces are a cornerstone of photonic quantum computing protocols. They consist of quantum emitters coupled to propagating light pulses, enabling the reversible transfer of information between emitter degrees of freedom, such as energy or spin, and photonic degrees of freedom, including p… [Phys. Rev. B 114, 115306] Published Fri Aug 28, 2026",
+    "category": "量子信息·计算",
+    "link": "http://link.aps.org/doi/10.1103/x983-pznx",
+    "journal": "Phys. Rev. B"
+  },
+  {
     "title": "ElemCo.jl: A Julia package for electron-correlation methods",
-    "title_zh": "ElemCo.jl：用于电子相关方法的 Julia 软件包",
-    "summary": "ElemCo.jl 是一个开源 Julia 软件包，用于分子电子结构和性质计算，重点支持耦合簇方法和可区分簇方法。该软件提供基于宏的高级用户界面、用于准备输入文件和显示分子轨道的可视化工具 JLmol，并实现了从 FCI、MP2、CCSD(T) 到 EOM-CCSD、DCSD 和 DC-CCSDT 等多种方法。它还包含张量分解、双行列式、固定参考、CIPHI 选定组态相互作用等方法，并可通过 Fcidump 格式与外部量子化学代码接口。",
+    "title_zh": "ElemCo.jl：电子关联方法的 Julia 软件包",
+    "summary": "ElemCo.jl 是面向分子电子关联计算的开源 Julia 软件包，重点实现耦合簇和可区分簇方法。宏式高层接口降低了常规计算的使用门槛，JLmol 可准备输入并显示分子轨道。摘要确认支持限制闭壳层和非限制计算，但没有给出体系规模、标度、并行性能或与其他程序的误差基准。它对团队的直接价值主要是软件生态和高精度电子结构工具，而不是材料物理结论。",
     "abstract": "arXiv:2608.27177v1 Announce Type: cross Abstract: We present ElemCo.jl, an open-source Julia package for molecular electronic structure and properties calculations with a particular emphasis on Coupled Cluster and Distinguishable Cluster methods. The package provides a high-level, macro-based user interface which makes routine calculations accessible to users with no prior Julia experience. A newly developed visualizer, JLmol, assists in the graphical preparation of ElemCo.jl input files and displays results such as molecular orbitals. ElemCo.jl offers restricted closed-shell and unrestricted variants of state-of-the-art electron-correlation methods such as FCI, MP2, CCSD(T) as well as EOM-CCSD and the DC methods DCSD and DC-CCSDT. In addition to traditional approaches, ElemCo.jl provides recently developed methods that are currently unique to the package. These include tensor-decomposed implementations of DCSD and DC-CCSDT (SVD-DCSD and SVD-DC-CCSDT) as well as two-determinant and fixed-reference CC and DC methods. For excited-state calculations, ElemCo.jl also offers EOM-DCSD, which is benchmarked in this work against CC3 on the QUEST3 benchmark set, alongside EOM-CCSD. Furthermore, both ground and excited states, including those of multireference character, can be treated using CIPHI - an efficient selected Configuration Interaction (CI) approach employing a CIPSI/Heat-Bath-CI-based algorithm. Users can directly invoke internal functions from the input file, enabling them to test and compose new methods without the need to modify ElemCo.jl's source code. Also, ElemCo.jl can be readily interfaced with external quantum chemistry codes through the Fcidump format, for example as the high-level solver for transcorrelated Hamiltonians, periodic embedded fragments, etc. We provide a detailed overview of ElemCo.jl's methodological repertoire and discuss its technical details and implementation, performance, interfaces, and usage.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2608.27177",
     "journal": "arXiv"
   },
   {
+    "title": "Exponential U(1) Symmetry-Breaking Phase as a Disorder-Free Quantum Glass",
+    "title_zh": "指数 U(1) 对称破缺相：一种无无序量子玻璃",
+    "summary": "作者用精确对角化和 DMRG 研究电荷单位按 2^-j 衰减的一维指数 U(1) 自旋模型。自旋 S≥2 时出现称为量子崩溃凝聚的指数 U(1) 自发对称破缺相，体能隙不遵循通常 Goldstone 预期，开边界只在左端出现边缘模。摘要未给出能隙、序参量或有限尺寸标度的具体数值。与团队的有效哈密顿量和量子磁性研究有理论方法交叉，但没有直接材料关联。",
+    "abstract": "arXiv:2512.21847v2 Announce Type: replace Abstract: We study the phase diagram of a one-dimensional spin quantum breakdown model, which has an exponential U(1) symmetry with charge unit decaying as 2⁻j with site position j. By exact diagonalization and density matrix renormalization group, we show that the model with spin Sge2 exhibits an exponential U(1) spontaneous symmetry-breaking (SSB) phase dubbed a quantum breakdown condensate. It exhibits a bulk gap violating the Goldstone theorem, and an edge mode only on the left edge if in open boundary condition. In a length L lattice, the condensate has O(2^L) number of SSB ground states originating from the O(2^L) number of exponential U(1) charge sectors, leading to a finite entropy density łn 2. This enforces a first-order SSB phase transition into this phase, as observed numerically and verified in the large S limit on an exactly solvable Rokhsar-Kivelson line. The condensate has an SSB order parameter being the local in-plane spin, which points in angles related by the chaotic Bernoulli (dyadic) map and thus is effectively random. Moreover, we show the condensate exhibits nondecaying local autocorrelations, and does not have an off-diagonal long-range order. The quantum breakdown condensate thus behaves as a disorder-free quantum glass and is beyond the existing classifications of phases of matter.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2512.21847",
+    "journal": "arXiv"
+  },
+  {
     "title": "Statistics as a local phase: crystalline order and quench dynamics of emergent dimers in Ising gauge theories",
-    "title_zh": "统计性作为局域相位：伊辛规范理论中涌现二聚体的晶体序与淬火动力学",
-    "summary": "本文研究微观粒子的玻色或费米统计性在禁闭作用下如何保留于涌现的玻色复合体中。对于强耦合极限下的二维空间、一个时间维度的 Z₂ 晶格规范理论，作者发现，底层物质的统计性完全编码在单一局域跃迁相位中：玻色子为 0，费米子为 π。该相位可连续调节，并驱动二聚体超流态与二聚体电荷密度波态之间的转变；磁耦合还会诱导共振面元对结晶，形成一种新的有能隙相。淬火方案则可通过实时动力学区分构成二聚体的粒子统计性。",
+    "title_zh": "统计性作为局域相：Ising 规范理论中的晶序与淬火二聚体动力学",
+    "summary": "工作在强耦合 2+1 维 Z2 晶格规范理论中把禁闭电荷映射为有效二聚体，发现微观玻色或费米统计可由单个局域跃迁相位编码。玻色子对应 φ=0，费米子对应 φ=π，而相互作用形式保持统计无关。研究还讨论连续 φ 下的晶体有序与淬火动力学，但摘要未给出相边界或时间尺度。对团队的有效哈密顿量和量子磁性方向有理论方法启发，与具体材料没有直接交叉。",
     "abstract": "arXiv:2608.26264v1 Announce Type: new Abstract: How does the Bose or Fermi statistics of microscopic particles survive when confinement binds them into emergent bosonic composites? We address this question in the strong-coupling limit of a 2+1D Z₂ lattice gauge theory, where charges are confined into tightly bound pairs that can be described by an effective dimer model. We find that the statistics of the underlying matter is encoded entirely in a single local hopping phase ǎrphi -0 for bosons, π for fermions- while interactions remain statistics-independent. Treating ǎrphi as a continuous parameter that interpolates between the two, we map the ground-state phase diagram with the help of tensor-network methods. The angle ǎrphi itself drives a transition between a dimer-superfluid and dimer charge density wave state, while the magnetic coupling binds neighboring dimers into resonating pairs, in competition with the inter-dimer repulsion. We identify a novel gapped phase in which dimer pairs crystallize into an ordered pattern of resonating plaquettes. Finally, we propose a quench protocol under which identical dimer configurations evolve in markedly different ways depending on the statistics of their constituents. This provides a dynamical probe of the internal structure of dimers, and detects ordered phases through real time signatures, within reach of simulators that natively realize bosonic degrees of freedom.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26264",
@@ -101,82 +137,46 @@
   {
     "title": "Quantum Error Mitigation Simulates General Non-Hermitian Dynamics",
     "title_zh": "量子误差缓解模拟一般非厄米动力学",
-    "summary": "尽管非厄米哈密顿量能够产生奇异的动力学现象，但在近期量子设备上实现其非幺正时间演化仍然困难。本文提出一种适合硬件实现的协议，无需辅助量子比特、受控时间演化或连续监测即可模拟非厄米动力学。该协议通过经典高斯白噪声平均实现GKSL演化，并结合随机量子误差缓解在期望值层面抵消跳跃项，且缓解层仅使用单量子比特操作。数值模拟表明，该方法可用于研究超出完全正且保迹动力学范围的奇异动力学。",
+    "summary": "作者将 GKSL 开放系统演化与经典高斯白噪声平均结合，再用随机量子误差缓解在期望值层面抵消跳跃贡献，模拟一般非厄米动力学。协议不需要辅助比特、受控演化或连续监测，面向近期期量子硬件。摘要未给出噪声模型、采样开销、误差缩放或具体非厄米模型的数值结果。与团队研究的异常点和非平衡量子动力学只有方法层面的交叉，与材料模拟没有直接联系。",
     "abstract": "arXiv:2602.21879v2 Announce Type: replace-cross Abstract: While non-Hermitian Hamiltonians enable exotic dynamical phenomena, implementing their nonunitary time evolution on near-term quantum devices remains challenging. We propose a hardware-friendly protocol that simulates non-Hermitian dynamics without ancillas, controlled time evolution, or continuous monitoring. The protocol combines a Gorini-Kossakowski-Sudarshan-Lindblad (GKSL) evolution via classical Gaussian white-noise averaging with stochastic quantum error mitigation (QEM) to cancel the jump contribution at the level of expectation values. The mitigation layer uses only single-qubit operations. We validate the method through numerical simulations of an asymmetric-hopping model and an open it XXZ spin chain with non-Hermitian boundary fields. Our work provides a programmable and ancilla-free framework for investigating exotic dynamics beyond the class of completely positive and trace-preserving dynamics using QEM.",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2602.21879",
     "journal": "arXiv"
   },
   {
-    "title": "Exponential U(1) Symmetry-Breaking Phase as a Disorder-Free Quantum Glass",
-    "title_zh": "文献研究：Exponential U(1) Symmetry-Breaking Phase as a Disorder-Free Quantum Glass",
-    "summary": "arXiv:2512.21847v2 Announce Type: replace Abstract: We study the phase diagram of a one-dimensional spin quantum breakdown model, which has an exponential U(1) symmetry with charge unit decaying as 2⁻…",
-    "abstract": "arXiv:2512.21847v2 Announce Type: replace Abstract: We study the phase diagram of a one-dimensional spin quantum breakdown model, which has an exponential U(1) symmetry with charge unit decaying as 2⁻j with site position j. By exact diagonalization and density matrix renormalization group, we show that the model with spin Sge2 exhibits an exponential U(1) spontaneous symmetry-breaking (SSB) phase dubbed a quantum breakdown condensate. It exhibits a bulk gap violating the Goldstone theorem, and an edge mode only on the left edge if in open boundary condition. In a length L lattice, the condensate has O(2^L) number of SSB ground states originating from the O(2^L) number of exponential U(1) charge sectors, leading to a finite entropy density łn 2. This enforces a first-order SSB phase transition into this phase, as observed numerically and verified in the large S limit on an exactly solvable Rokhsar-Kivelson line. The condensate has an SSB order parameter being the local in-plane spin, which points in angles related by the chaotic Bernoulli (dyadic) map and thus is effectively random. Moreover, we show the condensate exhibits nondecaying local autocorrelations, and does not have an off-diagonal long-range order. The quantum breakdown condensate thus behaves as a disorder-free quantum glass and is beyond the existing classifications of phases of matter.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2512.21847",
-    "journal": "arXiv"
-  },
-  {
     "title": "Statistical Models of Ionospheric Variability and Irregularities in the Topside Ionosphere Based on the Swarm Satellite Data",
-    "title_zh": "基于 Swarm 卫星数据的电离层变化性与不规则结构统计模型",
-    "summary": "电离层是包含多种空间尺度电子密度结构的复杂等离子体系统，其状态受到磁层、太阳风和中性大气耦合以及相关驱动过程的显著影响。本文利用 Swarm 卫星观测和日地物理过程代理变量，采用广义线性模型建立了不同纬度区域电子密度及等离子体结构变化性的统计模型，覆盖约 7.5 至 100 km 的水平空间尺度。电子密度模型在部分拟合优度指标上接近理论最佳水平，而变化性模型在较大空间尺度上表现较好、在较小尺度上性能下降，表明仍有不稳定性过程或来自下方波动活动的驱动因素尚未纳入。",
+    "title_zh": "基于 Swarm 卫星数据的电离层顶侧统计模型",
+    "summary": "研究使用 Swarm 卫星观测建立顶侧电离层电子密度变化和不规则结构的统计模型。问题具有跨空间尺度、强时变和多源驱动特征，模型需处理磁层、太阳风与中性大气耦合。摘要没有说明采用何种统计或机器学习架构，也未提供预测误差、分辨率和验证结果。它与团队的凝聚态材料、第一性原理和 AI 材料模拟没有真实直接交叉，仅在复杂时空数据建模层面存在很弱的方法类比。",
     "abstract": "arXiv:2608.26796v1 Announce Type: new Abstract: The ionosphere is a highly complex plasma containing electron density structures with a wide range of spatial scales. Coupling of the ionosphere with the Earth's magnetosphere and the solar wind, as well as to the neutral atmosphere, makes the ionosphere highly dynamic and highly dependent on the driving processes. Thus, modelling the ionosphere and capturing its full dynamic range considering all spatiotemporal scales is challenging. Swarm is the European Space Agency's (ESA) first constellation mission for Earth Observation, comprising multiple satellites in low Earth orbit. During the Swarm-VIP-Dynamic project, a suite of statistical models has been developed using observations from Swarm and proxies for heliogeophysical processes. The statistical modelling technique of Generalised Linear Modelling was used to create models for both the electron density and the variability of the plasma structures at horizontal spatial scales between 7.5 km and 100 km. Separate models were created for low, middle, auroral and polar latitudes. The models make predictions based on explanatory variables, which act as proxies for the underlying physical processes. The performance of the models of the electron density approached the theoretical best values for some of the goodness-of-fit statistics. This suggests that the modelling method is appropriate for the task undertaken. The models of ionospheric variability at larger spatial scales (about 100 km) also perform well, however the model performance decreases at smaller spatial scales. This suggests that there are physical processes missing from the models. Possible candidates are instability processes or driving forces of the ionosphere by wave activity from below, neither of which are captured by the models.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.26796",
     "journal": "arXiv"
   },
   {
+    "title": "Observing the Spatial and Temporal Evolution of Exciton Wave Functions in Organic Semiconductors",
+    "title_zh": "有机半导体中激子波函数的时空演化观测",
+    "summary": "研究以飞秒时间分辨光电子轨道断层扫描重构有机半导体激子波函数的实空间分布和内部量子相位。光电子剖面提供轨道层面的空间信息，飞秒时间分辨则揭示激发态随时间的演化。摘要没有列出材料名称、时间分辨率、空间分辨率、激子半径或相位演化数值。它与团队的 GW-BSE、激发态载流子动力学、非绝热分子动力学和光电材料研究具有直接的实验-理论交叉。",
+    "abstract": "Author(s): Marcel Theilen, Siegfried Kaidisch, Monja Stettner, Sarah Zajusch, Eric Fackelman, Alexa Adamkiewicz, Robert Wallauer, Andreas Windischbacher, Christian S. Kern, Michael G. Ramsey, François C. Bocquet, Serguei Soubatch, F. Stefan Tautz, Ulrich Höfer, and Peter Puschnig Femtosecond time-resolved photoemission orbital tomography tracks photoelectron profiles to reconstruct the real-space distribution and internal quantum phase of excitons in an organic semiconductor. [Phys. Rev. X 16, 031054] Published Fri Aug 28, 2026",
+    "category": "其他",
+    "link": "http://link.aps.org/doi/10.1103/3zmg-276c",
+    "journal": "Phys. Rev. X"
+  },
+  {
+    "title": "Shortcuts to Analog Preparation of Nonequilibrium Quantum Lakes",
+    "title_zh": "非平衡量子湖的模拟制备捷径",
+    "summary": "作者研究通过快速非绝热哈密顿量扫掠，在有限体系中制备具有局域量子有序的非平衡区域，即量子湖。该策略针对模拟量子实验的相干时间限制，试图用短时动力学替代慢绝热制备。摘要没有给出具体模型、扫掠速度、湖区尺度、保真度或实验平台。与团队的自旋模型、铁电极化动力学和非平衡过程只有可迁移的控制策略交叉，不能关联到特定材料。",
+    "abstract": "Author(s): Nik O. Gjonbalaj, Rahul Sahay, and Susanne F. Yelin The dynamical preparation of exotic many-body quantum states is a persistent goal of analog quantum simulation, often limited by experimental coherence times. Recently, it was shown that fast, nonadiabatic Hamiltonian parameter sweeps can create finite-size “lakes” of quantum order in certain settin… [Phys. Rev. Lett. 137, 090802] Published Fri Aug 28, 2026",
+    "category": "其他",
+    "link": "http://link.aps.org/doi/10.1103/7bc2-6cgy",
+    "journal": "Phys. Rev. Lett."
+  },
+  {
     "title": "Temperature dependence of the charge density from first principles: application to the (222) forbidden reflection in silicon",
-    "title_zh": "文献研究：Temperature dependence of the charge density from first principles: application to the (222) forbidden reflection in silicon",
-    "summary": "arXiv:2608.27361v1 Announce Type: new Abstract: Forbidden reflections (FRs) in X-ray diffraction have inherently weak intensity and have long been studied, in particular in semiconductors like silicon…",
+    "title_zh": "第一性原理研究电荷密度的温度依赖：硅的(222)禁戒反射",
+    "summary": "工作用第一性原理计算硅的温度依赖电荷密度，重点解释(222)禁戒 X 射线反射的弱强度和温度变化。核心问题是原子 Debye-Waller 因子不能简单代表原子间价电子电荷的热重排，而禁戒反射正对这些微弱变化敏感。摘要未给出温度范围、反射强度、声子处理方式或与实验的误差。它与团队的半导体电子结构、晶格动力学、缺陷和可测量响应计算有直接交叉。",
     "abstract": "arXiv:2608.27361v1 Announce Type: new Abstract: Forbidden reflections (FRs) in X-ray diffraction have inherently weak intensity and have long been studied, in particular in semiconductors like silicon. They serve as sensitive probes of symmetry breaking, local strain, impurities, and weak charge redistribution. Despite extensive experimental work, the theory of their temperature dependence has typically relied on simplified models. While atomic Debye-Waller factors work well on allowed reflections, their applicability to the valence charge between atoms, which determines the intensity of FRs such as Si (222), is questionable, and previous agreement between theory and experiment relied on ad-hoc Debye-Waller corrections. We compute the temperature-dependent valence charge density h̊o(r,T) of silicon from first principles, using two methods: (i) perturbation theory, and (ii) averaging over thermally distorted supercells in a non-perturbative approach. The perturbative expression for the charge density is far more demanding than that for electronic energies, since it depends on the wavefunctions themselves and requires an explicit sum over unoccupied bands. We use an acoustic sum rule to express the second derivatives of the potential in terms of first derivatives, making the expression tractable within existing frameworks. The (222) FR then follows directly from the Fourier transform of h̊o(r,T), with no ad-hoc factors. Both methods give similar results, in reasonable agreement with experiment, with thermal expansion noticeably affecting the temperature dependence. The charge density answers a question the measured intensities could not settle: how the valence charge actually redistributes with temperature. Relative to the rigid model, we find more charge in the bonds and less in the core regions, a redistribution that shows up in the intensity as a somewhat weaker temperature dependence of the (222) FR.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2608.27361",
     "journal": "arXiv"
-  },
-  {
-    "title": "p wave Magnetism and Gate-Tunable Edelstein Response in van der Waals Heterostructures",
-    "title_zh": "范德瓦耳斯异质结构中的 p 波磁性与栅极可调艾德尔斯坦响应",
-    "summary": "本文提出由条纹反铁磁体构成的范德瓦耳斯异质结构，作为实现电控 p 波磁性的理想平台。在条纹反铁磁体/金属/条纹反铁磁体结构中，堆叠对称性会抵消主导的 RKKY 型交换作用，使高阶双二次相互作用成为主导，并驱动由填充控制的共线相到正交 p 波构型转变。所得 p 波相具有可由栅极调节的艾德尔斯坦响应，其来源是磁对称性破缺而非传统相对论性自旋-动量锁定，并且在较强自旋轨道耦合下仍保持稳健。",
-    "abstract": "arXiv:2602.11251v3 Announce Type: replace Abstract: Odd-parity magnetism has attracted significant interest for its unconventional spin splitting. However, a concrete microscopic route for its realization remains elusive. In this work, we propose van der Waals heterostructures of stripe antiferromagnets (sAFMs) as an ideal platform for electrically controllable p-wave magnetism. In the sAFM/metal/sAFM structure, the leading RKKY-type exchange interaction is canceled due to the symmetry of the stacking pattern. This exposes a higher-order biquadratic interaction as a dominant contribution that drives a filling-controlled transition from a collinear phase to an orthogonal p-wave configuration. The resulting p-wave phase exhibits a gate-tunable Edelstein response, which originates from magnetic symmetry breaking rather than conventional relativistic spin-momentum locking and remains robust even under substantial spin-orbit coupling. Finally, we propose material candidates for the realization of our theory. Our results establish van der Waals heterostructures as a practical platform for non-relativistic spintronics with electric control of odd-parity spin textures.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2602.11251",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Coupled anisotropic weak topological states and Floquet mixed-parity altermagnetism in two-dimensional Su-Schrieffer-Heeger models",
-    "title_zh": "文献研究：Coupled anisotropic weak topological states and Floquet mixed-parity altermagnetism in two-dimensional Su-Schrieffer-Heeger models",
-    "summary": "arXiv:2608.27329v1 Announce Type: new Abstract: Su-Schrieffer-Heeger (SSH) topological systems and altermagnetic (AM) states are two important research areas in condensed matter physics. Realizing the…",
-    "abstract": "arXiv:2608.27329v1 Announce Type: new Abstract: Su-Schrieffer-Heeger (SSH) topological systems and altermagnetic (AM) states are two important research areas in condensed matter physics. Realizing the coupled states between the SSH lattices and AM phanse in a single syetem remains challenging. However, the Floquet engineering change it. Our work constructs five two-dimensional-(2D-) SSH models to describe the coupled phases of SSH weak topological state and AM order by tight-binding (TB) method. The evolution of band structures, spin-splitting, and topological phase transitions under the circularly polarized light (CPL) and relative atomic displacement (RAD) in 2D SSH lattices were systematically investigated. The results reveal that the inequality of hopping parameters (t1 and t2) serves as the fundamental origin of SSH topological states and AM order. For the 2D nonmagnetic state, anisotropic weak topological states with Zak phase governed edge states are realized by unit cell selection, similar to the conventional 1D SSH model. The collinear antiferromagnetic state preserves the spin-degenerate band structure and intrinsic weak topological properties. Furthermore, the Floquet engineering introduces the AM phase of odd-parity p-wave while the RAD introduces the AM phase of even-parity d-wave. By combining the two effects, the mixed-parity (non-odd/non-even parity) AM phase could be realized, achieving the simultaneous control of the light field of spin-splitting and topological edge states. The physical mechanisms of Floquet engineering and RAD for the 2D rectangular SSH lattice are also from the inequality of t1 and t2, which can be not only fully understand by the TB methods, but also in good agreement with the first-principle calculations of 2D carbon-based materials. This work establishes an effective theoretical platform for coupling anisotropic SSH weak topological states and AM orders with multi-parities in 2D systems.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.27329",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Multi-orbital physics in inverse Lieb lattice altermagnets",
-    "title_zh": "文献研究：Multi-orbital physics in inverse Lieb lattice altermagnets",
-    "summary": "arXiv:2608.27200v1 Announce Type: new Abstract: The inverse Lieb lattice has recently emerged as a promising platform for altermagnetism, with several materials with this structure proposed as d-wave…",
-    "abstract": "arXiv:2608.27200v1 Announce Type: new Abstract: The inverse Lieb lattice has recently emerged as a promising platform for altermagnetism, with several materials with this structure proposed as d-wave altermagnetic candidates. Here, we develop a symmetry-based microscopic Hamiltonian for these materials that includes both sublattice and orbital degrees of freedom, going beyond the sublattice-only minimal models that have been extensively used to study such altermagnets. We apply these models to examine multi-orbital electron correlation physics in the vanadium oxychalcogenide family altermagnets, which contain dominant xy and xz/yz orbitals character at the Fermi level in the altermagnetic state. We demonstrate that xy orbitals are crucial to stabilize the altermagnetic state observed within a single V₂O layer, and altermagnetic order in the xz/yz orbitals is induced through Hund's coupling. Additionally, we show that these multi-orbital models reveal topological regimes in which topological edge states are naturally orbital selective.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.27200",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Non-volatile Multistate Magnetic Switching via Spin-orbit Torque and Intrinsic Anisotropy",
-    "title_zh": "通过自旋轨道力矩与本征各向异性实现非易失多态磁切换",
-    "summary": "本文在 SrIrO₃/SrRuO₃ 双层膜中实现了一种新的多态自旋轨道力矩器件，其中存在四种本征稳定且可电区分的磁态，包括两种面内倾斜态和两种面外倾斜态。脉冲电流激发完整映射了四种状态之间的 12 种确定性转变，原位扫描氮空位中心磁力计直接观测到此前未发现的面内倾斜态。自旋动力学模拟表明，切换通过自旋力矩与四重各向异性能景观中的有效各向异性场协同驱动的两步路径完成。",
-    "abstract": "arXiv:2603.11656v2 Announce Type: replace Abstract: While current-induced bistate spin-orbit torque (SOT) switching has been well established, deterministic electrical control of multiple magnetic states remains a central challenge in spintronics. Here, we realize a conceptually new multistate SOT device in a SrIrO₃/SrRuO₃ bilayer, hosting four intrinsically stable yet electrically distinguishable magnetic states, including two in-plane canted (IP_c^±) and two out-of-plane canted (OP_c^±) states. Pulsed current excitations fully map all twelve deterministic transitions among the four states, establishing a robust switching protocol defined by two characteristic current densities. In-situ scanning nitrogen-vacancy (NV) center magnetometry provides direct real-space evidence for the previously unobserved IP_c^± states, and spin dynamics simulations uncover a two-step switching pathway, driven by the concerted action of spin torques and the effective anisotropy field within the fourfold anisotropy landscape. Our demonstration of the intrinsic multistate SOT device directly addresses the density bottleneck of conventional bistate SOT technology, establishing a powerful paradigm for compact, high-speed, and energy-efficient multistate spintronics.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2603.11656",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Anatomy of long-range Dzyaloshinskii-Moriya interaction",
-    "title_zh": "文献研究：Anatomy of long-range Dzyaloshinskii-Moriya interaction",
-    "summary": "Author(s): E. Demiroglu, B. E. Kivircik, C. O. Avci, and C. Deger We investigate spacer-mediated long-range Dzyaloshinskii-Moriya interaction (LR-DMI) in Co/Cu(n)/HM multilayers (HM=Pt, Pd, Ir, W, Mo)…",
-    "abstract": "Author(s): E. Demiroglu, B. E. Kivircik, C. O. Avci, and C. Deger We investigate spacer-mediated long-range Dzyaloshinskii-Moriya interaction (LR-DMI) in Co/Cu(n)/HM multilayers (HM=Pt, Pd, Ir, W, Mo) using first-principles calculations and micromagnetic simulations. LR-DMI shows a pron… [Phys. Rev. Materials 10, 084409] Published Fri Aug 28, 2026",
-    "category": "磁性·自旋电子学",
-    "link": "http://link.aps.org/doi/10.1103/wlgm-9tsb",
-    "journal": "Phys. Rev. Materials"
   }
 ]
