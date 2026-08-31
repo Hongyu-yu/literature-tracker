@@ -357,15 +357,20 @@ class OpenRouterProvider(AIProvider):
                         raise Exception("OpenRouter API返回空 content")
                     return content
 
+                # JSON 模式被上游拒绝 → 立刻去掉 response_format 重试（只降级一次）。
+                # 不能只认 400：网关会把这类"请求形状不对"的确定性错误报成 502
+                # (例:"input messages must contain the word 'json' ... 'json_object'")，
+                # 落进下面的可重试分支后会白白重试 9 次、耗掉半小时再放弃。
                 if (
-                    response.status_code == 400
+                    response.status_code in (400, 415, 422, 500, 502, 503)
                     and json_mode_enabled
                     and any(
                         token in response.text.lower()
-                        for token in ("response_format", "json_object", "structured output", "not support")
+                        for token in ("response_format", "json_object", "structured output",
+                                      "not support", "text.format", "word 'json'")
                     )
                 ):
-                    print("⚠️ OpenRouter JSON mode unsupported by current model, retrying without response_format")
+                    print(f"⚠️ 上游拒绝 JSON 模式({response.status_code})，去掉 response_format 重试")
                     json_mode_enabled = False
                     attempt -= 1
                     continue
@@ -665,7 +670,10 @@ class AISummarizer:
             "7. highlights：仅挑选 ≤3 篇**真正**最突出的工作（创新点、方法论或关键结论）。"
             "reason ≤25 字，必须落到具体材料/现象/方法，不得写 '重要进展/意义重大' 之流。\n\n"
             f"{example_block}\n"
-            "【输出格式】只输出以下 JSON，不要任何额外文字、不要 markdown 代码块标记：\n"
+            # 必须出现小写 "json" 字样：启用 json_object 模式时，上游要求输入消息里
+            # 含有 "json" 这个词，且该检查是大小写敏感的（只有大写 JSON 会被判为不含）。
+            "【输出格式】只输出以下 json 格式内容（严格 JSON，不要任何额外文字、"
+            "不要 markdown 代码块标记）：\n"
             "{\n"
             '  "overview": "今日文献总览（中文，2-3句，含具体方向与代表性工作）",\n'
             '  "trends": "研究热点分析（中文，3-5句）",\n'
