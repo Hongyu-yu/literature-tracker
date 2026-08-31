@@ -21,15 +21,18 @@ import generate_daily_pages
 DAY = "2026-08-21"
 
 
-def _summary(quality_ok):
-    return {
+def _summary(quality_ok, **over):
+    data = {
         "date": DAY, "overview": "总览", "trends": "热点", "quality_ok": quality_ok,
+        "rerender_ok": quality_ok,
         "full_list": [{
             "title": "Neural network potential", "title_zh": "神经网络势",
             "abstract": "An English abstract.", "one_sentence_summary": "该工作构建神经网络势。",
             "link": "https://arxiv.org/abs/1234.5678", "journal": "arXiv", "focus_score": 9,
         }],
     }
+    data.update(over)
+    return data
 
 
 def _run_rerender(tmp, summary=None, page_body="旧页面正文"):
@@ -83,12 +86,43 @@ def test_good_quality_day_sends_email_and_rerenders_page():
         shutil.rmtree(tmp, ignore_errors=True)
 
 
+def test_ai_fallback_day_still_emails_but_never_overwrites_the_good_page():
+    """AI 兜底那天：页面保持原样，但 summary 照样落盘、邮件照发。
+
+    rerender_ok=False 而 quality_ok=True 是关键组合 —— 兜底摘要的三段文本由
+    ensure_relation_fields 规则补齐，可能反而"过"质量门；若 rerender 只看
+    quality_ok，就会拿降级内容把好页面覆盖掉。
+    """
+    tmp = tempfile.mkdtemp()
+    try:
+        summary = _summary(quality_ok=True, rerender_ok=False, generated_by="fallback")
+        sent, page = _run_rerender(tmp, summary)
+        assert sent, "AI 兜底那天也必须收到日报邮件"
+        assert page == "旧页面正文", "不得用兜底内容覆盖已有的好页面"
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_sidecar_without_rerender_flag_falls_back_to_quality_ok():
+    """老 sidecar 没有 rerender_ok 字段时，回退到 quality_ok 的语义。"""
+    tmp = tempfile.mkdtemp()
+    try:
+        summary = _summary(quality_ok=False)
+        summary.pop("rerender_ok")
+        sent, page = _run_rerender(tmp, summary)
+        assert sent
+        assert page == "旧页面正文"
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
 def test_sidecar_without_quality_flag_is_treated_as_good():
     """兼容 2026-07-31 之前落盘的旧 sidecar（没有 quality_ok 字段）。"""
     tmp = tempfile.mkdtemp()
     try:
         summary = _summary(quality_ok=True)
         summary.pop("quality_ok")
+        summary.pop("rerender_ok")
         sent, page = _run_rerender(tmp, summary)
         assert sent
         assert "神经网络势" in page

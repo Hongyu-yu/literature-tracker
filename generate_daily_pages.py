@@ -1167,11 +1167,12 @@ def main():
             if not summ:
                 print(f"⏭️  rerender skip {ds}: 无 daily_summary sidecar")
                 continue
-            # 邮件先于质量门取值：质量不达标也照常发信，只是不覆盖已有页面
+            # 邮件先于降级判定取值：内容降级也照常发信，只是不覆盖已有页面
             if ds == date_str:
                 email_summary = summ
-            if not summ.get("quality_ok", True):
-                print(f"⏭️  rerender skip {ds}: 缓存 summary 未过质量门，保留既有页面")
+            # rerender_ok 缺省回退到 quality_ok，再回退到 True(2026-07-31 前的旧 sidecar)
+            if not summ.get("rerender_ok", summ.get("quality_ok", True)):
+                print(f"⏭️  rerender skip {ds}: 缓存 summary 为降级内容，保留既有页面")
                 continue
             html = render_daily_html(ds, summ)
             with open(os.path.join("docs/daily", f"{ds}.html"), "w", encoding="utf-8") as f:
@@ -1270,6 +1271,8 @@ def main():
             new_entries.append(entry)
         else:
             try:
+                # AI 兜底时是否保留既有页面（不覆盖），但 summary 仍要落盘供邮件使用
+                preserved_page = False
                 if not daily_articles:
                     # still generate empty page so index shows date
                     summary = {
@@ -1291,11 +1294,13 @@ def main():
                         raise ValueError("AI_API_KEY is empty; cannot generate daily summary")
                     summary = summarizer.generate_daily_summary(daily_articles, day_str)
                     if summary.get("generated_by") == "fallback" and os.path.exists(out_path):
-                        # AI failed: don't overwrite a previously good page with the
-                        # degraded fallback (no abstracts/core/focus). Keep the old page.
-                        print(f"⚠️ AI fallback for {day_str}, preserving existing page")
-                        new_entries.append(preserve_existing_entry(prev, day_str))
-                        continue
+                        # AI 失败：不用降级内容覆盖已有的好页面，但**不再直接 continue** ——
+                        # fallback_summary 本身带着翻译(title_zh/abstract_zh)、关键词与画像
+                        # 筛选(focus_*)、核心判定(is_core_focus/core_score)和规则版三段文本，
+                        # 足以撑起一份当天的日报。此前 continue 把它连同 sidecar 一起丢掉，
+                        # 导致"AI 挂掉的那天收不到任何日报邮件"。改为：保留页面，但照常落盘。
+                        preserved_page = True
+                        print(f"⚠️ AI fallback for {day_str}：保留既有页面，但仍落盘 summary 供邮件使用")
                     summary["excluded_count"] = len(dropped_articles)
                     summary["raw_total"] = len(raw_day_articles)
                     summary["focused_total"] = len(focused_articles)
@@ -1333,12 +1338,16 @@ def main():
                         except Exception as e:
                             print(f"⚠️ core deep-fields skipped: {e}")
                             deep_fields, direction_note = {}, ""
+                        # 只在真拿到深读结果时才覆盖：此前是无条件赋值，深读失败(或某条
+                        # link 没返回)时会把 ensure_relation_fields 已填好的规则版三段文本
+                        # 抹成空串 —— 而且抹的恰恰是核心文献。core_items 与 full_list 是同
+                        # 一批 dict 对象，full_list 也会被一起抹掉。
                         for it in core_items:
-                            link = it.get("link") or ""
-                            info = deep_fields.get(link, {})
-                            it["method_point"] = info.get("method_point", "")
-                            it["related_work"] = info.get("related_work", "")
-                            it["implication"] = info.get("implication", "")
+                            info = deep_fields.get(it.get("link") or "", {}) or {}
+                            for key in ("method_point", "related_work", "implication"):
+                                value = str(info.get(key) or "").strip()
+                                if value:
+                                    it[key] = value
                         summary["core_items"] = core_items
                         summary["core_direction_note"] = direction_note
                     else:
@@ -1353,19 +1362,29 @@ def main():
                 # 邮件就整天发不出去。
                 try:
                     quality = daily_quality_report(summary)
+                    # quality_ok: 纯质量门结果，仅供诊断
+                    # rerender_ok: --rerender-only 是否可以拿这份缓存重画页面。降级内容
+                    #              (质量不达标 / AI 兜底且已有好页面)一律不许覆盖页面，
+                    #              但两者都不影响发邮件 —— 邮件只要有 summary 就发。
                     summary["quality_ok"] = daily_quality_ok(summary)
-                    print(f"📋 daily quality {day_str}: {quality} (ok={summary['quality_ok']})")
+                    summary["rerender_ok"] = summary["quality_ok"] and not preserved_page
+                    print(f"📋 daily quality {day_str}: {quality} "
+                          f"(ok={summary['quality_ok']}, rerender_ok={summary['rerender_ok']})")
                     with open(os.path.join("data", f"daily_summary_{day_str}.json"), "w", encoding="utf-8") as sf:
                         json.dump(summary, sf, ensure_ascii=False)
                 except Exception as e:
                     print(f"⚠️ daily summary sidecar skip {day_str}: {e}")
 
-                page_html = render_daily_html(day_str, summary)
-                with open(out_path, "w", encoding="utf-8") as f:
-                    f.write(page_html)
-                print(f"✅ Daily page generated: {out_path} (daily {len(daily_articles)} / focus {len(focused_articles)} / raw {len(raw_day_articles)})")
-                generated_by = summary.get("generated_by") or ("fallback" if summarizer is None else "kimi")
-                new_entries.append({"date": day_str, "file": f"{day_str}.html", "total": total, "digest": digest, "generated_by": generated_by})
+                if preserved_page:
+                    # 页面保持原样，索引沿用旧条目；summary 已落盘，邮件照发
+                    new_entries.append(preserve_existing_entry(prev, day_str))
+                else:
+                    page_html = render_daily_html(day_str, summary)
+                    with open(out_path, "w", encoding="utf-8") as f:
+                        f.write(page_html)
+                    print(f"✅ Daily page generated: {out_path} (daily {len(daily_articles)} / focus {len(focused_articles)} / raw {len(raw_day_articles)})")
+                    generated_by = summary.get("generated_by") or ("fallback" if summarizer is None else "kimi")
+                    new_entries.append({"date": day_str, "file": f"{day_str}.html", "total": total, "digest": digest, "generated_by": generated_by})
             except Exception as exc:
                 has_existing_page = os.path.exists(out_path)
                 if has_existing_page:
