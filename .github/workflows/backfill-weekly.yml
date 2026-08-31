@@ -41,23 +41,32 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Loop weekly_summary.py from ${{ inputs.from_week }} to ${{ inputs.to_week }}
+      - name: Configure gateway hosts (fallback for gateway DNS resolution failure; mapping in secret)
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+
+      - name: Loop weekly_summary.py over the requested week range
         env:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_PROVIDER: ${{ secrets.AI_PROVIDER }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
           KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           AI_RESPONSE_JSON: "1"
           AI_WAIT_MAX_SECONDS: "600"
           AI_WAIT_BASE_SECONDS: "10"
           AI_WAIT_MAX_SLEEP_SECONDS: "60"
+          # dispatch 输入必须经 env 传入：此前把 ${{ inputs.* }} 直接插进下面的 Python 源码，
+          # 等于让 dispatch 者执行任意代码（可读到本 job 的全部 secrets）。
+          FROM_WEEK: ${{ inputs.from_week }}
+          TO_WEEK: ${{ inputs.to_week }}
         run: |
           python - <<'PY'
           import os, subprocess, sys
           from datetime import datetime, timedelta
-          start = datetime.strptime(os.environ.get("FROM_WEEK", "${{ inputs.from_week }}"), "%Y-%m-%d")
-          end = datetime.strptime(os.environ.get("TO_WEEK", "${{ inputs.to_week }}"), "%Y-%m-%d")
+          start = datetime.strptime(os.environ["FROM_WEEK"], "%Y-%m-%d")
+          end = datetime.strptime(os.environ["TO_WEEK"], "%Y-%m-%d")
           cur = start
           while cur <= end:
               wk = cur.strftime("%Y-%m-%d")
@@ -69,6 +78,9 @@ jobs:
         shell: bash
 
       - name: Commit and push
+        env:
+          FROM_WEEK: ${{ inputs.from_week }}
+          TO_WEEK: ${{ inputs.to_week }}
         run: |
           git config user.name 'GitHub Action'
           git config user.email 'action@github.com'
@@ -77,11 +89,11 @@ jobs:
             echo 'nothing to commit'
             exit 0
           fi
-          git commit -m "🔬 Backfill weekly summaries ${{ inputs.from_week }}..${{ inputs.to_week }}"
+          git commit -m "🔬 Backfill weekly summaries ${FROM_WEEK}..${TO_WEEK}"
           # Race-safe push: rebase onto latest main and retry a few times.
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase origin/main || { echo "rebase failed on attempt $i"; git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { echo "rebase failed on attempt $i"; git rebase --abort; exit 1; }
             if git push origin main; then
               echo "push succeeded on attempt $i"
               exit 0

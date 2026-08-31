@@ -16,6 +16,9 @@ concurrency:
 jobs:
   deploy:
     # 避免与 fetch.yml 的 deploy job 重复（fetch.yml 由 github-actions[bot] 提交并自行部署）
+    # ⚠️ 不要"补全"这份排除列表：generate-deep.yml 没有自己的 deploy job，它的
+    # "📖 Deep read + posters + feed" 提交正是靠这里没被排除才得以发布。把它（或
+    # backfill/update-focus-profile 的提交信息）加进来会静默中断对应内容的发布。
     if: github.actor != 'github-actions[bot]' && !startsWith(github.event.head_commit.message, '📚 自动更新文献') && !startsWith(github.event.head_commit.message, '🔬 自动生成周报')
     environment:
       name: github-pages

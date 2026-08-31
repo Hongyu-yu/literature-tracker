@@ -11,10 +11,12 @@ from focus_core import classify_taxonomy, priority_tier
 
 def _svg(title: str, rows: List[Tuple[str, int]], total: int) -> str:
     height = 76 if not rows else 42 + len(rows) * 28
+    # .vl/.vn/.vb/.vt 的样式在 docs/daily-common.css（限定在 .daily-viz-svg 下）。
+    # 不要内联 <style>：内联 SVG 的 <style> 在 HTML 里不是 scoped 的，会泄漏到整页，
+    # 且每页重复 3 份（见 test_daily_pages_render.py 的“恒定 CSS 不应再内联”守卫）。
     chunks = [
         f'<svg class="daily-viz-svg" viewBox="0 0 360 {height}" style="max-width:100%;height:auto" '
         f'role="img" aria-label="{escape(title, quote=True)}"><title>{escape(title)}</title>',
-        '<style>.vl{font:13px system-ui;fill:currentColor}.vn{font:700 13px system-ui;fill:currentColor}.vb{fill:#6366f1;opacity:.78}.vt{font:700 15px system-ui;fill:currentColor}</style>',
         f'<text class="vt" x="8" y="20">{escape(title)}</text>',
     ]
     if not rows:

@@ -114,34 +114,79 @@ USER_KEYWORDS = {
 # 关键词列表（保持向后兼容，使用于宏宇的关键词）
 KEYWORDS = USER_KEYWORDS.get("于宏宇", [])
 
+import importlib.util
 import os
+import re
+
+
+def _load_local_config() -> dict:
+    """按路径加载同目录下的 config.local.py（可选，已 gitignore）。
+
+    不能写成 `from config.local import ...`：config 是模块不是包，那样写必抛
+    ModuleNotFoundError（ImportError 的子类）而被静默吞掉，config.local.py 从未真正生效过。
+    文件名含点也不可能用普通 import 语法，只能按路径加载。
+    """
+    path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "config.local.py")
+    if not os.path.exists(path):
+        return {}
+    try:
+        spec = importlib.util.spec_from_file_location("config_local", path)
+        if spec is None or spec.loader is None:
+            return {}
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        return {k: v for k, v in vars(module).items() if not k.startswith("__")}
+    except Exception as exc:  # 本地配置坏了不该拖垮整个流程
+        print(f"⚠️ config.local.py 加载失败，改用环境变量: {exc}")
+        return {}
+
+
+_LOCAL_CONFIG = _load_local_config()
+
+
+def _parse_recipients(raw, default: list) -> list:
+    """把 "a@x.com, b@y.com; c@z.com" 解析成去重保序的地址列表。"""
+    if isinstance(raw, (list, tuple, set)):
+        parts = [str(x) for x in raw]
+    else:
+        parts = re.split(r"[,;\s]+", str(raw or ""))
+    seen, out = set(), []
+    for part in parts:
+        addr = part.strip().strip("<>").strip()
+        if not addr or "@" not in addr or addr in seen:
+            continue
+        seen.add(addr)
+        out.append(addr)
+    return out or list(default)
+
 
 # 邮件配置
 # 优先从本地配置文件读取
-_local_email_config = {}
-try:
-    from config.local import EMAIL_CONFIG as LOCAL_EMAIL_CONFIG
-    _local_email_config = LOCAL_EMAIL_CONFIG
-except ImportError:
-    pass
+_local_email_config = _LOCAL_CONFIG.get("EMAIL_CONFIG", {}) or {}
+
+# 默认收件人；用 EMAIL_RECIPIENTS 环境变量/Secret 覆盖（逗号分隔，可配多个）
+DEFAULT_EMAIL_RECIPIENTS = ["594836947@qq.com"]
 
 EMAIL_CONFIG = {
-    "recipient": "594836947@qq.com",
-    "smtp_server": "smtp.qq.com",
-    "smtp_port": 465,
+    # 多收件人：EMAIL_RECIPIENTS > config.local.py > 代码默认值
+    "recipients": _parse_recipients(
+        os.environ.get("EMAIL_RECIPIENTS")
+        or _local_email_config.get("recipients")
+        or _local_email_config.get("recipient"),
+        DEFAULT_EMAIL_RECIPIENTS,
+    ),
+    "smtp_server": _local_email_config.get("smtp_server") or "smtp.qq.com",
+    "smtp_port": int(_local_email_config.get("smtp_port") or 465),
     "sender_email": _local_email_config.get("sender_email") or os.environ.get("EMAIL_SENDER", ""),  # 优先从config.local.py读取
     "sender_password": _local_email_config.get("sender_password") or os.environ.get("EMAIL_PASSWORD", ""),  # 优先从config.local.py读取
-    "mode": "digest",  # 邮件模式: "full" 完整版（含摘要）, "digest" 摘要版（仅标题列表）
+    "mode": _local_email_config.get("mode") or "digest",  # 邮件模式: "full" 完整版（含摘要）, "digest" 摘要版（仅标题列表）
 }
+# 向后兼容：旧代码（main.py）仍读单数 recipient，取列表首项
+EMAIL_CONFIG["recipient"] = EMAIL_CONFIG["recipients"][0] if EMAIL_CONFIG["recipients"] else ""
 
 # 微信推送配置（Server酱）
 # 优先从本地配置文件读取
-_local_wechat_config = {}
-try:
-    from config.local import WECHAT_CONFIG as LOCAL_WECHAT_CONFIG
-    _local_wechat_config = LOCAL_WECHAT_CONFIG
-except ImportError:
-    pass
+_local_wechat_config = _LOCAL_CONFIG.get("WECHAT_CONFIG", {}) or {}
 
 WECHAT_CONFIG = {
     "enabled": _local_wechat_config.get("enabled", False),  # 是否启用微信推送
@@ -150,12 +195,7 @@ WECHAT_CONFIG = {
 
 # AI摘要配置
 # 优先从本地配置文件读取，然后从环境变量读取
-_local_ai_config = {}
-try:
-    from config.local import AI_CONFIG as LOCAL_AI_CONFIG
-    _local_ai_config = LOCAL_AI_CONFIG
-except ImportError:
-    pass
+_local_ai_config = _LOCAL_CONFIG.get("AI_CONFIG", {}) or {}
 
 AI_CONFIG = {
     "enabled": True,

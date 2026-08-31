@@ -70,6 +70,12 @@
     .daily-viz h2 { font-size: 1.05rem; margin: 0 0 12px; }
     .daily-viz-grid { display: grid; grid-template-columns: repeat(3,minmax(280px,1fr)); gap: 12px; overflow-x: auto; }
     .daily-viz-svg { min-width: 280px; padding: 10px; border: 1px solid var(--border-color); border-radius: 16px; background: rgba(255,255,255,.55); }
+    /* daily_viz.py 生成的内联 SVG 图表用样式（原先内联在每个 <svg> 的 <style> 里，
+       但内联 SVG 的 <style> 在 HTML 中不是 scoped 的，会泄漏到整页，故外提并限定作用域） */
+    .daily-viz-svg .vl { font: 13px system-ui; fill: currentColor; }
+    .daily-viz-svg .vn { font: 700 13px system-ui; fill: currentColor; }
+    .daily-viz-svg .vb { fill: #6366f1; opacity: .78; }
+    .daily-viz-svg .vt { font: 700 15px system-ui; fill: currentColor; }
     .daily-priority-group + .daily-priority-group { margin-top: 28px; }
     .daily-priority-group > h3 { margin: 0 0 4px; }
     .daily-priority-group > p { margin: 0 0 12px; color: var(--text-secondary); }

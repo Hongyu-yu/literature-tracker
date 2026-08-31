@@ -122,6 +122,11 @@ def send_daily_email(summary: Dict[str, Any], day_str: str, *, sent_path: str = 
     if not str(config.get("sender_email") or "").strip() or not str(config.get("sender_password") or "").strip():
         print("⏭️ 每日邮件跳过：未配置 EMAIL_SENDER/EMAIL_PASSWORD")
         return False
+    recipients = config.get("recipients") or ([config["recipient"]] if config.get("recipient") else [])
+    recipients = [str(x).strip() for x in recipients if str(x or "").strip()]
+    if not recipients:
+        print("⏭️ 每日邮件跳过：未配置收件人(EMAIL_RECIPIENTS)")
+        return False
     try:
         with open(sent_path, encoding="utf-8") as f:
             sent = json.load(f)
@@ -129,8 +134,18 @@ def send_daily_email(summary: Dict[str, Any], day_str: str, *, sent_path: str = 
             sent = {}
     except Exception:
         sent = {}
-    if day_str in sent:
-        print(f"⏭️ 每日邮件已发送过: {day_str}")
+    # 防重标记按收件人粒度记录：{day: {recipient: iso}}。
+    # 兼容旧的扁平格式 {day: iso}——那时只有单个收件人，视为该收件人已发。
+    day_marker = sent.get(day_str)
+    if isinstance(day_marker, dict):
+        already = set(day_marker)
+    elif day_marker:
+        already = set(recipients[:1])
+    else:
+        already = set()
+    pending = [addr for addr in recipients if addr not in already]
+    if not pending:
+        print(f"⏭️ 每日邮件已发送过: {day_str} ({len(already)} 个收件人)")
         return True
     summary = _with_enrichment(summary, day_str)
     subject, html = build_daily_email_html(summary, day_str, site_base or os.environ.get("SITE_BASE_URL") or DEFAULT_SITE_BASE)
@@ -141,11 +156,22 @@ def send_daily_email(summary: Dict[str, Any], day_str: str, *, sent_path: str = 
         sender_password=config.get("sender_password") or "",
         mode=config.get("mode") or "digest",
     )
-    if not notifier.send_html(config.get("recipient") or "", subject, html):
+    delivered = notifier.send_html_multi(pending, subject, html)
+    if not delivered:
         return False
+    failed = [addr for addr in pending if addr not in delivered]
+    if failed:
+        # 未标记的地址下次运行会被重新纳入 pending，实现按收件人补发
+        print(f"⚠️ {len(failed)} 个收件人未送达，下次运行将补发: {', '.join(failed)}")
     try:
         os.makedirs(os.path.dirname(sent_path) or ".", exist_ok=True)
-        sent[day_str] = datetime.now(timezone.utc).isoformat()
+        now_iso = datetime.now(timezone.utc).isoformat()
+        marker = dict(day_marker) if isinstance(day_marker, dict) else {}
+        if day_marker and not isinstance(day_marker, dict):
+            marker[recipients[0]] = day_marker  # 迁移旧的扁平格式
+        for addr in delivered:
+            marker[addr] = now_iso
+        sent[day_str] = marker
         with open(sent_path, "w", encoding="utf-8") as f:
             json.dump(sent, f, ensure_ascii=False, indent=2)
     except Exception as exc:

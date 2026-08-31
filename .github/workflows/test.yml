@@ -1,10 +1,12 @@
-name: 测试抓取(3个RSS)
+name: 测试抓取(5个RSS)
 
 on:
   workflow_dispatch:  # 手动触发
 
+# 只读：此前这里是 contents: write 且会把 test_run.py 写出的测试数据 commit/push 到 main
+# （test_run.py 直接写真实的 data/ 与 articles/），任何人 dispatch 一次就污染线上数据集。
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   test:
@@ -24,21 +26,6 @@ jobs:
       - name: 安装依赖
         run: pip install -r requirements.txt
       
+      # 纯手动冒烟：只验证 RSS 抓取/翻译链路是否通，产物留在 runner 里不入库。
       - name: 运行测试脚本
         run: python test_run.py
-      
-      - name: 提交更改
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git add -A
-          if git diff --staged --quiet; then echo "nothing to commit"; exit 0; fi
-          git commit -m "🧪 测试更新 $(date +'%Y-%m-%d %H:%M')"
-          # race-safe push: rebase onto moved origin/main and retry (parallel workflows push to main)
-          for i in 1 2 3 4 5; do
-            git fetch origin main
-            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
-            if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
-            sleep 5
-          done
-          echo "push failed after 5 attempts"; exit 1

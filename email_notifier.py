@@ -178,31 +178,57 @@ class EmailNotifier:
             print(f"   错误详情: {e}")
             return False
 
-    def send_html(self, recipient: str, subject: str, html_content: str) -> bool:
-        """Send caller-built rich HTML.  All SMTP errors are fail-soft."""
+    def _build_html_message(self, recipient: str, subject: str, html_content: str) -> MIMEMultipart:
+        msg = MIMEMultipart("alternative")
+        msg["Subject"] = subject
+        msg["From"] = self.sender_email
+        msg["To"] = recipient
+        msg.attach(MIMEText("请使用支持 HTML 的邮件客户端查看每日文献日报。", "plain", "utf-8"))
+        msg.attach(MIMEText(html_content, "html", "utf-8"))
+        return msg
+
+    def send_html_multi(self, recipients, subject: str, html_content: str) -> list:
+        """给多个收件人各发一封 caller-built 富 HTML，返回发送成功的地址列表。
+
+        一次 SMTP 连接、登录一次，然后逐个地址单独 sendmail：
+        - 每封的 To 只含收件人自己，彼此看不到对方地址；
+        - 单个地址失败只跳过该地址，不影响其余人（调用方可据返回值补发）。
+        所有 SMTP 错误 fail-soft，绝不打断日报流程。
+        """
         is_valid, error_msg = self.validate_config()
         if not is_valid:
             print(f"⚠️ 邮件跳过: {error_msg}")
-            return False
-        if not recipient or "@" not in recipient:
+            return []
+        targets, seen = [], set()
+        for raw in (recipients or []):
+            addr = str(raw or "").strip()
+            if not addr or "@" not in addr or addr in seen:
+                continue
+            seen.add(addr)
+            targets.append(addr)
+        if not targets:
             print("⚠️ 邮件跳过: 收件人无效")
-            return False
+            return []
+        sent = []
         try:
-            msg = MIMEMultipart("alternative")
-            msg["Subject"] = subject
-            msg["From"] = self.sender_email
-            msg["To"] = recipient
-            msg.attach(MIMEText("请使用支持 HTML 的邮件客户端查看每日文献日报。", "plain", "utf-8"))
-            msg.attach(MIMEText(html_content, "html", "utf-8"))
             context = ssl.create_default_context()
             with smtplib.SMTP_SSL(self.smtp_server, self.smtp_port, context=context, timeout=30) as server:
                 server.login(self.sender_email, self.sender_password)
-                server.sendmail(self.sender_email, recipient, msg.as_string())
-            print(f"✅ 邮件发送成功 → {recipient}")
-            return True
+                for addr in targets:
+                    try:
+                        msg = self._build_html_message(addr, subject, html_content)
+                        server.sendmail(self.sender_email, addr, msg.as_string())
+                        sent.append(addr)
+                        print(f"✅ 邮件发送成功 → {addr}")
+                    except Exception as exc:
+                        print(f"⚠️ 单个收件人发送失败({addr})，继续其余收件人: {type(exc).__name__}: {exc}")
         except Exception as exc:
             print(f"⚠️ 每日邮件发送失败，日报流程继续: {type(exc).__name__}: {exc}")
-            return False
+        return sent
+
+    def send_html(self, recipient: str, subject: str, html_content: str) -> bool:
+        """Send caller-built rich HTML to a single recipient.  All SMTP errors are fail-soft."""
+        return bool(self.send_html_multi([recipient], subject, html_content))
     
     def _generate_html(self, articles: list) -> str:
         """生成HTML格式邮件内容"""

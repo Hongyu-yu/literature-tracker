@@ -41,11 +41,16 @@ jobs:
       - name: Install deps
         run: pip install -r requirements.txt
 
+      - name: Configure gateway hosts (fallback for gateway DNS resolution failure; mapping in secret)
+        run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+
       - name: Generate daily pages
         env:
           AI_API_KEY: ${{ secrets.AI_API_KEY }}
           AI_PROVIDER: ${{ secrets.AI_PROVIDER }}
           AI_MODEL: ${{ secrets.AI_MODEL }}
+          AI_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
           KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           AI_RESPONSE_JSON: "1"
@@ -54,11 +59,14 @@ jobs:
           AI_DAILY_WAIT_BASE_SECONDS: "20"
           AI_DAILY_WAIT_MAX_SLEEP_SECONDS: "300"
           AI_DAILY_NO_FALLBACK: "1"
+          FORCE_MODE: ${{ inputs.force }}
+          DAYS: ${{ inputs.days }}
+        # dispatch 输入经 env 传入，避免把用户输入拼进 shell 命令
         run: |
-          if [ "${{ inputs.force }}" = "true" ]; then
-            python generate_daily_pages.py --days "${{ inputs.days }}" --force
+          if [ "$FORCE_MODE" = "true" ]; then
+            python generate_daily_pages.py --days "$DAYS" --force
           else
-            python generate_daily_pages.py --days "${{ inputs.days }}"
+            python generate_daily_pages.py --days "$DAYS"
           fi
 
       - name: Commit and push
@@ -71,11 +79,13 @@ jobs:
             exit 0
           fi
           git commit -m "📰 Backfill daily pages"
-          # Race-safe push: rebase using "ours" (backfill output IS the wanted content),
+          # Race-safe push: rebase with -X theirs (backfill output IS the wanted content),
           # retry up to 5 times if push rejected by concurrent push.
+          # NB: rebase 会把两边对调 —— "ours" 指被 replay 到的 origin/main，"theirs" 才是本次
+          # 生成的内容。用 -X ours 会在冲突时静默丢弃本次跑出来的结果（见 test_actions.py 守卫）。
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase -X ours origin/main || { echo "rebase still conflicted on attempt $i"; git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { echo "rebase still conflicted on attempt $i"; git rebase --abort; exit 1; }
             if git push origin main; then
               echo "push succeeded on attempt $i"
               exit 0

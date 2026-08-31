@@ -78,6 +78,59 @@ def test_pushes_to_main_have_retry_loop():
     assert not bad, f"push 步骤缺 rebase+重试循环: {bad}"
 
 
+def test_rebase_never_resolves_conflicts_against_the_job_output():
+    """rebase 的 -X ours 会把冲突判给 origin/main，丢弃本次跑出来的日报数据。
+
+    rebase 期间两边是对调的：ours = 被 replay 到的上游，theirs = 本次生成的提交。
+    这些 workflow 花几十分钟到几小时产出内容，冲突时必须让自己的产物胜出（-X theirs）。
+    test_pushes_to_main_have_retry_loop 只断言循环存在，抓不到方向写反。
+    """
+    bad = []
+    for path in WORKFLOWS:
+        wf = _load(path)
+        for job_name, job in _jobs(wf):
+            for step in _steps(job):
+                for line in (step.get("run") or "").splitlines():
+                    if "git rebase" in line and "-X ours" in line:
+                        bad.append(f"{os.path.basename(path)}:{job_name}")
+    assert not bad, f"git rebase 不得用 -X ours(会丢弃本次生成的内容)，应为 -X theirs: {bad}"
+
+
+def test_ai_workflows_configure_gateway_hosts_fallback():
+    """凡是调 AI 网关的 workflow 都要有 /etc/hosts 兜底（见 ccc88ff8a）。
+
+    backfill-daily / backfill-weekly 曾漏掉这步，是最容易在 dispatch 时挂掉的两个。
+    """
+    bad = []
+    for path in WORKFLOWS:
+        wf = _load(path)
+        for job_name, job in _jobs(wf):
+            steps = _steps(job)
+            uses_ai = any("AI_API_KEY" in (step.get("env") or {}) for step in steps)
+            if not uses_ai:
+                continue
+            if not any("/etc/hosts" in (step.get("run") or "") for step in steps):
+                bad.append(f"{os.path.basename(path)}:{job_name}")
+    assert not bad, f"调用 AI 的 job 缺网关 hosts 兜底步骤: {bad}"
+
+
+def test_dispatch_inputs_are_not_interpolated_into_scripts():
+    """workflow_dispatch 输入必须经 env 传入，不能直接插进 run: 脚本体。
+
+    ${{ inputs.* }} 会在 shell/Python 看到之前就被表达式引擎替换，等于让有写权限的
+    dispatch 者执行任意代码，可读到该 job 的全部 secrets。
+    """
+    bad = []
+    pattern = re.compile(r"\$\{\{\s*(?:github\.event\.)?inputs\.")
+    for path in WORKFLOWS:
+        wf = _load(path)
+        for job_name, job in _jobs(wf):
+            for step in _steps(job):
+                if pattern.search(step.get("run") or ""):
+                    bad.append(f"{os.path.basename(path)}:{job_name}:{step.get('name') or '?'}")
+    assert not bad, f"dispatch 输入不得直接插进 run: 脚本，应经 env 传入: {bad}"
+
+
 def test_pages_upload_jobs_prepare_docs_data():
     bad = []
     for path in WORKFLOWS:

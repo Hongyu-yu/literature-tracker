@@ -52,7 +52,10 @@ jobs:
           IMAGE_API_BASE: ${{ secrets.AI_BASE_URL }}
           IMAGE_TIMEOUT_SECONDS: "600"
           IMAGE_MAX_RETRIES: "2"
-        run: python backfill_posters.py --glob "${{ inputs.glob }}" --max "${{ inputs.max }}"
+          POSTER_GLOB: ${{ inputs.glob }}
+          POSTER_MAX: ${{ inputs.max }}
+        # dispatch 输入经 env 传入，避免把用户输入拼进 shell 命令
+        run: python backfill_posters.py --glob "$POSTER_GLOB" --max "$POSTER_MAX"
 
       - name: Commit and push (race-safe)
         run: |
@@ -63,7 +66,7 @@ jobs:
           git commit -m "🖼️ Backfill missing posters"
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
             if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
             sleep 5
           done

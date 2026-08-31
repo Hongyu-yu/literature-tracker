@@ -511,6 +511,9 @@ def daily_quality_ok(summary: Dict) -> bool:
     total = report["total"]
     if total <= 0:
         return bool(summary.get("overview"))
+    # 与 daily_quality_report 取同一份 items（此前漏了这行，total>0 时必抛 NameError，
+    # 被调用处的宽 except 吞掉 → sidecar 自 2026-07-31 起从未落盘）
+    items = summary.get("full_list") or summary.get("summaries") or []
     detailed_ok = all(
         all(len(str(x.get(k) or "").strip()) >= 180 for k in ("method_point", "related_work", "implication"))
         for x in items
@@ -1164,12 +1167,16 @@ def main():
             if not summ:
                 print(f"⏭️  rerender skip {ds}: 无 daily_summary sidecar")
                 continue
+            # 邮件先于质量门取值：质量不达标也照常发信，只是不覆盖已有页面
+            if ds == date_str:
+                email_summary = summ
+            if not summ.get("quality_ok", True):
+                print(f"⏭️  rerender skip {ds}: 缓存 summary 未过质量门，保留既有页面")
+                continue
             html = render_daily_html(ds, summ)
             with open(os.path.join("docs/daily", f"{ds}.html"), "w", encoding="utf-8") as f:
                 f.write(html)
             rerendered_files.append(f"{ds}.html")
-            if ds == date_str:
-                email_summary = summ
             n += 1
             print(f"♻️  re-rendered {ds} with fresh enrichment")
         # Re-apply the enhancer post-processing (day-nav / single-page outline / title links):
@@ -1341,11 +1348,13 @@ def main():
                 # Persist the full summary (overview/trends/full_list/core_items) so
                 # --rerender-only can re-render HTML with FRESH enrichment (arxiv_core/aps)
                 # WITHOUT calling AI again. Never break generation on sidecar failure.
+                # sidecar 无条件落盘，质量判定作为字段随行：质量门只用于挡住"降级内容覆盖
+                # 已有好页面"(见 --rerender-only)，不再连带阻断每日邮件 —— 否则质量门一失败
+                # 邮件就整天发不出去。
                 try:
                     quality = daily_quality_report(summary)
-                    print(f"📋 daily quality {day_str}: {quality}")
-                    if not daily_quality_ok(summary):
-                        raise ValueError(f"daily quality gate failed: {quality}")
+                    summary["quality_ok"] = daily_quality_ok(summary)
+                    print(f"📋 daily quality {day_str}: {quality} (ok={summary['quality_ok']})")
                     with open(os.path.join("data", f"daily_summary_{day_str}.json"), "w", encoding="utf-8") as sf:
                         json.dump(summary, sf, ensure_ascii=False)
                 except Exception as e:

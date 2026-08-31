@@ -95,7 +95,7 @@ jobs:
           # race-safe push: rebase onto moved origin/main and retry (parallel workflows push to main)
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
             if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
             sleep 5
           done

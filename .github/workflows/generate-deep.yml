@@ -1,10 +1,15 @@
 name: Generate Deep Read + Posters + Feed
+# 发布路径注意：本 workflow 没有自己的 deploy job，它推的 "📖 Deep read + posters + feed"
+# 提交要靠 deploy-on-push.yml 触发 Pages 部署 —— 靠的是这里用 PAT_TOKEN 推送（github.actor
+# 因此是人而非 bot），且该提交信息不在 deploy-on-push.yml 的排除列表里。改成 GITHUB_TOKEN
+# 推送、或把这条提交信息加进那份排除列表，都会静默中断深读内容的发布。
 on:
   workflow_dispatch:
     inputs:
       window:
         description: "回看天数"
-        default: "1"
+        # 与下面 DEEP_WINDOW_DAYS 的兜底值保持一致（此前声明 1、实际定时跑用 4，自相矛盾）
+        default: "4"
   schedule:
     - cron: "30 3 * * *"
 permissions:
@@ -98,6 +103,8 @@ jobs:
         env:
           EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}
           EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+          # 逗号分隔的多个收件人；未配置则回落到 config.py 的 DEFAULT_EMAIL_RECIPIENTS
+          EMAIL_RECIPIENTS: ${{ secrets.EMAIL_RECIPIENTS }}
           SITE_BASE_URL: https://hongyu-yu.github.io/literature-tracker
           EMAIL_ENABLED: ${{ vars.EMAIL_ENABLED || '1' }}
           EMAIL_POSTER_MAX: "5"
@@ -111,7 +118,7 @@ jobs:
           git commit -m "📖 Deep read + posters + feed"
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
             if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
             sleep 5
           done

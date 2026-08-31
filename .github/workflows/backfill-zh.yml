@@ -71,8 +71,11 @@ jobs:
           AI_ZH_BATCH_SIZE: ${{ inputs.batch_size }}
           AI_ZH_MAX_PASSES: ${{ inputs.max_passes }}
           BACKFILL_FULL_MAX: ${{ inputs.full_max }}
+          FULL_MODE: ${{ inputs.full }}
+        # dispatch 输入一律经 env 传入、脚本里引用 $VAR：直接写 ${{ inputs.* }} 会在 shell
+        # 看到之前就被表达式引擎替换，等于把用户输入拼进脚本（可读到本 job 的全部 secrets）。
         run: |
-          if [ "${{ inputs.full }}" = "true" ]; then
+          if [ "$FULL_MODE" = "true" ]; then
             python backfill_zh.py --full
           else
             python backfill_zh.py
@@ -90,13 +93,16 @@ jobs:
           # race-safe push: rebase onto moved origin/main and retry (parallel workflows push to main)
           for i in 1 2 3 4 5; do
             git fetch origin main
-            git rebase -X ours origin/main || { git rebase --abort; exit 1; }
+            git rebase -X theirs origin/main || { git rebase --abort; exit 1; }
             if git push origin main; then echo "pushed on attempt $i"; exit 0; fi
             sleep 5
           done
           echo "push failed after 5 attempts"; exit 1
 
       - name: Verify completion (fail if still missing)
+        # 必须 always(): backfill_zh.py 未填完时 exit 2 → 上游步骤失败 → 默认的 if: success()
+        # 会恰好在这一步本该报警的那条路径上把它跳过，happy path 上又必然通过（恒真式）。
+        if: always()
         env:
           FULL_MODE: ${{ inputs.full }}
         run: |

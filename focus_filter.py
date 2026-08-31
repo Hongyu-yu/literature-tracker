@@ -443,8 +443,8 @@ def focus_priority(item: Mapping[str, Any]) -> tuple:
     direct_bonus = 0 if signals['direct_science'] else 1
     cscore = core_score(item)  # 0.0 iff not core — derive flag from score, avoids 2× full-text scan
     return (
-        -focus_score,                 # 层内先按五位学者画像相关度排序
-        0 if cscore > 0.0 else 1,  # 核心关注永远置顶
+        0 if cscore > 0.0 else 1,   # 核心关注永远置顶（必须是首位键，否则该保证失效）
+        -focus_score,               # 层内再按五位学者画像相关度排序
         -cscore,                    # 核心分数高者靠前
         0 if signals['ai_science'] else 1,
         direct_bonus,
