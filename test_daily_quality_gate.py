@@ -44,8 +44,16 @@ def test_quality_gate_rejects_missing_field():
     assert daily_quality_ok(_summary(items=[_item(summary="")])) is False
 
 
-def test_quality_gate_rejects_relation_text_shorter_than_180_chars():
-    assert daily_quality_ok(_summary(items=[_item(method_point="太短")])) is False
+def test_quality_gate_rejects_empty_relation_field():
+    """三段文本要求「非空」，不再要求「≥180 字」。
+
+    旧的 180 字下限只在 research_context 会把短文本整段替换成长模板时才成立；
+    那个替换会删掉真实但简短的 AI 分析，已经修掉，长度门随之失去依据 ——
+    留着它反而会在 AI 正常作答时恒为 False，让 rerender_ok 永远关着。
+    """
+    assert daily_quality_ok(_summary(items=[_item(method_point="")])) is False
+    # 简短但真实的分析必须被判为合格，不能因为「不够长」被否掉
+    assert daily_quality_ok(_summary(items=[_item(method_point="用 MACE 训练势函数。")])) is True
 
 
 def test_quality_gate_rejects_missing_overview_or_trends():

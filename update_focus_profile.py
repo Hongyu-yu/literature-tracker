@@ -36,6 +36,9 @@ MIN_YEAR = 2021
 PROFILE_PATH = "data/focus_interests.json"
 TITLE_SIM_THRESHOLD = 0.85
 PROFILE_BATCH_SIZE = 25  # 每次送 LLM 蒸馏的论文数
+# 合并/汇总调用失败时直接拼接已有结果的截断上限
+# （research_context.profile_direction_digest 对整段画像限 5200 字，别让一位学者撑爆）
+MERGE_FALLBACK_MAX_CHARS = 800
 
 BEIJING_TZ = timezone(timedelta(hours=8))
 _PROFILE_PROMPT_PATH = os.path.join(os.path.dirname(__file__), "ai_prompts", "focus_profile.txt")
@@ -432,11 +435,18 @@ def distill_scholar_directions(
     if len(partials) == 1:
         return {"directions_zh": partials[0]["directions_zh"], "keywords": keywords}
 
-    merged_text = "\n".join(f"- {p['directions_zh']}" for p in partials if p["directions_zh"])
+    ok_parts = [p["directions_zh"] for p in partials if p["directions_zh"]]
+    merged_text = "\n".join(f"- {t}" for t in ok_parts)
     if not merged_text:
         return {"directions_zh": "", "keywords": keywords}
     merged = _call_profile_llm(name, f"分批归纳结果：\n{merged_text}", provider)
-    return {"directions_zh": merged["directions_zh"], "keywords": keywords or merged["keywords"]}
+    directions_zh = merged["directions_zh"]
+    if not directions_zh:
+        # 合并那一次调用失败/返回空：降级为分批结果拼接，
+        # 绝不因最后一次调用失败就丢掉前面 N 批已经蒸馏成功的内容
+        print(f"⚠️ 合并蒸馏为空({name})：降级拼接 {len(ok_parts)} 批分批结果")
+        directions_zh = merged_text[:MERGE_FALLBACK_MAX_CHARS].rstrip()
+    return {"directions_zh": directions_zh, "keywords": keywords or merged["keywords"]}
 
 
 # 无 LLM 时的关键词兜底：从论文标题做词频统计
@@ -508,6 +518,10 @@ def build_profile(provider: Any = None, max_works: int = 0) -> Dict[str, Any]:
                 provider,
             )
             our_work_zh = agg["directions_zh"]
+            if not our_work_zh:
+                # 汇总那一次调用失败：降级为各学者方向拼接，好过写入空串
+                print("⚠️ 团队汇总蒸馏为空：降级拼接各学者方向")
+                our_work_zh = combined[:MERGE_FALLBACK_MAX_CHARS].rstrip()
             keywords = _dedupe_keywords(keywords + agg["keywords"])
     if not keywords:
         # 无 key / 蒸馏全失败：退化为标题词频关键词，匹配阶段仍可做规则预筛
@@ -521,12 +535,19 @@ def build_profile(provider: Any = None, max_works: int = 0) -> Dict[str, Any]:
     }
 
 
-def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Dict[str, Any]:
+def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Optional[Dict[str, Any]]:
     """不重抓 Scholar：读取既有画像文件中的 works，仅重做 LLM 蒸馏与汇总。
 
     用于 CI dispatch：原始论文清单由本地抓取提交（Scholar 易封云端 IP），
-    CI 只承担需要 AI key 的蒸馏步骤。画像文件缺失或为空时返回 None。
+    CI 只承担需要 AI key 的蒸馏步骤。
+
+    返回 None（调用方 exit 1，既有画像原样保留、不写盘）的情形：
+    画像文件缺失/损坏/无学者；没有可用 provider；全部学者本次蒸馏都失败。
+    局部失败则逐字段沿用既有画像内容，绝不用空串覆盖已有的好数据。
     """
+    if provider is None:
+        print("⚠️ 未配置可用的 AI provider：--distill-only 无可蒸馏内容，拒绝用空结果覆盖既有画像")
+        return None
     if not os.path.exists(path):
         print(f"⚠️ {path} 不存在，--distill-only 无可蒸馏数据")
         return None
@@ -536,6 +557,9 @@ def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Dict[str, Any]:
     except Exception as e:
         print(f"⚠️ 读取 {path} 失败: {e}")
         return None
+    if not isinstance(old, dict):
+        print(f"⚠️ {path} 结构异常（不是 JSON 对象），拒绝覆盖")
+        return None
     scholars_old = old.get("scholars") or []
     if not scholars_old:
         print("⚠️ 画像文件中没有学者数据")
@@ -544,38 +568,65 @@ def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Dict[str, Any]:
     scholars_out: List[Dict[str, Any]] = []
     all_keywords: List[str] = []
     all_works: List[Dict[str, Any]] = []
+    any_fresh = False  # 本次是否至少有一位学者蒸馏成功
+    degraded = False  # 是否有学者本次蒸馏失败（→ 关键词与旧画像取并集，避免丢词）
     for s in scholars_old:
         works = s.get("works") or []
         print(f"🔍 蒸馏 {s.get('name')}: {len(works)} 篇（不重抓）")
         distilled = distill_scholar_directions(s.get("name", ""), works, provider)
+        directions_zh = distilled["directions_zh"]
+        if directions_zh:
+            any_fresh = True
+        else:
+            # 本次蒸馏为空：沿用既有方向描述，绝不用空串覆盖已经写好的画像
+            degraded = True
+            directions_zh = str(s.get("directions_zh") or "")
+            if directions_zh:
+                print(f"♻️ {s.get('name')}: 本次蒸馏为空，沿用既有 directions_zh")
         scholars_out.append(
             {
                 "scholar_id": s.get("scholar_id", ""),
                 "name": s.get("name", ""),
                 "works": works,
-                "directions_zh": distilled["directions_zh"],
+                "directions_zh": directions_zh,
             }
         )
         all_keywords.extend(distilled["keywords"])
         all_works.extend(works)
         _request_sleep()
 
+    if not any_fresh:
+        print("⚠️ 全部学者蒸馏均失败（AI 网关不可用？）：保留既有画像不覆盖，本次运行判为失败等待重试")
+        return None
+
     our_work_zh = ""
     keywords = _dedupe_keywords(all_keywords)
-    if provider is not None:
-        combined = "\n".join(
-            f"- {s['name']}: {s['directions_zh']}" for s in scholars_out if s["directions_zh"]
+    combined = "\n".join(
+        f"- {s['name']}: {s['directions_zh']}" for s in scholars_out if s["directions_zh"]
+    )
+    if combined:
+        agg = _call_profile_llm(
+            "一个五人研究团队（以下为各位学者的研究方向汇总）",
+            f"各位学者的研究方向：\n{combined}",
+            provider,
         )
-        if combined:
-            agg = _call_profile_llm(
-                "一个五人研究团队（以下为各位学者的研究方向汇总）",
-                f"各位学者的研究方向：\n{combined}",
-                provider,
-            )
-            our_work_zh = agg["directions_zh"]
-            keywords = _dedupe_keywords(keywords + agg["keywords"])
+        our_work_zh = agg["directions_zh"]
+        keywords = _dedupe_keywords(keywords + agg["keywords"])
+    if not our_work_zh:
+        # 汇总失败：先沿用既有 our_work_zh，其次降级为各学者方向拼接，绝不写空串
+        our_work_zh = str(old.get("our_work_zh") or "") or combined[:MERGE_FALLBACK_MAX_CHARS].rstrip()
+        if our_work_zh:
+            print("♻️ 团队汇总蒸馏为空：沿用既有 our_work_zh / 降级拼接各学者方向")
+    old_kw_raw = old.get("keywords") or []
+    if not isinstance(old_kw_raw, list):
+        old_kw_raw = [old_kw_raw]
+    old_keywords = [str(k) for k in old_kw_raw if str(k).strip()]
+    if degraded and old_keywords:
+        # 局部蒸馏失败：与既有关键词取并集，避免失败学者的关键词被静默丢弃
+        keywords = _dedupe_keywords(keywords + old_keywords)
     if not keywords:
-        keywords = extract_keywords_from_works(all_works)
+        # 既有关键词优先于标题词频退化（后者会把精选短语换成零散单词）
+        keywords = _dedupe_keywords(old_keywords) or extract_keywords_from_works(all_works)
 
     return {
         "generated_at": _beijing_today(),

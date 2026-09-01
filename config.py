@@ -27,27 +27,15 @@ RSS_FEEDS = [
     "https://www.nature.com/npjcompumats.rss",
     "https://academic.oup.com/rss/site_5332/3198.xml",
     "https://rss.sciencedirect.com/publication/science/20959273",
-    "http://feeds.feedburner.com/acs/jacsat",
-    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=ancac3",
     "https://onlinelibrary.wiley.com/action/showFeed?jc=15213773&type=etoc&feed=rss",
-    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=nalefd",
-    "https://www.annualreviews.org/action/showFeed?ui=45mu4&mi=3fndc3&ai=68t8&jc=conmatphys&type=etoc&feed=atom",
-    "https://www.annualreviews.org/action/showFeed?ui=45mu4&mi=3fndc3&ai=sy&jc=physchem&type=etoc&feed=atom",
-    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jpclcd",
     "https://www.pnas.org/rss/Physics.xml",
     "https://www.pnas.org/rss/Applied_Physical_Sciences.xml",
-    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jctcce",
-    "https://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=jcp",
-    "http://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=apl",
-    "https://pubs.aip.org/rss/site_1000043/1000024.xml",
+    "https://pubs.aip.org/rss/site_1000043/1000024.xml",  # J. Chem. Phys.（scitation 版已停用，此为迁移后地址）
+    "https://pubs.aip.org/rss/site_1000045/1000025.xml",  # Physics Today（替代已崩溃的 feedburner 版）
     "http://feeds.aps.org/rss/recent/prxenergy.xml",
     "http://feeds.aps.org/rss/recent/prmaterials.xml",
     "http://feeds.aps.org/rss/recent/prresearch.xml",
     "http://feeds.aps.org/rss/recent/prb.xml",
-    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=chreay",
-    "http://feeds.feedburner.com/acs/nalefd",
-    "http://feeds.feedburner.com/acs/achre4",
-    "http://feeds.feedburner.com/physicstodaynews",
     "https://iopscience.iop.org/journal/rss/2632-2153",
     "https://onlinelibrary.wiley.com/action/showFeed?jc=15214095&type=etoc&feed=rss",
     "https://onlinelibrary.wiley.com/action/showFeed?jc=16163028&type=etoc&feed=rss",
@@ -58,10 +46,9 @@ RSS_FEEDS = [
     "https://rss.arxiv.org/rss/cs.LG",
     "https://rss.arxiv.org/rss/stat.ML",
     "https://rss.arxiv.org/rss/cs.AI",
-    "https://chemrxiv.org/engage/rss/chemrxiv",
     "https://www.researchsquare.com/rss.xml",
     "https://rss.arxiv.org/rss/cond-mat.supr-con+cond-mat.mtrl-sci+cond-mat.str-el+physics.comp-ph+physics.chem-ph",
-    "https://feeds.rsc.org/rss/dd",  # Digital Discovery (RSC - AI for chemistry)
+    "http://feeds.rsc.org/rss/dd",  # Digital Discovery (RSC - AI for chemistry)
     "https://rss.sciencedirect.com/publication/science/09270256",  # Computational Materials Science
     "https://rss.sciencedirect.com/publication/science/00104655",  # Computer Physics Communications
     "https://www.nature.com/npjquantmats.rss",  # npj Quantum Materials
@@ -69,9 +56,33 @@ RSS_FEEDS = [
     "https://www.nature.com/npj2dmaterials.rss",  # npj 2D Materials and Applications
     "http://feeds.aps.org/rss/recent/prapplied.xml",  # Physical Review Applied
     # ========== 2区期刊（仅保留指定）==========
-    "https://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=jap",  # Journal of Applied Physics (JAP)
     "https://rss.sciencedirect.com/publication/science/00092614",  # Chemical Physics Letters (CPL)
 ]
+
+# ========== 已停用的源（2026-09-01 实测，逐条探测过）==========
+# 保留在这里而不是直接删掉：知道「为什么不能用」比源地址本身更有价值，
+# 免得半年后有人凭印象把它们又加回去。想复活请先用浏览器 UA 实测。
+# 之前它们静默零产出长达数月：feedparser 对 403 不抛异常，日志与「今天没有新论文」一模一样。
+DISABLED_RSS_FEEDS = {
+    # 403 —— 站点封禁自动抓取（已验证换成真实浏览器 UA 仍然 403，不是 UA 问题）
+    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jctcce": "ACS JCTC: 403 反爬",
+    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=jpclcd": "ACS JPCL: 403 反爬",
+    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=nalefd": "ACS Nano Lett.: 403 反爬",
+    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=ancac3": "ACS Nano: 403 反爬",
+    "https://pubs.acs.org/action/showFeed?type=axatoc&feed=rss&jc=chreay": "ACS Chem. Rev.: 403 反爬",
+    "https://chemrxiv.org/engage/rss/chemrxiv": "ChemRxiv: 403 反爬",
+    "https://www.annualreviews.org/action/showFeed?ui=45mu4&mi=3fndc3&ai=68t8&jc=conmatphys&type=etoc&feed=atom": "Annu. Rev. Condens. Matter Phys.: 403 反爬",
+    "https://www.annualreviews.org/action/showFeed?ui=45mu4&mi=3fndc3&ai=sy&jc=physchem&type=etoc&feed=atom": "Annu. Rev. Phys. Chem.: 403 反爬",
+    # 域名已停用 —— aip.scitation.org 整体迁到 pubs.aip.org（会 302 到 showFeed 然后 403）
+    "https://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=jcp": "JCP: 已由 pubs.aip.org/rss/site_1000043/1000024.xml 取代",
+    "http://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=apl": "APL: 迁站后未找到对应 RSS，待补",
+    "https://aip.scitation.org/action/showFeed?type=etoc&feed=rss&jc=jap": "JAP: 迁站后未找到对应 RSS，待补",
+    # 上游自己坏了
+    "http://feeds.feedburner.com/acs/jacsat": "只返回一条『The location of this RSS feed has changed』占位",
+    "http://feeds.feedburner.com/acs/nalefd": "同上，feedburner 占位",
+    "http://feeds.feedburner.com/acs/achre4": "同上，feedburner 占位",
+    "http://feeds.feedburner.com/physicstodaynews": "返回 'Database error: Table ./rss/feeds is marked as crashed'",
+}
 
 # 多用户关键词配置
 # 每个用户可以定义自己的关键词列表，用于在网页上筛选相关文献

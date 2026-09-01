@@ -33,9 +33,24 @@ def load_index(path: str) -> Dict[str, Any]:
 
 
 def save_index(path: str, articles: List[Dict[str, Any]]):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
+    """原子落盘: 先写同目录临时文件, fsync 后 os.replace 覆盖正式文件。
+
+    checkpoint 每批调用一次, 而 index.json 有十几 MB;
+    直接 open(path,"w") 一旦在 json.dump 中途被 job 超时/取消 kill,
+    留下的就是一份被截断的非法 JSON。下游 load 清一色 `except: []` 兜底,
+    紧接着的 `if: always()` 提交会把这份残档推上 main —— 整个归档静默消失。
+    os.replace 同盘改名是原子的, 被 kill 只会留下 *.tmp(已在 .gitignore)。
+    """
+    directory = os.path.dirname(path)
+    if directory:
+        # dirname 为空(路径是裸文件名)时 os.makedirs("") 会抛 FileNotFoundError
+        os.makedirs(directory, exist_ok=True)
+    tmp_path = f"{path}.tmp"
+    with open(tmp_path, "w", encoding="utf-8") as f:
         json.dump({"articles": articles}, f, ensure_ascii=False, indent=2)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp_path, path)
 
 
 def count_missing(articles: List[Dict[str, Any]]) -> int:
@@ -172,12 +187,78 @@ def _select_targets(articles: List[Dict[str, Any]], scope: str) -> List[Dict[str
     raise ValueError(f"Unsupported BACKFILL_SCOPE: {scope}")
 
 
-def _prepare_targets(targets: Iterable[Dict[str, Any]]) -> None:
+def _prepare_targets(targets: Iterable[Dict[str, Any]]) -> Dict[int, Dict[str, str]]:
+    """给 zh_enricher "腾位": 只清空它的写入守卫覆盖不了的中文字段, 并快照原值。
+
+    zh_enricher 写入前的判断是 `字段为空 or is_suspicious_text(字段)`, 所以
+    空值和可疑值本来就能被就地覆盖 —— 对它们清空毫无收益, 却是纯粹的破坏:
+    一段只夹了一个 U+FFFD 的完整中文摘要也算"可疑", 清空后若本次翻译失败,
+    好好的中文就永久变成了 ""(daily 质量门槛还会因此把当天的邮件一并掐掉)。
+    真正必须先清空的只有"非空 + 不可疑 + 没有中文"的英文回退值。
+
+    返回 {id(article): {字段: 原值}} 快照, 供落盘时兜底恢复(见 `_save_index_restoring`)。
+    以 id() 作键是安全的: 这些 dict 全程活在 articles 里, 不会被回收或替换。
+    """
+    originals: Dict[int, Dict[str, str]] = {}
     for a in targets:
-        if _target_needs_title(a) or not _has_cjk(normalize_text(a.get("title_zh") or "").strip()):
+        snapshot: Dict[str, str] = {}
+
+        title_zh = normalize_text(a.get("title_zh") or "").strip()
+        if title_zh and not is_suspicious_text(title_zh) and not _has_cjk(title_zh):
+            snapshot["title_zh"] = a.get("title_zh") or ""
             a["title_zh"] = ""
-        if _target_needs_abstract(a):
+
+        if _is_exact_english_fallback_abstract(a) and not is_suspicious_text(a.get("abstract_zh")):
+            snapshot["abstract_zh"] = a.get("abstract_zh") or ""
             a["abstract_zh"] = ""
+
+        if snapshot:
+            originals[id(a)] = snapshot
+    return originals
+
+
+def _restore_patch(a: Dict[str, Any], snapshot: Dict[str, str]) -> Dict[str, str]:
+    """快照里那些"被清空后至今仍是空"的字段 —— 即本次没能译出来的字段。"""
+    return {k: v for k, v in snapshot.items() if v and not (a.get(k) or "").strip()}
+
+
+def _save_index_restoring(path: str, articles: List[Dict[str, Any]], originals: Dict[int, Dict[str, str]]) -> None:
+    """检查点落盘: 只在写出的副本里恢复未译出的原值, 不改内存里的文章。
+
+    不能就地恢复: 那会让 zh_enricher 的"非空且不可疑"守卫重新生效,
+    本次运行剩下的批次就再也覆盖不了这些英文回退值了。
+    """
+    if not originals:
+        save_index(path, articles)
+        return
+
+    serializable: List[Dict[str, Any]] = []
+    for a in articles:
+        snapshot = originals.get(id(a))
+        if snapshot:
+            patch = _restore_patch(a, snapshot)
+            if patch:
+                a = {**a, **patch}
+        serializable.append(a)
+    save_index(path, serializable)
+
+
+def _restore_unfilled(articles: List[Dict[str, Any]], originals: Dict[int, Dict[str, str]]) -> int:
+    """所有翻译轮次结束后就地恢复未译出的原值, 返回受影响篇数。
+
+    此后不再调用 zh_enricher, 写回内存是安全的, 而且能让最终落盘与
+    `_sync_site_outputs`(直接吃内存里的 articles)看到同一份数据。
+    """
+    restored = 0
+    for a in articles:
+        snapshot = originals.get(id(a))
+        if not snapshot:
+            continue
+        patch = _restore_patch(a, snapshot)
+        if patch:
+            a.update(patch)
+            restored += 1
+    return restored
 
 
 def _sync_site_outputs(articles: List[Dict[str, Any]]) -> None:
@@ -219,6 +300,7 @@ def main() -> int:
     max_passes = int(os.environ.get("AI_ZH_MAX_PASSES", "20"))
     sleep_s = float(os.environ.get("AI_ZH_PASS_SLEEP_SECONDS", "1.0"))
 
+    originals: Dict[int, Dict[str, str]] = {}
     if full_mode:
         # --full: 只回填 abstract_zh_full（完整翻译），不动已有 title_zh/abstract_zh
         targets = [a for a in articles if _target_needs_full(a)]
@@ -232,7 +314,7 @@ def main() -> int:
         mode_label = "full"
     else:
         targets = _select_targets(articles, scope)
-        _prepare_targets(targets)
+        originals = _prepare_targets(targets)
         missing_fn = count_missing
         mode_label = f"scope={scope}"
 
@@ -256,7 +338,7 @@ def main() -> int:
             batch_size=batch_size,
             # 每个 batch 落盘一次: 慢网关下 800 篇回填要跑数小时,
             # 若 job 超时也能保住已完成的翻译(幂等, 下次接着跑)
-            on_progress=lambda: save_index(index_path, articles),
+            on_progress=lambda: _save_index_restoring(index_path, articles, originals),
         )
         missing_after = missing_fn(targets)
         print(f"[backfill] pass={p} updated={updated} missing_after={missing_after}")
@@ -267,8 +349,14 @@ def main() -> int:
         else:
             time.sleep(sleep_s)
 
+    # missing_final 必须在恢复之前统计: 恢复回来的英文回退值不算"已翻译",
+    # 否则退出码会把一次彻底失败的回填报成成功。
     missing_final = missing_fn(targets)
     print(f"[backfill] missing_final={missing_final}")
+
+    restored = _restore_unfilled(articles, originals)
+    if restored:
+        print(f"♻️ [backfill] {restored} 篇本次未译出,已恢复原有中文/英文回退值(绝不把翻译失败写成空白)")
 
     # Persist
     save_index(index_path, articles)

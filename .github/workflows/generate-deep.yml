@@ -11,7 +11,13 @@ on:
         # 与下面 DEEP_WINDOW_DAYS 的兜底值保持一致（此前声明 1、实际定时跑用 4，自相矛盾）
         default: "4"
   schedule:
-    - cron: "30 3 * * *"
+    # 06:30 UTC(北京 14:30)。原来是 03:30 UTC，比 fetch.yml 夜间那轮的收工时间还早：
+    # fetch 的 cron 是 00:00 UTC、timeout-minutes 240，最晚 04:00 UTC 才推完（实测 03:34 /
+    # 03:55 / 04:14 / 06:26 都出现过）。抢在它前面 checkout，本 job 就会拿着还没有当晚抓取
+    # 结果的 index.json/ai_relevant.json 重算日报，再靠下面的 -X theirs 把这份残缺内容盖过
+    # fetch 刚推上去的新页面；邮件更糟——发一次就写死 email_sent.json，当天再也补发不了。
+    # 06:30 起跑 + 180 分钟上限，整段落在 fetch 两轮(00:00 / 12:00 UTC)之间。
+    - cron: "30 6 * * *"
 permissions:
   contents: write
 concurrency:
@@ -26,6 +32,25 @@ jobs:
         with:
           fetch-depth: 1
           token: ${{ secrets.PAT_TOKEN }}
+      # checkout 拿到的是本 job 起跑那一刻的 main。cron 已经挪到 fetch 之后，但排队延迟仍可能
+      # 让 fetch 的推送落在 checkout 之后几分钟，那样整轮日报都建立在过期语料上。跑正事之前
+      # 再对齐一次 origin/main，把暴露窗口收窄成"本 job 运行期间才推上来的那部分"。
+      # 此刻工作区还是干净的 checkout（尚未产出任何东西），reset --hard 丢不掉本次成果；
+      # 对不齐就照旧用 checkout 版本继续，不让一次网络抖动干掉整轮深读。
+      # 只在 main 上做：本 job 的推送步骤本来就只推 main，但在分支上 dispatch 调试时
+      # 不该被悄悄拽到 main 的内容上。
+      - name: Sync to latest main (never regenerate from a stale index)
+        if: github.ref == 'refs/heads/main'
+        run: |
+          before=$(git rev-parse HEAD || echo unknown)
+          git fetch origin main || { echo "⚠️ fetch origin main 失败，沿用 checkout 版本继续"; exit 0; }
+          git reset --hard origin/main || { echo "⚠️ reset 失败，沿用 checkout 版本继续"; exit 0; }
+          after=$(git rev-parse HEAD || echo unknown)
+          if [ "$before" = "$after" ]; then
+            echo "✅ 已是最新 main ($after)"
+          else
+            echo "♻️ 已同步到最新 main: $before -> $after"
+          fi
       - uses: actions/setup-python@v5
         with:
           python-version: "3.11"
@@ -33,6 +58,22 @@ jobs:
       - run: pip install -r requirements.txt
       - name: Configure gateway hosts (fallback for gateway DNS resolution failure; mapping in secret)
         run: echo "${{ secrets.AI_HOSTS_ENTRY }}" | sudo tee -a /etc/hosts
+      # 目标日在 job 开头钉死一次，供后面两次 generate_daily_pages.py 共用。
+      # 不钉的话两次调用各自算一遍 beijing_yesterday()（进程内只算一次），而这两步相隔数小时：
+      # 一旦中间跨过北京零点(16:00 UTC)，第一步写的是 D-1 的 daily_summary sidecar，末尾发信那步
+      # 却去找 D 的 sidecar——没人生成过，于是打印"⏭️ 每日邮件跳过"，D-1 那天的日报邮件永久丢失
+      # （次日跑的是 D，没人回头补 D-1），日志全绿看不出少了一天。实测 08-27 / 08-28 两轮深读
+      # 就是在 16:47 / 16:55 UTC 收的工。
+      # 兜底：date 异常时留空，脚本里 `args.date or beijing_yesterday()` 会退回原行为，不炸。
+      - name: Pin target day (Beijing yesterday)
+        run: |
+          D=$(TZ=Asia/Shanghai date -d yesterday +%F || true)
+          case "$D" in
+            [0-9][0-9][0-9][0-9]-[0-9][0-9]-[0-9][0-9]) ;;
+            *) echo "⚠️ 无法解析北京昨日($D)，回落到脚本内默认日期"; D="" ;;
+          esac
+          echo "DAILY_DATE=$D" >> "$GITHUB_ENV"
+          echo "🎯 目标日(北京昨天): ${D:-<脚本内默认>}"
       # Daily FIRST: regenerates daily pages (今日精读 from existing aps_*.json) and writes the
       # corrected arxiv_tier2_<date>.json candidates that run_deep then enriches SAME run.
       - name: Generate daily pages (writes tier2 candidates)
@@ -49,7 +90,7 @@ jobs:
           AI_FOCUS_DAILY_MAX: ${{ vars.AI_FOCUS_DAILY_MAX || '60' }}
         # --days 2(而非4):此步的 AI 日报摘要是 generate-deep 的耗时瓶颈(历史常撞超时)。
         # 深读/海报/邮件只需覆盖目标日+1天缓冲;4 天回填由 fetch.yml 负责,末尾免AI重渲染仍覆盖4天。
-        run: python generate_daily_pages.py --days 2 --force
+        run: python generate_daily_pages.py --days 2 --force --date "$DAILY_DATE"
       # run_deep SECOND: APS full-text deep+poster, enrich tier2 (abstract-level + infographic),
       # sole writer of arxiv_core_<date>.json (deep_analysis/image/poster_elements) — no clobber.
       - name: Run deep pipeline (enrich arxiv_core/aps)
@@ -108,7 +149,9 @@ jobs:
           SITE_BASE_URL: https://hongyu-yu.github.io/literature-tracker
           EMAIL_ENABLED: ${{ vars.EMAIL_ENABLED || '1' }}
           EMAIL_POSTER_MAX: "5"
-        run: python generate_daily_pages.py --rerender-only --days 4 --send-email
+        # --date 必须追加在末尾：test_daily_email.py 断言 "--rerender-only --days 4 --send-email"
+        # 这段连续子串存在（保证全仓唯一的发信入口没被挪走）。
+        run: python generate_daily_pages.py --rerender-only --days 4 --send-email --date "$DAILY_DATE"
       - name: Commit and push (race-safe)
         run: |
           git config user.email action@github.com

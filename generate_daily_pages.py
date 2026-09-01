@@ -9,6 +9,7 @@
   - docs/daily/summaries.json
 """
 import os
+import re
 import json
 import html
 import shutil
@@ -453,11 +454,42 @@ def load_enrichment(date_str: str) -> Dict[str, Dict]:
     return out
 
 
+_DOI_RE = re.compile(r"(10\.\d{4,9}/[^\s\"'<>?#]+)")
+
+# 合并重复条目时不允许被覆盖/补写的字段：tier0 的富化结果与已归一化的链接。
+_DEDUP_MERGE_SKIP = {"_tier", "_enrich", "link", "doi", "poster", "image", "deep_analysis"}
+
+
+def _dedup_key(link: str) -> str:
+    """同一篇文章在不同数据源里链接形态不同：APS 侧只有裸 doi(→ https://doi.org/10.1103/x)，
+    RSS 索引侧是 http://link.aps.org/doi/10.1103/x。按原始串比对永远不相等 → 同一篇被渲染两次。
+    含 DOI 的链接一律折算成 doi:<小写 doi> 作为去重键，其余原样返回。"""
+    s = (link or "").strip()
+    if not s:
+        return ""
+    m = _DOI_RE.search(s)
+    if not m:
+        return s
+    return f"doi:{m.group(1).rstrip('/.').lower()}"
+
+
+def _fill_missing_fields(target: Dict, source: Dict) -> None:
+    """把重复条目里 target 缺的字段补进来（只补空缺，绝不覆盖已有值）。
+    APS 行没有 title_zh/abstract_zh/focus_* 等中文富化字段，直接丢掉重复的 full_list 条目
+    会连同这些已经生成好的中文内容一起丢掉。"""
+    _EMPTY = (None, "", [], {})
+    for k, v in (source or {}).items():
+        if k in _DEDUP_MERGE_SKIP or v in _EMPTY:
+            continue
+        if target.get(k) in _EMPTY:
+            target[k] = v
+
+
 def build_unified_items(full_list, enrich_map, aps_items):
     """合并 APS 全文(tier0) + full_list(tier1 富化 / tier2 普通) 成一个扁平列表，
     按 (tier, focus_priority) 排序。每项注入 _tier 与 _enrich(dict|None)。"""
     items: List[Dict] = []
-    seen = set()
+    seen: Dict[str, Dict] = {}
     for a in (aps_items or []):
         link = normalize_link((a.get("link") or a.get("doi") or "").strip())
         poster = a.get("poster") or {}
@@ -475,11 +507,17 @@ def build_unified_items(full_list, enrich_map, aps_items):
             "title_zh": a.get("title_zh") or poster.get("title_zh") or "",
         }
         items.append(it)
-        if link:
-            seen.add(link)
+        key = _dedup_key(it["link"])
+        if key:
+            seen.setdefault(key, it)
     for it0 in (full_list or []):
         link = normalize_link((it0.get("link") or "").strip())
-        if link and link in seen:
+        key = _dedup_key(link)
+        kept = seen.get(key) if key else None
+        if kept is not None:
+            # 同一篇（DOI 相同、链接形态不同）已在列表里：把中文/focus 等字段补进已有条目，
+            # 而不是把这份数据整条丢掉。
+            _fill_missing_fields(kept, it0)
             continue
         it = dict(it0)
         it["link"] = link or it0.get("link") or ""
@@ -487,8 +525,8 @@ def build_unified_items(full_list, enrich_map, aps_items):
         it["_tier"] = 1 if en else 2
         it["_enrich"] = en
         items.append(it)
-        if link:
-            seen.add(link)
+        if key:
+            seen.setdefault(key, it)
     items.sort(key=lambda x: (priority_tier(x), x.get("_tier", 2), focus_priority(x)))
     return items
 
@@ -513,12 +551,12 @@ def daily_quality_ok(summary: Dict) -> bool:
         return bool(summary.get("overview"))
     # 与 daily_quality_report 取同一份 items（此前漏了这行，total>0 时必抛 NameError，
     # 被调用处的宽 except 吞掉 → sidecar 自 2026-07-31 起从未落盘）
-    items = summary.get("full_list") or summary.get("summaries") or []
-    detailed_ok = all(
-        all(len(str(x.get(k) or "").strip()) >= 180 for k in ("method_point", "related_work", "implication"))
-        for x in items
-    )
-    return all(report[k] == total for k in ("title_zh", "abstract_zh", "summary", "relation")) and detailed_ok and bool(
+    # 不再要求三段各 ≥180 字。那条长度门是为「模板兜底文本必然很长」量身定的：
+    # research_context 过去会把短于 180 字的内容整段替换成模板，于是长度自然达标。
+    # 该替换会删掉真实但简短的 AI 分析，已修复 —— 长度门也就随之失去意义，
+    # 反而在 AI 正常作答时必然不满足，使 rerender_ok 恒为 False、日报页面再也不刷新。
+    # report["relation"] == total 已经保证三段字段全部非空，这才是真正要守的东西。
+    return all(report[k] == total for k in ("title_zh", "abstract_zh", "summary", "relation")) and bool(
         summary.get("overview") and summary.get("trends")
     )
 
@@ -1105,14 +1143,100 @@ def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[D
     }
 
 
+_CJK_RE = re.compile(r"[一-鿿]")
+
+
+def _feed_zh_coverage(path: str) -> Optional[Tuple[int, int]]:
+    """已落盘 <date>.xml 的 (条目数, 含中文的 title/description 数)。
+    文件缺失/解析失败 → None，表示“没有基线”，照旧直接写。"""
+    if not os.path.exists(path):
+        return None
+    try:
+        import xml.etree.ElementTree as ET
+        root = ET.parse(path).getroot()
+    except Exception:
+        return None
+    nodes = root.findall(".//item")
+    zh = sum(
+        1
+        for node in nodes
+        for tag in ("title", "description")
+        if _CJK_RE.search(node.findtext(tag) or "")
+    )
+    return len(nodes), zh
+
+
+def _articles_zh_coverage(articles: List[Dict]) -> Tuple[int, int]:
+    """待写入的这批文章能给 RSS 提供的 (条目数, 含中文的 title/description 数)。
+    取值顺序与 rss_generator._article_title/_article_description 保持一致，
+    这样和 _feed_zh_coverage 是同一把尺子。"""
+    total = 0
+    zh = 0
+    for a in (articles or []):
+        if not isinstance(a, dict):
+            continue
+        total += 1
+        title = str(a.get("title_zh") or a.get("title") or "")
+        body = str(a.get("summary") or a.get("one_sentence_summary") or "") or str(
+            a.get("abstract_zh") or a.get("abstract") or "")
+        desc = " ".join([str(a.get("journal") or ""), format_authors(a.get("authors")), body])
+        if _CJK_RE.search(title):
+            zh += 1
+        if _CJK_RE.search(desc):
+            zh += 1
+    return total, zh
+
+
+def _rss_downgrade_reason(path: str, articles: List[Dict]) -> str:
+    """写 <date>.xml 前的护栏。data/index.json 只保留最近 5000 篇，窗口滑过某天后
+    collect_daily_articles 只剩 ai_relevant.json(中文富化之前写入的那份)，重算结果会缺
+    title_zh/abstract_zh —— 无条件改写会把历史 feed 里已经生成好的中文标题/摘要冲掉，
+    只能从 git 历史里找回。返回非空原因串 → 本次跳过写入，保留磁盘上更完整的那份。"""
+    base = _feed_zh_coverage(path)
+    if base is None:
+        return ""
+    old_total, old_zh = base
+    if old_total <= 0:
+        return ""
+    new_total, new_zh = _articles_zh_coverage(articles)
+    if new_total < old_total:
+        return f"条目 {old_total}→{new_total}"
+    if new_zh < old_zh:
+        return f"中文字段 {old_zh}→{new_zh}"
+    return ""
+
+
 def sync_daily_rss_feeds(index_articles: List[Dict], relevant_articles: List[Dict], summaries: List[Dict]) -> int:
     changed = 0
+    # 降级保护只适用于**历史**日期：它防的是「用只剩 31 天的 index 去重算老 feed，把当时
+    # 的中文内容洗掉」。最近几天则相反 —— 新文献刚抓进来还没翻译，中文覆盖率本来就会掉，
+    # 这是正常状态；对它们套用保护会让最新 feed 永久冻结（条目数被 max_keep=60 顶住，
+    # 中文比例又一直不达标，永远解不开），连带 latest.xml 也一起冻住。
+    try:
+        fresh_days = int((os.environ.get("RSS_FRESH_WINDOW_DAYS", "7") or "7").strip())
+    except Exception:
+        fresh_days = 7
+    # 以**真实当天**为基准，而不是 summaries[0]：新鲜与否取决于「这些日期的文献是否还在
+    # 陆续到达/翻译」，那是现实时间的属性。若拿 summaries[0] 当基准，只回填某个老日期时
+    # 它自己就成了「最新」，保护会被误关掉。
+    try:
+        fresh_cutoff = (datetime.strptime(beijing_today(), "%Y-%m-%d")
+                        - timedelta(days=max(0, fresh_days - 1))).strftime("%Y-%m-%d")
+    except Exception:
+        fresh_cutoff = ""
+
     for entry in summaries:
         day_str = str(entry.get("date") or "").strip()
         if not day_str:
             continue
         collected = collect_daily_articles(index_articles, relevant_articles, day_str)
-        if generate_daily_rss_feed(day_str, collected["daily_articles"], daily_rss_path(day_str)):
+        rss_path = daily_rss_path(day_str)
+        is_fresh = bool(fresh_cutoff) and day_str >= fresh_cutoff
+        reason = "" if is_fresh else _rss_downgrade_reason(rss_path, collected["daily_articles"])
+        if reason:
+            print(f"⏭️ RSS 跳过 {day_str}：重算结果劣于既有 feed（{reason}），保留原文件")
+            continue
+        if generate_daily_rss_feed(day_str, collected["daily_articles"], rss_path):
             changed += 1
 
     latest_date = str((summaries[0] or {}).get("date") or "").strip() if summaries else ""

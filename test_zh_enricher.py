@@ -1,5 +1,7 @@
 """zh_enricher 中文富化测试(无网络:build_provider 打桩返回假 provider)。"""
 
+import contextlib
+import io
 import json
 from unittest import mock
 
@@ -99,8 +101,153 @@ def test_chinese_source_full_equal_abstract_is_terminal():
     assert updated == 0
 
 
+# --- JSON 噪声/截断导致整批译文被静默丢弃的回归测试 ---
+
+
+class _RawProv:
+    """按固定原始字符串作答的 provider(用于构造 JSON 噪声/截断响应)。"""
+
+    def __init__(self, raw):
+        self.raw = raw
+        self.calls = 0
+
+    def call_api(self, prompt):
+        self.calls += 1
+        return self.raw
+
+
+class _BoomProv:
+    def __init__(self, exc):
+        self.exc = exc
+
+    def call_api(self, prompt):
+        raise self.exc
+
+
+def _run_enrich(articles, prov):
+    """跑一次 LLM 富化,返回 (updated, 打印出来的日志)。"""
+    buf = io.StringIO()
+    with mock.patch.object(zh_enricher, "build_provider", return_value=prov), \
+            mock.patch("time.sleep"), contextlib.redirect_stdout(buf):
+        updated = zh_enricher.enrich_articles_zh(
+            articles, provider_name="openrouter", api_key="k")
+    return updated, buf.getvalue()
+
+
+def test_batch_survives_trailing_prose_after_json():
+    # 模型在 JSON 后补一句含花括号的客套话:旧的贪婪正则会一路吃到最后一个 `}`,
+    # 解析失败 → 整批(最多 12 篇)译文被丢弃且不打印任何东西。
+    payload = json.dumps({"items": [{
+        "index": 1, "title_zh": "中文标题", "abstract_zh": "浓缩摘要",
+        "abstract_zh_full": "完整忠实中文翻译",
+    }]}, ensure_ascii=False)
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract."}]
+    updated, _log = _run_enrich(articles, _RawProv(payload + "\n\n说明：{以上为翻译}"))
+    assert updated == 1
+    assert articles[0]["title_zh"] == "中文标题"
+    assert articles[0]["abstract_zh_full"] == "完整忠实中文翻译"
+
+
+def test_batch_survives_trailing_comma_and_smart_quotes():
+    raw = '{“items”: [{“index”: 1, “title_zh”: “中文标题”, “abstract_zh”: “浓缩摘要”, ' \
+          '“abstract_zh_full”: “完整忠实中文翻译”,}]}'
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract."}]
+    updated, _log = _run_enrich(articles, _RawProv(raw))
+    assert updated == 1
+    assert articles[0]["abstract_zh_full"] == "完整忠实中文翻译"
+
+
+def test_truncated_response_keeps_complete_items_and_drops_partial_tail():
+    # max_tokens 截断:完整的前几条要留下,半截的最后一条必须丢弃 ——
+    # 半截译文写进 abstract_zh_full 后会被认作"已翻译",永远不再重试。
+    items = [{
+        "index": i, "title_zh": f"中文标题{i}", "abstract_zh": f"浓缩摘要{i}",
+        "abstract_zh_full": f"第{i}篇的完整忠实中文翻译，逐句对应原文，不删减不浓缩。",
+    } for i in (1, 2, 3)]
+    full = json.dumps({"items": items}, ensure_ascii=False)
+    truncated = full[:full.index("第3篇的完整忠实中文翻译") + 8]  # 在第 3 条译文中间切断
+
+    articles = [{"title": f"T{i}", "link": f"http://x/{i}", "abstract": "English abstract."}
+                for i in (1, 2, 3)]
+    updated, log = _run_enrich(articles, _RawProv(truncated))
+
+    assert updated == 2
+    assert articles[0]["abstract_zh_full"] == "第1篇的完整忠实中文翻译，逐句对应原文，不删减不浓缩。"
+    assert articles[1]["abstract_zh_full"] == "第2篇的完整忠实中文翻译，逐句对应原文，不删减不浓缩。"
+    # 第 3 篇宁可留空等下次重试,也不能写入半截译文
+    assert not (articles[2].get("abstract_zh_full") or "").strip()
+    assert not (articles[2].get("title_zh") or "").strip()
+    assert "截断" in log
+
+
+def test_batch_failure_is_logged_and_leaves_fields_intact():
+    # 整批被丢弃时必须留痕,否则只表现为 updated 偏小,与"没有待翻译条目"无法区分。
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract.",
+                 "title_zh": "已有中文标题"}]
+    updated, log = _run_enrich(articles, _BoomProv(RuntimeError("gateway 502")))
+    assert updated == 0
+    assert "⚠️" in log and "跳过" in log
+    assert "gateway 502" in log
+    assert articles[0]["title_zh"] == "已有中文标题"   # 失败不得破坏已有数据
+
+
+def test_unparsable_response_is_logged():
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract."}]
+    updated, log = _run_enrich(articles, _RawProv("抱歉，我无法完成该请求。"))
+    assert updated == 0
+    assert "⚠️" in log
+    assert not (articles[0].get("title_zh") or "").strip()
+
+
+def test_partially_returned_batch_is_logged():
+    # 模型只回了 2 篇里的 1 篇:剩下那篇的字段保持原样,并且要打印出来。
+    payload = json.dumps({"items": [{
+        "index": 1, "title_zh": "中文标题", "abstract_zh": "浓缩摘要",
+        "abstract_zh_full": "完整忠实中文翻译",
+    }]}, ensure_ascii=False)
+    articles = [{"title": f"T{i}", "link": f"http://x/{i}", "abstract": "English abstract."}
+                for i in (1, 2)]
+    updated, log = _run_enrich(articles, _RawProv(payload))
+    assert updated == 1
+    assert "未拿到译文" in log
+    assert not (articles[1].get("title_zh") or "").strip()
+
+
 if __name__ == "__main__":
     for name, fn in sorted(list(globals().items())):
         if name.startswith("test_") and callable(fn):
             fn()
     print("[OK] zh_enricher")
+
+
+def test_truncated_top_level_array_is_detected_as_truncated():
+    """顶层是数组、在最后一条中途被 max_tokens 截断时必须判为截断。
+
+    旧实现从第一个 `{` 开始扫、且一见 depth 归零就返回 True：数组的首个元素正常闭合，
+    于是整段被误判为完整，半截译文被写进 abstract_zh_full，而 _full_needs_translation
+    认它「已翻译」从此永不重试 —— 比整批丢弃更糟。
+    """
+    from zh_enricher import _json_object_is_balanced, _parse_llm_batch
+    text = ('[{"index":1,"abstract_zh_full":"甲"},{"index":2,"abstract_zh_full":"乙"},'
+            '{"index":3,"abstract_zh_full":"第3篇只写到一半')
+    assert _json_object_is_balanced(text) is False
+    _items, truncated = _parse_llm_batch(text)
+    assert truncated is True
+
+
+def test_brace_containing_preamble_before_truncated_json_is_detected():
+    """响应前面有含花括号的客套话时，不能因为那对花括号先闭合就误判为完整。"""
+    from zh_enricher import _json_object_is_balanced
+    text = '好的，我将按 {index} 格式输出：\n{"items":[{"index":1,"abstract_zh_full":"甲"'
+    assert _json_object_is_balanced(text) is False
+
+
+def test_complete_payloads_are_still_accepted():
+    """修复不能把正常响应误判成截断。"""
+    from zh_enricher import _json_object_is_balanced
+    assert _json_object_is_balanced('{"items":[{"index":1,"abstract_zh_full":"甲"}]}') is True
+    assert _json_object_is_balanced('[{"index":1,"abstract_zh_full":"甲"}]') is True
+    # 字符串里的花括号不参与配平
+    assert _json_object_is_balanced('{"a":"含 } 的字符串"}') is True
+    # 客套话在前、JSON 完整
+    assert _json_object_is_balanced('说明：{以上为翻译}\n{"items":[{"index":1,"abstract_zh_full":"甲"}]}') is True

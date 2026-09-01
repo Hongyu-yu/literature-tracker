@@ -38,6 +38,33 @@ def _is_ai4science_relevant(article_dict: dict) -> bool:
     signals = analyze_focus(article_dict)
     return is_daily_focus(article_dict) or signals['ai_science']
 
+
+# relevance_enricher 在整批 API 调用失败 / JSON 解析失败时，会为该批每篇文献
+# 合成一条「本地关键词规则」结论；它和模型的真实判定长得一模一样。
+_FALLBACK_EXPLANATION_MARKERS = (
+    "AI 返回不完整",
+    "未配置 AI_API_KEY",
+)
+
+
+def _is_fallback_explanation(text) -> bool:
+    """这段 ai_explanation 是否来自本地回退（而非模型真实判定）。"""
+    return any(marker in str(text or "") for marker in _FALLBACK_EXPLANATION_MARKERS)
+
+
+def _is_fallback_analysis(analysis) -> bool:
+    """相关性结果是否为回退产物（AI 并未真正给出结论）。
+
+    一次 429/超时/JSON 解析失败会让整批文献拿到本地规则的合成结论；若把它们
+    当作「已分析」写进 deep_history.json，这批文献以后再也不会被 AI 评分。
+    这里保守判定：拿不准就当回退，宁可下次重跑一遍，也不要永久丢弃。
+    """
+    if not isinstance(analysis, dict):
+        return True
+    if str(analysis.get("source") or "").strip().lower() in ("fallback", "local", "heuristic"):
+        return True
+    return _is_fallback_explanation(analysis.get("explanation"))
+
 def _normalize_existing_articles(articles: list[dict]) -> int:
     """In-place normalize historical schema quirks (e.g., arXiv journal naming). Returns number of changed items."""
     changed = 0
@@ -125,7 +152,10 @@ def run_optimized_sync():
             ai_relevant_list = []
     normalize_articles_inplace(ai_relevant_list)
     ai_relevant_list = [item for item in ai_relevant_list if isinstance(item, dict) and _is_ai4science_relevant(item)]
-    existing_relevant_links = {a.get("link") for a in ai_relevant_list if isinstance(a, dict)}
+    existing_relevant_by_link = {
+        a.get("link"): a for a in ai_relevant_list if isinstance(a, dict) and a.get("link")
+    }
+    existing_relevant_links = set(existing_relevant_by_link)
 
     relevance_threshold = int(os.environ.get("AI_RELEVANCE_THRESHOLD", "6"))
     relevance_batch_size = int(os.environ.get("AI_RELEVANCE_BATCH_SIZE", "16"))
@@ -146,8 +176,18 @@ def run_optimized_sync():
                 batch_size=relevance_batch_size,
             )
 
+            fallback_count = 0
+            upgraded_count = 0
+
             for article, analysis in zip(recent_candidates, analyses):
-                processed_ids.add(article.link)
+                is_fallback = _is_fallback_analysis(analysis)
+                if not isinstance(analysis, dict):
+                    analysis = {}
+                if is_fallback:
+                    # AI 没有真正给出结论：不写入已处理集合，留给下次运行重试
+                    fallback_count += 1
+                else:
+                    processed_ids.add(article.link)
 
                 score = int(analysis.get("score", 0) or 0)
                 article_dict = article.to_dict()
@@ -169,10 +209,28 @@ def run_optimized_sync():
                         }
                     )
                     ai_relevant_list.append(item)
+                    existing_relevant_by_link[article.link] = item
                     existing_relevant_links.add(article.link)
+                elif article.link and not is_fallback:
+                    # 此前占位的是回退结论：AI 恢复后用真实结论覆盖（其它字段不动）
+                    prev = existing_relevant_by_link.get(article.link)
+                    if isinstance(prev, dict) and _is_fallback_explanation(prev.get("ai_explanation")):
+                        prev.update(
+                            {
+                                "ai_score": score,
+                                "ai_explanation": analysis.get("explanation"),
+                                "ai_detailed_summary": analysis.get("detailed_summary"),
+                            }
+                        )
+                        upgraded_count += 1
 
                 if score >= notify_score_min:
                     notify_queue.append((score, article, analysis))
+
+            if fallback_count:
+                print(f"⚠️ 相关性分析回退 {fallback_count} 篇 (AI 未返回有效结果)，本次不标记为已处理，下次运行重试")
+            if upgraded_count:
+                print(f"♻️ 已用 AI 真实结论覆盖此前的回退判定: {upgraded_count} 篇")
 
             with open(processed_file, "w", encoding="utf-8") as f:
                 json.dump(sorted(list(processed_ids)), f, ensure_ascii=False, indent=2)
@@ -194,6 +252,7 @@ def run_optimized_sync():
                         }
                     )
                     ai_relevant_list.append(item)
+                    existing_relevant_by_link[article.link] = item
                     existing_relevant_links.add(article.link)
 
     # Persist ai_relevant.json even if empty (stable downstream daily generation)

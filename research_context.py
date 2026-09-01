@@ -67,6 +67,19 @@ TOPIC_PLANS = {
     "structure": {"terms": ("crystal structure prediction", "genetic algorithm", "structure search", "high-throughput", "materials discovery"), "anchor": "晶体结构搜索、高通量筛选和材料信息学", "materials": "新型铁电、磁性、钙钛矿、二维和能源材料候选", "workflow": "用 ML 代理能量和不确定性缩小结构搜索，再对候选做对称性、动力学稳定性、极化/磁序和有限温度筛选，避免只按 0 K 单点能排序"},
 }
 
+# thermo 的 terms 里混了 entropy / free energy / finite temperature 等通用词，
+# 任何提到"有限温度"的铁电或电子结构论文都会命中它。并列时把它排到最后，
+# 避免规则模板把这些论文一律断言成热力学知情 ML / CALPHAD 工作。
+_GENERIC_PLAN_KEYS = ("thermo",)
+
+# 规则模板的通用补充说明：只在字段本来就是空的时候，跟在 build_relation_fields
+# 的文本后面一起写入（此前每次循环都重建一遍这个 dict）。
+_RELATION_DETAILS = {
+    "method_point": "还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。",
+    "related_work": "这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。",
+    "implication": "第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。",
+}
+
 _DEGRADED_SUMMARY_FRAGMENTS = ("摘要信息不足", "需查阅原文确认具体方法与结论")
 
 
@@ -116,7 +129,19 @@ def _domain_topics(text: str) -> List[str]:
 
 
 def _topic_plans(text: str) -> List[Dict[str, str]]:
-    return [plan for plan in TOPIC_PLANS.values() if _matches(text, plan["terms"])]
+    """按命中的关键词个数排序，命中越多的方向越靠前；并列时通用方向(thermo)靠后。
+
+    build_relation_fields 只取第一个方向，此前直接按 TOPIC_PLANS 的字典顺序返回，
+    thermo 排在最前 —— 一篇只是提了一句 "finite temperature" 的铁电论文，也会被
+    模板写成"可归入热力学知情 ML、CALPHAD/团簇展开"。
+    """
+    scored = []
+    for order, (key, plan) in enumerate(TOPIC_PLANS.items()):
+        hits = sum(1 for term in plan["terms"] if term in text)
+        if hits:
+            scored.append((-hits, 1 if key in _GENERIC_PLAN_KEYS else 0, order, plan))
+    scored.sort(key=lambda row: row[:3])
+    return [row[3] for row in scored]
 
 
 def build_relation_fields(item: Dict[str, Any], profile: Dict[str, Any] | None = None) -> Dict[str, str]:
@@ -200,15 +225,13 @@ def ensure_relation_fields(item: Dict[str, Any], profile: Dict[str, Any] | None 
     out = item
     fields = build_relation_fields(out, profile)
     for key, value in fields.items():
-        current = str(out.get(key) or "").strip()
-        minimum = 180
-        if len(current) < minimum:
-            detail = {
-                "method_point": "还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。",
-                "related_work": "这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。",
-                "implication": "第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。",
-            }[key]
-            out[key] = (value + detail).strip()
+        # 只补空字段。此前是 len(current) < 180 就整段替换成关键词模板：AI/深读给出的
+        # 真实三段文本通常只有几十字，等于每篇论文的具体结论都被通用套话顶掉，而且模板
+        # 还会按 TOPIC_PLANS 断言研究方向，可能与论文实际内容相反。
+        # 规则版文本只做兜底，已有内容一律原样保留，短不等于错。
+        if str(out.get(key) or "").strip():
+            continue
+        out[key] = (value + _RELATION_DETAILS[key]).strip()
     title = str(out.get("title_zh") or "").strip()
     if not title:
         en = str(out.get("title_en") or out.get("title") or "").strip()

@@ -138,7 +138,11 @@ def test_daily_html_prefers_full_translation_and_renders_relation():
     })
     assert "完整中文翻译优先" in html
     assert "浓缩摘要" not in html
-    assert "方法上" in html and "关联关系" in html and "对当前研究最具体的启示" in html
+    # 断言条目**自身**的三段文本被原样渲染出来。
+    # 此前这里断言的是 research_context 模板里的「方法上」「对当前研究最具体的启示」——
+    # 那只是因为 fixture 的 method_point/implication 只有 163 字，被旧的「<180 字就替换成
+    # 模板」规则覆盖掉了。那条规则会删掉真实的 AI 分析，已修复；模板文本因此不再出现。
+    assert "方法关系" in html and "关联关系" in html and "启示关系" in html
 
 
 def test_build_core_export_has_category_and_link():
