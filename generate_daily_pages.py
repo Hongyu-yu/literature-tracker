@@ -29,6 +29,64 @@ from link_utils import normalize_link
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile
 
 
+def _resolve_ai() -> Tuple[str, str, Optional[str]]:
+    """解析 AI provider / api_key / model：环境变量 > config.AI_CONFIG > 'aigw'。
+
+    本模块此前完全没读 config.AI_CONFIG，只认环境变量 —— 但 README_CONFIG 让用户把
+    provider/api_key 写进 config.local.py，config.py 会把它合进 AI_CONFIG。结果是
+    「按文档配好了却拿不到 key」：api_key=None → summarizer=None → 每天都走
+    `AI_API_KEY is empty` 异常，日报整段降级。兜底默认也从 'kimi' 改成 config.py
+    自己写的 'aigw'，避免 AI_PROVIDER 为空时把请求发去协议不匹配的 Kimi 客户端。
+
+    config 导入失败不能拖垮日报生成，因此整段 fail-soft，退回纯环境变量。
+    """
+    cfg: Dict = {}
+    try:
+        from config import AI_CONFIG
+        if isinstance(AI_CONFIG, dict):
+            cfg = AI_CONFIG
+    except Exception as exc:
+        print(f"⚠️ 读取 config.AI_CONFIG 失败，仅按环境变量解析 AI 配置: {exc}")
+    provider = (os.environ.get("AI_PROVIDER") or cfg.get("provider") or "aigw").strip() or "aigw"
+    api_key = (
+        os.environ.get("AI_API_KEY")
+        or os.environ.get("KIMI_API_KEY")
+        or os.environ.get("GEMINI_API_KEY")
+        or cfg.get("api_key")
+        or ""
+    ).strip()
+    model = (os.environ.get("AI_MODEL") or cfg.get("model") or "").strip() or None
+    return provider, api_key, model
+
+
+# 富化环节的 AI 调用计数。ensure_highlights / enrich_focus_interest 把批次失败吞掉后
+# 返回 0，光看返回值分不清「没有候选，一次都没调」和「调用发出去了但颗粒无收」。
+_AI_CALL_STATS: Dict[str, int] = {"calls": 0, "errors": 0}
+
+
+def _reset_ai_call_stats() -> None:
+    _AI_CALL_STATS["calls"] = 0
+    _AI_CALL_STATS["errors"] = 0
+
+
+class _CountingProvider:
+    """透明代理：只统计 call_api 实发次数/失败次数，其余属性原样转发。"""
+
+    def __init__(self, inner):
+        self._inner = inner
+
+    def call_api(self, *args, **kwargs):
+        _AI_CALL_STATS["calls"] += 1
+        try:
+            return self._inner.call_api(*args, **kwargs)
+        except Exception:
+            _AI_CALL_STATS["errors"] += 1
+            raise
+
+    def __getattr__(self, name):
+        return getattr(self._inner, name)
+
+
 def _guarantee_daily_highlights(items: List[Dict], max_items: Optional[int] = None) -> int:
     """Best-effort generation-time highlight completion; never breaks a report.
 
@@ -42,15 +100,14 @@ def _guarantee_daily_highlights(items: List[Dict], max_items: Optional[int] = No
         max_items = max(0, int(max_items))
     if not items or max_items <= 0:
         return 0
-    api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
+    provider_name, api_key, model = _resolve_ai()
     if not api_key:
         print("⏭️ 亮点保障跳过：未配置 AI key")
         return 0
     try:
         from ai_summarizer import build_provider
         from highlight_guarantee import ensure_highlights
-        provider = build_provider(os.environ.get("AI_PROVIDER") or "kimi", api_key,
-                                  model=(os.environ.get("AI_MODEL") or "").strip() or None)
+        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
         updated = ensure_highlights(items, provider=provider, max_items=max_items)
         print(f"✨ 亮点保障补全 {updated} 篇")
         return updated
@@ -72,15 +129,14 @@ def _enrich_daily_focus(items: List[Dict], max_items: Optional[int] = None) -> i
         max_items = max(0, int(max_items))
     if not items or max_items <= 0:
         return 0
-    api_key = (os.environ.get("AI_API_KEY") or os.environ.get("KIMI_API_KEY") or os.environ.get("GEMINI_API_KEY") or "").strip()
+    provider_name, api_key, model = _resolve_ai()
     if not api_key:
         print("⏭️ focus 日报富化跳过：未配置 AI key")
         return 0
     try:
         from ai_summarizer import build_provider
         from focus_interest import enrich_focus_interest
-        provider = build_provider(os.environ.get("AI_PROVIDER") or "kimi", api_key,
-                                  model=(os.environ.get("AI_MODEL") or "").strip() or None)
+        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
         updated = enrich_focus_interest(items, provider=provider, max_items=max_items)
         print(f"🎯 focus 日报富化补全 {updated} 篇")
         return updated
@@ -96,7 +152,47 @@ def _new_daily_enrich_budget() -> Dict[str, int]:
             return max(0, int(os.environ.get(name, default)))
         except (TypeError, ValueError):
             return int(default)
-    return {"hl": _cap("AI_HIGHLIGHT_MAX_ITEMS", "60"), "fs": _cap("AI_FOCUS_DAILY_MAX", "60")}
+    return {
+        "hl": _cap("AI_HIGHLIGHT_MAX_ITEMS", "60"), "fs": _cap("AI_FOCUS_DAILY_MAX", "60"),
+        # 连续「发了 AI 调用却一篇都没补上」的天数，用于熔断（见 _charge_enrich_budget）
+        "hl_zero": 0, "fs_zero": 0,
+    }
+
+
+# 连续多少天「调用发出去但颗粒无收」就把该项预算清零(本次运行内)
+_ENRICH_ZERO_YIELD_LIMIT = 2
+
+
+def _charge_enrich_budget(budget: Dict[str, int], key: str, used: int, label: str) -> None:
+    """按【实际发生的 AI 调用】扣预算，而不是只按成功条数扣。
+
+    预算的存在意义是「--days N 不要把 AI 调用放大 N 倍」，但原来只做
+    `budget -= used`：provider 故障时 used 恒为 0(批次失败被 analyze_focus_batch /
+    ensure_highlights 吞掉)，预算一分不扣 —— 恰恰在花钱最冤的场景下完全不设防，
+    --days 14 会把注定失败的调用重复 14 天。
+
+    规则：
+      * calls == 0 → 这次根本没发出 AI 调用(没候选/没画像/没 key)，不计费；
+      * used  > 0  → 正常按成功条数扣，并清零失败连击；
+      * calls > 0 且 used == 0 → 钱花了、一条没补上，记一次失败连击并大声打日志；
+        连续 _ENRICH_ZERO_YIELD_LIMIT 天如此就把该项预算清零(仅影响本次运行剩余
+        日期，下次运行重新开始)，留一天重试的余地以容忍偶发抖动。
+    """
+    calls = int(_AI_CALL_STATS.get("calls", 0))
+    errors = int(_AI_CALL_STATS.get("errors", 0))
+    if used > 0:
+        budget[key] = max(0, int(budget.get(key, 0)) - used)
+        budget[key + "_zero"] = 0
+        return
+    if calls <= 0:
+        return
+    streak = int(budget.get(key + "_zero", 0)) + 1
+    budget[key + "_zero"] = streak
+    print(f"⚠️ {label}：发出 {calls} 次 AI 调用({errors} 次抛错)却补全 0 篇"
+          f"（连续第 {streak} 天）")
+    if streak >= _ENRICH_ZERO_YIELD_LIMIT:
+        budget[key] = 0
+        print(f"🛑 {label}：连续 {streak} 天颗粒无收，本次运行剩余日期不再调用 AI（下次运行自动恢复）")
 
 
 def _apply_daily_enrichment(items: List[Dict], budget: Dict[str, int]) -> None:
@@ -104,11 +200,13 @@ def _apply_daily_enrichment(items: List[Dict], budget: Dict[str, int]) -> None:
     if not items:
         return
     if budget.get("fs", 0) > 0:
+        _reset_ai_call_stats()
         used = _enrich_daily_focus(items, max_items=budget["fs"]) or 0
-        budget["fs"] = max(0, budget["fs"] - used)
+        _charge_enrich_budget(budget, "fs", used, "focus 日报富化")
     if budget.get("hl", 0) > 0:
+        _reset_ai_call_stats()
         used = _guarantee_daily_highlights(items, max_items=budget["hl"]) or 0
-        budget["hl"] = max(0, budget["hl"] - used)
+        _charge_enrich_budget(budget, "hl", used, "亮点保障")
 
 
 def beijing_today() -> str:
@@ -224,64 +322,6 @@ def build_daily_tags(items: List[Dict]) -> List[str]:
     if any(arxiv_badge(item) for item in items):
         tags.append("预印本追踪")
     return tags[:7]
-
-def build_highlight_reason(item: Dict) -> str:
-    reason = str(item.get("reason") or "").strip()
-    if reason:
-        return reason
-
-    ai_score = item.get("ai_score")
-    if ai_score is not None and str(ai_score).strip() != "":
-        return f"AI相关度 {ai_score}"
-
-    arxiv_cat = arxiv_badge(item)
-    if arxiv_cat:
-        return f"arXiv / {arxiv_cat}"
-
-    journal = str(item.get("journal") or "").strip()
-    if journal:
-        return journal
-
-    return "交叉重点"
-
-def collect_focus_highlights(summary: Dict, items: List[Dict], limit: int = 8) -> List[Dict]:
-    selected: List[Dict] = []
-    seen = set()
-
-    def add(item: Dict):
-        if not isinstance(item, dict):
-            return
-        key = (item.get("link") or item.get("title_en") or item.get("title_zh") or "").strip()
-        if not key or key in seen:
-            return
-        selected.append(item)
-        seen.add(key)
-
-    for group_name in ("ml_highlights", "ferro_highlights"):
-        for item in summary.get(group_name, []) or []:
-            add(item)
-            if len(selected) >= limit:
-                return selected[:limit]
-
-    def score_key(item: Dict):
-        try:
-            return float(item.get("ai_score"))
-        except Exception:
-            return -1.0
-
-    ranked = sorted(items, key=score_key, reverse=True)
-    for item in ranked:
-        add(item)
-        if len(selected) >= limit:
-            return selected[:limit]
-
-    for item in items:
-        add(item)
-        if len(selected) >= limit:
-            return selected[:limit]
-
-    return selected[:limit]
-
 
 def group_daily_items(items: List[Dict]) -> List[Dict]:
     groups = {
@@ -1056,20 +1096,10 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
 </html>
 """
 
-def update_index(date_str: str, total: int):
-    index_path = os.path.join('docs/daily', 'summaries.json')
-    data = {"summaries": []}
-    if os.path.exists(index_path):
-        try:
-            with open(index_path, 'r', encoding='utf-8') as f:
-                data = json.load(f)
-        except Exception:
-            data = {"summaries": []}
-    summaries = [s for s in data.get('summaries', []) if s.get('date') != date_str]
-    summaries.insert(0, {"date": date_str, "file": f"{date_str}.html", "total": total})
-    data["summaries"] = summaries[:120]
-    with open(index_path, 'w', encoding='utf-8') as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+# 注意：这里曾有一个无人调用的 update_index()，它写出的 summaries 条目没有 digest 字段。
+# 一旦被重新接线，主循环的 should_skip(依赖 digest) 会永远失效 → 每次运行都全量重跑 AI。
+# 单日更新请走 save_summary_index(merged)，digest 由生成路径统一写入。
+
 
 def load_summary_index() -> Dict:
     index_path = os.path.join("docs/daily", "summaries.json")
@@ -1206,8 +1236,20 @@ def _rss_downgrade_reason(path: str, articles: List[Dict]) -> str:
     return ""
 
 
-def sync_daily_rss_feeds(index_articles: List[Dict], relevant_articles: List[Dict], summaries: List[Dict]) -> int:
+def sync_daily_rss_feeds(index_articles: List[Dict], relevant_articles: List[Dict],
+                         summaries: List[Dict], only_dates=None) -> int:
+    """把 summaries 里的日期同步成 docs/daily/<date>.xml，并刷新 latest.xml。
+
+    only_dates=None（默认，backfill_zh 的全量同步走这条）→ 逐日重算全部日期。
+    only_dates=集合 → 只重算集合里的日期；其余日期若 .xml 已在磁盘上就原样保留。
+    collect_daily_articles 是 analyze_focus 密集型热函数，对 120 天全量重算要 ~7 分钟，
+    而每次 generate 只可能改动 --days 指定的那 1-2 天；其余日期重算出来的结果不是更好，
+    反而可能因为 index.json 只留最近 5000 篇而更差（见 _rss_downgrade_reason）。
+    找不到 .xml 的日期一律照常生成，保证新日期/丢失的 feed 不会被漏掉。
+    """
     changed = 0
+    skipped_unchanged = 0
+    only = set(only_dates) if only_dates is not None else None
     # 降级保护只适用于**历史**日期：它防的是「用只剩 31 天的 index 去重算老 feed，把当时
     # 的中文内容洗掉」。最近几天则相反 —— 新文献刚抓进来还没翻译，中文覆盖率本来就会掉，
     # 这是正常状态；对它们套用保护会让最新 feed 永久冻结（条目数被 max_keep=60 顶住，
@@ -1229,8 +1271,11 @@ def sync_daily_rss_feeds(index_articles: List[Dict], relevant_articles: List[Dic
         day_str = str(entry.get("date") or "").strip()
         if not day_str:
             continue
-        collected = collect_daily_articles(index_articles, relevant_articles, day_str)
         rss_path = daily_rss_path(day_str)
+        if only is not None and day_str not in only and os.path.exists(rss_path):
+            skipped_unchanged += 1
+            continue
+        collected = collect_daily_articles(index_articles, relevant_articles, day_str)
         is_fresh = bool(fresh_cutoff) and day_str >= fresh_cutoff
         reason = "" if is_fresh else _rss_downgrade_reason(rss_path, collected["daily_articles"])
         if reason:
@@ -1239,12 +1284,30 @@ def sync_daily_rss_feeds(index_articles: List[Dict], relevant_articles: List[Dic
         if generate_daily_rss_feed(day_str, collected["daily_articles"], rss_path):
             changed += 1
 
+    if skipped_unchanged:
+        print(f"⏭️ RSS 增量同步：跳过 {skipped_unchanged} 个本次未重算的历史日期（feed 已在磁盘上）")
+    # latest.xml 始终跟着 summaries[0]（整份索引的最新一期），与 only_dates 无关：
+    # 只回填某个老日期时，绝不能把 latest.xml 换成那天的 feed。
     latest_date = str((summaries[0] or {}).get("date") or "").strip() if summaries else ""
     latest_source = daily_rss_path(latest_date) if latest_date else ""
     latest_target = os.path.join("docs/daily", "latest.xml")
     if latest_source and os.path.exists(latest_source):
         shutil.copyfile(latest_source, latest_target)
     return changed
+
+def _nav_sequence_changed(prev_entries: List[Dict], new_entries_list: List[Dict]) -> bool:
+    """summaries.json 的 (date, file) 序列是否变了。
+
+    daily_page_enhancer.build_nav_context 只按列表【位置】取前一天/后一天/最新一期，
+    所以每张归档页的导航只依赖这个序列。序列不变 → 没重新生成的页面导航必然不变，
+    可以只 enhance 本次真正重写过的页面；序列变了（新一期上线 / 回填插入老日期 /
+    120 条窗口挤掉最老一期）→ 全站的“最新一期”或邻居标签会漂移，必须全量重跑。
+    """
+    def seq(entries: List[Dict]):
+        return [(str(e.get("date") or ""), str(e.get("file") or ""))
+                for e in (entries or []) if isinstance(e, dict)][:120]
+    return seq(prev_entries) != seq(new_entries_list)
+
 
 def _load_cached_summary(date_str: str):
     """读 data/daily_summary_<date>.json（正常生成时写入的完整 summary）。缺失/坏 → None。
@@ -1336,15 +1399,13 @@ def main():
 
     new_entries: List[Dict] = []
     
-    # Provider 选择顺序：环境变量 AI_PROVIDER > config.py 默认值 > 'kimi'
-    use_local_kimi = os.environ.get('AI_PROVIDER', '').lower() == 'localkimi'
-    api_key = (
-        os.environ.get('AI_API_KEY')
-        or os.environ.get('KIMI_API_KEY')
-        or os.environ.get('GEMINI_API_KEY')
-    )
-    provider = os.environ.get('AI_PROVIDER') or 'kimi'
-    
+    # Provider 选择顺序：环境变量 AI_PROVIDER > config.AI_CONFIG（含 config.local.py）> 'aigw'
+    # use_local_kimi 必须按【解析后】的 provider 判断：只在 config.local.py 里写
+    # provider="localkimi" 时，若仍只看环境变量就会走 AISummarizer('localkimi', key)，
+    # 而 build_provider 没有 localkimi 分支，会静默退回 Gemini。
+    provider, api_key, _ai_model = _resolve_ai()
+    use_local_kimi = provider.lower() in ('localkimi', 'local-kimi')
+
     if use_local_kimi:
         # 本地模式：不初始化远程API，使用LocalKimiProvider
         print("🤖 使用本地Kimi模式（通过OpenClaw AI助手）")
@@ -1523,12 +1584,24 @@ def main():
     merged.extend(new_entries)
     merged = [e for e in merged if isinstance(e, dict) and e.get("date")]
     merged.sort(key=lambda x: x.get("date") or "", reverse=True)
+    # 导航是否需要全量刷新，必须在覆盖 summaries.json 之前用旧索引判断。
+    nav_seq_unchanged = not _nav_sequence_changed(existing_items, merged[:120])
+
     save_summary_index(merged[:120])
-    rss_changed = sync_daily_rss_feeds(index_articles, relevant_articles, merged[:120])
+    rss_changed = sync_daily_rss_feeds(index_articles, relevant_articles, merged[:120],
+                                       only_dates=updated_dates)
     print(f"📡 Synced daily RSS feeds for {rss_changed} date(s)")
     from daily_page_enhancer import enhance_daily_archive
-    enhanced = enhance_daily_archive("docs/daily/summaries.json")
-    print(f"🧭 Enhanced daily navigation/TOC for {enhanced} page(s)")
+    # files=空集合会被 enhance_daily_archive 当成“未指定”从而全量处理，故单独短路。
+    scoped = {d for d in updated_dates if d} | {f"{d}.html" for d in updated_dates if d}
+    if not nav_seq_unchanged:
+        enhanced = enhance_daily_archive("docs/daily/summaries.json")
+        print(f"🧭 Enhanced daily navigation/TOC for {enhanced} page(s)（索引顺序变化，全量刷新导航）")
+    elif scoped:
+        enhanced = enhance_daily_archive("docs/daily/summaries.json", files=scoped)
+        print(f"🧭 Enhanced daily navigation/TOC for {enhanced} page(s)（索引顺序未变，只处理本次重算日期）")
+    else:
+        print("🧭 索引顺序与本次生成结果均无变化，跳过导航增强")
     if args.send_email:
         try:
             summary = _load_cached_summary(date_str)

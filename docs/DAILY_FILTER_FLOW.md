@@ -41,12 +41,21 @@
 ## 三、相关代码位置
 
 - **RSS 日期解析**：`rss_fetcher.py` → `_parse_date()`（统一为北京时间日历日）。
-- **报告日与逐篇筛选**：`ai_summarizer.py` → `_daily_report_date()`、`_date_part()`、`generate_daily_summary()` 中的 for 循环。
-- **数据源**：`main.py` 中 RSS 与日报均从 `data/index.json` 读取（非 `docs/data/index.json`）。
+- **报告日**：`generate_daily_pages.py` → `beijing_yesterday()`（默认目标日；`--date` 可覆盖）。
+- **按日取件**：`generate_daily_pages.collect_daily_articles()` —— 用 `pub_date.startswith(day_str)`
+  从 `data/index.json` ∪ `data/ai_relevant.json` 里挑当天的文献。
+- **逐篇筛选**：`focus_filter.filter_focus_items()`（硬性排除医学/教育等离题域）
+  → `focus_filter.filter_daily_focus_items()`（按 `focus_priority` 排序并限量 `max_keep=60`）。
+- **AI 摘要**：`ai_summarizer.AISummarizer.generate_daily_summary(articles, date)`。
+- **数据源**：`data/index.json`（非 `docs/data/index.json` —— 后者是部署期产物，已 gitignore）。
+
+> 注：本节此前列的 `ai_summarizer._daily_report_date()` / `_date_part()` 均不存在，
+> `ai_summarizer.py` 也没有 `__main__` 入口；`main.py` 已是不被任何 workflow 调用的历史遗留。
 
 ---
 
 ## 四、排查建议
 
 - 若某天篇数异常少：先看 `pub_date` 是否均为北京时间日历日（rss_fetcher 是否已统一）；再确认 Actions 运行时「北京时间今天」与预期是否一致（可打 `report_date` 日志）。
-- 本地调试：`python ai_summarizer.py 2026-01-30 --verbose` 使用指定日期并逐篇打印筛选结果。
+- 本地调试：`python generate_daily_pages.py --date 2026-01-30 --days 1 --force`
+  （`ai_summarizer.py` 没有命令行入口，旧文档里的那条命令跑不起来）。

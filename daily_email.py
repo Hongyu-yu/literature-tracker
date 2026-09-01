@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 from html import escape
 import json
 import os
+import re
 from typing import Any, Dict, List, Tuple
 from urllib.parse import urlparse
 
@@ -19,6 +20,23 @@ from research_context import pick_summary
 
 DEFAULT_SITE_BASE = "https://hongyu-yu.github.io/literature-tracker"
 
+_DOI_RE = re.compile(r"(10\.\d{4,9}/[^\s\"'<>?#]+)")
+
+# 信息图五要素里可当邮件亮点用的中文字段（按优先级）
+_APS_HIGHLIGHT_KEYS = ("关键结果", "研究问题")
+
+
+def _doi_key(link: Any) -> str:
+    """同一篇论文在不同数据源里链接形态不同：APS 侧只有裸 doi(→ https://doi.org/10.1103/x)，
+    RSS 侧是 http://link.aps.org/doi/10.1103/x，按原串比对永远不相等 → 同一篇会出现两张卡片。
+    含 DOI 的链接一律折算成 doi:<小写 doi> 作为去重键，其余原样返回。
+    规则与 generate_daily_pages._dedup_key 保持一致（那边是页面侧的同一份去重）。"""
+    s = str(link or "").strip()
+    if not s:
+        return ""
+    m = _DOI_RE.search(s)
+    return f"doi:{m.group(1).rstrip('/.').lower()}" if m else s
+
 
 def _safe_url(value: Any) -> str:
     url = str(value or "").strip()
@@ -31,7 +49,9 @@ def _safe_url(value: Any) -> str:
 def _items(summary: Dict[str, Any]) -> List[Dict[str, Any]]:
     raw = summary.get("daily_articles") or summary.get("full_list") or summary.get("summaries") or []
     items = [item for item in raw if isinstance(item, dict)]
-    return sorted(items, key=lambda item: (priority_tier(item), focus_priority(item)))
+    # 与页面 build_unified_items 同一把排序尺子：_tier=0 是 APS 全文精读（未标记的普通条目按 2 处理，
+    # 该键对它们恒定 → 原有顺序不变）。仅靠 append/prepend 是没用的，sorted 会把顺序重排掉。
+    return sorted(items, key=lambda item: (priority_tier(item), item.get("_tier", 2), focus_priority(item)))
 
 
 def _image_url(item: Dict[str, Any], site_base: str) -> str:
@@ -91,6 +111,73 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
     return subject, html
 
 
+def _aps_highlight(poster: Dict[str, Any]) -> str:
+    """APS 记录没有 one_sentence_summary/abstract_zh，pick_summary 只能退回英文 abstract，
+    而 APS 的 abstract 以 'Author(s): …' 作者串开头，截断后基本只剩人名。
+    信息图五要素里已经有现成的中文结论，直接拿来当亮点。"""
+    elements = poster.get("elements") if isinstance(poster.get("elements"), dict) else {}
+    for key in _APS_HIGHLIGHT_KEYS:
+        text = " ".join(str(elements.get(key) or "").split())
+        if text:
+            return text if len(text) <= 160 else text[:160].rstrip() + "…"
+    return ""
+
+
+def _merge_aps_items(items: List[Dict[str, Any]], day_str: str) -> List[Dict[str, Any]]:
+    """把 data/aps_<date>.json 的 APS 全文精读并进邮件条目——即页面 build_unified_items 里的 tier0。
+    这些是当天分析最深、几乎唯一带信息图的论文，但它们不在 sidecar 的 full_list 里，
+    此前邮件一篇都看不到，连标题栏的「共 N 篇」都少算。
+    文件缺失/损坏 → 原样返回，邮件照发（只发常规列表）。"""
+    path = os.path.join("data", f"aps_{day_str}.json")
+    if not os.path.exists(path):
+        return items
+    try:
+        with open(path, encoding="utf-8") as f:
+            records = json.load(f)
+        if not isinstance(records, list):
+            raise ValueError(f"期望 list，实际是 {type(records).__name__}")
+    except Exception as exc:
+        print(f"⚠️ APS 精读并入邮件失败({path})，本次只发常规列表: {exc}")
+        return items
+    indexed: Dict[str, Dict[str, Any]] = {}
+    for item in items:
+        key = _doi_key(item.get("link"))
+        if key:
+            indexed.setdefault(key, item)
+    added: List[Dict[str, Any]] = []
+    for record in records:
+        if not isinstance(record, dict):
+            continue
+        poster = record.get("poster") if isinstance(record.get("poster"), dict) else {}
+        image = record.get("image") or poster.get("image")
+        if not (record.get("deep_analysis") or image):
+            continue  # 无富化 → 跳过（与页面一致；APS 不在 full_list，不会丢可展示内容）
+        link = normalize_link(str(record.get("link") or record.get("doi") or "").strip())
+        key = _doi_key(link)
+        target = indexed.get(key) if key else None
+        if target is None:
+            # RSS 侧没有这一篇：整条并入，标题/摘要/海报都取自 APS 记录
+            target = dict(record)
+            target["link"] = link
+            added.append(target)
+            if key:
+                indexed[key] = target
+        target["_tier"] = 0
+        # 下面一律只补空缺，绝不覆盖 full_list 里已经富化好的中文内容
+        if image and not target.get("image"):
+            target["image"] = image
+        if poster.get("title_zh") and not target.get("title_zh"):
+            target["title_zh"] = poster["title_zh"]
+        if not any(str(target.get(k) or "").strip()
+                   for k in ("one_sentence_summary", "abstract_zh", "abstract_zh_full")):
+            highlight = _aps_highlight(poster)
+            if highlight:
+                target["one_sentence_summary"] = highlight
+    if added:
+        print(f"📖 APS 全文精读并入日报邮件: {len(added)} 篇")
+    return added + items
+
+
 def _with_enrichment(summary: Dict[str, Any], day_str: str) -> Dict[str, Any]:
     copied = dict(summary or {})
     key = "daily_articles" if copied.get("daily_articles") else "full_list" if copied.get("full_list") else "summaries"
@@ -109,7 +196,7 @@ def _with_enrichment(summary: Dict[str, Any], day_str: str) -> Dict[str, Any]:
                 item["image"] = image
     except Exception:
         pass
-    copied[key] = items
+    copied[key] = _merge_aps_items(items, day_str)
     return copied
 
 

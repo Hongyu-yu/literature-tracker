@@ -63,10 +63,17 @@ git push -u origin main
 ### 步骤2: 配置GitHub Pages
 1. 进入GitHub仓库页面
 2. 点击 `Settings` → `Pages`
-3. 在 `Source` 下选择分支: `main`
-4. 在 `Folder` 下选择: `/docs`
-5. 点击 `Save`
-6. 等待几分钟，访问: `https://YOUR_USERNAME.github.io/literature-tracker/`
+3. 在 `Source` 下选择: **`GitHub Actions`**（不要选 "Deploy from a branch"）
+4. 点击 `Save`
+5. 等待几分钟，访问: `https://YOUR_USERNAME.github.io/literature-tracker/`
+
+> ⚠️ 必须选 `GitHub Actions`。本仓库的三个部署 job（`fetch.yml`、`weekly-summary.yml`、
+> `deploy-on-push.yml`）都走 `actions/configure-pages` + `upload-pages-artifact` +
+> `deploy-pages`，那条链路要求 Source = GitHub Actions。
+>
+> 若按旧文档选 "Deploy from a branch → main /docs"，站点会**缺数据**：`docs/data/` 是
+> 部署期由 job 从 `data/` 复制出来的产物，并未入库（见 `.gitignore`），分支部署拿不到它，
+> 首页会一直显示「最后更新: -」「共 0 篇文献」。
 
 ### 步骤3: 配置自定义域名（可选）
 1. 在 `Custom domain` 输入你的域名
@@ -322,11 +329,12 @@ const urlsToCache = [
 如果使用自动数据更新，配置定时任务：
 
 ```bash
-# 编辑crontab
-crontab -e
+# ⚠️ 已过时：本项目的定时任务由 GitHub Actions 承担，不需要本地 crontab。
+# 抓取与日报: .github/workflows/fetch.yml   (cron: 0 0,12 * * *)
+# 深读与发信: .github/workflows/generate-deep.yml (cron: 30 6 * * *)
+# 周报:       .github/workflows/weekly-summary.yml (cron: 0 1 * * 0)
+# 另注意 main.py 已是历史遗留，不被任何 workflow 调用。
 
-# 添加每天凌晨2点更新
-0 2 * * * cd /path/to/literature-tracker && python main.py
 ```
 
 ---

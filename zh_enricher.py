@@ -202,6 +202,7 @@ def enrich_articles_zh(
             if missing:
                 print(f"⚠️ 中文富化批次 {batch_no}: {len(missing)}/{len(batch)} 篇未拿到译文,字段保持原样,留待后续运行重试")
 
+            no_write = 0
             for i, a in enumerate(batch, 1):
                 item = mapping.get(i)
                 if not item:
@@ -209,17 +210,31 @@ def enrich_articles_zh(
                 title_zh = normalize_text((item.get("title_zh") or "").strip())
                 abstract_zh = normalize_text((item.get("abstract_zh") or "").strip())
                 abstract_zh_full = normalize_text((item.get("abstract_zh_full") or "").strip())
+                # updated 只统计**真正写入**的条目:三处写入都有守卫(已有好内容不覆盖),
+                # 若照旧按"模型回了非空字符串"计数,典型场景 —— 文章已有 title_zh/abstract_zh、
+                # 只缺 abstract_zh_full,而模型恰好漏掉最长的 abstract_zh_full(被 max_tokens 截掉)
+                # —— 每轮都报 updated=N 却一字未改,日志看起来在推进,实则永远不收敛。
+                changed = False
                 if title_zh:
                     if not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
                         a["title_zh"] = title_zh
+                        changed = True
                 if abstract_zh:
                     if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
                         a["abstract_zh"] = abstract_zh
+                        changed = True
                 if abstract_zh_full:
                     if _full_needs_translation(a):
                         a["abstract_zh_full"] = abstract_zh_full
-                if title_zh or abstract_zh or abstract_zh_full:
+                        changed = True
+                if changed:
                     updated += 1
+                else:
+                    no_write += 1
+
+            if no_write:
+                print(f"⚠️ 中文富化批次 {batch_no}: {no_write}/{len(batch)} 篇拿到的译文未落盘"
+                      f"(模型漏字段或字段已有内容),本批无进展,留待后续运行重试")
 
             if on_progress:
                 try:
@@ -237,16 +252,31 @@ def enrich_articles_zh(
         return 0
 
     for a in candidates:
+        # 同上:只统计真正写入的条目。另外译文为空时不写(translate_text 对空输入返回 ""),
+        # 免得把空串盖到已有字段上 —— 留空等下次重试,不制造"看似已翻译"的假象。
+        changed = False
         try:
             if not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
-                a["title_zh"] = normalize_text(translate_text(a.get("title") or ""))
+                title_zh = normalize_text(translate_text(a.get("title") or ""))
+                if title_zh:
+                    a["title_zh"] = title_zh
+                    changed = True
             if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
-                a["abstract_zh"] = normalize_text(translate_text((a.get("abstract") or "")[:2000]))
+                abstract_zh = normalize_text(translate_text((a.get("abstract") or "")[:2000]))
+                if abstract_zh:
+                    a["abstract_zh"] = abstract_zh
+                    changed = True
             if _full_needs_translation(a):
-                a["abstract_zh_full"] = normalize_text(translate_text(a.get("abstract") or ""))
-            updated += 1
+                abstract_zh_full = normalize_text(translate_text(a.get("abstract") or ""))
+                if abstract_zh_full:
+                    a["abstract_zh_full"] = abstract_zh_full
+                    changed = True
         except Exception:
-            continue
+            # 单条翻译失败不影响其余条目(translator 自身已打印 ⚠️ 翻译失败);
+            # 本条已写入的字段保留并计入 updated,其余字段留空等下次运行重试
+            pass
+        if changed:
+            updated += 1
 
     return updated
 

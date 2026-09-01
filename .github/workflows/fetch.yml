@@ -121,9 +121,16 @@ jobs:
       - name: 准备docs数据(docs/data 不入库,部署期从 data/ 复制)
         run: |
           mkdir -p docs/data
-          if [ -d "data" ]; then
-            cp -r data/* docs/data/
-          fi
+          # 只复制站点真正会请求的文件。docs/*.js/*.html 全量 grep 只出现 data/index.json，
+          # sw.js 里的 /data/ 只是运行时缓存规则、不是预缓存清单。
+          # 此前 `cp -r data/*` 把整份 data/(123MB：ai_relevant 36M、history 21M、
+          # deep_history 5.5M、zotero.bib 4.7M……)塞进 Pages artifact，拖慢每次部署，
+          # 也在往 Pages 的 1GB 上限上顶。
+          for f in index.json; do
+            if [ -f "data/$f" ]; then
+              cp "data/$f" "docs/data/$f"
+            fi
+          done
       - name: 设置Pages
         uses: actions/configure-pages@v4
       - name: 上传artifact

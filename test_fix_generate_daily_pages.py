@@ -5,6 +5,13 @@
 1) build_unified_items 的去重键必须能把 APS 侧的裸 DOI 和索引侧的 link.aps.org 链接
    认成同一篇（否则同一篇论文在日报页里出现两次）；去重时不能把重复条目上的中文字段丢掉。
 2) sync_daily_rss_feeds 不能用"重算出来的、缺中文的"文章集去覆盖磁盘上更完整的历史 feed。
+3) sync_daily_rss_feeds 只重算 only_dates 指定的日期（其余日期已有 .xml 就原样保留），
+   latest.xml 仍必须跟着 summaries[0]。
+4) 归档页导航只在 summaries.json 的 (date, file) 序列变化时才需要全量刷新。
+5) 富化预算要按【实际发出的 AI 调用】计费：provider 故障时返回 0 也得扣，
+   否则 --days N 会把注定失败的调用重复 N 天。
+6) _resolve_ai 必须读 config.AI_CONFIG（config.local.py 的配置由它带进来）。
+7) 无人调用、会把 summaries 条目的 digest 写丢的 update_index 已删除。
 
 run_tests.py 只跑模块级、无必填参数的 test_*，故全部写成 def test_xxx()。
 """
@@ -197,13 +204,20 @@ def test_sync_daily_rss_feeds_still_writes_new_and_improved_feeds():
             first = g.sync_daily_rss_feeds([], [], [{"date": "2026-06-15"}])
             with open(path, encoding="utf-8") as f:
                 written = f.read()
-            # 同样的一批数据再跑一次（覆盖率相等）→ 仍然允许改写
+            # 同样的一批数据再跑一次：内容没变就不该重写。
+            # 这条断言原本写的是 second == 1（沿用旧行为）；后来 generate_rss_feed 加了
+            # 「内容未变化则跳过写入」的短路，正是为了消掉每轮 120 个只有时间戳不同的
+            # 文件改动。所以现在的正确期望是 0，而且文件内容必须原样还在。
             second = g.sync_daily_rss_feeds([], [], [{"date": "2026-06-15"}])
+            with open(path, encoding="utf-8") as f:
+                after_second = f.read()
         latest = os.path.exists(os.path.join("docs/daily", "latest.xml"))
-        return first, second, written, latest
+        return first, second, written, latest, after_second
 
-    first, second, written, latest = _with_tmp_docs(run)
-    assert first == 1 and second == 1
+    first, second, written, latest, after_second = _with_tmp_docs(run)
+    assert first == 1, "首次必须写出 feed"
+    assert second == 0, "内容未变化时不应重写（否则每轮产生 120 个时间戳伪改动）"
+    assert after_second == written, "跳过写入后文件内容必须保持不变"
     assert "优化控制协议" in written and "第三篇" in written
     assert latest
 
@@ -220,6 +234,203 @@ def test_rss_downgrade_reason_no_baseline_writes():
         return True
 
     assert _with_tmp_docs(run)
+
+
+# --------------------------------------------------------------------------
+# 3. sync_daily_rss_feeds 增量：只重算本次真正生成过的日期
+# --------------------------------------------------------------------------
+
+def test_sync_daily_rss_feeds_only_recomputes_requested_dates():
+    """collect_daily_articles 是 analyze_focus 密集型热函数，对 120 天全量重算 ~7 分钟，
+    但每次 generate 只可能改动 --days 指定的那 1-2 天。传入 only_dates 后：
+      * only_dates 里的日期照常重算；
+      * 已有 .xml 且不在 only_dates 里的历史日期跳过（不再无谓重算+改写）；
+      * 缺 .xml 的日期无论如何都要补生成（不能让某天永远没有 feed）。"""
+    def run(tmp):
+        # 2026-06-14 已经有 feed 了 → 本次不重算它
+        with open(os.path.join("docs/daily", "2026-06-14.xml"), "w", encoding="utf-8") as f:
+            f.write(_RICH_FEED)
+        seen = []
+
+        def fake_collect(idx, rel, day_str):
+            seen.append(day_str)
+            return {"daily_articles": [{
+                "title": "Paper", "title_zh": "论文", "abstract_zh": "中文摘要",
+                "link": f"https://arxiv.org/abs/{day_str}", "journal": "arXiv",
+                "pub_date": day_str,
+            }]}
+
+        summaries = [{"date": "2026-06-16"}, {"date": "2026-06-15"}, {"date": "2026-06-14"}]
+        with mock.patch.object(g, "collect_daily_articles", side_effect=fake_collect):
+            g.sync_daily_rss_feeds([], [], summaries, only_dates={"2026-06-16"})
+        latest = os.path.join("docs/daily", "latest.xml")
+        head = os.path.join("docs/daily", "2026-06-16.xml")
+        same_as_head = (os.path.exists(latest) and os.path.exists(head)
+                        and open(latest, encoding="utf-8").read()
+                        == open(head, encoding="utf-8").read())
+        return seen, same_as_head
+
+    seen, latest_is_head = _with_tmp_docs(run)
+    assert "2026-06-16" in seen, seen                 # 本次重算的日期
+    assert "2026-06-15" in seen, seen                 # 缺 .xml → 必须补生成
+    assert "2026-06-14" not in seen, seen             # 已有 .xml 且未重算 → 跳过
+    assert latest_is_head, "latest.xml 必须仍然是 summaries[0] 的那份"
+
+
+def test_sync_daily_rss_feeds_without_only_dates_still_full_sync():
+    """默认 only_dates=None（backfill_zh 的全量同步走这条）行为不变：逐日全部重算。"""
+    def run(tmp):
+        for day in ("2026-06-16", "2026-06-15", "2026-06-14"):
+            with open(os.path.join("docs/daily", f"{day}.xml"), "w", encoding="utf-8") as f:
+                f.write(_RICH_FEED)
+        seen = []
+
+        def fake_collect(idx, rel, day_str):
+            seen.append(day_str)
+            return {"daily_articles": []}
+
+        summaries = [{"date": d} for d in ("2026-06-16", "2026-06-15", "2026-06-14")]
+        with mock.patch.object(g, "collect_daily_articles", side_effect=fake_collect):
+            g.sync_daily_rss_feeds([], [], summaries)
+        return seen
+
+    seen = _with_tmp_docs(run)
+    assert sorted(seen) == ["2026-06-14", "2026-06-15", "2026-06-16"], seen
+
+
+# --------------------------------------------------------------------------
+# 4. 导航全量刷新的判定
+# --------------------------------------------------------------------------
+
+def test_nav_sequence_changed_gates_full_enhance():
+    """归档页导航（前一天/后一天/最新一期）只依赖 summaries.json 的位置序列。
+    序列不变 → 可以只 enhance 本次重写的页面；序列一变（新一期上线 / 回填插入
+    中间日期 / 窗口挤掉最老一期）→ 必须全量刷新，否则别的页面会指向过时的“最新一期”。"""
+    base = [{"date": "2026-06-16", "file": "2026-06-16.html"},
+            {"date": "2026-06-14", "file": "2026-06-14.html"}]
+    assert g._nav_sequence_changed(base, [dict(e) for e in base]) is False
+    rolled = [{"date": "2026-06-17", "file": "2026-06-17.html"}] + base
+    assert g._nav_sequence_changed(base, rolled) is True, "新一期上线必须全量刷新"
+    inserted = [base[0], {"date": "2026-06-15", "file": "2026-06-15.html"}, base[1]]
+    assert g._nav_sequence_changed(base, inserted) is True, "回填中间日期必须全量刷新"
+    dropped = base[:1]
+    assert g._nav_sequence_changed(base, dropped) is True, "掉出窗口必须全量刷新"
+    assert g._nav_sequence_changed([], []) is False
+
+
+# --------------------------------------------------------------------------
+# 5. 富化预算按“实际发出的 AI 调用”计费
+# --------------------------------------------------------------------------
+
+def test_enrich_budget_charges_ai_calls_that_yielded_nothing():
+    """enrich_focus_interest / ensure_highlights 把批次失败吞掉后返回 0。
+    旧实现 `budget -= used` → provider 故障时预算一分不扣，--days 14 会把注定失败的
+    调用重复 14 天（正是这个预算本来要防的放大）。现在按实际 call_api 次数计费。"""
+    calls = {"n": 0}
+
+    def fake_fs(items, max_items=None):
+        calls["n"] += 1
+        g._AI_CALL_STATS["calls"] += 3      # 三个批次都真的发出去了
+        g._AI_CALL_STATS["errors"] += 3     # 三个批次全失败，被下游吞掉
+        return 0                            # → 返回 0 篇
+
+    budget = {"fs": 60, "hl": 0, "fs_zero": 0, "hl_zero": 0}
+    with mock.patch.object(g, "_enrich_daily_focus", side_effect=fake_fs), \
+         mock.patch.object(g, "_guarantee_daily_highlights", return_value=0):
+        for _ in range(5):
+            g._apply_daily_enrichment([{"title": "t"}], budget)
+    assert budget["fs"] == 0, budget
+    assert calls["n"] == g._ENRICH_ZERO_YIELD_LIMIT, (
+        f"AI 连续颗粒无收后应停手，实际又调了 {calls['n']} 天")
+
+
+def test_enrich_budget_not_charged_when_no_ai_call_happened():
+    """“今天没有候选”与“调用失败”必须区分开：一次 AI 都没发出去时不能扣预算，
+    否则前两天恰好没候选就会把整次运行的富化额度烧光。"""
+    def fake_fs(items, max_items=None):
+        return 0                            # 没候选，_AI_CALL_STATS 保持 0
+
+    budget = {"fs": 60, "hl": 0, "fs_zero": 0, "hl_zero": 0}
+    with mock.patch.object(g, "_enrich_daily_focus", side_effect=fake_fs), \
+         mock.patch.object(g, "_guarantee_daily_highlights", return_value=0):
+        for _ in range(4):
+            g._apply_daily_enrichment([{"title": "t"}], budget)
+    assert budget["fs"] == 60, budget
+    assert budget["fs_zero"] == 0, budget
+
+
+def test_enrich_budget_success_path_unchanged():
+    """成功路径不变：按成功条数扣，扣光即止（原 test_daily_enrichment_respects_global_budget
+    的等价断言，确保这次改动没动成功路径）。"""
+    seen = {"fs": 0}
+
+    def fake_fs(items, max_items=None):
+        n = min(len(items), max_items or 0)
+        seen["fs"] += n
+        return n
+
+    budget = {"fs": 5, "hl": 0, "fs_zero": 0, "hl_zero": 0}
+    with mock.patch.object(g, "_enrich_daily_focus", side_effect=fake_fs), \
+         mock.patch.object(g, "_guarantee_daily_highlights", return_value=0):
+        for _ in range(3):
+            g._apply_daily_enrichment([{"title": "t"}] * 4, budget)
+    assert seen["fs"] == 5, seen
+    assert budget["fs"] == 0
+
+
+# --------------------------------------------------------------------------
+# 6. AI 配置解析读 config.AI_CONFIG
+# --------------------------------------------------------------------------
+
+def test_resolve_ai_falls_back_to_config_ai_config():
+    """README_CONFIG 让用户把 provider/api_key 写进 config.local.py（config.py 会合进
+    AI_CONFIG），但本模块此前只认环境变量 → api_key=None → summarizer=None →
+    每天都是“日报生成失败”。"""
+    import config
+
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("AI_PROVIDER", "AI_API_KEY", "KIMI_API_KEY", "GEMINI_API_KEY", "AI_MODEL")}
+    with mock.patch.dict(os.environ, env, clear=True), \
+         mock.patch.dict(config.AI_CONFIG,
+                         {"provider": "aigw", "api_key": "sk-from-config", "model": "gpt-5.5"}):
+        provider, api_key, model = g._resolve_ai()
+    assert (provider, api_key, model) == ("aigw", "sk-from-config", "gpt-5.5")
+
+    # 环境变量优先级仍在最前
+    with mock.patch.dict(os.environ, dict(env, AI_PROVIDER="kimi", AI_API_KEY="sk-env"), clear=True), \
+         mock.patch.dict(config.AI_CONFIG, {"provider": "aigw", "api_key": "sk-from-config"}):
+        provider, api_key, _ = g._resolve_ai()
+    assert (provider, api_key) == ("kimi", "sk-env")
+
+
+def test_resolve_ai_survives_broken_config():
+    """config 导入失败也不能拖垮日报：退回纯环境变量。"""
+    import builtins
+    real_import = builtins.__import__
+
+    def boom(name, *a, **kw):
+        if name == "config":
+            raise ImportError("boom")
+        return real_import(name, *a, **kw)
+
+    env = {k: v for k, v in os.environ.items()
+           if k not in ("AI_PROVIDER", "AI_API_KEY", "KIMI_API_KEY", "GEMINI_API_KEY", "AI_MODEL")}
+    with mock.patch.dict(os.environ, dict(env, AI_API_KEY="sk-env"), clear=True), \
+         mock.patch.object(builtins, "__import__", side_effect=boom):
+        provider, api_key, model = g._resolve_ai()
+    assert api_key == "sk-env" and provider == "aigw" and model is None
+
+
+# --------------------------------------------------------------------------
+# 7. 死代码删除（update_index 会把 summaries 条目的 digest 写丢）
+# --------------------------------------------------------------------------
+
+def test_digest_dropping_update_index_is_gone():
+    """update_index 写出的条目没有 digest；一旦被重新接线，主循环的 should_skip 会
+    永远失效 → 每次运行都全量重跑 AI。单日更新应走 save_summary_index。"""
+    for name in ("update_index", "collect_focus_highlights", "build_highlight_reason"):
+        assert not hasattr(g, name), f"{name} 是死代码，不应重新出现"
+    assert hasattr(g, "save_summary_index")
 
 
 if __name__ == "__main__":

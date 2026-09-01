@@ -140,10 +140,13 @@ def test_pages_upload_jobs_prepare_docs_data():
             uploads = [i for i, s in enumerate(steps) if "upload-pages-artifact" in str(s.get("uses") or "")]
             if not uploads:
                 continue
-            prep = [i for i, s in enumerate(steps) if "cp -r data/* docs/data/" in (s.get("run") or "")]
+            # 只要求把站点真正 fetch 的 index.json 备好；不再绑定 `cp -r data/*`
+            # ——整份 data/ 有 123MB，全塞进 artifact 既慢又顶 Pages 的 1GB 上限。
+            prep = [i for i, s in enumerate(steps)
+                    if "docs/data" in (s.get("run") or "") and "index.json" in (s.get("run") or "")]
             if not prep or min(prep) > min(uploads):
                 bad.append(f"{os.path.basename(path)}:{job_name}")
-    assert not bad, f"Pages 上传前必须从 data/ 复制 docs/data: {bad}"
+    assert not bad, f"Pages 上传前必须把 data/index.json 备到 docs/data: {bad}"
 
 
 def test_every_job_has_timeout():

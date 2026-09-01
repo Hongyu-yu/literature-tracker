@@ -24,6 +24,9 @@ def generate_image_b64(prompt, api_key=None, base=None, timeout=None, retries=No
     - IMAGE_TIMEOUT_SECONDS：读超时，默认回退 AI_TIMEOUT_SECONDS，再回退 300
     - IMAGE_MAX_RETRIES：失败重试次数（初试之外），默认 2
     - IMAGE_RETRY_BACKOFF_SECONDS：重试退避基数（第 n 次等 backoff*n 秒），默认 5
+    - IMAGE_ACCEPT_PARTIAL：=1 时，重试用尽仍只有中间帧就退而求其次收下它；默认 0，
+      即宁可这轮没图（image 为空的条目下一轮 backfill_posters 会重生成），也不把半成品
+      糊图永久钉进 image 字段——一旦写进去就再没人回头补了。
     """
     api_key = api_key or os.environ.get("IMAGE_API_KEY") or os.environ.get("AI_API_KEY")
     base = base or os.environ.get("IMAGE_API_BASE") or os.environ.get("AI_BASE_URL")
@@ -40,11 +43,15 @@ def generate_image_b64(prompt, api_key=None, base=None, timeout=None, retries=No
                "stream": True}
     headers = {"Authorization": f"Bearer {api_key}", "Content-Type": "application/json"}
     attempts = max(1, retries + 1)
+    accept_partial = str(os.environ.get("IMAGE_ACCEPT_PARTIAL", "")).strip().lower() \
+        in ("1", "true", "yes", "on")
+    best_partial_b64 = None      # 跨尝试记住见过的最后一帧中间图，仅 accept_partial 时兜底
     for attempt in range(1, attempts + 1):
+        # 成品图与中间帧分开存：中间帧永远不能盖掉已经拿到的成品图
+        final_b64, partial_b64, partial_idx, stream_ok = None, None, None, False
         try:
             with requests.post(url, headers=headers, json=payload, stream=True, timeout=timeout) as r:
                 r.raise_for_status()
-                result_b64 = None
                 for raw in r.iter_lines(decode_unicode=True):
                     if not raw or not raw.startswith("data:"):
                         continue
@@ -56,17 +63,32 @@ def generate_image_b64(prompt, api_key=None, base=None, timeout=None, retries=No
                     if ev.get("type") == "response.output_item.done":
                         item = ev.get("item", {})
                         if item.get("type") == "image_generation_call" and item.get("result"):
-                            result_b64 = item["result"]
+                            final_b64 = item["result"]
                     elif ev.get("type") == "response.image_generation_call.partial_image":
-                        if ev.get("partial_image_b64") and not result_b64:
-                            result_b64 = ev["partial_image_b64"]
-            if result_b64:
-                return result_b64
-            print(f"⚠️ image generation empty (attempt={attempt}/{attempts})")
+                        # 中间帧按到达顺序越来越清晰：留最后一帧（旧代码锁死第一帧＝最糊的那张）
+                        if ev.get("partial_image_b64"):
+                            partial_b64 = ev["partial_image_b64"]
+                            partial_idx = ev.get("partial_image_index")
+            stream_ok = True
         except Exception as e:
             print(f"⚠️ image generation failed (attempt={attempt}/{attempts}): {e}")
+        if final_b64:
+            # 成品图已到手就收下——哪怕流在这之后才断，也别白扔一张已经生成好的图
+            return final_b64
+        if partial_b64:
+            # 只有中间帧＝流被截断，按失败处理去重试；半成品图不能当成功返回，否则它会被写进
+            # image 字段，run_deep（有 poster 即复用）和 backfill_posters（有 image 即跳过）
+            # 从此都当这条已完成，糊图永远留在每日页上。
+            best_partial_b64 = partial_b64
+            print(f"⚠️ image stream truncated: only a partial frame "
+                  f"(partial_image_index={partial_idx}) (attempt={attempt}/{attempts})")
+        elif stream_ok:
+            print(f"⚠️ image generation empty (attempt={attempt}/{attempts})")
         if attempt < attempts and backoff > 0:
             time.sleep(backoff * attempt)
+    if best_partial_b64 and accept_partial:
+        print("⚠️ still only a partial image after retries, accepting it (IMAGE_ACCEPT_PARTIAL=1)")
+        return best_partial_b64
     return None
 
 def compress_to_webp(png_bytes, out_path, max_edge=768, quality=80):

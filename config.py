@@ -155,6 +155,29 @@ def _load_local_config() -> dict:
 _LOCAL_CONFIG = _load_local_config()
 
 
+def _export_local_scalars(local: dict) -> None:
+    """把 config.local.py 里的大写标量键提升成环境变量。
+
+    config.py 只读取 EMAIL_CONFIG / WECHAT_CONFIG / AI_CONFIG 三个字典，
+    而 config.local.py.example 还教用户写 APS_HTTP_BASE/USER/PASS、AI_PROVIDER、
+    AI_MODEL、AI_BASE_URL、AI_API_KEY 这些**标量**——它们此前没有任何读取方，
+    照着文档配完却毫无效果。这些值在 CI 里本来就是走环境变量的，这里补上同一条通路。
+
+    用 setdefault：真实环境变量（CI 的 Secrets）永远优先，本地文件只作缺省兜底。
+    """
+    for key, value in (local or {}).items():
+        if not key.isupper() or not isinstance(value, (str, int, float)):
+            continue
+        text = str(value).strip()
+        # example 文件里的占位符不要污染环境
+        if not text or text.startswith("<") or text.startswith("YOUR_"):
+            continue
+        os.environ.setdefault(key, text)
+
+
+_export_local_scalars(_LOCAL_CONFIG)
+
+
 def _parse_recipients(raw, default: list) -> list:
     """把 "a@x.com, b@y.com; c@z.com" 解析成去重保序的地址列表。"""
     if isinstance(raw, (list, tuple, set)):
@@ -213,7 +236,10 @@ AI_CONFIG = {
     # provider 可选: aigw（默认，OpenAI-compatible gateway）、kimi、gemini、openrouter
     # Fallback / 回退 Kimi 配置: 将下行改为 "kimi" 即可切回
     # "provider": _local_ai_config.get("provider") or os.environ.get("AI_PROVIDER", "kimi"),
-    "provider": _local_ai_config.get("provider") or os.environ.get("AI_PROVIDER", "aigw"),
+    # 注意用 `or` 而不是 os.environ.get(key, default)：GitHub 对**已声明但为空**的
+    # secret 会注入空字符串，此时 key 是存在的，get 的默认值根本不会生效，
+    # provider 会变成 ""，build_provider 于是走到完全不同的客户端上。
+    "provider": _local_ai_config.get("provider") or (os.environ.get("AI_PROVIDER") or "").strip() or "aigw",
     # API key：优先 AI_API_KEY，其次 KIMI_API_KEY，再其次 GEMINI_API_KEY（运行时注入，不可硬编码）
     "api_key": (
         _local_ai_config.get("api_key")
@@ -225,10 +251,13 @@ AI_CONFIG = {
     # model：aigw 默认 gpt-5.5
     # Fallback / 回退 Kimi 配置: "kimi-k2-turbo-preview"
     # "model": _local_ai_config.get("model") or os.environ.get("AI_MODEL", "kimi-k2-turbo-preview"),
-    "model": _local_ai_config.get("model") or os.environ.get("AI_MODEL", "gpt-5.5"),
+    "model": _local_ai_config.get("model") or (os.environ.get("AI_MODEL") or "").strip() or "gpt-5.5",
     # base_url：aigw gateway；切回 Kimi 时可删除此行（Kimi 用 KIMI_BASE_URL）
     # Fallback / 回退: "https://supercodex.space/v1"
-    "base_url": _local_ai_config.get("base_url") or os.environ.get("AI_BASE_URL") or os.environ.get("OPENROUTER_BASE_URL", "https://aigw.sotatts.online/v1"),
+    "base_url": (_local_ai_config.get("base_url")
+                 or (os.environ.get("AI_BASE_URL") or "").strip()
+                 or (os.environ.get("OPENROUTER_BASE_URL") or "").strip()
+                 or "https://aigw.sotatts.online/v1"),
 }
 
 # 去重配置

@@ -69,9 +69,22 @@ def _looks_untranslated_title(candidate: str, english_title: str) -> bool:
     return False
 
 
+class AIProviderFatalError(Exception):
+    """确定性失败：重试也拿不到不同结果（模型名写错、密钥失效、请求非法…）。
+
+    与"上游抖动"区分开，好让调用方立刻放弃、把真正的原因打到日志里，
+    而不是把整份重试预算（AI_WAIT_MAX_SECONDS 最长 3600s）烧在同一个响应上。
+    """
+
+
+# 确定性 HTTP 状态码：重试不会改变结果。429 / 5xx 不在其中——那些才是值得等待重试的瞬时故障。
+# 未列出的状态码（如 408 请求超时、409、425）保持原有行为：记下错误后照常重试。
+FATAL_HTTP_STATUS = frozenset({400, 401, 402, 403, 404, 405, 406, 410, 413, 414, 415, 422, 451})
+
+
 class AIProvider(ABC):
     """AI提供商基类"""
-    
+
     @abstractmethod
     def call_api(self, prompt: str) -> str:
         pass
@@ -125,13 +138,19 @@ class GeminiProvider(AIProvider):
                         raise Exception("Gemini API返回空响应")
                     return result['candidates'][0]['content']['parts'][0]['text']
 
-                # Retryable
-                if response.status_code in (429, 500, 502, 503, 504):
-                    last_err = Exception(f"Gemini API错误 ({response.status_code}): {response.text}")
-                else:
-                    raise Exception(f"Gemini API错误 ({response.status_code}): {response.text}")
+                # 确定性错误（模型名写错=404、密钥失效=401/403、请求非法=400…）：重试到超时
+                # 也是同一个响应，立刻放弃。注意 raise 必须在 except 之外才真正生效——
+                # 在 try 里 raise 会被下面的 `except Exception` 原地接住，等于白写。
+                if response.status_code in FATAL_HTTP_STATUS:
+                    raise AIProviderFatalError(f"Gemini API错误 ({response.status_code}): {response.text}")
+
+                # 其余非 200（429 / 5xx 及未分类状态）当作瞬时故障，照常重试
+                last_err = Exception(f"Gemini API错误 ({response.status_code}): {response.text}")
             except Exception as e:
                 last_err = e
+
+            if isinstance(last_err, AIProviderFatalError):
+                raise last_err
 
             elapsed = time.monotonic() - start
             if wait_max_seconds > 0:
@@ -234,14 +253,21 @@ class KimiClaudeCodeProvider(AIProvider):
 
                 if response.status_code in (401, 403):
                     # Fatal: don't waste retry budget on auth failure.
-                    raise Exception(f"Kimi API 鉴权失败 ({response.status_code}): {response.text}")
+                    raise AIProviderFatalError(f"Kimi API 鉴权失败 ({response.status_code}): {response.text}")
 
-                if response.status_code in (429, 500, 502, 503, 504):
-                    last_err = Exception(f"Kimi API错误 ({response.status_code}): {response.text}")
-                else:
-                    raise Exception(f"Kimi API错误 ({response.status_code}): {response.text}")
+                # 其它确定性错误（模型名写错=404、请求非法=400/422…）同样没有重试价值
+                if response.status_code in FATAL_HTTP_STATUS:
+                    raise AIProviderFatalError(f"Kimi API错误 ({response.status_code}): {response.text}")
+
+                # 其余非 200（429 / 5xx 及未分类状态）当作瞬时故障，照常重试
+                last_err = Exception(f"Kimi API错误 ({response.status_code}): {response.text}")
             except Exception as e:
                 last_err = e
+
+            # 上面的 raise 落在 try 里会被就地接住，必须在这里真正抛出，
+            # 否则那句 "don't waste retry budget" 的注释描述的行为根本不存在。
+            if isinstance(last_err, AIProviderFatalError):
+                raise last_err
 
             elapsed = time.monotonic() - start
             if wait_max_seconds > 0:
@@ -375,13 +401,20 @@ class OpenRouterProvider(AIProvider):
                     attempt -= 1
                     continue
 
-                # Retryable server / rate limit errors
-                if response.status_code in (429, 500, 502, 503, 504):
-                    last_err = Exception(f"OpenRouter API错误 ({response.status_code}): {response.text}")
-                else:
-                    raise Exception(f"OpenRouter API错误 ({response.status_code}): {response.text}")
+                # 确定性错误（模型名写错=404、密钥失效=401/403、请求非法=400/422…）：
+                # 必须放在上面的 JSON 模式降级判断之后——那类"请求形状不对"要先降级再说。
+                if response.status_code in FATAL_HTTP_STATUS:
+                    raise AIProviderFatalError(f"OpenRouter API错误 ({response.status_code}): {response.text}")
+
+                # Retryable server / rate limit errors（429 / 5xx 及未分类状态）
+                last_err = Exception(f"OpenRouter API错误 ({response.status_code}): {response.text}")
             except Exception as e:
                 last_err = e
+
+            # 确定性错误就地抛出：在 try 里 raise 会被上面的 `except Exception` 接住，
+            # 于是一个坏模型名也能把 AI_WAIT_MAX_SECONDS 的预算（最长 3600s）耗光。
+            if isinstance(last_err, AIProviderFatalError):
+                raise last_err
 
             elapsed = time.monotonic() - start
             if wait_max_seconds > 0:
@@ -474,6 +507,9 @@ class AISummarizer:
         start = time.monotonic()
         attempt = 0
         last_err: Optional[Exception] = None
+        # 分片结果缓存（key = (每片篇数, 分片下标)）：整轮重试时，已经成功解析的分片直接复用，
+        # 不再重新调用 AI。否则最后一片失败会把前面所有已经付过费的分片全部重算一遍。
+        chunk_cache: Dict[Tuple[int, int], Dict] = {}
 
         while True:
             attempt += 1
@@ -482,11 +518,7 @@ class AISummarizer:
                 if len(articles) <= max_per_call:
                     prompt = self._build_prompt(articles, date)
                     response = self.provider.call_api(prompt)
-                    summary = self._parse_response(response, articles, date)
-                    # compat alias (some callers expect `summaries`)
-                    if "summaries" not in summary:
-                        summary["summaries"] = summary.get("full_list", [])
-                    return summary
+                    return self._parse_response(response, articles, date)
 
                 # Chunking to avoid context overflow and missing items.
                 chunks = [articles[i:i + max_per_call] for i in range(0, len(articles), max_per_call)]
@@ -494,10 +526,15 @@ class AISummarizer:
                 merged_ml: List[Dict] = []
                 merged_ferro: List[Dict] = []
 
-                for chunk in chunks:
-                    prompt = self._build_prompt(chunk, date)
-                    response = self.provider.call_api(prompt)
-                    part = self._parse_response(response, chunk, date)
+                for ci, chunk in enumerate(chunks):
+                    part = chunk_cache.get((max_per_call, ci))
+                    if part is None:
+                        prompt = self._build_prompt(chunk, date)
+                        response = self.provider.call_api(prompt)
+                        part = self._parse_response(response, chunk, date)
+                        chunk_cache[(max_per_call, ci)] = part
+                    else:
+                        print(f"♻️ 复用分片 {ci + 1}/{len(chunks)} 的已有结果（本次重试不再调用 AI）")
                     merged_full_list.extend(part.get("full_list", []))
                     merged_ml.extend(part.get("ml_highlights", []))
                     merged_ferro.extend(part.get("ferro_highlights", []))
@@ -520,7 +557,12 @@ class AISummarizer:
                 # Overview/trends: second-pass with titles only (cheap prompt).
                 overview, trends = self._build_overview_trends(articles, date)
 
-                summary = {
+                # 不再写 summary["summaries"]：它只是 full_list 的同一个列表对象，
+                # 而这份 dict 会被 generate_daily_pages 整份写进 data/daily_summary_<date>.json，
+                # 于是每篇文献在磁盘上被序列化两遍（实测占日报 sidecar 的 45%）。
+                # 所有读取方（generate_daily_pages / daily_email / backfill_top_posters /
+                # notion_tg_notifier）都是先读 full_list、读不到才回退 summaries。
+                return {
                     "date": date,
                     "total": len(articles),
                     "overview": overview,
@@ -530,8 +572,6 @@ class AISummarizer:
                     "ferro_highlights": merged_ferro[:5],
                     "generated_by": self.provider_name,
                 }
-                summary["summaries"] = summary.get("full_list", [])
-                return summary
 
             except Exception as e:
                 last_err = e
@@ -540,9 +580,14 @@ class AISummarizer:
                 # Fatal errors: waiting won't help (e.g., missing/invalid API key).
                 msg_lower = str(e).lower()
                 is_fatal = (
-                    isinstance(e, ValueError)
-                    and ("api_key is empty" in msg_lower or "api key is empty" in msg_lower)
-                ) or ("401" in msg_lower) or ("403" in msg_lower)
+                    isinstance(e, AIProviderFatalError)
+                    or (
+                        isinstance(e, ValueError)
+                        and ("api_key is empty" in msg_lower or "api key is empty" in msg_lower)
+                    )
+                    or ("401" in msg_lower)
+                    or ("403" in msg_lower)
+                )
 
                 if is_fatal:
                     if no_fallback:
@@ -579,7 +624,9 @@ class AISummarizer:
             "不得使用 '本研究/具有重要意义/取得进展/为…提供新思路' 之类套话。\n"
             "- trends 3-5 句，列出 2-3 个真正的研究热点，每个热点写清 '方向 → 具体做法/现象 → 体现它的典型工作'。\n"
             "- 全中文，不输出任何英文。\n\n"
-            "仅输出如下 JSON，禁止任何额外文字：\n"
+            # 必须出现小写 "json"：启用 json_object 模式时上游要求输入消息里含 "json" 这个词，
+            # 且检查大小写敏感（同 _build_prompt 处的说明）。少了它每次调用都要白挨一次拒绝。
+            "仅输出如下 json 格式内容（严格 JSON），禁止任何额外文字：\n"
             '{"overview": "...", "trends": "..."}'
         )
         wait_max_seconds = int(os.environ.get("AI_DAILY_WAIT_MAX_SECONDS") or os.environ.get("AI_WAIT_MAX_SECONDS", "0") or "0")
@@ -597,7 +644,12 @@ class AISummarizer:
                 if not isinstance(data, dict):
                     raise ValueError("overview/trends: response is not an object")
                 return data.get("overview", ""), data.get("trends", "")
-            except Exception:
+            except Exception as exc:
+                # 确定性错误（坏模型名/鉴权失效）：等多久都是同一个响应，直接放弃这段总览，
+                # 日报其余部分照常产出（保持 fail-soft）。
+                if isinstance(exc, AIProviderFatalError):
+                    print(f"⚠️ overview/trends 放弃重试（确定性错误）: {exc}")
+                    return "", ""
                 if wait_max_seconds <= 0:
                     return "", ""
                 elapsed = time.monotonic() - start
@@ -708,12 +760,13 @@ class AISummarizer:
             )
 
         articles_str = "\n".join(articles_text)
+        # "json" 必须小写出现（json_object 模式下上游的大小写敏感检查），同 _build_prompt。
         return f"""你是一位专业的计算材料科学文献分析助手。请只补全以下 {date} 缺失的文献条目。
 
 文献列表:
 {articles_str}
 
-请严格输出 JSON：
+请严格输出如下 json 格式内容（严格 JSON）：
 {{
   "summaries": [
     {{
@@ -1062,7 +1115,8 @@ class AISummarizer:
             "关键参数或计算设置，避免泛泛而谈；\n"
                 "   2) related_work（180~320 字）：与哪些已知方法/体系/方向呼应及异同，并联系团队五位研究人员的已有方向；\n"
                 "   3) implication（180~320 字）：结合团队已有材料和方法给出可执行迁移方案，包括数据、模拟条件和验证方式。\n\n"
-            "【输出格式】只输出 JSON，无 markdown、无额外文字：\n"
+            # 小写 "json" 同样不能少（json_object 模式下上游大小写敏感），同 _build_prompt。
+            "【输出格式】只输出以下 json 格式内容（严格 JSON），无 markdown、无额外文字：\n"
             "{\n"
             '  "direction_note": "...",\n'
             '  "items": [\n'
@@ -1144,7 +1198,7 @@ class AISummarizer:
         data["research_direction_note"] = build_direction_note(data["full_list"], profile)
         data["core_items"] = [x for x in data["full_list"] if x.get("is_core_focus")][:8]
         data["core_direction_note"] = data["research_direction_note"] if data["core_items"] else ""
-        data["summaries"] = data.get("full_list", [])
+        # 不再复制一份 summaries：见 generate_daily_summary 处的说明（sidecar 会把它写第二遍）。
         return data
 
 

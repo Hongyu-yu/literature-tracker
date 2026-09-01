@@ -8,6 +8,7 @@ import socket
 import ssl
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+from email.utils import formatdate, make_msgid
 from datetime import datetime
 from typing import Tuple, Optional
 
@@ -64,6 +65,33 @@ class EmailNotifier:
         
         return True, ""
     
+    # 发件人邮箱缺失/畸形时 Message-ID 的兜底域名（RFC 2606 保留的 .invalid）。
+    # 这里刻意不做 socket.getfqdn() 反查——定时任务里 DNS 不通会整整卡住一次发信。
+    FALLBACK_MSGID_DOMAIN = "literature-tracker.invalid"
+
+    def _msgid_domain(self) -> str:
+        """Message-ID 用的域名，优先取发件人邮箱的域名部分。"""
+        sender = str(self.sender_email or "").strip().strip("<>")
+        domain = sender.rsplit("@", 1)[1].strip() if "@" in sender else ""
+        # 域名里混进空白或头部分隔符说明配置有问题，退回兜底域名，免得写出非法头部
+        if not domain or any(ch.isspace() or ch in '<>@,;:"' for ch in domain):
+            return self.FALLBACK_MSGID_DOMAIN
+        return domain
+
+    def _apply_standard_headers(self, msg: MIMEMultipart) -> None:
+        """补齐 RFC 5322 要求的 Date 头和强烈建议的 Message-ID 头。
+
+        smtplib.sendmail 不会自动补这两个头（send_message 同样不补），缺失时
+        SpamAssassin 直接加 MISSING_DATE / MISSING_MID 分，本来就是「带外链外图的
+        群发 HTML 邮件」的日报很容易被丢进垃圾箱；客户端也没法按发信时间排序、
+        没法按 Message-ID 做会话归并与去重。
+        每个收件人各建一封 msg，所以每封天然拿到各自唯一的 Message-ID。
+        """
+        if "Date" not in msg:
+            msg["Date"] = formatdate(localtime=True)
+        if "Message-ID" not in msg:
+            msg["Message-ID"] = make_msgid(domain=self._msgid_domain())
+
     def send_notification(self, recipient: str, articles: list) -> bool:
         """
         发送新文献通知邮件
@@ -98,6 +126,7 @@ class EmailNotifier:
             msg['Subject'] = f"📚 文献追踪更新 - {len(articles)}篇新文献 [{mode_label}] ({datetime.now().strftime('%Y-%m-%d %H:%M')})"
             msg['From'] = self.sender_email
             msg['To'] = recipient
+            self._apply_standard_headers(msg)
             
             # 根据模式生成邮件内容
             if self.mode == "digest":
@@ -183,6 +212,7 @@ class EmailNotifier:
         msg["Subject"] = subject
         msg["From"] = self.sender_email
         msg["To"] = recipient
+        self._apply_standard_headers(msg)
         msg.attach(MIMEText("请使用支持 HTML 的邮件客户端查看每日文献日报。", "plain", "utf-8"))
         msg.attach(MIMEText(html_content, "html", "utf-8"))
         return msg

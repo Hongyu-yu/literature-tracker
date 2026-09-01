@@ -45,6 +45,26 @@ def _tier2_complete(rec):
     return False
 
 
+def _aps_complete(rec):
+    """APS 记录是否定稿（完整深读 或 重试封顶），与 tier-2 的 _tier2_complete 同一套封顶思路。
+    - 深读完整(含第五部分「创新评估」且 ≥5000 字) → 直接复用缓存，零成本；
+    - 否则继续重试升级；deep_attempts≥3 → **无条件**定稿。
+      不封顶的话，OSS 对象 404 / 全文抓不到 / provider 持续报错的论文，只要日期还在
+      DEEP_WINDOW_DAYS 窗口里就每轮都被判成 fresh：既每次重传最多 4 万字全文白烧 token，
+      又占满 DEEP_MAX_NEW_PER_RUN 预算，把真正的新论文挤到下一轮（手动 dispatch 传大窗口
+      回填时尤其致命——30 天窗口就是 30 轮空转）。
+    - 旧缓存(无 deep_attempts 字段)按 0 次算，与改动前行为一致。"""
+    if not rec:
+        return False
+    if _deep_complete(rec.get("deep_analysis")):
+        return True
+    try:
+        attempts = int(rec.get("deep_attempts") or 0)
+    except (TypeError, ValueError):  # 缓存被手改坏也不该炸掉整轮 APS
+        attempts = 0
+    return attempts >= 3
+
+
 def _core_key(rec):
     """arxiv_core 行的主键：link 归一化(与 backfill_top_posters/generate_daily_pages 的 join 口径一致)，
     无 link 才退回标题。缓存命中与合并写盘共用同一口径，避免同一篇论文写成两行。"""
@@ -55,8 +75,8 @@ def _core_key(rec):
 
 
 def _enrich_one(meta, client, provider, out_dir, cached=None):
-    # 幂等复用：只有已生成完整深读(含第五部分创新评估)的论文才算完成、直接复用
-    if cached and _deep_complete(cached.get("deep_analysis")):
+    # 幂等复用：已生成完整深读(含第五部分创新评估)、或重试已封顶的论文算完成、直接复用
+    if _aps_complete(cached):
         return cached
     md = client.fetch_markdown(meta)
     rec = dict(meta)
@@ -68,6 +88,12 @@ def _enrich_one(meta, client, provider, out_dir, cached=None):
     if not new_deep and (cached or {}).get("deep_analysis"):
         print(f"⚠️ 深读失败，保留缓存深读: {meta.get('doc_id')}")
     rec["deep_analysis"] = new_deep or (cached or {}).get("deep_analysis") or ""
+    # 尝试次数必须显式从缓存搬过来(rec 是 meta 的副本，metadata.jsonl 里没有这个字段)，
+    # 否则计数永远停在 1，_aps_complete 的封顶形同虚设。
+    try:
+        rec["deep_attempts"] = int((cached or {}).get("deep_attempts") or 0) + 1
+    except (TypeError, ValueError):
+        rec["deep_attempts"] = 1
     # 海报要素复用深读产出(更聚焦、省 input token)；深读为空才退回原文
     poster_src = rec["deep_analysis"] or md
     # 复用已有海报，避免重复图像生成；缺失才生成
@@ -90,8 +116,10 @@ def process_date(date, client, provider, out_dir="docs/images/posters", max_work
     cached, fresh = [], []
     for m in full:
         c = cache.get(m.get("doc_id") or m.get("paper_id"))
-        # 只有带完整深读才算完成；缺深读或被截断(缺第五部分)的要重试(走 fresh，复用海报)
-        (cached if (c and _deep_complete(c.get("deep_analysis"))) else fresh).append((m, c))
+        # 只有带完整深读、或重试已封顶的才算完成；缺深读或被截断(缺第五部分)的要重试(走 fresh，复用海报)。
+        # 判定口径必须与 _enrich_one 里的一致：否则封顶后的论文仍被算进 fresh，白占一格
+        # max_new 预算再原样返回，等于每轮凭空漏掉一篇新论文。
+        (cached if _aps_complete(c) else fresh).append((m, c))
     if max_new is not None:
         fresh = fresh[:max(0, max_new)]
     results = [c for (_m, c) in cached]  # 复用缓存，零成本
@@ -215,18 +243,9 @@ def enrich_arxiv_core(items, provider=None, out_dir="docs/images/cards", max_wor
     return out
 
 
-def _load_arxiv_core(date):
-    path = f"data/arxiv_core_{date}.json"
-    if os.path.exists(path):
-        try:
-            with open(path, encoding="utf-8") as f:
-                return json.load(f)
-        except Exception:
-            return []
-    return []
-
-
 def _load_core_cache(date):
+    """读 data/arxiv_core_<date>.json（tier-2 幂等缓存的唯一读入口）。
+    注：曾有一个逐字节相同的 _load_arxiv_core 副本，无任何调用方，已删——两份实现只会各自漂移。"""
     path = f"data/arxiv_core_{date}.json"
     if os.path.exists(path):
         try:

@@ -150,3 +150,50 @@ def test_priority_tier_zero_adds_core_score_weight():
     p1 = {"title": "Neural network potential for electronic structure"}
     assert is_core_focus(p1)
     assert core_score(p1) >= 0.70
+
+
+# ---------------------------------------------------------------------------
+# 以下断言原先只活在上面的 main() 里。run_tests.py 只收集顶层 test_* 函数
+# （run_tests.py:51），smoke.yml 的「script-style test mains」步骤又只列了 9 个模块、
+# 不含本文件 —— 于是这些断言在 CI 里从来没有被执行过。提升为顶层函数。
+# ---------------------------------------------------------------------------
+
+def test_ml_plus_ferro_is_core_focus_with_high_score():
+    item = {
+        "title": "Equivariant neural network potential for ferroelectric perovskites",
+        "abstract": "We train a MACE model on BaTiO3 and report coercive fields.",
+        "journal": "npj Computational Materials",
+    }
+    assert is_core_focus(item)
+    assert 0.60 <= core_score(item) <= 1.0
+
+
+def test_hamiltonian_plus_magnet_is_core_focus():
+    assert is_core_focus({
+        "title": "Learnable spin Hamiltonian for antiferromagnets",
+        "abstract": "A graph neural network learns an effective Hamiltonian for CrI3.",
+    })
+
+
+def test_ml_only_is_not_core_focus_and_scores_zero():
+    only_ml = {
+        "title": "A transformer for protein structure prediction",
+        "abstract": "Alphafold-style model applied to membrane proteins.",
+    }
+    assert not is_core_focus(only_ml)
+    assert core_score(only_ml) == 0.0
+
+
+def test_chinese_text_is_matched():
+    assert is_core_focus({
+        "title": "Machine learning based study on CrSBr",
+        "abstract": "利用机器学习和DFT方法研究了二维铁磁体CrSBr的层间耦合。",
+    })
+
+
+def test_title_hits_outweigh_abstract_only_hits():
+    score_title = core_score({"title": "Equivariant GNN for magnon band structures",
+                              "abstract": "Short."})
+    score_abs = core_score({"title": "A study on 2D materials",
+                            "abstract": "Equivariant GNN learns magnon bands in antiferromagnets."})
+    assert score_title > score_abs, f"title={score_title} abs={score_abs}"

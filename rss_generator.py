@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import os
+import re
 from datetime import datetime
 from pathlib import Path
 from typing import Dict, List, Optional
@@ -60,6 +61,31 @@ def _article_description(article: Dict, *, max_chars: int = 800) -> str:
     if body:
         parts.append(_trim_text(body, max_chars))
     return '\n\n'.join(parts)
+
+
+_BUILD_DATE_RE = re.compile(r'<lastBuildDate>.*?</lastBuildDate>', re.S)
+
+
+def _feed_body(xml_text: str) -> str:
+    """剥掉 <lastBuildDate> 之后的 feed 正文，用来判断内容是不是真的变了。"""
+    return _BUILD_DATE_RE.sub('', xml_text or '')
+
+
+def _feed_content_unchanged(filepath: str, xml_content: str) -> bool:
+    """磁盘上已有的 feed 除时间戳外是否与新内容逐字相同。
+
+    读不到（不存在/权限/编码坏了）一律当作「变了」，照常写盘 —— 这里只做省写优化，
+    绝不能因为读旧文件失败就漏掉一次真正的更新。
+    """
+    try:
+        with open(filepath, 'r', encoding='utf-8') as f:
+            existing = f.read()
+    except FileNotFoundError:
+        return False
+    except Exception as e:
+        print(f"⚠️ 无法读取既有RSS feed({filepath}): {e}，按内容已变化处理")
+        return False
+    return _feed_body(existing) == _feed_body(xml_content)
 
 
 def _output_url(site_url: str, output_path: str) -> str:
@@ -130,13 +156,47 @@ class RSSGenerator:
     </item>'''
 
     def save_feed(self, articles: List[Dict], filepath: str, max_items: int = 100) -> bool:
+        """写出 feed，返回「文件是否真的变了」。
+
+        <lastBuildDate> 每次都取「此刻」，所以无条件写盘的话，即便条目一个字都没改，
+        120 个日报 feed + docs/feed.xml 每次运行都会产生一行时间戳 diff：
+        git 历史被噪音撑大(docs/feed.xml 已有 408 个版本)、各 workflow 的
+        `git diff --staged --quiet` 永远不会命中「nothing to commit」、
+        deploy-on-push 于是每次都重新部署整个 docs/，
+        而 sync_daily_rss_feeds 的「本次同步了 N 个日期」也永远等于总数、毫无意义。
+        按 RSS 2.0 规范 lastBuildDate 本就表示「频道内容最后一次变化的时间」，
+        内容没变时保留旧时间戳反而更贴合语义。
+
+        内容没变 → 跳过写入返回 False；生成/写盘失败 → 同样返回 False(与之前一致)。
+        现有调用方要么忽略返回值(main / run_optimized_sync / backfill_zh)，
+        要么只用它累加计数(generate_daily_pages.sync_daily_rss_feeds)，都不受影响。
+        """
         try:
             xml_content = self.generate_feed(articles, max_items)
+            if _feed_content_unchanged(filepath, xml_content):
+                print(f"⏭️ RSS内容未变化，跳过写入: {filepath}")
+                return False
             directory = os.path.dirname(filepath)
             if directory:
                 os.makedirs(directory, exist_ok=True)
-            with open(filepath, 'w', encoding='utf-8') as f:
-                f.write(xml_content)
+            # 原子落盘(同 backfill_zh.save_index / run_optimized_sync._atomic_write_json)：
+            # 直接 open(filepath,'w') 会先把线上那份好 feed 截成 0 字节再慢慢写，
+            # 写到一半遇到磁盘满 / 文本里混进孤立代理字符(UnicodeEncodeError)，
+            # 留在 docs/ 里的就是一份被截断的 XML，随后 `git add -A` 直接推上线。
+            # *.tmp 已在 .gitignore 里，被 kill 留下的残件不会被 git 带走。
+            tmp_path = f'{filepath}.tmp'
+            try:
+                with open(tmp_path, 'w', encoding='utf-8') as f:
+                    f.write(xml_content)
+                    f.flush()
+                    os.fsync(f.fileno())
+                os.replace(tmp_path, filepath)
+            except Exception:
+                try:
+                    os.remove(tmp_path)
+                except OSError:
+                    pass
+                raise
             print(f"✅ RSS feed已保存: {filepath}")
             return True
         except Exception as e:

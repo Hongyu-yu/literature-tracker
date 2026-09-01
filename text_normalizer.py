@@ -193,8 +193,32 @@ def _replace_latex_token(match: "re.Match") -> str:
     """整条命令名查表；查不到就原样留着，交给后续的 wrapper/清理步骤处理。"""
     return _LATEX_TOKEN_MAP.get(match.group(0), match.group(0))
 WRAPPER_RE = re.compile(r"\\(?P<cmd>" + "|".join(LATEX_WRAPPER_COMMANDS) + r")\{(?P<body>[^{}]+)\}")
-SUBSCRIPT_RE = re.compile(r"_\{(?P<body>[^{}]+)\}|_(?P<single>[0-9aehijklmnoprstuvx+\-=()]+)")
-SUPERSCRIPT_RE = re.compile(r"\^\{(?P<body>[^{}]+)\}|\^(?P<single>[0-9in+\-=()]+)")
+
+# 无花括号的上/下标只允许三种形态：
+#   1) 一串数字（可带正负号）：H_2O、Si_3N_4、cm^-2、10^10、V^-1s^-1
+#   2) 一个短括号组：chi^(2)、g^(2)(0)
+#   3) 单个可转写字符：FeTe_xSe、p_x、n_+、e^-
+# 绝不能像以前那样写成贪婪的字符类 [0-9aehij...+\-=()]+ ：- 和大半小写字母都在类里，
+# _decode_latex 又先删掉了 $，于是整段普通英文会被吞进下标（都是实测出来的真实语料）：
+#   Si$_3$N$_4$-on-sapphire -> Si₃N₄₋ₒₙ₋ₛₐₚₚₕᵢᵣₑ      train_test_split -> trainₜₑₛₜₛₚₗᵢₜ
+#   (SiO_2) -> (SiO₂₎  （英文右括号被吃进下标）         F_1-score -> F₁₋ₛcore
+#   ?dgcid=rss_sd_all -> ?dgcid=rssₛdₐₗₗ （链接参数被写坏）
+#   L^\infty -> Lⁱⁿfty  （第二遍 _decode_latex 把 ^infty 的 in 当成上标）
+# 形态 2/3 后面不许紧跟「数字/小写字母/下划线」——那说明它其实是单词或标识符的一部分；
+# 形态 1 只需要不粘连后续数字（防止 _12a 回溯成 ₁ + "2a"），后面接小写字母是合法的物理写法
+# （m^2g^-1、10^9atoms），且纯数字串本来也吞不掉任何字母。
+# 匹配不上时保持原样（T_c 一直如此），只是不再美化，绝不会把好文本改坏。
+_WORDISH_TAIL = r"(?![0-9a-z_])"
+SUBSCRIPT_RE = re.compile(
+    r"_\{(?P<body>[^{}]+)\}"
+    r"|_(?P<single>[+\-]?[0-9]+(?![0-9])"
+    r"|(?:\([^()]{1,6}\)|[aehijklmnoprstuvx+\-])" + _WORDISH_TAIL + r")"
+)
+SUPERSCRIPT_RE = re.compile(
+    r"\^\{(?P<body>[^{}]+)\}"
+    r"|\^(?P<single>[+\-]?[0-9]+(?![0-9])"
+    r"|(?:\([^()]{1,6}\)|[in+\-])" + _WORDISH_TAIL + r")"
+)
 LATEX_ARTIFACT_RE = re.compile(r"\\(?:[A-Za-z]+|['\"`^~=\.Hcuvr])")
 
 

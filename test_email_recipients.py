@@ -58,3 +58,36 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def test_local_scalar_config_is_promoted_to_environ():
+    """config.local.py 里的大写标量键要能真正生效。
+
+    此前 config.py 只读 EMAIL_CONFIG/WECHAT_CONFIG/AI_CONFIG 三个字典，而
+    config.local.py.example 还教用户写 APS_HTTP_*/AI_* 这些标量 —— 它们没有任何
+    读取方，照着文档配完毫无效果。
+    """
+    env = {k: v for k, v in os.environ.items() if k != "APS_HTTP_BASE"}
+    with mock.patch.dict(os.environ, env, clear=True):
+        config._export_local_scalars({"APS_HTTP_BASE": "http://real:8080"})
+        assert os.environ["APS_HTTP_BASE"] == "http://real:8080"
+
+
+def test_local_scalar_promotion_skips_placeholders_and_non_scalars():
+    with mock.patch.dict(os.environ, {}, clear=True):
+        config._export_local_scalars({
+            "AI_MODEL": "<your-model>",        # 占位符
+            "AI_KEY2": "YOUR_KEY",             # 占位符
+            "EMAIL_CONFIG": {"a": 1},          # 字典
+            "lowercase_key": "x",              # 非大写
+            "EMPTY": "   ",                    # 空白
+        })
+        for k in ("AI_MODEL", "AI_KEY2", "EMAIL_CONFIG", "lowercase_key", "EMPTY"):
+            assert k not in os.environ, f"{k} 不该被提升"
+
+
+def test_real_environment_wins_over_local_file():
+    """CI 的 Secrets 必须压过本地文件。"""
+    with mock.patch.dict(os.environ, {"APS_HTTP_USER": "from-ci"}, clear=True):
+        config._export_local_scalars({"APS_HTTP_USER": "from-local-file"})
+        assert os.environ["APS_HTTP_USER"] == "from-ci"

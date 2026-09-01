@@ -3,7 +3,10 @@ name: Generate Weekly Summary
 on:
   schedule:
     # 每周日 01:00 UTC (北京时间周日 09:00)——错开 fetch.yml 的 00:00,避免并发推 main 撞车
-    - cron: '0 1 * * 0'
+    # 周一 01:00 UTC（北京周一 09:00）。必须配合 default_week_start 的语义：
+    # 它取「上一个已完成的周(周一~周日)」，所以周日跑只会重出上上周那张已存在的页面，
+    # 最新一周要等到下个周日才发（滞后 7 天）；周一跑则滞后 1 天。
+    - cron: '0 1 * * 1'
   workflow_dispatch:
 
 permissions:
@@ -86,9 +89,16 @@ jobs:
       - name: Prepare docs data (docs/data is a deploy-time copy of data/)
         run: |
           mkdir -p docs/data
-          if [ -d "data" ]; then
-            cp -r data/* docs/data/
-          fi
+          # 只复制站点真正会请求的文件。docs/*.js/*.html 全量 grep 只出现 data/index.json，
+          # sw.js 里的 /data/ 只是运行时缓存规则、不是预缓存清单。
+          # 此前 `cp -r data/*` 把整份 data/(123MB：ai_relevant 36M、history 21M、
+          # deep_history 5.5M、zotero.bib 4.7M……)塞进 Pages artifact，拖慢每次部署，
+          # 也在往 Pages 的 1GB 上限上顶。
+          for f in index.json; do
+            if [ -f "data/$f" ]; then
+              cp "data/$f" "docs/data/$f"
+            fi
+          done
 
       - name: Configure Pages
         uses: actions/configure-pages@v4

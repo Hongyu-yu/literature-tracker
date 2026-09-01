@@ -19,7 +19,17 @@ class NotionTGNotifier:
         self.chat_id = os.environ.get("TG_LIT_CHAT_ID") or self.config.get("TG_LIT_CHAT_ID")
         self.notion_token = os.environ.get("NOTION_API_KEY") or self.config.get("NOTION_API_KEY")
         self.parent_id = os.environ.get("NOTION_LIT_PARENT_ID") or self.config.get("NOTION_LIT_PARENT_ID")
-        self.proxy = os.environ.get("http_proxy") or "http://127.0.0.1:7897"
+        # 代理只对本机开发有意义：GitHub Actions runner 上没有任何代理。
+        # 这里原本硬编码了 http://127.0.0.1:7897 兜底，于是 CI 上每条 TG 消息都被
+        # 发往本机不存在的端口，连接被拒后又被 send_tg_message 的 except 吞掉，
+        # 看起来像一次临时抖动，实际是一条都推不出去。没配代理就直连。
+        self.proxy = (
+            os.environ.get("http_proxy")
+            or os.environ.get("HTTP_PROXY")
+            or os.environ.get("https_proxy")
+            or os.environ.get("HTTPS_PROXY")
+            or ""
+        )
         
         self.notion_headers = {
             "Authorization": f"Bearer {self.notion_token}",
@@ -44,13 +54,23 @@ class NotionTGNotifier:
         try:
             r = requests.post(url, json=payload, proxies=proxies, timeout=10)
             if r.status_code != 200:
+                # 非 200 时 Telegram 返回的是错误体({"ok": false, ...})，照原样返回
+                # 会让调用方把「推送失败」当成功；统一返回 None 表示没推出去。
                 print(f"TG Error: {r.text}")
+                return None
             return r.json()
         except Exception as e:
             print(f"TG Connection Error: {e}")
             return None
 
     def get_or_create_page(self, parent_id, title):
+        # 父页面 ID 为空说明上一层已经建失败了。不挡一下的话，下面的
+        # parent_id.replace() 会直接抛 AttributeError，把整个定时任务打断 ——
+        # 一次 Notion 网络抖动不该炸掉整轮推送。
+        if not parent_id:
+            print(f"⚠️ Notion 父页面 ID 为空，跳过创建「{title}」")
+            return None
+
         # 1. Try to find existing child page by title
         url = f"https://api.notion.com/v1/blocks/{parent_id.replace('-', '')}/children"
         try:
@@ -146,7 +166,20 @@ class NotionTGNotifier:
         ]
         self.append_blocks(day_page_id, blocks)
 
+    @staticmethod
+    def _push_result(tg_ok, notion_ok):
+        """汇总推送结果：一个渠道都没成功时把失败打响，别让它混在正常日志里。"""
+        if not tg_ok and not notion_ok:
+            print("⚠️ 每日报告一条都没推出去(TG / Notion 均失败或未配置)")
+        return bool(tg_ok or notion_ok)
+
     def send_daily_report(self, summary_data):
+        """推送每日汇总，返回是否真的推出去了(TG / Notion 任一成功即 True)。
+
+        以前无论成败都返回 None，调用方(run_optimized_sync.send_daily_summary)
+        于是无条件打印「✅ 每日报告已推送至 TG 和 Notion」，全失败也看不出来。
+        """
+        tg_ok = False
         # 1. Telegram
         if self.bot_token and self.chat_id:
             msg = f"<b>📊 每日文献汇总报告 ({summary_data['date']})</b>\n\n"
@@ -172,19 +205,24 @@ class NotionTGNotifier:
                     break
                 msg += line
             
-            self.send_tg_message(msg)
+            tg_ok = bool(self.send_tg_message(msg))
         else:
             print("TG credentials missing, skip Telegram daily report")
-        
+
         # 2. Notion
         if not self.notion_token or not self.parent_id:
             print("Notion credentials missing, skip Notion daily report")
-            return
+            return self._push_result(tg_ok, False)
         month_str = datetime.now().strftime("%Y年%m月")
         month_page_id = self.get_or_create_page(self.parent_id, month_str)
         day_str = summary_data['date']
-        day_page_id = self.get_or_create_page(month_page_id, day_str)
-        
+        # 月份页没建出来就别再拿 None 去建日期页(会抛 AttributeError)；
+        # 与 sync_article 里的守卫保持一致，留给下一轮重试。
+        day_page_id = self.get_or_create_page(month_page_id, day_str) if month_page_id else None
+        if not day_page_id:
+            print(f"⚠️ Notion 日期页 {day_str} 未就绪，跳过 Notion 日报，下次运行重试")
+            return self._push_result(tg_ok, False)
+
         report_blocks = [
             {
                 "object": "block",
@@ -202,6 +240,7 @@ class NotionTGNotifier:
             }
         ]
         
+        notion_ok = True  # 任何一批 append 失败就置 False
         for item in summary_data.get('full_list', []):
             report_blocks.extend([
                 {
@@ -226,11 +265,13 @@ class NotionTGNotifier:
             ])
             
             if len(report_blocks) >= 60:
-                self.append_blocks(day_page_id, report_blocks)
+                notion_ok = self.append_blocks(day_page_id, report_blocks) and notion_ok
                 report_blocks = []
 
         if report_blocks:
-            self.append_blocks(day_page_id, report_blocks)
+            notion_ok = self.append_blocks(day_page_id, report_blocks) and notion_ok
+
+        return self._push_result(tg_ok, notion_ok)
 
 if __name__ == "__main__":
     # Test sync

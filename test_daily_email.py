@@ -155,6 +155,97 @@ def test_send_daily_email_without_recipients_is_soft():
         smtp_ssl.assert_not_called()
 
 
+def _aps_record(**over):
+    """一条真实形状的 APS 全文精读记录：只有裸 doi（没有 link），标题是英文，
+    中文内容全在 poster.elements 里，abstract 以 'Author(s): …' 作者串开头。"""
+    rec = {
+        "title": "Anyon Superfluidity of Excitons in Quantum Hall Bilayers",
+        "doi": "10.1103/xs7g-dmn8",
+        "journal": "PRX",
+        "abstract": "Author(s): Zhaoyu Han, Taige Wang, and Ashvin Vishwanath"
+                    "Theoretical analysis of quantum Hall bilayers reveals topological criticality. " * 3,
+        "deep_analysis": "## 第一部分：核心概览\n\n量子霍尔双层中的电中性任意子激子……",
+        "poster": {
+            "image": "images/posters/0ff1462bfa696401.webp",
+            "elements": {"研究问题": "在量子霍尔双层体系中会形成什么基态。",
+                         "关键结果": "任意子激子可形成超流。"},
+        },
+    }
+    rec.update(over)
+    return rec
+
+
+def _write_aps(root, records, day=DAY):
+    os.makedirs(os.path.join(root, "data"), exist_ok=True)
+    with open(os.path.join(root, "data", f"aps_{day}.json"), "w", encoding="utf-8") as f:
+        json.dump(records, f, ensure_ascii=False)
+
+
+def test_daily_email_includes_aps_deep_read_papers_and_counts_them():
+    # data/aps_<date>.json 里的全文精读是当天分析最深、带信息图的论文，但不在 sidecar 的
+    # full_list 里；邮件此前只读 sidecar，于是这些论文一篇都不出现，「共 N 篇」也少算。
+    root = tempfile.mkdtemp()
+    _write_aps(root, [_aps_record()])
+    cwd = os.getcwd()
+    try:
+        os.chdir(root)
+        _, html = daily_email.build_daily_email_html(
+            daily_email._with_enrichment(_summary(), DAY), DAY, SITE)
+        # 文件坏掉不能把邮件带崩：只发常规列表
+        with open(os.path.join("data", f"aps_{DAY}.json"), "w", encoding="utf-8") as f:
+            f.write("{ not json")
+        _, soft_html = daily_email.build_daily_email_html(
+            daily_email._with_enrichment(_summary(), DAY), DAY, SITE)
+    finally:
+        os.chdir(cwd)
+    assert "Anyon Superfluidity" in html
+    assert "共 2 篇" in html
+    assert f"{SITE}/images/posters/0ff1462bfa696401.webp" in html
+    assert "https://doi.org/10.1103/xs7g-dmn8" in html  # 裸 doi → 可点的原文链接，不是 "#"
+    assert "任意子激子可形成超流" in html  # 亮点取中文五要素
+    assert "Author(s)" not in html        # 而不是被截断的英文作者串
+    assert "神经网络势" in soft_html and "共 1 篇" in soft_html
+
+
+def test_aps_paper_already_in_full_list_is_not_duplicated_and_keeps_chinese():
+    # 同一篇在两侧的链接形态不同（APS 裸 doi vs RSS 的 link.aps.org/doi/...，还带大小写差异），
+    # 按原串比对会变成两张卡片；合并时也不许拿 APS 的英文内容盖掉已有的中文富化。
+    root = tempfile.mkdtemp()
+    _write_aps(root, [_aps_record()])
+    summary = {
+        "overview": "今日重点关注电子结构。",
+        "full_list": [{
+            "title_en": "Anyon Superfluidity of Excitons in Quantum Hall Bilayers",
+            "title_zh": "量子霍尔双层中激子的任意子超流",
+            "one_sentence_summary": "RSS侧已有的中文一句话总结。",
+            "link": "http://link.aps.org/doi/10.1103/XS7G-DMN8",
+            "journal": "PRX", "focus_score": 7,
+        }],
+    }
+    cwd = os.getcwd()
+    try:
+        os.chdir(root)
+        _, html = daily_email.build_daily_email_html(
+            daily_email._with_enrichment(summary, DAY), DAY, SITE)
+    finally:
+        os.chdir(cwd)
+    assert "共 1 篇" in html and html.count("阅读原文") == 1
+    assert "量子霍尔双层中激子的任意子超流" in html   # 已有中文标题保留
+    assert "RSS侧已有的中文一句话总结" in html        # 已有中文亮点不被 APS 覆盖
+    assert f"{SITE}/images/posters/0ff1462bfa696401.webp" in html  # 但海报被补了进来
+
+
+def test_aps_tier0_items_sort_ahead_of_plain_items_of_equal_priority():
+    # 排序键必须和页面 build_unified_items 一致，否则 _tier 标记等于没打：
+    # sorted() 会按 focus_score 把只有元数据的 APS 条目压到普通条目后面。
+    common = {"title": "Machine learning interatomic potential for ferroelectrics",
+              "abstract": "Same text so the priority/core scores tie."}
+    plain = dict(common, link="https://arxiv.org/abs/1", focus_score=9)
+    aps = dict(common, link="https://doi.org/10.1103/a", focus_score=1, _tier=0)
+    ordered = daily_email._items({"full_list": [plain, aps]})
+    assert [item["link"] for item in ordered] == ["https://doi.org/10.1103/a", "https://arxiv.org/abs/1"]
+
+
 def test_generate_deep_workflow_enables_single_daily_email_path():
     workflow = open(".github/workflows/generate-deep.yml", encoding="utf-8").read()
     assert "--rerender-only --days 4 --send-email" in workflow

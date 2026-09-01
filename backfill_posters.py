@@ -2,15 +2,39 @@
 
 关键省成本点：这些条目通常已存好 `poster.elements`(中文 5 要素),直接复用它生图即可,
 **不重跑昂贵的深读/要素抽取**,每篇仅 1 次图 API。仅当没有现成 elements 时才回退整套
-generate_poster(需 provider)。幂等：已有 image 的跳过;可 --max 限量,配额用完即停。
+generate_poster(需 provider)。幂等：已有 image 的跳过;--max 按「尝试数」限量(失败也扣配额),
+配额用完即停;连续多次生图失败会熔断,不把整轮时间烧在挂掉的图 API 上。
 
-用法：python backfill_posters.py [--glob data/arxiv_core_*.json] [--max 50]
+用法：python backfill_posters.py [--glob "data/aps_*.json,data/arxiv_core_*.json"] [--max 50]
+      --glob 支持逗号分隔多组,按给出的顺序优先(APS 是当日精读头卡,先补)。
 """
-import os, glob as globmod, json, argparse, hashlib
+import os, glob as globmod, json, argparse, hashlib, threading
 from poster_generator import build_infographic_prompt, generate_poster
 from image_provider import generate_and_save
 
 POSTER_DIR = "docs/images/posters"
+# 默认两族都扫：APS 深读条目在 run_deep 里永远不会重跑(有 poster 字典即视为已完成),
+# 只能靠这里补图;放在前面是因为它是每日页的「今日精读」头卡,优先级最高。
+DEFAULT_GLOB = "data/aps_*.json,data/arxiv_core_*.json"
+
+
+class _FailBreaker:
+    """跨文件共享的连续失败熔断器：图 API 系统性故障时,继续尝试只是白烧配额和时间。
+
+    线程安全(process_file 是并发生图的)。limit<=0 表示不熔断。"""
+
+    def __init__(self, limit=6):
+        self.limit = limit
+        self.streak = 0
+        self._lock = threading.Lock()
+
+    def tripped(self):
+        with self._lock:
+            return self.limit > 0 and self.streak >= self.limit
+
+    def record(self, ok):
+        with self._lock:
+            self.streak = 0 if ok else self.streak + 1
 
 
 def _poster_of(it):
@@ -79,10 +103,13 @@ def backfill_item(it, provider=None, out_dir=POSTER_DIR):
     return image
 
 
-def process_file(path, provider=None, budget=None, out_dir=POSTER_DIR, max_workers=None):
+def process_file(path, provider=None, budget=None, out_dir=POSTER_DIR, max_workers=None,
+                 breaker=None, stats=None):
     """补一个 JSON 文件里的缺图条目;返回 (filled, missing_total)。保持原写盘格式(无缩进)。
 
-    并发生图(每条目/每 doc_id 互不相干,线程安全):先按 budget 切片,再并发调 backfill_item。"""
+    并发生图(每条目/每 doc_id 互不相干,线程安全):先按 budget 切片,再并发调 backfill_item。
+    本次实际尝试数写入可选的 stats 字典(stats["attempted"]),调用方据此按尝试数扣配额;
+    breaker 是可选的跨文件熔断器,连续失败到阈值后不再发起新的图 API 调用。"""
     if max_workers is None:
         try:
             max_workers = int(os.environ.get("POSTER_BACKFILL_WORKERS", "6"))
@@ -93,17 +120,27 @@ def process_file(path, provider=None, budget=None, out_dir=POSTER_DIR, max_worke
     items = data if isinstance(data, list) else (data.get("items") or data.get("papers") or [])
     missing = find_missing(items)
     todo = missing if budget is None else missing[:max(0, budget)]
+    if stats is not None:
+        stats["attempted"] = len(todo)   # 尝试数(不管成败),供调用方扣配额
     filled = 0
     if todo:
         from concurrent.futures import ThreadPoolExecutor
         def _work(pair):
-            return backfill_item(pair[1], provider=provider, out_dir=out_dir)
+            if breaker is not None and breaker.tripped():
+                return None              # 已熔断:不再发起新的图 API 调用
+            img = backfill_item(pair[1], provider=provider, out_dir=out_dir)
+            if breaker is not None:
+                breaker.record(bool(img))
+            return img
         with ThreadPoolExecutor(max_workers=max(1, min(max_workers, len(todo)))) as ex:
             for (idx, it), img in zip(todo, ex.map(_work, todo)):
                 print(("  ✅" if img else "  ⚠️"), os.path.basename(path),
                       (it.get("title") or "")[:48], "->", img)
                 if img:
                     filled += 1
+    if breaker is not None and breaker.tripped():
+        print(f"🛑 连续 {breaker.limit} 次生图失败(疑似图 API 故障),提前收手;"
+              f"本文件已补 {filled} 张,其余留待下轮重试")
     if filled:
         with open(path, "w", encoding="utf-8") as f:
             json.dump(data, f, ensure_ascii=False)   # 匹配 run_deep 写盘(无缩进)
@@ -121,21 +158,43 @@ def _build_provider():
         return None
 
 
+def collect_paths(pattern):
+    """把 --glob 展开成待扫文件列表：逗号分隔的多组通配按给出顺序排(先扫的先花配额),
+    每组内部按文件名倒序(新日期优先),跨组去重。"""
+    seen, out = set(), []
+    for pat in str(pattern or "").split(","):
+        pat = pat.strip()
+        if not pat:
+            continue
+        for p in sorted(globmod.glob(pat), reverse=True):  # 新日期优先
+            if p not in seen:
+                seen.add(p); out.append(p)
+    return out
+
+
 def main():
     ap = argparse.ArgumentParser()
-    ap.add_argument("--glob", default="data/arxiv_core_*.json", help="待扫描 JSON 通配")
+    ap.add_argument("--glob", default=DEFAULT_GLOB,
+                    help="待扫描 JSON 通配;可逗号分隔多组,按给出顺序优先")
     ap.add_argument("--max", type=int,
                     default=int(os.environ.get("POSTER_BACKFILL_MAX", "50")),
-                    help="本次最多补几张(控成本);<=0 表示不限")
+                    help="本次最多尝试补几张(失败也扣配额,控成本);<=0 表示不限")
     args = ap.parse_args()
-    paths = sorted(globmod.glob(args.glob), reverse=True)  # 新日期优先
+    paths = collect_paths(args.glob)
     if not paths:
         print(f"没有匹配文件: {args.glob}"); return
+    try:
+        fail_limit = int(os.environ.get("POSTER_BACKFILL_FAIL_LIMIT", "6"))
+    except (TypeError, ValueError):
+        fail_limit = 6
+    breaker = _FailBreaker(fail_limit)
     provider = None  # 懒构建：仅在遇到无 elements 的条目时才需要
     budget = args.max if args.max and args.max > 0 else None
-    total_filled = total_missing = 0
+    total_filled = total_missing = total_attempted = 0
     for p in paths:
         if budget is not None and budget <= 0:
+            break
+        if breaker.tripped():
             break
         # 只有存在「无 elements」的缺图条目时才需要 provider
         if provider is None:
@@ -147,11 +206,16 @@ def main():
                     provider = _build_provider()
             except Exception:
                 pass
-        f, m = process_file(p, provider=provider, budget=budget)
-        total_filled += f; total_missing += m
+        st = {}
+        f, m = process_file(p, provider=provider, budget=budget, breaker=breaker, stats=st)
+        attempted = st.get("attempted", m if budget is None else min(m, budget))
+        total_filled += f; total_missing += m; total_attempted += attempted
         if budget is not None:
-            budget -= f
-    print(f"🖼️ backfill posters: filled {total_filled} (scanned missing {total_missing})")
+            # ⚠️ 按尝试数扣配额,不是成功数:图 API 全挂时 f 恒为 0,配额永远不减,
+            # 于是每个文件都会把 --max 重花一遍(80 个文件 → 数十倍图调用,把任务拖到超时)。
+            budget -= attempted
+    print(f"🖼️ backfill posters: filled {total_filled}/{total_attempted} attempted "
+          f"(scanned missing {total_missing})" + ("  🛑 已熔断提前结束" if breaker.tripped() else ""))
 
 
 if __name__ == "__main__":

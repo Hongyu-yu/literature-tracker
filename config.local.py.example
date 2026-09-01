@@ -36,6 +36,9 @@ WECHAT_CONFIG = {
     "sendkey": "",
 }
 
+# 以下**标量**键会被 config._export_local_scalars() 以 os.environ.setdefault 的方式
+# 提升成环境变量（真实环境变量优先，本文件只作本地缺省）。
+# 带 <尖括号> 的占位值会被跳过，不会污染环境。
 # APS 全文源（机密，勿提交真实值；CI 用 GitHub Secrets）
 APS_HTTP_BASE = "http://<host>:<port>"
 APS_HTTP_USER = "<aps-user>"

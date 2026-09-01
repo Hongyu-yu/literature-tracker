@@ -212,6 +212,180 @@ def test_main_distill_only_without_key_does_not_touch_file():
     assert open(path, encoding="utf-8").read() == before
 
 
+# ---------- 4. 全量重建(build_profile/main)同样不得摧毁既有画像 ----------
+#
+# --distill-only 之外还有本地全量重建这条路：Scholar 封 IP 时 scrape_scholar_works
+# 返回 []、OpenAlex/S2/arXiv 同时抽风时 backfill_abstract 全返回 None，
+# 曾经会把 364 篇论文清单 + 272 条摘要 + 5 段方向 + 205 个精选关键词一次性写空。
+
+
+def _full_old_profile():
+    """与 ufp.SCHOLARS 对齐的既有画像（每位学者 3 篇论文，其中 2 篇有摘要）。"""
+    scholars = []
+    for i, s in enumerate(ufp.SCHOLARS):
+        works = _works(f"ferroelectric topic {i}", 3)
+        works[0]["abstract"] = f"既有摘要 {i}-0"
+        works[1]["abstract"] = f"既有摘要 {i}-1"
+        scholars.append(
+            {
+                "scholar_id": s["scholar_id"],
+                "name": s["name"],
+                "works": works,
+                "directions_zh": f"既有方向 {i}：滑移铁电与机器学习势。",
+            }
+        )
+    return {
+        "generated_at": "2026-07-30",
+        "scholars": scholars,
+        "our_work_zh": "既有团队画像：第一性原理 + 机器学习势 + 铁电/磁性材料。",
+        "keywords": ["sliding ferroelectricity", "spin gnn", "machine learning potential"],
+    }
+
+
+def test_build_profile_keeps_works_when_scrape_blocked():
+    """Scholar 全部抓空（封 IP）→ 沿用既有论文清单，不得写出 works: []。"""
+    path = _write_old(_full_old_profile())
+    preserved = []
+    with mock.patch.object(ufp, "scrape_scholar_works", return_value=[]), \
+         mock.patch.object(ufp, "backfill_abstract",
+                           side_effect=AssertionError("沿用既有清单时不该重抓摘要")), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        profile = ufp.build_profile(provider=None, old_path=path, preserved=preserved)
+
+    # 修复前：每位学者 works=[]、directions_zh=""、our_work_zh=""，整份画像被清空
+    assert [len(s["works"]) for s in profile["scholars"]] == [3] * len(ufp.SCHOLARS)
+    assert profile["scholars"][0]["works"][0]["abstract"] == "既有摘要 0-0"
+    assert profile["scholars"][0]["directions_zh"] == "既有方向 0：滑移铁电与机器学习势。"
+    assert profile["our_work_zh"] == _full_old_profile()["our_work_zh"]
+    assert preserved, "降级内容必须记录在 preserved 里（调用方据此判失败）"
+
+
+def test_build_profile_restores_abstracts_when_backfill_fails():
+    """抓取正常但摘要回填全失败 → 按标题沿用既有摘要，不写 null 覆盖。"""
+    old = _full_old_profile()
+    path = _write_old(old)
+    fresh = [dict(w, abstract=None) for w in old["scholars"][0]["works"]]
+    with mock.patch.object(ufp, "scrape_scholar_works",
+                           side_effect=lambda *a, **k: [dict(w) for w in fresh]), \
+         mock.patch.object(ufp, "backfill_abstract", return_value=None), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        profile = ufp.build_profile(provider=None, old_path=path)
+
+    got = profile["scholars"][0]["works"]
+    # 修复前：三篇 abstract 全被写成 None，既有的 2 条摘要永久丢失
+    assert got[0]["abstract"] == "既有摘要 0-0"
+    assert got[1]["abstract"] == "既有摘要 0-1"
+    assert got[2]["abstract"] is None  # 旧画像里本就没有的，仍如实记 null
+
+
+def test_build_profile_keeps_curated_keywords_and_our_work():
+    """无 provider 的重建 → 既有 our_work_zh / 精选关键词照旧，不被标题词频词替换。"""
+    old = _full_old_profile()
+    path = _write_old(old)
+    with mock.patch.object(ufp, "scrape_scholar_works",
+                           return_value=_works("ferroelectric domain", 2)), \
+         mock.patch.object(ufp, "backfill_abstract", return_value="新摘要"), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        profile = ufp.build_profile(provider=None, old_path=path)
+
+    # 修复前：our_work_zh 被写成 ""、keywords 变成 ["ferroelectric", "domain", "paper"...]
+    assert profile["our_work_zh"] == old["our_work_zh"]
+    for kw in old["keywords"]:
+        assert kw in profile["keywords"]
+    assert "paper" not in profile["keywords"]
+    assert all(s["directions_zh"] for s in profile["scholars"])
+
+
+def test_build_profile_success_path_replaces_old_values():
+    """抓取+蒸馏全部成功 → 一律用新值，既不掺旧方向也不并旧关键词，preserved 为空。"""
+    path = _write_old(_full_old_profile())
+    provider = _FakeProvider(directions="新蒸馏方向", keywords=["fresh kw"])
+    preserved = []
+    with mock.patch.object(ufp, "scrape_scholar_works",
+                           return_value=_works("new topic", 2)), \
+         mock.patch.object(ufp, "backfill_abstract", return_value="新摘要"), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        profile = ufp.build_profile(provider=provider, old_path=path, preserved=preserved)
+
+    assert all(s["directions_zh"] == "新蒸馏方向" for s in profile["scholars"])
+    assert all(w["abstract"] == "新摘要" for s in profile["scholars"] for w in s["works"])
+    assert profile["our_work_zh"] == "新蒸馏方向"
+    assert profile["keywords"] == ["fresh kw"]  # 成功路径不并入旧关键词
+    assert preserved == []
+    assert set(profile.keys()) == {"generated_at", "scholars", "our_work_zh", "keywords"}
+
+
+def test_build_profile_without_old_path_behaves_as_before():
+    """不传 old_path（旧调用签名）时行为与修复前完全一致：不去读任何既有画像。"""
+    with mock.patch.object(ufp, "scrape_scholar_works", return_value=[]), \
+         mock.patch.object(ufp, "backfill_abstract", return_value=None), \
+         mock.patch.object(ufp, "_load_existing_profile",
+                           side_effect=AssertionError("未给 old_path 时不得读画像文件")), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        profile = ufp.build_profile(provider=None)
+    assert profile["our_work_zh"] == ""
+    assert profile["keywords"] == []
+    assert all(s["works"] == [] for s in profile["scholars"])
+
+
+def test_main_rebuild_preserves_file_and_exits_nonzero():
+    """端到端：无 key + Scholar 抓空 → 文件里的论文/方向/关键词一个不少，且 exit 1。"""
+    old = _full_old_profile()
+    path = _write_old(old)
+    argv = ["update_focus_profile.py", "--output", path]
+    env = {k: v for k, v in os.environ.items() if k != "AI_API_KEY"}
+    with mock.patch.object(sys, "argv", argv), \
+         mock.patch.dict(os.environ, env, clear=True), \
+         mock.patch.object(ufp, "scrape_scholar_works", return_value=[]), \
+         mock.patch.object(ufp, "backfill_abstract", return_value=None), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        rc = ufp.main()
+
+    written = json.load(open(path, encoding="utf-8"))
+    # 修复前：文件被写成 5 位学者全空（works=[]、directions_zh=""、our_work_zh=""、
+    # keywords 退化成标题词频词），且 rc == 0 顶着 ✅ 绿勾
+    assert sum(len(s["works"]) for s in written["scholars"]) == 3 * len(ufp.SCHOLARS)
+    assert all(s["directions_zh"] for s in written["scholars"])
+    assert written["our_work_zh"] == old["our_work_zh"]
+    for kw in old["keywords"]:
+        assert kw in written["keywords"]
+    assert rc == 1, "降级重建必须以非 0 退出码暴露，不能顶着 ✅ 绿勾"
+
+
+def test_main_rebuild_refuses_to_write_all_empty_profile():
+    """既无既有画像又一篇都没抓到 → 拒绝落盘，exit 1（不留下空壳画像）。"""
+    d = tempfile.mkdtemp()
+    path = os.path.join(d, "focus_interests.json")  # 文件不存在
+    argv = ["update_focus_profile.py", "--output", path]
+    env = {k: v for k, v in os.environ.items() if k != "AI_API_KEY"}
+    with mock.patch.object(sys, "argv", argv), \
+         mock.patch.dict(os.environ, env, clear=True), \
+         mock.patch.object(ufp, "scrape_scholar_works", return_value=[]), \
+         mock.patch.object(ufp, "backfill_abstract", return_value=None), \
+         mock.patch.object(ufp, "save_profile",
+                           side_effect=AssertionError("0 篇时绝不能写盘")), \
+         mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
+        rc = ufp.main()
+    assert rc == 1
+    assert not os.path.exists(path)
+
+
+def test_save_profile_is_atomic_on_serialization_failure():
+    """序列化中途抛错 → 既有画像逐字节不变，也不留 .tmp 垃圾。"""
+    path = _write_old(_full_old_profile())
+    before = open(path, encoding="utf-8").read()
+    bad = {"generated_at": "2026-09-01", "scholars": [], "our_work_zh": "x",
+           "keywords": [set()]}  # set 不可 JSON 序列化 → dump 写到一半抛 TypeError
+    try:
+        ufp.save_profile(bad, path)
+        raise AssertionError("不可序列化的画像必须抛出，不能静默吞掉")
+    except TypeError:
+        pass
+    # 修复前：open(path,"w") 已截断并写入半个 JSON,既有画像当场损坏
+    assert open(path, encoding="utf-8").read() == before
+    assert not os.path.exists(path + ".tmp")
+
+
 if __name__ == "__main__":
     for name, fn in sorted(list(globals().items())):
         if name.startswith("test_") and callable(fn):

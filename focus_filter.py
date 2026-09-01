@@ -10,7 +10,8 @@ content that may slip through broad keyword RSS feeds.
 from __future__ import annotations
 
 import re
-from typing import Any, Dict, Iterable, List, Mapping, Sequence, Tuple
+from functools import lru_cache
+from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
 AI_TERMS: Tuple[str, ...] = (
     'machine learning', 'deep learning', 'neural network', 'neural networks', 'graph neural', 'gnn',
@@ -170,25 +171,46 @@ def _item_title_focus_text(item: Mapping[str, Any]) -> str:
     return _normalize_text(' '.join(parts))
 
 
+@lru_cache(maxsize=64)
+def _whole_term_parts(terms: Tuple[str, ...]) -> Tuple[Optional[re.Pattern], Tuple[str, ...]]:
+    """把整词词表拆成 (ASCII 整词正则, 需要按子串匹配的非 ASCII 词)。
+
+    按“词表内容”做 key（不是 id(terms)：对象回收后 id 会被复用，那会命中错误的正则）。
+    三个否定词表加起来 133 个词，原来每次调用都要跑 133 次全文 re.search；
+    预编译成一条 alternation 后只跑一次，analyze_focus 热路径快 6 倍以上。
+    """
+    ascii_terms = [t for t in terms if t and not any(ord(ch) > 127 for ch in t)]
+    other = tuple(t for t in terms if t and any(ord(ch) > 127 for ch in t))
+    # 空词表绝不能编译成 (?:) —— 那会在任意标点边界处匹配成功，把整份词表变成“全命中”。
+    pattern = re.compile(
+        r'(?<![a-z0-9])(?:' + '|'.join(re.escape(t) for t in ascii_terms) + r')(?![a-z0-9])'
+    ) if ascii_terms else None
+    return pattern, other
+
+
 def _has_any(text: str, terms: Sequence[str], *, whole_term: bool = False) -> bool:
-    for term in terms:
-        if not term:
-            continue
-        if not whole_term or any(ord(ch) > 127 for ch in term):
-            if term in text:
+    if not whole_term:
+        for term in terms:
+            if term and term in text:
                 return True
-            continue
-        pattern = rf'(?<![a-z0-9]){re.escape(term)}(?![a-z0-9])'
-        if re.search(pattern, text):
+        return False
+    # alternation 在每个起点都会把所有分支试一遍，所以布尔结果与逐词 re.search 完全等价。
+    pattern, other = _whole_term_parts(terms if isinstance(terms, tuple) else tuple(terms))
+    for term in other:
+        if term in text:
             return True
-    return False
+    return bool(pattern and pattern.search(text))
 
 
-def analyze_focus(item: Mapping[str, Any]) -> Dict[str, bool]:
-    text = _item_text(item)
-    journal = _normalize_text(item.get('journal') or '')
-    arxiv_category = _normalize_text(item.get('arxiv_category') or '')
+@lru_cache(maxsize=4096)
+def _analyze_focus_signals(text: str, journal: str, arxiv_category: str) -> Dict[str, bool]:
+    """信号计算内核：只依赖这三个派生字符串，所以可以安全地按文本缓存。
 
+    collect_daily_articles 一轮里，同一篇文章会被 filter_focus_items / focus_priority /
+    topic_bucket / is_daily_focus 反复问同样的问题（实测 ~4 次/篇）。
+    这里用文本做 key，而不是 id(item)：条目被就地改写(zh/focus 富化)时 key 自然失效，
+    也不需要任何调用方负责清缓存；id() 则会在 dict 被回收后复用，串到别的文章上。
+    """
     has_ai = _has_any(text, AI_TERMS)
     has_physics = _has_any(text, PHYSICS_TERMS)
     has_chemistry = _has_any(text, CHEMISTRY_TERMS)
@@ -236,6 +258,15 @@ def analyze_focus(item: Mapping[str, Any]) -> Dict[str, bool]:
         'target_domain': target_domain,
         'ai_science': ai_science,
     }
+
+
+def analyze_focus(item: Mapping[str, Any]) -> Dict[str, bool]:
+    # 返回副本：缓存里的 dict 绝不外泄，免得调用方就地改写后污染后续所有判定。
+    return dict(_analyze_focus_signals(
+        _item_text(item),
+        _normalize_text(item.get('journal') or ''),
+        _normalize_text(item.get('arxiv_category') or ''),
+    ))
 
 
 def is_target_domain(item: Mapping[str, Any]) -> bool:
@@ -289,8 +320,12 @@ DAILY_TITLE_AI_TERMS: Tuple[str, ...] = (
 
 # 日报标题物理关键词（用户指定）
 DAILY_TITLE_PHYSICS_TERMS: Tuple[str, ...] = (
-    'quantum', 'spin', 'magnetic', 'superconduct', 'moire', 'moiré', 
-    'altermagnet', 'ferro', 'magent',
+    'quantum', 'spin', 'magnetic', 'superconduct', 'moire', 'moiré',
+    # 'magnet' 覆盖 magnet/magnetism/magnetization/magnetoresistance/paramagnetism…
+    # 这一整族词；只写 'magnetic' 会把 145 篇磁学标题误判成 band 4。
+    'altermagnet', 'ferro', 'magnet',
+    # 'magent' 是作者常见拼写错误（antiferromagentic / altermagentic），一并保留以免漏检。
+    'magent',
 )
 
 # 日报标题化学关键词（暂不启用）
@@ -308,7 +343,9 @@ def is_daily_focus(item: Mapping[str, Any]) -> bool:
     日报精选过滤 - 第三层
     必须同时满足：
     1. 属于目标领域（通过第二层过滤）
-    2. 标题或摘要中包含关键词（learning, neural, network, quantum, spin, magnetic, superconduct, moire, altermagnet, ferro, magent）
+    2. 标题或摘要中包含 DAILY_TITLE_AI_TERMS + DAILY_TITLE_PHYSICS_TERMS 里的任一关键词
+       （learning, neural, network, quantum, spin, magnetic, superconduct, moire,
+       altermagnet, ferro, magnet）
     """
     signals = analyze_focus(item)
     
@@ -321,13 +358,11 @@ def is_daily_focus(item: Mapping[str, Any]) -> bool:
     abstract_text = (item.get('abstract') or item.get('summary') or '').lower()
     combined_text = title_text + ' ' + abstract_text
     
-    # 所有关键词（标题或摘要包含任一即可）
-    all_keywords = (
-        'learning', 'neural', 'network',
-        'quantum', 'spin', 'magnetic', 'superconduct', 
-        'moire', 'moiré', 'altermagnet', 'ferro', 'magent'
-    )
-    
+    # 所有关键词（标题或摘要包含任一即可）。
+    # 直接引用上面两个词表，不再抄一份字面量：抄本曾经和词表各自漂移，
+    # 结果 'magent' 拼写错误在两处都躺了很久，把磁学文献挡在日报门外。
+    all_keywords = DAILY_TITLE_AI_TERMS + DAILY_TITLE_PHYSICS_TERMS
+
     return _has_any(combined_text, all_keywords)
 
 
@@ -340,7 +375,8 @@ def daily_focus_priority(item: Mapping[str, Any]) -> tuple:
     Band 3: 标题仅含模拟词
     Band 4: 其他符合条件的文章
     """
-    signals = analyze_focus(item)
+    # 分档只看标题，不要在这里调 analyze_focus：它扫的是全文，
+    # 结果也用不上，纯粹是排序键上的白花钱（120 天同步里约 40 秒）。
     title_text = _item_title_focus_text(item)
     
     # 标题关键词检测
@@ -377,7 +413,13 @@ def filter_daily_focus_items(
     min_keep: int = 12,
     max_keep: int = 60,
 ) -> Tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
-    """筛选日报文献：只保留满足标题关键词组合的文章"""
+    """筛选日报文献：只保留满足标题关键词组合的文章。
+
+    min_keep 是“期望下限”而不是保证：这里**故意不补位**。能补的只剩被
+    priority_tier/is_daily_focus 判为非目标领域的文章（含临床/生命科学等硬负样本），
+    为了凑够 12 篇把它们塞进日报，比出一份短日报糟糕得多。
+    低产日（假期、feed 故障）就让它短，但必须让人看见 —— 所以这里只打日志。
+    """
     from focus_core import priority_tier
     # P1 是明确研究主线，即使旧关键词组合未覆盖也必须进入日报候选。
     eligible = [item for item in items if priority_tier(item) == 0 or is_daily_focus(item)]
@@ -403,11 +445,21 @@ def filter_daily_focus_items(
         add(item)
 
     dropped = [item for item in items if item_key(item) not in selected_keys]
+
+    # 数量不足不算失败，不改结果，只把“今天为什么这么短”写进日志。
+    try:
+        floor = int(min_keep or 0)
+    except (TypeError, ValueError):
+        floor = 0
+    if floor > 0 and len(selected) < floor:
+        print(f"⚠️ 日报候选不足: 仅 {len(selected)}/{floor} 篇通过日报关键词门槛"
+              f"(另有 {len(dropped)} 篇未通过); 不补位以免混入非目标领域文献")
+
     return selected, dropped
 
 
-def topic_bucket(item: Mapping[str, Any]) -> str:
-    signals = analyze_focus(item)
+def topic_bucket_from_signals(signals: Mapping[str, bool]) -> str:
+    """已经算好 signals 时走这条，别再让 topic_bucket 把全文重扫一遍。"""
     if signals['strong_physics'] or signals['has_physics']:
         return 'physics'
     if signals['strong_chemistry'] or signals['has_chemistry']:
@@ -419,10 +471,14 @@ def topic_bucket(item: Mapping[str, Any]) -> str:
     return 'other'
 
 
+def topic_bucket(item: Mapping[str, Any]) -> str:
+    return topic_bucket_from_signals(analyze_focus(item))
+
+
 def focus_priority(item: Mapping[str, Any]) -> tuple:
     from focus_core import core_score  # lazy import to avoid circular deps
     signals = analyze_focus(item)
-    bucket = topic_bucket(item)
+    bucket = topic_bucket_from_signals(signals)  # 复用上面的 signals，不重复扫全文
     bucket_rank = {
         'physics': 0,
         'chemistry': 1,

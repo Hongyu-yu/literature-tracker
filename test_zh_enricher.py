@@ -3,6 +3,8 @@
 import contextlib
 import io
 import json
+import sys
+import types
 from unittest import mock
 
 import zh_enricher
@@ -211,6 +213,102 @@ def test_partially_returned_batch_is_logged():
     assert updated == 1
     assert "未拿到译文" in log
     assert not (articles[1].get("title_zh") or "").strip()
+
+
+# --- updated 计数必须反映"真正写入",否则回填看似推进实则原地打转 ---
+
+
+def test_updated_counts_only_real_writes():
+    """模型漏掉 abstract_zh_full 时不得计入 updated。
+
+    文章已有 title_zh/abstract_zh、只缺 abstract_zh_full(最长、最容易被 max_tokens 截掉),
+    模型把前两个字段照抄回来、abstract_zh_full 留空:三处写入的守卫全部不成立,
+    一个字段都没改。旧代码按"模型回了非空字符串"计数(`if title_zh or abstract_zh or
+    abstract_zh_full`),于是每轮都报 updated=N 而 missing_after 纹丝不动 ——
+    backfill_zh 只在 missing==0 时才 break,这种不可能收敛的状态会烧光全部 pass,
+    日志却像在推进。
+    """
+    articles = [{
+        "title": "Ferroelectric domain walls", "link": "http://x",
+        "abstract": "English abstract.",
+        "title_zh": "已有中文标题", "abstract_zh": "已有浓缩摘要",
+    }]
+    prov = _RawProv(json.dumps({"items": [{
+        "index": 1, "title_zh": "已有中文标题", "abstract_zh": "已有浓缩摘要",
+        "abstract_zh_full": "",
+    }]}, ensure_ascii=False))
+    updated, log = _run_enrich(articles, prov)
+
+    assert updated == 0, f"一个字段都没写入却计了 {updated} 篇"
+    a = articles[0]
+    assert a["title_zh"] == "已有中文标题"          # 已有内容不得被覆盖
+    assert a["abstract_zh"] == "已有浓缩摘要"
+    assert not (a.get("abstract_zh_full") or "").strip()
+    assert zh_enricher._full_needs_translation(a)   # 仍是候选,下次运行继续重试
+    assert "⚠️" in log and "未落盘" in log           # 无进展必须留痕
+
+
+def test_partial_write_still_counts_as_updated():
+    """只写进一个字段也算更新 —— 修计数不能矫枉过正成"必须三个字段齐全"。"""
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract."}]
+    prov = _RawProv(json.dumps({"items": [{
+        "index": 1, "title_zh": "中文标题", "abstract_zh": "", "abstract_zh_full": "",
+    }]}, ensure_ascii=False))
+    updated, _log = _run_enrich(articles, prov)
+
+    assert updated == 1
+    assert articles[0]["title_zh"] == "中文标题"
+
+
+# --- 兜底(GoogleTranslator)路径:同样只统计真正写入 ---
+
+
+def _run_fallback(articles, translate_fn):
+    """不配 AI key 时走 translator 兜底;translator 未安装依赖,这里注入假模块。"""
+    fake = types.ModuleType("translator")
+    fake.translate_text = translate_fn
+    buf = io.StringIO()
+    with mock.patch.dict(sys.modules, {"translator": fake}), \
+            mock.patch.object(zh_enricher, "build_provider",
+                              side_effect=AssertionError("no api_key: provider must not be built")), \
+            contextlib.redirect_stdout(buf):
+        updated = zh_enricher.enrich_articles_zh(articles, provider_name="openrouter", api_key="")
+    return updated, buf.getvalue()
+
+
+def test_fallback_keeps_and_counts_partial_write_before_failure():
+    """兜底路径中途抛错:已写入的字段要保留,并且要计入 updated。
+
+    旧代码把 `updated += 1` 放在 try 末尾、异常时 continue,于是"标题译好了、摘要翻译挂了"
+    这类真实进展被报成 0 篇 —— backfill_zh 据此认定本轮毫无进展。
+    """
+    def _translate(text):
+        if text.startswith("Ferroelectric"):
+            return "铁电畴壁"
+        raise RuntimeError("google translate 502")
+
+    articles = [{"title": "Ferroelectric domain walls", "link": "http://x",
+                 "abstract": "English abstract."}]
+    updated, _log = _run_fallback(articles, _translate)
+
+    assert updated == 1
+    assert articles[0]["title_zh"] == "铁电畴壁"      # 已完成的翻译不能丢
+    assert not (articles[0].get("abstract_zh") or "").strip()   # 失败的字段留空待重试
+
+
+def test_fallback_never_writes_empty_translation():
+    """空摘要 → translate_text 返回 ""(契约如此),不得把空串盖进 *_zh 字段。"""
+    def _translate(text):
+        return "铁电畴壁" if (text or "").strip() else ""
+
+    articles = [{"title": "Ferroelectric domain walls", "link": "http://x", "abstract": ""}]
+    updated, _log = _run_fallback(articles, _translate)
+
+    assert updated == 1
+    a = articles[0]
+    assert a["title_zh"] == "铁电畴壁"
+    assert "abstract_zh" not in a          # 旧代码会写成 ""
+    assert "abstract_zh_full" not in a
 
 
 if __name__ == "__main__":

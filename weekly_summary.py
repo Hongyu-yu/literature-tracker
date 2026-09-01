@@ -4,11 +4,12 @@
 """
 
 import os
+import sys
 import json
 import requests
 import html
 from urllib.parse import urlparse
-from datetime import datetime, timedelta
+from datetime import datetime, timedelta, timezone
 from typing import List, Dict, Optional
 from ai_summarizer import build_provider
 from author_utils import authors_label as format_authors_label
@@ -25,6 +26,21 @@ try:
     from config import AI_CONFIG as DEFAULT_AI_CONFIG
 except ImportError:
     DEFAULT_AI_CONFIG = {}
+
+
+# 全站的 pub_date 都是北京日历日（rss_fetcher 按 UTC+8 落库），而 GitHub runner 的
+# 本地时间是 UTC。周报页脚、index.json 时间戳、默认周窗口统一用北京时间，否则
+# 页面上的「更新时间」会比正文里的日期整整早 8 小时（看起来像跑失败了），
+# 跨零点时甚至和自己的 week_end 差一天。
+BEIJING_TZ = timezone(timedelta(hours=8))
+
+
+class WeekOutsideDataWindow(RuntimeError):
+    """请求的这一周完全不在留存数据窗口内。
+
+    和「本周没有符合条件的文献」是两回事：前者再跑多少次也不可能生成，
+    后者只是这周确实没有值得收录的论文。
+    """
 
 
 def _safe_text(value) -> str:
@@ -918,19 +934,20 @@ class WeeklySummarizer:
             f"Nature/Science 系列期刊的 {len(all_articles)} 篇磁性/铁电/AI 相关文献。"
             f"本周其中铁电/磁性 {len(ferro_articles)} 篇、AI/ML {len(ai_articles)} 篇。\n\n"
             f"【文献列表】(格式: [序号] [类型]【期刊】标题 / 摘要)\n{articles_str}\n\n"
+            # ⚠️ 只索要页面真正会渲染的三段（overview / trends / outlook）。
+            # 历史上还要过 article_summaries（每篇一句，实测一周 366 条）、highlights、
+            # by_topic，程序解析完整整齐齐地丢掉——没有任何渲染路径读它们，
+            # 却挤占 AI_MAX_TOKENS，把排在 JSON 末尾、真正上页面的 trends/outlook 截断。
             "【写作硬性要求】\n"
             "1. 全部中文。禁止 '本研究/具有重要意义/取得进展/为…提供新思路/重要科学意义' 等套话；"
             "必须写出具体材料体系（如 BaTiO3、BiFeO3、CrI3、MoTe2）、方法（DFT、GGA+U、MLIP、中子衍射等）、"
             "或关键数值/结论。若原文没有，可留空，不得编造。\n"
-            "2. highlights 只选 5-8 篇**最有突破性**的工作（新材料/新机理/新方法）；其中 Nature/Science 正刊优先。\n"
-            "3. 不要在输出中填任何 URL，链接由程序按 index 自动补全。\n"
-            "4. 长度约束：overview 3-4 句；trends 4-5 句；outlook 2-3 句；单条 innovation ≤60 字、significance ≤30 字。\n\n"
+            "2. 不要在输出中填任何 URL。\n"
+            "3. 长度约束：overview 3-4 句；trends 4-5 句；outlook 2-3 句。\n"
+            "4. 三段都必须写满，不得省略 outlook。\n\n"
             "【输出格式】只输出 JSON，不要 markdown 标记：\n"
             "{\n"
             '  "overview": "...",\n'
-            '  "article_summaries": [ {"index": <序号>, "one_sentence": "≤50字，具体"} ],\n'
-            '  "highlights": [ {"index": <序号>, "material": "...", "property": "...", "method": "...", "innovation": "...", "significance": "..."} ],\n'
-            '  "by_topic": { "铁电材料": [<序号>...], "磁性材料": [<序号>...], "多铁性材料": [<序号>...], "方法学创新": [<序号>...] },\n'
             '  "trends": "...",\n'
             '  "outlook": "..."\n'
             "}\n"
@@ -951,98 +968,10 @@ class WeeklySummarizer:
         if not isinstance(data, dict):
             raise ValueError("周报 JSON 根不是对象")
 
-        # --- Resolve index → full article, then inject real URLs server-side. ---
         def _clamp(t: str, n: int) -> str:
             t = (t or "").strip()
             return t if len(t) <= n else t[: n - 1].rstrip() + "…"
 
-        def _resolve(idx_like) -> Optional[Dict]:
-            try:
-                idx = int(idx_like)
-            except Exception:
-                return None
-            if 1 <= idx <= len(all_articles):
-                return all_articles[idx - 1]
-            return None
-
-        article_summaries: List[Dict] = []
-        for item in data.get('article_summaries', []) or []:
-            if not isinstance(item, dict):
-                continue
-            art = _resolve(item.get('index'))
-            if not art:
-                continue
-            article_summaries.append({
-                'title': art.get('title_zh') or art.get('title', ''),
-                'title_en': art.get('title', ''),
-                'link': art.get('link', ''),
-                'journal': art.get('journal', ''),
-                'one_sentence': _clamp(item.get('one_sentence', ''), 80),
-            })
-
-        highlights: List[Dict] = []
-        seen_h: set = set()
-        for item in data.get('highlights', []) or []:
-            if not isinstance(item, dict):
-                continue
-            art = _resolve(item.get('index'))
-            if not art:
-                continue
-            key = art.get('link') or art.get('title')
-            if key in seen_h:
-                continue
-            seen_h.add(key)
-            highlights.append({
-                'title': art.get('title_zh') or art.get('title', ''),
-                'title_en': art.get('title', ''),
-                'journal': art.get('journal', ''),
-                'link': art.get('link', ''),
-                'material': _clamp(item.get('material', ''), 60),
-                'property': _clamp(item.get('property', ''), 40),
-                'method': _clamp(item.get('method', ''), 60),
-                'innovation': _clamp(item.get('innovation', ''), 120),
-                'significance': _clamp(item.get('significance', ''), 60),
-            })
-        highlights = highlights[:8]
-
-        # by_topic: prefer AI's index lists; fallback to keyword rule bucketing.
-        topic_buckets = {"铁电材料": [], "磁性材料": [], "多铁性材料": [], "方法学创新": []}
-        ai_topic = data.get('by_topic') or {}
-        for topic, idxs in ai_topic.items():
-            if topic not in topic_buckets or not isinstance(idxs, list):
-                continue
-            for raw in idxs:
-                art = _resolve(raw)
-                if art and art.get('link'):
-                    if art['link'] not in [x['link'] for x in topic_buckets[topic]]:
-                        topic_buckets[topic].append({
-                            'title': art.get('title_zh') or art.get('title', ''),
-                            'link': art.get('link', ''),
-                            'journal': art.get('journal', ''),
-                        })
-
-        # Rule-based fallback: if AI's output is empty, bucket by keywords.
-        if not any(topic_buckets.values()):
-            for art in all_articles:
-                text = ((art.get('title') or '') + ' ' + (art.get('abstract') or '')).lower()
-                entry = {
-                    'title': art.get('title_zh') or art.get('title', ''),
-                    'link': art.get('link', ''),
-                    'journal': art.get('journal', ''),
-                }
-                if 'multiferroic' in text or '多铁' in text:
-                    topic_buckets['多铁性材料'].append(entry)
-                elif 'ferroelectric' in text or 'piezoelectric' in text:
-                    topic_buckets['铁电材料'].append(entry)
-                elif 'ferromagnet' in text or 'antiferromagnet' in text or 'magnetic' in text:
-                    topic_buckets['磁性材料'].append(entry)
-                elif any(kw in text for kw in ['machine learn', 'neural network', 'mlip', 'ml potential', 'graph network', 'deep learn']):
-                    topic_buckets['方法学创新'].append(entry)
-            for k in topic_buckets:
-                topic_buckets[k] = topic_buckets[k][:5]
-
-        # Skip parse — `data` is already loaded above.
-        
         # 给每篇文章添加类型标记，并计算统计
         ferro_only, ai_only, both = self._split_by_category(all_articles, ferro_articles, ai_articles)
 
@@ -1089,9 +1018,6 @@ class WeeklySummarizer:
             'ai_count': len(ai_articles),
             'both_count': len(both),
             'overview': _clamp(data.get('overview', ''), 400),
-            'article_summaries': article_summaries,
-            'highlights': highlights,
-            'by_topic': topic_buckets,
             'by_journal': by_journal,
             'trends': _clamp(data.get('trends', ''), 600),
             'outlook': _clamp(data.get('outlook', ''), 300),
@@ -1238,8 +1164,6 @@ class WeeklySummarizer:
             'week_end': week_end,
             'total': 0,
             'overview': f"本周({week_start}至{week_end})暂无符合条件的文献。",
-            'highlights': [],
-            'by_topic': {},
             'by_journal': {},
             'trends': '',
             'outlook': '',
@@ -1247,256 +1171,6 @@ class WeeklySummarizer:
             'generated_by': 'empty'
         }
     
-    def _generate_all_articles_section(self, summary: Dict) -> str:
-        """生成所有文献列表的HTML"""
-        # 获取所有文章，优先使用 all_articles，否则使用 articles
-        all_articles = summary.get('all_articles', summary.get('articles', []))
-        
-        if not all_articles:
-            return ''
-        
-        # 按期刊分组
-        by_journal = {}
-        for article in all_articles:
-            journal = article.get('journal', 'Unknown')
-            if journal not in by_journal:
-                by_journal[journal] = []
-            by_journal[journal].append(article)
-        
-        # 生成HTML
-        articles_html = ''
-        total_articles = sum(len(arts) for arts in by_journal.values())
-        processed = 0
-        
-        for journal, articles in sorted(by_journal.items(), key=lambda x: -len(x[1])):
-            articles_html += f'<h3 class="journal-group-title">{journal} ({len(articles)}篇)</h3>'
-            articles_html += '<div class="article-list">'
-            
-            for idx, article in enumerate(articles, 1):
-                processed += 1
-                title_zh = article.get('title_zh', '')
-                title_en = article.get('title', '')
-                title = title_zh or title_en
-                link = article.get('link', '#')
-                date = article.get('pub_date', article.get('date', ''))
-                journal = article.get('journal', journal)  # 使用分组中的期刊，如果没有则使用分组名
-                
-                # 获取摘要
-                abstract_zh = article.get('abstract_zh', '')
-                abstract_en = article.get('abstract', '')
-                
-                # 获取作者
-                authors = article.get('authors', [])
-                authors_str = format_authors_label(authors, max_names=3)
-                
-                # 确定文章类型标签
-                tags = []
-                if article.get('is_ferro'):
-                    tags.append('<span class="article-type-tag ferro-tag">⚡ 磁性/铁电</span>')
-                if article.get('is_ai'):
-                    tags.append('<span class="article-type-tag ai-tag">🤖 AI/机器学习</span>')
-                
-                tags_html = ''.join(tags) if tags else ''
-                
-                # 生成AI简要分析（使用缓存避免重复调用）
-                # 可以通过环境变量 SKIP_AI_ANALYSIS=1 来跳过AI分析以加快生成速度
-                ai_analysis = article.get('ai_analysis', '')
-                skip_ai = os.environ.get('SKIP_AI_ANALYSIS', '').lower() == '1'
-                
-                if not ai_analysis and self.provider and not skip_ai:
-                    print(f"  [{processed}/{total_articles}] 分析文章: {title[:50]}...")
-                    try:
-                        ai_analysis = self._analyze_single_article(article)
-                        if ai_analysis:
-                            article['ai_analysis'] = ai_analysis
-                            # 保存到文章数据中（如果可能）
-                            article_id = article.get('id')
-                            if article_id:
-                                # 这里可以保存到数据库或文件，暂时只保存在内存中
-                                pass
-                    except Exception as e:
-                        print(f"    ⚠️ 分析失败: {e}")
-                        ai_analysis = ""
-                elif skip_ai:
-                    # 跳过AI分析时，使用摘要的前100字作为简要介绍
-                    if abstract_zh or abstract_en:
-                        preview = (abstract_zh or abstract_en)[:100]
-                        ai_analysis = preview + "..." if len(preview) == 100 else preview
-                
-                # 构建HTML - 添加展开/折叠功能
-                article_id = f"article-{article.get('id', processed)}"
-                has_abstract_zh = bool(abstract_zh and abstract_en)  # 有中英文摘要才显示展开按钮
-                
-                # 先构建按钮HTML，避免在f-string表达式内使用反斜杠
-                toggle_btn = f'<button class="toggle-abstract-btn" onclick="toggleAbstract(\'{article_id}\')">📖 查看完整摘要</button>' if has_abstract_zh else ''
-                
-                article_html = f'''
-                <div class="article-card" id="{article_id}">
-                    <div class="article-header">
-                        <div class="article-number">{idx}</div>
-                        <div class="article-title-wrapper">
-                            <h4 class="article-title">
-                                <a href="{link}" target="_blank">{title}</a>
-                            </h4>
-                            {f'<p class="article-title-en">{title_en}</p>' if title_en and title_zh else ''}
-                            {f'<div class="article-journal">📚 {journal}</div>' if journal else ''}
-                        </div>
-                    </div>
-                    <div class="article-body">
-                        {f'<div class="article-authors">👤 {authors_str}</div>' if authors_str else ''}
-                        {f'<div class="article-ai-analysis">{ai_analysis}</div>' if ai_analysis else ''}
-                        {f'<div class="article-abstract-preview">{abstract_zh[:150] if abstract_zh else (abstract_en[:150] if abstract_en else "")}...</div>' if (abstract_zh or abstract_en) else ''}
-                        {toggle_btn}
-                        <div class="article-abstract-full" id="{article_id}-abstract" style="display: none;">
-                            {f'<div class="abstract-section"><strong>中文摘要：</strong><p>{abstract_zh}</p></div>' if abstract_zh else ''}
-                            {f'<div class="abstract-section"><strong>English Abstract：</strong><p class="abstract-en">{abstract_en}</p></div>' if abstract_en else ''}
-                        </div>
-                    </div>
-                    <div class="article-footer">
-                        <div class="article-tags">
-                            {tags_html}
-                        </div>
-                        {f'<div class="article-date">📅 {date}</div>' if date else ''}
-                        <a href="{link}" target="_blank" class="article-link">阅读原文 →</a>
-                    </div>
-                </div>
-                '''
-                articles_html += article_html
-            
-            articles_html += '</div>'
-        
-        return f'''
-        <div class="section all-articles-section">
-            <h2>📋 本周所有文献</h2>
-            <p class="section-description">本周共收录 {len(all_articles)} 篇文献，按期刊分类如下：</p>
-            {articles_html}
-        </div>
-        '''
-    
-    def _generate_overview_article_list(self, summary: Dict) -> str:
-        """生成总览部分的文章列表（每篇文章一句话总结，带链接）"""
-        article_summaries = summary.get('article_summaries', [])
-        all_articles = summary.get('all_articles', [])
-        
-        if not article_summaries and not all_articles:
-            return ''
-        
-        # 如果没有AI生成的总结，从all_articles生成
-        if not article_summaries:
-            article_summaries = []
-            for article in all_articles:
-                title = article.get('title_zh') or article.get('title', '')
-                link = article.get('link', '')
-                # 使用AI分析或摘要前50字作为一句话总结
-                one_sentence = article.get('ai_analysis', '')
-                if not one_sentence:
-                    abstract = article.get('abstract_zh') or article.get('abstract', '')
-                    one_sentence = abstract[:50] + '...' if abstract else title[:50]
-                article_summaries.append({
-                    'title': title,
-                    'link': link,
-                    'one_sentence': one_sentence[:80]  # 限制长度
-                })
-        
-        # 按类型分组
-        ferro_articles = summary.get('ferro_articles', [])
-        ai_articles = summary.get('ai_articles', [])
-        both_articles = summary.get('both_articles', [])
-        
-        # 建立文章链接到文章对象的映射
-        article_map = {}
-        for article in all_articles:
-            link = article.get('link', '')
-            article_id = article.get('id') or link
-            article_map[link] = article
-        
-        # 分类文章总结
-        ferro_summaries = []
-        ai_summaries = []
-        both_summaries = []
-        
-        for summary_item in article_summaries:
-            link = summary_item.get('link', '')
-            article = article_map.get(link)
-            
-            if not article:
-                continue
-            
-            # 生成文章ID用于锚点
-            article_id = f"article-{_safe_id(article.get('id', hash(link) % 100000))}"
-            
-            # 判断类型
-            is_ferro = article.get('is_ferro', False)
-            is_ai = article.get('is_ai', False)
-            
-            summary_with_id = {
-                **summary_item,
-                'article_id': article_id,
-                'journal': article.get('journal', '')
-            }
-            
-            if is_ferro and is_ai:
-                both_summaries.append(summary_with_id)
-            elif is_ferro:
-                ferro_summaries.append(summary_with_id)
-            elif is_ai:
-                ai_summaries.append(summary_with_id)
-        
-        # 生成HTML
-        html = '<div class="overview-article-list">'
-        
-        if both_summaries:
-            html += '<div class="overview-group both-group">'
-            html += f'<h3 class="overview-group-title">🔀 交叉研究 ({len(both_summaries)}篇)</h3>'
-            html += '<ul class="overview-list">'
-            for item in both_summaries:
-                journal_escaped = _safe_text(item.get('journal', ''))
-                one_sentence_escaped = _safe_text(item.get('one_sentence', ''))
-                html += f'''
-                <li class="overview-item">
-                    <a href="#{item['article_id']}" class="overview-link">
-                        <span class="overview-journal">[{journal_escaped}]</span>
-                        {one_sentence_escaped}
-                    </a>
-                </li>'''
-            html += '</ul></div>'
-        
-        if ferro_summaries:
-            html += '<div class="overview-group ferro-group">'
-            html += f'<h3 class="overview-group-title">⚡ 磁性/铁电材料 ({len(ferro_summaries)}篇)</h3>'
-            html += '<ul class="overview-list">'
-            for item in ferro_summaries:
-                journal_escaped = _safe_text(item.get('journal', ''))
-                one_sentence_escaped = _safe_text(item.get('one_sentence', ''))
-                html += f'''
-                <li class="overview-item">
-                    <a href="#{item['article_id']}" class="overview-link">
-                        <span class="overview-journal">[{journal_escaped}]</span>
-                        {one_sentence_escaped}
-                    </a>
-                </li>'''
-            html += '</ul></div>'
-        
-        if ai_summaries:
-            html += '<div class="overview-group ai-group">'
-            html += f'<h3 class="overview-group-title">🤖 AI/机器学习 ({len(ai_summaries)}篇)</h3>'
-            html += '<ul class="overview-list">'
-            for item in ai_summaries:
-                journal_escaped = _safe_text(item.get('journal', ''))
-                one_sentence_escaped = _safe_text(item.get('one_sentence', ''))
-                html += f'''
-                <li class="overview-item">
-                    <a href="#{item['article_id']}" class="overview-link">
-                        <span class="overview-journal">[{journal_escaped}]</span>
-                        {one_sentence_escaped}
-                    </a>
-                </li>'''
-            html += '</ul></div>'
-        
-        html += '</div>'
-        return html
-    
-
     def save_summary_html(self, summary: Dict, output_dir: str = 'docs/weekly') -> str:
         # 保存周报为HTML（资讯周报风格）
         week_start = str(summary['week_start'])
@@ -1894,7 +1568,9 @@ class WeeklySummarizer:
         )
 
         generated_by = _safe_text(summary.get('generated_by', 'AI'))
-        generated_at = datetime.now().strftime('%Y-%m-%d %H:%M')
+        # runner 是 UTC，而页面上其它日期（week_start/week_end/pub_date）都是北京日历日；
+        # 不带时区地写 datetime.now() 会让刚跑完的周报显示成 8 小时前
+        generated_at = datetime.now(BEIJING_TZ).strftime('%Y-%m-%d %H:%M')
         section_count = max(section_counter['value'] - 1, 1)
 
         html = f'''<!DOCTYPE html>
@@ -2523,7 +2199,7 @@ class WeeklySummarizer:
 
                 <div class="weekly-report-footer">
                     本页由文献追踪系统自动生成，保留中英标题、期刊、作者与摘要入口，便于按周追踪 AI × 物理 / 化学 / 材料交叉研究。<br>
-                    生成方式：{generated_by} ｜ 更新时间：{generated_at}
+                    生成方式：{generated_by} ｜ 更新时间：{generated_at}（北京时间）
                 </div>
             </main>
 
@@ -2628,47 +2304,140 @@ def _write_weekly_index_file(weekly_dir: str = 'docs/weekly') -> int:
             continue
     os.makedirs(weekly_dir, exist_ok=True)
     with open(index_file, 'w', encoding='utf-8') as f:
-        json.dump({'weeklies': weeklies, 'updated': datetime.now().isoformat()}, f, ensure_ascii=False, indent=2)
+        # 带时区写时间戳：裸 datetime.now() 在 runner 上是 UTC，和周报里的北京日历日差 8 小时
+        json.dump({'weeklies': weeklies, 'updated': datetime.now(BEIJING_TZ).isoformat()},
+                  f, ensure_ascii=False, indent=2)
     return len(weeklies)
 
 
-def generate_weekly_summary(week_start: str = None, api_key: str = None) -> Optional[str]:
+def default_week_start(now: datetime = None) -> str:
+    """默认周窗口 = 上一个**已完成**的周（周一~周日），按北京日历日计算。
+
+    以前默认取「本周一」，周窗口的最后一天正好是任务运行当天：fetch.yml 当天的文献
+    还没入库（00:00 UTC 起跑、要跑几个小时），而周报页此后不会再重新生成，
+    当周最后一两天的文献就永久缺席（实测某周漏掉 4 篇 PRL + 1 篇 Nature Reviews Physics）。
+    改成上一个已完成周后，整段窗口在生成前都已抓完。
+
+    时区：pub_date 存的是北京日历日（rss_fetcher 按 UTC+8 落库），runner 却是 UTC，
+    裸 datetime.now() 在北京时间 00:00-08:00 之间会算错一天。
+    """
+    now = now or datetime.now(BEIJING_TZ)
+    monday = now - timedelta(days=now.weekday() + 7)
+    return monday.strftime('%Y-%m-%d')
+
+
+def _load_article_list(path: str) -> List[Dict]:
+    """读取一个文献列表文件：index.json 的 {'articles': [...]} 或 ai_relevant.json 的裸数组。
+
+    读不到/格式不对只记一条日志并返回空列表——这里只是取数，绝不能因为某个数据源
+    坏掉就让整个周报挂掉。归一化留给调用方，只对真正进周报的那批做。
+    """
+    if not os.path.exists(path):
+        return []
+    try:
+        with open(path, 'r', encoding='utf-8') as f:
+            data = json.load(f)
+    except Exception as e:
+        print(f"⚠️ 读取 {path} 失败({type(e).__name__}: {e})，跳过该数据源")
+        return []
+    if isinstance(data, dict):
+        data = data.get('articles') or []
+    if not isinstance(data, list):
+        print(f"⚠️ {path} 顶层既不是数组也不是 {{'articles': [...]}}，跳过该数据源")
+        return []
+    return [a for a in data if isinstance(a, dict)]
+
+
+def _articles_in_window(articles: List[Dict], start_date: str, end_date: str) -> List[Dict]:
+    return [a for a in articles if start_date <= (a.get('pub_date') or '') <= end_date]
+
+
+def _date_span(articles: List[Dict]) -> str:
+    dates = [a.get('pub_date') for a in articles if a.get('pub_date')]
+    return f"{min(dates)}~{max(dates)}" if dates else "空"
+
+
+def generate_weekly_summary(week_start: str = None, api_key: str = None,
+                            strict_window: bool = False) -> Optional[str]:
     """
     便捷函数：生成周报
-    
+
     Args:
-        week_start: 周开始日期 (YYYY-MM-DD)，默认为本周一
+        week_start: 周开始日期 (YYYY-MM-DD)，默认为上一个已完成周的周一
         api_key: API密钥
-        
+        strict_window: 该周连一篇原始文献都没有（整周在留存数据窗口之外）时抛
+            WeekOutsideDataWindow，让回填脚本能用退出码区分「这周没有值得收录的论文」
+            和「这周根本没有数据、再跑也不可能生成」。默认 False（保持 fail-soft）。
+
     Returns:
         输出文件路径
     """
-    # 加载文献数据
-    try:
-        with open('data/index.json', 'r', encoding='utf-8') as f:
-            data = json.load(f)
-        articles = data.get('articles', [])
-        normalize_articles_inplace(articles)
-    except FileNotFoundError:
-        print("❌ 未找到数据文件")
-        return None
-    
     # 确定周开始日期
     if not week_start:
-        today = datetime.now()
-        # 计算本周一
-        days_since_monday = today.weekday()
-        monday = today - timedelta(days=days_since_monday)
-        week_start = monday.strftime('%Y-%m-%d')
-    
+        week_start = default_week_start()
+    week_end = (datetime.strptime(week_start, '%Y-%m-%d') + timedelta(days=6)).strftime('%Y-%m-%d')
+
+    # 加载文献数据
+    index_path = 'data/index.json'
+    articles = _load_article_list(index_path)
+    if not articles and not os.path.exists(index_path):
+        print(f"⚠️ 未找到 {index_path}，改用长期库")
+
+    # 是否退回到了 data/ai_relevant.json：那是个**更小**的池子（run_optimized_sync 只把
+    # 通过 AI4S 与相关性闸门的条目追加进去，且写在 zh/focus 富化之前），实测同一周
+    # index.json 1224 篇原始 / 45 篇带 focus_score，ai_relevant.json 只有 922 / 0。
+    # 用它重生成会得到一份更薄、且 🎯 区块为空的页面。
+    used_fallback = False
+
+    in_window = _articles_in_window(articles, week_start, week_end)
+    if not in_window:
+        # index.json 被 run_optimized_sync 截断到最新 5000 篇（实测只覆盖约 30 天），
+        # 回填历史周时窗口内一篇都取不到，旧代码只会打一句「📭 没有符合条件的文献」，
+        # 于是整轮回填全绿、一个页面都没生成，操作者以为归档已经补齐。
+        # data/ai_relevant.json 是长期库（run_optimized_sync 就地累加，不截断），回退到它。
+        relevant = _load_article_list('data/ai_relevant.json')
+        extra = _articles_in_window(relevant, week_start, week_end)
+        if extra:
+            print(f"♻️ {index_path} 不含 {week_start}~{week_end} 的文献（现覆盖 {_date_span(articles)}），"
+                  f"回退到长期库 data/ai_relevant.json，补入 {len(extra)} 篇候选")
+            # index.json 在该窗口内是 0 篇，不可能与 extra 重复，直接拼接
+            articles = articles + extra
+            in_window = extra
+            used_fallback = True
+        else:
+            msg = (f"❌ {week_start}~{week_end} 完全在留存数据窗口之外："
+                   f"{index_path} 覆盖 {_date_span(articles)}、"
+                   f"data/ai_relevant.json 覆盖 {_date_span(relevant)}，该周一篇原始文献都没有。"
+                   f"这不是「本周没有符合条件的文献」——再跑多少次也不可能生成，"
+                   f"需要先把原始数据补回来。")
+            print(msg)
+            if strict_window:
+                raise WeekOutsideDataWindow(msg)
+            return None
+
+    # 只对真正进入本周窗口的这批做 LaTeX/符号归一化：窗口外的条目一条都不会被渲染，
+    # 而 ai_relevant.json 有 1.6 万条，全量归一化白等十几秒
+    normalize_articles_inplace(in_window)
+
     # 生成周报
     summarizer = WeeklySummarizer(api_key)
     summary = summarizer.generate_weekly_summary(articles, week_start)
-    
+
     if summary['total'] == 0:
-        print(f"📭 {week_start} 这周没有符合条件的文献")
+        print(f"📭 {week_start}~{week_end} 窗口内有 {len(in_window)} 篇原始文献，"
+              f"但没有一篇通过顶刊闸门/关键词/AI 判断，本周不出页面")
         return None
-    
+
+    # 降级重生成绝不能覆盖已有的好页面。backfill-weekly.yml 默认区间覆盖 15 个**已存在**
+    # 的周页并且会 git add docs/weekly 强推 main —— 没有这道闸，一次例行回填就会把
+    # 2026-03-16(665KB) 这类完整页面换成明显更薄的版本。
+    if used_fallback:
+        existing = os.path.join('docs/weekly', f"{week_start}.html")
+        if os.path.exists(existing):
+            print(f"⏭️ {week_start} 页面已存在，且本周数据来自降级来源(ai_relevant.json)，"
+                  f"保留现有页面不覆盖。确需重建请先删除 {existing}")
+            return None
+
     return summarizer.save_summary_html(summary)
 
 
@@ -2686,13 +2455,25 @@ def sync_weekly_index(weekly_dir: str = 'docs/weekly') -> int:
     return n
 
 
-if __name__ == '__main__':
-    import sys
-    
-    # 使用命令行参数
-    week_start = sys.argv[1] if len(sys.argv) > 1 else None
+def main(argv: List[str] = None) -> int:
+    """CLI 入口，返回进程退出码。
+
+    退出码 3 = 请求的这一周完全没有原始数据（见 WeekOutsideDataWindow）。
+    只有显式指定周（回填）时才会返回 3：定时任务不带参数，绝不能因此变红——
+    否则会连带跳过 commit/push 与 deploy 这两步。
+    """
+    argv = list(sys.argv[1:] if argv is None else argv)
+    week_start = argv[0] if argv else None
+    exit_code = 0
     try:
-        generate_weekly_summary(week_start)
+        generate_weekly_summary(week_start, strict_window=bool(week_start))
+    except WeekOutsideDataWindow:
+        exit_code = 3
     finally:
         # 每次运行结束都刷新索引，确保周报列表页能显示所有已存在的 HTML（含本次新生成的）
         sync_weekly_index()
+    return exit_code
+
+
+if __name__ == '__main__':
+    sys.exit(main())

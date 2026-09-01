@@ -7,7 +7,8 @@
 
 网络层 _fetch_scholar_page / _fetch_openalex / _fetch_semantic_scholar /
 _fetch_arxiv 为模块级函数，测试可 monkeypatch，绝不触网（契约同 arxiv_fulltext.py）。
-所有 IO 失败均吞掉返回空，不阻塞主流程。
+所有 IO 失败均吞掉返回空，不阻塞主流程；但空结果一律不许写回画像文件——
+抓取/回填/蒸馏任一环失败时逐字段沿用既有画像并以非 0 退出码暴露，绝不用空值覆盖好数据。
 """
 
 from __future__ import annotations
@@ -471,11 +472,79 @@ def extract_keywords_from_works(all_works: List[Dict[str, Any]], top_n: int = 30
 # ========== 画像构建与落盘 ==========
 
 
-def build_profile(provider: Any = None, max_works: int = 0) -> Dict[str, Any]:
-    """抓取 + 回填 + 蒸馏 → focus_interests.json 的数据 dict。"""
+def _load_existing_profile(path: str) -> Dict[str, Any]:
+    """读取既有画像用于兜底比对；缺失/损坏/结构异常 → {}（按"无旧数据"处理，不阻塞重建）。"""
+    if not path or not os.path.exists(path):
+        return {}
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            old = json.load(f)
+    except Exception as e:
+        print(f"⚠️ 读取既有画像失败({path})，本次按无旧数据处理: {e}")
+        return {}
+    return old if isinstance(old, dict) else {}
+
+
+def _scholar_key(s: Dict[str, Any]) -> str:
+    """新旧学者条目的匹配键：优先 scholar_id，缺失时退回规范化姓名。"""
+    return str(s.get("scholar_id") or "").strip() or _norm_title(s.get("name"))
+
+
+def _index_old_scholars(old: Dict[str, Any]) -> Dict[str, Dict[str, Any]]:
+    idx: Dict[str, Dict[str, Any]] = {}
+    for s in old.get("scholars") or []:
+        if isinstance(s, dict):
+            key = _scholar_key(s)
+            if key:
+                idx[key] = s
+    return idx
+
+
+def _restore_missing_abstracts(
+    works: List[Dict[str, Any]], old_works: List[Dict[str, Any]]
+) -> int:
+    """本次回填失败(abstract=None)的论文按标题沿用既有摘要 → 返回沿用条数。
+
+    OpenAlex/S2/arXiv 同时抽风时，整轮回填都会返回 None；既有画像里攒下来的摘要
+    是几百次外网调用的成果，绝不能被这一轮的 null 清空。
+    """
+    if not works or not old_works:
+        return 0
+    cached: Dict[str, str] = {}
+    for w in old_works:
+        if isinstance(w, dict) and (w.get("abstract") or "").strip():
+            cached[_norm_title(w.get("title"))] = w["abstract"]
+    reused = 0
+    for w in works:
+        if not (w.get("abstract") or "").strip():
+            hit = cached.get(_norm_title(w.get("title")))
+            if hit:
+                w["abstract"] = hit
+                reused += 1
+    return reused
+
+
+def build_profile(
+    provider: Any = None,
+    max_works: int = 0,
+    old_path: Optional[str] = None,
+    preserved: Optional[List[str]] = None,
+) -> Dict[str, Any]:
+    """抓取 + 回填 + 蒸馏 → focus_interests.json 的数据 dict。
+
+    old_path 给出时（main 传 --output）逐字段与既有画像兜底，绝不用本轮的空结果覆盖
+    已经写好的数据：Scholar 抓空沿用既有论文清单、摘要回填失败沿用既有摘要、蒸馏为空
+    沿用既有 directions_zh / our_work_zh / 关键词。
+    被沿用的内容会追加进 preserved 列表（传入时），供调用方判定本次运行是否降级。
+    """
+    notes = preserved if preserved is not None else []
+    old = _load_existing_profile(old_path) if old_path else {}
+    old_scholars = _index_old_scholars(old)
+
     scholars_out: List[Dict[str, Any]] = []
     all_keywords: List[str] = []
     all_works: List[Dict[str, Any]] = []
+    degraded = False  # 有学者本次蒸馏为空 → 关键词与既有画像取并集，避免精选短语被丢弃
 
     for s in SCHOLARS:
         print(f"🔍 抓取 {s['name']} ({s['scholar_id']}) 的 Scholar 论文列表...")
@@ -484,20 +553,42 @@ def build_profile(provider: Any = None, max_works: int = 0) -> Dict[str, Any]:
             works = works[:max_works]
         print(f"📊 {s['name']}: {MIN_YEAR}+ 论文 {len(works)} 篇")
 
-        for w in works:
-            w["abstract"] = backfill_abstract(w["title"])
-            _request_sleep(0.5)
-        missing = sum(1 for w in works if not w["abstract"])
-        if missing:
-            print(f"⚠️ {s['name']}: {missing} 篇摘要回填失败(记 abstract: null，仍以标题参与蒸馏)")
+        old_s = old_scholars.get(_scholar_key(s)) or {}
+        old_works = [w for w in (old_s.get("works") or []) if isinstance(w, dict)]
+        if not works and old_works:
+            # Scholar 抓取整页失败(封 IP / 页面改版)：论文清单+摘要是重抓成本最高的资产，
+            # 绝不用空列表覆盖；本轮跳过回填，直接拿既有清单继续蒸馏
+            print(f"⚠️ {s['name']}: 本次抓取 0 篇，沿用既有 {len(old_works)} 篇论文清单(不重抓摘要)")
+            works = [dict(w) for w in old_works]
+            notes.append(f"{s['name']} 的 {len(works)} 篇论文清单")
+        else:
+            for w in works:
+                w["abstract"] = backfill_abstract(w["title"])
+                _request_sleep(0.5)
+            missing = sum(1 for w in works if not w["abstract"])
+            if missing:
+                print(f"⚠️ {s['name']}: {missing} 篇摘要回填失败(记 abstract: null，仍以标题参与蒸馏)")
+            reused = _restore_missing_abstracts(works, old_works)
+            if reused:
+                # 只记日志不计入 notes：个别摘要回填不到本就是常态，不值得把整次运行判失败
+                print(f"♻️ {s['name']}: {reused} 篇沿用既有摘要，不被本次回填失败清空")
 
         distilled = distill_scholar_directions(s["name"], works, provider)
+        directions_zh = distilled["directions_zh"]
+        if not directions_zh:
+            degraded = True
+            old_dir = str(old_s.get("directions_zh") or "")
+            if old_dir:
+                # 无 key / 网关挂 / JSON 解析失败：沿用既有方向描述，绝不用空串覆盖
+                print(f"♻️ {s['name']}: 本次蒸馏为空，沿用既有 directions_zh")
+                directions_zh = old_dir
+                notes.append(f"{s['name']} 的 directions_zh")
         scholars_out.append(
             {
                 "scholar_id": s["scholar_id"],
                 "name": s["name"],
                 "works": works,
-                "directions_zh": distilled["directions_zh"],
+                "directions_zh": directions_zh,
             }
         )
         all_keywords.extend(distilled["keywords"])
@@ -523,9 +614,27 @@ def build_profile(provider: Any = None, max_works: int = 0) -> Dict[str, Any]:
                 print("⚠️ 团队汇总蒸馏为空：降级拼接各学者方向")
                 our_work_zh = combined[:MERGE_FALLBACK_MAX_CHARS].rstrip()
             keywords = _dedupe_keywords(keywords + agg["keywords"])
+    old_our_work = str(old.get("our_work_zh") or "")
+    if not our_work_zh and old_our_work:
+        # 无 provider / 全部学者蒸馏皆空：沿用既有团队画像，绝不写空串
+        # （下游 research_context 见空会静默换成通用模板文案）
+        print("♻️ 团队汇总为空：沿用既有 our_work_zh")
+        our_work_zh = old_our_work
+        notes.append("our_work_zh")
+
+    old_kw_raw = old.get("keywords") or []
+    if not isinstance(old_kw_raw, list):
+        old_kw_raw = [old_kw_raw]
+    old_keywords = [str(k) for k in old_kw_raw if str(k).strip()]
+    if degraded and old_keywords:
+        # 局部/全部蒸馏失败：与既有关键词取并集，避免失败学者的精选短语被静默丢弃
+        merged_kw = _dedupe_keywords(keywords + old_keywords)
+        if merged_kw != keywords:
+            notes.append(f"{len(old_keywords)} 个既有关键词")
+        keywords = merged_kw
     if not keywords:
-        # 无 key / 蒸馏全失败：退化为标题词频关键词，匹配阶段仍可做规则预筛
-        keywords = extract_keywords_from_works(all_works)
+        # 既有关键词优先于标题词频退化（后者会把精选短语换成零散单词）
+        keywords = _dedupe_keywords(old_keywords) or extract_keywords_from_works(all_works)
 
     return {
         "generated_at": _beijing_today(),
@@ -637,11 +746,22 @@ def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Optional[Dict[str,
 
 
 def save_profile(profile: Dict[str, Any], path: str = PROFILE_PATH) -> None:
+    """原子落盘：先写同目录临时文件再 os.replace，序列化中途失败也不会留下半个画像。"""
     dirname = os.path.dirname(path)
     if dirname:
         os.makedirs(dirname, exist_ok=True)
-    with open(path, "w", encoding="utf-8") as f:
-        json.dump(profile, f, ensure_ascii=False, indent=2)
+    tmp = f"{path}.tmp"
+    try:
+        with open(tmp, "w", encoding="utf-8") as f:
+            json.dump(profile, f, ensure_ascii=False, indent=2)
+        os.replace(tmp, path)
+    except Exception:
+        # 写失败必须抛出（调用方靠它判失败），但既有画像保持原样、临时文件不留垃圾
+        try:
+            os.remove(tmp)
+        except OSError:
+            pass
+        raise
 
 
 def main() -> int:
@@ -674,18 +794,32 @@ def main() -> int:
     else:
         print("⚠️ 未配置 AI_API_KEY：只写原始论文清单，directions_zh/our_work_zh 留空")
 
+    preserved: List[str] = []
     if args.distill_only:
         profile = _distill_only(provider, args.output)
         if profile is None:
             return 1
     else:
-        profile = build_profile(provider=provider, max_works=args.max_works)
+        profile = build_profile(
+            provider=provider,
+            max_works=args.max_works,
+            old_path=args.output,
+            preserved=preserved,
+        )
+        if not sum(len(s["works"]) for s in profile["scholars"]):
+            # 一篇都没抓到、既有画像也没有可沿用的清单：写下去等于把画像清空
+            print("⚠️ 本次抓取 0 篇论文且无既有画像可沿用：拒绝写入空画像，保留现状等待重试")
+            return 1
     save_profile(profile, args.output)
     total_works = sum(len(s["works"]) for s in profile["scholars"])
     print(
         f"✅ 画像已写入 {args.output} "
         f"(学者 {len(profile['scholars'])} 人, 论文 {total_works} 篇, 关键词 {len(profile['keywords'])} 个)"
     )
+    if preserved:
+        # 好数据已经保住了，但本次重建是降级的：退出码非 0，别让绿勾掩盖抓取/蒸馏故障
+        print(f"⚠️ 本次重建有降级，以下内容沿用既有画像：{'；'.join(preserved)}")
+        return 1
     return 0
 
 
