@@ -174,7 +174,24 @@ SUPERSCRIPT_MAP = str.maketrans({
     "n": "ⁿ",
 })
 
-ACCENT_RE = re.compile(r"\\(?P<cmd>['\"`^~=\.Hcuvr])\s*(?:\{(?P<braced>[A-Za-z])\}|(?P<bare>[A-Za-z]))")
+# 符号型重音（\'e \"o \^a \~n ...）：命令字符不是字母，不可能和 \rho 这类命令名混淆。
+ACCENT_SYMBOL_RE = re.compile(r"\\(?P<cmd>['\"`^~=\.])\s*(?:\{(?P<braced>[A-Za-z])\}|(?P<bare>[A-Za-z]))")
+# 字母型重音（\c{c} \v s \r{a} \u{g} \H{o}）：命令字符本身是字母，必须要求花括号或空格分隔，
+# 否则 \rho 会被拆成「重音 r + 字母 h」余下 o（实测 \rho -> h̊o、\chi -> ḩi、\right -> i̊ght）。
+# 标准 LaTeX 里这些命令本来就写作 \c{c} 或 \c c，裸接字母（\chi）从来不是重音用法。
+ACCENT_LETTER_RE = re.compile(r"\\(?P<cmd>[Hcuvr])(?:\s*\{(?P<braced>[A-Za-z])\}|\s+(?P<bare>[A-Za-z])(?![A-Za-z]))")
+
+# 完整 LaTeX 命令 token 的一次性替换表。命令表优先级高于单字母转义表。
+# 绝不能再用 str.replace 逐条替换：\o/\l/\i/\O/\L 这些单字母键没有词边界，会先把
+# \omega/\lambda/\leq 的前缀吃掉（\omega -> ømega、\lambda -> łambda），Greek 表再也匹配不上。
+_LATEX_TOKEN_MAP = dict(LATEX_SPECIAL_MAP)
+_LATEX_TOKEN_MAP.update(LATEX_COMMAND_TEXT_MAP)
+LATEX_TOKEN_RE = re.compile(r"\\(?:[A-Za-z]+|[^A-Za-z\s])")
+
+
+def _replace_latex_token(match: "re.Match") -> str:
+    """整条命令名查表；查不到就原样留着，交给后续的 wrapper/清理步骤处理。"""
+    return _LATEX_TOKEN_MAP.get(match.group(0), match.group(0))
 WRAPPER_RE = re.compile(r"\\(?P<cmd>" + "|".join(LATEX_WRAPPER_COMMANDS) + r")\{(?P<body>[^{}]+)\}")
 SUBSCRIPT_RE = re.compile(r"_\{(?P<body>[^{}]+)\}|_(?P<single>[0-9aehijklmnoprstuvx+\-=()]+)")
 SUPERSCRIPT_RE = re.compile(r"\^\{(?P<body>[^{}]+)\}|\^(?P<single>[0-9in+\-=()]+)")
@@ -229,16 +246,17 @@ def _convert_script_token(token: str, table: Dict[int, str]) -> str:
 
 def _decode_latex(text: str) -> str:
     updated = text
-    for raw, replacement in LATEX_SPECIAL_MAP.items():
-        updated = updated.replace(raw, replacement)
-        updated = updated.replace("{" + raw + "}", replacement)
 
-    updated = ACCENT_RE.sub(_replace_latex_accent, updated)
-
-    for raw, replacement in LATEX_COMMAND_TEXT_MAP.items():
-        updated = updated.replace(raw, replacement)
-
+    # wrapper 命令（\mathrm{...} 等）先剥掉：它们的命令名不在 token 表里，先处理可以避免
+    # 花括号里的内容被后面的清理步骤误伤。
     updated = WRAPPER_RE.sub(lambda m: m.group("body"), updated)
+
+    # 一次正则扫描完成全部命令替换（\omega、\ss、\& 等），按完整 token 匹配，不再前缀误吃。
+    updated = LATEX_TOKEN_RE.sub(_replace_latex_token, updated)
+
+    # 重音放在命令替换之后：此时 \rho/\chi 等已变成 ρ/χ，剩下的才可能是真重音。
+    updated = ACCENT_SYMBOL_RE.sub(_replace_latex_accent, updated)
+    updated = ACCENT_LETTER_RE.sub(_replace_latex_accent, updated)
 
     updated = updated.replace("$", "")
     updated = SUBSCRIPT_RE.sub(

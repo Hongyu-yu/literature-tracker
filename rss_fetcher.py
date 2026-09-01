@@ -6,6 +6,7 @@ import feedparser
 import hashlib
 import os
 import re
+import socket
 from datetime import datetime, timezone, timedelta
 from dateutil import parser as date_parser
 from typing import Optional
@@ -106,6 +107,9 @@ class RSSFetcher:
     def __init__(self, keywords: list):
         self.keywords = [kw.lower() for kw in keywords]
 
+        # 每源抓取健康度，fetch_all 结束时汇总打印（fetch_feed 单独调用时也要可用）
+        self.feed_health = []
+
         # 常见时区缩写映射（dateutil 无法识别时会给出 UnknownTimezoneWarning）
         self._tzinfos = {
             "UTC": timezone.utc,
@@ -121,10 +125,36 @@ class RSSFetcher:
         }
     
     def fetch_feed(self, url: str) -> list:
-        """抓取单个RSS源"""
+        """抓取单个RSS源。
+
+        feedparser 对 HTTP 403/404/500 和畸形 XML **都不抛异常** —— 它只在返回对象上置
+        bozo=1 / status，entries 为空。此前无人检查这两个字段，于是「源挂了」和「今天没有
+        新论文」打印出来一模一样(都是「获取 0 篇文献」)。实测 config.RSS_FEEDS 的 65 个源里
+        有 17 个(26%)在 data/index.json 中零产出 —— 包括全部 5 个 ACS、3 个 aip.scitation
+        (该域名已停用)、ChemRxiv、RSC Digital Discovery —— 正是本项目最该覆盖的那批期刊。
+        """
         articles = []
+        status = None
+        problem = None
         try:
-            feed = feedparser.parse(url)
+            # feedparser 内部走 urllib，没有 timeout 参数；用 socket 默认超时兜住，
+            # 否则一个挂起的源能拖垮整个 240 分钟的 job。用完立即还原，不影响其它模块。
+            try:
+                timeout = float((os.environ.get("RSS_FETCH_TIMEOUT", "30") or "30").strip())
+            except Exception:
+                timeout = 30.0
+            prev_timeout = socket.getdefaulttimeout()
+            socket.setdefaulttimeout(timeout)
+            try:
+                feed = feedparser.parse(url)
+            finally:
+                socket.setdefaulttimeout(prev_timeout)
+
+            status = getattr(feed, "status", None)
+            if status is not None and int(status) >= 400:
+                problem = f"HTTP {status}"
+            elif getattr(feed, "bozo", 0) and not getattr(feed, "entries", None):
+                problem = f"解析失败 {type(getattr(feed, 'bozo_exception', None)).__name__}"
             journal = self._get_journal_name(url, feed)
 
             # Some feeds (e.g., Research Square) can return 1000+ entries, which is wasteful and slows Actions.
@@ -140,20 +170,47 @@ class RSSFetcher:
                 if article:
                     articles.append(article)
         except Exception as e:
-            print(f"抓取失败 {url}: {type(e).__name__}: {e}")
-        
+            problem = f"{type(e).__name__}: {e}"
+            print(f"抓取失败 {url}: {problem}")
+
+        if problem:
+            print(f"  ⚠️ 源异常 {url}: {problem}")
+        self.feed_health.append({"url": url, "count": len(articles),
+                                 "status": status, "problem": problem})
         return articles
-    
+
     def fetch_all(self, urls: list) -> list:
-        """抓取所有RSS源"""
+        """抓取所有RSS源，并在结尾打印每源健康报告。"""
+        self.feed_health = []
         all_articles = []
         for url in urls:
             print(f"正在抓取: {url}")
             articles = self.fetch_feed(url)
             all_articles.extend(articles)
             print(f"  获取 {len(articles)} 篇文献")
-        
+
+        self.report_feed_health()
         return all_articles
+
+    def report_feed_health(self) -> dict:
+        """把「哪些源没产出、为什么」打成一段醒目日志并返回统计。
+
+        零产出本身不一定是故障（真的没新论文），但**持续零产出**就是；报告让它可见，
+        而不是像以前那样淹没在 65 行「获取 0 篇文献」里。
+        """
+        health = getattr(self, "feed_health", []) or []
+        broken = [h for h in health if h.get("problem")]
+        empty = [h for h in health if not h.get("problem") and not h.get("count")]
+        ok = [h for h in health if h.get("count")]
+        print(f"\n📊 RSS 源健康报告：{len(ok)} 个有产出 / {len(empty)} 个零产出 / "
+              f"{len(broken)} 个报错（共 {len(health)} 个）")
+        for h in broken:
+            print(f"   ❌ {h['url']} → {h['problem']}")
+        for h in empty:
+            print(f"   ⚠️ {h['url']} → 0 篇（无异常，可能确实没有新文献，也可能被静默拦截）")
+        if broken or len(empty) > len(health) * 0.2:
+            print("   ↑ 源持续零产出/报错时请检查该站是否改版或封禁了 Actions 出口 IP")
+        return {"ok": len(ok), "empty": len(empty), "broken": len(broken), "total": len(health)}
     
     def filter_by_keywords(self, articles: list) -> list:
         """根据关键词筛选文献"""
