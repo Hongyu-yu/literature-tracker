@@ -1,6 +1,22 @@
+import contextlib
 import os, tempfile
 from unittest import mock
+import poster_generator
 import run_deep
+
+
+def _no_image_calls(side_effect=lambda prompt, out_path, **k: out_path):
+    """同时拦住两个 generate_and_save 绑定。
+
+    run_deep 和 poster_generator 各自 `from image_provider import generate_and_save`，
+    各持一份模块级引用。只 patch run_deep 那份拦不住 poster_generator.generate_poster
+    内部的调用，于是整套测试每轮会真的发起 13 次图像 API 请求，连重试带 sleep 白等
+    136 秒（test_run_deep 单独跑 2m15s，而修好后是秒级）。
+    """
+    stack = contextlib.ExitStack()
+    stack.enter_context(mock.patch.object(run_deep, "generate_and_save", side_effect=side_effect))
+    stack.enter_context(mock.patch.object(poster_generator, "generate_and_save", side_effect=side_effect))
+    return stack
 
 def test_process_date_enriches_aps():
     metas = [{"title": "ML potential for perovskite", "journal": "PRL",
@@ -16,7 +32,7 @@ def test_process_date_enriches_aps():
                 return '{"研究问题":"q","创新方法":"m","工作流程":"f","关键结果":"r","应用价值":"v"}'
             return "## 精读\n内容"
     d = tempfile.mkdtemp()
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=lambda prompt, out_path, **k: out_path):
         out, _used = run_deep.process_date("2026-05-28", client=FakeClient(),
                                     provider=FakeProv(), out_dir=d)
@@ -53,7 +69,7 @@ def test_enrich_arxiv_core_adds_image():
     d = tempfile.mkdtemp()
     items = [{"title": "ML potential for magnet", "summary": "neural network",
               "link": "http://z"}]
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=lambda prompt, out_path, **k: out_path):
         out = run_deep.enrich_arxiv_core(items, out_dir=d)
     assert out[0]["image"].endswith(".webp")
@@ -64,7 +80,7 @@ def test_enrich_arxiv_core_image_none_on_failure():
     import run_deep, tempfile
     from unittest import mock
     items = [{"title": "x", "link": "http://z"}]
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=lambda prompt, out_path, **k: None):
         out = run_deep.enrich_arxiv_core(items, out_dir=tempfile.mkdtemp())
     assert out[0]["image"] is None
@@ -102,7 +118,7 @@ def test_truncated_deep_is_retried():
     from unittest import mock
     # cached but truncated (no 创新, short) -> must be reprocessed
     cache = {"d1": {"doc_id": "d1", "deep_analysis": "## 截断在这里", "poster": None}}
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=lambda prompt, out_path, **k: out_path):
         out, used = run_deep.process_date("2026-05-28", client=FakeClient(),
                                           provider=FakeProv(), out_dir=tempfile.mkdtemp(),
@@ -123,7 +139,7 @@ def test_process_date_respects_max_new_budget():
                    if ("研究问题" in p or "JSON" in p) else "## 精读"
     import tempfile
     from unittest import mock
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=lambda prompt, out_path, **k: out_path):
         out, used = run_deep.process_date("2026-05-28", client=FakeClient(),
                                           provider=FakeProv(), out_dir=tempfile.mkdtemp(),
@@ -143,7 +159,7 @@ def test_enrich_one_sets_title_zh_from_poster():
             return ('{"研究问题":"q","创新方法":"m","工作流程":"f","关键结果":"r","应用价值":"v",'
                     '"title_zh":"中文标题","elements_en":{"method":"GNN"}}') if ("研究问题" in p or "JSON" in p) \
                    else "## 完整\n第五部分：创新评估 " + "y"*6000
-    with mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+    with _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         rec = run_deep._enrich_one(meta, FakeClient(), P(), tempfile.mkdtemp())
     assert rec["title_zh"] == "中文标题"
 
@@ -158,7 +174,7 @@ def test_process_arxiv_tier2_enriches_and_budgets():
             return ('{"研究问题":"q","创新方法":"m","工作流程":"f","关键结果":"r","应用价值":"v",'
                     '"title_zh":"标题","elements_en":{"method":"GNN"}}') if ("研究问题" in p or "JSON" in p) \
                    else "## 摘要级\n创新性判断 " + "z"*5200
-    with mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+    with _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         out, used = run_deep.process_arxiv_tier2("2026-05-28", cands, P(),
                                                  out_dir=tempfile.mkdtemp(), max_new=3)
     assert used == 3
@@ -183,7 +199,7 @@ def test_tier2_short_abstract_analysis_is_complete_not_reprocessed():
     assert run_deep._tier2_complete(cache["http://z"]) is True
     class Explode:
         def call_api(self, p): raise AssertionError("provider must not be called for complete tier-2")
-    with mock.patch.object(run_deep, "generate_and_save",
+    with _no_image_calls(
                            side_effect=AssertionError("no image regen for complete tier-2")):
         out, used = run_deep.process_arxiv_tier2("2026-05-28", cands, Explode(),
                                                  out_dir=tempfile.mkdtemp(), cache=cache)
@@ -240,7 +256,7 @@ def test_enrich_tier2_uses_fulltext_deepread_when_available():
                 return '{"研究问题":"q","创新方法":"m","工作流程":"f","关键结果":"r","应用价值":"v","title_zh":"标题"}'
             return "## 全文苏格拉底\n第五部分：创新评估 " + "z" * 3500
     with mock.patch.object(arxiv_fulltext, "fetch_fulltext", return_value=("FULLTEXT BODY " * 500, "html")), \
-         mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+         _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         rec = run_deep._enrich_arxiv_tier2_one(cand, P(), tempfile.mkdtemp())
     assert rec["analysis_mode"] == "html"
     assert "创新评估" in rec["deep_analysis"] and len(rec["deep_analysis"]) >= 3000
@@ -260,7 +276,7 @@ def test_enrich_tier2_falls_back_to_abstract_and_increments_attempts():
             return "## 摘要级\n创新性判断 " + "z" * 200
     cached = {"ft_attempts": 1}  # 此前已尝试 1 次
     with mock.patch.object(arxiv_fulltext, "fetch_fulltext", return_value=("", "")), \
-         mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+         _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         rec = run_deep._enrich_arxiv_tier2_one(cand, P(), tempfile.mkdtemp(), cached=cached)
     assert rec["analysis_mode"] == "abstract"
     assert rec["ft_attempts"] == 2
@@ -293,7 +309,7 @@ def test_poster_extraction_reuses_deepread_output_not_raw_fulltext():
             return "## 全文苏格拉底深读\n第五部分：创新评估 " + "z" * 3500
     with mock.patch.object(arxiv_fulltext, "fetch_fulltext",
                            return_value=("RAW_FULLTEXT_MARKER BODY " * 500, "html")), \
-         mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+         _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         rec = run_deep._enrich_arxiv_tier2_one(cand, P(), tempfile.mkdtemp())
     assert "全文苏格拉底深读" in seen["poster_prompt"]        # 喂的是深读产出
     assert "RAW_FULLTEXT_MARKER" not in seen["poster_prompt"]  # 不是原始全文
@@ -314,7 +330,7 @@ def test_poster_falls_back_to_source_when_deepread_empty():
                 return '{"研究问题":"q","创新方法":"m","工作流程":"f","关键结果":"r","应用价值":"v"}'
             return ""  # 摘要解析也返回空 → deep_analysis 为空
     with mock.patch.object(arxiv_fulltext, "fetch_fulltext", return_value=("", "")), \
-         mock.patch.object(run_deep, "generate_and_save", side_effect=lambda prompt, out_path, **k: out_path):
+         _no_image_calls( side_effect=lambda prompt, out_path, **k: out_path):
         rec = run_deep._enrich_arxiv_tier2_one(cand, P(), tempfile.mkdtemp())
     assert rec["deep_analysis"] == ""
     assert "FALLBACK_ABS" in seen["poster_prompt"]  # 退回摘要做海报来源

@@ -19,6 +19,7 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 from weekly_page_enhancer import enhance_weekly_archive
 from weekly_prompts import _build_analyze_prompt
 import time
+import threading
 
 try:
     from config import AI_CONFIG as DEFAULT_AI_CONFIG
@@ -215,7 +216,44 @@ class WeeklySummarizer:
         # arXiv（允许非常相关的预印本出现在周报）
         'arXiv'
     ]
-    
+
+    # RSS feed 标题常常带厂商前缀和栏目后缀，例如
+    # 'Wiley: Advanced Materials: Table of Contents'、'AAAS: Science: Table of Contents'。
+    # 直接拿原始 feed 标题去比对 TOP_JOURNALS 会把 Adv. Mater./Science Advances/Science
+    # 整批漏掉（历史上整周 0 篇非预印本顶刊），因此比对前先归一化。
+    JOURNAL_FEED_PREFIXES = ('Wiley:', 'AAAS:', 'APS:', 'ACS:', 'IOP:', 'RSC:')
+    JOURNAL_FEED_SUFFIXES = (
+        'Table of Contents', 'Current Issue', 'Latest Articles',
+        'Accepted Articles', 'EarlyView',
+    )
+
+    @classmethod
+    def _canonical_journal(cls, journal: str) -> str:
+        """把 RSS feed 标题归一化成真正的期刊名（去掉厂商前缀与栏目后缀）。
+
+        'Wiley: Advanced Materials: Table of Contents' -> 'Advanced Materials'
+        'AAAS: Science: Table of Contents'             -> 'Science'
+        归一化结果为空时原样返回，绝不把期刊名洗成空串。
+        """
+        raw = str(journal or '').strip()
+        if not raw:
+            return ''
+        name = raw
+        for prefix in cls.JOURNAL_FEED_PREFIXES:
+            if name.lower().startswith(prefix.lower()):
+                name = name[len(prefix):].strip()
+                break
+        # 少数 feed 会叠加两层栏目后缀，最多剥三次即可收敛
+        for _ in range(3):
+            stripped = name
+            for suffix in cls.JOURNAL_FEED_SUFFIXES:
+                if stripped.lower().endswith(suffix.lower()):
+                    stripped = stripped[: -len(suffix)].strip().strip(':-–—').strip()
+            if stripped == name:
+                break
+            name = stripped
+        return name or raw
+
     # 磁性/铁电关键词
     FERRO_KEYWORDS = [
         'ferroelectric', 'ferromagnet', 'multiferroic', 'piezoelectric',
@@ -235,7 +273,10 @@ class WeeklySummarizer:
         'large language model', 'llm', 'transformer model', 'attention mechanism',
         '机器学习', '深度学习', '神经网络', '人工智能', '生成式', '卷积神经网络', '循环神经网络'
     ]
-    
+
+    # 本次运行中 AI 相关性判断失败的次数（网关抖动/限流时用于打醒目日志）
+    _judge_failures = 0
+
     def __init__(self, api_key: str = None, provider: str = None, model: str = None):
         """初始化周报生成器"""
         api_key = (
@@ -267,7 +308,11 @@ class WeeklySummarizer:
         
         # 初始化摘要爬取器
         self.abstract_scraper = AbstractScraper()
-    
+
+        # AI 判断失败计数（每次生成周报前重置）
+        self._judge_failures = 0
+        self._judge_lock = threading.Lock()
+
     def _loose_matches_ferro_keywords(self, text: str) -> bool:
         """宽松的关键词匹配（第一步筛选，获取更多候选）"""
         text_lower = text.lower()
@@ -299,9 +344,13 @@ class WeeklySummarizer:
         return False
     
     def _matches_ferro_keywords(self, text: str) -> bool:
-        """检查文本是否匹配铁性关键词（精确匹配）- 保留用于其他场景"""
+        """⚠️ 实际是宽松匹配（直接转发 _loose_matches_ferro_keywords）- 保留用于其他场景。
+
+        仅可用于第一步召回，不要拿它当最终分类器：宽松词表里有 quantum/topological 等
+        通用词，用来分类会把几乎所有凝聚态文章判成「相关」。
+        """
         return self._loose_matches_ferro_keywords(text)
-    
+
     def _loose_matches_ai_keywords(self, text: str) -> bool:
         """宽松的AI关键词匹配（第一步筛选，获取更多候选）"""
         text_lower = text.lower()
@@ -334,8 +383,26 @@ class WeeklySummarizer:
         return False
     
     def _matches_ai_keywords(self, text: str) -> bool:
-        """检查文本是否匹配AI关键词（精确匹配）- 保留用于其他场景"""
+        """⚠️ 实际是宽松匹配（直接转发 _loose_matches_ai_keywords）- 保留用于其他场景。
+
+        仅可用于第一步召回，不要拿它当最终分类器：宽松词表里有 model/network/learning/
+        quantum 等通用词，用来分类会把几乎所有文章判成「AI 相关」。
+        """
         return self._loose_matches_ai_keywords(text)
+
+    def _note_judge_failure(self):
+        """AI 判断失败计数。判断现在跑在 ThreadPoolExecutor 里，+= 不是原子操作，必须加锁。"""
+        lock = getattr(self, "_judge_lock", None)
+        if lock is None:
+            self._judge_failures += 1
+            return
+        with lock:
+            self._judge_failures += 1
+
+    def _strict_matches_ai_keywords(self, text: str) -> bool:
+        """严格AI关键词匹配（AI_KEYWORDS 词表），AI 判断不可用时的降级兜底。"""
+        text_lower = (text or '').lower()
+        return any(keyword.lower() in text_lower for keyword in self.AI_KEYWORDS)
     
     def _ai_judge_ai_relevance(self, text: str) -> bool:
         """使用AI判断文本是否与AI/机器学习相关（用于边缘情况）"""
@@ -358,8 +425,14 @@ class WeeklySummarizer:
             
             response = self.provider.call_api(prompt)
             return '是' in response or 'yes' in response.lower()
-        except Exception:
-            return False
+        except Exception as e:
+            # 不能把「调用失败」当成「判定为否」：网关抖动时会把整周的 AI 文献静默清空。
+            # 降级到严格关键词词表——真正写了 machine learning / 神经网络 的文章一定保留，
+            # 只有仅靠宽松词命中的边缘候选才落选，且失败必定打日志。
+            self._note_judge_failure()
+            fallback = self._strict_matches_ai_keywords(text)
+            print(f"    ⚠️ AI判断失败(AI相关性): {e}，降级为严格关键词判断 → {'保留' if fallback else '排除'}")
+            return fallback
     
     def _ai_judge_ferro_relevance(self, text: str) -> bool:
         """使用AI判断文本是否与铁性材料相关（用于排除明显不相关的）"""
@@ -392,7 +465,8 @@ class WeeklySummarizer:
                 print(f"    🤖 AI判断：不相关（铁性）")
             return result
         except Exception as e:
-            print(f"    ⚠️ AI判断失败: {e}，默认保留")
+            self._note_judge_failure()
+            print(f"    ⚠️ AI判断失败(铁性): {e}，默认保留")
             return True  # 如果AI判断失败，默认保留（宽松策略）
     
     def _analyze_single_article(self, article: Dict) -> str:
@@ -450,13 +524,19 @@ class WeeklySummarizer:
             category: 'all' | 'ferro' | 'ai' - 筛选类别
         """
         filtered = []
+        pending = []   # [article, text, is_ferro_candidate, is_ai_candidate]
         
         # 排除关键词（这些不是真正的期刊）
+        # 注意：'table of contents'/'toc' 已移除——它们只是 feed 标题的栏目后缀，
+        # 会把 'Wiley: Advanced Materials: Table of Contents' 这类真顶刊整批误杀；
+        # 栏目后缀改由 _canonical_journal 剥离，顶刊列表仍然是唯一的准入闸门。
         EXCLUDE_KEYWORDS = [
-            'sciencedirect', 'springer', 'table of contents', 'toc',
+            'sciencedirect', 'springer',
             'editor', 'suggestion', 'news', 'highlight'
         ]
-        
+
+        skipped_journal = 0
+
         for article in articles:
             # 检查日期范围
             pub_date = article.get('pub_date', '')
@@ -469,26 +549,31 @@ class WeeklySummarizer:
                 continue
             
             journal_lower = journal.lower()
-            
-            # 排除非期刊内容
+
+            # 排除非期刊内容（对原始 feed 标题判断，保证 ScienceDirect 等仍被拦住）
             if any(exclude in journal_lower for exclude in EXCLUDE_KEYWORDS):
+                skipped_journal += 1
                 continue
-            
+
+            # 归一化后再比对顶刊列表（去掉 'Wiley: '、': Table of Contents' 等 feed 修饰）
+            journal_clean = self._canonical_journal(journal)
+            journal_clean_lower = journal_clean.lower()
+
             # 精确匹配顶刊列表
             is_top_journal = False
             for top_journal in self.TOP_JOURNALS:
                 top_lower = top_journal.lower()
-                
+
                 # 精确匹配
-                if journal == top_journal:
+                if journal_clean == top_journal:
                     is_top_journal = True
                     break
-                
+
                 # 包含匹配（但要小心处理）
-                if top_lower in journal_lower:
+                if top_lower in journal_clean_lower:
                     # 特殊处理 Science：必须是 "Science" 或 "Science Advances"，不能是 "ScienceDirect"
                     if top_lower == 'science':
-                        if journal_lower == 'science' or journal_lower.startswith('science advances') or journal_lower.startswith('sci. adv'):
+                        if journal_clean_lower == 'science' or journal_clean_lower.startswith('science advances') or journal_clean_lower.startswith('sci. adv'):
                             is_top_journal = True
                             break
                         else:
@@ -496,10 +581,11 @@ class WeeklySummarizer:
                     else:
                         is_top_journal = True
                         break
-            
+
             if not is_top_journal:
+                skipped_journal += 1
                 continue
-            
+
             # 第一步：宽松的关键词筛选（获取更多候选）
             text = ' '.join([
                 article.get('title', ''),
@@ -524,40 +610,139 @@ class WeeklySummarizer:
             if not (is_ferro_candidate or is_ai_candidate):
                 continue
             
-            # 第二步：使用AI排除明显不相关的文章
-            # 注意：只在有足够文本内容时才使用AI判断（避免对标题等短文本误判）
-            if self.provider and len(text.strip()) > 100:
-                # 对于铁性候选，用AI判断是否真的相关
-                if is_ferro_candidate and category in ['ferro', 'all']:
-                    if not self._ai_judge_ferro_relevance(text):
-                        is_ferro_candidate = False
-                
-                # 对于AI候选，用AI判断是否真的相关
-                if is_ai_candidate and category in ['ai', 'all']:
-                    if not self._ai_judge_ai_relevance(text):
-                        is_ai_candidate = False
-            
-            # 根据最终判断结果添加文章
+            # 第二步的 AI 判断挪到循环外并发执行（见下），这里只登记候选
+            pending.append([article, text, is_ferro_candidate, is_ai_candidate])
+
+        # 第二步：使用AI排除明显不相关的文章
+        # 注意：只在有足够文本内容时才使用AI判断（避免对标题等短文本误判）
+        # 并发执行：这里每篇文章一次往返，实测单周 1315 次串行调用 ≈ 110 分钟纯等待，
+        # 是 weekly workflow 逼近 240 分钟 timeout 的主因（曾被取消过）。
+        # 用与 _analyze_single_article 相同的 3 线程池，行为完全不变，只是不再串行。
+        jobs = []
+        for row in pending:
+            article, text, is_ferro_candidate, is_ai_candidate = row
+            if not (self.provider and len(text.strip()) > 100):
+                continue
+            if is_ferro_candidate and category in ['ferro', 'all']:
+                jobs.append((row, 2, self._ai_judge_ferro_relevance, text))
+            if is_ai_candidate and category in ['ai', 'all']:
+                jobs.append((row, 3, self._ai_judge_ai_relevance, text))
+        if jobs:
+            print(f"    🤖 [{category}] AI 相关性判断 {len(jobs)} 次（3 线程并发）")
+            with ThreadPoolExecutor(max_workers=3) as executor:
+                futures = {executor.submit(fn, txt): (row, slot) for row, slot, fn, txt in jobs}
+                for fut in as_completed(futures):
+                    row, slot = futures[fut]
+                    try:
+                        keep = fut.result()
+                    except Exception as e:
+                        # 与 _ai_judge_* 内部同样的原则：判断失败绝不等于「判为否」
+                        self._note_judge_failure()
+                        print(f"    ⚠️ AI判断线程异常: {e}，保留该文献")
+                        keep = True
+                    if not keep:
+                        row[slot] = False
+
+        # 根据最终判断结果添加文章
+        for article, text, is_ferro_candidate, is_ai_candidate in pending:
             if category == 'ferro' and is_ferro_candidate:
                 filtered.append(article)
             elif category == 'ai' and is_ai_candidate:
                 filtered.append(article)
             elif category == 'all' and (is_ferro_candidate or is_ai_candidate):
                 filtered.append(article)
-        
+
+        if skipped_journal:
+            print(f"    ⏭️ [{category}] 期刊闸门过滤 {skipped_journal} 篇（非期刊来源或不在顶刊列表）")
+
         return filtered
     
+    @staticmethod
+    def _article_key(article: Dict) -> str:
+        """文章唯一键：id > link > title，用于跨列表比对（与合并去重口径一致）。"""
+        if not isinstance(article, dict):
+            return ''
+        return str(article.get('id') or article.get('link') or article.get('title') or '')
+
+    def _collect_focus_articles(self, articles: List[Dict], start_date: str, end_date: str) -> List[Dict]:
+        """收集当周 focus_score 命中的文章，按相关度降序。
+
+        🎯 与你方向相关 是个性化区块，日报（generate_daily_pages）不做任何期刊闸门，
+        周报如果沿用顶刊白名单，PRB / npj / MLST 上被 focus_filter 标记的论文
+        会在周报里凭空消失（实测 58 篇里丢 19 篇）。这里直接从原始文献池按周窗口取，
+        不经过 filter_articles 的期刊/关键词闸门。
+        """
+        picked: List[Dict] = []
+        seen = set()
+        for article in articles or []:
+            if not isinstance(article, dict) or not article.get('focus_score'):
+                continue
+            pub_date = article.get('pub_date') or ''
+            if not (start_date <= pub_date <= end_date):
+                continue
+            key = self._article_key(article)
+            if key:
+                if key in seen:
+                    continue
+                seen.add(key)
+            picked.append(article)
+
+        def _score(a: Dict) -> float:
+            try:
+                return float(a.get('focus_score') or 0)
+            except (TypeError, ValueError):
+                return 0.0
+
+        picked.sort(key=_score, reverse=True)
+        return picked
+
+    def _split_by_category(self, all_articles: List[Dict], ferro_articles: List[Dict],
+                           ai_articles: List[Dict]) -> tuple:
+        """按 ferro/ai 命中集合把文章分成 (ferro_only, ai_only, both)，并写回 is_ferro/is_ai。
+
+        以对象身份 + id/link/title 键双重比对；两边字段都为空时不再互相误命中。
+        """
+        ferro_ids = {id(a) for a in ferro_articles or []}
+        ai_ids = {id(a) for a in ai_articles or []}
+        ferro_keys = {self._article_key(a) for a in ferro_articles or []} - {''}
+        ai_keys = {self._article_key(a) for a in ai_articles or []} - {''}
+
+        ferro_only: List[Dict] = []
+        ai_only: List[Dict] = []
+        both: List[Dict] = []
+        for article in all_articles or []:
+            key = self._article_key(article)
+            is_ferro = id(article) in ferro_ids or (bool(key) and key in ferro_keys)
+            is_ai = id(article) in ai_ids or (bool(key) and key in ai_keys)
+            article['is_ferro'] = is_ferro
+            article['is_ai'] = is_ai
+            if is_ferro and is_ai:
+                both.append(article)
+            elif is_ferro:
+                ferro_only.append(article)
+            elif is_ai:
+                ai_only.append(article)
+        return ferro_only, ai_only, both
+
     def generate_weekly_summary(self, articles: List[Dict], week_start: str) -> Dict:
         """生成周报"""
         # 计算周结束日期
         start_date = datetime.strptime(week_start, '%Y-%m-%d')
         end_date = start_date + timedelta(days=6)
         week_end = end_date.strftime('%Y-%m-%d')
-        
+
+        self._judge_failures = 0
+
         # 分别筛选铁性和AI文献
         ferro_articles = self.filter_articles(articles, week_start, week_end, 'ferro')
         ai_articles = self.filter_articles(articles, week_start, week_end, 'ai')
-        
+
+        # 🎯 focus 命中的文章不受顶刊闸门约束（与日报口径一致），单独收集
+        focus_articles = self._collect_focus_articles(articles, week_start, week_end)
+
+        if self._judge_failures:
+            print(f"⚠️ 本周共有 {self._judge_failures} 次AI相关性判断失败（已降级为关键词判断），分类结果可能不完整")
+
         # 合并去重，并识别交叉研究
         all_articles = []
         seen_ids = set()
@@ -581,8 +766,10 @@ class WeeklySummarizer:
                 seen_ids.add(article_id)
         
         if not all_articles:
-            return self._empty_summary(week_start, week_end)
-        
+            empty = self._empty_summary(week_start, week_end)
+            empty['focus_articles'] = focus_articles
+            return empty
+
         # 增强摘要：为所有文章爬取完整摘要并翻译（并行处理）
         print(f"\n📄 正在增强 {len(all_articles)} 篇文章的摘要...")
         
@@ -684,18 +871,22 @@ class WeeklySummarizer:
             by_journal[journal].append(article)
         
         # 使用AI生成总结（如果可用）
+        summary = None
         if self.provider:
             try:
-                summary = self._generate_ai_summary(all_articles, ferro_articles, ai_articles, 
+                summary = self._generate_ai_summary(all_articles, ferro_articles, ai_articles,
                                                    week_start, week_end, by_journal)
-                return summary
             except Exception as e:
                 print(f"❌ AI生成失败: {e}")
-                return self._fallback_summary(all_articles, ferro_articles, ai_articles,
+        if summary is None:
+            summary = self._fallback_summary(all_articles, ferro_articles, ai_articles,
                                              week_start, week_end, by_journal)
-        else:
-            return self._fallback_summary(all_articles, ferro_articles, ai_articles,
-                                         week_start, week_end, by_journal)
+
+        # focus 区块用未过闸门的当周命中列表渲染（见 _collect_focus_articles）
+        summary['focus_articles'] = focus_articles
+        if focus_articles:
+            print(f"🎯 与你方向相关：{len(focus_articles)} 篇（不受顶刊闸门约束）")
+        return summary
     
     def _generate_ai_summary(self, all_articles: List[Dict], ferro_articles: List[Dict],
                             ai_articles: List[Dict], week_start: str, week_end: str,
@@ -853,30 +1044,7 @@ class WeeklySummarizer:
         # Skip parse — `data` is already loaded above.
         
         # 给每篇文章添加类型标记，并计算统计
-        ferro_only = []
-        ai_only = []
-        both = []
-        
-        for article in all_articles:
-            is_ferro = any(
-                a.get('id') == article.get('id') or a.get('link') == article.get('link')
-                for a in ferro_articles
-            )
-            is_ai = any(
-                a.get('id') == article.get('id') or a.get('link') == article.get('link')
-                for a in ai_articles
-            )
-            
-            article['is_ferro'] = is_ferro
-            article['is_ai'] = is_ai
-            
-            # 分类统计
-            if is_ferro and is_ai:
-                both.append(article)
-            elif is_ferro:
-                ferro_only.append(article)
-            elif is_ai:
-                ai_only.append(article)
+        ferro_only, ai_only, both = self._split_by_category(all_articles, ferro_articles, ai_articles)
 
         # ---- Core-focus: ML × ferro/凝聚态 ----
         try:
@@ -1040,56 +1208,12 @@ class WeeklySummarizer:
         journal_stats = {j: len(arts) for j, arts in by_journal.items()}
         journal_list = ', '.join([f"{j}({n}篇)" for j, n in sorted(journal_stats.items(), key=lambda x: -x[1])[:5]])
         
-        # 判断文献类别（使用精确匹配方法）
-        def get_category(article):
-            text = ' '.join([
-                article.get('title', ''),
-                article.get('title_zh', ''),
-                article.get('abstract', ''),
-                article.get('abstract_zh', '')
-            ])
-            
-            is_ferro = self._matches_ferro_keywords(text)
-            is_ai = self._matches_ai_keywords(text)
-            
-            if is_ferro and is_ai:
-                return 'both'
-            elif is_ferro:
-                return 'ferro'
-            elif is_ai:
-                return 'ai'
-            else:
-                return 'other'
-        
-        # 分类文献
-        ferro_only = []
-        ai_only = []
-        both = []
-        
-        for article in sorted_articles:
-            cat = get_category(article)
-            if cat == 'both':
-                both.append(article)
-            elif cat == 'ferro':
-                ferro_only.append(article)
-            elif cat == 'ai':
-                ai_only.append(article)
-        
-        # 给每篇文章添加类型标记
-        ferro_set = set(id(a) for a in ferro_articles)  # 使用id来比较，因为可能是不同的对象引用
-        ai_set = set(id(a) for a in ai_articles)
-        
-        for article in sorted_articles:
-            article_id = id(article)
-            article['is_ferro'] = article_id in ferro_set or any(
-                a.get('id') == article.get('id') or a.get('link') == article.get('link')
-                for a in ferro_articles
-            )
-            article['is_ai'] = article_id in ai_set or any(
-                a.get('id') == article.get('id') or a.get('link') == article.get('link')
-                for a in ai_articles
-            )
-        
+        # 分类文献 + 打上 is_ferro/is_ai 标记
+        # 注意：这里必须按 ferro_articles / ai_articles 的实际命中集合分桶，
+        # 不能再用 _matches_*_keywords（那两个其实是宽松词表，quantum/model/network 都算命中，
+        # 会把几乎所有文章判成「交叉研究」，导致 both_count 反超 ferro_count/ai_count）。
+        ferro_only, ai_only, both = self._split_by_category(sorted_articles, ferro_articles, ai_articles)
+
         return {
             'week_start': week_start,
             'week_end': week_end,
@@ -1424,7 +1548,14 @@ class WeeklySummarizer:
                 deduped.append(article)
             all_articles = deduped
 
-        focus_articles = [a for a in all_articles if isinstance(a, dict) and a.get('focus_score')]
+        # focus 区块优先用 summary['focus_articles']（未过顶刊闸门的当周命中，见
+        # _collect_focus_articles）；旧的 summary 字典没有该键时回退到 all_articles 推导。
+        focus_articles = [
+            a for a in (summary.get('focus_articles') or [])
+            if isinstance(a, dict) and a.get('focus_score')
+        ]
+        if not focus_articles:
+            focus_articles = [a for a in all_articles if isinstance(a, dict) and a.get('focus_score')]
 
         if not week_end and week_start:
             try:

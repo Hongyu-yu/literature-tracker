@@ -12,6 +12,7 @@ from deep_reader import deep_read, abstract_read
 from poster_generator import generate_poster
 from auto_classifier import classify
 from image_provider import generate_and_save
+from link_utils import normalize_link
 
 
 def _deep_complete(text):
@@ -44,6 +45,15 @@ def _tier2_complete(rec):
     return False
 
 
+def _core_key(rec):
+    """arxiv_core 行的主键：link 归一化(与 backfill_top_posters/generate_daily_pages 的 join 口径一致)，
+    无 link 才退回标题。缓存命中与合并写盘共用同一口径，避免同一篇论文写成两行。"""
+    link = str((rec or {}).get("link") or "").strip()
+    if link:
+        return normalize_link(link)
+    return "title:" + str((rec or {}).get("title") or "").strip()
+
+
 def _enrich_one(meta, client, provider, out_dir, cached=None):
     # 幂等复用：只有已生成完整深读(含第五部分创新评估)的论文才算完成、直接复用
     if cached and _deep_complete(cached.get("deep_analysis")):
@@ -52,7 +62,12 @@ def _enrich_one(meta, client, provider, out_dir, cached=None):
     rec = dict(meta)
     rec["source"] = "APS"
     rec["category"] = (cached or {}).get("category") or classify(meta, provider=provider)
-    rec["deep_analysis"] = deep_read(meta, md, provider=provider) if md else ""
+    # 抓不到全文 / provider 报错时 deep_read 返回空串：绝不能用空串覆盖缓存里已有的(哪怕截断的)深读，
+    # 否则一次网关抖动就把好数据抹掉。保留旧文本，下轮再重试升级。
+    new_deep = deep_read(meta, md, provider=provider) if md else ""
+    if not new_deep and (cached or {}).get("deep_analysis"):
+        print(f"⚠️ 深读失败，保留缓存深读: {meta.get('doc_id')}")
+    rec["deep_analysis"] = new_deep or (cached or {}).get("deep_analysis") or ""
     # 海报要素复用深读产出(更聚焦、省 input token)；深读为空才退回原文
     poster_src = rec["deep_analysis"] or md
     # 复用已有海报，避免重复图像生成；缺失才生成
@@ -101,22 +116,33 @@ def _enrich_arxiv_tier2_one(cand, provider, out_dir, cached=None):
             "year": cand.get("year"), "doc_id": doc_id}
     # 抓全文(HTML 优先/PDF 兜底) → 苏格拉底深读；拿不到 → 退回摘要解析
     fulltext, mode = fetch_fulltext(cand.get("link") or "")
-    prev_attempts = int((cached or {}).get("ft_attempts") or 0)
+    prev = cached or {}
+    prev_deep = prev.get("deep_analysis") or ""
+    prev_mode = prev.get("analysis_mode") or "abstract"
+    prev_attempts = int(prev.get("ft_attempts") or 0)
+    new_deep, new_mode = "", ""
     if fulltext:
-        rec["deep_analysis"] = deep_read(meta, fulltext, provider=provider)
-        rec["analysis_mode"] = mode
-    else:
+        new_deep, new_mode = deep_read(meta, fulltext, provider=provider), mode
+    elif not _deep_complete_abstract(prev_deep):
+        # 已有完整摘要解析就不再重复计费(全文升级失败前每轮都会重跑到这里)；缺失/截断才(重)跑
         abs_txt = cand.get("abstract") or cand.get("summary") or ""
-        rec["deep_analysis"] = abstract_read(cand, abs_txt, provider=provider) if abs_txt else ""
-        rec["analysis_mode"] = "abstract"
+        if abs_txt:
+            new_deep, new_mode = abstract_read(cand, abs_txt, provider=provider), "abstract"
+    # 深读/摘要解析失败(返回空)时保留缓存旧解析，绝不用空串覆盖好数据——尤其 ft_attempts 封顶后
+    # 会永久定稿。analysis_mode 必须与文本同进退：否则旧摘要文本被标成 html，_tier2_complete 误判完成。
+    if not new_deep and prev_deep:
+        print(f"⚠️ 精读失败，保留缓存解析({prev_mode}): {cand.get('link') or cand.get('title')}")
+    rec["deep_analysis"] = new_deep or prev_deep
+    rec["analysis_mode"] = new_mode if new_deep else prev_mode
     rec["ft_attempts"] = prev_attempts + 1
     # 海报要素优先喂深读产出(更聚焦、省 input token)；深读为空再退回全文/摘要
     poster_src = rec["deep_analysis"] or fulltext or cand.get("abstract") or cand.get("summary") or ""
-    poster = (cached or {}).get("poster") or (
+    poster = prev.get("poster") or (
         generate_poster(meta, poster_src, provider=provider, out_dir=out_dir) if poster_src else None)
-    rec["poster"] = poster
-    rec["image"] = (poster or {}).get("image")
-    rec["poster_elements"] = (poster or {}).get("elements")
+    rec["poster"] = poster or prev.get("poster")
+    # 海报生成失败(poster=None)同样不许把已有的图/要素抹成 None
+    rec["image"] = (poster or {}).get("image") or prev.get("image")
+    rec["poster_elements"] = (poster or {}).get("elements") or prev.get("poster_elements")
     if poster and poster.get("title_zh") and not rec.get("title_zh"):
         rec["title_zh"] = poster["title_zh"]
     return rec
@@ -128,8 +154,7 @@ def process_arxiv_tier2(date, candidates, provider, out_dir="docs/images/posters
     cands = candidates or []
     cached, fresh = [], []
     for c in cands:
-        key = c.get("link") or c.get("title")
-        prev = cache.get(key)
+        prev = cache.get(_core_key(c))
         (cached if (prev and _tier2_complete(prev)) else fresh).append((c, prev))
     overflow = []
     if max_new is not None and len(fresh) > max_new:
@@ -212,6 +237,54 @@ def _load_core_cache(date):
     return []
 
 
+def _merge_core_records(existing, results):
+    """把本轮 tier-2 结果**逐字段合并**进既有 arxiv_core 行，而不是整表替换。
+    - 候选之外的行(backfill_top_posters 写的 source=top_poster、历史行)原样保留；
+    - 空值(None/""/{}/[])不覆盖已有好数据：某轮海报或深读失败不会抹掉上一轮的成果；
+    - 保持既有行序，新行追加 → 每轮 diff 最小、无无谓 commit。"""
+    merged = [r for r in (existing or []) if isinstance(r, dict)]
+    index = {}
+    for i, r in enumerate(merged):
+        index.setdefault(_core_key(r), i)
+    for rec in (results or []):
+        if not isinstance(rec, dict):
+            continue
+        key = _core_key(rec)
+        i = index.get(key)
+        if i is None:
+            index[key] = len(merged)
+            merged.append(dict(rec))
+        else:
+            merged[i].update({f: v for f, v in rec.items() if v not in (None, "", {}, [])})
+    return merged
+
+
+def _save_core_merged(date, results, path=None):
+    """♻️ 合并写 data/arxiv_core_<date>.json（不是整表覆盖）。返回是否真的落盘。"""
+    path = path or f"data/arxiv_core_{date}.json"
+    existing = []
+    if os.path.exists(path):
+        try:
+            with open(path, encoding="utf-8") as f:
+                existing = json.load(f)
+        except (ValueError, UnicodeDecodeError) as e:
+            print(f"⚠️ arxiv_core {date} 解析失败({e})，按空表重建")  # 坏文件本就读不出内容，重建无损失
+            existing = []
+        except OSError as e:  # 读盘故障：宁可不写，也不要用残缺结果覆盖既有数据
+            print(f"⚠️ arxiv_core {date} 读取失败({e})，跳过写盘")
+            return False
+    if not isinstance(existing, list):
+        existing = existing.get("items", []) if isinstance(existing, dict) else []
+    before = json.dumps(existing, ensure_ascii=False, sort_keys=True)
+    merged = _merge_core_records(existing, results)
+    if json.dumps(merged, ensure_ascii=False, sort_keys=True) == before:
+        return False  # 无变化不落盘（回填老日期时常见），避免每轮空提交
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    with open(path, "w", encoding="utf-8") as f:
+        json.dump(merged, f, ensure_ascii=False)
+    return True
+
+
 def _load_aps_cache(date):
     """已生成的 aps_<date>.json → {doc_id: rec} 供幂等复用。"""
     path = f"data/aps_{date}.json"
@@ -268,15 +341,19 @@ def main():
         try:
             with open(f"data/arxiv_tier2_{d}.json", encoding="utf-8") as f:
                 cands = json.load(f)
-            t2cache = {(x.get("link") or x.get("title")): x for x in _load_core_cache(d)}
+            # 缓存键必须与 process_arxiv_tier2 的查找口径(_core_key)一致，
+            # 否则缓存永远查不中，每轮都会把所有论文重新深读一遍。
+            t2cache = {_core_key(x): x for x in _load_core_cache(d)}
             t2, t2used = process_arxiv_tier2(d, cands, provider, max_workers=workers,
                                              cache=t2cache, max_new=budget)
             budget -= t2used
             ndeep = sum(1 for x in t2 if x.get("deep_analysis"))
             print(f"  tier2 {d}: {len(t2)} items ({ndeep} with deep_analysis), {t2used} new this run")
             if t2:
-                with open(f"data/arxiv_core_{d}.json", "w", encoding="utf-8") as cf:
-                    json.dump(t2, cf, ensure_ascii=False)
+                # 合并写：本轮只处理 tier2 候选，整表覆盖会删掉 backfill_top_posters 写的
+                # source=top_poster 行以及本轮预算外的历史行。
+                if _save_core_merged(d, t2):
+                    print(f"  ♻️ arxiv_core {d} 已合并更新")
         except Exception as e:
             print(f"⚠️ tier2 processing failed for {d}: {e}")
 
