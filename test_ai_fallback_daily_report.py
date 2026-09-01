@@ -62,10 +62,16 @@ def _run_generation(tmp, existing_page="旧的好页面"):
     cwd = os.getcwd()
     try:
         os.chdir(tmp)
+        # 绝不能在下面设 CORE_FOCUS_ENABLED=0：config.py 在 **import 时**就把
+        # CORE_FOCUS_CONFIG["enabled"] 定死了，mock.patch.dict 根本改不动它 ——
+        # 这个环境变量在此处完全无效，只会误导读者。更糟的是，一旦它哪天真的生效
+        # （换 pytest 每文件一个解释器、或有人 importlib.reload(config)、或
+        # generate_daily_pages 改成惰性读配置），core-focus 整块就会被跳过，
+        # 而那块正是 test_core_items_keep_rule_based_text_when_deep_read_fails
+        # 要守的唯一代码路径 —— 守卫会静默失效、测试照样全绿。
         with mock.patch.object(sys, "argv", argv), \
              mock.patch.object(generate_daily_pages, "AISummarizer", _FallbackSummarizer), \
-             mock.patch.dict(os.environ, {"AI_API_KEY": "sk-test", "AI_PROVIDER": "aigw",
-                                          "CORE_FOCUS_ENABLED": "0", "FOCUS_ENABLED": "0"}):
+             mock.patch.dict(os.environ, {"AI_API_KEY": "sk-test", "AI_PROVIDER": "aigw"}):
             generate_daily_pages.main()
     finally:
         os.chdir(cwd)
@@ -122,6 +128,14 @@ def test_core_items_keep_rule_based_text_when_deep_read_fails():
         # 该测试用的 _FallbackSummarizer 没有 generate_core_deep_fields，
         # 正好复现"深读调用抛异常 → deep_fields 为空"的路径
         sidecar, _ = _run_generation(tmp)
+        # 前置断言：core-focus 那块**确实执行了**。它是唯一会覆盖三段文本的代码路径，
+        # 若因为配置/环境变化被整块跳过，下面的断言会平凡通过、守卫静默失效。
+        # 判据用 data/arxiv_tier2_<date>.json：它只在 `if CORE_FOCUS_CONFIG[...]` 块里写出
+        # （generate_daily_pages.py:1516）。不能用 summary["core_items"] —— 兜底摘要
+        # ai_summarizer.fallback_summary 自己就会填这个键，块被跳过时它照样非空（实测确认）。
+        assert os.path.exists(os.path.join(tmp, "data", f"arxiv_tier2_{DAY}.json")), (
+            "core-focus 代码块没有执行（未写出 arxiv_tier2 候选），本测试将失去意义——"
+            "请检查 CORE_FOCUS_CONFIG['enabled'] 是否被关掉")
         items = sidecar.get("full_list") or []
         blanked = [i for i, x in enumerate(items, 1)
                    if not all(str(x.get(k) or "").strip()
