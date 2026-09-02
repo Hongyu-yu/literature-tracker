@@ -21,7 +21,8 @@ on:
 permissions:
   contents: write
 concurrency:
-  group: generate-deep
+  # 与 fetch.yml 同组：避免两个写 data/ 的 job 并发跑、互相 -X theirs 覆盖
+  group: main-data-writer
   cancel-in-progress: false
 jobs:
   deep:

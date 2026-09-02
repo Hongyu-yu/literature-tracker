@@ -1,6 +1,7 @@
 import os
 import sys
 import json
+import re
 from datetime import datetime, timezone, timedelta
 import time
 
@@ -50,6 +51,17 @@ def _atomic_write_json(path: str, payload) -> None:
             pass
         raise
 
+
+
+def _title_key(title) -> str:
+    """跨运行去重用的标题键：小写、去掉所有非字母数字。
+
+    只在标题足够长时才生效（>=25 个规范化字符）。短标题（'Erratum'、'Editorial'、
+    'Comment on ...'）在不同论文间重名是常见的，用它们做去重会误删不同的论文 ——
+    而 index.json 是有 5000 上限的唯一库，删错一篇就找不回来了。
+    """
+    key = re.sub(r"[^a-z0-9]+", "", str(title or "").lower())
+    return key if len(key) >= 25 else ""
 
 def _user_keywords() -> dict:
     """docs/app.js 用 index.json 里的 user_keywords 填「关键词用户」下拉框。"""
@@ -429,14 +441,47 @@ def run_optimized_sync():
 
     existing_articles = [a for a in existing_articles if isinstance(a, dict) and is_target_domain(a)]
     existing_links = {a.get("link") for a in existing_articles if a.get("link")}
+    # 同一篇论文的 arXiv 预印本与正式发表版链接不同、抓取日期也不同，只按 link 精确比对
+    # 永远不会撞上，于是两条并存：实测 5000 条里 80 组标题重复（160 条，3.2%），
+    # 其中 70 组是 arxiv.org + link.aps.org，其余也全是「arXiv + 某出版社」，
+    # 无一例外都是预印本/正式版配对。每条重复都白占一个 5000 上限的名额、
+    # 一份中文富化预算，还会让同一篇论文在日报里出现两次。
+    existing_titles = {}
+    for a in existing_articles:
+        key = _title_key(a.get("title"))
+        if key:
+            existing_titles.setdefault(key, a)
+
     new_count = 0
     new_articles = []
+    merged_dupes = 0
     for a in filtered:
-        if a.link and a.link not in existing_links:
-            d = a.to_dict()
-            existing_articles.append(d)
-            new_articles.append(d)
-            new_count += 1
+        if not a.link or a.link in existing_links:
+            continue
+        d = a.to_dict()
+        prior = existing_titles.get(_title_key(d.get("title")))
+        if prior is not None:
+            # **绝不删除已存的那条**（它可能已被深读/配图，且 arxiv_core 等按 link 关联）。
+            # 只是不再追加副本，并把新版本的链接记进 alt_links 以免信息丢失。
+            alt = prior.setdefault("alt_links", [])
+            if d.get("link") and d["link"] not in alt:
+                alt.append(d["link"])
+            # arXiv 记录遇到正式发表版时升级 journal —— 周报的顶刊闸门要靠它
+            if str(prior.get("journal") or "").strip().lower() == "arxiv":
+                jr = str(d.get("journal") or "").strip()
+                if jr and jr.lower() != "arxiv":
+                    prior["journal"] = jr
+            merged_dupes += 1
+            continue
+        existing_articles.append(d)
+        new_articles.append(d)
+        key = _title_key(d.get("title"))
+        if key:
+            existing_titles.setdefault(key, d)
+        new_count += 1
+    if merged_dupes:
+        print(f"🔗 跨运行去重：{merged_dupes} 篇与已存文献同题（预印本/正式版），"
+              f"未重复入库，链接已并入 alt_links")
 
     zh_max_items = int(os.environ.get("AI_ZH_MAX_ITEMS", "120"))
     zh_updated = enrich_articles_zh(

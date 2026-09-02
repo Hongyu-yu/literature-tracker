@@ -6,6 +6,13 @@ on:
     - cron: '0 0,12 * * *'
   workflow_dispatch:
 
+# 与 generate-deep.yml 共用一个组：两者都会写 data/ 并推 main。cron 已经错开
+# (fetch 00:00/12:00、deep 06:30)，但 fetch 的 timeout 是 240 分钟，超时那轮仍可能
+# 跨到 06:30 之后。cancel-in-progress: false → 后到的排队等前一个跑完，而不是并发。
+concurrency:
+  group: main-data-writer
+  cancel-in-progress: false
+
 permissions:
   contents: write
   pages: write
@@ -45,6 +52,10 @@ jobs:
           KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          # 中文翻译一批 12 篇、每篇含完整摘要译文，OpenRouterProvider 的默认值只有 4096
+          # (ai_summarizer.py:365)，装不下整批 JSON → 响应被 max_tokens 截断，
+          # 整批译文丢弃或半截译文入库。所有 workflow 此前都没设过它。
+          AI_MAX_TOKENS: "16384"
           AI_ZH_MAX_ITEMS: "120"
           AI_RELEVANCE_BATCH_SIZE: "20"
           AI_RELEVANCE_THRESHOLD: "6"

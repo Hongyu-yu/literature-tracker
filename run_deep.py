@@ -3,7 +3,7 @@
 幂等：已在 data/aps_<date>.json 里带 deep_analysis 的论文直接复用，不重复调用 gpt-5.5。
 默认只处理最近 1 天（DEEP_WINDOW_DAYS=1），手动 dispatch 可传更大窗口做增量回填。
 """
-import os, json, glob, datetime, hashlib
+import os, json, glob, re, datetime, hashlib
 from concurrent.futures import ThreadPoolExecutor
 
 from aps_client import ApsClient
@@ -201,19 +201,99 @@ def process_arxiv_tier2(date, candidates, provider, out_dir="docs/images/posters
     return results, len(fresh)
 
 
-def prune_images(window_days=60, today=None, dirs=("docs/images/posters", "docs/images/cards")):
-    today = today or datetime.date.today()
-    if isinstance(today, str):
-        today = datetime.date.fromisoformat(today)
-    cutoff = today - datetime.timedelta(days=window_days)
-    for d in dirs:
-        for p in glob.glob(os.path.join(d, "*.webp")):
+def _referenced_image_names(json_globs=None, html_glob="docs/**/*.html"):
+    """收集所有仍被引用的图片文件名（只比对 basename，路径前缀各处不一致）。
+
+    两个来源缺一不可：
+      * JSON 富化文件（arxiv_core / aps / daily_summary）—— 这些图**尚未**渲染进页面，
+        但下一次重渲染就会用到；
+      * 已生成的 HTML —— 历史页面里的图，JSON 可能已随窗口滚出。
+    实测：只看 HTML 会把 1145 张里的 202 张判成孤儿，而其中 127 张 JSON 仍在引用，
+    删掉就等于把还要用的配图丢了。加上 JSON 后真正的孤儿是 75 张。
+    """
+    names = set()
+
+    def walk(obj):
+        if isinstance(obj, dict):
+            for value in obj.values():
+                if isinstance(value, str) and "images/" in value:
+                    names.add(os.path.basename(value))
+                else:
+                    walk(value)
+        elif isinstance(obj, list):
+            for item in obj:
+                walk(item)
+
+    for pattern in (json_globs or ["data/arxiv_core_*.json", "data/aps_*.json",
+                                   "data/daily_summary_*.json"]):
+        for path in glob.glob(pattern):
             try:
-                mtime = datetime.date.fromtimestamp(os.path.getmtime(p))
-                if mtime < cutoff:
-                    os.remove(p)
+                with open(path, encoding="utf-8") as f:
+                    walk(json.load(f))
             except Exception:
-                pass
+                continue        # 单个坏文件不能让整轮清理误判成「无人引用」
+
+    ref_re = re.compile(r"images/[A-Za-z0-9_.\-/]+\.webp")
+    for path in glob.glob(html_glob, recursive=True):
+        try:
+            with open(path, encoding="utf-8", errors="replace") as f:
+                html = f.read()
+        except Exception:
+            continue
+        for hit in ref_re.findall(html):
+            names.add(os.path.basename(hit))
+    return names
+
+
+def prune_images(dirs=("docs/images/posters",), max_delete_ratio=0.30, dry_run=False):
+    """按**引用关系**清理孤儿海报，而不是按 mtime。
+
+    旧实现用 os.path.getmtime 与 60 天窗口比较，是个永久空转的空操作：git 不记录 mtime，
+    actions/checkout 每次都重写全部文件，所以所有海报的 mtime 都等于本次运行开始时间，
+    永远不早于 cutoff。实测本地 1145 张 .webp 的 mtime 完全一致（clone 那天），
+    于是 docs/images/posters 一路涨到 122MB、.git 802MB，从没删掉过一个字节。
+
+    安全阀 max_delete_ratio：一旦「孤儿」超过总数的这个比例，几乎一定是引用集收集出了
+    问题（某个 glob 没匹配上、JSON 全解析失败），而不是真有那么多垃圾 —— 此时拒绝删除。
+    删除不可逆，宁可留着不删。
+
+    注意 docs/images/cards 从来不存在（其唯一写入方 enrich_arxiv_core 已是死代码），
+    已从默认目录里去掉。
+    """
+    files = []
+    for d in dirs:
+        files.extend(glob.glob(os.path.join(d, "*.webp")))
+    if not files:
+        return 0
+
+    referenced = _referenced_image_names()
+    if not referenced:
+        print("⚠️ 图片引用集为空，疑似收集逻辑异常，跳过本次清理（不删任何文件）")
+        return 0
+
+    orphans = [p for p in files if os.path.basename(p) not in referenced]
+    ratio = len(orphans) / len(files)
+    if ratio > max_delete_ratio:
+        print(f"⚠️ 判定为孤儿的比例过高（{len(orphans)}/{len(files)} = {ratio:.0%} > "
+              f"{max_delete_ratio:.0%}），疑似引用集收集不全，拒绝删除")
+        return 0
+
+    freed = 0
+    removed = 0
+    for path in orphans:
+        try:
+            size = os.path.getsize(path)
+            if not dry_run:
+                os.remove(path)
+            freed += size
+            removed += 1
+        except OSError as e:
+            print(f"⚠️ 删除失败 {path}: {e}")
+    if removed:
+        verb = "可清理" if dry_run else "已清理"
+        print(f"🧹 {verb}无人引用的海报 {removed} 张，释放 {freed / 1024 / 1024:.1f} MB"
+              f"（磁盘共 {len(files)} 张，引用集 {len(referenced)} 个）")
+    return removed
 
 
 def _enrich_arxiv_one(a, provider, out_dir):
@@ -376,7 +456,7 @@ def main():
         except Exception as e:
             print(f"⚠️ tier2 processing failed for {d}: {e}")
 
-    prune_images(window_days=60)
+    prune_images()
     print("✅ run_deep done (feed.json no longer written; enrichment lives in arxiv_core/aps)")
 
 

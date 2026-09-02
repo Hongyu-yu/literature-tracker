@@ -68,6 +68,8 @@ jobs:
           AI_WAIT_BASE_SECONDS: "10"
           AI_WAIT_MAX_SLEEP_SECONDS: "60"
           BACKFILL_SCOPE: ${{ inputs.scope }}
+          # 同 fetch.yml：批量中文翻译的响应远超 4096 默认值
+          AI_MAX_TOKENS: "16384"
           AI_ZH_BATCH_SIZE: ${{ inputs.batch_size }}
           AI_ZH_MAX_PASSES: ${{ inputs.max_passes }}
           BACKFILL_FULL_MAX: ${{ inputs.full_max }}
@@ -85,6 +87,24 @@ jobs:
         # 部分回填也要推送: 脚本在未填完时 exit 2, 但已完成的部分必须保留(幂等, 下次接着跑)
         if: always()
         run: |
+          # 这一步是 if: always()，脚本 exit 2（部分回填）时照样推送 —— 于是任何把
+          # data/index.json 写坏的情况都会被直接推上 main。推之前先验一遍 JSON 可解析、
+          # articles 非空；不合格就整轮放弃提交，磁盘上的坏文件留在 runner 里随之销毁。
+          python - <<'PY'
+          import json, sys
+          p = "data/index.json"
+          try:
+              with open(p, encoding="utf-8") as f:
+                  d = json.load(f)
+          except Exception as e:
+              print(f"❌ {p} 解析失败({type(e).__name__}: {e})，放弃提交，避免把坏文件推上 main")
+              sys.exit(1)
+          arts = d.get("articles") if isinstance(d, dict) else d
+          if not isinstance(arts, list) or not arts:
+              print(f"❌ {p} 的 articles 为空或结构异常，放弃提交")
+              sys.exit(1)
+          print(f"✅ {p} 校验通过：{len(arts)} 条")
+          PY
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A

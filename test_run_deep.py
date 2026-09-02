@@ -51,17 +51,31 @@ def test_process_date_skips_non_fulltext():
     out, _used = run_deep.process_date("2026-05-28", client=FakeClient(), provider=FakeProv())
     assert out == []
 
-def test_prune_images_removes_old(tmpdir=None):
-    import datetime
+def test_prune_images_is_reference_based_not_mtime_based():
+    """海报清理按「是否仍被引用」，不再按 mtime。
+
+    原测试 test_prune_images_removes_old 用 os.utime 人为把文件时间调早 100 天来验证
+    删除 —— 那在本地能过，在 CI 里却永远不成立：git 不记录 mtime，actions/checkout
+    每次都重写全部文件，所有海报的 mtime 都等于本次运行开始时间。所以它测的是一个
+    在生产环境中恒为空操作的分支。完整用例见 test_fix_prune_images.py。
+    """
+    import json
     d = tempfile.mkdtemp()
-    old = os.path.join(d, "old.webp"); new = os.path.join(d, "new.webp")
-    open(old, "wb").write(b"x"); open(new, "wb").write(b"y")
-    # backdate 'old' 100 days
-    past = (datetime.datetime.now() - datetime.timedelta(days=100)).timestamp()
-    os.utime(old, (past, past))
-    run_deep.prune_images(window_days=60, dirs=(d,))
-    assert not os.path.exists(old)
-    assert os.path.exists(new)
+    posters = os.path.join(d, "docs/images/posters")
+    os.makedirs(posters, exist_ok=True)
+    os.makedirs(os.path.join(d, "data"), exist_ok=True)
+    for n in ("kept.webp", "orphan.webp"):
+        open(os.path.join(posters, n), "wb").write(b"x")
+    with open(os.path.join(d, "data/arxiv_core_2026-08-30.json"), "w", encoding="utf-8") as f:
+        json.dump([{"image": "images/posters/kept.webp"}], f)
+    cwd = os.getcwd()
+    try:
+        os.chdir(d)
+        run_deep.prune_images(dirs=("docs/images/posters",), max_delete_ratio=1.0)
+    finally:
+        os.chdir(cwd)
+    assert os.path.exists(os.path.join(posters, "kept.webp")), "被引用的图不该删"
+    assert not os.path.exists(os.path.join(posters, "orphan.webp")), "孤儿图应删除"
 
 def test_enrich_arxiv_core_adds_image():
     import run_deep, tempfile

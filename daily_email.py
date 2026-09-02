@@ -241,7 +241,6 @@ def send_daily_email(summary: Dict[str, Any], day_str: str, *, sent_path: str = 
         smtp_port=int(config.get("smtp_port") or 465),
         sender_email=config.get("sender_email") or "",
         sender_password=config.get("sender_password") or "",
-        mode=config.get("mode") or "digest",
     )
     delivered = notifier.send_html_multi(pending, subject, html)
     if not delivered:

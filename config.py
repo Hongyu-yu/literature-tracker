@@ -213,7 +213,6 @@ EMAIL_CONFIG = {
     "smtp_port": int(_local_email_config.get("smtp_port") or 465),
     "sender_email": _local_email_config.get("sender_email") or os.environ.get("EMAIL_SENDER", ""),  # 优先从config.local.py读取
     "sender_password": _local_email_config.get("sender_password") or os.environ.get("EMAIL_PASSWORD", ""),  # 优先从config.local.py读取
-    "mode": _local_email_config.get("mode") or "digest",  # 邮件模式: "full" 完整版（含摘要）, "digest" 摘要版（仅标题列表）
 }
 # 向后兼容：旧代码（main.py）仍读单数 recipient，取列表首项
 EMAIL_CONFIG["recipient"] = EMAIL_CONFIG["recipients"][0] if EMAIL_CONFIG["recipients"] else ""

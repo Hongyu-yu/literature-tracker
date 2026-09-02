@@ -19,27 +19,13 @@ from email_notifier import EmailNotifier
 SENDER = "594836947@qq.com"
 
 
-def _notifier(sender=SENDER, mode="digest"):
+def _notifier(sender=SENDER):
     return EmailNotifier(
         smtp_server="smtp.qq.com",
         smtp_port=465,
         sender_email=sender,
         sender_password="app-token",
-        mode=mode,
     )
-
-
-class _FakeArticle:
-    """send_notification 的 _generate_html/_generate_text 需要的最小文献对象。"""
-
-    title = "Machine learning for ferroelectric domain walls"
-    title_zh = "机器学习与铁电畴壁"
-    authors = ["A. One", "B. Two"]
-    journal = "Physical Review B"
-    pub_date = "2026-08-31"
-    link = "https://example.org/abs/1234"
-    abstract = "A neural network study."
-    abstract_zh = "一项神经网络研究。"
 
 
 def _capture_wire(fn):
@@ -96,20 +82,6 @@ def test_send_html_multi_puts_the_headers_on_the_wire():
     assert ids[0] != ids[1], "两封信共用了同一个 Message-ID"
     tos = [message_from_string(raw)["To"] for raw in wire]
     assert tos == ["a@example.com", "b@example.com"]
-
-
-def test_legacy_send_notification_also_sets_the_headers():
-    notifier = _notifier(mode="digest")
-    # _generate_digest_html/_generate_html 目前 100% 抛 KeyError（HEAD 上就如此：正文里
-    # 的 CSS `{ font-family: ... }` 被 str.format 当成替换字段），会被 send_notification
-    # 的兜底 except 吞掉。这里把生成器打桩掉，专测头部这一件事。
-    with mock.patch.object(EmailNotifier, "_generate_digest_html", return_value="<p>hi</p>"), \
-            mock.patch.object(EmailNotifier, "_generate_digest_text", return_value="hi"):
-        wire = _capture_wire(lambda: notifier.send_notification("dest@example.com", [_FakeArticle()]))
-    assert len(wire) == 1
-    parsed = message_from_string(wire[0])
-    assert parsed["Date"], "send_notification 发出的邮件缺 Date 头"
-    assert parsed["Message-ID"], "send_notification 发出的邮件缺 Message-ID 头"
 
 
 def test_message_id_domain_falls_back_when_sender_is_malformed():

@@ -188,6 +188,17 @@ function calculateAnalytics(articles) {
     // 计算本月起始日期
     const monthStart = new Date(now.getFullYear(), now.getMonth(), 1);
 
+    // 边界统一成 'YYYY-MM-DD' 字符串再和 pub_date 比较。
+    // 不能拿 Date 对象直接比：new Date('2026-08-24') 按规范解析成 **UTC 午夜**，
+    // 而上面两个边界是 **本地午夜**，只有 UTC+0 才等价。在 America/Los_Angeles，
+    // weekStart = 2026-08-24T07:00Z > 2026-08-24T00:00Z，于是**每个周一发表的论文
+    // 都会掉出「本周统计」**，每月 1 号的掉出「本月统计」。
+    // docs/app.js:981 早就是按字符串比的，这里对齐它。
+    const pad = (n) => String(n).padStart(2, '0');
+    const ymd = (d) => `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+    const weekStartStr = ymd(weekStart);
+    const monthStartStr = ymd(monthStart);
+
     const data = {
         totalArticles: articles.length,
         // 本周统计
@@ -214,7 +225,8 @@ function calculateAnalytics(articles) {
     const weeklyData = new Map();
 
     articles.forEach(article => {
-        const pubDate = article.pub_date ? new Date(article.pub_date) : null;
+        // pub_date 存的就是「北京日历日」的 YYYY-MM-DD，按字符串比较即可，无需构造 Date
+        const pubDate = (article.pub_date || '').substring(0, 10) || null;
 
         // AI分类统计（累计）
         if (article.is_ai_related) {
@@ -224,7 +236,7 @@ function calculateAnalytics(articles) {
         }
 
         // 本周统计
-        if (pubDate && pubDate >= weekStart) {
+        if (pubDate && pubDate >= weekStartStr) {
             data.thisWeekTotal++;
             if (article.is_ai_related) {
                 data.thisWeekAi++;
@@ -234,7 +246,7 @@ function calculateAnalytics(articles) {
         }
 
         // 本月统计
-        if (pubDate && pubDate >= monthStart) {
+        if (pubDate && pubDate >= monthStartStr) {
             data.thisMonthTotal++;
             if (article.is_ai_related) {
                 data.thisMonthAi++;
@@ -309,11 +321,17 @@ function calculateAnalytics(articles) {
 }
 
 function getWeekNumber(dateStr) {
-    const date = new Date(dateStr);
-    const startOfYear = new Date(date.getFullYear(), 0, 1);
+    // 年份直接从字符串取，不要用 date.getFullYear()：new Date('2027-01-01') 是 UTC 午夜，
+    // 在东八区以西的时区 getFullYear() 会返回 2026，把跨年那天错分到 2026-W53。
+    const ymdStr = String(dateStr || '').substring(0, 10);
+    const year = parseInt(ymdStr.substring(0, 4), 10);
+    if (!year) return '';
+    // 两端都用 UTC，保证差值是整天数、与浏览器时区无关
+    const date = new Date(`${ymdStr}T00:00:00Z`);
+    const startOfYear = new Date(Date.UTC(year, 0, 1));
     const days = Math.floor((date - startOfYear) / (24 * 60 * 60 * 1000));
-    const weekNum = Math.ceil((days + startOfYear.getDay() + 1) / 7);
-    return `${date.getFullYear()}-W${weekNum.toString().padStart(2, '0')}`;
+    const weekNum = Math.ceil((days + startOfYear.getUTCDay() + 1) / 7);
+    return `${year}-W${weekNum.toString().padStart(2, '0')}`;
 }
 
 // ========================================
