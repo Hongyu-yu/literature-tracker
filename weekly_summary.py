@@ -230,6 +230,11 @@ class WeeklySummarizer:
         'Physical Review Letters',
         'Phys. Rev. Lett.',
         'PRL',
+        # PRX：此前漏在名单外，PRX 上的工作(语料里 68 篇)一篇都进不了周报。
+        # 刻意不加裸词 'PRX' —— 比对是子串匹配，那会把 'PRX Energy'(语料里 5 篇)
+        # 这类兄弟刊一并放进来，而这里只想加正刊。
+        'Physical Review X',
+        'Phys. Rev. X',
         'Advanced Materials',
         'Adv. Mater.'
         ,

@@ -59,7 +59,7 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
 
 ## 周报的两级期刊门槛
 
-- **顶刊**（`weekly_summary.TOP_JOURNALS`,24 项人工策展）: 相关即可,沿用宽松关键词 + AI 二元判定。
+- **顶刊**（`weekly_summary.TOP_JOURNALS`,26 项人工策展,含 Nature/Science 系、PRL、PRX、Adv. Mater.、arXiv）: 相关即可,沿用宽松关键词 + AI 二元判定。
 - **非顶刊**（含 Preprints/Research Square 等预印本平台）: 必须**与主学者强相关** ——
   `cross_score` 与 `me_score` 双双 ≥ `STRONG_MIN_SCORE`(默认 7)。
   打分发生在闸门之前(每周约 38 次调用,`AI_CROSS_WEEKLY_MAX` 可关)。

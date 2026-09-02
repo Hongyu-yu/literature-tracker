@@ -631,3 +631,35 @@ def test_preprints_platform_is_admitted_when_strongly_relevant():
     kept = {a["link"] for a in s.filter_articles([good, junk], WEEK_START, WEEK_END, "all")}
     assert good["link"] in kept
     assert junk["link"] not in kept
+
+
+def test_prx_is_a_top_journal_without_dragging_in_its_sibling_titles():
+    """Phys. Rev. X 进顶刊名单，但不能顺带把 PRX Energy/Quantum 一起带进来。
+
+    顶刊比对是子串匹配（'PRL' in 'phys. rev. lett.' 那种），所以名单里加裸词
+    'PRX' 会让 'PRX Energy'（语料里 5 篇）也被判成顶刊。只加正刊全称与缩写。
+    """
+    s = _summarizer()
+    articles = [
+        _article("Phys. Rev. X", 301),
+        _article("Physical Review X", 302),
+        # 以下仍必须按非顶刊走强相关门槛（这里给弱分，应被挡住）
+        _article("PRX Energy", 303),
+        _article("PRX Quantum", 304),
+        _article("Phys. Rev. B", 305),
+        _article("Phys. Rev. Materials", 306),
+    ]
+    for a in articles[2:]:
+        a.update(cross_score=2, me_score=2)
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        kept = s.filter_articles(articles, WEEK_START, WEEK_END, "ferro")
+
+    journals = {a["journal"] for a in kept}
+    assert "Phys. Rev. X" in journals, journals
+    assert "Physical Review X" in journals, journals
+    assert "PRX Energy" not in journals, journals
+    assert "PRX Quantum" not in journals, journals
+    assert "Phys. Rev. B" not in journals, journals
+    assert "Phys. Rev. Materials" not in journals, journals
