@@ -354,8 +354,22 @@ class WeeklySummarizer:
             'polarization', 'magnetization', 'spin', 'magnetic', 'magnet',
             '极化', '磁化', '自旋', '磁性', '磁',
             # 相关物理概念
-            'spintronic', 'topological', 'quantum', 'hall effect',
-            '自旋电子', '拓扑', '量子', '霍尔效应',
+            'spintronic', 'topological', 'hall effect',
+            '自旋电子', '拓扑', '霍尔效应',
+            # 'quantum'/'量子' 曾是裸词，实测四周语料里有 941 篇**只**靠它过这一层，
+            # 其中 298 篇是量子计算/量子信息（QRAM 路由器、量子线路、量子引力…），
+            # 与本仓库的凝聚态方向无关，却要各花一次 AI 判定。改成只认凝聚态语义的复合词。
+            'quantum material', 'quantum hall', 'quantum spin', 'quantum critical',
+            'quantum phase transition', 'quantum geometry', 'quantum metric',
+            'quantum dot', 'quantum well', 'quantum confinement', 'quantum transport',
+            'quantum oscillation', 'quantum fluctuation', 'quantum anomalous',
+            'quantum ferroelectric', 'quantum paraelectric', 'quantum magnet',
+            'quantum monte carlo', 'quantum many-body', 'quantum matter',
+            '量子材料', '量子霍尔', '量子自旋', '量子临界', '量子相变', '量子几何',
+            '量子点', '量子阱', '量子输运', '量子涨落', '量子铁电', '量子多体',
+            # exciton 本来就不在这张表里，此前全靠裸 quantum 兜住；收紧后要显式补上，
+            # 否则激子类凝聚态工作会被这次改动误伤。
+            'exciton', '激子',
             # 材料相关
             '2d material', 'van der waals', 'heterostructure',
             '二维材料', '范德华', '异质结'
@@ -371,8 +385,9 @@ class WeeklySummarizer:
     def _matches_ferro_keywords(self, text: str) -> bool:
         """⚠️ 实际是宽松匹配（直接转发 _loose_matches_ferro_keywords）- 保留用于其他场景。
 
-        仅可用于第一步召回，不要拿它当最终分类器：宽松词表里有 quantum/topological 等
-        通用词，用来分类会把几乎所有凝聚态文章判成「相关」。
+        仅可用于第一步召回，不要拿它当最终分类器：宽松词表里有 topological/spin/magnet
+        等通用词，用来分类会把几乎所有凝聚态文章判成「相关」。
+        （'quantum' 已于 2026-09-02 从裸词收紧为凝聚态复合词，见词表内注释。）
         """
         return self._loose_matches_ferro_keywords(text)
 
@@ -395,8 +410,10 @@ class WeeklySummarizer:
             'neural network', 'neural', 'network', 'learning', 'model',
             'algorithm', 'prediction', 'classification', 'optimization',
             '神经网络', '学习', '模型', '算法', '预测', '分类', '优化',
-            # AI在科学中的应用
-            'ml potential', 'mlip', 'dft', 'quantum', 'molecular',
+                # AI在科学中的应用
+            # 去掉 'quantum'：它根本不是 AI 词，放在这张表里等于任何带 quantum 的
+            # 论文都算"可能与 AI 相关"。计算类召回由 dft/molecular 承担。
+            'ml potential', 'mlip', 'dft', 'molecular',
             '材料发现', '性质预测', '分子设计'
         ]
         
@@ -411,7 +428,8 @@ class WeeklySummarizer:
         """⚠️ 实际是宽松匹配（直接转发 _loose_matches_ai_keywords）- 保留用于其他场景。
 
         仅可用于第一步召回，不要拿它当最终分类器：宽松词表里有 model/network/learning/
-        quantum 等通用词，用来分类会把几乎所有文章判成「AI 相关」。
+        algorithm 等通用词，用来分类会把几乎所有文章判成「AI 相关」。
+        （'quantum' 已于 2026-09-02 移出本表——它根本不是 AI 词。）
         """
         return self._loose_matches_ai_keywords(text)
 

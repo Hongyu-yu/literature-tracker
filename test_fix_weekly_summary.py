@@ -156,9 +156,12 @@ def test_ai_judge_failure_keeps_keyword_matched_article():
         text=("We train a machine learning interatomic potential for perovskite oxides "
               "and benchmark it against DFT reference data across many compositions."),
     )
+    # 边缘候选：只靠 AI 宽松词表里的通用词（'model'）命中，本身跟 AI 没关系。
+    # 原来挂的是 'quantum'，2026-09-02 把它从两张宽松词表里收紧后这条就不再成立
+    # （收紧正是为了拦住量子计算/量子信息），换个仍在表内的通用词，保住本测试原意。
     loose = _article(
         "arXiv", 2,
-        text=("Quantum transport measurements in twisted bilayer graphene reveal an "
+        text=("We model transport measurements in twisted bilayer graphene revealing an "
               "unconventional correlated insulating state at low temperature."),
     )
 
@@ -169,7 +172,7 @@ def test_ai_judge_failure_keeps_keyword_matched_article():
     kept_ids = {a["id"] for a in kept}
     # 修复前：except -> return False，两篇都消失且没有任何日志
     assert "a1" in kept_ids, kept_ids
-    # 仅靠宽松词（quantum）命中的边缘候选仍然落选，避免故障时 AI 版块被灌水
+    # 仅靠宽松通用词（model）命中的边缘候选仍然落选，避免故障时 AI 版块被灌水
     assert "a2" not in kept_ids, kept_ids
     output = buf.getvalue()
     assert "AI判断失败" in output, output
@@ -663,3 +666,39 @@ def test_prx_is_a_top_journal_without_dragging_in_its_sibling_titles():
     assert "PRX Quantum" not in journals, journals
     assert "Phys. Rev. B" not in journals, journals
     assert "Phys. Rev. Materials" not in journals, journals
+
+
+def test_loose_ferro_recall_no_longer_admits_quantum_information():
+    """裸词 'quantum' 已收紧为凝聚态复合词：量子计算/量子信息不再靠它进召回。
+
+    实测四周语料里有 941 篇**只**靠裸 quantum/量子 过这一层，其中 298 篇是
+    量子计算/量子信息（QRAM 路由器、量子线路、量子引力…），每篇都要白花一次
+    AI 判定。收紧后四周候选 4521 → 4212，每周约省 77 次调用。
+    """
+    s = _summarizer()
+    qi = [
+        "Demonstrating coherent quantum routers for bucket-brigade quantum random access memory",
+        "Quantum thermal state preparation for near-term quantum processors",
+        "Scalable fluxonium-transmon architecture for error-corrected quantum computing",
+        "Holography as an information principle in quantum gravity",
+    ]
+    for title in qi:
+        assert s._loose_matches_ferro_keywords(title.lower()) is False, title
+        assert s._loose_matches_ai_keywords(title.lower()) is False, title
+
+    # 凝聚态语义的 quantum 复合词必须照旧召回
+    for title in ("Quantum Hall ferromagnetism in a moire superlattice",
+                  "Quantum spin liquid candidate on a kagome lattice",
+                  "Quantum critical fluctuations near a ferroelectric transition",
+                  "Quantum geometry of Bloch states in a chiral crystal",
+                  "Exciton wave functions in a layered semiconductor"):
+        assert s._loose_matches_ferro_keywords(title.lower()) is True, title
+
+
+def test_quantum_is_not_an_ai_keyword():
+    """'quantum' 曾经躺在 AI 宽松词表里，等于任何带 quantum 的论文都算"可能与 AI 相关"。"""
+    s = _summarizer()
+    assert s._loose_matches_ai_keywords("quantum entanglement in a spin chain") is False
+    # 真正的计算/AI 钩子仍然有效
+    assert s._loose_matches_ai_keywords("dft study of oxygen vacancies") is True
+    assert s._loose_matches_ai_keywords("graph neural network for materials") is True
