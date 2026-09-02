@@ -35,6 +35,10 @@ SCHOLARS: List[Dict[str, str]] = [
 
 MIN_YEAR = 2021
 PROFILE_PATH = "data/focus_interests.json"
+# 画像的"主学者"。团队并集画像里 205 个关键词有 155 个（76%）在他自己的论文里
+# 一次都没出现过（光催化、等离激元、太阳能电池那些是另四位的方向），所以
+# 「与 Hongyu Yu 强相关」不能用并集分来判 —— 必须单独留一份他本人的画像。
+PRIMARY_SCHOLAR = "Hongyu Yu"
 TITLE_SIM_THRESHOLD = 0.85
 PROFILE_BATCH_SIZE = 25  # 每次送 LLM 蒸馏的论文数
 # 合并/汇总调用失败时直接拼接已有结果的截断上限
@@ -583,12 +587,15 @@ def build_profile(
                 print(f"♻️ {s['name']}: 本次蒸馏为空，沿用既有 directions_zh")
                 directions_zh = old_dir
                 notes.append(f"{s['name']} 的 directions_zh")
+        # 逐人关键词此前算完就 extend 进并集丢掉了，导致"某个方向属于谁"这件事
+        # 在画像里完全没有记录。留一份在学者条目上，并集照旧。
         scholars_out.append(
             {
                 "scholar_id": s["scholar_id"],
                 "name": s["name"],
                 "works": works,
                 "directions_zh": directions_zh,
+                "keywords": _dedupe_keywords(distilled["keywords"]),
             }
         )
         all_keywords.extend(distilled["keywords"])
@@ -639,7 +646,30 @@ def build_profile(
     return {
         "generated_at": _beijing_today(),
         "scholars": scholars_out,
+        "primary": build_primary_block(scholars_out, (old or {}).get("primary")),
         "our_work_zh": our_work_zh,
+        "keywords": keywords,
+    }
+
+
+def build_primary_block(scholars_out: List[Dict[str, Any]],
+                       old_primary: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
+    """从学者列表里抽出主学者（PRIMARY_SCHOLAR）单独成块。
+
+    周报的非顶刊闸门要判「与 Hongyu Yu 强相关」，用五人并集分判不了 ——
+    并集里 76% 的关键词来自另外四位。这里给出他本人的方向描述与关键词。
+    任一字段本次为空时沿用既有值，绝不用空值覆盖（与本模块其余部分同一约定）。
+    """
+    old_primary = old_primary or {}
+    match = next((s for s in scholars_out if s.get("name") == PRIMARY_SCHOLAR), None)
+    if match is None:
+        return dict(old_primary)
+    directions = str(match.get("directions_zh") or "").strip() or str(old_primary.get("directions_zh") or "")
+    keywords = _dedupe_keywords(list(match.get("keywords") or [])) or list(old_primary.get("keywords") or [])
+    return {
+        "name": PRIMARY_SCHOLAR,
+        "scholar_id": match.get("scholar_id", "") or old_primary.get("scholar_id", ""),
+        "directions_zh": directions,
         "keywords": keywords,
     }
 
@@ -692,12 +722,15 @@ def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Optional[Dict[str,
             directions_zh = str(s.get("directions_zh") or "")
             if directions_zh:
                 print(f"♻️ {s.get('name')}: 本次蒸馏为空，沿用既有 directions_zh")
+        # 本次蒸馏为空时同样沿用既有逐人关键词，绝不用空列表覆盖好数据
+        scholar_kw = _dedupe_keywords(distilled["keywords"]) or list(s.get("keywords") or [])
         scholars_out.append(
             {
                 "scholar_id": s.get("scholar_id", ""),
                 "name": s.get("name", ""),
                 "works": works,
                 "directions_zh": directions_zh,
+                "keywords": scholar_kw,
             }
         )
         all_keywords.extend(distilled["keywords"])
@@ -740,6 +773,7 @@ def _distill_only(provider: Any, path: str = PROFILE_PATH) -> Optional[Dict[str,
     return {
         "generated_at": _beijing_today(),
         "scholars": scholars_out,
+        "primary": build_primary_block(scholars_out, (old or {}).get("primary")),
         "our_work_zh": our_work_zh,
         "keywords": keywords,
     }

@@ -190,7 +190,13 @@ def test_distill_only_success_path_replaces_fields():
     assert all(s["directions_zh"] == "新蒸馏方向" for s in out["scholars"])
     assert out["our_work_zh"] == "新蒸馏方向"
     assert out["keywords"] == ["fresh kw"]  # 成功路径不并入旧关键词
-    assert set(out.keys()) == {"generated_at", "scholars", "our_work_zh", "keywords"}
+    assert set(out.keys()) == {"generated_at", "scholars", "primary", "our_work_zh", "keywords"}
+    # 逐人关键词不再被丢进并集就作废
+    assert all("keywords" in s for s in out["scholars"])
+    # 该 fixture 的学者是 Alpha/Beta，没有 PRIMARY_SCHOLAR → primary 为空字典。
+    # 这是刻意的安全失败：周报的非顶刊闸门拿不到个人画像就一篇都不放行
+    # （等于回到"只收顶刊"的老行为），而不是拿团队并集分凑合。
+    assert out["primary"] == {}
 
 
 # ---------- 3. main() 端到端：失败时不落盘、退出码非 0 ----------
@@ -312,7 +318,8 @@ def test_build_profile_success_path_replaces_old_values():
     assert profile["our_work_zh"] == "新蒸馏方向"
     assert profile["keywords"] == ["fresh kw"]  # 成功路径不并入旧关键词
     assert preserved == []
-    assert set(profile.keys()) == {"generated_at", "scholars", "our_work_zh", "keywords"}
+    # primary = 主学者(Hongyu Yu)单独一份画像，供周报非顶刊闸门判「与他强相关」
+    assert set(profile.keys()) == {"generated_at", "scholars", "primary", "our_work_zh", "keywords"}
 
 
 def test_build_profile_without_old_path_behaves_as_before():
@@ -391,3 +398,32 @@ if __name__ == "__main__":
         if name.startswith("test_") and callable(fn):
             fn()
     print("[OK] test_fix_update_focus_profile")
+
+
+def test_primary_block_is_built_for_the_primary_scholar():
+    """画像里有 PRIMARY_SCHOLAR 时，primary 必须带上他本人的方向与关键词。"""
+    scholars = [
+        {"scholar_id": "X1", "name": "Alpha Scholar", "works": [], "directions_zh": "别人的方向",
+         "keywords": ["someone else kw"]},
+        {"scholar_id": "ES83JO4AAAAJ", "name": ufp.PRIMARY_SCHOLAR, "works": [],
+         "directions_zh": "机器学习势与自旋哈密顿量", "keywords": ["machine learning potential", "spin hamiltonian"]},
+    ]
+    block = ufp.build_primary_block(scholars)
+    assert block["name"] == ufp.PRIMARY_SCHOLAR
+    assert block["scholar_id"] == "ES83JO4AAAAJ"
+    assert block["directions_zh"] == "机器学习势与自旋哈密顿量"
+    assert block["keywords"] == ["machine learning potential", "spin hamiltonian"]
+    assert "someone else kw" not in block["keywords"]
+
+
+def test_primary_block_never_overwrites_good_values_with_empty():
+    """本次蒸馏为空时沿用既有 primary，绝不用空值覆盖（同本模块其余部分的约定）。"""
+    scholars = [{"scholar_id": "", "name": ufp.PRIMARY_SCHOLAR, "works": [],
+                 "directions_zh": "", "keywords": []}]
+    old = {"name": ufp.PRIMARY_SCHOLAR, "scholar_id": "ES83JO4AAAAJ",
+           "directions_zh": "既有方向", "keywords": ["kept kw"]}
+    block = ufp.build_primary_block(scholars, old)
+    assert block["directions_zh"] == "既有方向"
+    assert block["keywords"] == ["kept kw"]
+    assert block["scholar_id"] == "ES83JO4AAAAJ"
+

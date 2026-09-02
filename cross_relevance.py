@@ -17,6 +17,7 @@ from __future__ import annotations
 import json
 import os
 import time
+from functools import lru_cache
 from string import Template
 from typing import Any, Dict, List, Mapping, Optional, Tuple
 
@@ -98,6 +99,120 @@ _SCIENCE_TITLE_TERMS: Tuple[str, ...] = (
     '单层', '晶体', '介电', '缺陷', '晶界', '第一性原理', '分子动力学', '蒙特卡洛',
     '相场', '原子间势', '电子结构', '能带', '哈密顿量', '自由能', '势能面',
 )
+
+
+DEFAULT_PROFILE_PATH = "data/focus_interests.json"
+
+# 个人画像规则兜底分：LLM 没跑时也要能判「与本人强相关」。
+#
+# 关键词命中是个很弱的代理 —— 实测 2026-08-24~08-30 那一周，真货
+# 「Physics Guided Machine Learning Design of Phonon Bridged…」与噪声
+# 「TXL Fusion: A Hybrid Machine Learning Framework…」都只命中 machine learning
+# 一个词，规则层根本分不开。所以兜底刻意取严：宁可少放，交给 AI 分去救。
+#
+# 门槛按真实数据定档（标题命中权重 ×2，所以 4 分 ≈ 标题里两个专属词）：
+# 该周 300 篇非顶刊候选里，tier0 且 hits≥2 放行 9 篇（混进机器人 LiDAR 高光谱），
+# hits≥3 放行 6 篇（LiDAR 仍在），hits≥4 放行 5 篇且噪声清零。取 4。
+_RULE_FALLBACK_ME: Dict[int, float] = {0: 0.0, 1: 3.0, 2: 5.0, 3: 6.0}
+_RULE_FALLBACK_ME_HIGH = 8.0
+
+
+def _profile_path() -> str:
+    """画像文件的绝对路径：优先当前工作目录，找不到就回落到模块所在目录。
+
+    不能只用相对路径 —— 缓存 + 相对路径 = 谁先调用谁决定结果：有测试会 chdir 到
+    临时目录，在那里首次调用就把"画像为空"永久缓存了下来，之后所有强相关判定
+    全部失效，而且日志上一点痕迹都没有。
+    """
+    if os.path.isabs(DEFAULT_PROFILE_PATH):
+        return DEFAULT_PROFILE_PATH
+    cwd_path = os.path.abspath(DEFAULT_PROFILE_PATH)
+    if os.path.exists(cwd_path):
+        return cwd_path
+    return os.path.join(os.path.dirname(os.path.abspath(__file__)), DEFAULT_PROFILE_PATH)
+
+
+@lru_cache(maxsize=8)
+def _load_primary(path: str) -> Tuple[str, Tuple[str, ...]]:
+    """按**绝对路径**缓存，换目录自然换 key，不会串到别处的结果上。"""
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+        primary = (data or {}).get("primary") or {}
+        directions = str(primary.get("directions_zh") or "").strip()
+        keywords = tuple(
+            _normalize_text(k) for k in (primary.get("keywords") or []) if _normalize_text(k)
+        )
+        return directions, keywords
+    except Exception:
+        return "", ()
+
+
+def _primary_profile() -> Tuple[str, Tuple[str, ...]]:
+    """读取主学者画像 (directions_zh, keywords)。缺失 → ("", ())，全链路 fail-soft。
+
+    刻意只读 primary 块、不退回团队并集：并集里 205 个关键词有 155 个来自另外四位
+    学者（光催化、等离激元、太阳能电池…），拿它判「与本人强相关」等于没判。
+    画像文件缺 primary 时宁可返回空——调用方会退回纯交叉判定，而不是误用并集。
+    """
+    return _load_primary(_profile_path())
+
+
+def primary_profile_digest(max_chars: int = 1600) -> str:
+    """喂给 LLM 的个人画像片段。"""
+    directions, keywords = _primary_profile()
+    parts = []
+    if directions:
+        parts.append(directions[:max_chars])
+    if keywords:
+        parts.append("代表性关键词：" + "、".join(keywords[:60]))
+    return "\n".join(parts) or "（未配置个人画像）"
+
+
+def personal_keyword_hits(item: Mapping[str, Any]) -> int:
+    """标题/摘要命中多少个主学者专属关键词。标题权重更高（同 focus_interest 的做法）。"""
+    _, keywords = _primary_profile()
+    if not keywords:
+        return 0
+    title = _title_text(item)
+    body = _normalize_text(" ".join([
+        str(item.get("abstract") or ""), str(item.get("abstract_zh") or ""),
+    ]))
+    return sum(1 for k in keywords if k in title) * 2 + sum(1 for k in keywords if k in body)
+
+
+def effective_me_score(item: Mapping[str, Any]) -> float:
+    """与主学者本人研究的相关度：优先 LLM 的 me_score，缺失时退回关键词规则分。"""
+    raw = item.get("me_score")
+    if isinstance(raw, bool):
+        raw = None
+    if isinstance(raw, (int, float)):
+        return max(0.0, min(10.0, float(raw)))
+    if isinstance(raw, str) and raw.strip():
+        try:
+            return max(0.0, min(10.0, float(raw.strip())))
+        except ValueError:
+            pass
+    hits = personal_keyword_hits(item)
+    if hits >= 4:
+        return _RULE_FALLBACK_ME_HIGH
+    return _RULE_FALLBACK_ME.get(hits, 0.0)
+
+
+def strong_min_score() -> float:
+    """「强相关」的分数线（env STRONG_MIN_SCORE，默认 7）。"""
+    return _env_float("STRONG_MIN_SCORE", 7.0)
+
+
+def is_strongly_relevant(item: Mapping[str, Any], min_score: Optional[float] = None) -> bool:
+    """交叉强度与个人画像相关度**双双**过线才算强相关。
+
+    周报的非顶刊闸门用它：顶刊「相关即可」沿用原有宽松标准，非顶刊必须强相关。
+    两个分数都有规则兜底，所以 AI 挂掉的那周闸门仍然是确定行为（会更严，不会放水）。
+    """
+    threshold = strong_min_score() if min_score is None else float(min_score)
+    return (effective_cross_score(item) >= threshold
+            and effective_me_score(item) >= threshold)
 
 
 def _env_int(name: str, default: int) -> int:
@@ -241,7 +356,10 @@ def _build_batch_prompt(batch: List[Dict[str, Any]]) -> str:
         journal = (a.get("journal") or "").strip()
         abstract = (a.get("abstract") or "").strip()[:1200]
         lines.append(f"[{i}] Title: {title}\nJournal: {journal}\nAbstract: {abstract}\n")
-    return _load_prompt_template().safe_substitute(articles="\n".join(lines))
+    return _load_prompt_template().safe_substitute(
+        me_profile=primary_profile_digest(),
+        articles="\n".join(lines),
+    )
 
 
 _VALID_SIDES = {"physics", "chemistry", "materials", "simulation"}
@@ -268,10 +386,16 @@ def _parse_items(data: Any) -> Dict[int, Dict[str, Any]]:
         except (TypeError, ValueError):
             score = 0
         side = str(item.get("cross_side", "") or "").strip().lower()
+        try:
+            me = int(float(item.get("me_score", 0) or 0))
+        except (TypeError, ValueError):
+            me = 0
         mapping[idx] = {
             "cross_score": max(0, min(10, score)),
             "cross_reason": str(item.get("cross_reason", "") or "").strip()[:120],
             "cross_side": side if side in _VALID_SIDES else "",
+            "me_score": max(0, min(10, me)),
+            "me_reason": str(item.get("me_reason", "") or "").strip()[:120],
         }
     return mapping
 
@@ -339,6 +463,8 @@ def enrich_cross_relevance(
         a = pending[idx]
         a["cross_score"] = item["cross_score"]
         a["cross_reason"] = item["cross_reason"]
+        a["me_score"] = item["me_score"]
+        a["me_reason"] = item["me_reason"]
         if item["cross_side"]:
             a["cross_side"] = item["cross_side"]
         elif not a.get("cross_side"):

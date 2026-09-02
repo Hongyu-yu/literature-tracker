@@ -18,14 +18,19 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
         (规则预筛 + LLM 批量,画像来自
          data/focus_interests.json)──▶ index.json 新增
          focus_score/focus_summary/focus_relation/focus_suggestion
-   阶段4.6:cross_relevance.py AI×物理/材料/化学 交叉判定
-        (规则分层 rule_cross_tier 0-3 零成本 + LLM 打交叉强度分)
-        ──▶ cross_score/cross_reason/cross_side
-        **这是日报选文、截断、分区与邮件选卡的主排序键**
+   阶段4.6:cross_relevance.py 双维相关度判定(同一次 LLM 调用产出两个分)
+        (规则分层 rule_cross_tier 0-3 零成本 + LLM 打分)
+        ──▶ cross_score/cross_reason  AI×物理/材料/化学 的交叉强度
+            me_score/me_reason        与主学者本人画像(data/focus_interests.json
+                                      的 primary 块)的相关度
+        **cross_score 是日报选文、截断、分区与邮件选卡的主排序键**
+        **两分双双过线 = 强相关，周报非顶刊闸门用它**
    generate_daily_pages.py ──▶ docs/daily/*.html(日报,按「AI×科学交叉 / 其他物理材料」分区)
    run_deep.py(APS 全文深读 + arXiv 富化 + 海报)──▶ data/aps_*.json、docs/images/posters/
    weekly_summary.py ──▶ docs/weekly/*.html(周报,含同款 focus 区块)
    update_focus_profile.py(本地抓取提交 works;dispatch workflow 只做蒸馏)──▶ data/focus_interests.json
+        (含 scholars[].keywords 逐人关键词 + primary 主学者单独画像;
+         团队并集 205 词里 155 个来自另四位学者,判「与本人强相关」不能用并集)
         (抓 Google Scholar 近五年论文 → S2/OpenAlex/arXiv 回填摘要 → LLM 蒸馏;
          CI 用 --distill-only 不重抓 Scholar,防云端 IP 被封)
                                          │
@@ -51,6 +56,16 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
 
 工程约束由 `test_actions.py` 固化(浅克隆 fetch-depth:1、push 必带 5 次 rebase
 重试、部署前复制 docs/data、全 job 超时、cron 不撞车),smoke 会在 CI 强制执行。
+
+## 周报的两级期刊门槛
+
+- **顶刊**（`weekly_summary.TOP_JOURNALS`,24 项人工策展）: 相关即可,沿用宽松关键词 + AI 二元判定。
+- **非顶刊**（含 Preprints/Research Square 等预印本平台）: 必须**与主学者强相关** ——
+  `cross_score` 与 `me_score` 双双 ≥ `STRONG_MIN_SCORE`(默认 7)。
+  打分发生在闸门之前(每周约 38 次调用,`AI_CROSS_WEEKLY_MAX` 可关)。
+  无 AI 分时退回关键词规则兜底,**取严不取宽**:标题命中 ≥2 个本人专属关键词
+  且是标题级交叉才放行(实测该周 300 篇非顶刊候选放行 5 篇)。
+  画像缺 `primary` 块时非顶刊一律不放行(回到"只收顶刊"的老行为),并打印告警。
 
 ## 本地开发与测试
 

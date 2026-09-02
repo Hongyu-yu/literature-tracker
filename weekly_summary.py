@@ -19,7 +19,10 @@ from translator import translate_text
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from weekly_page_enhancer import enhance_weekly_archive
 from weekly_prompts import _build_analyze_prompt
-from cross_relevance import cross_sort_key, is_cross_item, rule_cross_tier
+from cross_relevance import (
+    _primary_profile, cross_sort_key, enrich_cross_relevance, is_cross_item,
+    is_strongly_relevant, rule_cross_tier,
+)
 import time
 import threading
 
@@ -541,7 +544,7 @@ class WeeklySummarizer:
             category: 'all' | 'ferro' | 'ai' - 筛选类别
         """
         filtered = []
-        pending = []   # [article, text, is_ferro_candidate, is_ai_candidate]
+        pending = []   # [article, text, is_ferro_candidate, is_ai_candidate, is_top_journal]
         
         # 排除关键词（这些不是真正的期刊）
         # 注意：'table of contents'/'toc' 已移除——它们只是 feed 标题的栏目后缀，
@@ -599,13 +602,11 @@ class WeeklySummarizer:
                         is_top_journal = True
                         break
 
-            # 这里刻意**不**为交叉论文放宽顶刊闸门：TOP_JOURNALS 是一份 24 项的
-            # 人工策展（Nature/Science 系 + PRL + Adv. Mater. + arXiv），
-            # 而 AI×科学 预印本的主要发表地 arXiv 本来就在名单里。
-            # 放宽它等于改动"周报只收顶刊"这条策展决策，属于另一件事。
-            if not is_top_journal:
-                skipped_journal += 1
-                continue
+            # 两级门槛（2026-09-02 用户决定）：
+            #   顶刊    —— 「相关即可」，沿用下面原有的宽松关键词 + AI 二元判定；
+            #   非顶刊  —— 必须「与 Hongyu Yu 强相关」，即交叉强度与个人画像分双双过线。
+            # 非顶刊不在这里丢弃：强相关判定需要先给它们打分（见循环之后那段），
+            # 在这里 continue 掉就等于永远拿不到分。
 
             # 第一步：宽松的关键词筛选（获取更多候选）
             text = ' '.join([
@@ -632,7 +633,42 @@ class WeeklySummarizer:
                 continue
             
             # 第二步的 AI 判断挪到循环外并发执行（见下），这里只登记候选
-            pending.append([article, text, is_ferro_candidate, is_ai_candidate])
+            pending.append([article, text, is_ferro_candidate, is_ai_candidate, bool(is_top_journal)])
+
+        # 非顶刊的强相关闸门。放在这里而不是上面的循环里，是因为判定要用
+        # cross_score / me_score，而这两个分要先花 AI 调用算出来。
+        # 只给非顶刊候选打分（顶刊本来就放行，不必为它花钱）：实测 2026-08-24~08-30
+        # 那一周非顶刊候选 300 篇，batch 8 ≈ 38 次调用，相对周报本身 ~1300 次判定可忽略。
+        nontop_rows = [row for row in pending if not row[4]]
+        if nontop_rows and not _primary_profile()[1]:
+            # 没有个人画像 → me 分恒为 0 → 非顶刊一篇都进不来（等于回到"只收顶刊"）。
+            # 这是安全的失败方向，但必须让人看见，不能静默少掉半份周报。
+            print(f"    ⚠️ [{category}] data/focus_interests.json 缺 primary 画像，"
+                  f"{len(nontop_rows)} 篇非顶刊候选一律不放行（回到只收顶刊的老行为）")
+        if nontop_rows:
+            try:
+                budget = max(0, int(os.environ.get("AI_CROSS_WEEKLY_MAX", "400")))
+            except (TypeError, ValueError):
+                budget = 400
+            if self.provider is not None and budget > 0:
+                try:
+                    scored = enrich_cross_relevance(
+                        [row[0] for row in nontop_rows], provider=self.provider, max_items=budget
+                    )
+                    print(f"    🤖 [{category}] 非顶刊强相关打分 {scored}/{len(nontop_rows)} 篇")
+                except Exception as exc:
+                    # fail-soft：打分挂了就退回规则兜底（更严，不会放水）
+                    print(f"    ⚠️ [{category}] 非顶刊打分失败，退回规则判定: {exc}")
+            kept_rows, dropped_nontop = [], 0
+            for row in pending:
+                if row[4] or is_strongly_relevant(row[0]):
+                    kept_rows.append(row)
+                else:
+                    dropped_nontop += 1
+            if dropped_nontop:
+                print(f"    ⏭️ [{category}] 非顶刊未达强相关门槛，过滤 {dropped_nontop} 篇")
+                skipped_journal += dropped_nontop
+            pending = kept_rows
 
         # 第二步：使用AI排除明显不相关的文章
         # 注意：只在有足够文本内容时才使用AI判断（避免对标题等短文本误判）
@@ -642,7 +678,7 @@ class WeeklySummarizer:
         jobs = []
         skipped_obvious = 0
         for row in pending:
-            article, text, is_ferro_candidate, is_ai_candidate = row
+            article, text, is_ferro_candidate, is_ai_candidate, _is_top = row
             if not (self.provider and len(text.strip()) > 100):
                 continue
             if is_ferro_candidate and category in ['ferro', 'all']:
@@ -679,7 +715,7 @@ class WeeklySummarizer:
         # 超导、电荷密度波）与纯 AI 论文都能靠单侧进周报。改为交叉优先：交叉论文排在
         # 前面，单侧命中的仍然保留（不丢内容），由 cross_sort_key 排到后面。
         cross_hits, single_side = [], []
-        for article, text, is_ferro_candidate, is_ai_candidate in pending:
+        for article, text, is_ferro_candidate, is_ai_candidate, _is_top in pending:
             if category == 'ferro' and not is_ferro_candidate:
                 continue
             if category == 'ai' and not is_ai_candidate:

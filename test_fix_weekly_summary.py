@@ -572,3 +572,62 @@ def test_weekly_skips_ai_judge_for_title_level_crossover():
     assert [a["link"] for a in kept] == [obvious["link"]]
     assert provider.calls == 0, f"标题级交叉不该再问 AI 判定，实际调用 {provider.calls} 次"
     assert "跳过 AI 判定" in buf.getvalue()
+
+
+# ---------------------------------------------------------------- 非顶刊两级门槛
+
+def _nontop(title, idx, **over):
+    a = _article("npj Computational Materials", idx,
+                 text="ferroelectric domain wall dynamics studied with a machine learning potential")
+    a["title"] = title
+    a.update(over)
+    return a
+
+
+def test_non_top_journal_needs_strong_relevance_top_journal_does_not():
+    """顶刊「相关即可」，非顶刊必须「与 Hongyu Yu 强相关」（交叉分与画像分双双过线）。"""
+    s = _summarizer()
+    top_weak = _article("Nature Materials", 201, text="ferroelectric polarization switching measured")
+    top_weak["title"] = "Polarization switching in a ferroelectric film"
+    nontop_strong = _nontop("Machine learning interatomic potential for ferroelectric perovskites", 202,
+                            cross_score=9, me_score=9)
+    nontop_weak = _nontop("Deep learning for concrete strength prediction", 203,
+                          cross_score=8, me_score=2)
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        kept = s.filter_articles([top_weak, nontop_strong, nontop_weak], WEEK_START, WEEK_END, "all")
+
+    links = {a["link"] for a in kept}
+    assert top_weak["link"] in links, "顶刊不该被强相关门槛卡住"
+    assert nontop_strong["link"] in links, "非顶刊的强相关文章必须能进"
+    assert nontop_weak["link"] not in links, "非顶刊的弱相关文章必须挡住"
+    assert "未达强相关门槛" in buf.getvalue()
+
+
+def test_non_top_gate_falls_back_to_rules_when_ai_score_missing():
+    """没有 AI 分时退回关键词规则兜底：更严，绝不放水。"""
+    s = _summarizer()
+    # 无 cross_score / me_score，靠 cross_relevance 的规则兜底判定
+    strong = _nontop("Machine learning interatomic potential for ferroelectric perovskites", 204)
+    weak = _nontop("Charge order in a kagome metal with spin fluctuations", 205)
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        kept = s.filter_articles([strong, weak], WEEK_START, WEEK_END, "all")
+    links = {a["link"] for a in kept}
+    assert strong["link"] in links, "标题级交叉且命中个人关键词的应当放行"
+    assert weak["link"] not in links, "纯物理非顶刊在无 AI 分时必须挡住"
+
+
+def test_preprints_platform_is_admitted_when_strongly_relevant():
+    """用户决定：Preprints/Research Square 一并放行，靠强相关门槛筛。"""
+    s = _summarizer()
+    good = _article("Preprints", 206, text="ferroelectric domain wall dynamics with machine learning potential")
+    good["title"] = "Machine learning interatomic potential for ferroelectric perovskites"
+    good.update(cross_score=9, me_score=9)
+    junk = _article("Preprints", 207, text="android based decision support with machine learning")
+    junk["title"] = "An explainable Android decision support system"
+    junk.update(cross_score=3, me_score=1)
+    kept = {a["link"] for a in s.filter_articles([good, junk], WEEK_START, WEEK_END, "all")}
+    assert good["link"] in kept
+    assert junk["link"] not in kept

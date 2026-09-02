@@ -122,9 +122,11 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
         if image and posters < poster_max:
             posters += 1
             image_html = f'<a href="{link}"><img src="{image}" width="520" alt="{title} 海报" style="max-width:100%;height:auto;border-radius:10px"></a>'
-        # 「为什么和你相关」。cross_reason 是交叉打分时顺带写的一句话；没有 AI 分时
-        # 退回 focus_relation —— 那个字段一直存在、质量很好，却从没在邮件里露过面。
-        reason = str(item.get("cross_reason") or item.get("focus_relation") or "").strip()
+        # 「为什么和你相关」。me_reason 排最前：它说的是"与你本人研究画像的哪个方向
+        # 对得上"，比 cross_reason（交叉点落在哪）更贴题。两者由同一次 LLM 调用产出。
+        # 都没有时退回 focus_relation —— 那个字段一直存在、质量很好，却从没露过面。
+        reason = str(item.get("me_reason") or item.get("cross_reason")
+                     or item.get("focus_relation") or "").strip()
         reason_html = (
             f'<p style="line-height:1.7;color:#3730a3;background:#eef2ff;padding:10px 12px;'
             f'border-radius:8px;margin:10px 0"><strong>🎯 为什么相关：</strong>{escape(reason)}</p>'

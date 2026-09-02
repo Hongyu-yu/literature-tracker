@@ -146,11 +146,16 @@ def test_build_profile_schema_keys():
          mock.patch.object(ufp, "backfill_abstract", return_value="回填摘要"), \
          mock.patch.object(ufp, "_request_sleep", side_effect=_no_sleep):
         profile = ufp.build_profile(provider=None)
-    assert set(profile.keys()) == {"generated_at", "scholars", "our_work_zh", "keywords"}
+    # primary 是主学者(Hongyu Yu)单独一份画像：周报非顶刊闸门要判「与他强相关」，
+    # 用五人并集分判不了（并集 205 个关键词里 155 个来自另外四位）。
+    assert set(profile.keys()) == {"generated_at", "scholars", "primary", "our_work_zh", "keywords"}
+    assert profile["primary"]["name"] == ufp.PRIMARY_SCHOLAR
+    # 逐人关键词不再被 extend 进并集后丢弃
+    assert all("keywords" in s for s in profile["scholars"])
     assert profile["generated_at"]
     assert len(profile["scholars"]) == len(ufp.SCHOLARS)
     s0 = profile["scholars"][0]
-    assert set(s0.keys()) == {"scholar_id", "name", "works", "directions_zh"}
+    assert set(s0.keys()) == {"scholar_id", "name", "works", "directions_zh", "keywords"}
     assert s0["works"][0]["abstract"] == "回填摘要"
     assert s0["works"][0]["year"] == 2023
     # 无 provider:蒸馏字段留空,关键词退化为标题词频(5 位学者同题 → ferroelectric 入选)

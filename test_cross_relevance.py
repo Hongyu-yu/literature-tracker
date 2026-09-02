@@ -252,6 +252,85 @@ def test_prompt_template_is_wired_and_json_mode_safe():
     assert "cross_score" in prompt
 
 
+
+
+# ---------------------------------------------------------------- 个人画像维度
+
+def test_primary_profile_is_loaded_and_not_the_team_union():
+    """me 分必须对着主学者本人的画像，不能退回五人并集。
+
+    并集 205 个关键词里 155 个（76%）在 Hongyu Yu 自己的论文里一次都没出现过
+    （光催化、等离激元、太阳能电池那些是另四位的方向）。
+    """
+    directions, keywords = cr._primary_profile()
+    assert directions and keywords, "data/focus_interests.json 缺 primary 块"
+    assert len(keywords) < 205, "primary.keywords 看起来是团队并集而不是本人画像"
+    assert "machine learning potential" in keywords
+    assert "photocatalysis" not in keywords   # 另一位学者的方向
+
+
+def test_primary_profile_survives_a_working_directory_change():
+    """画像缓存必须按绝对路径 key，不能被"谁先调用"决定。
+
+    相对路径 + lru_cache 时，只要有测试先 chdir 到临时目录调一次，
+    "画像为空"就被永久缓存，之后所有强相关判定静默失效、日志毫无痕迹。
+    """
+    import os
+    import tempfile
+
+    cwd = os.getcwd()
+    tmp = tempfile.mkdtemp()
+    try:
+        os.chdir(tmp)
+        assert len(cr._primary_profile()[1]) > 0, "换目录后画像丢了"
+    finally:
+        os.chdir(cwd)
+    assert len(cr._primary_profile()[1]) > 0
+
+
+def test_effective_me_score_prefers_ai_and_clamps():
+    item = {"title": "Machine learning interatomic potential for ferroelectric perovskites",
+            "journal": "arXiv"}
+    assert cr.effective_me_score(item) == 8.0          # 规则兜底
+    assert cr.effective_me_score({**item, "me_score": 2}) == 2.0   # AI 说了算
+    assert cr.effective_me_score({**item, "me_score": 99}) == 10.0
+    assert cr.effective_me_score({**item, "me_score": "bad"}) == 8.0
+
+
+def test_strong_relevance_needs_both_dimensions():
+    """交叉强但不对口、对口但不交叉，都不算强相关。"""
+    both = {"title": "Machine learning interatomic potential for ferroelectric perovskites",
+            "journal": "arXiv", "cross_score": 9, "me_score": 9}
+    cross_only = {**both, "me_score": 2}      # AI×生物之类：交叉强但不是他的方向
+    me_only = {**both, "cross_score": 2}      # 纯第一性原理铁电：对口但不含 ML
+    assert cr.is_strongly_relevant(both) is True
+    assert cr.is_strongly_relevant(cross_only) is False
+    assert cr.is_strongly_relevant(me_only) is False
+
+
+def test_rule_fallback_for_me_score_is_deliberately_strict():
+    """无 AI 分时兜底取严：单个通用方法词不足以算「与本人强相关」。
+
+    实测那一周，只命中 machine learning 一个词的条目里，真货与噪声各半，
+    规则层分不开 —— 所以门槛定在标题两个专属词（hits≥4）。
+    """
+    one_generic = {"title": "A hybrid machine learning framework for logistics",
+                   "abstract": "We forecast demand."}
+    assert cr.personal_keyword_hits(one_generic) <= 3
+    assert cr.effective_me_score(one_generic) < cr.strong_min_score()
+    on_topic = {"title": "Machine learning potential for spin-lattice coupling in multiferroics",
+                "journal": "arXiv", "arxiv_category": "cond-mat"}
+    assert cr.personal_keyword_hits(on_topic) >= 4
+    assert cr.effective_me_score(on_topic) >= cr.strong_min_score()
+
+
+def test_prompt_carries_the_personal_profile():
+    prompt = cr._build_batch_prompt([{"title": "x", "journal": "arXiv", "abstract": "y"}])
+    assert "${me_profile}" not in prompt
+    assert "me_score" in prompt and "me_reason" in prompt
+    assert "machine learning potential" in prompt   # 画像关键词确实注入了
+
+
 if __name__ == "__main__":
     import sys
     fails = 0
