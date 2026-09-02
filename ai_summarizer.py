@@ -1102,9 +1102,15 @@ class AISummarizer:
             )
         articles_str = "\n".join(lines)
 
+        # 提示词里点名"团队五位研究人员的已有方向"，却从来没把画像传进来 ——
+        # 模型只能对着五个它没见过的人硬编，真实数据里已经出现
+        # "团队五位研究人员的研究方向未给出，无法完成指定的逐人关联"这样的输出。
+        # _build_prompt:664 早就有现成写法，这里照抄。
+        research_context = profile_direction_digest(load_research_profile(), max_chars=5200)
         prompt = (
             f"你是深耕 ML × 铁电/磁性/凝聚态方向的资深研究员。以下是 {date} 当日的 "
             f"{len(core_items)} 篇核心关注论文（均已判定为 ML × ferro/凝聚态方向）。\n\n"
+            f"【团队研究方向背景】\n{research_context}\n\n"
             f"【文献列表】\n{articles_str}\n\n"
             "请给出两部分输出：\n"
             "A. direction_note（3-4 句中文）：概括本日 ML × ferro/凝聚态方向的**实质进展**，"

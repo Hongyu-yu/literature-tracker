@@ -50,6 +50,9 @@ jobs:
           KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
+          # 同上一步：weekly 的 overview/trends/outlook 与逐篇分析同样是长 JSON，
+          # OpenRouterProvider 默认 4096 装不下（weekly_summary.py:940 的注释已记过这个坑）
+          AI_MAX_TOKENS: "16384"
 
       - name: Commit and push changes
         run: |

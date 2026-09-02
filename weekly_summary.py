@@ -19,6 +19,7 @@ from translator import translate_text
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from weekly_page_enhancer import enhance_weekly_archive
 from weekly_prompts import _build_analyze_prompt
+from cross_relevance import cross_sort_key, is_cross_item, rule_cross_tier
 import time
 import threading
 
@@ -598,6 +599,10 @@ class WeeklySummarizer:
                         is_top_journal = True
                         break
 
+            # 这里刻意**不**为交叉论文放宽顶刊闸门：TOP_JOURNALS 是一份 24 项的
+            # 人工策展（Nature/Science 系 + PRL + Adv. Mater. + arXiv），
+            # 而 AI×科学 预印本的主要发表地 arXiv 本来就在名单里。
+            # 放宽它等于改动"周报只收顶刊"这条策展决策，属于另一件事。
             if not is_top_journal:
                 skipped_journal += 1
                 continue
@@ -635,6 +640,7 @@ class WeeklySummarizer:
         # 是 weekly workflow 逼近 240 分钟 timeout 的主因（曾被取消过）。
         # 用与 _analyze_single_article 相同的 3 线程池，行为完全不变，只是不再串行。
         jobs = []
+        skipped_obvious = 0
         for row in pending:
             article, text, is_ferro_candidate, is_ai_candidate = row
             if not (self.provider and len(text.strip()) > 100):
@@ -642,7 +648,16 @@ class WeeklySummarizer:
             if is_ferro_candidate and category in ['ferro', 'all']:
                 jobs.append((row, 2, self._ai_judge_ferro_relevance, text))
             if is_ai_candidate and category in ['ai', 'all']:
+                # 标题里明写着 machine learning / neural network / equivariant 之类
+                # （rule_cross_tier == 0）的论文，再花一次往返问"这是不是 AI 相关"
+                # 是纯浪费——答案不可能是否。单周 1315 次判定串行约 110 分钟，
+                # 是 weekly 逼近 240 分钟 timeout 的主因。
+                if rule_cross_tier(article) == 0:
+                    skipped_obvious += 1
+                    continue
                 jobs.append((row, 3, self._ai_judge_ai_relevance, text))
+        if skipped_obvious:
+            print(f"    ⏭️ [{category}] {skipped_obvious} 篇标题级 AI×科学交叉，跳过 AI 判定")
         if jobs:
             print(f"    🤖 [{category}] AI 相关性判断 {len(jobs)} 次（3 线程并发）")
             with ThreadPoolExecutor(max_workers=3) as executor:
@@ -659,14 +674,24 @@ class WeeklySummarizer:
                     if not keep:
                         row[slot] = False
 
-        # 根据最终判断结果添加文章
+        # 根据最终判断结果添加文章。
+        # category == 'all' 此前是 ferro OR ai：任何一侧命中就收，于是纯物理（笼目
+        # 超导、电荷密度波）与纯 AI 论文都能靠单侧进周报。改为交叉优先：交叉论文排在
+        # 前面，单侧命中的仍然保留（不丢内容），由 cross_sort_key 排到后面。
+        cross_hits, single_side = [], []
         for article, text, is_ferro_candidate, is_ai_candidate in pending:
-            if category == 'ferro' and is_ferro_candidate:
-                filtered.append(article)
-            elif category == 'ai' and is_ai_candidate:
-                filtered.append(article)
-            elif category == 'all' and (is_ferro_candidate or is_ai_candidate):
-                filtered.append(article)
+            if category == 'ferro' and not is_ferro_candidate:
+                continue
+            if category == 'ai' and not is_ai_candidate:
+                continue
+            if category == 'all' and not (is_ferro_candidate or is_ai_candidate):
+                continue
+            (cross_hits if is_cross_item(article) else single_side).append(article)
+        cross_hits.sort(key=cross_sort_key)
+        single_side.sort(key=cross_sort_key)
+        filtered = cross_hits + single_side
+        if cross_hits or single_side:
+            print(f"    🤖 [{category}] AI×科学交叉 {len(cross_hits)} 篇，单侧命中 {len(single_side)} 篇")
 
         if skipped_journal:
             print(f"    ⏭️ [{category}] 期刊闸门过滤 {skipped_journal} 篇（非期刊来源或不在顶刊列表）")

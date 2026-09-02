@@ -31,7 +31,9 @@ def test_build_daily_email_html_contains_highlight_links_poster_and_subject():
     assert "💡 亮点" in html and "该工作构建神经网络势" in html
     assert f'{SITE}/daily/{DAY}.html' in html
     assert f'{SITE}/images/posters/ax123.webp' in html
-    assert "<img" in html and "P1" in html
+    # 芯片从恒定的 P1/P2/P3（实测线上每张卡片都是 P1，零信息量）换成交叉相关度
+    assert "<img" in html and "相关度" in html
+    assert "P1 ·" not in html
     assert "信息不足" not in html
 
 
@@ -251,3 +253,114 @@ def test_generate_deep_workflow_enables_single_daily_email_path():
     assert "--rerender-only --days 4 --send-email" in workflow
     assert "EMAIL_SENDER: ${{ secrets.EMAIL_SENDER }}" in workflow
     assert "EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}" in workflow
+
+
+# ---------------------------------------------------------------- 交叉分区
+
+def _cross_item(**over):
+    item = {
+        "title": "Machine learning interatomic potential for ferroelectric perovskites",
+        "title_zh": "面向铁电钙钛矿的机器学习原子间势",
+        "one_sentence_summary": "该工作构建等变神经网络势。",
+        "link": "https://arxiv.org/abs/2601.00001",
+        "journal": "arXiv", "arxiv_category": "cond-mat",
+    }
+    item.update(over)
+    return item
+
+
+def _pure_physics_item(**over):
+    item = {
+        "title": "Topological pairing density wave in a kagome superconductor",
+        "title_zh": "笼目超导体中的拓扑配对密度波",
+        "one_sentence_summary": "报道笼目金属中的电荷序与超导。",
+        "link": "https://arxiv.org/abs/2601.00002",
+        "journal": "Phys. Rev. B",
+    }
+    item.update(over)
+    return item
+
+
+def test_pure_physics_goes_to_the_compact_other_list_not_the_cards():
+    """纯物理不进主区卡片，但也绝不丢——压成底部标题清单。
+
+    2026-09-01 那封真实邮件的 12 张卡片里有 8 张是笼目超导/电荷密度波/手性超导，
+    全都不含机器学习成分。
+    """
+    summary = {"overview": "概览", "full_list": [_cross_item(), _pure_physics_item()]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert "🧲 其他物理 / 材料进展" in html
+    # 纯物理仍在页面上（标题清单），但不占卡片
+    assert "笼目超导体中的拓扑配对密度波" in html
+    assert html.count("阅读原文") == 1
+    assert "交叉 1 篇" in html and "共 2 篇" in html
+
+
+def test_cards_explain_why_each_paper_is_relevant():
+    summary = {"overview": "概览", "full_list": [
+        _cross_item(cross_reason="等变神经网络势用于铁电钙钛矿的极化翻转模拟"),
+    ]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert "🎯 为什么相关" in html
+    assert "等变神经网络势用于铁电钙钛矿的极化翻转模拟" in html
+
+
+def test_reason_falls_back_to_focus_relation():
+    """cross_reason 缺失时退回 focus_relation —— 该字段一直存在且质量很好，从没露过面。"""
+    summary = {"overview": "概览", "full_list": [
+        _cross_item(focus_relation="与团队的机器学习势与自旋哈密顿量方向直接相关。"),
+    ]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert "与团队的机器学习势与自旋哈密顿量方向直接相关。" in html
+
+
+def test_no_crossover_day_still_sends_something_and_says_so():
+    """稀疏日 / AI 全挂：不发空邮件，提升前几条并在概览里如实说明。"""
+    summary = {"overview": "概览", "full_list": [_pure_physics_item(), _pure_physics_item(
+        title="Charge order in AV3Sb5", title_zh="AV₃Sb₅ 中的电荷序",
+        link="https://arxiv.org/abs/2601.00003")]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert "今日没有 AI×科学交叉方向的文献" in html
+    assert html.count("阅读原文") == 2   # 降级为全部展示，而不是空邮件
+    assert "今日暂无目标方向文献" not in html
+
+
+def test_low_ai_cross_score_demotes_even_a_keyword_perfect_title():
+    """LLM 分说了算：标题词面完美但交叉分低的论文要掉到「其他」区。"""
+    summary = {"overview": "概览", "full_list": [
+        _cross_item(cross_score=1),
+        _cross_item(title="Graph neural network for perovskite band gaps",
+                    title_zh="图神经网络预测钙钛矿带隙",
+                    link="https://arxiv.org/abs/2601.00004", cross_score=9),
+    ]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert html.count("阅读原文") == 1
+    assert "图神经网络预测钙钛矿带隙" in html
+    assert "相关度 9/10" in html
+
+
+def test_other_list_is_capped_and_says_how_many_remain():
+    items = [_cross_item()] + [
+        _pure_physics_item(title=f"Kagome study {i}", title_zh=f"笼目研究 {i}",
+                           link=f"https://arxiv.org/abs/2601.1{i:03d}")
+        for i in range(20)
+    ]
+    with mock.patch.dict(os.environ, {"EMAIL_OTHER_MAX": "5"}):
+        _, html = daily_email.build_daily_email_html({"overview": "o", "full_list": items}, DAY, SITE)
+    import re
+    # 具体是哪 5 篇取决于排序（同分时按 focus_priority 再按标题），这里只钉上限与提示
+    assert len(re.findall(r"笼目研究 \d+", html)) == 5
+    assert "另有 15 篇见完整日报" in html
+    assert html.count("阅读原文") == 1   # 其他区不占卡片
+
+
+def test_aps_deep_read_stays_in_the_cards_even_without_ai_content():
+    """APS 全文精读(_tier=0)是当天成本最高的内容，不因不含 ML 被压进标题清单。"""
+    summary = {"overview": "概览", "full_list": [
+        _cross_item(),
+        dict(_pure_physics_item(), _tier=0, title_zh="APS 全文精读文章"),
+    ]}
+    _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
+    assert html.count("阅读原文") == 2
+    assert html.index("APS 全文精读文章") < html.index("面向铁电钙钛矿的机器学习原子间势")
+

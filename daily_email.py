@@ -14,6 +14,7 @@ from config import EMAIL_CONFIG
 from email_notifier import EmailNotifier
 from focus_core import classify_taxonomy, priority_tier
 from focus_filter import focus_priority
+from cross_relevance import effective_cross_score, is_cross_item
 from link_utils import normalize_link
 from research_context import pick_summary
 
@@ -49,9 +50,33 @@ def _safe_url(value: Any) -> str:
 def _items(summary: Dict[str, Any]) -> List[Dict[str, Any]]:
     raw = summary.get("daily_articles") or summary.get("full_list") or summary.get("summaries") or []
     items = [item for item in raw if isinstance(item, dict)]
-    # 与页面 build_unified_items 同一把排序尺子：_tier=0 是 APS 全文精读（未标记的普通条目按 2 处理，
-    # 该键对它们恒定 → 原有顺序不变）。仅靠 append/prepend 是没用的，sorted 会把顺序重排掉。
-    return sorted(items, key=lambda item: (priority_tier(item), item.get("_tier", 2), focus_priority(item)))
+    # 排序键的顺序是有讲究的：
+    #   _tier      —— 0 是 APS 全文精读（每天 ≤2 篇、成本最高的内容），恒定置顶；
+    #                 未标记的普通条目按 2 处理，该键对它们恒定 → 不影响其余排序。
+    #   交叉分     —— 主排序尺子。此前这里是 priority_tier 打头，而 priority_tier 只认
+    #                 focus_core.PRIORITY_TERMS 那 22 个字面词，标题写 Hamiltonian 而不是
+    #                 ml hamiltonian 就掉到最低档。
+    #   priority_tier / focus_priority —— 同分时的次级尺子，保持原有语义。
+    return sorted(items, key=lambda item: (
+        item.get("_tier", 2), -effective_cross_score(item), priority_tier(item), focus_priority(item),
+    ))
+
+
+def _split_sections(items: List[Dict[str, Any]], item_max: int) -> Tuple[List[Dict[str, Any]], List[Dict[str, Any]], bool]:
+    """切成 (主区, 其他区, 是否降级提升)。
+
+    主区 = AI×物理/材料/化学 交叉论文，外加 APS 全文精读（_tier==0：每天最多两篇、
+    做过全文深读并配了海报，是当天成本最高的内容，不该因为不含 ML 就被压进标题清单）。
+
+    交叉区为空时（稀疏日、或 AI 打分全挂且规则也没命中）不发空邮件：
+    把列表前几条提上来，并由调用方在概览里如实说明"今日没有交叉方向文献"。
+    """
+    main, other = [], []
+    for item in items:
+        (main if item.get("_tier") == 0 or is_cross_item(item) else other).append(item)
+    if not main:
+        return items[:item_max], items[item_max:], True
+    return main, other, False
 
 
 def _image_url(item: Dict[str, Any], site_base: str) -> str:
@@ -78,33 +103,69 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
         item_max = max(1, int(os.environ.get("EMAIL_MAX_ITEMS", "12")))
     except (TypeError, ValueError):
         item_max = 12
+    try:
+        other_max = max(0, int(os.environ.get("EMAIL_OTHER_MAX", "15")))
+    except (TypeError, ValueError):
+        other_max = 15
+    main_items, other_items, promoted = _split_sections(items, item_max)
+
     cards = []
     posters = 0
-    for item in items[:item_max]:
+    for item in main_items[:item_max]:
         title = escape(str(item.get("title_zh") or item.get("title") or item.get("title_en") or "未命名文献"))
         highlight = escape(pick_summary(item))
         link = _safe_url(item.get("link"))
-        tier = priority_tier(item)
-        tier_label = "P1" if tier == 0 else "P2" if tier == 2 else "P3"
         category = escape(classify_taxonomy(item))
+        score = effective_cross_score(item)
         image = _image_url(item, site_base)
         image_html = ""
         if image and posters < poster_max:
             posters += 1
             image_html = f'<a href="{link}"><img src="{image}" width="520" alt="{title} 海报" style="max-width:100%;height:auto;border-radius:10px"></a>'
+        # 「为什么和你相关」。cross_reason 是交叉打分时顺带写的一句话；没有 AI 分时
+        # 退回 focus_relation —— 那个字段一直存在、质量很好，却从没在邮件里露过面。
+        reason = str(item.get("cross_reason") or item.get("focus_relation") or "").strip()
+        reason_html = (
+            f'<p style="line-height:1.7;color:#3730a3;background:#eef2ff;padding:10px 12px;'
+            f'border-radius:8px;margin:10px 0"><strong>🎯 为什么相关：</strong>{escape(reason)}</p>'
+        ) if reason else ""
         cards.append(
             '<div style="border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0">'
-            f'<span style="color:#4f46e5;font-weight:700">{tier_label} · {category}</span>'
+            f'<span style="color:#4f46e5;font-weight:700">相关度 {score:.0f}/10 · {category}</span>'
             f'<h2 style="font-size:17px;margin:8px 0">{title}</h2>{image_html}'
-            f'<p style="line-height:1.7"><strong>💡 亮点：</strong>{highlight}</p>'
+            f'<p style="line-height:1.7"><strong>💡 亮点：</strong>{highlight}</p>{reason_html}'
             f'<a href="{link}" style="color:#4f46e5">阅读原文 →</a></div>'
         )
     content = "".join(cards) if cards else '<p style="padding:20px">今日暂无目标方向文献。</p>'
+
+    # 「其他值得一看」：不含机器学习成分的纯物理/纯材料工作压成紧凑标题清单。
+    # 邮件客户端没有 JS，折叠只能做成短清单；刻意不用「阅读原文」四个字，
+    # 那是主区卡片的标记（test_daily_email 用它数卡片数）。
+    other_html = ""
+    if other_items and other_max > 0:
+        rows = "".join(
+            f'<li style="margin:6px 0"><a href="{_safe_url(it.get("link"))}" style="color:#4b5563">'
+            f'{escape(str(it.get("title_zh") or it.get("title") or it.get("title_en") or "未命名文献"))}</a></li>'
+            for it in other_items[:other_max]
+        )
+        more = (f'<p style="color:#9ca3af;font-size:12px;margin:6px 0 0">另有 '
+                f'{len(other_items) - other_max} 篇见完整日报。</p>') if len(other_items) > other_max else ""
+        other_html = (
+            '<div style="border-top:1px solid #e5e7eb;margin-top:26px;padding-top:14px">'
+            '<h3 style="font-size:15px;color:#6b7280;margin:0 0 8px">🧲 其他物理 / 材料进展</h3>'
+            '<p style="color:#9ca3af;font-size:12px;margin:0 0 8px">不含机器学习成分，仅列标题。</p>'
+            f'<ul style="padding-left:20px;margin:0">{rows}</ul>{more}</div>'
+        )
+
     overview = escape(str((summary or {}).get("overview") or f"今日收录 {len(items)} 篇重点文献。"))
+    n_cross = len(main_items)
+    tally = (f"共 {len(items)} 篇，今日没有 AI×科学交叉方向的文献，先列前 {n_cross} 篇"
+             if promoted else
+             f"共 {len(items)} 篇，其中 AI×物理/材料/化学交叉 {n_cross} 篇")
     html = (
         '<!doctype html><html><body style="font-family:Arial,sans-serif;color:#1f2937;max-width:680px;margin:auto">'
         f'<div style="background:#4f46e5;color:white;padding:22px;border-radius:14px"><h1 style="margin:0">📚 每日文献日报 · {escape(day_str)}</h1>'
-        f'<p style="margin-bottom:0">今日概览：{overview}（共 {len(items)} 篇）</p></div>{content}'
+        f'<p style="margin-bottom:0">今日概览：{overview}（{tally}）</p></div>{content}{other_html}'
         f'<p style="text-align:center;margin:28px"><a href="{daily_url}" style="display:inline-block;background:#f59e0b;color:#111827;padding:13px 22px;border-radius:999px;text-decoration:none;font-weight:700">查看完整图文日报</a></p>'
         '<p style="color:#6b7280;font-size:12px;text-align:center">海报无法显示时，请点击论文链接或完整日报查看。</p></body></html>'
     )

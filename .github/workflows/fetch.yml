@@ -77,6 +77,16 @@ jobs:
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           OPENROUTER_BASE_URL: ${{ secrets.AI_BASE_URL }}
           AI_RESPONSE_JSON: "1"
+          # 注意：上面「运行优化同步」那一步设过一次，但 env 是按 step 隔离的，
+          # 这一步（真正生成日报、调 AI_DAILY_MAX_PER_CALL=20 的长 JSON）此前一直是默认 4096。
+          AI_MAX_TOKENS: "16384"
+          # 交叉方向旋钮（可用仓库 Variables 覆盖，无需改代码）
+          # CROSS_MIN_SCORE  进「AI×科学交叉」区的分数线(0-10)，调高更严、调低更宽
+          # AI_CROSS_DAILY_MAX 每次运行最多给多少篇打交叉分（0 = 关掉 AI 打分，退回规则分层）
+          # DAILY_MAX_KEEP   单日日报保留篇数（交叉区 + 其他区）
+          CROSS_MIN_SCORE: ${{ vars.CROSS_MIN_SCORE || '6' }}
+          AI_CROSS_DAILY_MAX: ${{ vars.AI_CROSS_DAILY_MAX || '60' }}
+          DAILY_MAX_KEEP: ${{ vars.DAILY_MAX_KEEP || '72' }}
           AI_DAILY_MAX_PER_CALL: "20"
           # 减少等待时间，允许降级生成（避免日报缺失）
           AI_DAILY_WAIT_MAX_SECONDS: "300"

@@ -54,6 +54,8 @@ jobs:
           KIMI_API_KEY: ${{ secrets.KIMI_API_KEY }}
           KIMI_BASE_URL: ${{ secrets.KIMI_BASE_URL }}
           AI_RESPONSE_JSON: "1"
+          # 同 fetch.yml：批量输出远超 OpenRouterProvider 的 4096 默认值
+          AI_MAX_TOKENS: "16384"
           AI_WAIT_MAX_SECONDS: "600"
           AI_WAIT_BASE_SECONDS: "10"
           AI_WAIT_MAX_SLEEP_SECONDS: "60"

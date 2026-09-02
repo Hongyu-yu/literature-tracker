@@ -521,3 +521,54 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
+
+
+# ---------------------------------------------------------------- 交叉优先
+
+def test_weekly_orders_crossover_before_single_side_hits():
+    """周报的 category='all' 此前是 ferro OR ai：纯物理与纯 AI 靠单侧就能排前面。
+
+    改为交叉优先——两侧都命中的排前面，单侧命中的保留但靠后（不丢内容）。
+    """
+    s = _summarizer()
+    # 用 _loose_matches_ferro_keywords 确实命中的纯物理条目（kagome/superconduct
+    # 都不在那份宽松词表里，用它当 fixture 会连候选都进不去 —— 那样断言就落空了）
+    pure_physics = _article("arXiv", 101, text="antiferromagnetic spin order in a kagome metal")
+    pure_physics["title"] = "Antiferromagnetic spin order in a kagome metal"
+    crossover = _article("arXiv", 102, text="ferroelectric domain wall switching in BaTiO3")
+    crossover["title"] = "Machine learning interatomic potential for ferroelectric perovskites"
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        kept = s.filter_articles([pure_physics, crossover], WEEK_START, WEEK_END, "all")
+
+    links = [a["link"] for a in kept]
+    assert crossover["link"] in links and pure_physics["link"] in links, links
+    assert links.index(crossover["link"]) < links.index(pure_physics["link"]), links
+    assert "AI×科学交叉 1 篇" in buf.getvalue()
+
+
+def test_weekly_skips_ai_judge_for_title_level_crossover():
+    """标题里明写 machine learning 的论文不必再花一次往返问"是不是 AI 相关"。"""
+    class _CountingProvider:
+        def __init__(self):
+            self.calls = 0
+
+        def call_api(self, prompt):
+            self.calls += 1
+            return "是"
+
+    provider = _CountingProvider()
+    s = _summarizer(provider)
+    obvious = _article("arXiv", 103, text="We train an equivariant graph neural network on "
+                                          "density functional theory data for ferroelectric "
+                                          "perovskites and report force errors below 20 meV/A. " * 2)
+    obvious["title"] = "Machine learning interatomic potential for ferroelectric perovskites"
+
+    buf = io.StringIO()
+    with redirect_stdout(buf):
+        kept = s.filter_articles([obvious], WEEK_START, WEEK_END, "ai")
+
+    assert [a["link"] for a in kept] == [obvious["link"]]
+    assert provider.calls == 0, f"标题级交叉不该再问 AI 判定，实际调用 {provider.calls} 次"
+    assert "跳过 AI 判定" in buf.getvalue()

@@ -25,6 +25,9 @@ from focus_filter import analyze_focus, filter_daily_focus_items, filter_focus_i
 from rss_generator import generate_daily_rss_feed
 from text_normalizer import normalize_articles_inplace, normalize_text
 from focus_core import classify_taxonomy, core_score, is_core_focus, priority_tier
+from cross_relevance import (
+    cross_sort_key, effective_cross_score, is_cross_item, rule_cross_tier, split_cross_sections,
+)
 from link_utils import normalize_link
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile
 
@@ -145,6 +148,40 @@ def _enrich_daily_focus(items: List[Dict], max_items: Optional[int] = None) -> i
         return 0
 
 
+def _enrich_daily_cross(items: List[Dict], max_items: Optional[int] = None) -> int:
+    """给当日集合打「AI × 物理/材料/化学」交叉强度分（cross_score/cross_reason）。
+
+    只对 cross_relevance.rule_cross_tier <= 1 的条目花钱——纯物理/纯材料本来就归
+    「其他」区，不需要一个 LLM 分来确认。规则层已经保证交叉论文不会被 max_keep
+    截掉，所以这里不必对全部候选打分（09-01 实测 214 篇候选里只有 31 篇要打分，
+    约 4 次调用；对全部打分要 27 次）。
+
+    max_items=None → 读环境变量;传入具体值 → 用它(供跨天全局预算)。"""
+    if max_items is None:
+        try:
+            max_items = max(0, int(os.environ.get("AI_CROSS_DAILY_MAX", "60")))
+        except (TypeError, ValueError):
+            max_items = 60
+    else:
+        max_items = max(0, int(max_items))
+    if not items or max_items <= 0:
+        return 0
+    provider_name, api_key, model = _resolve_ai()
+    if not api_key:
+        print("⏭️ 交叉相关度打分跳过：未配置 AI key（排序退回规则分层）")
+        return 0
+    try:
+        from ai_summarizer import build_provider
+        from cross_relevance import enrich_cross_relevance
+        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
+        updated = enrich_cross_relevance(items, provider=provider, max_items=max_items)
+        print(f"🤖 AI×科学 交叉打分 {updated} 篇")
+        return updated
+    except Exception as exc:
+        print(f"⚠️ 交叉相关度打分跳过: {exc}")
+        return 0
+
+
 def _new_daily_enrich_budget() -> Dict[str, int]:
     """整次 generate 调用的【全局】富化预算(跨天共享),避免 --days N 把 AI 调用放大 N 倍。"""
     def _cap(name: str, default: str) -> int:
@@ -154,8 +191,9 @@ def _new_daily_enrich_budget() -> Dict[str, int]:
             return int(default)
     return {
         "hl": _cap("AI_HIGHLIGHT_MAX_ITEMS", "60"), "fs": _cap("AI_FOCUS_DAILY_MAX", "60"),
+        "cross": _cap("AI_CROSS_DAILY_MAX", "60"),
         # 连续「发了 AI 调用却一篇都没补上」的天数，用于熔断（见 _charge_enrich_budget）
-        "hl_zero": 0, "fs_zero": 0,
+        "hl_zero": 0, "fs_zero": 0, "cross_zero": 0,
     }
 
 
@@ -199,6 +237,12 @@ def _apply_daily_enrichment(items: List[Dict], budget: Dict[str, int]) -> None:
     """对单日 daily 集做一次富化(focus + 亮点),消耗共享全局预算(就地扣减)。"""
     if not items:
         return
+    # 交叉打分放最前：分区、排序、邮件选卡全部依赖它，
+    # 后面两项即使被熔断清零也不影响"日报仍然聚焦交叉方向"这个主目标。
+    if budget.get("cross", 0) > 0:
+        _reset_ai_call_stats()
+        used = _enrich_daily_cross(items, max_items=budget["cross"]) or 0
+        _charge_enrich_budget(budget, "cross", used, "AI×科学 交叉打分")
     if budget.get("fs", 0) > 0:
         _reset_ai_call_stats()
         used = _enrich_daily_focus(items, max_items=budget["fs"]) or 0
@@ -324,33 +368,47 @@ def build_daily_tags(items: List[Dict]) -> List[str]:
     return tags[:7]
 
 def group_daily_items(items: List[Dict]) -> List[Dict]:
+    """按「AI×科学交叉」分区。
+
+    分组主键从 priority_tier 换成 cross_relevance 的交叉判定：
+    priority_tier 只认 focus_core.PRIORITY_TERMS 那 22 个字面词，标题写
+    Hamiltonian 而不是 ml hamiltonian 就落到 P3。交叉分既有 LLM 打分，
+    也有规则兜底，两条路都不依赖某个词恰好被写进词表。
+
+    交叉组内保留「神经网络势·电子结构」作为置顶子块（priority_tier==0），
+    那仍然是主线方向，只是不再充当唯一的分组依据。
+    """
     groups = {
-        "p1": {
+        "core": {
             "title": "🔬 神经网络势 · 电子结构（重点）",
             "description": "神经网络势、哈密顿量、密度矩阵、电荷密度与电子结构。",
             "items": [],
         },
-        "p2": {
-            "title": "🧲 铁电 · 铁磁 · 多铁（物理）",
-            "description": "铁电、铁磁、反铁磁、多铁及其耦合物理。",
+        "cross": {
+            "title": "🤖 AI × 物理 / 材料 / 化学",
+            "description": "机器学习与第一性原理、分子动力学、材料与化学问题的交叉研究。",
             "items": [],
         },
-        "p3": {
-            "title": "🧩 其他交叉 / 方法",
-            "description": "其他 AI × Science 交叉研究、材料与计算方法。",
+        "other": {
+            "title": "🧲 其他物理 / 材料进展",
+            "description": "不含机器学习成分的凝聚态、铁电磁性与材料工作。",
             "items": [],
         },
     }
 
     for item in items:
-        tier = priority_tier(item)
-        key = "p1" if tier == 0 else "p2" if tier == 2 else "p3"
+        if not is_cross_item(item):
+            key = "other"
+        elif priority_tier(item) == 0:
+            key = "core"
+        else:
+            key = "cross"
         groups[key]["items"].append(item)
 
     ordered = []
-    for key in ("p1", "p2", "p3"):
+    for key in ("core", "cross", "other"):
         if groups[key]["items"]:
-            groups[key]["items"].sort(key=focus_priority)
+            groups[key]["items"].sort(key=cross_sort_key)
             ordered.append(groups[key])
     return ordered
 
@@ -567,7 +625,13 @@ def build_unified_items(full_list, enrich_map, aps_items):
         items.append(it)
         if key:
             seen.setdefault(key, it)
-    items.sort(key=lambda x: (priority_tier(x), x.get("_tier", 2), focus_priority(x)))
+    # 研究层在前、富化层在后 —— 这里的 _tier 是"有没有富化配图"(1=有/2=无)，
+    # 与 daily_email 里的 _tier(0=APS 全文精读) 不是一回事，不能照搬那边的键序：
+    # 把它提到首位会让"有图但离题"压过"交叉但暂无图"，正是 2026-08-22 设计里
+    # 明确否决过的那种排法（test_unified_sort_prioritizes_research_layer_before_
+    # enrichment_tier 守着它）。研究层从 priority_tier 换成交叉分，层内再让有图的上浮。
+    items.sort(key=lambda x: (-effective_cross_score(x), x.get("_tier", 2),
+                              priority_tier(x), focus_priority(x)))
     return items
 
 
@@ -1125,6 +1189,19 @@ def preserve_existing_entry(prev: Dict, date_str: str) -> Dict:
     return preserved
 
 
+def _daily_max_keep() -> int:
+    """单日日报保留篇数上限（env DAILY_MAX_KEEP，默认 72）。
+
+    从 60 提到 72：交叉区与「其他」区现在同处一份列表，60 的老上限是在
+    "全部混排"时定的。09-01 实测交叉 31 + 其他 183，72 让交叉区全进、
+    其他区仍留 40 篇左右的余量。
+    """
+    try:
+        return max(1, int(os.environ.get("DAILY_MAX_KEEP", "72")))
+    except (TypeError, ValueError):
+        return 72
+
+
 def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[Dict], day_str: str) -> Dict:
     relevant_day = [a for a in relevant_articles if (a.get("pub_date") or "").startswith(day_str)]
 
@@ -1158,12 +1235,20 @@ def collect_daily_articles(index_articles: List[Dict], relevant_articles: List[D
 
     raw_day_articles = relevant_day + index_day
     focused_articles, dropped_articles = filter_focus_items(raw_day_articles)
-    focused_articles = sorted(focused_articles, key=focus_priority)
-    daily_articles, overflow_articles = filter_daily_focus_items(focused_articles, min_keep=12, max_keep=60)
+    # 交叉优先排序 —— 这是「谁会被 max_keep 截掉」的唯一决定因素。
+    # 此前用的是 focus_priority + filter_daily_focus_items 的默认键(priority_tier +
+    # 标题分档)，2026-09-01 实测 198 篇候选里截掉 138 篇，其中包括
+    # 「用于非绝热 TDDFT 动力学的三头哈密顿一致性神经网络」(已有 focus_score=8，
+    # 排第 116)、「机器学习揭示高临界温度非常规超导体的共同特征」(第 112)等，
+    # 留下的 60 篇里标题含 learning/neural/network/machine 的只有 2 篇。
+    focused_articles = sorted(focused_articles, key=cross_sort_key)
+    daily_articles, overflow_articles = filter_daily_focus_items(
+        focused_articles, min_keep=12, max_keep=_daily_max_keep(), sort_key=cross_sort_key
+    )
     # AI 富化(focus/亮点)已移出本热函数:collect_daily_articles 在主循环(每天)+
     # sync_daily_rss_feeds(每条最多 120 次)都会被调用,若在此调 AI 会把调用量放大到 ~124×
     # 导致 generate step 撞 90min 超时。改在 main() 生成路径按【全局预算】每天调一次。
-    daily_articles = sorted(daily_articles, key=lambda item: (priority_tier(item), focus_priority(item)))
+    daily_articles = sorted(daily_articles, key=cross_sort_key)
     return {
         "raw_day_articles": raw_day_articles,
         "focused_articles": focused_articles,
@@ -1474,7 +1559,9 @@ def main():
                     # 富化(focus 覆盖 + 亮点保障)只在真正生成非空页时进行,按【全局预算】
                     # 每天调一次(跳过的天不浪费 AI),然后按优先级重排。
                     _apply_daily_enrichment(daily_articles, enrich_budget)
-                    daily_articles = sorted(daily_articles, key=lambda item: (priority_tier(item), focus_priority(item)))
+                    # 富化刚把 cross_score 写进条目，必须按新分重排：
+                    # 这一步的顺序决定了 AI 摘要的分块顺序与 core_items 的取材。
+                    daily_articles = sorted(daily_articles, key=cross_sort_key)
                     if summarizer is None:
                         raise ValueError("AI_API_KEY is empty; cannot generate daily summary")
                     summary = summarizer.generate_daily_summary(daily_articles, day_str)

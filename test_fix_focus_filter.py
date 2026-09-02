@@ -95,16 +95,24 @@ def test_daily_keyword_gate_reads_the_shared_term_tuples():
 
     修复前 is_daily_focus 里写死了一份副本，两处各自漂移，
     'magent' 的拼写错误因此在两个地方都躺着没被发现。
+
+    fixture 换过一次：原来用的是「Thermal transport in perovskite thin films」，
+    在 DAILY_TITLE_MATERIALS_TERMS 还是空元组的年代它确实进不了日报。现在化学/
+    材料/模拟三张表都已填上（否则 AI×化学 完全没有入口），perovskite / thin film
+    都在表里，那条 fixture 不再成立。本测试考的是"门槛是否读共享词表"这条不变量，
+    与某一篇论文的去留无关，所以换成一个仍在全部五张表之外、但 target_domain 为真
+    的条目（josephson 只在 PHYSICS_CORE_TERMS 里，不在任何 DAILY_TITLE_* 表里）。
     """
     item = {
-        'title': 'Thermal transport in perovskite thin films',
-        'journal': 'Advanced Materials',
-        'abstract': 'Advanced Materials, Volume 1, Issue 2.',
+        'title': 'Josephson coupling in a layered compound',
+        'journal': 'Phys. Rev. B',
+        'arxiv_category': 'cond-mat',
+        'abstract': 'We measure the coupling.',
     }
     assert focus_filter.analyze_focus(item)['target_domain'] is True
     assert focus_filter.is_daily_focus(item) is False
 
-    patched = focus_filter.DAILY_TITLE_PHYSICS_TERMS + ('perovskite',)
+    patched = focus_filter.DAILY_TITLE_PHYSICS_TERMS + ('josephson',)
     with mock.patch.object(focus_filter, 'DAILY_TITLE_PHYSICS_TERMS', patched):
         assert focus_filter.is_daily_focus(item) is True, '扩充词表后关键词门槛没有跟着变'
     assert focus_filter.is_daily_focus(item) is False

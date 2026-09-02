@@ -11,7 +11,7 @@ from __future__ import annotations
 
 import re
 from functools import lru_cache
-from typing import Any, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
+from typing import Any, Callable, Dict, Iterable, List, Mapping, Optional, Sequence, Tuple
 
 AI_TERMS: Tuple[str, ...] = (
     'machine learning', 'deep learning', 'neural network', 'neural networks', 'graph neural', 'gnn',
@@ -313,9 +313,19 @@ TIER2_JOURNAL_HINTS: Tuple[str, ...] = (
 
 # ========== 日报第三层筛选：标题关键词匹配（精简版）==========
 
-# 日报标题AI关键词（用户指定）
-DAILY_TITLE_AI_TERMS: Tuple[str, ...] = (
+# 日报标题AI关键词。
+# 原来只有 learning/neural/network 三个词，导致两类漏检：
+#   1. 方法名不含这三个词的交叉论文——equivariant / MLIP / interatomic potential /
+#      physics-informed / surrogate / data-driven / diffusion model 等；
+#   2. 只在摘要里出现 AI 方法、标题走别的说法的论文。
+# 这里在保留原三个裸词（'network' 还撑着 Tensor Network 这类正当物理方法，
+# 实测 09-01 有 11 篇仅靠它入选，不能删）的基础上，并入 AI_TERMS 与几个补充词。
+DAILY_TITLE_AI_TERMS: Tuple[str, ...] = AI_TERMS + (
     'learning', 'neural', 'network',
+    'equivariant', 'interatomic potential', 'physics-informed', 'differentiable',
+    'autoencoder', 'surrogate', 'generative', 'operator learning', 'graph network',
+    'kernel ridge', 'gaussian process', 'symbolic regression', 'bayesian optimization',
+    '等变', '图神经网络', '代理模型', '主动学习', '生成模型',
 )
 
 # 日报标题物理关键词（用户指定）
@@ -328,14 +338,27 @@ DAILY_TITLE_PHYSICS_TERMS: Tuple[str, ...] = (
     'magent',
 )
 
-# 日报标题化学关键词（暂不启用）
-DAILY_TITLE_CHEMISTRY_TERMS: Tuple[str, ...] = ()
+# 日报标题化学关键词。此前是空元组（"暂不启用"），等于 AI×化学 在日报层
+# 完全没有入口——化学论文只能靠标题里恰好出现一个物理词才进得来。
+# 按"计算化学 / 材料交界"的口径取用：反应与催化、电化学、分子与光谱、
+# 聚合物与吸附；刻意不含药物、毒性、蛋白质等生物医药方向的词
+# （那些本来也会被 NEGATIVE_LIFE_SCIENCE_TERMS 挡掉，这里不再另开口子）。
+DAILY_TITLE_CHEMISTRY_TERMS: Tuple[str, ...] = (
+    'catalyst', 'catalysis', 'catalytic', 'electrochem', 'molecule', 'molecular',
+    'reaction', 'spectroscopy', 'photochemistry', 'surface chemistry',
+    'computational chemistry', 'adsorption', 'solvation', 'polymer', 'polymerization',
+    'ligand', 'chemical', 'chemistry',
+    '化学', '分子', '催化', '电化学', '反应机理', '光化学', '光谱', '吸附', '聚合物',
+)
 
-# 日报标题材料关键词（暂不启用）
-DAILY_TITLE_MATERIALS_TERMS: Tuple[str, ...] = ()
+# 日报标题材料关键词。同样此前为空元组。直接取 MATERIALS_CORE_TERMS：
+# 这张表里的 surface/interface 之类裸词在"标题"上远比在全文上可靠
+# （交叉判定另有一份更严的词表，见 cross_relevance._SCIENCE_TITLE_TERMS）。
+DAILY_TITLE_MATERIALS_TERMS: Tuple[str, ...] = MATERIALS_CORE_TERMS
 
-# 日报标题模拟关键词（暂不启用）
-DAILY_TITLE_SIMULATION_TERMS: Tuple[str, ...] = ()
+# 日报标题模拟关键词。DAILY_SIMULATION_TERMS 早就定义好了（SIMULATION_CORE_TERMS
+# 去掉 physics-informed，因为那个词归 AI 侧），但一直是死代码，从没被引用过。
+DAILY_TITLE_SIMULATION_TERMS: Tuple[str, ...] = DAILY_SIMULATION_TERMS
 
 
 def is_daily_focus(item: Mapping[str, Any]) -> bool:
@@ -343,9 +366,12 @@ def is_daily_focus(item: Mapping[str, Any]) -> bool:
     日报精选过滤 - 第三层
     必须同时满足：
     1. 属于目标领域（通过第二层过滤）
-    2. 标题或摘要中包含 DAILY_TITLE_AI_TERMS + DAILY_TITLE_PHYSICS_TERMS 里的任一关键词
-       （learning, neural, network, quantum, spin, magnetic, superconduct, moire,
-       altermagnet, ferro, magnet）
+    2. 标题或摘要中包含五张 DAILY_TITLE_* 词表里的任一关键词
+       （AI / 物理 / 化学 / 材料 / 模拟）
+
+    这一层刻意保持"宽进"：它只负责把明显不相关的挡在门外，
+    **不负责判断相关强度**。相关性由 cross_relevance 的交叉分承担排序与分区，
+    纯物理/纯材料因此不会被丢，只是排到「其他」区。
     """
     signals = analyze_focus(item)
     
@@ -359,9 +385,14 @@ def is_daily_focus(item: Mapping[str, Any]) -> bool:
     combined_text = title_text + ' ' + abstract_text
     
     # 所有关键词（标题或摘要包含任一即可）。
-    # 直接引用上面两个词表，不再抄一份字面量：抄本曾经和词表各自漂移，
+    # 直接引用上面的词表，不再抄一份字面量：抄本曾经和词表各自漂移，
     # 结果 'magent' 拼写错误在两处都躺了很久，把磁学文献挡在日报门外。
-    all_keywords = DAILY_TITLE_AI_TERMS + DAILY_TITLE_PHYSICS_TERMS
+    # 化学/材料/模拟三张表此前是空元组，等于这一行只有 AI+物理两张表在起作用，
+    # AI×化学 因此完全进不来。
+    all_keywords = (
+        DAILY_TITLE_AI_TERMS + DAILY_TITLE_PHYSICS_TERMS + DAILY_TITLE_CHEMISTRY_TERMS
+        + DAILY_TITLE_MATERIALS_TERMS + DAILY_TITLE_SIMULATION_TERMS
+    )
 
     return _has_any(combined_text, all_keywords)
 
@@ -412,6 +443,7 @@ def filter_daily_focus_items(
     *,
     min_keep: int = 12,
     max_keep: int = 60,
+    sort_key: Optional[Callable[[Mapping[str, Any]], Any]] = None,
 ) -> Tuple[List[Mapping[str, Any]], List[Mapping[str, Any]]]:
     """筛选日报文献：只保留满足标题关键词组合的文章。
 
@@ -424,8 +456,16 @@ def filter_daily_focus_items(
     # P1 是明确研究主线，即使旧关键词组合未覆盖也必须进入日报候选。
     eligible = [item for item in items if priority_tier(item) == 0 or is_daily_focus(item)]
 
-    # 按优先级排序
-    eligible = sorted(eligible, key=lambda item: (priority_tier(item), daily_focus_priority(item)))
+    # 按优先级排序。**这一行决定了谁被 max_keep 截掉**，所以调用方必须能换掉它：
+    # 默认键只看 priority_tier(22 个字面词) + 标题分档，2026-09-01 实测把
+    # "用于非绝热 TDDFT 动力学的三头哈密顿一致性神经网络"(已有 focus_score=8)
+    # 排到第 116 名直接截断——它的标题只写 Hamiltonian，而 PRIORITY_TERMS 要的是
+    # ml hamiltonian / dft hamiltonian / 哈密顿量。日报流水线改传 cross_sort_key。
+    # 这里不 import cross_relevance：那个模块 import 本模块，会成环。
+    if sort_key is None:
+        def sort_key(item):  # noqa: E306
+            return (priority_tier(item), daily_focus_priority(item))
+    eligible = sorted(eligible, key=sort_key)
 
     def item_key(item: Mapping[str, Any]) -> str:
         return str(item.get('link') or item.get('title') or item.get('title_en') or item.get('title_zh') or '')

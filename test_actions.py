@@ -159,6 +159,64 @@ def test_every_job_has_timeout():
     assert not bad, f"job 缺 timeout-minutes: {bad}"
 
 
+def test_long_json_ai_steps_set_ai_max_tokens():
+    """凡是跑日报/周报生成的步骤，必须显式设置 AI_MAX_TOKENS。
+
+    OpenRouterProvider(ai_summarizer.py:365，即 aigw 生产路径)的默认值只有 4096。
+    实测一篇日报条目的 AI 产出平均 989 字符(中文标题+摘要+亮点+method_point/
+    related_work/implication 三段)，AI_DAILY_MAX_PER_CALL=20 的一个 chunk 响应
+    约 16000-19000 tokens，是默认值的 4 倍。超出即被 max_tokens 截断 → JSON 解析
+    失败 → 整天降级成 generated_by="fallback"：2026-08-31 与 09-01 连着两天就是
+    这样，中文标题大面积缺失、日报邮件卡片直接甩英文摘要原文。
+
+    env 是按 step 隔离的 —— fetch.yml 曾经只在「运行优化同步」那一步设过，
+    真正生成日报的下一步仍然吃默认 4096，所以这里必须逐 step 检查。
+    """
+    long_json_scripts = ("generate_daily_pages.py", "weekly_summary.py")
+    checked = 0
+    for path in WORKFLOWS:
+        wf = _load(path)
+        for job_name, job in _jobs(wf):
+            for step in _steps(job):
+                run = str(step.get("run") or "")
+                if not any(s in run for s in long_json_scripts):
+                    continue
+                # --rerender-only 不调 AI（纯重渲染 + 发信），不需要
+                if "--rerender-only" in run:
+                    continue
+                env = step.get("env") or {}
+                checked += 1
+                assert "AI_MAX_TOKENS" in env, (
+                    f"{os.path.basename(path)} / {job_name} / "
+                    f"{step.get('name') or run.strip().splitlines()[0]}: "
+                    "生成日报/周报的步骤没有设置 AI_MAX_TOKENS，会吃 4096 默认值被截断"
+                )
+                assert int(str(env["AI_MAX_TOKENS"])) >= 16384, (
+                    f"{os.path.basename(path)}: AI_MAX_TOKENS={env['AI_MAX_TOKENS']} 不足以装下一个 chunk"
+                )
+    assert checked >= 4, f"只检查到 {checked} 个生成步骤，锚点可能已经漂移"
+
+
+def test_cross_min_score_is_consistent_within_a_job():
+    """同一个 job 里，页面生成与发信两步的 CROSS_MIN_SCORE 必须一致。
+
+    它决定「哪些论文算 AI×科学交叉」：generate-deep.yml 先生成页面、几小时后
+    再用同一份 sidecar 发信，两步取值不同就会出现"邮件主区 8 篇、网页交叉区 5 篇"
+    这种对不上的分组，而且日志全绿看不出来。
+    """
+    for path in WORKFLOWS:
+        wf = _load(path)
+        for job_name, job in _jobs(wf):
+            values = {
+                str((step.get("env") or {})["CROSS_MIN_SCORE"])
+                for step in _steps(job)
+                if "CROSS_MIN_SCORE" in (step.get("env") or {})
+            }
+            assert len(values) <= 1, (
+                f"{os.path.basename(path)} / {job_name}: CROSS_MIN_SCORE 在同一 job 内取值不一致: {values}"
+            )
+
+
 def test_scheduled_crons_do_not_collide():
     slots = {}
     for path in WORKFLOWS:

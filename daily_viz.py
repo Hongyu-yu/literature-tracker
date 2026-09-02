@@ -7,6 +7,7 @@ from html import escape
 from typing import Any, Dict, Iterable, List, Tuple
 
 from focus_core import classify_taxonomy, priority_tier
+from cross_relevance import is_cross_item
 
 
 def _svg(title: str, rows: List[Tuple[str, int]], total: int) -> str:
@@ -63,10 +64,25 @@ def render_source_split_svg(items: Iterable[Dict[str, Any]]) -> str:
 
 
 def render_priority_svg(items: Iterable[Dict[str, Any]]) -> str:
-    counts = Counter(priority_tier(item) for item in items if isinstance(item, dict))
+    """与日报正文同一套分区口径（见 generate_daily_pages.group_daily_items）。
+
+    这里必须跟着分组走：图表说"P2 铁电·铁磁·多铁 17 篇"而正文根本没有那个分组，
+    读者只会以为漏了内容。
+    """
+    core = cross = other = 0
+    for item in items:
+        if not isinstance(item, dict):
+            continue
+        if not is_cross_item(item):
+            other += 1
+        elif priority_tier(item) == 0:
+            core += 1
+        else:
+            cross += 1
+    total = core + cross + other
     rows = [
-        ("P1 神经网络势·电子结构", counts[0]),
-        ("P2 铁电·铁磁·多铁", counts[2]),
-        ("P3 其余", sum(value for tier, value in counts.items() if tier not in (0, 2))),
-    ] if counts else []
-    return _svg("优先级分层", rows, sum(counts.values()))
+        ("神经网络势·电子结构", core),
+        ("AI × 物理/材料/化学", cross),
+        ("其他物理/材料", other),
+    ] if total else []
+    return _svg("方向分层", rows, total)

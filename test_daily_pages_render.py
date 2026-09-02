@@ -572,18 +572,24 @@ def test_daily_html_renders_three_priority_groups_with_p1_first():
         "full_list": [
             {"title": "General materials workflow", "summary": "general", "link": "https://ex/3"},
             {"title": "Ferroelectric polarization", "summary": "ferro", "link": "https://ex/2"},
+            {"title": "Machine learning prediction of catalytic adsorption energies",
+             "summary": "cross", "link": "https://ex/4"},
             {"title": "Neural network potential for electronic structure", "summary": "p1", "link": "https://ex/1"},
         ],
     }
     page = render_daily_html("2026-07-29", summary)
+    # 分组口径已从 priority_tier(P1/P2/P3) 换成「AI×科学交叉」：
+    # 交叉论文进前两组、不含 ML 的纯物理/纯材料落到最后一组，都不丢。
     headings = [
         "神经网络势 · 电子结构（重点）",
-        "铁电 · 铁磁 · 多铁（物理）",
-        "其他交叉 / 方法",
+        "AI × 物理 / 材料 / 化学",
+        "其他物理 / 材料进展",
     ]
     assert all(heading in page for heading in headings)
     assert page.index(headings[0]) < page.index(headings[1]) < page.index(headings[2])
-    assert page.index("Neural network potential") < page.index("Ferroelectric polarization")
+    assert page.index("Neural network potential") < page.index("Machine learning prediction")
+    # 纯物理必须还在页面上，只是排到最后一组——分区不等于丢弃
+    assert page.index("Machine learning prediction") < page.index("Ferroelectric polarization")
 
 
 def test_daily_focus_enrichment_failure_is_soft():

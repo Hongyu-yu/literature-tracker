@@ -18,7 +18,11 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
         (规则预筛 + LLM 批量,画像来自
          data/focus_interests.json)──▶ index.json 新增
          focus_score/focus_summary/focus_relation/focus_suggestion
-   generate_daily_pages.py ──▶ docs/daily/*.html(日报,含「🎯 与你方向相关」区块)
+   阶段4.6:cross_relevance.py AI×物理/材料/化学 交叉判定
+        (规则分层 rule_cross_tier 0-3 零成本 + LLM 打交叉强度分)
+        ──▶ cross_score/cross_reason/cross_side
+        **这是日报选文、截断、分区与邮件选卡的主排序键**
+   generate_daily_pages.py ──▶ docs/daily/*.html(日报,按「AI×科学交叉 / 其他物理材料」分区)
    run_deep.py(APS 全文深读 + arXiv 富化 + 海报)──▶ data/aps_*.json、docs/images/posters/
    weekly_summary.py ──▶ docs/weekly/*.html(周报,含同款 focus 区块)
    update_focus_profile.py(本地抓取提交 works;dispatch workflow 只做蒸馏)──▶ data/focus_interests.json
@@ -37,7 +41,7 @@ RSS 源 ──run_optimized_sync.py──▶ data/(history.json、index.json 等
 | Workflow | 触发(UTC) | 作用 |
 |---|---|---|
 | fetch.yml | 00:00、12:00 + 手动 | 抓取→筛选→富化→日报,提交并自部署 |
-| generate-deep.yml | 03:30 + 手动 | APS/arXiv 深读、海报、重渲染日报 |
+| generate-deep.yml | 06:30 + 手动 | APS/arXiv 深读、海报、重渲染日报、发日报邮件 |
 | weekly-summary.yml | 周日 01:00 + 手动 | 周报(01:00 为错峰 fetch,勿改回 00:00) |
 | deploy-on-push.yml | push main | 其余推送的 Pages 部署(消息前缀过滤自动提交) |
 | smoke.yml | push/PR | py_compile + run_tests.py + 脚本式测试 |

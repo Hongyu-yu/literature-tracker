@@ -207,11 +207,29 @@ def build_direction_note(items: List[Dict[str, Any]], profile: Dict[str, Any] | 
     )
 
 
+# 判断一段兜底文本是否真的是中文（fallback 日的 summary 字段里装的是英文摘要原文）
+_CJK_SUMMARY_RE = re.compile(r"[\u4e00-\u9fff]")
+
+
 def pick_summary(item: Dict[str, Any], max_english_chars: int = 200) -> str:
-    """Pick the best available highlight without inventing missing findings."""
+    """Pick the best available highlight without inventing missing findings.
+
+    兜底链里补上 summary / focus_summary：这两个字段在 daily_summary sidecar 的
+    full_list 行上真实存在且是中文，此前却被跳过，直接掉到"英文 abstract 截断"。
+    2026-09-01 那天 focus_score=10、正中方向的头条卡片因此在邮件里甩了一段
+    "arXiv:2608.30338v1 Announce Type: new Abstract: Magnetic mat…"——
+    当天最相关的论文恰恰呈现得最差。
+    summary 只在"确实是中文"时才用：AI 路径上它是中文亮点，但 fallback 路径上
+    ai_summarizer.fallback_summary 正是拿 pick_summary 填的它 —— 那时它就等于英文
+    摘要原文，直接采用等于什么都没修。
+    """
     for key in ("one_sentence_summary", "abstract_zh", "abstract_zh_full"):
         value = _usable_summary(item.get(key))
         if value:
+            return value
+    for key in ("summary", "focus_summary"):
+        value = _usable_summary(item.get(key))
+        if value and _CJK_SUMMARY_RE.search(value):
             return value
     abstract = str(item.get("abstract") or "").strip()
     if abstract:
