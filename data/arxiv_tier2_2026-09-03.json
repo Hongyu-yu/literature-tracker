@@ -1,0 +1,182 @@
+[
+  {
+    "title": "Latent unified smooth Hamiltonians for excited state chemistry",
+    "title_zh": "文献研究：Latent unified smooth Hamiltonians for excited state chemistry",
+    "summary": "该论文提出一种潜在统一且光滑的神经网络哈密顿量表示，用于同时描述分子基态、激发态、圆锥交叉和非绝热耦合，并可扩展到跃迁偶极矩等算符。模型在胸腺嘧啶和偶氮苯体系上复现了激发态能量、振子强度及关键光化学构型，并能够描述圆锥交叉附近的 Berry 相位。",
+    "abstract": "arXiv:2609.01871v1 Announce Type: new Abstract: We describe a neural network architecture and training procedure designed to model electronic ground and excited states of arbitrary molecular systems. By indirectly learning a latent, implicit basis representation of the electronic-state Hamiltonian, the model offers a unified treatment of multiple electronic states, conical intersections, and non-adiabatic couplings. The formalism can be further extended to learn consistent latent representations of additional operators such as transition dipole moments, for example. To demonstrate the general capabilities of our architecture, we train and evaluate networks on two realistic photochemical systems, thymine and azobenzene. The resulting models accurately reproduce energies and oscillator strengths for the ground- and low-lying excited states relevant to the photochemistry of these systems. We highlight the performance of the trained networks by studying critical molecular geometries, including conical intersections and excited state minima. By construction, the proposed framework also recovers the emergence of Berry phase accumulation around conical intersections. By pairing key mathematical structure from quantum chemistry with the representation learning power of transformers, the presented architecture offers a qualitatively new path toward fast and accurate ground- and excited-state simulations.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.01871",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Computational Comparison of Fourier Spectral Differentiation and Spatial Automatic Differentiation in Periodic Physics-Informed Neural Networks",
+    "title_zh": "周期性物理信息神经网络中傅里叶谱微分与空间自动微分的计算比较",
+    "summary": "物理信息神经网络通常使用自动微分计算偏微分方程残差中的空间导数，但在需要多阶或高阶导数时，其计算和内存开销可能很大。本文在周期性物理空间PINN中，对空间自动微分和傅里叶谱微分进行了受控比较，并固定神经表示、时间微分、优化器、采样和训练计划等因素。对于所测试的五种方程-框架组合，傅里叶微分将端到端训练速度提升2.90至18.52倍，峰值GPU内存减少68.7%至94.1%，同时保持同量级的最终相对L2误差。",
+    "abstract": "arXiv:2609.02110v1 Announce Type: new Abstract: Physics-informed neural networks (PINNs) commonly evaluate the spatial derivatives appearing in partial differential equation residuals using automatic differentiation (AD), whose computational and memory costs can become substantial when multiple or high-order derivatives are required. We perform a controlled comparison of spatial AD and Fourier spectral differentiation in periodic physical-space PINNs. Within each paired experiment, the neural representation, temporal differentiation, optimizer, sampling procedure, and training schedule are held fixed, so that the two cases differ only in the spatial differentiation procedure. For the Fourier variant, network outputs are evaluated on a uniform periodic grid and transformed to Fourier space, where spatial derivatives are obtained through spectral multiplication and the same Fourier coefficients are reused across derivative orders. We compare the two procedures in standard PINNs for the Allen--Cahn and Korteweg--de Vries equations and in Causal PINNs for the Allen--Cahn, Korteweg--de Vries, and Kuramoto--Sivashinsky equations. Across these five equation--framework settings, Fourier differentiation yields mean paired end-to-end training speedups ranging from 2.90× to 18.52× and reduces peak allocated graphics processing unit (GPU) memory by 68.7%--94.1%. The final relative L₂ errors remain of the same order, with neither differentiation procedure showing a consistent accuracy advantage. For the one-dimensional periodic benchmarks considered here, Fourier spectral differentiation therefore provides substantially lower training time and memory usage than spatial AD while retaining comparable solution error, at the cost of requiring a uniform structured spatial grid.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.02110",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Machine Learning Local Potentials for Accelerated Electron-Phonon Interactions Calculations within the Projector Augmented-Wave Framework",
+    "title_zh": "在投影缀加波框架内利用机器学习局域势加速电子-声子相互作用计算",
+    "summary": "电子-声子相互作用控制固体中的载流子动力学、输运以及许多光学和量子现象，但投影缀加波（PAW）框架下的有限位移计算对含 N 个原子的体系最多需要 6N 次自洽超胞计算。本文提出 MLLocP，在实空间网格上学习自洽局域势，并将其位移导数用于计算全电子 PAW 电子-声子矩阵元，同时保留现有 VASP/PHELEL 框架中的其他 PAW 量。该方法在 Cu、极性 BAs 和化学无序 Cu₃Au 中得到验证，可在保持全电子形式的同时显著减少自洽计算，并将输运系数的误差控制在约 3.5% 至 11% 的范围。",
+    "abstract": "arXiv:2609.01923v1 Announce Type: new Abstract: Electron-phonon interactions govern carrier dynamics, transport, and many optical and quantum phenomena in solids, but finite-displacement calculations within the projector augmented-wave (PAW) framework require up to 6N self-consistent supercell calculations for an N-atom system, making them costly for large, low-symmetry, and disordered materials. We introduce MLLocP, a machine learning strategy that learns the self-consistent local potential on real-space grids and supplies its displacement derivatives to the evaluation of all-electron PAW electron-phonon matrix elements. Analysis of the PAW decomposition identifies the local-potential contribution as a natural target for machine learning, while the remaining PAW quantities are retained within the established VASP/PHELEL framework. Using targeted grid-point sampling and feature-diversity selection for efficient model training, we validate MLLocP for elemental Cu, polar BAs, and chemically disordered Cu3Au. The learned potentials and their resulting displacement derivatives closely reproduce direct density functional theory calculations, yielding transport coefficients within approximately 3.5% for BAs mobility, 8% for Cu conductivity, and 11% for Cu3Au conductivity. For the 32-atom Cu3Au special quasirandom structure, using 40 sampled configurations reduces the number of self-consistent calculations by about fivefold relative to the 192 displaced structures required directly; using 20 or 10 configurations increases the acceleration to approximately 10- and 20-fold, with conductivity errors of 14.3% and 18.6%, respectively. MLLocP thus provides a scalable route to PAW electron-phonon calculations in complex materials while preserving the underlying all-electron formalism.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.01923",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Prediction of the sub-surface damage depth of single-crystal SiC based on machine learning and molecular dynamics simulation",
+    "title_zh": "文献研究：Prediction of the sub-surface damage depth of single-crystal SiC based on machine learning and molecular dynamics simulation",
+    "summary": "该论文结合机器学习与分子动力学，预测单晶 SiC 亚表面损伤深度。研究重点是建立损伤深度的高效预测模型，并分析加工过程中的损伤行为。",
+    "abstract": "Publication date: 25 August 2026 Source: Computational Materials Science, Volume 273 Author(s): Siyuan Yang, Yan He, Lin Fan, Chen Yang, Xingjun Gao, Meiling Tang, Jingting Sun",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626005033?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Neural-Network Error Mitigation for Quantum Teleportation and Superdense Coding",
+    "title_zh": "用于量子隐形传态和超密编码的神经网络误差缓解",
+    "summary": "本文研究一个仅作为经典后处理层的小型神经网络，能否利用真实接收者可获得的信息来缓解量子隐形传态和超密编码中的信道缺陷。结果显示，在低测量次数和具有结构的噪声条件下，学习型后处理能够改善性能：对于带偏置泡利信道和非对称读出误差的超密编码，其准确率在五次测量时比多数投票基线高约五个百分点；对于系统性门校准误差下的隐形传态，平均态保真度可由约 0.93 提升至 0.99。面对每个量子比特均随机变化、缺乏重复结构的噪声时，该方法没有带来收益。",
+    "abstract": "Quantum teleportation and superdense coding are foundational protocols of quantum communication, but both degrade under channel imperfections. This paper examines whether a small neural network, acting purely as a classical post-processing layer, can mitigate such imperfections when it is given only the information a real receiver could collect. Both protocols are implemented exactly using tensor operations on complex qubit amplitudes, reproducing ideal noiseless behaviour. Realistic imperfections are then introduced and learned mitigation is evaluated under finite-shot conditions, so that the network observes a finite number of discrete measurement outcomes rather than exact probabilities, and is never supplied the noise parameters. The results identify a clear boundary on when learning helps. For superdense coding through a biased Pauli channel followed by asymmetric readout error, a learned decoder exceeds a majority-vote baseline in the low-shot regime, by roughly five percentage points at five shots, with both methods converging toward perfect accuracy as shots grow. For teleportation through a systematic gate miscalibration, the network learns to invert the miscalibration and raises mean state fidelity from about 0.93 to 0.99, with the gain increasing as additional shots reduce tomographic noise. A control experiment replacing the systematic miscalibration with a fully random per-qubit rotation yields no benefit, the expected outcome when noise carries no recurring structure. The findings indicate that lightweight learned post-processing is worthwhile specifically in the low-shot, structured-noise regime, and offers nothing when noise is structureless.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10669778/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "QArray+: A physics-informed GPU-accelerated simulator for quantum dot arrays",
+    "title_zh": "QArray+：物理信息驱动的GPU加速量子点阵列模拟器",
+    "summary": "半导体量子点阵列是可扩展量子技术的重要平台，但大规模器件的调谐受到复杂性的限制。本文提出QArray+，在QArray框架中引入栅极依赖的隧穿耦合以及量子开放系统对耗散过程的描述，从而统一模拟相干的点间电荷态杂化和非平衡锁存动力学。该工具基于JAX并支持GPU加速，可用于大规模高吞吐数据集生成；例如，在多GPU上可在约0.17秒内计算64个量子点、100×100栅极电压网格的电荷稳定性图。",
+    "abstract": "arXiv:2609.02736v1 Announce Type: new Abstract: Semiconductor quantum-dot arrays are a compelling platform for scalable quantum technologies, yet their practical operation is hindered by the complexity of tuning large-scale devices. Existing automation tools rely on simplified physical models---such as constant-capacitance approximations and equilibrium Hubbard models---which assume instantaneous relaxation to a steady state. These frameworks fail in experimentally critical regimes where measurement rates exceed tunneling dynamics, necessitating more sophisticated non-equilibrium control strategies. To bridge this gap, we introduce QArray+, an extension of the QArray framework that incorporates gate-dependent tunnel coupling and a quantum open-system description of dissipative processes. This approach enables the unified simulation of coherent interdot charge-state hybridization and the non-equilibrium latching dynamics essential for training robust machine-learning models for automated device operation. Implemented in JAX with GPU acceleration, QArray+ scales across GPUs and multi-node systems. For example, a charge stability diagram for a 100X100 grid of gate voltages over 64 dots can be computed in sim0.17,s on multiple GPUs. Since interdot interactions are short-ranged and the corresponding tuning corrections are local, simulations at these scales capture the physics relevant to even larger devices. These capabilities support high-throughput dataset generation for automated device tuning.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.02736",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Physics-informed Learning for Orbital Uncertainty Propagation with Error Bounds",
+    "title_zh": "文献研究：Physics-informed Learning for Orbital Uncertainty Propagation with Error Bounds",
+    "summary": "arXiv:2609.01881v1 Announce Type: new Abstract: The Fokker-Planck partial differential equation (FP-PDE) governs uncertainty evolution in stochastic dynamical systems. In orbital dynamics, solving the…",
+    "abstract": "arXiv:2609.01881v1 Announce Type: new Abstract: The Fokker-Planck partial differential equation (FP-PDE) governs uncertainty evolution in stochastic dynamical systems. In orbital dynamics, solving the FP-PDE is challenging because of nonlinear motion, high-dimensional states, and large space-time domains. We develop a physics-informed neural network (PINN) approach that approximates the FP-PDE solution as a single space-time probability density, while also quantifying its worst-case approximation error. This approach is, in principle, independent of the choice of state coordinates and neural network architecture. Specifically, to enforce probability density function (PDF) properties into the neural network, we design a Physics-informed Gaussian mixture model (PINN-GMM). Then a companion error PINN learns the dynamics of the approximation error and yields time-dependent bounds that define an ambiguity set of PDFs. This ambiguity set enables rigorous computation of upper and lower bounds on event probabilities through tractable linear programs. Numerical studies on illustrative 1D examples and several 4D--6D orbital test cases demonstrate accurate uncertainty propagation, correct and informative error bounds, and improved reliability over common uncertainty-propagation baseline methods (Gaussian approximation, unscented transform, and Gaussian mixture model). Constructing the PINN-GMM requires offline training, making it costlier than the baseline approximations; once trained, however, a single forward pass returns the density at any time in sub-millisecond time (0.16~ms in our implementation).",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.01881",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Low-Temperature Transport in Li-Ion Battery EC/EMC/FEC Electrolytes: Molecular Dynamics and Machine-Learning Modeling",
+    "title_zh": "文献研究：Low-Temperature Transport in Li-Ion Battery EC/EMC/FEC Electrolytes: Molecular Dynamics and Machine-Learning Modeling",
+    "summary": "该论文利用分子动力学研究 EC、EMC 和 FEC 组成的锂离子电池电解液在 233 至 298 K 范围内的扩散、离子电导率和局域配位结构，并使用高斯过程模型预测电导率。结果表明低温会显著降低离子输运性能，EMC 体系下降更明显，FEC 含量也会影响低温传输。",
+    "abstract": "arXiv:2609.02824v1 Announce Type: cross Abstract: Low-temperature operation imposes severe limitations on lithium-ion transport in battery electrolytes, yet the coupled effects of solvent composition and fluorinated additives in the cold-temperature regime remain insufficiently resolved. Here, we combine classical molecular dynamics (MD) and machine learning (ML) to investigate 1 M LiPF₆ electrolytes containing ethylene carbonate (EC), ethyl methyl carbonate (EMC), and EC/EMC (3:7), with 0-10 mol% fluoroethylene carbonate (FEC), from 298 to 233 K. MD simulations quantify Li⁺ self-diffusion, Nernst-Einstein (NE) and Green-Kubo (GK) conductivities and local coordination, while Gaussian-process surrogates model conductivity across composition and temperature. Cooling produces a pronounced transport penalty, particularly in EMC-containing electrolytes, whose GK conductivity decreases by more than 98% at 233 K, compared with approximately 90% in EC-rich systems. Li⁺ self-diffusion activation energies are 0.49-0.54 eV for EMC-containing systems and 0.27-0.29 eV for EC-based systems. Within the EC family, 0-2 mol% FEC gives comparable cold-temperature transport, whereas 5-10 mol% FEC shows lower conductivity retention at the coldest simulated temperature. The analyzed coordination channels remain solvent dominated, while direct Li⁺-FEC coordination is not quantified in the present RDF set.The Gaussian-process surrogates achieve composition-disjoint cross-validated RMSE values of 0.56 and 0.57 mS cm⁻¹ for NE and GK conductivity. Within the simulated liquid-state trajectories, temperature and host-solvent composition dominate the bulk-transport response, with FEC acting as a secondary modifier.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2609.02824",
+    "journal": "arXiv"
+  },
+  {
+    "title": "CAHR-Net: Condition-Adaptive Hysteresis Reconstruction for Compact and Interpretable Magnetic Core Loss Modeling",
+    "title_zh": "CAHR-Net：面向紧凑且可解释磁芯损耗建模的条件自适应磁滞重构",
+    "summary": "磁芯损耗来源于磁滞回线，其每个激励周期耗散的能量等于回线面积，而频率、温度和波形通过改变回线几何形状决定损耗。本文提出CAHR-Net，将这些运行条件注入磁滞重构的中间表示，通过特征级线性调制重构磁场并估计功率损耗。在MagNet最终A-E材料协议上，该模型仅使用1874个参数即取得6.89%的平均p95相对误差，并在精度和参数规模之间实现了优于对比方法的表现。",
+    "abstract": "arXiv:2609.01991v1 Announce Type: new Abstract: Magnetic core loss originates in the hysteresis loop: the energy dissipated per excitation cycle equals the loop area, and frequency, temperature, and waveform shape set the loss by reshaping the loop geometry. Most existing models let these conditions act only on a terminal scalar - empirical equations fold them into fitted exponents, and data-driven predictors append them to encoded features - so no intermediate hysteresis representation remains for the conditions to reshape. This paper proposes CAHR-Net, a condition-adaptive hysteresis reconstruction network that injects the operating conditions where they physically act. It preserves the interpretable chain from flux density waveform to magnetic field reconstruction, loop-area integration, and power loss estimation, and uses feature-wise linear modulation to inject frequency, temperature, and waveform statistics into the intermediate reconstruction representation. A matched large-batch training protocol based on AdamW, cosine scheduling, and a staged reconstruction-to-power-loss objective is also reported, because the modulation pathway takes effect only within it. On the MagNet final A-E material protocol, CAHR-Net attains an average p95 relative error of 6.89% with only 1874 parameters, the lowest among all compared methods, together with a lower worst-material p95 than the strongest black-box solution at about 48x fewer parameters; it reduces the average p95 of the physical reconstruction backbone from 7.47% to 6.89% and the p95 of material D, the most difficult material, from 16.40% to 14.87%. Ablation and condition-slice analyses attribute the improvement to the coupling of physical loop reconstruction, structured condition modulation, and the matched optimization trajectory.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.01991",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Shortcomings and capacities of real-constrained neural networks in complex spaces",
+    "title_zh": "复数空间中实约束神经网络的局限与容量",
+    "summary": "本文研究了在复数假设类中施加实值预激活约束时，其存储容量与同一假设类允许复值预激活时存储容量的渐近比值。研究采用复高斯分布抽取权重，并利用临界容量处的Gardner体积型比较方法。证明中使用了文献中较少采用的Harish-Chandra-Itzykson-Zuber公式，并结合Weyl积分公式与Haar测度，对酉群和正交群上的积分得到更稳健的渐近近似。",
+    "abstract": "arXiv:2606.04390v3 Announce Type: replace-cross Abstract: We find the asymptotic ratio between the storage capacities when enforcing real pre-activations in a complex hypothesis class as opposed to complex ones in the same class. We use weights drawn from the complex Gaussian, which converge asymptotically in norm to the square root of dimension almost surely. Our methods depend on Gardner volume-type comparisons at critical capacity. Our proof relies on an application of the Harish-Chandra-Itzykson-Zuber (HCIZ) formula, nonstandard in literature. With the HCIZ formula, we may obtain a more robust approximation for the final asymptotic ratio. This strategy is applicable to our work specifically since we integrate over the unitary and orthogonal compact manifolds, facilitated via the Weyl integration formula and the Haar measure.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2606.04390",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Hybrid-parity sliding multiferroics",
+    "title_zh": "混合宇称滑移多铁性",
+    "summary": "本文提出一类混合宇称滑移多铁体，其中自发铁电极化通过层间滑移与某些非相对论自旋劈裂分量耦合，使这些分量能够以电方式可逆切换。对称性分析表明，共面磁体是实现该类滑移多铁性的天然平台；第一性原理计算则以双层VBr₂为代表，展示了面外铁电极化以及偶宇称和奇宇称非相对论自旋劈裂分量符号的协同反转。该耦合切换可通过自旋流响应加以识别，并有望用于低能耗非易失逻辑器件。",
+    "abstract": "arXiv:2607.24337v2 Announce Type: replace Abstract: In this work, we introduce a class of hybrid-parity sliding multiferroics in which the spontaneous ferroelectric polarization is coupled to certain nonrelativistic spin splitting components through interlayer sliding, allowing these components to be reversibly switched in an electrical way. Symmetry analysis identifies coplanar magnets as natural platforms for realizing this form of sliding multiferroicity. First-principles calculations establish bilayer VBr₂ as a representative example, demonstrating the coupled reversal of the out-of-plane ferroelectric polarization and the signs of both even- and odd-parity nonrelativistic spin splitting components via an interlayer-sliding pathway. The signs of these nonrelativistic spin splitting components are locked to the sliding-switchable ferroelectric polarization and encoded in the spin-current responses, providing a signature of the coupled ferroic switching. Our findings expand the scope of sliding multiferroics and the functionality of sliding ferroelectrics for low-energy, nonvolatile logic devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2607.24337",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Symmetry-Selective Topological Magnon Engineering by Phonon Angular Momentum",
+    "title_zh": "通过声子角动量实现对称性选择性的拓扑磁振子工程",
+    "summary": "本文基于第一性原理自旋-晶格耦合与Floquet理论，展示了利用相干驱动声子控制磁振子能带结构的方法。线偏振声子不改变能谱，而携带有限声子角动量的圆偏振和椭圆偏振声子会诱导手性相互作用，在Dirac点打开并调节能隙，从而产生或反转拓扑磁振子相。能隙大小和Chern数由声子角动量直接控制，并以单层CrI₃为例说明了这种对称性选择性的拓扑调控。",
+    "abstract": "arXiv:2605.28425v2 Announce Type: replace Abstract: Dynamical control of Berry curvature remains an outstanding challenge in the engineering of topological phases. Here, we demonstrate control of magnon band structures via coherently driven phonons, based on ab initio spin-lattice coupling and Floquet theory. We show that this control is symmetry selective: linearly polarized phonons leave the spectrum unchanged, whereas circular and elliptical phonons carrying finite phonon angular momentum (PAM) induce chiral interactions that open and tune gaps at Dirac points, generating and reversing topological magnon phases. The gap magnitude and Chern numbers are directly governed by the PAM, enabling handedness-selective topology control. Applied to monolayer CrI₃, and supported by symmetry analysis, our results establish driven lattice dynamics as a general route to engineering topological bosonic excitations and a versatile platform for Floquet control of magnetism.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2605.28425",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Cluster-based Bayesian optimization for application-specific interatomic potential training",
+    "title_zh": "文献研究：Cluster-based Bayesian optimization for application-specific interatomic potential training",
+    "summary": "该工作研究面向特定应用的簇式贝叶斯优化方法，用于训练原子间势。其核心是利用聚类与贝叶斯优化提高训练数据选择和势函数训练的效率与适用性。",
+    "abstract": "Publication date: 25 August 2026 Source: Computational Materials Science, Volume 273 Author(s): Joshua A. Vita, Jared Stimac, Logan Williams, Ya Ju Fan, Kyle Bushick, Vincenzo Lordi, Sebastien Hamel, Amit Samanta, Benjamin Laubach, Rebecca Lindsey",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004623?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Magnons in Metallic Altermagnetic KV₂Se₂O",
+    "title_zh": "金属交替磁体 KV₂Se₂O 中的磁振子",
+    "summary": "本文研究交替磁性钒氧硒化物中的自旋激发，重点考察金属准二维化合物 KV₂Se₂O，并利用由第一性原理计算导出的费米子哈密顿量计算横向自旋磁化率和磁振子色散。交替磁对称性导致电子能带和磁振子谱在布里渊区高对称路径上出现特征简并与方向性劈裂；由于与粒子-空穴连续谱耦合，金属体系中的磁振子具有有限线宽。自旋轨道耦合产生面外易磁化 c 轴各向异性，在 Γ 点打开约 6 meV 的磁振子能隙，并可能使磁有序在室温下保持稳定。",
+    "abstract": "arXiv:2609.01853v1 Announce Type: new Abstract: We investigate the spin excitation in altermagnetic vanadium oxyselenides, focusing on the metallic quasi-two-dimensional compound KV₂Se₂O. Using a fermionic Hamiltonian derived from ab initio calculations, we compute the transverse spin susceptibilities within the random phase approximation and extract the magnon dispersion relation. We show that the altermagnetic symmetry leads to characteristic degeneracies and directional splittings in both the electronic bands and the magnon spectra along high-symmetry paths of the Brillouin zone. The metallic KV₂Se₂O exhibits finite magnon linewidths arising from the coupling to the particle-hole continuum. Furthermore, by fixing the magnitude of the wave vector and varying its in-plane direction, we uncover a pronounced angular dependence of the magnon energies and lifetimes, with complementary damping behavior between the two magnon branches. Upon including spin-orbit coupling, the system exhibits an out-of-plane easy c-axis anisotropy, which opens a magnon gap of approximately 6 meV at the Γ-point, possibly rendering the magnetic order stable at room temperature. Our results demonstrate that altermagnetism controls not only the dispersion but also the anisotropic decay of spin excitations, highlighting altermagnetic metals as promising platforms for directionally selective magnon transport.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.01853",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Nearly Complete Charge--Spin Conversion via Strain-Eliminated Fermi Pockets in d-Wave Altermagnets",
+    "title_zh": "通过应变消除d波交替磁体中的费米口袋，实现近乎完全的电荷-自旋转换",
+    "summary": "理想的d波交替磁体具有近乎正交的平坦费米面，可实现自旋通道完全分离和理论上100%的电荷-自旋转换效率。本文表明，面内等双轴拉伸应变能够系统消除KV₂Se₂O中的残余椭圆费米口袋，使转换效率在4%应变下达到约96%。同一机制还可产生约55%的面外自旋流转换效率，并将基于KV₂Se₂O的磁性隧道结隧穿磁阻从10⁵%提高至10⁹%。",
+    "abstract": "arXiv:2604.21779v3 Announce Type: replace Abstract: Ideal d-wave altermagnets with nearly orthogonal flat Fermi surfaces enable complete spin-channel separation and 100% theoretical charge--spin conversion efficiency (CSE). The metallic altermagnet KV₂Se₂O exemplifies this, but realistic samples host residual elliptical Fermi pockets that enhance charge conductivity while suppressing spin conductivity, drastically reducing CSE. Here we show that in-plane equibiaxial tensile strain systematically eliminates these parasitic pockets, restoring the flat-band geometry. Our first-principles calculations reveal that CSE increases monotonically with strain, reaching a record sim96% at 4% strain. An effective tight-binding model confirms that pocket suppression, governed by reduced next-nearest-neighbor hoppings, is the dominant mechanism. We further identify an unconventional out-of-plane spin current component with CSE sim55% at optimal orientations, enabling field-free perpendicular magnetization switching. Moreover, the same strain-driven removal of parasitic pockets yields giant TMR enhancement in KV₂Se₂O-based magnetic tunnel junctions, from 10⁵% to 10⁹%, and the giant TMR persists over a wide energy window near the Fermi level. These findings establish strain engineering as a clean, widely applicable strategy to maximize CSE and magnetoresistance in d-wave altermagnets, and provide predictive descriptors for screening high-efficiency spintronic materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2604.21779",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Symmetry-selective nonrelativistic spin splitting in antiferromagnets driven by coherent phonons",
+    "title_zh": "相干声子驱动反铁磁体中的对称性选择性非相对论自旋劈裂",
+    "summary": "本文表明，相干声子能够在共线反铁磁体中动态诱导并控制非相对论自旋劈裂，从而实现无需净磁化的超快自旋极化。Γ 点红外活性声子的激发会解除基态自旋简并，而保留下来的连接子晶格对称性决定动量空间中劈裂的形式。以 MnPS₃ 的第一性原理计算为例，不同的红外模式可分别通过光偏振选择性地激活 s 波自旋劈裂态和 d 波交替磁态；劈裂随声子振幅线性增加，并在位移反向时使诱导自旋极化反向。",
+    "abstract": "arXiv:2609.01844v1 Announce Type: new Abstract: Nonrelativistic spin splitting (NRSS) in antiferromagnets (AFMs) enables magnetization-free spin polarization for ultrafast spintronics. Here, we demonstrate that coherent phonons can dynamically induce and control NRSS in collinear AFMs. Excitation of Γ-point infrared-active phonons lifts the spin degeneracy of the ground state, while the residual sublattice-connecting symmetries determine the momentum-space form of the induced splitting. Because the relevant infrared modes couple to orthogonal in-plane light polarizations, distinct spin-split phases can be selectively activated by the polarization of the driving field. Using first-principles calculations for MnPS₃, we show that a mode that breaks all sublattice-connecting symmetries induces an s-wave spin-split state with Δ(Γ)≠0, whereas a symmetry-distinct mode that preserves a sublattice-connecting mirror symmetry generates a d-wave altermagnetic state with Δ(Γ)=0. In both cases, the spin splitting grows linearly with the phonon amplitude and reverses the induced spin polarization when the displacement is reversed. Our results establish coherent lattice driving as a direct, polarization- and mode-selective route to dynamically induce distinct NRSS phases in AFMs.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.01844",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Systematic display of the spin splitting in band structures of representative altermagnetic crystals",
+    "title_zh": "系统展示代表性交错磁晶体能带结构中的自旋劈裂",
+    "summary": "本文提出一种展示共线交错磁体特有自旋劈裂的新方法：在能够采样一般k点的布里渊区路径上绘制能带结构，以获得代表布里渊区平均特征的图像。该方法区别于只经过高对称点和高对称线的传统能带绘制方式，后者在许多情况下会完全隐藏交错磁自旋劈裂。通过对MnTe、CrSb、SmFeO3、ScCrO3、LaMnO3、TlCrO3、HoFeO3、InCrO3和DyFeO3等材料进行能带和对称性分析，本文明确展示了新方法的优势。",
+    "abstract": "arXiv:2609.02767v1 Announce Type: new Abstract: In this work we demonstrate a novel approach to exhibit the unique spin splitting that is typical of collinear altermagnets. This approach is to plot band structures on Brillouin zone paths that sample general k-points to show a representative picture that corresponds to Brillouin zone averages. This is in contrast to conventional band structure plotting which plots band structures on the highest-symmetry points and lines, and thus in many cases can fail to show any altermagnetic spin splitting at all. Our investigation compares the new approach with the band structures of collinear altermagnets using conventional band structure plotting. We report the band structure and symmetry analysis for MnTe, CrSb, SmFeO3, ScCrO3, LaMnO3, TlCrO3, HoFeO3, InCrO3 and DyFeO3. This result clearly demonstrates the advantage of this novel method for displaying the spin splitting of collinear altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.02767",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Evolution from Kitaev to XXZ spin chains via distortion: Application to BaCo₂V₂O₈",
+    "title_zh": "通过畸变实现从 Kitaev 到 XXZ 自旋链的演化：BaCo₂V₂O₈ 的应用",
+    "summary": "BaCo₂V₂O₈ 是一种典型的自旋轨道耦合伊辛链反铁磁体，为研究场诱导量子磁性提供了独特平台。本文将具有位置依赖各向异性 g 张量的现象学图像与包含键依赖海森堡、Kitaev 和 Γ 交换相互作用的微观理论统一起来，并将 CoO₆ 八面体畸变纳入分析。研究表明，畸变不仅产生位置依赖的各向异性 g 张量，还会重整化交错交换相互作用，并部分抵消由 Kitaev 相互作用产生的交错项；临界场的强各向异性源于修正后的交换相互作用与各向异性 g 张量的共同作用。",
+    "abstract": "arXiv:2609.01805v1 Announce Type: new Abstract: BaCo₂V₂O₈ is a prototypical spin-orbit-coupled Ising-chain antiferromagnet that provides a unique platform for studying field-induced quantum magnetism. Under a transverse magnetic field, it exhibits unusual magnetic properties, including an anomalous staggered magnetization and a pronounced anisotropy of the critical field with respect to the in-plane field direction. While these phenomena have been attributed phenomenologically to a site-dependent anisotropic g-tensor, a recent microscopic theory has shown that spin-orbit coupling naturally generates bond-dependent Heisenberg, Kitaev, and Γ exchange interactions. Here, we unify these two pictures by extending the microscopic theory to incorporate distortions of the CoO₆ octahedra. We show that the distortions not only generate the site-dependent anisotropic g-tensor but also renormalize the staggered exchange interactions through a distortion-induced contribution that partially compensates the Kitaev-derived staggered term. Using point-charge calculations to estimate the g-tensor of BaCo₂V₂O₈, we demonstrate that the strong anisotropy of the critical field originates from the combined effects of the modified exchange interactions and the anisotropic g-tensor. Our work provides a unified microscopic framework for understanding the magnetic anisotropy of spin-orbit-coupled Ising-chain materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.01805",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Disorder-driven competing magnetic interactions and glassy magnetic behavior in quaternary Heusler alloy FeRuMnGe",
+    "title_zh": "文献研究：Disorder-driven competing magnetic interactions and glassy magnetic behavior in quaternary Heusler alloy FeRuMnGe",
+    "summary": "该研究结合实验和理论计算，考察四元Heusler合金FeRuMnGe中的反位无序及其对磁性的影响。结果表明，Fe-Ru和Mn-Ge混排会改变交换相互作用，使体系由半金属转变为金属，并产生铁磁与反铁磁竞争以及团簇玻璃行为。",
+    "abstract": "arXiv:2609.02506v1 Announce Type: new Abstract: In this combined experimental and theoretical study, we investigate the role of disorder in governing the magnetic ground state of the quaternary Heusler alloy FeRuMnGe. In the FeRuMnZ (Z = Ga, Si) series, chemical substitution modifies atomic ordering and electronic structure, resulting in distinct magnetic ground states. Motivated by this, we extend the series to FeRuMnGe. X-ray diffraction reveals B2-type antisite disorder, where Fe--Ru and Mn--Ge intermix. Theoretical calculations show that such disorder modifies exchange interactions, leading to competing ferromagnetic and antiferromagnetic couplings, and drives the system from half-metallic to metallic. Magnetic measurements reveal competing interactions, giving rise to a cluster-glass state coexisting with long-range magnetic order. The absence of a thermodynamic signature at T_f, together with ac susceptibility and relaxation measurements, supports the presence of short-range magnetic interactions and a glassy magnetic state. The compound exhibits an enhanced magnetic response below sim 161 K and a maximum magnetization of sim 1.64~μ_B/f.u. at 5 T. Overall, this work establishes a direct correlation between antisite disorder, competing exchange interactions, and glassy magnetism in quaternary Heusler alloys. Combined experimental results and theoretical calculations reveal that disorder drives the system from an AFM-dominated state in FeRuMnSi to an FM-dominated state in FeRuMnGe, providing deeper insight into the role of the extent of disorder in governing the magnetic properties of QHAs.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.02506",
+    "journal": "arXiv"
+  },
+  {
+    "title": "AlterSeeK-Path: Systematic construction of generalized band-structure paths for displaying altermagnetic spin splitting",
+    "title_zh": "AlterSeeK-Path：用于展示交错磁自旋劈裂的广义能带结构路径的系统构建",
+    "summary": "交错磁材料在保持零净磁化强度的同时，其电子能带结构中存在自旋劈裂，但传统高对称性k路径通常会将这种劈裂隐藏。本文提出开源Python工具AlterSeeK-Path，用于系统构建共线交错磁体的广义能带路径。该方法选取常规能带计算所用不可约楔形区的质心作为代表性一般k点，将其映射到自旋翻转相关的伙伴点，并把成对线段插入标准高对称路径。作者展示了其对三维和二维所有支持共线交错磁性的晶格与自旋劳厄群组合的适用性。",
+    "abstract": "arXiv:2609.02770v1 Announce Type: new Abstract: Altermagnetic materials exhibit spin splitting in their electronic band structures while maintaining zero net magnetization. However, conventional high-symmetry k-paths generally hide this splitting because they follow symmetry lines that in most cases enforce spin degeneracy. We present AlterSeeK-Path, an open-source Python tool that systematically constructs generalized band-structure paths for collinear altermagnets. The method selects the centroid of the conventional irreducible wedge used in routine band-structure calculations as the representative general k-point, maps it to a spin-flip-related partner, and inserts paired segments through these points into the standard high-symmetry path; these segments systematically sample the interior of the irreducible wedge. We demonstrate the construction for all 54 three-dimensional combinations of extended Bravais lattice type and spin Laue group across the six crystal systems that support collinear altermagnetism, and for the 12 two-dimensional cases spanning the four compatible two-dimensional Bravais lattices. Representative band structures are shown for the distinct lattice/path cases. With AlterSeeK-Path, these band structures can be constructed with essentially the same effort as conventional band structures.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.02770",
+    "journal": "arXiv"
+  }
+]
