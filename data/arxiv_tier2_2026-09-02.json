@@ -3,18 +3,9 @@
     "title": "Why Multi-Layer Message Passing Works: Completeness Theory for Graph Neural Network Interatomic Potentials",
     "title_zh": "文献研究：Why Multi-Layer Message Passing Works: Completeness Theory for Graph Neural Network Interatomic Potentials",
     "summary": "论文从理论上证明了带有三体消息传递的超图神经网络能够普适逼近势能面，并建立了多层消息传递的完备性理论。研究说明，在满足一定重叠性和连通性条件时，较小截断半径的多层消息传递可以获得完整多跳邻域的信息，并据此推导DPA3和CHGNet具有普适逼近能力。",
-    "abstract": "arXiv:2609.00528v1 Announce Type: cross Abstract: We prove that the Hypergraph Neural Network, an invariant architecture with 3-body message passing, is a universal approximator for potential energy surfaces. Our main contribution is a multi-layer completeness theory. We show that L layers of message passing on sparse, cutoff-based graphs achieve the same representational power as having access to the full L-hop neighborhood, provided the configurations are generic, satisfy an overlap condition and a connectivity condition. This provides the first rigorous justification for the common practice of using multi-layer message passing with a per-layer cutoff smaller than the physical interaction range, the setting used by virtually all practical graph neural network based machine-learned interatomic potentials. As immediate consequences, we show that both DPA3 and CHGNet architectures inherit universal approximation.",
+    "abstract": "arXiv:2609.00528v2 Announce Type: cross Abstract: We prove that the Hypergraph Neural Network, an invariant architecture with 3-body message passing, is a universal approximator for potential energy surfaces. Our main contribution is a multi-layer completeness theory. We show that L layers of message passing on sparse, cutoff-based graphs achieve the same representational power as having access to the full L-hop neighborhood, provided the configurations are generic, satisfy an overlap condition and a connectivity condition. This provides the first rigorous justification for the common practice of using multi-layer message passing with a per-layer cutoff smaller than the physical interaction range, the setting used by virtually all practical graph neural network based machine-learned interatomic potentials. As immediate consequences, we show that both DPA3 and CHGNet architectures inherit universal approximation.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2609.00528",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Fourier Neural Operators for Composition-Driven Crystal Structure Discovery",
-    "title_zh": "文献研究：Fourier Neural Operators for Composition-Driven Crystal Structure Discovery",
-    "summary": "该文提出基于傅里叶神经算子的晶体场求解器，将化学组成和晶格参数映射为周期性数密度与电子密度场。研究进一步结合条件变分自编码器生成晶格参数，并通过密度场重构、结构优化和机器学习筛选发现候选晶体结构。",
-    "abstract": "arXiv:2609.00900v1 Announce Type: new Abstract: Crystalline materials discovery is essential for energy, electronics, and catalysis, but the vast chemical and structural space makes exhaustive screening infeasible. Existing voxel-based methods are limited by the local receptive fields of three-dimensional convolutional neural networks and the posterior collapse of high-dimensional variational autoencoders. Here, we develop a Fourier Neural Operator (FNO)-based crystal-field solver that maps a prescribed chemical formula and lattice parameters to periodic number-density and electron-density fields. By operating on global Fourier modes, the solver captures long-range correlations in periodic crystal fields beyond conventional local convolutions. Building on this solver, we construct a coupled generation-solving framework in which a conditional variational autoencoder generates diverse candidate lattice parameters in a low-dimensional basis-coefficient space, followed by density-field prediction and atomic reconstruction through peak detection, position optimization, and weight optimization. The reconstructed structures are further screened using voxel-level filtering, machine-learning interatomic-potential relaxation, and first-principle calculations. The framework generates novel structures across 104 chemical formulas with competitive reconstruction accuracy, demonstrating high generative diversity and structural validity. By extending Fourier neural operators to periodic crystal fields and coupling them with composition-conditioned lattice generation, our approach provides a scalable route to crystal structure discovery from prescribed chemical compositions.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.00900",
     "journal": "arXiv"
   },
   {
@@ -45,6 +36,42 @@
     "journal": "arXiv"
   },
   {
+    "title": "Systematic global structure search of bismuth-based binary systems under pressure using machine learning potentials",
+    "title_zh": "文献研究：Systematic global structure search of bismuth-based binary systems under pressure using machine learning potentials",
+    "summary": "该论文使用机器学习势对11种铋基二元体系开展高压下的全局晶体结构搜索，以高效评估候选结构并发现压力稳定相。研究重点是机器学习势与全局结构预测相结合，用于探索复杂化学空间和高压相变。",
+    "abstract": "Author(s): Hayato Wakai, Shintaro Ishiwata, and Atsuto Seko Machine learning potentials (MLPs) have significantly advanced global crystal structure prediction by enabling efficient and accurate property evaluations. In this study, global structure searches are performed for 11 bismuth-based binary systems, including Na–Bi, Ca–Bi, and Eu–Bi, under pressures r… [Phys. Rev. Materials 10, 093801] Published Wed Sep 02, 2026",
+    "category": "AI×化学·材料",
+    "link": "http://link.aps.org/doi/10.1103/k9sg-v7hl",
+    "journal": "Phys. Rev. Materials"
+  },
+  {
+    "title": "Multiscale modelling of ferroelectrics using a physics-informed neural network driven by molecular dynamics data: parameter identification and field reconstruction",
+    "title_zh": "文献研究：Multiscale modelling of ferroelectrics using a physics-informed neural network driven by molecular dynamics data: parameter identification and field reconstruction",
+    "summary": "该论文利用分子动力学数据驱动物理信息神经网络，对铁电材料的多尺度模型参数进行识别，并重构外场下的物理场分布。主要目标是结合数据驱动方法与物理约束，提高铁电模拟的效率和可解释性。",
+    "abstract": "npj Computational Materials, Published online: 02 September 2026; doi:10.1038/s41524-026-02300-w Multiscale modelling of ferroelectrics using a physics-informed neural network driven by molecular dynamics data: parameter identification and field reconstruction",
+    "category": "AI×物理",
+    "link": "https://www.nature.com/articles/s41524-026-02300-w",
+    "journal": "npj Computational Materials"
+  },
+  {
+    "title": "Fourier Neural Operators for Composition-Driven Crystal Structure Discovery",
+    "title_zh": "用于成分驱动晶体结构发现的傅里叶神经算子",
+    "summary": "本文开发了一种基于傅里叶神经算子的晶体场求解器，可将给定化学式和晶格参数映射为周期性数密度场与电子密度场，从而捕捉传统局部卷积难以描述的长程关联。研究者进一步结合条件变分自编码器生成候选晶格参数，并通过峰值检测、位置优化和权重优化重构原子结构。该框架在104种化学式上生成了具有较高多样性和结构有效性的候选结构，为按指定化学组成发现晶体结构提供了可扩展方法。",
+    "abstract": "arXiv:2609.00900v1 Announce Type: new Abstract: Crystalline materials discovery is essential for energy, electronics, and catalysis, but the vast chemical and structural space makes exhaustive screening infeasible. Existing voxel-based methods are limited by the local receptive fields of three-dimensional convolutional neural networks and the posterior collapse of high-dimensional variational autoencoders. Here, we develop a Fourier Neural Operator (FNO)-based crystal-field solver that maps a prescribed chemical formula and lattice parameters to periodic number-density and electron-density fields. By operating on global Fourier modes, the solver captures long-range correlations in periodic crystal fields beyond conventional local convolutions. Building on this solver, we construct a coupled generation-solving framework in which a conditional variational autoencoder generates diverse candidate lattice parameters in a low-dimensional basis-coefficient space, followed by density-field prediction and atomic reconstruction through peak detection, position optimization, and weight optimization. The reconstructed structures are further screened using voxel-level filtering, machine-learning interatomic-potential relaxation, and first-principle calculations. The framework generates novel structures across 104 chemical formulas with competitive reconstruction accuracy, demonstrating high generative diversity and structural validity. By extending Fourier neural operators to periodic crystal fields and coupling them with composition-conditioned lattice generation, our approach provides a scalable route to crystal structure discovery from prescribed chemical compositions.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.00900",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Physics-Informed Deep Neural Operator for Estimation of kinetic parameters in distributed activation energy model for parallel reaction systems",
+    "title_zh": "文献研究：Physics-Informed Deep Neural Operator for Estimation of kinetic parameters in distributed activation energy model for parallel reaction systems",
+    "summary": "Kinetic parameter estimation is essential in thermogravimetric analysis and pyrolysis modeling. We apply the physics-informed deep neural operator (PI-DeepONet) to estimate kinetic parameters of the d…",
+    "abstract": "Kinetic parameter estimation is essential in thermogravimetric analysis and pyrolysis modeling. We apply the physics-informed deep neural operator (PI-DeepONet) to estimate kinetic parameters of the discrete distributed activation energy model (DAEM), a multi-step parallel reaction system whose activation energy distribution is approximated by discrete values with weights. The kinetic laws are embedded in the architecture: the branch net encodes the conversion curve and the trunk net relates the heating rate to the kinetic parameters, the loss combining parameter prediction and conversion reconstruction errors. Tests on one- and two-step reaction models show high accuracy, and validation on experimental TGA data of calcium oxalate monohydrate confirms that reconstructed conversion and mass loss curves agree well with measurements. The method requires no a priori assumptions and enables direct parameter prediction after a single training, providing an efficient and reliable solution for online kinetic analysis of complex multi-step pyrolysis.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10792852/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "Element priors and target support shape chemical transfer in materials graph networks",
     "title_zh": "元素先验与目标支持塑造材料图网络中的化学迁移",
     "summary": "本文研究材料图神经网络向训练数据中代表性不足的化学区域迁移时，元素预定义关系与目标结构监督证据各自发挥的作用。结果表明，在没有含目标元素的训练结构时，元素表示对形成能误差影响显著，而加入少量目标结构后，不同输入表示之间的差异明显缩小。研究说明，目标支持会使化学迁移从依赖静态元素关系转向学习目标元素所处的环境。",
@@ -60,6 +87,33 @@
     "abstract": "arXiv:2609.00359v1 Announce Type: cross Abstract: Hyperelastic constitutive models enable modeling large deformations in elastic solids. In common practice, a strain energy density function is prescribed in advance and model-specific parameters are calibrated from experiments. However, many applications require constitutive models for a family of related materials whose mechanical behavior varies with composition. A fixed constitutive model-form may not capture the full range of behavior across the family, while fitting separate forms does not provide a direct way to predict the response of new compositions. Recent work has developed data-driven constitutive models that learn flexible strain energy functions while incorporating key physical constraints. In this work, we propose using mixtures of convex neural potentials based on input convex neural networks as a modular and data efficient approach to modeling material families. Each potential is convex and monotonic with respect to polyconvex strain invariants, while a conditioning network maps material descriptors to mixture weights. We compare the approach with a monolithic partially input-convex neural network using experimental data from PolyJet 3D-printed materials and a synthetic Gent-type benchmark. Across both benchmarks, the mixture architecture generalized better to material descriptors not seen during training. In the PolyJet experimental benchmark, we showed that the mixture architecture is less sensitive to model hyperparameters, while in the Gent-type benchmark it generalized more reliably with sparse data in the material-descriptor space. These results suggest that representing a material family through a small set of shared convex neural potentials provides a useful structural prior for learning descriptor-dependent constitutive behavior from limited data.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2609.00359",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Gradient-Update Mismatch: Rethinking Conflict-Free Training of Physics-Informed Neural Networks",
+    "title_zh": "梯度更新失配：重新思考物理信息神经网络的无冲突训练",
+    "summary": "物理信息神经网络需要联合优化物理残差损失与初始/边界条件损失，而这些损失往往产生相互冲突的梯度。本文指出，梯度手术构造的无冲突方向在经过现代优化器的历史状态、自适应缩放、预条件或权重衰减变换后，可能重新产生冲突，并将这种差异称为梯度更新失配。作者提出梯度更新对齐方法，将优化器提议投影到无冲突锥中，并在含内部状态时同步调整优化器状态，从而在实验中实现无冲突更新并显著降低误差。",
+    "abstract": "arXiv:2609.01558v1 Announce Type: new Abstract: Training Physics-Informed Neural Networks (PINNs) requires jointly optimizing physics residual and initial/boundary condition loss terms, which often induce conflicting gradients. Gradient surgery methods mitigate this issue by constructing directions from loss-specific gradients to reduce conflict before optimizer transformation. However, even when the constructed direction is conflict-free, this property may not be preserved after optimizer transformation. Let aₜ denote the direction constructed by gradient surgery, uₜ the optimizer proposal, and Cₜ the conflict-free cone induced by the loss-specific gradients. We show that modern optimizers can transform aₜ through mechanisms such as historical state, adaptive scaling, preconditioning, or decoupled weight decay, so aₜ in Cₜ does not generally imply uₜ in Cₜ. We refer to this optimizer-induced discrepancy in conflict-freeness between aₜ and uₜ as Gradient-Update Mismatch (GUM). Accordingly, we propose Gradient-Update Alignment (GUA), which projects uₜ onto Cₜ to obtain the aligned update pₜ and applies pₜ to the parameters. When the optimizer maintains internal state, GUA further adjusts this state toward targets reconstructed from the applied update. We conduct extensive experiments and find that GUM is widespread across momentum, adaptive, and curvature-based optimizers, with conflict rates reaching up to 86.3%. Across all PINN settings, GUA achieves conflict-free applied updates and consistently improves various gradient surgery methods, reducing the relative L₂ error by up to 98.2% in individual settings. Data and code are available at https://github.com/JingXiao10/GUA.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.01558",
+    "journal": "arXiv"
+  },
+  {
+    "title": "iPINN for Broadband CARS Phase Retrieval: A Framework for Function Approximation and Inverse Modeling Problems in Nonlinear Spectroscopy",
+    "title_zh": "文献研究：iPINN for Broadband CARS Phase Retrieval: A Framework for Function Approximation and Inverse Modeling Problems in Nonlinear Spectroscopy",
+    "summary": "本文提出用于宽带相干反斯托克斯拉曼光谱相位恢复的逆物理信息神经网络。模型通过Transformer预测谱峰参数，并借助可微解析前向模型重建共振易感率，在不同背景、噪声和溶剂条件下取得较好的泛化性能。",
+    "abstract": "arXiv:2609.00883v1 Announce Type: cross Abstract: Phase retrieval in broadband coherent anti-Stokes Raman spectroscopy (BCARS) is an ill-posed inverse problem. The Raman-like signal is encoded in the imaginary part of the resonant susceptibility, which mixes coherently with a non-resonant background (NRB) that varies across acquisitions. We introduce an inverse physics-informed neural network (iPINN) that predicts Lorentzian peak parameters from raw BCARS spectra and reconstructs the resonant susceptibility through a differentiable analytical forward model. A transformer encoder assigns spectral features to 24 learnable peak slots, and a multi-view consistency loss enforces invariance across NRB pattern, NRB strength, and noise. Unlike direct spectral regression approaches, the method retains accuracy under varying acquisition conditions. On a public benchmark, iPINN achieves the lowest error among the tested baselines (MAE 0.016 vs. next-best 0.046). On 28 zero-shot test spectra acquired across seven solvents and four focal positions, accuracy is depth-invariant in five of seven solvents. These results show that inverse parametric prediction with a differentiable physical decoder supports robust phase retrieval across measurement conditions.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.00883",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Towards unsupervised representation learning for quantum data: quantum models with inference and generation",
+    "title_zh": "文献研究：Towards unsupervised representation learning for quantum data: quantum models with inference and generation",
+    "summary": "本文建立了面向量子态数据的无监督表示学习理论框架，讨论潜变量推断、量子态生成以及量子系统中的分解歧义问题。研究重点是量子机器学习的概念和数学结构，而非具体材料或材料性质预测。",
+    "abstract": "arXiv:2609.00372v1 Announce Type: cross Abstract: With quantum sensors, simulators and networks emerging, a future of quantum technology may produce quantum states as data---that is, coherently rather than as classical measurement records---thus motivating the study of suitable quantum generalisations of modern machine learning, including the automated, unsupervised extraction of useful representations. Two ingredients are central to the latter: inference, mapping observations to latent representations, and generation, mapping latent states back to synthetic data. Both are related to each other and to joint distributions for training models by the chain-rule of classical probability theory. The fact that quantum states however lack such universal, standard factorisation property thus poses a challenge. Here we develop a conceptual and mathematical framework for unsupervised representation learning from quantum data. Models are joint quantum states over visible and latent systems; state-over-time maps provide a notion of factorisation into a marginal state and inference (generation) channel; models with inference (generation) are ambiguous states---states for which such factorisation obtains---subject to a further consistency condition on extended inference maps as data extension. These stipulations are restrictive: we show that non-trivial models must feature non-linear such maps to the extended space. For three representative state-over-time maps, we completely characterise the ambiguous states, uncovering a hierarchy tied to the positive-partial-transpose (PPT) criterion from entanglement theory. Notably, the Leifer-Spekkens construction supports inference and generation exactly for model classes of PPT states, thus allowing genuinely quantum visible-latent correlations. We also formulate quantum counterparts of exact and approximate inference training, explore weaker notions of data extension and sketch a future research programme.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.00372",
     "journal": "arXiv"
   },
   {
@@ -81,39 +135,30 @@
     "journal": "arXiv"
   },
   {
-    "title": "iPINN for Broadband CARS Phase Retrieval: A Framework for Function Approximation and Inverse Modeling Problems in Nonlinear Spectroscopy",
-    "title_zh": "文献研究：iPINN for Broadband CARS Phase Retrieval: A Framework for Function Approximation and Inverse Modeling Problems in Nonlinear Spectroscopy",
-    "summary": "arXiv:2609.00883v1 Announce Type: cross Abstract: Phase retrieval in broadband coherent anti-Stokes Raman spectroscopy (BCARS) is an ill-posed inverse problem. The Raman-like signal is encoded in the…",
-    "abstract": "arXiv:2609.00883v1 Announce Type: cross Abstract: Phase retrieval in broadband coherent anti-Stokes Raman spectroscopy (BCARS) is an ill-posed inverse problem. The Raman-like signal is encoded in the imaginary part of the resonant susceptibility, which mixes coherently with a non-resonant background (NRB) that varies across acquisitions. We introduce an inverse physics-informed neural network (iPINN) that predicts Lorentzian peak parameters from raw BCARS spectra and reconstructs the resonant susceptibility through a differentiable analytical forward model. A transformer encoder assigns spectral features to 24 learnable peak slots, and a multi-view consistency loss enforces invariance across NRB pattern, NRB strength, and noise. Unlike direct spectral regression approaches, the method retains accuracy under varying acquisition conditions. On a public benchmark, iPINN achieves the lowest error among the tested baselines (MAE 0.016 vs. next-best 0.046). On 28 zero-shot test spectra acquired across seven solvents and four focal positions, accuracy is depth-invariant in five of seven solvents. These results show that inverse parametric prediction with a differentiable physical decoder supports robust phase retrieval across measurement conditions.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.00883",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Gradient-Update Mismatch: Rethinking Conflict-Free Training of Physics-Informed Neural Networks",
-    "title_zh": "梯度更新失配：重新思考物理信息神经网络的无冲突训练",
-    "summary": "物理信息神经网络需要联合优化物理残差损失与初始/边界条件损失，而这些损失往往产生相互冲突的梯度。本文指出，梯度手术构造的无冲突方向在经过现代优化器的历史状态、自适应缩放、预条件或权重衰减变换后，可能重新产生冲突，并将这种差异称为梯度更新失配。作者提出梯度更新对齐方法，将优化器提议投影到无冲突锥中，并在含内部状态时同步调整优化器状态，从而在实验中实现无冲突更新并显著降低误差。",
-    "abstract": "arXiv:2609.01558v1 Announce Type: new Abstract: Training Physics-Informed Neural Networks (PINNs) requires jointly optimizing physics residual and initial/boundary condition loss terms, which often induce conflicting gradients. Gradient surgery methods mitigate this issue by constructing directions from loss-specific gradients to reduce conflict before optimizer transformation. However, even when the constructed direction is conflict-free, this property may not be preserved after optimizer transformation. Let aₜ denote the direction constructed by gradient surgery, uₜ the optimizer proposal, and Cₜ the conflict-free cone induced by the loss-specific gradients. We show that modern optimizers can transform aₜ through mechanisms such as historical state, adaptive scaling, preconditioning, or decoupled weight decay, so aₜ in Cₜ does not generally imply uₜ in Cₜ. We refer to this optimizer-induced discrepancy in conflict-freeness between aₜ and uₜ as Gradient-Update Mismatch (GUM). Accordingly, we propose Gradient-Update Alignment (GUA), which projects uₜ onto Cₜ to obtain the aligned update pₜ and applies pₜ to the parameters. When the optimizer maintains internal state, GUA further adjusts this state toward targets reconstructed from the applied update. We conduct extensive experiments and find that GUM is widespread across momentum, adaptive, and curvature-based optimizers, with conflict rates reaching up to 86.3%. Across all PINN settings, GUA achieves conflict-free applied updates and consistently improves various gradient surgery methods, reducing the relative L₂ error by up to 98.2% in individual settings. Data and code are available at https://github.com/JingXiao10/GUA.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.01558",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Towards unsupervised representation learning for quantum data: quantum models with inference and generation",
-    "title_zh": "文献研究：Towards unsupervised representation learning for quantum data: quantum models with inference and generation",
-    "summary": "arXiv:2609.00372v1 Announce Type: cross Abstract: With quantum sensors, simulators and networks emerging, a future of quantum technology may produce quantum states as data---that is, coherently rather…",
-    "abstract": "arXiv:2609.00372v1 Announce Type: cross Abstract: With quantum sensors, simulators and networks emerging, a future of quantum technology may produce quantum states as data---that is, coherently rather than as classical measurement records---thus motivating the study of suitable quantum generalisations of modern machine learning, including the automated, unsupervised extraction of useful representations. Two ingredients are central to the latter: inference, mapping observations to latent representations, and generation, mapping latent states back to synthetic data. Both are related to each other and to joint distributions for training models by the chain-rule of classical probability theory. The fact that quantum states however lack such universal, standard factorisation property thus poses a challenge. Here we develop a conceptual and mathematical framework for unsupervised representation learning from quantum data. Models are joint quantum states over visible and latent systems; state-over-time maps provide a notion of factorisation into a marginal state and inference (generation) channel; models with inference (generation) are ambiguous states---states for which such factorisation obtains---subject to a further consistency condition on extended inference maps as data extension. These stipulations are restrictive: we show that non-trivial models must feature non-linear such maps to the extended space. For three representative state-over-time maps, we completely characterise the ambiguous states, uncovering a hierarchy tied to the positive-partial-transpose (PPT) criterion from entanglement theory. Notably, the Leifer-Spekkens construction supports inference and generation exactly for model classes of PPT states, thus allowing genuinely quantum visible-latent correlations. We also formulate quantum counterparts of exact and approximate inference training, explore weaker notions of data extension and sketch a future research programme.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.00372",
-    "journal": "arXiv"
-  },
-  {
     "title": "Foundation models for electricity price forecasting and battery arbitrage: Can they replace market-specific forecasting models?",
     "title_zh": "电价预测与电池套利的基础模型：它们能取代市场特定的预测模型吗？",
     "summary": "基础模型有望以很少或无需任务特定训练实现准确预测，但其能否取代专门设计的电价预测模型尚不明确。本文在德国、波兰和西班牙2021至2025年的数据上，以零样本方式比较五个基础模型家族的九个变体和两个先进基准模型，并同时评估统计预测性能与电池储能套利的经济价值。结果显示，TabPFN在统计指标上稳定占优，但在经济决策中并不普遍占优，基础模型的价值取决于模型架构和风险偏好。",
     "abstract": "arXiv:2609.00089v1 Announce Type: new Abstract: Foundation models promise accurate forecasts with little or no task-specific training, but whether they can replace models designed specifically for electricity price forecasting remains unclear. We compare nine variants from five foundation model families, evaluated in zero-shot mode, with two state-of-the-art electricity price forecasting benchmarks in Germany, Poland, and Spain over 2021-2025. Their performance is assessed in terms of point and probabilistic forecasting accuracy, as well as economic value in battery energy storage arbitrage. Only the TabPFN models consistently and significantly outperform the benchmarks across all three markets and all statistical measures. However, this statistical dominance does not translate directly into economic dominance: TabPFN performs best under unlimited bids and riskier quantile-based strategies, whereas the Distributional Deep Neural Network benchmark is more profitable when risk tolerance is lower. Thus, foundation models cannot universally replace market-specific models, and their value depends on both model architecture and the decision problem.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2609.00089",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Magnetic frustration and non-collinear textures in layered Gd magnets",
+    "title_zh": "文献研究：Magnetic frustration and non-collinear textures in layered Gd magnets",
+    "summary": "利用电子结构计算和原子自旋动力学研究层状钆基磁体中的磁挫折、偶极相互作用、非共线磁结构和斯格明子相。研究揭示了交换相互作用与磁各向异性的化学调控规律，并预测了多种具有较宽磁场稳定区间的新型斯格明子材料。",
+    "abstract": "arXiv:2609.00141v1 Announce Type: new Abstract: Using scale-bridging simulations based on electronic structure theory and atomistic spin dynamics, we investigate the magnetic properties of skyrmionic GdRu₂Si₂ and GdRu₂Ge₂ layered rare-earth magnets and similar Gd-based compounds (GdAu₂Si₂, GdAu₂Ge₂, GdAg₂Si₂ and GdAg₂Ge₂). By studying the trends across this structural family, we confirm the importance of magnetic frustration and dipolar interactions for the stability of non-collinear and skyrmion phases. Furthermore, our calculations predict promising opportunities for chemical tuning of these magnets in terms of the balance between various exchange interactions and the character of the magnetic anisotropy. These changes lead to the formation of new types of skyrmions that are stable in a wide range of applied external magnetic field. In particular, we propose partial alkali-metal substitution of Gd in GdRu₂Si₂ leading to GdKRu₄Si₄, GdRbRu₄Si₄, GdCsRu₄Si₄ as well as GdYRu₄Si₄ compounds, and suggest that it is likely to result in an ordered layered structure, similarly to previously reported iron pnictides like CaKFe₄As₄.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.00141",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Engineering tunable p-wave magnetism in antiferromagnetic bilayers",
+    "title_zh": "文献研究：Engineering tunable p-wave magnetism in antiferromagnetic bilayers",
+    "summary": "该论文提出在由两个非共线反铁磁方格子组成的双层体系中，通过层间相对平移工程化调控无自旋轨道耦合的p波磁性。研究结合对称性分析、有效键调制方格子和平均场Hubbard模型，揭示了可调自旋劈裂以及共面和手性自旋纹理的形成区域。",
+    "abstract": "arXiv:2609.00277v1 Announce Type: new Abstract: We propose a symmetry-guided route to engineer tunable p-wave magnetism in a bilayer system composed of two AB-stacked antiferromagnetic square lattices with their collinear moments nonparallel to each other. We show that an in-plane relative shift between the two layers selectively breaks the symmetries protecting spin degeneracy while preserving time-reversal-related constraints, thereby generating odd-parity spin splitting in a fully compensated magnetic state without spin-orbit coupling. The direction and the magnitude of the resulting p-wave spin-splitting, together with the associated spin responses, can be continuously tuned by the in-plane displacement, providing a potential knob for control. We further map the bilayer system onto an effective bond-modulated square lattice and investigate the corresponding Hubbard model within a mean-field framework. The calculated phase diagram reveals extended regions where p-wave magnetism with coplanar or chiral spin textures emerges spontaneously. Our results establish a minimal equilibrium platform for realizing and manipulating p-wave magnetism in two-dimensional systems.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.00277",
     "journal": "arXiv"
   },
   {
@@ -126,57 +171,12 @@
     "journal": "arXiv"
   },
   {
-    "title": "Magnetic frustration and non-collinear textures in layered Gd magnets",
-    "title_zh": "文献研究：Magnetic frustration and non-collinear textures in layered Gd magnets",
-    "summary": "论文利用电子结构理论与原子尺度自旋动力学的跨尺度模拟，研究多种层状钆基磁体中的非共线磁序和斯格明子相。研究确认磁阻挫与偶极相互作用对斯格明子稳定性的重要作用，并提出通过部分碱金属或钇取代调控交换作用和磁各向异性以获得新型稳定斯格明子。",
-    "abstract": "arXiv:2609.00141v1 Announce Type: new Abstract: Using scale-bridging simulations based on electronic structure theory and atomistic spin dynamics, we investigate the magnetic properties of skyrmionic GdRu₂Si₂ and GdRu₂Ge₂ layered rare-earth magnets and similar Gd-based compounds (GdAu₂Si₂, GdAu₂Ge₂, GdAg₂Si₂ and GdAg₂Ge₂). By studying the trends across this structural family, we confirm the importance of magnetic frustration and dipolar interactions for the stability of non-collinear and skyrmion phases. Furthermore, our calculations predict promising opportunities for chemical tuning of these magnets in terms of the balance between various exchange interactions and the character of the magnetic anisotropy. These changes lead to the formation of new types of skyrmions that are stable in a wide range of applied external magnetic field. In particular, we propose partial alkali-metal substitution of Gd in GdRu₂Si₂ leading to GdKRu₄Si₄, GdRbRu₄Si₄, GdCsRu₄Si₄ as well as GdYRu₄Si₄ compounds, and suggest that it is likely to result in an ordered layered structure, similarly to previously reported iron pnictides like CaKFe₄As₄.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.00141",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Emergent spin-resolved electronic density waves from strong d-wave altermagnetism and pseudogap phenomena from phason fluctuations",
-    "title_zh": "强d波交错磁性诱导的自发自旋分辨电子密度波，以及相位子涨落产生的赝能隙现象",
-    "summary": "本文建立了超越平均场近似的自洽微观理论，研究金属d波交错磁体中的密度波序。强自旋-动量锁定将费米面重构为彼此正交且具有自旋选择性的准一维区域，其嵌套驱动相应自旋扇区中的密度波不稳定性，并形成具有共同波矢的条纹态。相对相位决定电荷密度波、自旋密度波或混合密度波的性质；升温激发的相位子涨落会先摧毁长程密度波序，但保留单粒子能隙，从而产生赝能隙区。对金属d波交错磁体KV₂Se₂O的模拟再现了实验中的主要光谱特征。",
-    "abstract": "arXiv:2602.11694v2 Announce Type: replace Abstract: Metallic d-wave altermagnets provide a unique setting in which strong spin-momentum locking can qualitatively reshape electronic instabilities. Here we develop a self-consistent microscopic theory beyond the mean-field approximation for density-wave order in d-wave altermagnetic metals. The altermagnetic band structure with strong spin-momentum locking reconstructs the Fermi surface into mutually orthogonal spin-selective quasi-1D sectors, whose strong nesting drives density-wave instabilities in the respective spin sectors. The resulting spin-resolved density-wave orders nevertheless share a common ordering wave vector and give rise to a distinct class of stripe states, accompanied by pronounced gap openings on the nested Fermi sheets. The relative phase between the two spin sectors controls the character of the collective order, allowing charge density wave, spin density wave, and mixed density-wave orders to emerge within the same ordered manifold. As temperature increases from zero, thermal excitation of the emergent phason mode induces strong phase fluctuations that destroy long-range density-wave order at T_c, while the single-particle gap remains finite, giving rise to a robust pseudogap regime that persists up to a higher temperature T_g. The theory reveals a density-wave mechanism unique to metallic d-wave altermagnets, rooted in strong spin-selective Fermi-surface reconstruction, and establishes a fluctuation-driven route to pseudogap phenomena governed by phason dynamics. Applied to the metallic d-wave altermagnet KV₂Se₂O, our simulations quantitatively reproduce the key spectroscopic features reported in recent experiments, providing a unified microscopic understanding of the underlying phenomena.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2602.11694",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Engineering tunable p-wave magnetism in antiferromagnetic bilayers",
-    "title_zh": "文献研究：Engineering tunable p-wave magnetism in antiferromagnetic bilayers",
-    "summary": "该工作提出一种通过反铁磁双层中的层间相对平移来实现可调 p 波磁性的对称性设计方案。研究表明，平移可选择性破坏保护自旋简并的对称性，在无自旋轨道耦合的完全补偿磁态中产生奇宇称自旋劈裂，并可通过有效模型和 Hubbard 平均场得到共面或手性自旋织构相图。",
-    "abstract": "arXiv:2609.00277v1 Announce Type: new Abstract: We propose a symmetry-guided route to engineer tunable p-wave magnetism in a bilayer system composed of two AB-stacked antiferromagnetic square lattices with their collinear moments nonparallel to each other. We show that an in-plane relative shift between the two layers selectively breaks the symmetries protecting spin degeneracy while preserving time-reversal-related constraints, thereby generating odd-parity spin splitting in a fully compensated magnetic state without spin-orbit coupling. The direction and the magnitude of the resulting p-wave spin-splitting, together with the associated spin responses, can be continuously tuned by the in-plane displacement, providing a potential knob for control. We further map the bilayer system onto an effective bond-modulated square lattice and investigate the corresponding Hubbard model within a mean-field framework. The calculated phase diagram reveals extended regions where p-wave magnetism with coplanar or chiral spin textures emerges spontaneously. Our results establish a minimal equilibrium platform for realizing and manipulating p-wave magnetism in two-dimensional systems.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.00277",
-    "journal": "arXiv"
-  },
-  {
     "title": "Interfacial orbital torques excite nanoscale terahertz magnons",
     "title_zh": "界面轨道力矩激发纳米尺度太赫兹磁振子",
     "summary": "纳米厚铁磁体中的交换主导磁振子可通过厚度量子化的垂直驻波自旋波模式延伸至太赫兹频段，但界面自旋轨道力矩的微观驱动来源仍不清楚。本文通过显式解析界面对称性并分离自旋与轨道力矩，发现类场力矩是主要激发贡献，而界面轨道力矩是高效激发交换主导太赫兹磁振子的主要通道。研究为通过对称性工程控制磁性多层膜中的受限太赫兹自旋动力学提供了微观基础。",
     "abstract": "arXiv:2609.01118v1 Announce Type: new Abstract: Exchange-dominated magnons in nanometer-thick ferromagnets extend to the terahertz regime through thickness quantization of perpendicular standing spin-wave (PSSW) modes. While interfacial spin-orbit torques (SOTs) have been shown to enable the excitation of such modes, the microscopic origin of the interfacial driving torque remains unclear. In particular, the coexistence of spin and orbital currents complicates the understanding. Here, we develop and use an atomistic framework that explicitly resolves interfacial symmetries and separates spin and orbital torque contributions. Exploiting a trilayer geometry for a thin ferromagnet sandwiched between non-magnetic layers, where the symmetry-controlled polarity of the interfacial torque produces mode-selective magnon excitation as observed in the recent experiment of Salikhov et al. Nature Phys. 19, 529 (2023), we disentangle the different interfacial torque contributions. By decomposing the torque into magnetization-even (field-like) and magnetization-odd components, we identify the field-like torque as the dominant contribution responsible for the excitation. Crucially, isolating orbital and spin contributions reveals that the interfacial orbital torque provides the primary channel for the efficient excitation of exchange-dominated THz magnons in thin ferromagnets. Our results establish a microscopic basis for symmetry-engineered control of confined terahertz spin dynamics in magnetic multilayers.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2609.01118",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Magnetic quantum defects in a uniaxial antiferromagnetic insulator",
-    "title_zh": "文献研究：Magnetic quantum defects in a uniaxial antiferromagnetic insulator",
-    "summary": "论文在单轴反铁磁绝缘体Cr2O3中通过偏振分辨拉曼和太赫兹吸收实验发现了三种由铬空位诱导的激发。结合缺陷超胞第一性原理计算，作者将64 cm-1模式归因于铬空位态局域磁矩的局域磁激发，并揭示其在自旋翻转场附近显著软化。",
-    "abstract": "arXiv:2609.00801v1 Announce Type: new Abstract: Point defects have been successfully utilized in various quantum technologies, serving as quantum qubits for quantum computation, single-photon emitters for quantum communication, and nanoscale sensors for quantum metrology. However, their further development faces key challenges, particularly in discovering and exploring suitable defect-host systems that meet the necessary criteria for quantum applications. Here, using polarization-resolved Raman spectroscopy and terahertz absorption spectroscopy, we discover three distinct chromium-vacancy-induced excitations in the uniaxial antiferromagnetic insulator, Cr₂O₃. These vacancy-induced excitations have an energy scale of a few tens of millielectronvolts and are twofold degenerate, and the lowest one at 64 cm⁻¹ is sharp and sensitive to the external magnetic field along the easy-axis direction, particularly close to the spin-flop regime around 6T, where the mode softens from 64 to 27cm⁻¹. Based on the defect supercell first-principles calculations, we interpret the mode at 64 cm⁻¹ as a local magnetic excitation of the local moment within the chromium vacancy state. Our results establish that the magnetic defect states in Cr₂O₃ have potential for quantum applications.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.00801",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Phase Switchable Photocatalytic Water Splitting via a Paraelectric-Ferroelectric Transition in Zr2Ge2S6 Monolayer: A Comprehensive Theoretical Insights",
-    "title_zh": "文献研究：Phase Switchable Photocatalytic Water Splitting via a Paraelectric-Ferroelectric Transition in Zr2Ge2S6 Monolayer: A Comprehensive Theoretical Insights",
-    "summary": "该工作基于第一性原理计算研究 Zr2Ge2S6 单层的顺电-铁电相变对光催化水分解性能的调控。结果表明该二维材料具有合适带隙、带边位置和光吸收能力，且铁电相更有利于氧析出反应，顺电相更有利于氢析出反应。",
-    "abstract": "arXiv:2609.00724v1 Announce Type: new Abstract: Photocatalytic water splitting (PWS) is a promising technology for addressing the global energy crisis and producing renewable and clean hydrogen fuel. Although numerous 2D materials have recently been proposed as potential photocatalysts, effective strategies for regulating photocatalytic reactions and improving energy conversion efficiency remain limited due to performance regulation challenges. Here, using first-principles calculations, we demonstrate that the photocatalytic activity and energy conversion efficiency of a Zr2Ge2S6 monolayer can be effectively tuned through a paraelectric-ferroelectric phase transition. The Zr2Ge2S6 monolayer exhibits excellent structural stability, favorable mechanical properties, a suitable band gap, optimal band edge positions, and broad-spectrum light absorption. Moreover, the Zr2Ge2S6 monolayer exhibits a higher oxidation potential and a stronger driving force for photogenerated holes to promote oxygen evolution reaction (OER) in the ferroelectric phase. In contrast, the paraelectric phase provides photogenerated electrons with a greater reduction potential and driving force for hydrogen evolution reaction (HER). The solar-to-hydrogen conversion efficiency is also strongly influenced by the phase transition, increasing from 7.71% in the paraelectric phase to 15.31% in the ferroelectric phase because of the improved carrier utilization. Our theoretical investigation not only highlights the crucial role of ferroelectric polarization in photocatalytic water splitting but also provides an effective strategy for tuning the photocatalytic properties of 2D ferroelectric materials through ferroelectric switching.",
-    "category": "铁电·极化",
-    "link": "https://arxiv.org/abs/2609.00724",
     "journal": "arXiv"
   }
 ]
