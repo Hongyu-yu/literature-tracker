@@ -9,6 +9,8 @@ from __future__ import annotations
 import json
 import os
 import re
+
+from text_normalizer import strip_announce_prefix
 from typing import Any, Dict, Iterable, List
 
 
@@ -231,7 +233,9 @@ def pick_summary(item: Dict[str, Any], max_english_chars: int = 200) -> str:
         value = _usable_summary(item.get(key))
         if value and _CJK_SUMMARY_RE.search(value):
             return value
-    abstract = str(item.get("abstract") or "").strip()
+    # 英文兜底同样要剥 arXiv RSS 公告前缀，否则邮件卡片开头就是
+    # "arXiv:2608.30338v1 Announce Type: new Abstract: …"
+    abstract = strip_announce_prefix(item.get("abstract"))
     if abstract:
         if len(abstract) > max_english_chars:
             return abstract[:max_english_chars].rstrip() + "…"

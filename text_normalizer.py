@@ -297,6 +297,35 @@ def _decode_latex(text: str) -> str:
     return updated
 
 
+# arXiv 的 RSS 正文都带一段公告前缀，它不是摘要内容，却被原样存进 abstract，
+# 再被 zh_enricher 逐句翻译进 abstract_zh_full。实测 data/index.json 5000 篇里
+# 3344 处英文摘要、144 处中译摘要以它开头，日报邮件与周报卡片都会把
+# "arXiv:2608.28719v1 Announce Type: new Abstract: …" 当正文显示出来。
+# 只在开头剥离，绝不碰正文其余部分。
+_ANNOUNCE_PREFIX_RES = (
+    # arXiv:2608.28719v1 Announce Type: new Abstract:
+    re.compile(r"^\s*arxiv:\s*\S+?\s+announce\s+type:\s*\S+\s*abstract:\s*", re.I),
+    # arXiv:2608.22177v1；公告类型：新提交。   /   … 发布类型：替换 摘要：
+    re.compile(r"^\s*arxiv:\s*\S+?\s*[；;]?\s*(?:公告类型|发布类型)\s*[：:]\s*[^。\s]+\s*[。]?\s*(?:摘要\s*[：:]\s*)?", re.I),
+)
+
+
+def strip_announce_prefix(value: Any) -> str:
+    """剥掉 arXiv RSS 的公告前缀，返回真正的摘要正文。
+
+    纯函数，不改任何存量数据：调用方在渲染时用它即可。
+    前缀不存在时原样返回（只 strip 首尾空白）。
+    """
+    text = str(value or "").strip()
+    if not text:
+        return ""
+    for pattern in _ANNOUNCE_PREFIX_RES:
+        stripped = pattern.sub("", text, count=1)
+        if stripped != text:
+            return stripped.strip()
+    return text
+
+
 def normalize_text(value: Any) -> str:
     if value is None:
         return ""

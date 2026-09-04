@@ -10,18 +10,19 @@ import requests
 import html
 from urllib.parse import urlparse
 from datetime import datetime, timedelta, timezone
-from typing import List, Dict, Optional
+from typing import List, Dict, Optional, Tuple
 from ai_summarizer import build_provider
 from author_utils import authors_label as format_authors_label
 from abstract_scraper import AbstractScraper
-from text_normalizer import normalize_articles_inplace, normalize_text
+from text_normalizer import normalize_articles_inplace, normalize_text, strip_announce_prefix
 from translator import translate_text
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from weekly_page_enhancer import enhance_weekly_archive
 from weekly_prompts import _build_analyze_prompt
 from cross_relevance import (
-    _primary_profile, cross_sort_key, enrich_cross_relevance, is_cross_item,
-    is_strongly_relevant, rule_cross_tier,
+    _primary_profile, cross_sort_key, effective_cross_score, effective_me_score,
+    enrich_cross_relevance, is_cross_item, is_strongly_relevant, rule_cross_tier,
+    strong_min_score,
 )
 import time
 import threading
@@ -74,6 +75,105 @@ def _safe_id(value) -> str:
     return cleaned or "x"
 
 
+# ---------------------------------------------------------------- 卡片公用件
+# 三个区块（核心方向 / 与你方向相关 / 主列表）此前各写各的元信息，
+# 结果核心区块连作者、日期、摘要折叠都没有，与日报差了一大截。
+# 这里抽成公用件，三处共用，改一次三处一起变。
+
+_ABSTRACT_TEASER_CHARS = 220
+
+
+def _weekly_meta_chips(item: Dict, extra: Optional[List[str]] = None) -> str:
+    """期刊 / 作者 / 日期 三件套，与日报 render_meta_chips 对齐。"""
+    parts = []
+    journal = str(item.get('journal') or '').strip()
+    if journal:
+        # 显示规范期刊名，而不是原始 feed 标题：
+        # 'Wiley: Advanced Science: Table of Contents' → 'Advanced Science'。
+        # 归一化函数早就有（顶刊闸门一直在用），只是展示这一侧没接。
+        parts.append(f"<span class='weekly-chip weekly-chip-journal'>📚 "
+                     f"{_safe_text(WeeklySummarizer._canonical_journal(journal) or journal)}</span>")
+    authors = format_authors_label(item.get('authors'), max_names=4)
+    if authors:
+        parts.append(f"<span class='weekly-chip weekly-chip-authors'>👤 {_safe_text(authors)}</span>")
+    pub_date = str(item.get('pub_date') or item.get('date') or '').strip()
+    if pub_date:
+        parts.append(f"<span class='weekly-chip'>📅 {_safe_text(pub_date)}</span>")
+    parts.extend(extra or [])
+    return "".join(parts)
+
+
+def _weekly_relevance_html(item: Dict) -> str:
+    """相关度条。同时给出交叉分与画像分——两者含义不同，合成一个数会把信息抹掉。"""
+    cross = effective_cross_score(item)
+    me = effective_me_score(item)
+
+    def bar(label: str, value: float, cls: str) -> str:
+        text = f"{value:.1f}".rstrip("0").rstrip(".")
+        return (f"<div class='weekly-relevance' aria-label='{label} {text} / 10'>"
+                f"<span>{label}</span>"
+                f"<div class='weekly-relevance-track'><i class='weekly-relevance-bar {cls}' "
+                f"style='width:{max(0.0, min(100.0, value * 10)):.1f}%'></i></div>"
+                f"<strong>{text}</strong></div>")
+
+    return bar("AI×科学交叉", cross, "is-cross") + bar("方向匹配", me, "is-me")
+
+
+def _weekly_reason_html(item: Dict) -> str:
+    """「为什么和你相关」。me_reason 最贴题，其次交叉理由，再退回 focus_relation。"""
+    reason = str(item.get('me_reason') or item.get('cross_reason')
+                 or item.get('focus_relation') or '').strip()
+    if not reason:
+        return ""
+    return (f"<p class='weekly-why'><strong>🎯 为什么相关：</strong>"
+            f"{_safe_multiline(reason)}</p>")
+
+
+def _weekly_abstract_html(item: Dict, anchor: str) -> Tuple[str, str, str]:
+    """摘要三件套 → (摘录, 展开按钮, 完整摘要块)。
+
+    中英文都渲染，并统一剥掉 arXiv 的 RSS 公告前缀 —— 实测 index.json 里
+    3344 处英文摘要、144 处中译摘要以 "arXiv:xxxx Announce Type: new Abstract:"
+    （及其中译"公告类型：新提交。"）开头，此前会被当成正文原样显示。
+    """
+    zh = strip_announce_prefix(item.get('abstract_zh_full') or item.get('abstract_zh') or '')
+    en = strip_announce_prefix(item.get('abstract') or '')
+    if not (zh or en):
+        return "", "", ""
+    teaser_src = zh or en
+    teaser = teaser_src[:_ABSTRACT_TEASER_CHARS].rstrip()
+    if len(teaser_src) > _ABSTRACT_TEASER_CHARS:
+        teaser += "…"
+    teaser_html = f"<p class='weekly-abstract-teaser'><strong>📄 摘要：</strong>{_safe_text(teaser)}</p>"
+    blocks = []
+    if zh:
+        blocks.append("<div class='weekly-abstract-block'><div class='weekly-abstract-label'>中文摘要</div>"
+                      f"<p>{_safe_multiline(zh)}</p></div>")
+    if en:
+        blocks.append("<div class='weekly-abstract-block'><div class='weekly-abstract-label'>English Abstract</div>"
+                      f"<p class='weekly-abstract-en'>{_safe_multiline(en)}</p></div>")
+    toggle = (f"<button class='toggle-abstract-btn' "
+              f"onclick=\"toggleAbstract('{anchor}', this)\">📖 查看完整摘要</button>")
+    full = (f"<div class='weekly-paper-abstract' id='{anchor}-abstract' style='display:none;'>"
+            f"{''.join(blocks)}</div>")
+    return teaser_html, toggle, full
+
+
+def _weekly_titles(item: Dict) -> Tuple[str, str]:
+    """(展示标题, 英文副标题 HTML)。中文优先——核心区块此前直接取 title，
+    而 title 在缺中文翻译时就是英文原标题，于是整块变成英文。"""
+    zh = str(item.get('title_zh') or '').strip()
+    en = str(item.get('title_en') or item.get('title') or '').strip()
+    if not zh:
+        # core_items 的 'title' 字段构造时已是"中文优先"，但可能等于英文
+        cand = str(item.get('title') or '').strip()
+        zh = cand if cand and cand.casefold() != en.casefold() else ""
+    display = zh or en or '未命名文献'
+    sub = (f"<div class='weekly-paper-title-en'>{_safe_text(en)}</div>"
+           if zh and en and zh.casefold() != en.casefold() else "")
+    return _safe_text(display), sub
+
+
 def render_core_weekly_section(summary: Dict) -> str:
     import html as _html
     def _t(s: str) -> str:
@@ -92,15 +192,10 @@ def render_core_weekly_section(summary: Dict) -> str:
     note = summary.get('core_weekly_note') or ""
     cards = []
     for i, it in enumerate(items, 1):
-        title = (it.get('title') or '').strip()
-        title_en = (it.get('title_en') or '').strip()
-        journal = (it.get('journal') or '').strip()
         link = (it.get('link') or '').strip() or '#'
-        abstract_zh = (it.get('abstract_zh_full') or it.get('abstract_zh') or '').strip()
         mp = (it.get('method_point') or '').strip()
         rw = (it.get('related_work') or '').strip()
         im = (it.get('implication') or '').strip()
-        show_en = bool(title) and title.casefold() != title_en.casefold()
         deep = ""
         if mp or rw or im:
             parts = []
@@ -108,19 +203,24 @@ def render_core_weekly_section(summary: Dict) -> str:
             if rw: parts.append(f"<p><strong>🔗 相关工作关联：</strong>{_t(rw)}</p>")
             if im: parts.append(f"<p><strong>💡 对你方向的启示：</strong>{_t(im)}</p>")
             deep = f"<div class='weekly-core-deep'>{''.join(parts)}</div>"
-        title_en_html = f"<div class='weekly-core-title-en'>{_t(title_en)}</div>" if show_en else ""
-        abs_block = f"<p class='weekly-core-abs'><strong>📄 摘要：</strong>{_t(abstract_zh)}</p>" if abstract_zh else ""
-        display_title = _t(title or title_en)
+        display_title, title_en_html = _weekly_titles(it)
+        anchor = f"core-{i:02d}"
+        teaser_html, toggle_html, abstract_html = _weekly_abstract_html(it, anchor)
+        meta_html = _weekly_meta_chips(
+            it, extra=["<span class='weekly-chip weekly-chip-core'>🎯 核心</span>"])
         cards.append(f"""
-        <li class="weekly-core-card" data-bookmark-key="{_t(link)}">
+        <li class="weekly-core-card" id="{anchor}" data-bookmark-key="{_t(link)}">
           <div class="weekly-core-number">{i:02d}</div>
           <div class="weekly-core-body">
             <div class="weekly-core-title-zh">{display_title}</div>
             {title_en_html}
-            <div class="weekly-core-meta"><span class="weekly-chip weekly-chip-core">🎯 核心</span><span class="weekly-chip">📖 {_t(journal)}</span></div>
-            {abs_block}
+            <div class="weekly-core-meta">{meta_html}</div>
+            {_weekly_relevance_html(it)}
+            {teaser_html}
+            {_weekly_reason_html(it)}
             {deep}
-            <div class="weekly-core-actions"><a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+            <div class="weekly-core-actions">{toggle_html}<a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+            {abstract_html}
           </div>
         </li>
         """)
@@ -149,22 +249,37 @@ def render_focus_weekly_section(articles: List[Dict]) -> str:
             return "#"
         return _html.escape(url, quote=True)
 
-    items = [a for a in (articles or []) if isinstance(a, dict) and a.get('focus_score')]
+    # 入选口径：老的 focus_score（五人团队画像分）命中，或 AI 明确给出的
+    # me_score（本人画像分）过线。刻意不用 effective_me_score —— 它带规则兜底，
+    # 几乎每条都会有个非零分，用它做入选会把整个区块撑爆。
+    def _explicit_me(a) -> Optional[float]:
+        raw = a.get('me_score')
+        if isinstance(raw, bool) or raw is None:
+            return None
+        try:
+            return float(raw)
+        except (TypeError, ValueError):
+            return None
+
+    threshold = strong_min_score()
+    items = [
+        a for a in (articles or [])
+        if isinstance(a, dict) and (a.get('focus_score') or (_explicit_me(a) or 0) >= threshold)
+    ]
     if not items:
         return ""
 
     def _score(a) -> float:
+        me = _explicit_me(a)
         try:
-            return float(a.get('focus_score') or 0)
+            fs = float(a.get('focus_score') or 0)
         except (TypeError, ValueError):
-            return 0.0
+            fs = 0.0
+        return max(fs, me or 0.0)
 
     items = sorted(items, key=_score, reverse=True)
     cards = []
     for i, it in enumerate(items, 1):
-        title = (it.get('title_zh') or it.get('title') or it.get('title_en') or '').strip()
-        journal = (it.get('journal') or '').strip()
-        pub_date = (it.get('pub_date') or it.get('date') or '').strip()
         link = (it.get('link') or '').strip() or '#'
         fs = (it.get('focus_summary') or '').strip()
         fr = (it.get('focus_relation') or '').strip()
@@ -176,20 +291,28 @@ def render_focus_weekly_section(articles: List[Dict]) -> str:
         if fg: parts.append(f"<p><strong>💡 进一步工作建议：</strong>{_t(fg)}</p>")
         if parts:
             deep = f"<div class='weekly-focus-deep'>{''.join(parts)}</div>"
-        meta_parts = []
-        if journal:
-            meta_parts.append(f"<span class='weekly-chip'>📖 {_t(journal)}</span>")
-        if pub_date:
-            meta_parts.append(f"<span class='weekly-chip'>📅 {_t(pub_date)}</span>")
-        meta_parts.append(f"<span class='weekly-chip weekly-chip-focus'>🎯 相关度 {_t(it.get('focus_score'))}</span>")
+        display_title, title_en_html = _weekly_titles(it)
+        anchor = f"focus-{i:02d}"
+        teaser_html, toggle_html, abstract_html = _weekly_abstract_html(it, anchor)
+        # focus_score 是本区块的入选与排序依据，必须露出来，否则顺序看着没来由。
+        # 标签用「画像分」而不是「相关度」：下面两条进度条已经叫 AI×科学交叉 /
+        # 方向匹配，同名不同义会让人以为是同一个数。
+        extra = []
+        if it.get('focus_score'):
+            extra.append(f"<span class='weekly-chip weekly-chip-focus'>🎯 画像分 {_t(it.get('focus_score'))}</span>")
+        meta_html = _weekly_meta_chips(it, extra=extra)
         cards.append(f"""
-        <li class="weekly-focus-card" data-bookmark-key="{_t(link)}">
+        <li class="weekly-focus-card" id="{anchor}" data-bookmark-key="{_t(link)}">
           <div class="weekly-focus-number">{i:02d}</div>
           <div class="weekly-focus-body">
-            <div class="weekly-focus-title"><a class="weekly-focus-link" href="{_u(link)}" target="_blank" rel="noopener noreferrer">{_t(title)}</a></div>
-            <div class="weekly-focus-meta">{''.join(meta_parts)}</div>
+            <div class="weekly-focus-title"><a class="weekly-focus-link" href="{_u(link)}" target="_blank" rel="noopener noreferrer">{display_title}</a></div>
+            {title_en_html}
+            <div class="weekly-focus-meta">{meta_html}</div>
+            {_weekly_relevance_html(it)}
+            {teaser_html}
             {deep}
-            <div class="weekly-core-actions"><a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+            <div class="weekly-core-actions">{toggle_html}<a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+            {abstract_html}
           </div>
         </li>
         """)
@@ -1081,17 +1204,30 @@ class WeeklySummarizer:
             for a in core_items_raw:
                 link = a.get("link") or ""
                 info = core_deep.get(link, {})
+                # 这里过去只留了标题/期刊/中文摘要，作者、日期、英文摘要、各类相关度
+                # 全在构造时就被丢掉了 —— 渲染层想显示也无从显示，核心区块因此比
+                # 日报卡片少了一大半信息。按渲染需要补齐。
                 core_items_enriched.append({
                     "title": a.get("title_zh") or a.get("title", ""),
+                    "title_zh": a.get("title_zh", ""),
                     "title_en": a.get("title", ""),
                     "link": a.get("link", ""),
                     "journal": a.get("journal", ""),
+                    "authors": a.get("authors"),
+                    "pub_date": a.get("pub_date") or a.get("date", ""),
+                    "abstract": a.get("abstract", ""),
                     "abstract_zh": a.get("abstract_zh", ""),
                     "abstract_zh_full": a.get("abstract_zh_full", ""),
                     "method_point": info.get("method_point", ""),
                     "related_work": info.get("related_work", ""),
                     "implication": info.get("implication", ""),
                     "core_score": _cs(a),
+                    "cross_score": a.get("cross_score"),
+                    "cross_reason": a.get("cross_reason", ""),
+                    "me_score": a.get("me_score"),
+                    "me_reason": a.get("me_reason", ""),
+                    "focus_score": a.get("focus_score"),
+                    "focus_relation": a.get("focus_relation", ""),
                 })
 
         return {
@@ -1413,71 +1549,30 @@ class WeeklySummarizer:
 
             cards = []
             for idx, article in enumerate(articles, 1):
-                raw_title_zh = str(article.get('title_zh') or '').strip()
-                raw_title_en = str(article.get('title') or '').strip()
-                raw_title = raw_title_zh or raw_title_en or '未命名文献'
-                raw_journal = str(article.get('journal') or '').strip()
                 raw_link = str(article.get('link') or '#').strip()
-                raw_date = str(article.get('pub_date') or article.get('date') or '').strip()
-                raw_authors = authors_label(article)
                 raw_ai_analysis = str(article.get('ai_analysis') or '').strip()
-                raw_abstract_zh = str(article.get('abstract_zh_full') or article.get('abstract_zh') or '').strip()
-                raw_abstract_en = str(article.get('abstract') or '').strip()
-
-                title = _safe_text(raw_title)
-                title_en = _safe_text(raw_title_en)
-                journal = _safe_text(raw_journal)
                 link = _safe_url(raw_link)
-                date = _safe_text(raw_date)
-                authors = _safe_text(raw_authors)
-                abstract_zh = _safe_multiline(raw_abstract_zh)
-                abstract_en = _safe_multiline(raw_abstract_en)
                 anchor = article_anchor(article, f'{tone_class}-{idx}')
 
-                title_en_block = f'<div class="weekly-paper-title-en">{title_en}</div>' if raw_title_en and raw_title_zh else ''
-
-                meta_parts = []
-                if raw_journal:
-                    meta_parts.append(f'<span class="weekly-chip weekly-chip-journal">📚 {journal}</span>')
-                if raw_authors:
-                    meta_parts.append(f'<span class="weekly-chip weekly-chip-authors">👤 {authors}</span>')
-                if raw_date:
-                    meta_parts.append(f'<span class="weekly-chip">📅 {date}</span>')
+                # 标题/元信息/摘要三件套改用与核心区块、focus 区块共用的公用件，
+                # 顺带统一剥掉 arXiv RSS 的公告前缀。
+                title, title_en_block = _weekly_titles(article)
+                extra_chips = []
                 if article.get('is_ferro'):
-                    meta_parts.append('<span class="weekly-chip weekly-chip-ferro">⚡ 磁性/铁电</span>')
+                    extra_chips.append('<span class="weekly-chip weekly-chip-ferro">⚡ 磁性/铁电</span>')
                 if article.get('is_ai'):
-                    meta_parts.append('<span class="weekly-chip weekly-chip-ai">🤖 AI/机器学习</span>')
-                meta_html = ''.join(meta_parts)
+                    extra_chips.append('<span class="weekly-chip weekly-chip-ai">🤖 AI/机器学习</span>')
+                meta_html = _weekly_meta_chips(article, extra=extra_chips)
 
                 note_raw = raw_ai_analysis or article_teaser(article, 180)
                 note_label = 'AI 解读' if raw_ai_analysis else '核心摘录'
                 note_html = ''
                 if note_raw:
-                    note_html = f'<div class="weekly-paper-summary"><strong>{_safe_text(note_label)}：</strong>{_safe_multiline(note_raw)}</div>'
+                    note_html = f'<div class="weekly-paper-summary"><strong>{_safe_text(note_label)}：</strong>{_safe_multiline(strip_announce_prefix(note_raw))}</div>'
 
-                preview_raw = ''
-                if raw_abstract_zh or raw_abstract_en:
-                    preview_source = raw_abstract_zh or raw_abstract_en
-                    preview_raw = shorten_text(preview_source, 240)
-                preview_html = ''
-                if preview_raw and preview_raw != note_raw:
-                    preview_html = f'<div class="weekly-paper-preview">{_safe_text(preview_raw)}</div>'
-
-                has_full_abstract = bool(raw_abstract_zh or raw_abstract_en)
-                toggle_html = ''
-                abstract_html = ''
-                if has_full_abstract:
-                    abstract_blocks = []
-                    if raw_abstract_zh:
-                        abstract_blocks.append(
-                            f'<div class="weekly-abstract-block"><div class="weekly-abstract-label">中文摘要</div><p>{abstract_zh}</p></div>'
-                        )
-                    if raw_abstract_en:
-                        abstract_blocks.append(
-                            f'<div class="weekly-abstract-block"><div class="weekly-abstract-label">English Abstract</div><p class="weekly-abstract-en">{abstract_en}</p></div>'
-                        )
-                    toggle_html = f'<button class="toggle-abstract-btn" onclick="toggleAbstract(\'{anchor}\', this)">📖 查看完整摘要</button>'
-                    abstract_html = f'<div class="weekly-paper-abstract" id="{anchor}-abstract" style="display:none;">{"".join(abstract_blocks)}</div>'
+                teaser_html, toggle_html, abstract_html = _weekly_abstract_html(article, anchor)
+                # 摘录与 AI 解读重复时只留一份，别让同一段话在卡片里出现两次
+                preview_html = '' if (note_raw and teaser_html and note_raw[:60] in teaser_html) else teaser_html
 
                 cards.append(f'''
                 <article class="weekly-paper-card {tone_class}" id="{anchor}" data-bookmark-key="{_safe_text((article.get('link') or '').strip())}">
@@ -1489,8 +1584,10 @@ class WeeklySummarizer:
                         </div>
                     </div>
                     <div class="weekly-paper-meta">{meta_html}</div>
+                    {_weekly_relevance_html(article)}
                     {note_html}
                     {preview_html}
+                    {_weekly_reason_html(article)}
                     <div class="weekly-paper-actions">
                         {toggle_html}
                         <a class="insight-btn insight-btn-secondary" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
@@ -2217,6 +2314,19 @@ class WeeklySummarizer:
         .weekly-focus-link:hover {{ color:var(--accent-primary); }}
         .weekly-focus-meta {{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }}
         .weekly-chip-focus {{ background:rgba(99,102,241,.16); color:var(--accent-primary); font-weight:600; }}
+        /* 三个区块共用的卡片件（核心方向 / 与你方向相关 / 主列表） */
+        .weekly-relevance {{ display:grid; grid-template-columns:auto minmax(70px,150px) auto; gap:8px;
+            align-items:center; color:var(--text-secondary); font-size:.78rem; margin:0 0 6px; }}
+        .weekly-relevance-track {{ height:6px; overflow:hidden; border-radius:999px; background:rgba(99,102,241,.12); }}
+        .weekly-relevance-bar {{ display:block; height:100%; border-radius:inherit; }}
+        .weekly-relevance-bar.is-cross {{ background:linear-gradient(90deg,#6366f1,#22d3ee); }}
+        .weekly-relevance-bar.is-me {{ background:linear-gradient(90deg,#f59e0b,#ef4444); }}
+        .weekly-abstract-teaser {{ margin:10px 0 0; line-height:1.75; color:var(--text-secondary); font-size:.9rem; }}
+        .weekly-why {{ margin:10px 0 0; padding:10px 12px; border-radius:10px; line-height:1.7;
+            background:rgba(99,102,241,.07); border-left:3px solid var(--accent-primary); font-size:.88rem; }}
+        .weekly-core-card .weekly-paper-title-en,
+        .weekly-focus-card .weekly-paper-title-en {{ margin:2px 0 6px; color:var(--text-secondary);
+            font-size:.82rem; line-height:1.5; }}
         .weekly-focus-deep {{ margin-top:10px; padding:12px 14px; border-radius:12px; background:rgba(99,102,241,.06); border:1px dashed rgba(99,102,241,.32); line-height:1.75; }}
         .weekly-focus-deep p + p {{ margin-top:6px; }}
         @media (max-width:720px){{ .weekly-focus-card{{ grid-template-columns:1fr; }} }}

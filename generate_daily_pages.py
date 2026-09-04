@@ -23,10 +23,11 @@ from local_kimi_provider import build_provider_extended
 from author_utils import authors_label
 from focus_filter import analyze_focus, filter_daily_focus_items, filter_focus_items, focus_priority, topic_bucket
 from rss_generator import generate_daily_rss_feed
-from text_normalizer import normalize_articles_inplace, normalize_text
+from text_normalizer import normalize_articles_inplace, normalize_text, strip_announce_prefix
 from focus_core import classify_taxonomy, core_score, is_core_focus, priority_tier
 from cross_relevance import (
-    cross_sort_key, effective_cross_score, is_cross_item, rule_cross_tier, split_cross_sections,
+    cross_sort_key, effective_cross_score, effective_me_score, is_cross_item,
+    rule_cross_tier, split_cross_sections,
 )
 from link_utils import normalize_link
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile
@@ -682,11 +683,17 @@ def render_meta_chips(item: Dict) -> str:
     bucket = topic_bucket(item)
     topic_name = safe_text(TOPIC_LABELS.get(bucket, "相关"))
     category = safe_text(classify_taxonomy(item))
-    tier = priority_tier(item)
-    priority_label = "P1" if tier == 0 else "P2" if tier == 2 else "P3"
+    # 分组口径已从 priority_tier(P1/P2/P3) 换成「AI×科学交叉」，芯片跟着换：
+    # 页面分组写着"其他物理/材料进展"、卡片却挂个 P1，读者只会更糊涂。
+    if is_cross_item(item):
+        cross_label = "🤖 AI×科学" if priority_tier(item) != 0 else "🔬 神经网络势·电子结构"
+        cross_cls = "daily-chip-priority-p1"
+    else:
+        cross_label = "🧲 物理/材料"
+        cross_cls = "daily-chip-priority-p3"
     meta_parts = [
         f"<span class='daily-chip daily-chip-topic'>🧭 {topic_name}</span>",
-        f"<span class='daily-chip daily-chip-category daily-chip-priority-{priority_label.lower()}'>{priority_label} · {category}</span>",
+        f"<span class='daily-chip daily-chip-category {cross_cls}'>{cross_label} · {category}</span>",
     ]
     if journal:
         if arxiv_cat:
@@ -757,27 +764,35 @@ def render_unified_item(item: Dict, index: int) -> str:
     title_en_block = (f'<div class="daily-paper-title-en">{safe_text(title_en)}</div>'
                       if show_zh and title_en else "")
     meta_html = render_meta_chips(item)
-    try:
-        relevance = float(item.get("focus_score")) if item.get("focus_score") is not None else core_score(item) * 10
-    except (TypeError, ValueError):
-        relevance = core_score(item) * 10
-    relevance = max(0.0, min(10.0, relevance))
-    relevance_label = f"{relevance:.1f}".rstrip("0").rstrip(".")
-    relevance_html = (
-        f'<div class="daily-relevance" aria-label="相关度 {relevance_label} / 10">'
-        f'<span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:{relevance * 10:.1f}%"></i></div>'
-        f'<strong>{relevance_label}</strong></div>'
-    )
-    abstract_zh = (item.get("abstract_zh_full") or item.get("abstract_zh") or "").strip()
+    # 相关度改成两条：交叉强度与画像匹配度含义不同，合成一个数会把信息抹掉。
+    # 此前只有一条，取的还是 focus_score（五人团队画像分）——与邮件、周报的口径都不一致。
+    def _relevance_bar(label: str, value: float, cls: str) -> str:
+        value = max(0.0, min(10.0, value))
+        text = f"{value:.1f}".rstrip("0").rstrip(".")
+        return (f'<div class="daily-relevance" aria-label="{label} {text} / 10">'
+                f'<span>{label}</span><div class="daily-relevance-track">'
+                f'<i class="daily-relevance-bar {cls}" style="width:{value * 10:.1f}%"></i></div>'
+                f'<strong>{text}</strong></div>')
+
+    relevance_html = (_relevance_bar("AI×科学交叉", effective_cross_score(item), "is-cross")
+                      + _relevance_bar("方向匹配", effective_me_score(item), "is-me"))
+    # 三处正文统一剥掉 arXiv RSS 的公告前缀：实测 index.json 里 3344 处英文摘要、
+    # 144 处中译摘要以 "arXiv:xxxx Announce Type: new Abstract:"（及其中译）开头，
+    # 此前会被当成正文原样显示在卡片和邮件里。
+    abstract_zh = strip_announce_prefix(item.get("abstract_zh_full") or item.get("abstract_zh") or "")
     abs_html = (f'<p class="daily-paper-abstract"><strong>📄 摘要：</strong>{safe_text(abstract_zh)}</p>'
                 if abstract_zh else "")
-    abstract_en = (item.get("abstract") or "").strip()
+    abstract_en = strip_announce_prefix(item.get("abstract") or "")
     abs_en_html = (f'<details class="daily-abstract-en"><summary>📖 英文原文</summary>'
                    f'<p class="daily-abstract-en-body">{safe_text(abstract_en)}</p></details>'
                    if abstract_en else "")
-    highlight = (item.get("summary") or item.get("one_sentence_summary") or "").strip()
+    highlight = strip_announce_prefix(item.get("summary") or item.get("one_sentence_summary") or "")
     hl_html = (f'<p class="daily-paper-highlight"><strong>💡 亮点：</strong>{safe_text(highlight)}</p>'
                if highlight else "")
+    # 「为什么和你相关」：与邮件、周报同一条兜底链（me_reason → cross_reason → focus_relation）
+    why = str(item.get("me_reason") or item.get("cross_reason") or item.get("focus_relation") or "").strip()
+    why_html = (f'<p class="daily-paper-why"><strong>🎯 为什么相关：</strong>{safe_text(why)}</p>'
+                if why else "")
     relation_html = (
         '<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary>'
         f'<p><strong>📐 方法要点：</strong>{safe_text(item.get("method_point") or "")}</p>'
@@ -815,6 +830,7 @@ def render_unified_item(item: Dict, index: int) -> str:
             {abs_html}
             {abs_en_html}
             {hl_html}
+            {why_html}
             {relation_html}
             {details}
             <div class="daily-paper-actions"><a class="daily-news-link" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>

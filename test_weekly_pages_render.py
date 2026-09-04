@@ -188,8 +188,12 @@ def test_render_focus_weekly_section_cards_sorted_with_three_lines():
     assert "2 篇" in html
     assert "📝 简单总结" in html and "🔗 与我们工作的关系" in html
     assert "💡 进一步工作建议" in html
-    assert "相关度 10" in html and "相关度 4" in html
+    # focus_score 芯片改名为「画像分」：卡片上另有两条进度条叫「AI×科学交叉」和
+    # 「方向匹配」，三者含义不同，同名会让人以为是同一个数。
+    assert "画像分 10" in html and "画像分 4" in html
     assert html.index("高分文") < html.index("低分文")  # 按分数降序
+    # 与日报对齐的新增信息：作者、日期、双相关度条
+    assert "weekly-relevance" in html and "AI×科学交叉" in html and "方向匹配" in html
 
 
 def test_render_focus_weekly_section_hidden_when_no_focus_items():
@@ -239,3 +243,75 @@ def test_weekly_focus_section_wired_shown_and_hidden():
     html_plain = _render_weekly(_weekly_summary([art]))
     assert 'id="focus-interest"' not in html_plain
     assert 'href="#focus-interest"' not in html_plain
+
+
+def test_core_weekly_cards_show_authors_date_and_abstracts_like_the_daily():
+    """核心区块此前只有标题/期刊/中文摘要 —— 作者、日期、英文摘要、相关度
+    在 core_items 构造时就被丢掉了，渲染层想显示也无从显示。"""
+    from weekly_summary import render_core_weekly_section
+    summary = {"core_items": [{
+        "title": "深度生成模型中哈密顿量的自主涌现",
+        "title_zh": "深度生成模型中哈密顿量的自主涌现",
+        "title_en": "Autonomous Emergence of Hamiltonian in Deep Generative Models",
+        "journal": "arXiv", "link": "https://arxiv.org/abs/1",
+        "authors": ["Alice Zhang", "Bob Li"], "pub_date": "2026-08-25",
+        "abstract": "arXiv:2604.20821v3 Announce Type: replace Abstract: Deep generative models.",
+        "abstract_zh_full": "arXiv:2604.20821v3 发布类型：替换 摘要：深度生成模型的预测成功。",
+        "cross_score": 9, "me_score": 8, "me_reason": "与机器学习哈密顿量方向直接相关",
+        "method_point": "方法要点内容", "core_score": 0.9,
+    }], "core_weekly_note": "本周说明"}
+    html = render_core_weekly_section(summary)
+    assert "Alice Zhang, Bob Li" in html          # 作者
+    assert "2026-08-25" in html                    # 日期
+    assert "中文摘要" in html and "English Abstract" in html
+    assert "查看完整摘要" in html                  # 长摘要折叠，不再整段直出
+    assert "AI×科学交叉" in html and "方向匹配" in html
+    assert "与机器学习哈密顿量方向直接相关" in html
+    # 中文标题优先；英文作为副标题
+    assert html.index("深度生成模型中哈密顿量的自主涌现") < html.index("Autonomous Emergence")
+    # arXiv 公告前缀不得出现在正文里
+    assert "Announce Type" not in html and "发布类型" not in html
+
+
+def test_core_weekly_falls_back_to_english_title_without_translation():
+    """没有中文翻译时照旧显示英文标题，不能变成空标题。"""
+    from weekly_summary import render_core_weekly_section
+    html = render_core_weekly_section({"core_items": [{
+        "title": "Autonomous Emergence of Hamiltonian",
+        "title_en": "Autonomous Emergence of Hamiltonian",
+        "journal": "arXiv", "link": "https://arxiv.org/abs/1",
+    }]})
+    assert "Autonomous Emergence of Hamiltonian" in html
+    assert "未命名文献" not in html
+
+
+def test_focus_weekly_cards_gained_authors_and_abstract():
+    from weekly_summary import render_focus_weekly_section
+    html = render_focus_weekly_section([{
+        "title_zh": "通过滑移连续调控极化", "title": "Continuous polarization tuning",
+        "journal": "arXiv", "pub_date": "2026-08-24", "authors": ["Wei Chen"],
+        "link": "https://arxiv.org/abs/2", "focus_score": 10,
+        "abstract": "arXiv:2608.21162v1 Announce Type: new Abstract: We propose sliding.",
+        "abstract_zh": "该论文提出电驱动的长距离超润滑滑移。",
+        "focus_summary": "总结", "focus_relation": "关系", "focus_suggestion": "建议",
+    }])
+    assert "Wei Chen" in html and "2026-08-24" in html
+    assert "该论文提出电驱动的长距离超润滑滑移。" in html
+    assert "English Abstract" in html and "Announce Type" not in html
+    assert "Continuous polarization tuning" in html   # 英文副标题
+
+
+def test_weekly_chips_show_canonical_journal_not_raw_feed_title():
+    """卡片显示规范期刊名，不是原始 feed 标题。
+
+    归一化函数（顶刊闸门一直在用）早就有，只是展示这一侧没接，
+    结果卡片上写着 'Wiley: Advanced Science: Table of Contents'。
+    """
+    from weekly_summary import _weekly_meta_chips
+    html = _weekly_meta_chips({"journal": "Wiley: Advanced Science: Table of Contents"})
+    assert "Advanced Science" in html
+    assert "Table of Contents" not in html
+    assert "Wiley:" not in html
+    # 本来就规范的名字不能被洗坏
+    assert "arXiv" in _weekly_meta_chips({"journal": "arXiv"})
+    assert "Phys. Rev. X" in _weekly_meta_chips({"journal": "Phys. Rev. X"})

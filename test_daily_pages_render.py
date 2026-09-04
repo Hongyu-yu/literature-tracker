@@ -615,3 +615,55 @@ def test_daily_html_has_overview_svgs_relevance_bar_and_category_chip():
     assert page.count("class=\"daily-viz-svg\"") == 3
     assert "daily-relevance-bar" in page and "8.5" in page
     assert "daily-chip-category" in page and "AI×物理" in page
+
+
+def test_daily_card_shows_both_relevance_dimensions_and_why():
+    """日报卡片与邮件、周报统一：两条相关度 + 「为什么相关」。
+
+    此前只有一条相关度，取的还是 focus_score（五人团队画像分），
+    与邮件的交叉分、周报的双条各说各话。
+    """
+    from generate_daily_pages import render_unified_item
+    item = {
+        "title": "Machine learning interatomic potential for ferroelectric perovskites",
+        "title_zh": "面向铁电钙钛矿的机器学习原子间势",
+        "link": "https://arxiv.org/abs/1", "journal": "arXiv",
+        "authors": ["Alice Zhang", "Bob Li"],
+        "cross_score": 9, "me_score": 8,
+        "me_reason": "与机器学习势和自旋哈密顿量方向直接相关",
+        "summary": "该工作构建等变神经网络势。",
+    }
+    html = render_unified_item(item, 1)
+    assert "AI×科学交叉" in html and "方向匹配" in html
+    assert "is-cross" in html and "is-me" in html
+    assert "🎯 为什么相关" in html
+    assert "与机器学习势和自旋哈密顿量方向直接相关" in html
+    assert "Alice Zhang, Bob Li" in html          # 作者仍在
+    # 分组口径已换成交叉，芯片不该再挂 P1/P2/P3 字样
+    assert "P1 ·" not in html and "P3 ·" not in html
+
+
+def test_daily_card_strips_arxiv_announce_prefix_from_all_text():
+    from generate_daily_pages import render_unified_item
+    item = {
+        "title": "Spin dynamics", "title_zh": "自旋动力学",
+        "link": "https://arxiv.org/abs/2", "journal": "arXiv",
+        "abstract": "arXiv:2608.30338v1 Announce Type: new Abstract: Magnetic materials exhibit X.",
+        "abstract_zh": "arXiv:2608.30338v1 发布类型：新提交 摘要：磁性材料表现出丰富行为。",
+        "summary": "arXiv:2608.30338v1 Announce Type: new Abstract: Magnetic materials exhibit X.",
+    }
+    html = render_unified_item(item, 1)
+    assert "Announce Type" not in html
+    assert "发布类型" not in html
+    assert "磁性材料表现出丰富行为。" in html
+    assert "Magnetic materials exhibit X." in html
+
+
+def test_daily_card_why_falls_back_through_the_same_chain_as_email():
+    from generate_daily_pages import render_unified_item
+    base = {"title": "T", "title_zh": "标题", "link": "https://ex/1", "journal": "arXiv"}
+    assert "交叉理由" in render_unified_item({**base, "cross_reason": "交叉理由"}, 1)
+    assert "画像理由" in render_unified_item({**base, "focus_relation": "画像理由"}, 1)
+    # me_reason 优先级最高
+    html = render_unified_item({**base, "me_reason": "本人理由", "cross_reason": "交叉理由"}, 1)
+    assert "本人理由" in html and "🎯 为什么相关：交叉理由" not in html
