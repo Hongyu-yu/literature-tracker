@@ -1,35 +1,62 @@
 [
   {
-    "title": "Revisiting quantum effects on dislocation glide in bcc metals from DFT calculations and machine-learning potentials",
-    "title_zh": "用第一性原理和机器学习势重审体心立方金属位错滑移的量子效应",
-    "summary": "工作以体心立方金属位错滑移为对象，用密度泛函理论校准机器学习原子间势，重新评估零点运动对低温塑性的影响。核心创新是绕开经验势对位错能量景观的系统偏差。现有摘要仅明确量子效应存在贡献，未给出贡献幅度或跨材料比较。其方法可为缺陷动力学中的高精度势能面构建提供参考。",
-    "abstract": "arXiv:2606.17954v2 Announce Type: replace Abstract: Quantum zero-point effects have been long proposed to explain a well-known discrepancy between the low-temperature flow stresses of body-centered cubic metals and corresponding atomistic models of plastic flow. Previous investigations on quantum effects relied on empirical interatomic potentials, which poorly reproduce dislocation energy landscapes compared to density functional theory (DFT) calculations. Here, we revisit this problem using DFT and machine-learning interatomic potentials (MLIPs). We show that while quantum effects do contribute to dislocation glide at low temperature, their magnitude is much lower than previously reported, and insufficient to reconcile atomistic predictions with experiments. Our results thus reopen a long-standing question and challenge for predictive atomistic modeling, on a fundamental property of crystals.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2606.17954",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Resolving the Magnetic Ground-State Controversy in RuO2 through A Flat Magnetic Energy Landscape",
-    "title_zh": "通过平坦磁性能量景观解决RuO2磁基态争议",
-    "summary": "作者针对RuO2磁基态争议，构建同时包含海森堡交换、斯托纳磁性、朗道自旋涨落和自旋轨道耦合的环境依赖自旋—晶格模型。模型参数来自高通量第一性原理数据，并通过机器学习拟合后进行大尺度蒙特卡洛采样。核心结论是多个磁态可能处于平坦能量景观中，从而解释不同实验结果。该框架直接连接交替磁性、自旋—晶格耦合和有限温度磁序模拟。",
-    "abstract": "arXiv:2609.03274v1 Announce Type: new Abstract: Rutile RuO2 is a prominent candidate for altermagnetism, yet its magnetic ground state remains highly controversial, with experiments reporting either a nonmagnetic state or altermagnetic order. Here, we develop a generalized environment-dependent spin-lattice framework that unifies localized Heisenberg exchange, itinerant Stoner magnetism via Landau spin fluctuations, and spin-orbit-coupling-mediated spin-lattice interactions. Parameterized from a high-throughput first-principles database using machine-learning and solved by large-scale Monte Carlo simulations, the framework reveals an exceptionally flat magnetic energy landscape in RuO2, where the nonmagnetic state lies nearly degenerate with multiple altermagnetic configurations. We find that material perturbations, exemplified by intrinsic defects, select distinct magnetic ground states primarily by modifying the localized Heisenberg exchange, with perturbation-induced itinerant Stoner polarization provides an essential secondary contribution. Spin-orbit coupling controls the orientation and stability of the Néel vector, but does not determine the emergence of long-range magnetic order. These results provide a unified explanation for the conflicting experimental observations and establish a general microscopic framework for understanding how material perturbations select competing magnetic ground states in systems with nearly flat magnetic energy landscapes.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.03274",
-    "journal": "arXiv"
-  },
-  {
     "title": "SALTED: a symmetry-adapted machine-learning program for predicting electron-densities in molecules and materials",
-    "title_zh": "SALTED：对称性适配的分子与材料电子密度机器学习程序",
-    "summary": "SALTED将电子密度表示为原子中心展开，并通过对称性适配机器学习从结构直接预测n(r)。其核心创新不是只回归总能量或标量性质，而是学习可与原子轨道电子结构程序接口的空间电子密度。摘要未报告统一的误差、训练规模或材料案例。对材料模拟而言，这为机器学习电子结构、密度驱动性质和大体系后处理提供了通用软件基础。",
+    "title_zh": "SALTED：一种用于预测分子与材料电子密度的对称性适配机器学习程序",
+    "summary": "SALTED 是一个开源 Python 包，可基于原子坐标和元素种类学习分子及凝聚相体系的电子密度。该程序还可学习电子密度对外加电场的一阶响应，并已用于极化矢量、极化率张量及大尺度二维材料等计算任务。",
     "abstract": "arXiv:2609.03576v1 Announce Type: new Abstract: SALTED provides an open-source Python package for machine learning the quantum-mechanical electron density, n(r), in molecular and condensed-phase systems based on input atomic coordinates and species. The program adopts a linear atom-centered decomposition of the electron density, which makes it highly transferable across diverse atomistic configurations sharing similar chemical environments. Because of this representation choice, SALTED is naturally interfaced with state-of-the-art electronic-structure programs based on atomic orbitals, namely CP2K, FHI-aims, and PySCF, from which reference electron-density data can be generated and used to train a model. The learning algorithm is based on a symmetry-adapted extension of Gaussian process regression, making SALTED especially efficient in small-data regimes. Thanks to the implementation of vector-field kernel functions, SALTED can also learn the first-order response of the electron density to applied electric fields, partial n(r)/partial E. The application of SALTED within computational workflows has already shown its utility in a wide variety of contexts, including the calculation of polarization vectors and polarizability tensors, the accurate evaluation of Coulomb forces in QM/MM molecular-dynamics simulations, and electronic-structure studies of large-scale 2D materials.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.03576",
     "journal": "arXiv"
   },
   {
+    "title": "Machine learning interatomic potentials for solid-state precipitation",
+    "title_zh": "文献研究：Machine learning interatomic potentials for solid-state precipitation",
+    "summary": "该论文发展面向固态析出过程的机器学习原子间势，提出基于晶体对称性的结构相变枚举训练数据生成方案，并用半大正则 Kendall-τ 指标评估热力学排序精度。作者构建了 Mg-Nd 合金势函数，揭示了析出过程中化学有序与结构重排及连续 hcp-bcc 转变的耦合。",
+    "abstract": "Author(s): Lorenzo Piersante and Anirudh Raju Natarajan Machine-learning interatomic potentials now model complex alloys with near a b i n i t i o precision, but two challenges persist. Researchers must generate training data tailored to the physical process of interest, and they need validation metrics that go beyond simple statistical errors. Here the authors introduce a crystal-symmetry-based enumeration scheme for structural phase transformations in multicomponent alloys and a semi-grand-canonical Kendall-τ that quantifies thermodynamic accuracy across composition. These tools yield a general-purpose Mg-Nd potential. Simulations reveal a subtle interplay between chemical ordering and structural rearrangement and elucidate the continuous hcp-to-bcc transition underlying precipitation in this alloy. [Phys. Rev. Materials 10, 093802] Published Fri Sep 04, 2026",
+    "category": "AI×化学·材料",
+    "link": "http://link.aps.org/doi/10.1103/qyb1-7j1p",
+    "journal": "Editors' Suggestions"
+  },
+  {
+    "title": "Resolving the Magnetic Ground-State Controversy in RuO2 through A Flat Magnetic Energy Landscape",
+    "title_zh": "通过平坦磁性能量景观解析RuO₂磁基态争议",
+    "summary": "金红石结构RuO₂是反铁尔磁性的著名候选材料，但其实验磁基态存在非磁态与反铁尔磁有序两种相互矛盾的报道。本文建立了环境依赖型自旋—晶格理论框架，将局域海森堡交换、通过朗道自旋涨落描述的巡游斯通纳磁性以及自旋轨道耦合介导的自旋—晶格相互作用统一起来。机器学习参数化和大规模蒙特卡洛模拟显示，RuO₂具有极其平坦的磁性能量景观，非磁态与多种反铁尔磁构型近乎简并；缺陷等扰动可通过改变局域交换作用选择不同基态，而自旋轨道耦合主要控制奈尔矢量方向和稳定性。",
+    "abstract": "arXiv:2609.03274v1 Announce Type: new Abstract: Rutile RuO2 is a prominent candidate for altermagnetism, yet its magnetic ground state remains highly controversial, with experiments reporting either a nonmagnetic state or altermagnetic order. Here, we develop a generalized environment-dependent spin-lattice framework that unifies localized Heisenberg exchange, itinerant Stoner magnetism via Landau spin fluctuations, and spin-orbit-coupling-mediated spin-lattice interactions. Parameterized from a high-throughput first-principles database using machine-learning and solved by large-scale Monte Carlo simulations, the framework reveals an exceptionally flat magnetic energy landscape in RuO2, where the nonmagnetic state lies nearly degenerate with multiple altermagnetic configurations. We find that material perturbations, exemplified by intrinsic defects, select distinct magnetic ground states primarily by modifying the localized Heisenberg exchange, with perturbation-induced itinerant Stoner polarization provides an essential secondary contribution. Spin-orbit coupling controls the orientation and stability of the Néel vector, but does not determine the emergence of long-range magnetic order. These results provide a unified explanation for the conflicting experimental observations and establish a general microscopic framework for understanding how material perturbations select competing magnetic ground states in systems with nearly flat magnetic energy landscapes.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.03274",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Revisiting quantum effects on dislocation glide in bcc metals from DFT calculations and machine-learning potentials",
+    "title_zh": "基于密度泛函理论计算与机器学习势重新审视体心立方金属中位错滑移的量子效应",
+    "summary": "本文利用密度泛函理论和机器学习原子间势重新研究低温下体心立方金属位错滑移中的量子效应。结果表明，量子效应确实会影响低温位错滑移，但其幅度远低于先前报道的结果，无法解释原子尺度塑性流动模型与实验之间的差异。研究因此重新提出了晶体基本性质预测性原子模拟中的一个长期问题。",
+    "abstract": "arXiv:2606.17954v2 Announce Type: replace Abstract: Quantum zero-point effects have been long proposed to explain a well-known discrepancy between the low-temperature flow stresses of body-centered cubic metals and corresponding atomistic models of plastic flow. Previous investigations on quantum effects relied on empirical interatomic potentials, which poorly reproduce dislocation energy landscapes compared to density functional theory (DFT) calculations. Here, we revisit this problem using DFT and machine-learning interatomic potentials (MLIPs). We show that while quantum effects do contribute to dislocation glide at low temperature, their magnitude is much lower than previously reported, and insufficient to reconcile atomistic predictions with experiments. Our results thus reopen a long-standing question and challenge for predictive atomistic modeling, on a fundamental property of crystals.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2606.17954",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Orbital-Free DFT-Assisted Machine-Learned Molecular Dynamics for Electric-Field-Driven Ionic Transport",
+    "title_zh": "面向电场驱动离子输运的 orbital-free DFT 辅助机器学习分子动力学",
+    "summary": "本文提出一种结合 orbital-free 密度泛函理论与机器学习势的分子动力学方法，用于更低成本地模拟外电场下的离子输运。该方法在 β-Li3PS4 体相与 S8/Li3PS4 异质结构上进行了验证，能够再现 Li 迁移及界面电荷状态变化的关键特征。",
+    "abstract": "arXiv:2609.03518v1 Announce Type: new Abstract: We propose an orbital-free density functional theory (OFDFT)-assisted machine-learned molecular dynamics method in which field-independent interatomic forces are evaluated using a machine-learned potential and atomic charges that depend on the local environment are obtained from OFDFT calculations. The atomic charges obtained by Bader partitioning of the OFDFT electron density are multiplied by the electric-field vector and added to the forces from the machine-learned potential. This approach enables molecular dynamics simulations under an electric field at a lower computational cost than Kohn-Sham DFT (KSDFT)-based molecular dynamics. As a proof of concept, the method was applied to beta-Li3PS4 bulk and an S8/Li3PS4 heterostructure under periodic boundary conditions. For Li3PS4 bulk, OFDFT yielded Li charges and a total charge of the PS4 unit consistent with those obtained using KSDFT. In the heterostructure, Li ions migrated from the Li3PS4 region into the S-rich region within a simulation time of approximately 170 ps. Accompanying this migration, the mean Bader charge of the S atoms that initially formed S8 rings changed from nearly neutral to negative. A comparison with KSDFT for a representative interfacial structure also confirmed that the negative charging of the S atoms upon the arrival of Li and the magnitude of the Li charges were qualitatively reproduced. These results demonstrate the possibility of treating field-driven ionic transport and changes in interfacial charge states using a universal machine-learned potential without training an additional material-specific charge-prediction model.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2609.03518",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Field-aware and charge-informed machine learning for predicting molecular and condensed-phase responses and vibrational spectra",
+    "title_zh": "文献研究：Field-aware and charge-informed machine learning for predicting molecular and condensed-phase responses and vibrational spectra",
+    "summary": "该工作研究结合外场信息和电荷信息的机器学习方法，用于预测分子及凝聚态体系的响应性质和振动光谱。其核心可能涉及电荷分布、外场响应、振动模式与机器学习表示之间的协同建模。",
+    "abstract": "npj Computational Materials, Published online: 04 September 2026; doi:10.1038/s41524-026-02293-6 Field-aware and charge-informed machine learning for predicting molecular and condensed-phase responses and vibrational spectra",
+    "category": "AI×化学·材料",
+    "link": "https://www.nature.com/articles/s41524-026-02293-6",
+    "journal": "npj Computational Materials"
+  },
+  {
     "title": "Physics-Informed Neural Network Surrogate for Oxygen Vacancy Dynamics in epitaxial SrTiO₃ on Si memristors via Dynamic Spectral Optimization",
-    "title_zh": "用动态谱优化物理信息神经网络模拟SrTiO3/Si忆阻器氧空位动力学",
-    "summary": "该工作面向Pt/SrTiO3/Si忆阻器中的氧空位—电子耦合输运，使用级联物理信息神经网络处理薄膜与衬底之间的多尺度差异。动态谱优化器采用二阶切比雪夫第二类多项式，以缓解漂移扩散方程的刚性。模型明确覆盖20纳米SrTiO3和380微米Si，但摘要未报告预测误差或器件实验对比。其价值在于把缺陷动力学代理模型推进到器件尺度。",
+    "title_zh": "通过动态谱优化预测外延SrTiO₃/Si忆阻器中的氧空位动力学的物理信息神经网络替代模型",
+    "summary": "本文提出一种级联物理信息神经网络架构，并结合定制的二阶第二类切比雪夫多项式谱优化器DSO V2 Hybrid，用于模拟Pt/SrTiO₃/Si忆阻异质结构中的离子-电子漂移扩散输运。通过将电势、载流子密度和空位输运分配给四个依次训练的子神经网络，该模型在不采用算子分裂的情况下处理了超过10¹⁶的条件数。训练后的替代模型能够重现实验导电原子力显微镜电流-电压滞回特性，R²大于0.96，同时保持连续空间中的严格泊松一致性；与传统有限元求解器相比，它支持可微分的逆参数估计，并实现线性时间推理。",
     "abstract": "arXiv:2609.02966v1 Announce Type: new Abstract: Physics-informed neural networks (PINNs) offer a promising framework for modeling semiconductor devices, yet standard architectures struggle with severe numerical stiffness and multiscale spatial discrepancies inherent to oxide heterostructures. Here, we demonstrate a cascaded PINN architecture coupled with a custom second-order Chebyshev second kind polynomial spectral optimizer (DSO V2 Hybrid) to model ion-electronic drift-diffusion transport in Pt/SrTiO₃/Si memristive heterostructures across a 20 nm STO film on a 380 μm Si substrate. By isolating potential, carrier density, and vacancy transport into four sequentially trained sub-neural-networks, our model circumvents condition numbers exceeding 10¹⁶ without operator splitting. The trained surrogate reproduces experimental conductive-AFM current-voltage hysteresis (R² > 0.96) while ensuring strict Poisson consistency across continuous space. Compared to conventional finite-element solvers (e.g., COMSOL), the PINN surrogate enables differentiable inverse parameter estimation and linear time inference.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.02966",
@@ -37,17 +64,35 @@
   },
   {
     "title": "Scaling Neural Network Quantum States for Ab Initio Quantum Chemistry",
-    "title_zh": "面向从头算量子化学的神经网络量子态规模扩展",
-    "summary": "工作系统考察物理条件自回归神经网络量子态的容量与训练预算，而不是只报告单一模型的最终能量。作者在两个六分子基准上比较8种模型规模和5个优化节点，指出大模型只有在优化充分时才体现容量优势。定量结论目前仅限于误差依赖关系，摘要没有列出绝对能量精度。该结果对高精度波函数学习的算力分配和收敛诊断有直接方法论价值。",
+    "title_zh": "用于从头算量子化学的神经网络量子态扩展",
+    "summary": "神经网络量子态能够在不显式枚举行列式空间的情况下表示多电子波函数，但其精度同时取决于模型规模和变分优化投入。本文基于两个六分子源基准，系统考察了八种模型规模和五个优化阶段下二者对能量误差及计算成本的共同影响，并提出交互缩放定律以刻画这种耦合关系。所得误差—计算量帕累托前沿可用于在给定计算预算内联合选择模型规模和优化步数；该有利的缩放趋势在留出氮分子上的微调中也得以保持。",
     "abstract": "arXiv:2609.02929v1 Announce Type: new Abstract: Neural-network quantum states (NNQSs) can represent many-electron wave functions without explicitly enumerating the determinant space, but their accuracy depends jointly on model size and variational-optimization effort. Here we characterize this dependence for a physics-conditioned autoregressive NNQS trained separately on two six-molecule source benchmarks. Across eight model sizes and five optimization milestones, we find that model size and optimization steps jointly shape the energy error. The capacity advantage of larger models becomes more apparent with sufficient optimization, while the returns from additional optimization vary with model size. We capture this coupling using an interaction scaling law and quantify the cumulative compute of each evaluated configuration. The resulting error-compute Pareto frontiers provide a practical decision rule for jointly selecting model size and optimization steps under a given compute budget within the evaluated range. Furthermore, we find that this beneficial scaling trend persists during fine-tuning on held-out N₂. Pretrained models show decreasing error with increasing model size, with a steeper reduction following pretraining on the Hard benchmark. Together, these results place autoregressive neural quantum states within the broader landscape of empirical neural scaling and open a quantitative route toward the systematic scaling of neural quantum solvers for ab initio quantum chemistry.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.02929",
     "journal": "arXiv"
   },
   {
+    "title": "Accelerated stable structure prediction of Li-intercalated bilayer graphene using a data-efficient deep learning framework",
+    "title_zh": "文献研究：Accelerated stable structure prediction of Li-intercalated bilayer graphene using a data-efficient deep learning framework",
+    "summary": "npj Computational Materials, Published online: 04 September 2026; doi:10.1038/s41524-026-02314-4 Accelerated stable structure prediction of Li-intercalated bilayer graphene using a data-efficient deep…",
+    "abstract": "npj Computational Materials, Published online: 04 September 2026; doi:10.1038/s41524-026-02314-4 Accelerated stable structure prediction of Li-intercalated bilayer graphene using a data-efficient deep learning framework",
+    "category": "AI×化学·材料",
+    "link": "https://www.nature.com/articles/s41524-026-02314-4",
+    "journal": "npj Computational Materials"
+  },
+  {
+    "title": "Interplay of B-Site Off-Centering and Molecular Orientations in the Mixed Hybrid Perovskite MAGe1xSnxI3",
+    "title_zh": "B 位离心偏移与分子取向在混合杂化钙钛矿 MAGe1−xSnxI3 中的相互作用",
+    "summary": "该研究利用机器学习原子间势驱动的大规模分子动力学，系统描绘了 MAGe1−xSnxI3 在全组分范围内的结构演化。结果表明，Ge-rich 与 Sn-rich 端成员在 B 位偏心、八面体倾斜以及 MA 分子取向有序之间存在显著耦合。",
+    "abstract": "arXiv:2609.03510v1 Announce Type: new Abstract: B-site mixing is a common strategy for tuning properties of halide perovskites. In the lead-free system MAGe1-xSnₓI3, it brings tilting and off-centering into competition. Using large-scale molecular dynamics driven by a machine-learned interatomic potential, we map the structural behavior across the full composition range. MAGeI3 exhibits strong polar B-site off-centering that remains nearly constant up to the cubic transition, together with methylammonium (MA) orientational order that weakens progressively on heating. By contrast, MASnI3 combines octahedral tilting with weaker, predominantly antipolar off-centering. Ge-like behavior persists upon alloying and gives way to Sn-like behavior only beyond roughly 65 % Sn. In the high-temperature phases, the B-site cations remain locally off-centered but directionally disordered. On the Ge-rich side, the distorted inorganic framework biases the soft MA orientational landscape toward a restricted set of preferred directions. This coupling shows how the composition of the inorganic sublattice can tune molecular ordering in lead-free hybrid perovskites.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2609.03510",
+    "journal": "arXiv"
+  },
+  {
     "title": "Computing high-order mixed derivatives in physics-informed neural networks using multi-index Bell polynomials",
-    "title_zh": "用多指标贝尔多项式计算物理信息神经网络高阶混合导数",
-    "summary": "作者为高阶偏微分方程的物理信息神经网络提出多指标贝尔多项式导数算法。方法在预先指定的向下闭合多指标集合上递推计算混合导数，并同步构造参数梯度，避免逐阶重复自动微分。摘要强调只保留方程需要的导数，但未提供具体内存、时间或误差数字。该工具适合涉及高阶空间导数、混合偏导和刚性方程的科学机器学习模型。",
+    "title_zh": "利用多指标Bell多项式计算物理信息神经网络中的高阶混合导数",
+    "summary": "针对高阶偏微分方程的物理信息神经网络需要计算混合输入导数及其关于网络参数的梯度。本文组织多变量Faà di Bruno公式的前向递推，并在预先给定的向下封闭多指标集合上实现显式反向传播，从而避免嵌套计算图，同时仅携带微分算子所需的导数。该方法通过独立Taylor喷流实现、符号检验和有限差分验证了七阶以内的导数与损失梯度，并在单核CPU上计算了四个输入、七阶以内的330个混合导数及相应梯度而未出现若干嵌套实现中的内存故障。",
     "abstract": "arXiv:2609.03768v1 Announce Type: new Abstract: Physics-informed neural networks for high-order partial differential equations require mixed input derivatives and their gradients with respect to the network parameters. Standard implementations obtain an order-K derivative by repeated automatic differentiation. We instead organize the forward recursion of the multivariate Faà di Bruno formula and its explicit backpropagation over a prescribed downward-closed set of multi-indices, with the Bell-polynomial convolutions tabulated once. The forward pass carries only the derivatives the differential operator requires. The backward pass propagates gradients from losses formed from any subset of them, including nonlinear products and coupled fields. Both recursions are exact up to roundoff and avoid nested computational graphs. An independent Taylor-jet implementation, symbolic checks of the test problems, and finite differences verify derivatives and loss gradients through order seven. On one CPU core, the method evaluates 330 mixed derivatives with respect to four inputs through order seven and the corresponding loss gradient without the memory failures observed for several nested implementations. Numerical tests include third-, fifth-, and seventh-order dispersive equations, incompressible flow, and a manufactured five-field electrohydrodynamic system. The seventh-order Zakharov-Kuznetsov test in 3+1 dimensions has a relative solution error of 6×10⁻⁴.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.03768",
@@ -55,35 +100,17 @@
   },
   {
     "title": "Computing stable configurations of confined smectic liquid crystals with a deep variational framework",
-    "title_zh": "用深度变分框架计算受限向列相液晶的稳定构型",
-    "summary": "工作针对受限层状向列相液晶的复杂稳定构型，采用深度变分框架最小化修正Landau–de Gennes自由能。方法同时处理取向场与高频周期密度调制，避免把层状结构粗粒化掉。摘要没有报告具体几何案例、收敛误差或相较传统离散方法的加速倍数。其可借鉴之处是用神经网络参数化连续序参量并直接进行能量变分。",
+    "title_zh": "利用深度变分框架计算受限 smectic 液晶的稳定构型",
+    "summary": "本文提出一种深度变分框架，用于在修正的 Landau--de Gennes 模型中计算受限 smectic 液晶的稳定构型。该方法通过坐标映射处理物理约束，并引入预热惩罚项以缓解神经网络对平滑非层状场的谱偏置，从而更稳健地恢复振荡的 smectic 态。",
     "abstract": "arXiv:2609.03389v1 Announce Type: new Abstract: Smectic liquid crystals are layered liquid-crystalline phases characterized by orientational order and periodic density modulation. Although their structures can be modeled using continuum theories, computing stable configurations remains challenging in complex geometries, particularly when the high-frequency density modulations associated with smectic layering should be resolved. We propose a deep variational framework (DVF) for computing these configurations within the modified Landau--de Gennes model, in which the coupled orientational and positional order parameters are represented on a regular reference domain while physical confinement is incorporated through coordinate mappings. A warmup penalty mitigates the spectral bias of neural networks toward smooth, nonlayered fields, enabling robust recovery of oscillatory smectic states. Comparisons with a neural-network baseline and finite-difference relaxation demonstrate the essential role of this penalty and the numerical stability of the resulting layered states. The DVF reproduces experimentally established smectic-A defect structures and layer morphologies across diverse confinement geometries and further predicts a chevron-like smectic-C state in a tangent-anchored sphere. Together, these results demonstrate the applicability of the DVF to computing stable smectic configurations across experimentally relevant confinement geometries and anchoring conditions.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2609.03389",
     "journal": "arXiv"
   },
   {
-    "title": "Observation-Aligned Two-Stage Domain Decomposition for Physics-Informed Traffic State Estimation with Sparse Fixed Sensors",
-    "title_zh": "面向稀疏固定传感器交通状态估计的观测对齐两阶段区域分解",
-    "summary": "该工作用两阶段区域分解PINN重建稀疏传感器下的交通速度场，物理方程采用LWR模型。核心设计是让区域划分与观测位置对齐，并分别进行空间、时间或时空细化，以保留激波等尖锐转变。空间细化取得最低平均误差，但摘要未给出绝对数值和跨路网泛化结果。与材料团队的关系主要在PINN训练策略，而非物理体系。",
-    "abstract": "arXiv:2605.08028v2 Announce Type: replace Abstract: Traffic state estimation from sparse fixed sensors is challenging because physics-informed neural networks (PINNs) tend to over-smooth sharp transitions admitted by the Lighthill-Whitham--Richards (LWR) model. This study proposes Two-Stage Domain Decomposition Physics-Informed Neural Networks (TSDD-PINN), an observation-aligned framework for LWR-based offline speed-field reconstruction. The framework supports spatial, temporal, and space--time refinement. Matched direction analysis shows that spatial refinement has the lowest mean error and less than half the training time of space--time refinement in the tested setting, while temporal refinement is faster. A global parent PINN is first trained. In the controlled spatial implementation, its residual profile guides a deterministic partition for warm-started child networks. An optional operational safeguard retains Stage~1 when the prespecified screen does not activate. The primary I-24 MOTION evaluation spans five days, five sensor configurations, and ten seeds per configuration, yielding 1,500 runs. Controlled TSDD-PINN attains the lowest relative L₂ error in 18 of 25 configurations and 14 of 15 sparse-sensing cases, while training 2.4 times faster than the extended PINN (XPINN) baseline under the evaluated implementations and training budgets. Non-neural comparisons show that the advantage over interpolation is concentrated under sparse sensing, whereas dense sensing often favors interpolation. A separate 250-run operational evaluation finds infrequent activation and motivates the Stage-1-preserving safeguard. The residual is treated as an indicator of model difficulty rather than a validated shock detector. The evidence supports a sensing-density-dependent operating range rather than uniform improvement.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2605.08028",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Adaptive Learning of Periodic Solutions for Nonlinear Systems by Physics-informed Gaussian Process",
-    "title_zh": "用物理信息高斯过程自适应学习非线性系统周期解",
-    "summary": "工作以物理信息高斯过程求解非线性动力系统的周期解，避免预先选定固定基函数。作者为高斯过程设计物理约束的周期核与均值函数，并通过控制方程配点自适应产生训练观测。摘要没有报告具体系统、周期误差或与PINN的定量比较。方法的主要价值是用贝叶斯非参数表示处理周期边界和不确定性。",
-    "abstract": "This paper presents a novel physics-informed Gaussian process (PIGP) for the adaptive computation of periodic solutions to nonlinear dynamical systems. The proposed approach is built upon two key steps. First, the Gaussian process (GP), as a Bayesian non-parametric machine learning framework, is employed to approximate the periodic solution without requiring a predetermined set of basis functions. To this end, tailored physics-informed periodic kernel and mean functions are constructed for GP regression. The nonlinear governing equation is then collocated to generate observational data, and in conjunction with an iterative linearization scheme, the periodic solution is obtained with both mean and covariance information. Second, recognizing that the performance of GP regression critically depends on the selection of collocation points, an adaptive collocation strategy based on variance-or residual-based criterion is developed to enable accurate and efficient solving of nonlinear systems. Numerical examples are conducted to validate the accuracy, robustness, and efficiency of the proposed PIGP. Notably, under the same level of accuracy, the PIGP demonstrates superior computational efficiency compared to the widely-recognized harmonic balance method (HBM).",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-10615567/latest",
-    "journal": "Preprints"
-  },
-  {
     "title": "Unveiling the Activity Descriptors for Metal Nanoclusters-N4C as Electrocatalysts through Machine Learning and Experimental Validation",
-    "title_zh": "用机器学习和实验验证揭示金属纳米团簇N4C电催化剂活性描述符",
-    "summary": "工作针对N4C金属纳米团簇的氧析出反应活性，联合高通量密度泛函理论、机器学习描述符分析和实验验证。核心问题是团簇增减一个原子就可能改变位点电子结构，作者试图从高维结构数据中提取可解释电子描述符。摘要未报告具体催化剂、预测误差或实验性能。其亮点在于把黑箱活性预测推进到原子级描述符筛选。",
+    "title_zh": "通过机器学习与实验验证揭示金属纳米团簇-N4C电催化剂的活性描述符",
+    "summary": "金属纳米团簇的催化机理难以解释，因为每增加或移除一个原子，其性质都可能发生显著变化。本文结合高通量密度泛函理论筛选和机器学习电子描述符分析，研究了负载于氮掺杂石墨烯上的62种地球丰产金属纳米团簇，并将Ni19@N4C确定为最具活性的析氧反应催化剂，理论过电位为0.39 V。随机森林回归模型表现最佳，d带前沿向下为主要电子描述符；实验合成的NiNC@NGC催化剂获得了460 mV的校正过电位和94 mV dec−1的Tafel斜率，接近商业RuO2的性能。",
     "abstract": "Metal nanoclusters are very difficult to explain as catalysts. Unlike bulk metals, their properties change significantly with every atom added or removed, making it nearly impossible to explain and predict the site-specific activity of the given catalytic reaction using traditional approaches. This unpredictability has made the explanation and rational design of nanocluster catalysts a long-standing open problem. Here, this complexity is resolved for the oxygen evolution reaction (OER) through a combined high-throughput DFT screening and machine learning-driven electronic descriptor analysis of 62 earth-abundant metal nanoclusters (Fe, Co, Ni; n = 5–38) supported on nitrogen-doped graphene. Evaluation of 211 distinct surface sites identifies Ni19@N4C as the most active catalyst, with optimal d-orbital occupancy and metal-adsorbate bonding strength (ICOHP), delivering a theoretical overpotential of 0.39 V. ΔGOOH is identified as the key energy descriptor for predicting overpotential(η). Integration of these datasets into a machine learning framework reveals that the Random Forest Regression model (R2 = 0.87) is the best one, with the d-band frontier down(df(::downarrow:)) as the primary electronic descriptor in the multi-descriptor framework, confirming that local frontier orbitals near the Fermi level affect reactivity in these confined systems. The computational predictions led to the synthesis of the NiNC@NGC catalyst, which underwent electrochemical testing. The experimental trends confirmed the theoretical findings with an IR-corrected overpotential(η10) of 460 mV and a Tafel slope of 94 mV dec− 1, which is comparable to the performance of commercial RuO2. This work provides an explainable, descriptor-based framework for decoding the electronic complexity of metal nanocluster catalysts and offers a reliable computational pathway for accelerating the discovery of scalable, earth-abundant OER electrocatalysts.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10760815/latest",
@@ -91,8 +118,8 @@
   },
   {
     "title": "Beyond DFT: Quantum Chaos and Neural Networks for 2D Material Device Design",
-    "title_zh": "超越密度泛函理论：用量子混沌和神经网络设计二维材料器件",
-    "summary": "工作以硒掺杂MoS2场效应晶体管为对象，用多层感知机预测Brody参数和电流—电压曲线，试图替代部分从头算成本。测试集R²超过0.93，模型学习到偏压、杂质浓度和晶格尺寸对量子混沌的依赖。核心结论是量子稳定性具有器件条件依赖性，而非完全由材料固有决定。摘要未说明训练数据来源及是否存在密度泛函理论外推验证。",
+    "title_zh": "文献研究：Beyond DFT: Quantum Chaos and Neural Networks for 2D Material Device Design",
+    "summary": "该工作用量子混沌理论和多层感知机神经网络预测 Se 掺杂 MoS2 场效应晶体管中的 Brody 参数和电流-电压特性，声称不依赖 DFT 即可进行快速器件设计。主要结论是量子稳定性可由偏压、杂质浓度和体系尺寸调控，并提出体系尺寸控制从可积到混沌转变的标度关系。",
     "abstract": "Accurate prediction of quantum stability in Selenium-doped MoS 2 field-effect transistors (FETs) remains challenging due to the computational cost of ab initio methods. Here, we combine quantum chaos theory with a multilayer perceptron (MLP) neural network to predict the Brody parameter (β) and current-voltage characteristics without relying on density functional theory. Our MLP model achieves R 2 > 0.93 on test data, accurately capturing the dependence of quantum chaos on bias voltage, impurity concentration, and lattice size. We demonstrate that quantum stability is tunable, not intrinsic, and uncover a universal scaling law where system size governs the transition from integrable to chaotic behavior. This framework bridges atomistic theory and device engineering, enabling rapid design of stable MoS 2-based electronic devices.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10784136/latest",
@@ -100,83 +127,56 @@
   },
   {
     "title": "Accurate predictions of mechanical properties using active learning on local chemical configurations: A case study of WC–Co composites",
-    "title_zh": "利用局域化学构型主动学习准确预测WC–Co复合材料力学性质",
-    "summary": "文章以WC–Co硬质复合材料为对象，考察局域化学构型与主动学习结合后的力学性质预测。现有信息没有说明预测的是弹性、强度还是断裂性质，也没有给出模型、采样准则或误差。可确认的唯一方法学亮点是将局域环境表示用于主动数据选择。由于摘要缺失，不能判断其是否包含第一性原理数据或大尺度模拟。",
+    "title_zh": "利用局域化学构型上的主动学习准确预测力学性能：以WC-Co复合材料为例",
+    "summary": "该研究围绕利用局域化学构型上的主动学习方法预测WC-Co复合材料力学性能展开。工作发表在《计算材料科学》上，作者为Faridun N. Jalolov、Viktor S. Baidyshev和Alexander G. Kvashnin。由于所提供信息仅包含题名、作者和出版元数据，具体方法、结果及结论需查阅原文。",
     "abstract": "Publication date: 25 August 2026 Source: Computational Materials Science, Volume 273 Author(s): Faridun N. Jalolov, Viktor S. Baidyshev, Alexander G. Kvashnin",
     "category": "AI×化学·材料",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004817?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
   },
   {
-    "title": "Influence of Extruded Filament Shape on Buildability in 3D Concrete Printing: A Geometry-Informed Deep Learning-FEM Approach",
-    "title_zh": "挤出丝形状对3D混凝土打印可建造性的影响：几何感知深度学习—有限元方法",
-    "summary": "工作把深度学习预测的真实挤出丝形状输入逐层激活有限元，分析几何形貌对3D混凝土打印可建造性的影响。核心创新是避免将每层简化为矩形，从而保留沉积截面和层间几何误差。摘要未提供ShapeGen3DCP的训练数据、有限元误差或结构失稳阈值。对材料模拟的启发是把机器学习几何代理与力学求解器进行双向耦合。",
-    "abstract": "arXiv:2609.04028v1 Announce Type: cross Abstract: The geometric morphology of deposited filaments can significantly influence the structural performance and stability of 3D concrete-printed (3DCP) structures. However, most finite element (FEM)-based approaches for buildability assessment represent printed layers as simplified rectangles, potentially limiting predictive accuracy. This study proposes a geometry-informed modelling framework that integrates the deep-learning-based filament shape prediction tool ShapeGen3DCP with a layer-activation FEM approach to investigate the effect of realistic filament geometries on buildability. The framework generates geometry-aware numerical models directly from material and process parameters, eliminating the need for experimental filament characterization or computationally intensive fluid-flow simulations. Validation against experimental data and a parametric study of rectilinear walls demonstrate that extrusion parameters and the resulting filament geometry can significantly influence buildability predictions. Realistic filament representations are particularly important for free-flow deposition, whereas layer-pressing strategies are less sensitive to geometric simplifications. Among the investigated representations, an elliptical approximation provides an effective balance between geometric fidelity and modelling simplicity. When rectangular representations are preferred to enable regular computational meshes for faster simulations, defining their dimensions based on volume conservation improves prediction reliability compared with calibrating them using either the maximum filament width or the interlayer contact width. Overall, the proposed methodology demonstrates the importance of incorporating filament geometry into 3DCP simulations and provides practical guidance for selecting efficient and accurate geometric representations for buildability assessment.",
-    "category": "AI×化学·材料",
-    "link": "https://arxiv.org/abs/2609.04028",
-    "journal": "arXiv"
-  },
-  {
     "title": "Oscillating Heat Transfer Prediction in Porous Structures Using Generative AI-Assisted Explainable Machine Learning",
-    "title_zh": "用生成式人工智能和可解释机器学习预测多孔结构振荡传热",
-    "summary": "作者将条件或无条件生成式网络、格子玻尔兹曼模拟和可解释机器学习组合，用于多孔结构振荡流传热预测。wGAN负责生成多样拓扑，LBM提供数值标签，嵌套交叉验证评估泛化并分析几何—热性能关系。摘要未报告数据量、振荡频率范围或预测误差。方法可作为能源材料中结构生成、输运计算和可解释代理建模的参考。",
+    "title_zh": "文献研究：Oscillating Heat Transfer Prediction in Porous Structures Using Generative AI-Assisted Explainable Machine Learning",
+    "summary": "该工作利用生成式人工智能生成多孔结构，并结合格子玻尔兹曼方法和可解释机器学习预测振荡流动下的传热性能。研究以平均努塞尔数为目标，比较了多种机器学习模型并分析了几何和流动参数的重要性。",
     "abstract": "arXiv:2509.11863v1 Announce Type: cross Abstract: Predicting and interpreting thermal performance under oscillating flow in porous structures remains a critical challenge due to the complex coupling between fluid dynamics and geometric features. This study introduces a data-driven wGAN-LBM-Nested_CV framework that integrates generative deep learning, numerical simulation based on the lattice Boltzmann method (LBM), and interpretable machine learning to predict and explain the thermal behavior in such systems. A wide range of porous structures with diverse topologies were synthesized using a Wasserstein generative adversarial network with gradient penalty (wGAN-GP), significantly expanding the design space. High-fidelity thermal data were then generated through LBM simulations across various Reynolds (Re) and Strouhal numbers (St). Among several machine learning models evaluated via nested cross-validation and Bayesian optimization, XGBoost achieved the best predictive performance for the average Nusselt number (Nu) (R²=0.9981). Model interpretation using SHAP identified the Reynolds number, Strouhal number, porosity, specific surface area, and pore size dispersion as the most influential predictors, while also revealing synergistic interactions among them. Threshold-based insights, including Re > 75 and porosity > 0.6256, provide practical guidance for enhancing convective heat transfer. This integrated approach delivers both quantitative predictive accuracy and physical interpretability, offering actionable guidelines for designing porous media with improved thermal performance under oscillatory flow conditions.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2509.11863",
     "journal": "arXiv"
   },
   {
+    "title": "Influence of Extruded Filament Shape on Buildability in 3D Concrete Printing: A Geometry-Informed Deep Learning-FEM Approach",
+    "title_zh": "挤出丝材形状对 3D 混凝土打印可建造性的影响：一种几何信息驱动的深度学习-FEM 方法",
+    "summary": "本文提出一种几何信息建模框架，将基于深度学习的丝材形状预测工具 ShapeGen3DCP 与层激活有限元方法结合，用于评估真实丝材几何对 3D 混凝土打印可建造性的影响。实验验证和参数研究表明，挤出参数及其导致的丝材几何会显著影响可建造性预测，尤其是在自由流动沉积中。研究还指出椭圆近似在几何保真度和建模简洁性之间较为均衡，而基于体积守恒定义矩形表示可提升快速仿真的可靠性。",
+    "abstract": "arXiv:2609.04028v1 Announce Type: cross Abstract: The geometric morphology of deposited filaments can significantly influence the structural performance and stability of 3D concrete-printed (3DCP) structures. However, most finite element (FEM)-based approaches for buildability assessment represent printed layers as simplified rectangles, potentially limiting predictive accuracy. This study proposes a geometry-informed modelling framework that integrates the deep-learning-based filament shape prediction tool ShapeGen3DCP with a layer-activation FEM approach to investigate the effect of realistic filament geometries on buildability. The framework generates geometry-aware numerical models directly from material and process parameters, eliminating the need for experimental filament characterization or computationally intensive fluid-flow simulations. Validation against experimental data and a parametric study of rectilinear walls demonstrate that extrusion parameters and the resulting filament geometry can significantly influence buildability predictions. Realistic filament representations are particularly important for free-flow deposition, whereas layer-pressing strategies are less sensitive to geometric simplifications. Among the investigated representations, an elliptical approximation provides an effective balance between geometric fidelity and modelling simplicity. When rectangular representations are preferred to enable regular computational meshes for faster simulations, defining their dimensions based on volume conservation improves prediction reliability compared with calibrating them using either the maximum filament width or the interlayer contact width. Overall, the proposed methodology demonstrates the importance of incorporating filament geometry into 3DCP simulations and provides practical guidance for selecting efficient and accurate geometric representations for buildability assessment.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2609.04028",
+    "journal": "arXiv"
+  },
+  {
     "title": "FPGA Implementation of a CNN-based Topological Trigger for HL-LHC",
-    "title_zh": "用于高亮度大型强子对撞机的基于卷积神经网络拓扑触发器的FPGA实现",
-    "summary": "工作面向高亮度大型强子对撞机在线触发，将卷积神经网络部署到FPGA并处理完整事件图像。核心约束是同时满足分类性能、片上资源和极低延迟，作者通过硬件感知网络优化筛选候选模型。摘要未给出具体延迟、功耗、资源利用率或物理效率。它对团队的直接材料交叉很弱，但对科学机器学习的边缘部署有方法参考价值。",
+    "title_zh": "面向高亮度大型强子对撞机的基于卷积神经网络拓扑触发器的FPGA实现",
+    "summary": "本文研究了在可编程逻辑中实现卷积神经网络，以用于强子对撞机的快速在线事例选择。研究重点是基于完整事例图像的分类方法，并结合硬件感知的网络架构优化和模拟数据上的物理性能评估。结果表明，某一候选模型可部署于CMS高亮度大型强子对撞机一级触发器，并能在HH→bbbb道中实现出色的信号与背景判别，但其性能高度依赖图像生成前对堆积效应的抑制程度。",
     "abstract": "arXiv:2503.09428v2 Announce Type: replace Abstract: The implementation of convolutional neural networks in programmable logic, for applications in fast online event selection at hadron colliders, is studied. In particular, an approach based on full event images for classification is studied, including hardware-aware optimisation of the network architecture, and evaluation of physics performance using simulated data. A range of network models are identified that can be implemented within resources of current FPGAs, as well as the stringent latency requirements of HL-LHC trigger systems. A candidate model that can be implemented in the CMS L1 trigger for HL-LHC is shown to be capable of excellent signal/background discrimination for a key HL-LHC channel, HH(bbbb), although the performance depends strongly on the degree of pile-up mitigation prior to image generation.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2503.09428",
     "journal": "arXiv"
   },
   {
+    "title": "Adaptive Learning of Periodic Solutions for Nonlinear Systems by Physics-informed Gaussian Process",
+    "title_zh": "基于物理信息高斯过程的非线性系统周期解自适应学习",
+    "summary": "本文提出一种物理信息高斯过程（PIGP），用于自适应计算非线性动力系统的周期解。该方法利用专门构造的物理信息周期核函数和均值函数近似周期解，并结合控制方程配置与迭代线性化获得解及其均值和协方差信息。研究还提出基于方差或残差准则的自适应配置策略，数值算例表明，该方法具有较高的精度、稳健性和效率，并在相同精度下优于谐波平衡法。",
+    "abstract": "This paper presents a novel physics-informed Gaussian process (PIGP) for the adaptive computation of periodic solutions to nonlinear dynamical systems. The proposed approach is built upon two key steps. First, the Gaussian process (GP), as a Bayesian non-parametric machine learning framework, is employed to approximate the periodic solution without requiring a predetermined set of basis functions. To this end, tailored physics-informed periodic kernel and mean functions are constructed for GP regression. The nonlinear governing equation is then collocated to generate observational data, and in conjunction with an iterative linearization scheme, the periodic solution is obtained with both mean and covariance information. Second, recognizing that the performance of GP regression critically depends on the selection of collocation points, an adaptive collocation strategy based on variance-or residual-based criterion is developed to enable accurate and efficient solving of nonlinear systems. Numerical examples are conducted to validate the accuracy, robustness, and efficiency of the proposed PIGP. Notably, under the same level of accuracy, the PIGP demonstrates superior computational efficiency compared to the widely-recognized harmonic balance method (HBM).",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10615567/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "Predicting the process parameters for torque and thrust force in wood plastic composite drilling using machine learning algorithms",
-    "title_zh": "用机器学习预测木塑复合材料钻削扭矩与推力的工艺参数",
-    "summary": "工作通过Taguchi L27正交试验和机器学习预测木塑复合材料钻削中的推力与扭矩。输入为转速、进给率和钻头直径，方差分析表明进给率贡献最大，推力和扭矩贡献率分别为65.16%和64.41%。钻头直径贡献分别为27.33%和20.39%。与团队凝聚态材料方向没有直接关系，方法价值主要在小样本工艺参数建模。",
+    "title_zh": "文献研究：Predicting the process parameters for torque and thrust force in wood plastic composite drilling using machine learning algorithms",
+    "summary": "Wood Plastic Composite has become increasingly notable in domestic and industrial applications. The excessive thrust force and torque generated during drilling lead to poor surface finish and potentia…",
     "abstract": "Wood Plastic Composite has become increasingly notable in domestic and industrial applications. The excessive thrust force and torque generated during drilling lead to poor surface finish and potential damage to the work materials. The drilling experiments were performed using Taguchi's L27 orthogonal array, with drilling parameters (N, f, and d) as inputs and thrust force and torque as output responses. The ANOVA analysis reveals that feed rate contributes (65.16% for thrust force and 64.41% for torque), followed by drill diameter (27.33% for thrust force and 20.39% for torque), and spindle speed (4.90% for thrust force and 12.84% for torque). Furthermore, machine learning models such as the extra-trees regressor, bagging with decision trees, and the random forest regressor were built to predict the output responses of WPC composite panels. To evaluate the performance of the predicted outcomes, six error metrics were used: mean absolute percentage error, mean absolute difference, Root mean square error, Standard error, mean square error, and coefficient of determination. Compared with other models, random forest produces more accurate predictions for thrust force and torque. This study provides a novel approach for evaluating and identifying suitable process parameters to minimize thrust force and torque induced during drilling of WPC composites.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10625201/latest",
     "journal": "Preprints"
-  },
-  {
-    "title": "Linearized subspace refinement framework to expose hidden accuracy in trained neural networks",
-    "title_zh": "用线性化子空间细化揭示已训练神经网络的隐藏精度",
-    "summary": "线性化子空间细化在固定训练网络后利用局部雅可比构造低维修正，并通过直接最小二乘优化突破训练造成的精度平台。方法与网络架构无关，重点区分表达能力不足和优化未充分两类误差。摘要只说明在函数逼近等任务中取得明显改善，没有给出具体误差、维数或迭代次数。该工具对物理约束代理模型的后训练校准具有潜在价值。",
-    "abstract": "arXiv:2601.13989v2 Announce Type: replace Abstract: Neural networks trained by gradient-based methods often exhibit optimization-induced accuracy plateaus in scientific machine learning tasks. We present Linearized Subspace Refinement (LSR), an architecture-agnostic post-training framework that exploits the local linearized model at a fixed trained state. By solving a reduced direct least-squares problem in a Jacobian-defined low-dimensional space, LSR computes a subspace-optimal linearized correction and yields a refined predictor with markedly improved accuracy. Across function approximation, data-driven operator learning, physics-informed operator fine-tuning, and noisy inverse problems, LSR shows that standard nonlinear training can remain far above this subspace-attainable error level. Similar accuracy plateaus persist even for the convex quadratic problem from local linearization when solved with standard iterative optimizers, identifying numerical ill-conditioning as a primary bottleneck. LSR frequently delivers order-of-magnitude error reductions, while the subspace rank provides an explicit capacity-control mechanism that balances correction strength, numerical stability, and noise sensitivity. Together, LSR exposes conditioning-limited attainable accuracy in trained-state linearized models and provides direct access to it.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2601.13989",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Parameter-performance scaling of hybrid quantum-classical policies for demand-charge-aware battery control",
-    "title_zh": "面向需量电费电池控制的混合量子经典策略参数性能标度",
-    "summary": "工作把混合量子经典策略放入真实的整月电池需量电费控制任务，而非只比较小型基准数据集。核心变量是策略族、模型参数规模和549栋建筑上的控制表现，但摘要未说明量子线路架构、训练算法或最强数值结果。其对材料模拟的直接贡献有限，主要启发是用统一任务和全规模扫描检验AI模型压缩与泛化，而不是凭参数量宣称优势。",
-    "abstract": "Hybrid quantum-classical models are often proposed as compact alternatives to classical neural networks; however, the claim that they require fewer parameters has rarely been tested across full model size ranges against strong classical baselines. In this study, this claim was tested on a realistic energy-control task: 15-min, full-month control of behind-the-meter batteries that must minimize commercial electricity demand charges using 549 simulated office buildings under a standardized utility tariff. Three policy families—a classical neural network and two hybrid quantum-circuit variants sharing the same inputs and control head—were trained by behavioral cloning from a perfect-foresight optimizer and compared at four parameter budgets on a locked held-out test set. One compact hybrid design (~ 1,400 parameters) provided the best control performance among all tested model and modestly outperformed the size-matched classical network. However, the advantage is small, does not hold for other sizes, and depends on a task-specific control head rather than on the quantum circuit itself. The classical network remains a strong baseline and runs faster. Therefore, this study reports a narrow, bounded parameter-efficiency benefit rather than a general quantum advantage and outlines which hardware-level validation would still be required. All quantum circuits were evaluated using exact simulations.",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-9933256/latest",
-    "journal": "Preprints"
-  },
-  {
-    "title": "Interplay of B-Site Off-Centering and Molecular Orientations in the Mixed Hybrid Perovskite MAGe1xSnxI3",
-    "title_zh": "混合杂化钙钛矿中B位偏心与分子取向的相互作用",
-    "summary": "该工作用机器学习势和大尺度分子动力学解析MAGe1-xSnxI3中B位偏心、八面体倾斜与MA取向有序的竞争。关键结果是MAGeI3的极性B位偏心在立方相转变前几乎保持不变，而MA取向随升温逐步无序化；摘要未给出势函数架构、训练集规模和转变温度。它直接连接团队的钙钛矿、机器学习势和热结构动力学研究。",
-    "abstract": "arXiv:2609.03510v1 Announce Type: new Abstract: B-site mixing is a common strategy for tuning properties of halide perovskites. In the lead-free system MAGe1-xSnₓI3, it brings tilting and off-centering into competition. Using large-scale molecular dynamics driven by a machine-learned interatomic potential, we map the structural behavior across the full composition range. MAGeI3 exhibits strong polar B-site off-centering that remains nearly constant up to the cubic transition, together with methylammonium (MA) orientational order that weakens progressively on heating. By contrast, MASnI3 combines octahedral tilting with weaker, predominantly antipolar off-centering. Ge-like behavior persists upon alloying and gives way to Sn-like behavior only beyond roughly 65 % Sn. In the high-temperature phases, the B-site cations remain locally off-centered but directionally disordered. On the Ge-rich side, the distorted inorganic framework biases the soft MA orientational landscape toward a restricted set of preferred directions. This coupling shows how the composition of the inorganic sublattice can tune molecular ordering in lead-free hybrid perovskites.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2609.03510",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Moiré-induced altermagnetism from nonmagnetic constituents",
-    "title_zh": "非磁性组分通过莫尔结构诱导交替磁性",
-    "summary": "工作提出由莫尔干涉、结构弛豫和畴壁自发扭转共同产生交替磁性的机制，起点是两个非磁性组分。每个莫尔畴加入一个电子后形成关联绝缘隙，莫尔势位置决定d波或g波自旋劈裂，有限扭角可增强d波通道。摘要未说明具体材料、哈密顿量参数和数值能隙，但对团队的低维磁性与对称性建模具有直接启发。",
-    "abstract": "arXiv:2609.03271v1 Announce Type: new Abstract: We propose a mechanism for nonmagnetic materials to develop altermagnetic order by moiré interference with nonmagnetic substrate, which is driven by structural relaxation and spontaneous twirls in moiré domain walls of lattice-mismatched moiré square lattices. When doped with one electron per moiré domain, a correlated insulating gap is opened by electron interaction. Depending on the location of the moiré potential minima, the moiré bands can show d-wave or g-wave altermagnetic splitting. The former can be enhanced by a finite twist angle; the latter is sensitive to strains that drive a transition to d-wave.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.03271",
-    "journal": "arXiv"
   }
 ]
