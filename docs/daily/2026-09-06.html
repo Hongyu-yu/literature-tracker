@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-09-06 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-09-06.xml" rel="alternate" title="2026-09-06 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-09-06.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-09-06</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-09-05.html">← 前一天 · 2026-09-05</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/09/06</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
+<blockquote class="daily-quote">AI | 物理 | 化学 | 材料 | 交叉学科</blockquote>
+<div class="daily-tags"><span class="daily-tag">AI</span><span class="daily-tag">物理</span><span class="daily-tag">化学</span><span class="daily-tag">材料</span><span class="daily-tag">交叉学科</span></div>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">9</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">9</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">期刊 / 来源</div>
+<div class="daily-stat-value">3</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv 相关</div>
+<div class="daily-stat-value">0</div>
+</div>
+</div>
+<section aria-label="今日概览" class="daily-viz"><h2>📊 今日概览</h2><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 182"><title>主题分布</title><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">4</text><text class="vl" x="8" y="78">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="95.0" x="142" y="64"></rect><text class="vn" x="243.0" y="78">2</text><text class="vl" x="8" y="106">AI×物理</text><rect class="vb" height="18" rx="5" width="47.5" x="142" y="92"></rect><text class="vn" x="195.5" y="106">1</text><text class="vl" x="8" y="134">软物质·流体·统计</text><rect class="vb" height="18" rx="5" width="47.5" x="142" y="120"></rect><text class="vn" x="195.5" y="134">1</text><text class="vl" x="8" y="162">铁电·极化</text><rect class="vb" height="18" rx="5" width="47.5" x="142" y="148"></rect><text class="vn" x="195.5" y="162">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">9</text></svg><svg aria-label="方向分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>方向分层</title><text class="vt" x="8" y="20">方向分层</text><text class="vl" x="8" y="50">神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="36"></rect><text class="vn" x="148.0" y="50">0</text><text class="vl" x="8" y="78">AI × 物理/材料/化学</text><rect class="vb" height="18" rx="5" width="23.8" x="142" y="64"></rect><text class="vn" x="171.8" y="78">1</text><text class="vl" x="8" y="106">其他物理/材料</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">8</text></svg></div></section>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-09-05.html">前一天 · 2026-09-05</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-09-06.html">最新一期 · 2026-09-06</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-09-06.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">4 篇</span>
+</div>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">将自适应机制与均匀和非均匀时间域分解相结合以训练物理信息神经网络</div>
+<div class="daily-core-title-en">Integrating self-adaptive mechanism with uniform and nonuniform time-domain decomposition for training physics-informed neural networks</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>本文研究如何将自适应机制与均匀和非均匀时间域分解相结合，用于训练物理信息神经网络。作者旨在改进 PINN 的训练过程、提高求解效率并增强对不同时间尺度问题的适应性；但当前仅有出版信息，具体方法实现、实验设置和定量结论需参见原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>本文研究如何通过引入自适应机制，并结合均匀与非均匀时间域分解，改进物理信息神经网络的训练效率与稳定性。由于可用摘要仅为出版信息，具体算法细节与性能结果需参见原文。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《将自适应机制与均匀和非均匀时间域分解相结合以训练物理信息神经网络》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示</div>
+<div class="daily-core-title-en">Composition-dependent structural evolution, electronic properties, and magnetism of Ni−Pt nanoalloys: implications for adsorption</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>出版日期：2026 年 9 月 5 日。来源：《Computational Materials Science》，第 274 卷。作者：Hüseyin Yıldırım。该工作题为“Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示”，表明研究内容围绕不同组成 Ni-Pt 纳米合金的结构、电子性质、磁性及其与吸附行为的关系展开；由于所给摘要仅为元数据，具体研究方法、数据和结论需查阅原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕 Ni-Pt 纳米合金的组成依赖结构演化、电子性质和磁性展开，并讨论其对吸附行为的影响。给定信息仅包含出版日期、来源期刊卷号和作者信息，具体方法、计算结果与吸附相关结论需查阅原文。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">磁电多铁性形态相界</div>
+<div class="daily-core-title-en">A Multiferroic Morphotropic Phase Boundary</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作围绕一种多铁性形态相界展开，重点关注磁性与铁电性在特定相边界附近的耦合行为。原始摘要仅提供期刊目录信息，因此具体研究对象、方法与结论需查阅原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕一种多铁性形态相界展开，重点关注磁性与铁电性在特定相边界附近的耦合行为。由于原始摘要仅为期刊目录信息，具体结论需查阅原文。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及铁电/多铁、极化翻转和电场驱动过程, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题已经出现在团队的方向画像中，可对应到HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注铁电/多铁、极化翻转和电场驱动过程, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题嵌入现有材料模拟链：先在HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物中选择一个已有 DFT 数据基础的体系，按“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”补充训练/验证集，再比较《磁电多铁性形态相界》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all">
+<div class="daily-core-number">04</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh">PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序</div>
+<div class="daily-core-title-en">PACme: A versatile computer code for simulation and analysis of TDPAC spectra with generalized time-dependent magnetic and electric quadrupole hyperfine fields</div>
+<div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>出版日期：2026 年 12 月。来源：《Computer Physics Communications》，第 329 卷。作者：M.B. Barbosa、J.G. Correia、P. Rocha-Rodrigues、J.P. Araújo。该工作题为“PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序”，表明其内容涉及一个用于 TDPAC 谱模拟和分析的软件工具；由于所给摘要仅为元数据，具体算法、适用范围、输入输出和验证结果需查阅原文。</p>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作介绍 PACme 计算机程序，用于模拟和分析具有广义时间依赖磁场与电四极超精细场的 TDPAC 谱。给定信息仅包含出版日期、期刊来源和作者，程序功能细节、算法实现和验证结果需查阅原文。</p>
+<div class="daily-core-deep"><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></div>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a></div>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日共收录9篇文献，覆盖机器学习、计算物理和功能材料方向。</p>
+<p><strong>热点：</strong>文献主要涉及结构—性质建模、有限温度/动力学模拟以及材料电子与磁性问题；缺少原文细节的条目不作定量推断。</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在机器学习与物理建模，并落到磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系、铁电/多铁、极化翻转和电场驱动过程、声子、有限温度和输运性质。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。后续筛选应优先核对原文数据是否包含结构、能量、力、应力、极化、自旋或有限温度轨迹，再决定是否迁移到铁电、磁性、缺陷和外场驱动模拟。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">9 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🤖 AI × 物理 / 材料 / 化学</h3><p>机器学习与第一性原理、分子动力学、材料与化学问题的交叉研究。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">将自适应机制与均匀和非均匀时间域分解相结合以训练物理信息神经网络</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Integrating self-adaptive mechanism with uniform and nonuniform time-domain decomposition for training physics-informed neural networks</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 方法 / 工具</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · AI×物理</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<div aria-label="相关度 8 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:80.0%"></i></div><strong>8</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>本文研究如何将自适应机制与均匀和非均匀时间域分解相结合，用于训练物理信息神经网络。作者旨在改进 PINN 的训练过程、提高求解效率并增强对不同时间尺度问题的适应性；但当前仅有出版信息，具体方法实现、实验设置和定量结论需参见原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: Available online 5 September 2026 Source: Computer Physics Communications Author(s): Wei Hu, Chao Dong, Shaolong Zheng, Hongyu Wu, Yi Cheng</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>本文研究如何通过引入自适应机制，并结合均匀与非均匀时间域分解，改进物理信息神经网络的训练效率与稳定性。由于可用摘要仅为出版信息，具体算法细节与性能结果需参见原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：AI for science 与材料/物理问题的结构化分析。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《将自适应机制与均匀和非均匀时间域分解相结合以训练物理信息神经网络》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003735?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧲 其他物理 / 材料进展</h3><p>不含机器学习成分的凝聚态、铁电磁性与材料工作。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Composition-dependent structural evolution, electronic properties, and magnetism of Ni−Pt nanoalloys: implications for adsorption</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p2">P2 · 磁性·自旋电子学</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<div aria-label="相关度 7.5 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:75.0%"></i></div><strong>7.5</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>出版日期：2026 年 9 月 5 日。来源：《Computational Materials Science》，第 274 卷。作者：Hüseyin Yıldırım。该工作题为“Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示”，表明研究内容围绕不同组成 Ni-Pt 纳米合金的结构、电子性质、磁性及其与吸附行为的关系展开；由于所给摘要仅为元数据，具体研究方法、数据和结论需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 5 September 2026 Source: Computational Materials Science, Volume 274 Author(s): Hüseyin Yıldırım</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕 Ni-Pt 纳米合金的组成依赖结构演化、电子性质和磁性展开，并讨论其对吸附行为的影响。给定信息仅包含出版日期、来源期刊卷号和作者信息，具体方法、计算结果与吸附相关结论需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005100?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" rel="noopener noreferrer" target="_blank">磁电多铁性形态相界</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" rel="noopener noreferrer" target="_blank">A Multiferroic Morphotropic Phase Boundary</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p2">P2 · 铁电·极化</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Tae Yeon Kim, Shashank Ojha, Bridget R. Denzer, Michael Xu, Ching‐Che Lin, Jesse Schimpf 等13位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<div aria-label="相关度 7 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:70.0%"></i></div><strong>7</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作围绕一种多铁性形态相界展开，重点关注磁性与铁电性在特定相边界附近的耦合行为。原始摘要仅提供期刊目录信息，因此具体研究对象、方法与结论需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕一种多铁性形态相界展开，重点关注磁性与铁电性在特定相边界附近的耦合行为。由于原始摘要仅为期刊目录信息，具体结论需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及铁电/多铁、极化翻转和电场驱动过程, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题已经出现在团队的方向画像中，可对应到HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注铁电/多铁、极化翻转和电场驱动过程, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的HfO₂ 铁电、二维滑移铁电、极化翻转、畴壁和疲劳/缺陷问题嵌入现有材料模拟链：先在HfO₂、Hf₀.₅Zr₀.₅O₂、二维范德华铁电、钙钛矿氧化物中选择一个已有 DFT 数据基础的体系，按“把电场、极化、应变、氧空位和局域结构序参一起纳入轨迹数据；比较均匀翻转、局域成核和畴壁传播，并用 DFT/有效 Hamiltonian 对关键路径复核”补充训练/验证集，再比较《磁电多铁性形态相界》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74920?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">PACme: A versatile computer code for simulation and analysis of TDPAC spectra with generalized time-dependent magnetic and electric quadrupole hyperfine fields</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 物理 / 凝聚态</span><span class="daily-chip daily-chip-category daily-chip-priority-p2">P2 · 磁性·自旋电子学</span><span class="daily-chip daily-chip-journal">📖 ScienceDirect</span></div>
+<div aria-label="相关度 6 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:60.0%"></i></div><strong>6</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>出版日期：2026 年 12 月。来源：《Computer Physics Communications》，第 329 卷。作者：M.B. Barbosa、J.G. Correia、P. Rocha-Rodrigues、J.P. Araújo。该工作题为“PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序”，表明其内容涉及一个用于 TDPAC 谱模拟和分析的软件工具；由于所给摘要仅为元数据，具体算法、适用范围、输入输出和验证结果需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: December 2026 Source: Computer Physics Communications, Volume 329 Author(s): M.B. Barbosa, J.G. Correia, P. Rocha-Rodrigues, J.P. Araújo</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作介绍 PACme 计算机程序，用于模拟和分析具有广义时间依赖磁场与电四极超精细场的 TDPAC 谱。给定信息仅包含出版日期、期刊来源和作者，程序功能细节、算法实现和验证结果需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及磁性、自旋以及自旋—晶格耦合对应的结构或物理量。若迁移到团队流程，应采用“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构已经出现在团队的方向画像中，可对应到CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注磁性、自旋以及自旋—晶格耦合在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的磁性机器学习势、自旋 Hamiltonian、自旋—晶格动力学和非共线磁结构嵌入现有材料模拟链：先在CrI₃/CrSBr 等范德华磁体、反铁磁/交替磁材料、磁性氧化物中选择一个已有 DFT 数据基础的体系，按“训练集同时覆盖原子位移和自旋构型，显式标注交换、各向异性、DMI 或自旋力；用自旋 MD/MC 与 DFT 自旋能差验证温度、应变和缺陷下的磁序稳定性”补充训练/验证集，再比较《PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526003292?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10483387/latest" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10483387/latest" rel="noopener noreferrer" target="_blank">利用 Rock-Eval 装置评价 Shahrud Dehmolla 地区 Shemshak 组页岩的烃类生成潜力</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10483387/latest" rel="noopener noreferrer" target="_blank">Evaluating the hydrocarbon production potential of Shemshak's formation Shale in Shahrud's Dehmolla area, using Rock-Eval Device</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 软物质·流体·统计</span><span class="daily-chip daily-chip-journal">📖 Preprints</span><span class="daily-chip daily-chip-authors">👤 Malihe Hamidi Zhaleh, Ahmad Reza Rabbani, Farajollah Ferdowst</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>伊朗的侏罗纪含煤沉积具有很高的重要性并广泛发育。Shemshak 组中这些沉积的不同剖面，尤其是 Alborz 地区，由于有机地球化学研究以及可能烃源岩的确定，受到许多学者和研究人员的青睐和关注。本文尝试利用 Rock-Eval 热解装置分析 Shahrud 的 Dehmolla 地区 Shemshak 组页岩样品地下表层所得结果；该装置目前是全球石油公司评价沉积物烃类生成潜力最常用的方法。研究区该组岩石样品的结果表明，其具有用于烃源岩研究的适当潜力；样品中的总有机碳（TOC）在 0.08% 至 23.24% 重量百分比之间变化，说明有机质含量处于低到很好范围。所有样品中的干酪根属于 III 型和 IV 型，显示出在强氧化条件（D）下大陆相的范围。同时，大多数样品显示存在相当数量不含氢的有机质，其来源为分解的大陆或海相有机质。此外，热成熟度显示从成熟到过成熟的范围，热梯度指标 Tmax 等于 416–602；颜色较深的样品具有较高热成熟度，主要处于生气、干气以及进入后生变质阶段。尽管如此，一些样品也可以部分生成液态烃。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Jurassic coal-bearing sediments are of high importance and expansion in Iran. Various sections of these sediments in Shemshak's formation, especially Alborz area are preferred and interested by many scholars and researchers due to organic geochemistry examinations and determination of possible Source Rock. In this article, we have tried to analyze the obtained results of subterraneous surface of Shemshak's formation Shale samples in Shahrud's Dehmolla area using Rock-Eval pyrolysis Device that is currently the most common evaluation method of sediments’ hydrocarbon production potential by worldwide Oil companies. The results of this formation's rocky samples in the study area indicate the proper potential for hydrocarbon source rock studies, so that the total organic carbon (TOC) in the samples is variable between 0/08% to 23/24% weights that suggests the amount of organic materials between low to very good range. The present Kerogen in all of the samples is belong to III and IV type, which shows ranges of continental facies under severe oxidation situations (D). While the majority of the samples show the existence of considerable amount of hydrogen–free organic matters with decomposed continental or marine origins. Also, Thermal maturity indicates ranges of mature to super mature with a thermal gradient range, TMax equal to 416–602 that the darker samples have the higher thermal maturity and mainly are in the level of gas generation, dry gas and entrance to Metagenesis stage. Although, some of the samples can also create fluid hydrocarbons partially.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>侏罗纪含煤沉积在伊朗分布广泛且具有重要意义，Shemshak 组尤其常被用于有机地球化学和潜在烃源岩研究。本文利用 Rock-Eval 热解分析 Shahrud Dehmolla 地区 Shemshak 组页岩样品，结果显示其有机质丰度从低到很好不等，干酪根主要为 III 型和 IV 型。样品热成熟度从成熟到过成熟，多数处于生气、干气至变质作用阶段，少数样品仍可能部分生成液态烃。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：声子、有限温度和输运性质、晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《利用 Rock-Eval 装置评价 Shahrud Dehmolla 地区 Shemshak 组页岩的烃类生成潜力》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10483387/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://www.researchsquare.com/article/rs-10483387/latest" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74933?af=R" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74933?af=R" rel="noopener noreferrer" target="_blank">动态“按需且可持续”的钝化：光-热-湿度驱动的分子异构化用于高性能钙钛矿太阳能电池</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74933?af=R" rel="noopener noreferrer" target="_blank">Dynamic “On‐Demand and Sustainable” Passivation: Light‐Heat–Humidity Driven Molecular Isomerization for High‐Performance Perovskite Solar Cells</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Chao Liu, Yingchen Li, Hongkun Cai, Jifeng Liu, Qinwen Guo, Zhiwen Xu 等9位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作提出一种动态的“按需且可持续”钝化策略，利用光、热和湿度驱动的分子异构化来优化钙钛矿太阳能电池性能。由于原摘要仅为 EarlyView 元信息，具体钝化分子、响应机制与器件结果尚需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作聚焦于一种由光、热和湿度共同驱动的分子异构化钝化策略，用于提升钙钛矿太阳能电池性能。原摘要仅为 EarlyView 元数据，具体机制与器件表现需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《动态“按需且可持续”的钝化：光-热-湿度驱动的分子异构化用于高性能钙钛矿太阳能电池》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74933?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74933?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74910?af=R" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74910?af=R" rel="noopener noreferrer" target="_blank">动态活性氢缓冲界面实现抗波动的选择性电催化加氢</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74910?af=R" rel="noopener noreferrer" target="_blank">Dynamic Active‐Hydrogen‐Buffering Interfaces Enable Fluctuation‐Resilient Selective Electrocatalytic Hydrogenation</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 化学 / 分子</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Yan Du, Jian Shang, Zichao Xi, Jinxiao Wu, Longji Yuan, Huimin Yu 等8位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作关注动态活性氢缓冲界面在选择性电催化加氢中的作用，强调其对波动条件的适应能力。由于原摘要仅为 EarlyView 元信息，具体催化体系、作用机制和实验结论尚需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作关注一种动态活性氢缓冲界面，用于在反应条件波动下维持选择性电催化加氢性能。原摘要仅为 EarlyView 元数据，具体体系、反应对象与定量结果需见原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《动态活性氢缓冲界面实现抗波动的选择性电催化加氢》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74910?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74910?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74915?af=R" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74915?af=R" rel="noopener noreferrer" target="_blank">在非常规相合金纳米结构上调控 pH 依赖路径以实现通用硝酸盐电还原</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74915?af=R" rel="noopener noreferrer" target="_blank">Steering pH‐Dependent Pathways on Unconventional Phase Alloy Nanostructures for Universal Nitrate Electroreduction</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Fengkun Hao, Liang Guo, Yunhao Wang, Xinyi Li, Jingwen Zhou, Fu Liu 等24位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作围绕非常规相合金纳米结构中的 pH 依赖反应路径调控展开，旨在实现通用硝酸盐电还原。由于原摘要仅提供 EarlyView 元信息，文中具体的催化机理、结构设计与性能结果尚需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕非常规相合金纳米结构中的 pH 依赖反应路径调控展开，目标是提升硝酸盐电还原的通用性与选择性。由于原摘要仅为 EarlyView 元数据，具体机理与性能细节需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，摘要目前只能确认：论文题目和摘要中可确认的方法。需要回到原文核对数据来源、标签定义、模型架构、物理约束和验证集，不能把题名直接等同于可迁移算法。若要接入团队的 ML 势或 Hamiltonian 流程，应先确认它是否同时学习能量、力、应力、自旋、极化或电子结构，以及是否报告跨材料/跨温度外推。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>与团队方向的可能连接在于：晶体结构、功能材料和结构—性质关系。团队已有机器学习势、第一性原理、有效 Hamiltonian、缺陷计算、电子—声子耦合和有限温度动力学基础，但该文是否提供可复用数据或物理量仍需查证。若研究对象属于机器人、量子信息或电网等非材料场景，关联主要是物理约束学习、少样本建模或不确定性评估，而不是直接迁移材料机制。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对《在非常规相合金纳米结构上调控 pH 依赖路径以实现通用硝酸盐电还原》的启示是先做可证伪的对接：从一个已有材料体系和小规模 DFT 基准开始，明确输入、目标、基线和外推测试，再决定是否接入铁电/磁性、缺陷或载流子动力学工作。具体可先把该文的表示或损失函数在 HfO₂、二维滑移铁电、CrI₃/CrSBr、SiC/GaN 缺陷或卤化物钙钛矿上做小规模复现；若没有直接交叉，应保留为方法参考而非强行迁移。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74915?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74915?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74912?af=R" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74912?af=R" rel="noopener noreferrer" target="_blank">用于钙钛矿光伏的芳香杂环配体：在缺陷钝化与异质结构形成之间寻求平衡</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74912?af=R" rel="noopener noreferrer" target="_blank">Aromatic Heterocycle Ligands for Perovskite Photovoltaics: Balancing Defect Passivation and Heterostructure Formation</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-topic">🧭 材料 / 器件</span><span class="daily-chip daily-chip-category daily-chip-priority-p3">P3 · 其他</span><span class="daily-chip daily-chip-journal">📖 Wiley: Advanced Materials: Table of Contents</span><span class="daily-chip daily-chip-authors">👤 Yulan Huang, Muchen Li, Qingbin Cai, Zhuoqiong Zhang, Qiang Weng, Xicheng Tang 等22位作者</span><span class="daily-chip daily-chip-score">🔥 AI 0</span></div>
+<div aria-label="相关度 0 / 10" class="daily-relevance"><span>相关度</span><div class="daily-relevance-track"><i class="daily-relevance-bar" style="width:0.0%"></i></div><strong>0</strong></div>
+<p class="daily-paper-abstract"><strong>📄 摘要：</strong>该工作围绕芳香杂环配体在钙钛矿光伏器件中的应用展开，重点在于兼顾缺陷钝化与异质结构形成两方面的需求。由于原摘要仅提供 EarlyView 元信息，具体分子设计、器件结构与性能提升幅度需查阅原文。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<p class="daily-paper-highlight"><strong>💡 亮点：</strong>该工作围绕芳香杂环配体在钙钛矿光伏中的应用展开，重点讨论其在缺陷钝化与异质结构构建之间的平衡。原摘要仅为 EarlyView 元数据，更多细节需查阅原文。</p>
+<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary><p><strong>📐 方法要点：</strong>方法上，这篇工作可归入机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合。从摘要能确认的线索包括：论文题目和摘要中可确认的方法，以及缺陷、畴壁、成核和开关动力学, 晶体结构、功能材料和结构—性质关系对应的结构或物理量。若迁移到团队流程，应采用“把电荷态、有限尺寸修正、局域配位和缺陷迁移路径纳入标注；用小超胞 DFT+U/GW 或缺陷形成能基准校准，再扩展到大超胞和有限温度扩散”的分层验证，而不是只比较单点能量或单一回归误差。还需核对原文的训练数据规模、损失函数、边界条件和误差分解，才能判断其是否适合团队的材料模拟任务。</p><p><strong>🔗 相关工作关联：</strong>它与五位研究人员已有工作的直接连接是：机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合已经出现在团队的方向画像中，可对应到SiO₂、SiC、GaN、卤化物钙钛矿、HfO₂ 氧空位和二维半导体。与传统只做 0 K formation energy/静态势垒的工作相比，这里更应关注缺陷、畴壁、成核和开关动力学, 晶体结构、功能材料和结构—性质关系在温度、缺陷、应变或外场下的变化；摘要没有给出的模型细节不作延伸判断。这种联系应通过同一材料体系上的独立基准和跨分布测试确认，不能仅凭方法名称或期刊来源下结论。</p><p><strong>💡 对你方向的启示：</strong>对当前研究最具体的启示不是泛泛地“使用 ML”，而是把该文的机器学习 Hamiltonian、带电缺陷形成能、缺陷扩散和非辐射复合嵌入现有材料模拟链：先在SiO₂、SiC、GaN、卤化物钙钛矿、HfO₂ 氧空位和二维半导体中选择一个已有 DFT 数据基础的体系，按“把电荷态、有限尺寸修正、局域配位和缺陷迁移路径纳入标注；用小超胞 DFT+U/GW 或缺陷形成能基准校准，再扩展到大超胞和有限温度扩散”补充训练/验证集，再比较《用于钙钛矿光伏的芳香杂环配体：在缺陷钝化与异质结构形成之间寻求平衡》对应模型对相稳定、极化/磁序、缺陷或动力学指标的改进。若结果只在训练分布内有效，应通过跨温度、跨应变、跨缺陷浓度和跨超胞测试检查可迁移性。第一步可以选取团队已有的 HfO₂、二维磁体、半导体缺陷或钙钛矿数据做小样本试验，再决定是否扩大到生产级计算。</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74912?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.74912?af=R" rel="noopener noreferrer" target="_blank">原文链接</a><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-09-05.html">← 前一天 · 2026-09-05</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-09-05.html">前一天 · 2026-09-05</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-09-06.html">最新一期 · 2026-09-06</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-09-06.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>9</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>3</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">将自适应机制与均匀和非均匀时间域分解相结合以训练物理信息神经网络<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">Ni-Pt 纳米合金中依赖组成的结构演化、电子性质与磁性：对吸附的启示<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">磁电多铁性形态相界<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">PACme：用于具有广义时间依赖磁超精细场和电四极超精细场的 TDPAC 谱模拟与分析的通用计算机程序<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">利用 Rock-Eval 装置评价 Shahrud Dehmolla 地区 Shemshak 组页岩的烃类生成潜力<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">动态“按需且可持续”的钝化：光-热-湿度驱动的分子异构化用于高性能钙钛矿太阳能电池<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">动态活性氢缓冲界面实现抗波动的选择性电催化加氢<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">在非常规相合金纳米结构上调控 pH 依赖路径以实现通用硝酸盐电还原<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">用于钙钛矿光伏的芳香杂环配体：在缺陷钝化与异质结构形成之间寻求平衡<span class="daily-outline-meta">09</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-09-05.html">前一天 · 2026-09-05</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-09-06.html">最新一期 · 2026-09-06</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-09-06.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
