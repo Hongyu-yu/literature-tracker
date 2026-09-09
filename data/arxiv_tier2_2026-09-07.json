@@ -1,8 +1,8 @@
 [
   {
     "title": "Hessian-based molecular conformation augmentation for a scalable and efficient strategy of machine learning interatomic potentials",
-    "title_zh": "文献研究：Hessian-based molecular conformation augmentation for a scalable and efficient strategy of machine learning interatomic potentials",
-    "summary": "论文提出基于势能面 Hessian 信息的数据增强方法 UniAug 和 ModeAug，通过泰勒展开生成适合机器学习原子间势训练的构型数据。该方法无需修改模型结构或引入高阶自动微分，在非平衡和热平衡数据集上提升了模型精度，并有助于振动分析和过渡态搜索。",
+    "title_zh": "基于海森矩阵的分子构象增广机器学习势",
+    "summary": "方法把二阶曲率信息转化为训练构象增广，而非直接改造势模型。它针对振动频率和过渡态搜索中能量面局部曲率不足的瓶颈，并试图降低显式海森矩阵训练的显存与计算代价。对材料机器学习而言，这为在保留现有等变势架构的情况下增强动力学和反应路径可靠性提供了可测试方案。",
     "abstract": "arXiv:2609.05233v1 Announce Type: cross Abstract: While machine-learning interatomic potentials (MLIPs) have successfully learned potential energy surfaces (PES) and atomic forces, many practical applications, such as vibrational analysis and transition state search, rely heavily on the PES Hessian. Yet, standard MLIPs tend to be trained on energy and forces alone, leaving Hessian information largely unexploited. Meanwhile, existing methods that explicitly incorporate the Hessian into training objectives require architectural modifications and introduce significant computational and memory overheads due to higher-order backpropagation. To address these limitations, we propose two Hessian-derived data augmentation schemes: isotropic Gaussian displacement (UniAug) and normal mode-weighted displacement (ModeAug). Both methods utilize simple Taylor expansions, achieving effective augmentation without altering training objectives or extending the autograd graph. This allows seamless, plug-and-play integration with existing architectures and training pipelines. Comprehensive evaluations across non-equilibrium and equilibrium datasets demonstrate that our approach enhances model accuracy while providing practical, task-specific guidelines.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2609.05233",
@@ -10,8 +10,8 @@
   },
   {
     "title": "Voltage-embedded equivariant machine learning potential for open system simulations",
-    "title_zh": "文献研究：Voltage-embedded equivariant machine learning potential for open system simulations",
-    "summary": "论文提出一种嵌入电压偏置的E(3)等变图神经网络势，用于开放体系和非平衡量子输运模拟。该方法将能量与力分解为零偏压和偏压相关贡献，并在锂/水界面中再现了电场诱导的水分子重排及电极间非对称电化学行为。",
+    "title_zh": "面向开放体系模拟的电压嵌入等变机器学习势",
+    "summary": "该方法把电压作为开放体系状态变量显式输入等变图网络，并分离零偏压与偏压贡献。模型面向工作状态下的电化学界面，而不是只拟合平衡构型。若偏压依赖项能在不同电压和界面构型间迁移，它将为非平衡分子动力学与量子输运耦合提供低成本势能面。",
     "abstract": "arXiv:2609.04696v1 Announce Type: cross Abstract: Modeling electrochemical interfaces under operational non-equilibrium conditions is vital for energy technologies but remains bottlenecked by the expensive cost of ab initio methods. Current machine learning potentials, largely designed for closed systems under homogeneous electric fields, are limited in open quantum transport applications. To overcome this, we present an E(3)-equivariant graph neural network that embeds voltage bias for open-system simulations. Our approach decouples the system energy and forces into zero-bias and bias-dependent contributions, assigning distinct vector encodings to electrode and scattering-region atoms to capture non-equilibrium conditions. Trained on limited discrete bias data, the model achieves high predictive accuracy and robust extrapolation transferability. When applied to a lithium/water interface, our model successfully captures the field-induced dynamic reorientation of water molecules and reproduces asymmetric electrochemical behavior at different electrodes.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.04696",
@@ -19,35 +19,35 @@
   },
   {
     "title": "Multi-task deep-learning optimization of trade-off properties for superior-performance Fe-based soft magnetic alloys",
-    "title_zh": "面向优异性能铁基软磁合金折中性质的多任务深度学习优化",
-    "summary": "铁基非晶合金是开发高频高效下一代器件的有前景软磁材料，但同时获得超高饱和磁感应强度、超低矫顽力和良好玻璃形成能力面临巨大的成分空间与复杂性质折中。本文开发了生成式多任务深度学习方法，以同时优化合金成分和多种折中性质，并通过共享不同任务数据集中的知识提升预测能力。该方法还能调整成分、揭示关键元素的最佳含量窗口及协同效应，并预测出具有超高饱和磁感应强度和超低矫顽力的新合金候选。",
+    "title_zh": "多任务深度学习优化高性能铁基软磁合金的权衡性能",
+    "summary": "模型把Bs、Hc和玻璃形成能力作为联合目标，而非逐个性质回归。生成式多任务学习试图在成分空间直接寻找兼顾软磁性能与成玻璃能力的候选。其材料对象不是团队主要关注的铁电、范德华磁体或交替磁体，方法上的多目标筛选价值高于物理机制交叉。",
     "abstract": "arXiv:2609.04845v1 Announce Type: new Abstract: Fe-based amorphous alloys are promising soft magnetic materials for developing next-generation devices with high frequency and efficiency. However, optimization of Fe-based alloys with ultra-high saturation magnetic flux density (Bₛ), ultra-low coercivity (H_c), and good glass-forming ability is a notorious problem, owing to the vast composition space and complex trade-offs of these properties. Thus, conventional design methods encounter great challenges. Here we develop a generative multi-task deep learning (GMTDL) to achieve simultaneous optimization of compositions and trade-off properties. The GMTDL can sufficiently exploit and share the knowledge of datasets across different tasks, despite the limitation and imbalance of these datasets. Therefore, it exhibits superior performance in prediction of alloys with multiple targeted properties, outperforming previous machine learning-based design strategies. Moreover, the GMTDL can also tailor compositions, providing an efficient way to regulate properties and generate desired candidates for further experimental processing. The validity and reliability of GMTDL are rigorously tested by benchmarking with Fe-based alloys reported very recently. Moreover, some new alloys with ultra-high Bₛ and ultra-low H_c are predicted. The optimal content windows of key elements and their synergistic effects are also unraveled for practical guidance. Thus, our study establishes an effective and reliable paradigm for simultaneous prediction and optimization of high-performance materials with multiple properties.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2609.04845",
     "journal": "arXiv"
   },
   {
-    "title": "Disentangling Attention in Deep Operator Learning: A Controlled Study of Data-Driven and Physics-Informed Architectures",
-    "title_zh": "深度算子学习中注意力机制的解耦：数据驱动与物理信息架构的对照研究",
-    "summary": "深度神经算子可学习输入函数到完整偏微分方程解场的映射，从而以远快于传统数值求解器的速度评估新问题。本文在数据驱动和物理信息两种训练范式下，对五种具有不同注意力机制的DeepONet变体进行受控比较，以分离交叉注意力、自注意力、标记化和注意力深度的影响。结果显示，基于每个传感器标记化的交叉注意力最稳定可靠，可显著降低误差；分支自注意力对于空间复杂的大型函数输入更有帮助。",
-    "abstract": "arXiv:2609.04407v1 Announce Type: new Abstract: Deep neural operators learn mappings between input functions and complete PDE solution fields, enabling forward evaluations of new problem instances orders of magnitude faster than conventional numerical solvers. Attention mechanisms have recently been introduced into neural operators, but most studies change several architectural components at once, making it difficult to identify what actually improves accuracy. This work presents a controlled and systematic study of five deep operator network (DeepONet) variants with distinct attention mechanisms, trained under both data-driven and physics-informed regimes, to isolate the effects of cross-attention, self-attention, tokenization, and attention depth. We evaluate them on a source-driven transient one-dimensional nonlinear diffusion-reaction equation, a transient one-dimensional viscous Burgers equation with variable initial conditions, and a two-dimensional Poisson heat-conduction problem with heterogeneous source fields. Per-sensor tokenization with cross-attention reduces the mean relative L₂ error of the classical DeepONet in all benchmark-training combinations by factors of 2.4-28.0, while the best attention configurations reach 3.5-32.3. Branch self-attention paired only with dot-product fusion is inconsistent, degrading the one-dimensional problems while helping the more complex two-dimensional source field; added on top of cross-attention it improves all six cases, though by less than cross-attention fusion alone. Global pre-mixing provides no consistent benefit. Increasing cross-attention depth further improves accuracy, but with diminishing returns and a substantially higher cost under physics-informed training. Overall, query-dependent cross-attention is the most reliable mechanism, whereas branch self-attention is most useful for large, spatially complex functional inputs.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.04407",
-    "journal": "arXiv"
-  },
-  {
     "title": "A Quantitative Electrostatic Potential Descriptor Enables Deep Learning‐Accelerated Discovery of High‐Performance Lithium‐Ion Battery Electrolytes",
-    "title_zh": "文献研究：A Quantitative Electrostatic Potential Descriptor Enables Deep Learning‐Accelerated Discovery of High‐Performance Lithium‐Ion Battery Electrolytes",
-    "summary": "Angewandte Chemie International Edition, Volume 65, Issue 37, 7 September 2026.",
+    "title_zh": "定量静电势描述符驱动的深度学习高性能锂电池电解质发现",
+    "summary": "该工作把定量静电势而非纯分子结构特征用于电解质深度学习筛选。描述符有望显式编码溶剂化、极性和反应位点等静电信息。对团队而言，直接交叉在锂电池界面与数据驱动筛选，但现有摘要不足以确认其是否处理固态界面、缺陷或离子迁移动力学。",
     "abstract": "Angewandte Chemie International Edition, Volume 65, Issue 37, 7 September 2026.",
     "category": "AI×化学·材料",
     "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6825619?af=R",
     "journal": "Wiley"
   },
   {
+    "title": "Disentangling Attention in Deep Operator Learning: A Controlled Study of Data-Driven and Physics-Informed Architectures",
+    "title_zh": "深度算子学习中的注意力解耦：数据驱动与物理知情架构对照",
+    "summary": "研究通过五种DeepONet变体拆分注意力机制、数据驱动架构与物理约束的作用。受控实验避免把网络宽度、编码器和训练策略的变化误判为注意力收益。它对材料模拟的直接价值是为相场、输运和多尺度动力学的神经算子选型提供基准，但目前没有材料体系结论。",
+    "abstract": "arXiv:2609.04407v1 Announce Type: new Abstract: Deep neural operators learn mappings between input functions and complete PDE solution fields, enabling forward evaluations of new problem instances orders of magnitude faster than conventional numerical solvers. Attention mechanisms have recently been introduced into neural operators, but most studies change several architectural components at once, making it difficult to identify what actually improves accuracy. This work presents a controlled and systematic study of five deep operator network (DeepONet) variants with distinct attention mechanisms, trained under both data-driven and physics-informed regimes, to isolate the effects of cross-attention, self-attention, tokenization, and attention depth. We evaluate them on a source-driven transient one-dimensional nonlinear diffusion-reaction equation, a transient one-dimensional viscous Burgers equation with variable initial conditions, and a two-dimensional Poisson heat-conduction problem with heterogeneous source fields. Per-sensor tokenization with cross-attention reduces the mean relative L₂ error of the classical DeepONet in all benchmark-training combinations by factors of 2.4-28.0, while the best attention configurations reach 3.5-32.3. Branch self-attention paired only with dot-product fusion is inconsistent, degrading the one-dimensional problems while helping the more complex two-dimensional source field; added on top of cross-attention it improves all six cases, though by less than cross-attention fusion alone. Global pre-mixing provides no consistent benefit. Increasing cross-attention depth further improves accuracy, but with diminishing returns and a substantially higher cost under physics-informed training. Overall, query-dependent cross-attention is the most reliable mechanism, whereas branch self-attention is most useful for large, spatially complex functional inputs.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.04407",
+    "journal": "arXiv"
+  },
+  {
     "title": "FluxDisco: Symbolic Regression for Stoichiometric Dynamical Systems via Monte Carlo Graph Search",
-    "title_zh": "文献研究：FluxDisco: Symbolic Regression for Stoichiometric Dynamical Systems via Monte Carlo Graph Search",
-    "summary": "arXiv:2609.05207v1 Announce Type: cross Abstract: Dynamical symbolic regression methods identify governing differential equations from noisy data, balancing interpretability and predictive accuracy. H…",
+    "title_zh": "FluxDisco：用蒙特卡洛图搜索发现化学计量动力系统",
+    "summary": "FluxDisco把已知化学计量矩阵直接用于符号回归，限制蒙特卡洛图搜索生成守恒的通量表达式。它在噪声数据中兼顾可解释性与预测能力，目标不是黑箱拟合。对团队的直接价值在于从分子动力学或反应动力学轨迹提取有效方程，但本文未涉及凝聚态材料实例。",
     "abstract": "arXiv:2609.05207v1 Announce Type: cross Abstract: Dynamical symbolic regression methods identify governing differential equations from noisy data, balancing interpretability and predictive accuracy. However, standard methods often produce expressions that violate known physical laws. To address this, we propose FluxDisco, a physics-informed framework tailored for flux-based, stoichiometric ODE systems. By leveraging a known stoichiometry, we reduce the expression search space and ensure physical adherence. Our framework adapts the Monte Carlo Graph Search algorithm for the unique challenges associated with joint flux discovery of stoichiometric systems. We evaluate our method across a range of physical and biological systems, demonstrating its ability to accurately recover governing dynamics through interpretable equations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.05207",
@@ -55,8 +55,8 @@
   },
   {
     "title": "A Unified Physics-Aware Quantum Machine Learning Framework across Power GaN HEMTs and Logic Nanowire FETs: Predicting Unseen Process Splits and Held-Out Geometry Combinations with Lower Error and Tighter Split-to-Split Variability",
-    "title_zh": "文献研究：A Unified Physics-Aware Quantum Machine Learning Framework across Power GaN HEMTs and Logic Nanowire FETs: Predicting Unseen Process Splits and Held-Out Geometry Combinations with Lower Error and Tighter Split-to-Split Variability",
-    "summary": "该文提出用强化学习和图神经网络搜索参数化量子线路，用于功率 GaN HEMT 和逻辑纳米线 FET 的小数据器件建模。结果显示，相比多个经典基线，该量子机器学习代理模型在外推到未见工艺或几何组合时具有更低误差和更小跨划分波动。",
+    "title_zh": "面向功率GaN HEMT与逻辑纳米线FET的统一物理感知量子机器学习框架",
+    "summary": "模型用GNN策略网络配合近端策略优化自动搜索参数化量子电路，并以留一工艺或几何组误差作为强化学习奖励。测试覆盖GaN HEMT和纳米线FET的11个目标，Ioff误差降低59%、折间变异收紧81%。这说明量子机器学习可用于小样本器件外推，但对团队的主要价值是半导体建模方法而非缺陷微观机制。",
     "abstract": "arXiv:2609.05251v1 Announce Type: new Abstract: We present a unified reinforcement-learning (RL) framework that discovers compact parametrized quantum circuits (PQCs) for data-scarce device modeling. A graph neural network (GNN) policy optimized by proximal policy optimization (PPO) searches circuit architectures using leave-one-group-out cross-validation (LOGOCV) error on held-out process or geometry groups as the reward. The framework achieves the lowest mean absolute error (MAE) on all 11 targets versus six classical baselines, with 59% lower error (Ioff) and 81% tighter fold variability (VTH) for HEMTs and 84% lower error (VTH, SS, Ioff) and 82% tighter fold variability (Ioff) for NWFETs. These results demonstrate the potential of RL-selected, classically simulated PQCs as compact surrogates with low OOD error and improved physical consistency, despite imposing no explicit physical constraints, penalty terms, or device-specific equations, on the two evaluated device datasets.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.05251",
@@ -64,17 +64,26 @@
   },
   {
     "title": "Data-Driven Discovery of Composition-Dependent Constitutive Models for Hyperelasticity and Viscoelasticity of Digital Materials",
-    "title_zh": "数字材料超弹性与黏弹性的成分依赖本构模型数据驱动发现",
-    "summary": "多材料3D打印数字材料由刚性和柔顺组分的可控混合构成，具有强非线性、成分依赖和速率依赖的耗散行为。本文提出保持经典Bergström-Boyce模型结构的数据驱动多材料本构建模框架，可直接学习随成分变化的闭式参数，或借助神经常微分方程与受约束神经网络学习平衡和非平衡响应。多成分、多加载速率单轴压缩数据表明，该方法能在保证热力学一致性的同时刻画速率相关刚度和滞回。",
+    "title_zh": "数据驱动发现数字材料的成分依赖超弹性与黏弹性本构模型",
+    "summary": "作者从多材料打印数据中学习随组分变化的超弹性和黏弹性本构关系，而非预先指定闭式应变能函数。模型同时面对大变形非线性与速率依赖耗散。它与团队凝聚态问题没有直接材料交叉，但数据驱动本构发现可启发铁电、磁性和缺陷动力学中的有效模型构建。",
     "abstract": "arXiv:2609.04541v1 Announce Type: cross Abstract: Digital materials fabricated by multi-material 3D printing are designed as controlled mixtures of stiff and compliant constituents, yielding effective responses that span more than an order of magnitude in apparent stiffness and exhibit strongly nonlinear, composition-dependent, and rate-dependent dissipative behavior. Classical finite-strain viscoelastic models represent such behavior with closed-form strain energy functions for equilibrium and non-equilibrium stresses as well as evolution of internal variables, which may limit flexibility when a single constitutive model is expected to generalize across materials and loading rates. Here, we present a data-driven multi-material constitutive modeling framework that generalizes a formulation by Bergström and Boyce. The proposed framework retains the structure of the classical model, namely multiplicative kinematics, invariant-based strain-energy functions, and a scalar dissipative evolution law directed along the normalized nonequilibrium deviatoric stress. For the equilibrium branch, the data-driven discovery framework either directly predicts closed-form model parameters as functions of composition or automatically constructs a polyconvex strain-energy function using neural ordinary differential equations (NODEs). The nonequilibrium branch kinetics are learned similarly, either by directly identifying closed-form parameters across compositions or by using appropriately constrained artificial neural networks. Using multi-rate uniaxial compression data across multiple material compositions, we show that the proposed formulation captures rate-dependent stiffness and hysteresis across compositions while preserving thermodynamic consistency.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2609.04541",
     "journal": "arXiv"
   },
   {
+    "title": "Large Language Models for HVAC Operations in Building Energy Systems: A Critical Review of Methods, Applications, and Deployment Readiness",
+    "title_zh": "建筑能源系统中HVAC运行的大语言模型：方法、应用与部署评述",
+    "summary": "该综述系统整理66篇HVAC大语言模型研究，按应用族、方法族和部署准备度进行比较。评估重点从文本生成扩展到传感器元数据、真实证据和物理责任边界。它与团队AI for science方向存在治理和物理约束层面的间接联系，但不涉及材料、电子结构或凝聚态动力学。",
+    "abstract": "arXiv:2609.05314v1 Announce Type: new Abstract: Building automation systems generate rich sensor data yet remain insight-poor because heterogeneous point naming, missing metadata, and fragmented documentation obstruct their operational use. This systematic review analyses and codes 66 peer-reviewed studies on large language models (LLMs) for HVAC operations published between 2023 and March 2026. Each study is classified across five application families and three LLM method families and assessed for evidence realism, deployment readiness, and the responsibility boundary between the LLM and physical HVAC decisions. The corpus is concentrated in building energy modelling (BEM, 32 of 66 papers), while load forecasting remains too sparse for subfield-level conclusions. Only four studies reach pilot-level evidence, and none reports sustained operational deployment. No study was classified as ready-now for industry adoption; three were near-term and 63 research-only. Nevertheless, several bounded, human-in-the-loop uses merit near-term trials, including point-name normalisation, document-grounded operator support, BEM workflow assistance, and advisory interfaces around physics-based controllers. Conventional machine learning (ML), model predictive control (MPC), reinforcement learning (RL) and ontology-based tools remain more adopted for high-frequency control, short-horizon numerical forecasting, and well-posed ontology mapping, while autonomous agentic operation and unvalidated occupant proxies remain research-stage. Current evidence therefore supports LLMs primarily as semantic and workflow layers rather than autonomous HVAC controllers. Future work should prioritise field-validated benchmarks, orchestration evaluation under operational constraints, and LLM-MPC/RL architectures with bounded latency and verifiable safety properties.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.05314",
+    "journal": "arXiv"
+  },
+  {
     "title": "Physics-Informed Dual-View YOLO Framework for Tennis Ball Trajectory Prediction",
-    "title_zh": "文献研究：Physics-Informed Dual-View YOLO Framework for Tennis Ball Trajectory Prediction",
-    "summary": "The flight behavior of spinning tennis balls constitutes a nonlinear aerodynamic system governed by the coupling among translational motion, rotational dynamics, gravity, and aerodynamic forces. Conve…",
+    "title_zh": "物理知情双视角YOLO网球轨迹预测框架",
+    "summary": "框架用同步双视角视频和YOLO检测重建旋转网球三维轨迹，并把平动、转动、重力和气动力约束加入预测。目标是修正忽略自旋效应的抛体近似。它与团队材料研究没有直接体系交叉，仅在物理知情学习和从观测反演动力学参数方面具有一般方法参考价值。",
     "abstract": "The flight behavior of spinning tennis balls constitutes a nonlinear aerodynamic system governed by the coupling among translational motion, rotational dynamics, gravity, and aerodynamic forces. Conventional trajectory prediction methods often rely on simplified projectile assumptions and therefore fail to accurately reconstruct spin-induced nonlinear trajectory evolution under realistic high-speed sports conditions. To address this limitation, this study proposes a physics-informed tennis trajectory reconstruction framework integrating synchronized dual-view motion acquisition, YOLO-based object localization, three-dimensional kinematic reconstruction, and Magnus-effect-informed aerodynamic simulation. Side-view and top-view observations are utilized to estimate key motion parameters, including initial velocity, elevation angle, and lateral motion angle, which are subsequently incorporated into a nonlinear aerodynamic trajectory model considering gravity, drag, and spin-induced lift forces. Experiments were conducted using 40 tennis strokes collected under daytime and nighttime conditions on a red clay court with physically measured landing-point references. The results demonstrate that incorporating Magnus-effect coupling substantially improves longitudinal trajectory reconstruction accuracy. Specifically, the Z-axis mean absolute error decreased from 2.49 m to 1.08 m, while the overall RMSE decreased from 2.82 m to 1.52 m compared with the non-Magnus model. Spatial deviation analysis further revealed reduced systematic prediction bias and improved trajectory stability under varying illumination conditions. The proposed framework establishes a coupled visual–physical paradigm for nonlinear sports trajectory reconstruction by integrating deep learning–based motion acquisition with physics-informed aerodynamic modeling. The study contributes toward physically consistent landing-point prediction, intelligent sports analytics, and high-fidelity trajectory simulation in high-speed sports environments.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-10389954/latest",
@@ -82,35 +91,17 @@
   },
   {
     "title": "AxQM: A Textbook-Scale Benchmark for Formal Proof Synthesis in a Library of Finite-Dimensional Quantum Mechanics",
-    "title_zh": "文献研究：AxQM: A Textbook-Scale Benchmark for Formal Proof Synthesis in a Library of Finite-Dimensional Quantum Mechanics",
-    "summary": "arXiv:2609.05157v1 Announce Type: cross Abstract: Formalizing mathematics in a proof assistant, where a machine checks every definition, statement and proof, has set a new standard of rigor. Large lan…",
+    "title_zh": "AxQM：有限维量子力学形式化证明的教材级基准",
+    "summary": "AxQM把有限维量子力学教材内容转成1019个由证明助手内核核验的形式化任务。评测对象是大语言模型能否生成可检查的定义、命题和证明，而非数值预测材料性质。它与团队的量子功能材料研究没有直接体系交叉，但可用于验证AI辅助理论推导的逻辑可靠性。",
     "abstract": "arXiv:2609.05157v1 Announce Type: cross Abstract: Formalizing mathematics in a proof assistant, where a machine checks every definition, statement and proof, has set a new standard of rigor. Large language models are now capable of formalizing autonomously, even at the scale of whole textbooks. We bring this standard of rigor to physics, where theoretical arguments carry idealizations that are rarely stated fully, and any logical gaps could have a cascading effect on interdependent results. Recognizing the need to evaluate autoformalization systems for physics, we release AxQM, 1,019 kernel-checkable proof-synthesis tasks over 479 items drawn from the textbook Quantum Computation and Quantum Information by Nielsen and Chuang. The tasks are stated in a custom Lean library of finite-dimensional quantum mechanics. By task count, it is the largest proof-synthesis benchmark in physics by a factor of four. AxQM is derived from a near-complete formalization of the formal portions of the textbook, so every task is guaranteed a solution, which we keep private. Grading of the benchmark is done deterministically by the Lean kernel, which checks that the proof compiles, that no sorry appears in it or in any declaration it depends on, and that it introduces no new axioms.",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2609.05157",
     "journal": "arXiv"
   },
   {
-    "title": "Calculation of DFT Spin-Orbit Spillage with Quantum ESPRESSO",
-    "title_zh": "利用 Quantum ESPRESSO 计算 DFT 自旋—轨道溢出",
-    "summary": "本文介绍了如何从晶体结构计算自旋—轨道溢出（spin-orbit spillage），该量可用于衡量材料具有拓扑特征的可能性，也是相关机器学习分类器所依据的参考量。作者以绝缘化合物 BaMg2Bi2 为例，使用 Quantum ESPRESSO 分别进行包含和不包含自旋—轨道耦合的计算，并通过波函数重叠分析得到溢出值 2.094，与已发表的 VASP 结果 2.075 相差 0.9%。文章还讨论了相对论赝势的作用以及该流程在半金属中的局限性。",
-    "abstract": "arXiv:2609.04517v1 Announce Type: new Abstract: This work describes the calculation of spin-orbit spillage from a crystal structure. Spin-orbit spillage provides a measure of the likelihood that a material has topological character. The spillage also provides the reference quantity for the machine-learning classifier of Choudhary et al., which predicts whether the spillage exceeds a specified threshold rather than the calculation of its numerical value directly. The complete computation workflow was applied to the insulating compound BaMg2Bi2, yielding a spillage of 2.094 compared with the published VASP spillage of 2.075, corresponding to a difference of 0.9%. The calculation is described in terms of two Quantum ESPRESSO (QE) calculations of spillage performed with and without spin-orbit coupling, the role of relativistic pseudopotentials, and the subsequent wavefunction-overlap analysis. The limitations of the same calculation procedure for semimetals are also examined.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2609.04517",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Large Language Models for HVAC Operations in Building Energy Systems: A Critical Review of Methods, Applications, and Deployment Readiness",
-    "title_zh": "文献研究：Large Language Models for HVAC Operations in Building Energy Systems: A Critical Review of Methods, Applications, and Deployment Readiness",
-    "summary": "arXiv:2609.05314v1 Announce Type: new Abstract: Building automation systems generate rich sensor data yet remain insight-poor because heterogeneous point naming, missing metadata, and fragmented docum…",
-    "abstract": "arXiv:2609.05314v1 Announce Type: new Abstract: Building automation systems generate rich sensor data yet remain insight-poor because heterogeneous point naming, missing metadata, and fragmented documentation obstruct their operational use. This systematic review analyses and codes 66 peer-reviewed studies on large language models (LLMs) for HVAC operations published between 2023 and March 2026. Each study is classified across five application families and three LLM method families and assessed for evidence realism, deployment readiness, and the responsibility boundary between the LLM and physical HVAC decisions. The corpus is concentrated in building energy modelling (BEM, 32 of 66 papers), while load forecasting remains too sparse for subfield-level conclusions. Only four studies reach pilot-level evidence, and none reports sustained operational deployment. No study was classified as ready-now for industry adoption; three were near-term and 63 research-only. Nevertheless, several bounded, human-in-the-loop uses merit near-term trials, including point-name normalisation, document-grounded operator support, BEM workflow assistance, and advisory interfaces around physics-based controllers. Conventional machine learning (ML), model predictive control (MPC), reinforcement learning (RL) and ontology-based tools remain more adopted for high-frequency control, short-horizon numerical forecasting, and well-posed ontology mapping, while autonomous agentic operation and unvalidated occupant proxies remain research-stage. Current evidence therefore supports LLMs primarily as semantic and workflow layers rather than autonomous HVAC controllers. Future work should prioritise field-validated benchmarks, orchestration evaluation under operational constraints, and LLM-MPC/RL architectures with bounded latency and verifiable safety properties.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.05314",
-    "journal": "arXiv"
-  },
-  {
     "title": "A locally ab initio computational framework for arbitrary incommensurate materials interfaces",
     "title_zh": "任意非公度材料界面的局域第一性原理计算框架",
-    "summary": "本文提出了一种可扩展的计算框架，用于构建任意材料界面的局域第一性原理电子哈密顿量。该方法利用Wannier哈密顿量矩阵元的近视性，在不同层间配准关系之间进行系统外推和插值，从而避免构造庞大的公度超胞或采用莫尔近似。该框架在准晶30°扭转双层石墨烯中重现实验观测到的镜像狄拉克锥和避免交叉处的小能隙，并预测了可实验实现掺杂范围内的准周期平带态。",
+    "summary": "该框架利用Wannier哈密顿量矩阵元的局域性，在层间配准空间插值局域第一性原理电子哈密顿量。它不要求界面两侧共享周期性，因而面向任意非公度异质界面。对团队而言，这直接连接范德华材料、扭转体系、界面电荷转移和输运，是今日最具方法学契合度的工作之一。",
     "abstract": "arXiv:2609.05082v1 Announce Type: new Abstract: Incommensurate materials interfaces constitute a broad and technologically important class of systems, yet their lack of shared periodicity limits predictive and computationally efficient first-principles electronic-structure methods. Here we introduce a scalable computational framework for constructing locally ab initio electronic Hamiltonians for arbitrary materials interfaces. Our approach exploits the nearsightedness of Wannier Hamiltonian matrix elements, enabling their systematic extrapolation and interpolation across interlayer registries. This strategy yields transferable Hamiltonians that retain first-principles accuracy while bypassing the need for prohibitively large commensurate supercells or Moiré approximations. We validate the framework on quasicrystalline 30deg twisted bilayer graphene, reproducing experimentally observed spectral features including mirrored Dirac cones and minigaps at avoided crossings arising from generalized interlayer scattering. We further predict quasiperiodic flat-band states in experimentally accessible doping regimes. By enabling predictive electronic-structure calculations across structurally incommensurate interfaces, this framework establishes a practical route to first-principles exploration of emergent interfacial phenomena.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2609.05082",
@@ -118,8 +109,8 @@
   },
   {
     "title": "Anharmonic Lattice Dynamics and Anisotropic Electron-Phonon Coupling in Quasi-1-Dimensional Charge Density Wave Ta2NiSe7",
-    "title_zh": "文献研究：Anharmonic Lattice Dynamics and Anisotropic Electron-Phonon Coupling in Quasi-1-Dimensional Charge Density Wave Ta2NiSe7",
-    "summary": "论文结合偏振拉曼光谱、输运和热容测量以及第一性原理计算，研究准一维 Ta2NiSe7 中电荷密度波形成的微观机制。结果表明，沿链方向的电子-声子耦合显著强于层间方向，Ta-Se 八面体振动和费米能级附近电子态是主要耦合通道，支持晶格驱动的电子不稳定性机制。",
+    "title_zh": "准一维电荷密度波Ta2NiSe7的非简谐晶格动力学与各向异性电子-声子耦合",
+    "summary": "研究将偏振拉曼、热容、电输运与第一性原理结合，解析准一维Ta2NiSe7电荷密度波中的非简谐晶格和方向依赖电子-声子耦合。重点是在费米面嵌套、电子-声子作用与晶格不稳定性之间区分贡献。该工作直接连接团队的声子、电子-声子耦合、输运和量子功能材料研究。",
     "abstract": "arXiv:2609.05129v1 Announce Type: new Abstract: The microscopic origin of charge density wave formation in quasi one dimensional Ta2NiSe7 remains actively debated, particularly regarding the relative contributions of Fermi surface nesting, electron phonon coupling, and lattice instabilities. Here, we combine temperature and orientation dependent polarized Raman spectroscopy with first principles calculations to uncover the anisotropic electronic and lattice interactions governing the CDW state in Ta2NiSe7. Heat capacity and electrical transport measurements identify an incommensurate CDW transition at 61 K. Raman spectroscopy reveals pronounced in plane anisotropy, with e ph coupling strength along intrachain b axis exceeding five times that along interchain c axis, whereas lattice anharmonicity is enhanced by threefold along c axis. First principles calculations identify Ta2 Se octahedral vibrations and Ta Se electronic states near the Fermi level as dominant channels mediating the anisotropic e ph interaction. Exceptionally strong and directional e ph coupling along b axis establishes lattice driven electronic instability as the primary mechanism underlying CDW modulation and highlights the dominance of intrachain interactions in strongly coupled Ta2NiSe7. Despite this strong coupling, the CDW remains incommensurate, indicating that lattice anharmonicity provides an additional degree of freedom. Enhanced anharmonicity along c axis suggests that anisotropic phonon phonon interactions reshape the free energy landscape and contribute to stabilizing incommensurate phase. These findings reveal a cooperative interplay between anisotropic e ph coupling and lattice anharmonicity in governing CDW formation in low dimensional quantum materials.",
     "category": "其他凝聚态",
     "link": "https://arxiv.org/abs/2609.05129",
@@ -127,8 +118,8 @@
   },
   {
     "title": "Cross-Layer Anomalous Hall Transport driven by Néel-Vector rotating in the Altermagnet candidate V2Te2O",
-    "title_zh": "Altermagnet候选材料V₂Te₂O中由旋转的Néel矢量驱动的跨层反常霍尔输运",
-    "summary": "通过第一性原理计算和磁对称性分析，本文在范德瓦耳斯反铁磁候选材料V₂Te₂O中发现了由Néel矢量旋转激活的巨大跨层反常霍尔电导。Néel矢量沿面外方向时，水平镜面对称性使反常霍尔响应严格为零；倾斜并旋转Néel矢量则破坏该保护，使自旋轨道耦合打开节点链能隙并产生显著的跨层霍尔响应。当Néel矢量转至面内方向时，σyz约为255 S/cm，几乎比面内分量σxy高两个数量级，从而实现横向输运方向的调控。",
+    "title_zh": "交替磁体候选V2Te2O中由尼尔矢量旋转驱动的跨层反常霍尔输运",
+    "summary": "作者在范德华交替磁体候选V2Te2O中发现跨层反常霍尔通道，而非通常占主导的面内输运。第一性原理与磁对称性表明，尼尔矢量沿z时水平镜面保护自旋极化节点链，并决定跨层电导是否允许。该结果直接连接团队的交替磁性、非共线磁序、磁对称性和自旋输运研究，但完整电导数值及旋转路径需查全文。",
     "abstract": "arXiv:2609.05085v1 Announce Type: new Abstract: In van der Waals (vdW) materials, weak interlayer coupling generally suppresses vertical dispersion, reinforcing the conventional paradigm that in-plane transport dominates over cross-layer channels. Here, using first-principles calculations and magnetic symmetry analyses, we uncover a giant, symmetry-unlocked cross-layer anomalous Hall conductivity (AHC) in the vdW altermagnet V2Te2O. In the magnetic ground state with Neel vector N//z, horizontal mirror symmetry protects a spin-polarized nodal chain near the Fermi level and strictly enforces zero anomalous Hall response. Tilting the Neel vector explicitly breaks this mirror protection, allowing spin-orbit coupling to gap the nodal chain and activate a sharp cross-layer Hall response. When the Neel vector is rotated into the in-plane configuration (N//x), cross-layer orbital hybridization generates intensive Berry curvature hotspots, boosting the cross-layer component of AHC σyz to approximately 255 S/cm, which exceeds in-plane component σₓy by nearly two orders of magnitude. Furthermore, varying the azimuthal angle systematically redistributes the anomalous Hall response, enabling full directional control of transverse transport. Our findings demonstrate a highly sensitive cross-layer anomalous Hall switch activated by low-barrier spin canting, offering promising avenues for directional tensor selection and low-power multi-axial vdW spintronics.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2609.05085",
@@ -136,8 +127,8 @@
   },
   {
     "title": "Phase‐Switchable 2D Single‐Crystalline Perovskite With Low‐Temperature Out‐of‐Plane Rashba Splitting and Room‐Temperature Out‐of‐Plane Ferroelectricity for Electrically Reconfigurable Spin‐Photonics",
-    "title_zh": "文献研究：Phase‐Switchable 2D Single‐Crystalline Perovskite With Low‐Temperature Out‐of‐Plane Rashba Splitting and Room‐Temperature Out‐of‐Plane Ferroelectricity for Electrically Reconfigurable Spin‐Photonics",
-    "summary": "本文报道一种可相变切换的二维单晶钙钛矿，同时具有低温面外Rashba劈裂和室温面外铁电性。该材料可通过电场重构自旋与光子的耦合性质，面向可重构自旋光子学应用。",
+    "title_zh": "可相变二维单晶钙钛矿的Rashba分裂与室温铁电",
+    "summary": "工作将可相变二维单晶钙钛矿的面外铁电性与低温面外Rashba分裂置于同一材料平台。核心构想是用电极化重构自旋相关光学响应，而非仅利用静态结构破缺。摘要确认室温面外铁电和低温Rashba分裂，但未披露材料化学式、模型、表征链路及任何定量参数。其价值在于把低维极性序、自旋轨道耦合和光子学调控连接起来，值得以第一性原理和自旋纹理计算进一步检验。",
     "abstract": "Advanced Functional Materials, EarlyView.",
     "category": "铁电·极化",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78216?af=R",
@@ -145,38 +136,47 @@
   },
   {
     "title": "Energy Eigenstates of Electrons, Magnons and Phonons in Fe₃O₄ (magnetite), MnFe₂O₄ (jacobsite), and mixed Mn-Zn ferrites",
-    "title_zh": "Fe₃O₄（磁铁矿）、MnFe₂O₄（雅各布石）及混合 Mn-Zn 铁氧体中电子、磁振子和声子的能量本征态",
-    "summary": "本文报告了磁铁矿、雅各布石以及不同成分和 A/B 位阳离子排布的 Mn-Zn 混合铁氧体的第一性原理计算。研究结合自洽确定参数的 DFT+U+J、海森堡自旋模型映射、线性自旋波理论和有限位移声子计算，得到电子结构、磁振子和声子谱。该流程为 Mn/Zn 铁氧体体系提供了考虑成分和构型的一致激发谱计算路线。",
+    "title_zh": "Fe3O4、MnFe2O4及锰锌铁氧体的电子、磁振子和声子本征态",
+    "summary": "作者在Fe3O4、MnFe2O4和Mn_xZn_1-xFe2O4中联合求解电子、磁振子和声子本征态。方法上的关键点是以自旋极化线性响应自洽确定Hubbard U与Hund J，而非直接采用经验参数，并显式比较A/B位阳离子排布。摘要未给出最强的定量谱学结果，不能评价特定组分的精度。该路线适合研究尖晶石铁氧体中阳离子无序、交换作用与晶格振动的耦合。",
     "abstract": "arXiv:2601.16374v2 Announce Type: replace Abstract: We report first-principles calculations of the electronic structure, magnon excitations, and phonons in magnetite (Fe₃O₄), jacobsite (MnFe₂O₄), and mixed manganese-zinc ferrites (Mnₓ,Zn₁₋ₓ)Fe₂O₄ for representative compositions (0le x le 1) and A/B-site cation arrangements. Electronic structures are computed using density functional theory (DFT) augmented by rotationally invariant DFT+U+J, with on-site Hubbard and Hund's parameters, U and J, respectively, determined self-consistently by spin-polarized linear-response perturbations of the chosen correlated subspaces (including, where applied, the ligand 2p subspace). A classical Heisenberg spin Hamiltonian is parameterized by mapping DFT+U+J total energies for multiple collinear spin configurations onto nearest-neighbor exchange couplings, which are then used to obtain magnon dispersions and magnon densities of states within linear spin-wave theory. Phonon spectra and densities of states are obtained from finite-displacement force constants and dynamical matrices computed on the same DFT+U+J-relaxed structures. Overall, the workflow provides a consistent, composition- and configuration-aware route to electronic, vibrational, and magnetic excitation spectra across the Mn/Zn ferrite space.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2601.16374",
     "journal": "arXiv"
   },
   {
+    "title": "Robustness of RKKY interactions across a Weyl node-annihilation transition",
+    "title_zh": "跨越Weyl节点湮灭转变的RKKY相互作用稳健性",
+    "summary": "文章给出适用于任意双能带自旋晶格模型的完整RKKY交换张量解析框架，用以追踪Weyl节点湮灭时的间接交换。创新点是同时保留Heisenberg、各向异性Ising和Dzyaloshinskii-Moriya三类项，而不是只讨论标量交换。摘要未公布节点分离、化学势或距离依赖的数值阈值。该结果为拓扑能带转变附近磁性杂质和非共线磁序的有效模型提供解析约束。",
+    "abstract": "arXiv:2609.05219v1 Announce Type: new Abstract: Weyl semimetals (WSMs), with their unique topological properties and distinct electronic structure, exhibit intriguing properties when either time-reversal or inversion symmetries are broken. In this work, we consider the Ruderman-Kittel-Kasuya-Yosida (RKKY) interaction between magnetic impurities in time-reversal symmetry-breaking WSMs. We derive analytical expressions for the full RKKY exchange tensor in arbitrary two-band spinful lattice systems. Our approach reveals both Heisenberg, anisotropic Ising and Dzyaloshinsky-Moriya terms, which can be calculated by energy-integrating real-space Green's functions across the entire Brillouin zone, with the band edge acting as a natural energy cutoff. We apply this framework to study a two-band tight-binding model for a time-reversal symmetry-breaking WSM that interpolates between a Weyl phase with well-separated chiral nodes and a quadratic band-touching semimetal phase. Remarkably, the spatial profile, magnitude, and anisotropic tensor structure of the exchange couplings remain persistent across the node-annihilation transition. This topological robustness reveals that short- and intermediate-range RKKY interactions are mediated by the global, Brillouin-zone-integrated quantum metric of the full valence band rather than being strictly dictated by local low-energy Berry curvature monopoles. These findings demonstrate the necessity of full-band tight-binding formulations when predicting real-space magnetic interactions, providing key insights for electric-field tuning of magnetic anisotropy and constructing realistic models of heavy-fermion and Weyl-Kondo semimetals.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.05219",
+    "journal": "arXiv"
+  },
+  {
     "title": "Layer Architecture Shapes Electronic, Magnetic, and Lattice Interactions in Ruddlesden-Popper Nickelates",
-    "title_zh": "层状结构塑造 Ruddlesden—Popper 镍酸盐中的电子、磁性与晶格相互作用",
-    "summary": "本文利用 Ni L3 边和 O K 边共振非弹性 X 射线散射，对 La3Ni2O7 的交替单层—三层结构 LNO-1313、双层结构 LNO-2222 以及相关三层化合物 La4Ni3O10 进行了比较研究。LNO-1313 与 La4Ni3O10 的电子、磁性和晶格激发高度相似，而 LNO-2222 表现出不同特征，包括更强的轨道极化、更弱的层间磁交换尺度和更弱的电子—声子耦合等差异。研究表明，纠缠二聚体图景能够自然描述强反铁磁层间耦合产生的自旋激发，尤其适用于层间耦合主导层内相互作用的双层 LNO-2222，并为超导相关低能物理模型提供实验约束。",
+    "title_zh": "层状结构塑造Ruddlesden-Popper镍酸盐的电子磁性与晶格相互作用",
+    "summary": "该工作以Ni L3边和O K边共振非弹性X射线散射比较La3Ni2O7两种多型与La4Ni3O10，直接检验层结构对电子、磁性和晶格激发的塑形作用。最明确结论是单层-三层交替La3Ni2O7与La4Ni3O10的三类激发具有显著相似性。摘要未说明谱峰能量、动量分辨结果、理论拟合模型或超导转变参数。其对镍酸盐配对机制的贡献在于把层数和层序作为可控的关联、磁性及晶格变量。",
     "abstract": "arXiv:2609.04532v1 Announce Type: new Abstract: The discovery of superconductivity in Ruddlesden-Popper nickelates has raised a central question: how does layer architecture shape the electronic, magnetic, and lattice interactions relevant to pairing? Here, we report a detailed comparative study of the two polymorphs of La3Ni2O7--the alternating monolayer-trilayer (LNO-1313) and bilayer (LNO-2222) structures--and the related trilayer compound La4Ni3O10, using both Ni L3- and O K-edge RIXS. We find that LNO-1313 and La4Ni3O10 share strikingly similar electronic, magnetic, and lattice excitations, whereas bilayer LNO-2222 exhibits distinct features. Compared to LNO-2222, LNO-1313 and La4Ni3O10 have weaker orbital polarization, enhanced 3d8L character, a reduced out-of-plane magnetic-exchange scale, and stronger EPC. Within an effective local-moment framework, an entangled-dimer scenario provides a natural description of the spin excitations generated by strong antiferromagnetic interlayer coupling. Its advantage over conventional spin-wave theory is clearest in bilayer LNO-2222, where the interlayer coupling dominates the intralayer interactions. These findings provide critical experimental constraints for future theoretical models for the low-energy physics relevant to superconductivity in these layered nickelates.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2609.04532",
     "journal": "arXiv"
   },
   {
-    "title": "Group theory of Raman effect in magnetic materials",
-    "title_zh": "磁性材料中拉曼效应的群论",
-    "summary": "本文针对磁性材料拉曼散射选择定则尚未充分阐明的问题，提出使用 Onsager 互易关系处理磁群中拉曼张量的数学结构。作者生成了所有磁点群的拉曼张量表，并用直积表示方法系统理解选择定则。理论和数值结果与既有实验吻合，解释了 CrSBr 拉曼光谱中的近期疑难，并指出磁拉曼矢量可与磁矩方向正交这一常被忽视的现象。",
-    "abstract": "arXiv:2606.09339v2 Announce Type: replace Abstract: Despite the wealth of experimental observations on Raman scattering in magnetic materials, the underlying selection rules have remained largely unexplored. In this work, we use Onsager reciprocity relation, other than the conventional corepresentation method, to deal with the mathematical structures of Raman tensors in magnetic groups. Using this approach, we generate Raman tensor tables for all magnetic point groups, and present a comprehensive understanding of the Raman selection rules in magnetic materials with direct product representations method. Our theoretical and numerical results match previous experiments well, and resolve a recent puzzle in the Raman spectroscopy of CrSBr. Moreover, we identify a common but overlooked phenomenon: the magneto-Raman vector can be orthogonal to the magnetic moment direction. Our method and associated Raman tensor tables will be helpful for the Raman studies in both experimental and theoretical domains.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2606.09339",
-    "journal": "arXiv"
-  },
-  {
     "title": "Recent Advances in Unconventional Ferroelectrics and Multiferroics",
-    "title_zh": "文献研究：Recent Advances in Unconventional Ferroelectrics and Multiferroics",
-    "summary": "本文综述非常规铁电体和多铁性材料的近期进展，预计涵盖新型极化机制、磁电耦合及相关功能性质。文章旨在总结该领域的材料体系、物理机制和潜在应用方向。",
+    "title_zh": "非常规铁电体与多铁体的最新进展",
+    "summary": "该文是团队核心成员参与撰写的非常规铁电体与多铁体综述，主题直接覆盖极性序、磁电耦合及新型功能材料设计。标题显示其重点并非单一材料的原始数据报告，而是梳理该领域的概念、材料和调控路径。输入未提供摘要或目录，无法准确复述综述涵盖的机制、模型架构、数值结论及文献范围。对团队而言，它更可能承担统一研究图谱与凝练后续问题的作用。",
     "abstract": "Advanced Materials, Volume 38, Issue 50, 7 September 2026.",
     "category": "铁电·极化",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.202507070?af=R",
     "journal": "Wiley: Advanced Materials: Table of Contents"
+  },
+  {
+    "title": "Breakdown of Anomalous Hall Scaling in Dilute Kondo System",
+    "title_zh": "稀释Kondo体系中反常霍尔标度律的失效",
+    "summary": "作者在Ru2Mn0.5Ti0.5Ge稀释Kondo Heusler合金中观察到由本征Berry曲率驱动的反常霍尔输运，并指出常规反常霍尔标度律失效。机制重点是靠近费米能级的平带和van Hove奇点诱导的关联效应，而不是传统f电子Kondo图像。摘要未给出霍尔电导、纵向电阻率拟合参数或Berry曲率计算细节。该体系提示平带关联、磁性和拓扑输运的耦合可产生非标准散射标度。",
+    "abstract": "arXiv:2609.05319v1 Announce Type: new Abstract: The confluence of strong electronic correlations and Berry curvature-driven transport constitutes a largely underexplored frontier in quantum materials research, particularly in systems where electronic correlations arise from flat-band physics rather than conventional f-electron states. Here, we report an intrinsic Berry curvature driven anomalous Hall transport in the dilute Kondo system Ru₂Mn₀.₅Ti₀.₅Ge, a non-f-electron Heusler alloy hosting flat bands with van Hove singularity proximate to the Fermi level. The anomalous Hall response is strikingly non-monotonic, violating the Fermi-liquid scaling relation near the magnetic transition and is restored only at low temperature, coincident with the onset of Kondo coherence. Ab initio calculations strongly establish that the Berry curvature originates from the Kondo hybridization induced interplay of flat bands and spin-orbit coupling mediated anticrossings at the Fermi level. Our findings demonstrate that Kondo coherence of flat bands bears a profound impact on Berry curvature associated ferroic responses, mandating a rigorous theoretical understanding of anomalous transport in the regime where reciprocal space topology and strong correlations are intrinsically intertwined.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.05319",
+    "journal": "arXiv"
   }
 ]
