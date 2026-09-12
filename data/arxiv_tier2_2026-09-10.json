@@ -1,20 +1,11 @@
 [
   {
-    "title": "SSCHA-based evolutionary crystal structure prediction at finite temperatures with account for quantum nuclear motion",
-    "title_zh": "文献研究：SSCHA-based evolutionary crystal structure prediction at finite temperatures with account for quantum nuclear motion",
-    "summary": "论文将机器学习原子势与随机自洽谐近似相结合，用于有限温度下包含量子核运动和非谐效应的进化晶体结构预测。以LaH10为例，比较了主动学习势、通用机器学习势和基于SSCHA数据训练的温度依赖有效势，证明后者能够高效准确地搜索量子非谐自由能面。",
-    "abstract": "arXiv:2512.24849v2 Announce Type: replace Abstract: Reliable crystal structure prediction (CSP) at finite temperatures, including quantum anharmonic effects, remains challenging but is particularly important for systems containing light atoms such as superconducting hydrides. Here, we integrate machine-learned interatomic potentials (MLIPs) with the stochastic self-consistent harmonic approximation (SSCHA) to enable evolutionary CSP on the quantum anharmonic free-energy landscape. Using LaH10 as a test case, we compare three approaches: (i) active-learning MLIPs (AL-MLIPs) trained on the fly, (ii) universal MLIPs (uMLIPs), and (iii) temperature-dependent effective potentials (TDEPs) trained on SSCHA ensemble data. AL-MLIPs correctly predict the cubic Fm-3m phase but require thermodynamic perturbation theory corrections for consistent results. The foundation uMLIP Mattersim-5m enables SSCHA-based CSP without per-structure training, but fine-tuning is required for higher accuracy. Temperature-dependent effective potentials trained on SSCHA data enable accurate and very efficient CSP for large unit cells on the quantum anharmonic free-energy landscape. We demonstrate that quantum anharmonicity simplifies the free-energy landscape and is essential for the correct energy ranking of LaH10 structures.",
-    "category": "超导",
-    "link": "https://arxiv.org/abs/2512.24849",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Strong Impact of Halide Ordering on Structural Phase Transitions in Mixed Perovskites",
-    "title_zh": "卤素排序对混合钙钛矿结构相变的显著影响",
-    "summary": "本文针对CsxRb1-xPbBr3yI3-3y、CsxRb1-xPbBr3yCl3-3y和CsxRb1-xPbCl3yI3-3y卤化物钙钛矿，基于密度泛函理论数据训练机器学习原子间势，并开展同时采样构型与振动自由度的大尺度混合蒙特卡洛-分子动力学模拟。三种二元卤素体系均表现出与卤素离子尺寸失配相关的混溶间隙，并倾向于形成层状卤素排序。结果表明，卤素排序是决定混合卤素钙钛矿结构相稳定性的关键因素，并可使相变温度相对于随机混合结构改变最多100 K。",
-    "abstract": "arXiv:2609.09956v1 Announce Type: new Abstract: Mixed halide perovskites are highly versatile semiconductors with applications in photovoltaics, light-emitting diodes, and photodetectors. Understanding their thermodynamic phase behavior is central to guiding compositional design and improving device stability. Here, we train machine-learned interatomic potentials (MLIPs) on density functional theory reference data for CsxRb1-xPbBr3yI3-3y, CsxRb1-xPbBr3yCl3-3y, and CsxRb1-xPbCl3yI3-3y halide perovskites, enabling large-scale hybrid Monte Carlo-molecular dynamics simulations that sample both configurational and vibrational degrees of freedom. All three binary halide systems exhibit a miscibility gap, the extent of which correlates with halide ion size mismatch. The gaps in Br-Cl and Br-I close at low temperatures, while the Cl-I gap extends above room temperature. At temperatures above the miscibility gap (200 K to 500 K), all systems show a tendency toward layered halide ordering, with halide species preferentially occupying apical or equatorial octahedral sites. In CsPbBr3yI3-3y, this ordering occurs in a device-relevant temperature regime and is linked to the structural phase transitions, shifting transition temperatures by up to 100 K relative to randomly mixed structures. We attribute the strongly non-linear composition dependence of the orthorhombic-tetragonal phase boundary observed experimentally (a linear decrease followed by a plateau) to halide ordering. Introducing Rb on the A-site weakens halide ordering and eliminates the non-linear behavior, while narrowing the miscibility gap in both the Br-I and Br-Cl systems. These results establish halide ordering as a key determinant of structural phase stability in mixed-halide perovskites.",
+    "title": "Quantum-accurate atomistic modeling of enzyme catalysis using a machine learned potential",
+    "title_zh": "文献研究：Quantum-accurate atomistic modeling of enzyme catalysis using a machine learned potential",
+    "summary": "论文利用机器学习原子间势对完整酶、显式溶剂和大规模原子体系进行近量子精度模拟，并研究多种酶催化反应的能垒和中间态。结果显示，该方法可在显著降低计算成本的同时再现实验能垒趋势和区分反应机制。",
+    "abstract": "arXiv:2609.09293v1 Announce Type: new Abstract: Electronic rearrangements associated with bond forming/breaking in catalytic enzymes require quantum mechanical (QM) treatment beyond classical molecular mechanics (MM). Hybrid QM/MM methods enable tractable simulations but require system-specific setup and are sensitive to the QM region choice and treatment of the QM/MM interface. We demonstrate quantum-accurate treatment of all-atom, complete enzymes in explicit solvent comprising up to 54k atoms and 1 microsecond of total simulation time using the machine-learned interatomic potential (MLIP) eSEN-omol. We reproduce experimental barrier trends for Claisen rearrangement in chorismate mutase, resolve critical intermediate states in PETase catalyzed polymer depolymerization, and distinguish mechanistic alternatives for metal-activated phosphoryl transfer in nucleoside diphosphate kinase. We realize 1000x speedups relative to typical QM/MM calculations without system-specific tuning. These results establish MLIPs as a practical route to QM-accurate simulations of enzyme catalysis.",
     "category": "其他",
-    "link": "https://arxiv.org/abs/2609.09956",
+    "link": "https://arxiv.org/abs/2609.09293",
     "journal": "arXiv"
   },
   {
@@ -36,6 +27,24 @@
     "journal": "arXiv"
   },
   {
+    "title": "Strong Impact of Halide Ordering on Structural Phase Transitions in Mixed Perovskites",
+    "title_zh": "卤素排序对混合钙钛矿结构相变的显著影响",
+    "summary": "本文针对CsxRb1-xPbBr3yI3-3y、CsxRb1-xPbBr3yCl3-3y和CsxRb1-xPbCl3yI3-3y卤化物钙钛矿，基于密度泛函理论数据训练机器学习原子间势，并开展同时采样构型与振动自由度的大尺度混合蒙特卡洛-分子动力学模拟。三种二元卤素体系均表现出与卤素离子尺寸失配相关的混溶间隙，并倾向于形成层状卤素排序。结果表明，卤素排序是决定混合卤素钙钛矿结构相稳定性的关键因素，并可使相变温度相对于随机混合结构改变最多100 K。",
+    "abstract": "arXiv:2609.09956v1 Announce Type: new Abstract: Mixed halide perovskites are highly versatile semiconductors with applications in photovoltaics, light-emitting diodes, and photodetectors. Understanding their thermodynamic phase behavior is central to guiding compositional design and improving device stability. Here, we train machine-learned interatomic potentials (MLIPs) on density functional theory reference data for CsxRb1-xPbBr3yI3-3y, CsxRb1-xPbBr3yCl3-3y, and CsxRb1-xPbCl3yI3-3y halide perovskites, enabling large-scale hybrid Monte Carlo-molecular dynamics simulations that sample both configurational and vibrational degrees of freedom. All three binary halide systems exhibit a miscibility gap, the extent of which correlates with halide ion size mismatch. The gaps in Br-Cl and Br-I close at low temperatures, while the Cl-I gap extends above room temperature. At temperatures above the miscibility gap (200 K to 500 K), all systems show a tendency toward layered halide ordering, with halide species preferentially occupying apical or equatorial octahedral sites. In CsPbBr3yI3-3y, this ordering occurs in a device-relevant temperature regime and is linked to the structural phase transitions, shifting transition temperatures by up to 100 K relative to randomly mixed structures. We attribute the strongly non-linear composition dependence of the orthorhombic-tetragonal phase boundary observed experimentally (a linear decrease followed by a plateau) to halide ordering. Introducing Rb on the A-site weakens halide ordering and eliminates the non-linear behavior, while narrowing the miscibility gap in both the Br-I and Br-Cl systems. These results establish halide ordering as a key determinant of structural phase stability in mixed-halide perovskites.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2609.09956",
+    "journal": "arXiv"
+  },
+  {
+    "title": "SSCHA-based evolutionary crystal structure prediction at finite temperatures with account for quantum nuclear motion",
+    "title_zh": "文献研究：SSCHA-based evolutionary crystal structure prediction at finite temperatures with account for quantum nuclear motion",
+    "summary": "该工作将机器学习原子间势与随机自洽谐近似结合，用于考虑量子核效应和非谐自由能的有限温度进化晶体结构预测。以LaH10为例，结果表明在线主动学习势、通用势微调及基于SSCHA数据训练的温度相关有效势均可支持结构搜索，其中后者在大晶胞计算中兼具较高精度和效率。",
+    "abstract": "arXiv:2512.24849v2 Announce Type: replace Abstract: Reliable crystal structure prediction (CSP) at finite temperatures, including quantum anharmonic effects, remains challenging but is particularly important for systems containing light atoms such as superconducting hydrides. Here, we integrate machine-learned interatomic potentials (MLIPs) with the stochastic self-consistent harmonic approximation (SSCHA) to enable evolutionary CSP on the quantum anharmonic free-energy landscape. Using LaH10 as a test case, we compare three approaches: (i) active-learning MLIPs (AL-MLIPs) trained on the fly, (ii) universal MLIPs (uMLIPs), and (iii) temperature-dependent effective potentials (TDEPs) trained on SSCHA ensemble data. AL-MLIPs correctly predict the cubic Fm-3m phase but require thermodynamic perturbation theory corrections for consistent results. The foundation uMLIP Mattersim-5m enables SSCHA-based CSP without per-structure training, but fine-tuning is required for higher accuracy. Temperature-dependent effective potentials trained on SSCHA data enable accurate and very efficient CSP for large unit cells on the quantum anharmonic free-energy landscape. We demonstrate that quantum anharmonicity simplifies the free-energy landscape and is essential for the correct energy ranking of LaH10 structures.",
+    "category": "超导",
+    "link": "https://arxiv.org/abs/2512.24849",
+    "journal": "arXiv"
+  },
+  {
     "title": "Fast, Accurate, and Scalable Fermionic Neural Networks via Translation Equivariance",
     "title_zh": "通过平移等变性实现快速、精确且可扩展的费米子神经网络",
     "summary": "本文表明，使神经量子态成为哈密顿量对称性的精确本征态，能够显著提高训练速度并降低最终变分能量。针对二维电子气，作者构建了具有总动量精确本征性的TorFormer，在无监督条件下同时描述费米液体和维格纳晶体，并在较大体系中显著优于基于Psiformer的参考方法。结果显示，该方法能够高效求解大规模量子多体问题，并在区分竞争相所需的微小能量差方面取得明显改进。",
@@ -45,12 +54,12 @@
     "journal": "arXiv"
   },
   {
-    "title": "Quantum-accurate atomistic modeling of enzyme catalysis using a machine learned potential",
-    "title_zh": "文献研究：Quantum-accurate atomistic modeling of enzyme catalysis using a machine learned potential",
-    "summary": "本文使用机器学习原子势对含显式溶剂的大型酶体系进行量子精度模拟，覆盖反应势垒、中间态和催化机理分析。研究显示，该机器学习势相较传统量子力学/分子力学方法可显著降低计算成本，并支持大规模长时间动力学模拟。",
-    "abstract": "arXiv:2609.09293v1 Announce Type: new Abstract: Electronic rearrangements associated with bond forming/breaking in catalytic enzymes require quantum mechanical (QM) treatment beyond classical molecular mechanics (MM). Hybrid QM/MM methods enable tractable simulations but require system-specific setup and are sensitive to the QM region choice and treatment of the QM/MM interface. We demonstrate quantum-accurate treatment of all-atom, complete enzymes in explicit solvent comprising up to 54k atoms and 1 microsecond of total simulation time using the machine-learned interatomic potential (MLIP) eSEN-omol. We reproduce experimental barrier trends for Claisen rearrangement in chorismate mutase, resolve critical intermediate states in PETase catalyzed polymer depolymerization, and distinguish mechanistic alternatives for metal-activated phosphoryl transfer in nucleoside diphosphate kinase. We realize 1000x speedups relative to typical QM/MM calculations without system-specific tuning. These results establish MLIPs as a practical route to QM-accurate simulations of enzyme catalysis.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2609.09293",
+    "title": "Physics-Informed Multi-Task Surrogate Model for the Martian Nightside Thermosphere",
+    "title_zh": "面向火星夜侧热层的物理信息多任务代理模型",
+    "summary": "本文提出一种多任务物理信息神经网络，同时预测火星夜侧热层中O、CO₂、N₂和Ar四种中性成分的十进制对数密度。模型利用共享骨干网络学习共同状态表示，并通过惩罚对数密度的正垂直梯度来抑制非物理性的密度反转。基于轨道不相交的数据划分，实验显示物理信息正则化显著减少了反转现象，同时保持或略微提升预测性能。",
+    "abstract": "arXiv:2609.10077v1 Announce Type: cross Abstract: Modeling the Martian nightside thermosphere remains challenging due to sparse in situ sampling and strong coupling among transport, magnetic, and seasonal processes. Purely data-driven models can produce non-physical artifacts, such as density inversions, in poorly sampled altitude regimes. We present a multi-task physics-informed neural network that simultaneously predicts the base-10 logarithmic densities of four neutral species (O, CO₂, N₂, and Ar) using more than a decade of MAVEN/NGIMS observations (MY 32-38, 2014-2025). A shared backbone learns a common representation of the nightside thermospheric state and branches into species-specific output heads. A weak monotonicity prior is incorporated via automatic differentiation by penalizing positive vertical gradients in logarithmic density. Experiments using an orbit-disjoint train/validation/test split show that physics-informed regularization substantially reduces non-physical inversions while preserving predictive skill and slightly improving it in the best-performing configuration, as measured by RMSE, MAE, and R². The resulting model provides a computationally efficient surrogate for nightside thermospheric reconstruction with improved vertical consistency.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.10077",
     "journal": "arXiv"
   },
   {
@@ -72,39 +81,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "PatternFormer: Learning Multiple Solution Patterns in Reaction--Diffusion Systems",
-    "title_zh": "PatternFormer：学习反应-扩散系统中的多重解模式",
-    "summary": "许多非线性物理、化学和生物模型在相同参数下存在多个解，但现有学习代理模型通常只能输出单一解分支。本文提出基于大语言模型的PatternFormer框架，通过将无序共存解转化为规范序列，以一次自回归推理生成结构化解集。该方法在非线性椭圆问题和Gray-Scott系统中恢复或生成多种共存模式，并显示出跨多稳态系统顺序微调的潜力。",
-    "abstract": "Many nonlinear models across physics, chemistry, and biology exhibit multiple solutions for the same parameters, and capturing this entire solution set is essential for understanding pattern-forming systems. Yet existing learned surrogates are fundamentally single-valued: neural operators map each parameter to a single output, and physics-informed neural networks converge to one branch. We develop PatternFormer (PF), a large language model-based framework for learning the multiple solutions of nonlinear partial differential equations. By transforming unordered coexisting solutions into canonical sequences, PF produces structured solution sets in a single autoregressive pass, terminating automatically for finite families and enforcing physical residual constraints for unbounded ones. On nonlinear elliptic problems it recovers all solution branches in one inference step; on Gray--Scott it generates coexisting Turing patterns, including physically valid states absent from the reference data and beyond training. PF can also be sequentially fine-tuned across multistable systems, toward general foundation models for solution landscapes.",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-10537151/latest",
-    "journal": "Preprints"
-  },
-  {
     "title": "High-quality, high-information datasets for universal atomistic machine learning",
     "title_zh": "文献研究：High-quality, high-information datasets for universal atomistic machine learning",
-    "summary": "该论文构建了面向通用原子机器学习的高质量数据集，通过统一的全电子密度泛函理论流程和高水平泛函，覆盖分子、团簇、块体、表面及低维结构。数据集扩展至102种元素，并通过针对性采样提高化学空间和构型信息的覆盖度。",
+    "summary": "该工作发布了 MAD-1.6 高质量原子级机器学习数据集，采用统一的全电子 DFT 流程和 r²SCAN 泛函，覆盖 102 种元素以及分子、团簇、块体、表面和低维结构。数据集通过针对性扩充化学空间和提高数据一致性，旨在支持具有广泛适用性的机器学习原子模型和势函数训练。",
     "abstract": "arXiv:2603.02089v3 Announce Type: replace Abstract: The quality, consistency, and information content of training data is often what determines the practical value of machine-learning models for atomistic simulations. Yet, many widely used electronic-structure databases are assembled having materials screening as primary goal rather than robust force-field learning, are limited in their scope to a specific class of chemical compounds, and/or employ inconsistent DFT functionals and settings. Here we introduce MAD-1.6, a highly curated dataset designed explicitly for training broadly applicable atomistic models across the periodic table at high levels of theory. MAD-1.6 extends the MAD dataset with targeted enrichment strategies that improve the coverage of chemical space to 102 elements while keeping the total number of configurations compact. All structures are computed with a single, standardized all-electron DFT workflow using the r²SCAN meta-GGA functional and consistent convergence settings, ensuring uniformity across chemically heterogeneous systems. The dataset encompasses molecules, clusters, bulk crystals, surfaces, and low-dimensional structures, and its quality and consistency are further enhanced by outlier removal using uncertainty quantification. We demonstrate the high accuracy that can be achieved with the proposed dataset by training PET-MAD-1.6, a generally applicable r²SCAN interatomic potential that covers 102 elements in the periodic table and achieves exceptional levels of benchmark accuracy and stability in challenging simulation protocols.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2603.02089",
     "journal": "arXiv"
   },
   {
-    "title": "Physics-Informed Multi-Task Surrogate Model for the Martian Nightside Thermosphere",
-    "title_zh": "面向火星夜侧热层的物理信息多任务代理模型",
-    "summary": "本文提出一种多任务物理信息神经网络，同时预测火星夜侧热层中O、CO₂、N₂和Ar四种中性成分的十进制对数密度。模型利用共享骨干网络学习共同状态表示，并通过惩罚对数密度的正垂直梯度来抑制非物理性的密度反转。基于轨道不相交的数据划分，实验显示物理信息正则化显著减少了反转现象，同时保持或略微提升预测性能。",
-    "abstract": "arXiv:2609.10077v1 Announce Type: cross Abstract: Modeling the Martian nightside thermosphere remains challenging due to sparse in situ sampling and strong coupling among transport, magnetic, and seasonal processes. Purely data-driven models can produce non-physical artifacts, such as density inversions, in poorly sampled altitude regimes. We present a multi-task physics-informed neural network that simultaneously predicts the base-10 logarithmic densities of four neutral species (O, CO₂, N₂, and Ar) using more than a decade of MAVEN/NGIMS observations (MY 32-38, 2014-2025). A shared backbone learns a common representation of the nightside thermospheric state and branches into species-specific output heads. A weak monotonicity prior is incorporated via automatic differentiation by penalizing positive vertical gradients in logarithmic density. Experiments using an orbit-disjoint train/validation/test split show that physics-informed regularization substantially reduces non-physical inversions while preserving predictive skill and slightly improving it in the best-performing configuration, as measured by RMSE, MAE, and R². The resulting model provides a computationally efficient surrogate for nightside thermospheric reconstruction with improved vertical consistency.",
+    "title": "Development and Validation of a Physics-Guided Machine Learning Extrapolation Framework Using a Classical Transient Diffusion Benchmark",
+    "title_zh": "文献研究：Development and Validation of a Physics-Guided Machine Learning Extrapolation Framework Using a Classical Transient Diffusion Benchmark",
+    "summary": "arXiv:2609.09912v1 Announce Type: new Abstract: Machine learning models used in engineering are typically trained within limited operating ranges, yet reliable predictions are often required beyond th…",
+    "abstract": "arXiv:2609.09912v1 Announce Type: new Abstract: Machine learning models used in engineering are typically trained within limited operating ranges, yet reliable predictions are often required beyond these domains. Consequently, the primary challenge is extrapolation rather than interpolation. Rigorous validation is hindered by the scarcity of data outside the training range. To address this limitation, a novel extrapolation framework is integrated with established machine learning architectures to enable accurate and physically consistent predictions beyond the training domain. The framework is established by systematically evaluating two physics-guided architectures: a Bidirectional Long Short-Term Memory (BiLSTM) network and a Physics-Informed Neural Network (PINN). A classical one-dimensional transient diffusion problem is adopted as a benchmark because its exact analytical solution provides unlimited, reliable data across the spatio-temporal domain, enabling rigorous quantitative validation. The problem is particularly challenging because the solution evolves from an initial singularity through a strongly nonlinear transient regime before approaching a steady-state linear profile. When training data are confined to an intermediate portion of this evolution, backward extrapolation toward the singularity becomes especially demanding. To improve reliability, physics-guided coordinate transformations, boundary-aware learning strategies, and stability-enhancing temporal marching are incorporated. Extrapolation is evaluated using a train-predict-validate-extend strategy, in which validated predictions are recursively added to the training set to progressively extend the prediction horizon. The results demonstrate accurate and physically consistent predictions beyond the training domain, highlighting the framework's potential for engineering applications where data availability is limited.",
     "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.10077",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Surrogate-Assisted Inverse Design and Temperature-Dependent Electrothermal Analysis of an All-Oxide Narrowband Thermophotovoltaic Emitter",
-    "title_zh": "文献研究：Surrogate-Assisted Inverse Design and Temperature-Dependent Electrothermal Analysis of an All-Oxide Narrowband Thermophotovoltaic Emitter",
-    "summary": "arXiv:2609.10252v1 Announce Type: new Abstract: A narrowband emitter aligning with the bandgap of the underlying solar cell is essential for improving the spectral efficiency and thermal stability of…",
-    "abstract": "arXiv:2609.10252v1 Announce Type: new Abstract: A narrowband emitter aligning with the bandgap of the underlying solar cell is essential for improving the spectral efficiency and thermal stability of thermophotovoltaic (TPV) systems. Emitters based on oxide materials present a promising solution to the optical and mechanical performance degradation of traditional emitters, which employ metal-dielectric structures that experience metal oxidation and structural deterioration at high temperatures. Here, we presented a surrogate-assisted inverse-design framework for a narrowband 1D grating emitter comprising ITO and Al2O3 layers on a sapphire substrate. We performed Bayesian optimization over the trained ExtraTrees surrogates on a penalty-augmented objective containing a peak-emission constraint (E_peak > 0.90) while minimizing the full width at half maximum (FWHM) and maximizing the fraction of emission concentrated within the selected peak-centered spectral band to acquire a high, narrowband peak emission. The surrogate model was trained using a dataset of emission spectra obtained from the finite-difference time-domain (FDTD) by systematically varying the layers' thicknesses and the structure's period as the input features, and the narrowband emission's figure of merit (FOM) ((E_peak), wavelength of peak emission (_peak), FWHM, in-band fraction (f_in) for determining the amount of emission outside the peak band, and concentration of peak emission near the peak) was used as the prediction target. The resulting set of predictions for the optimized structure was further validated using the FDTD method.",
-    "category": "AI×化学·材料",
-    "link": "https://arxiv.org/abs/2609.10252",
+    "link": "https://arxiv.org/abs/2609.09912",
     "journal": "arXiv"
   },
   {
@@ -117,21 +108,12 @@
     "journal": "Preprints"
   },
   {
-    "title": "Development and Validation of a Physics-Guided Machine Learning Extrapolation Framework Using a Classical Transient Diffusion Benchmark",
-    "title_zh": "文献研究：Development and Validation of a Physics-Guided Machine Learning Extrapolation Framework Using a Classical Transient Diffusion Benchmark",
-    "summary": "arXiv:2609.09912v1 Announce Type: new Abstract: Machine learning models used in engineering are typically trained within limited operating ranges, yet reliable predictions are often required beyond th…",
-    "abstract": "arXiv:2609.09912v1 Announce Type: new Abstract: Machine learning models used in engineering are typically trained within limited operating ranges, yet reliable predictions are often required beyond these domains. Consequently, the primary challenge is extrapolation rather than interpolation. Rigorous validation is hindered by the scarcity of data outside the training range. To address this limitation, a novel extrapolation framework is integrated with established machine learning architectures to enable accurate and physically consistent predictions beyond the training domain. The framework is established by systematically evaluating two physics-guided architectures: a Bidirectional Long Short-Term Memory (BiLSTM) network and a Physics-Informed Neural Network (PINN). A classical one-dimensional transient diffusion problem is adopted as a benchmark because its exact analytical solution provides unlimited, reliable data across the spatio-temporal domain, enabling rigorous quantitative validation. The problem is particularly challenging because the solution evolves from an initial singularity through a strongly nonlinear transient regime before approaching a steady-state linear profile. When training data are confined to an intermediate portion of this evolution, backward extrapolation toward the singularity becomes especially demanding. To improve reliability, physics-guided coordinate transformations, boundary-aware learning strategies, and stability-enhancing temporal marching are incorporated. Extrapolation is evaluated using a train-predict-validate-extend strategy, in which validated predictions are recursively added to the training set to progressively extend the prediction horizon. The results demonstrate accurate and physically consistent predictions beyond the training domain, highlighting the framework's potential for engineering applications where data availability is limited.",
+    "title": "The Structure of Emulations in Classical Spin Models: Modularity and Universality",
+    "title_zh": "文献研究：The Structure of Emulations in Classical Spin Models: Modularity and Universality",
+    "summary": "该工作建立了经典自旋模型之间可计算模拟关系的形式化框架，将一个模型在给定能量截断下编码为另一个模型。作者证明该类模拟具有可加、可缩放和可复合的模块性，并给出自旋模型具有普适性的充要条件及其与基态、配分函数和采样复杂度问题的联系。",
+    "abstract": "arXiv:2407.13428v3 Announce Type: replace-cross Abstract: The theory of spin models intersects with condensed matter physics, complex systems, graph theory, combinatorial optimization, computational complexity and neural networks. Many ensuing applications rely on the fact that complicated spin models can be transformed to simpler ones. What is the structure of such transformations? Here, we provide a framework to study and construct emulations between spin models. A spin model is a set of spin systems, and emulations are efficiently computable simulations with arbitrary energy cut-off, where a source spin system simulates a target system if, below the cut-off, the target Hamiltonian is encoded in the source Hamiltonian. We prove that emulations preserve important properties, as they induce reductions between computational problems such as computing ground states, approximating partition functions and approximate sampling from Boltzmann distributions. Emulations are modular (they can be added, scaled and composed), and allow for universality, i.e. certain spin models have maximal reach. We prove that a spin model is universal if and only if it is scalable, closed and functional complete. Because the characterization is constructive, it provides a step-by-step guide to construct emulations. We prove that the 2d Ising model with fields is universal, for which we also provide two new crossing gadgets. Finally, we show that simulations can be computed by linear programs. While some ideas of this work are contained in [1], we provide new definitions and theorems. This framework provides a toolbox for applications involving emulations of spin models.",
     "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.09912",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Dual-unitary Circuits as a Platform for Quantum Reservoir Computing",
-    "title_zh": "文献研究：Dual-unitary Circuits as a Platform for Quantum Reservoir Computing",
-    "summary": "arXiv:2609.09292v1 Announce Type: cross Abstract: Quantum reservoir computing (QRC) is a machine learning approach which employs the internal dynamics of a physical system (the reservoir) to encode an…",
-    "abstract": "arXiv:2609.09292v1 Announce Type: cross Abstract: Quantum reservoir computing (QRC) is a machine learning approach which employs the internal dynamics of a physical system (the reservoir) to encode and process information. In this work, we explore the use of dual-unitary circuits in a brickwork architecture as a platform for QRC, well suited to current noisy intermediate-scale quantum devices. Dual-unitary circuits present both practical and conceptual advantages. Our results indicate that, under appropriate conditions, dual-unitarity can lead to an enhanced regime of operation: we numerically verify that it improves memory effects and nonlinear processing, and shields against finite-shot noise, mitigating exponential concentration. Moreover, dual unitarity offers an intuitive picture of how operator dynamics gives rise to memory and nonlinear processing in circuit-based reservoirs.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.09292",
+    "link": "https://arxiv.org/abs/2407.13428",
     "journal": "arXiv"
   },
   {
@@ -144,6 +126,15 @@
     "journal": "Phys. Rev. Materials"
   },
   {
+    "title": "Dual-unitary Circuits as a Platform for Quantum Reservoir Computing",
+    "title_zh": "文献研究：Dual-unitary Circuits as a Platform for Quantum Reservoir Computing",
+    "summary": "arXiv:2609.09292v1 Announce Type: cross Abstract: Quantum reservoir computing (QRC) is a machine learning approach which employs the internal dynamics of a physical system (the reservoir) to encode an…",
+    "abstract": "arXiv:2609.09292v1 Announce Type: cross Abstract: Quantum reservoir computing (QRC) is a machine learning approach which employs the internal dynamics of a physical system (the reservoir) to encode and process information. In this work, we explore the use of dual-unitary circuits in a brickwork architecture as a platform for QRC, well suited to current noisy intermediate-scale quantum devices. Dual-unitary circuits present both practical and conceptual advantages. Our results indicate that, under appropriate conditions, dual-unitarity can lead to an enhanced regime of operation: we numerically verify that it improves memory effects and nonlinear processing, and shields against finite-shot noise, mitigating exponential concentration. Moreover, dual unitarity offers an intuitive picture of how operator dynamics gives rise to memory and nonlinear processing in circuit-based reservoirs.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.09292",
+    "journal": "arXiv"
+  },
+  {
     "title": "Fidelity-Aware Scheduling of Quantum Circuits on Multi-QPU Systems",
     "title_zh": "文献研究：Fidelity-Aware Scheduling of Quantum Circuits on Multi-QPU Systems",
     "summary": "arXiv:2609.09980v1 Announce Type: cross Abstract: High Performance Computing-Quantum Computing (HPCQC) platforms expose multiple Quantum Processing Units (QPUs) that may differ in size, topology, nati…",
@@ -153,30 +144,39 @@
     "journal": "arXiv"
   },
   {
-    "title": "Giant tunneling electroresistance in sliding ferroelectrics",
-    "title_zh": "文献研究：Giant tunneling electroresistance in sliding ferroelectrics",
-    "summary": "该论文研究滑移铁电体中的巨型隧穿电阻效应，重点考察层间滑移、极化状态与隧穿输运之间的关系。研究表明，滑移诱导的铁电极化切换能够显著调制界面势垒和隧穿电流，从而产生巨型隧穿电阻变化。",
-    "abstract": "Science, Volume 393, Issue 6816, Page 1139-1144, September 2026.",
-    "category": "铁电·极化",
-    "link": "https://www.science.org/doi/abs/10.1126/science.aeh3697?af=R",
-    "journal": "AAAS: Science: Table of Contents"
+    "title": "Hybrid Quantum-Classical NLP Classification with Compact Semantic Representations: An Experimental Analysis of Representation Compression",
+    "title_zh": "文献研究：Hybrid Quantum-Classical NLP Classification with Compact Semantic Representations: An Experimental Analysis of Representation Compression",
+    "summary": "arXiv:2609.10089v1 Announce Type: new Abstract: Large language and sentence-embedding models provide rich semantic representations, but their high dimensionality poses a challenge for near-term quantu…",
+    "abstract": "arXiv:2609.10089v1 Announce Type: new Abstract: Large language and sentence-embedding models provide rich semantic representations, but their high dimensionality poses a challenge for near-term quantum machine learning (QML), where quantum circuits can process only a limited number of input features. We investigate a hybrid quantum-classical pipeline that transforms high-dimensional sentence embeddings into compact representations for variational quantum classification. The workflow combines a pretrained sentence-embedding model, dimensionality reduction, angle encoding, a variational quantum circuit (VQC), and a classical decision layer. We systematically compare principal component analysis (PCA), neighborhood components analysis (NCA), and linear discriminant analysis (LDA), covering both unsupervised and supervised dimensionality reduction. Using the TREC question-classification dataset, we study the relationship between representation dimensionality, information retention, qubit count, and classification performance. Preliminary PCA experiments reveal a strong information bottleneck: reducing 768-dimensional embeddings to 3, 4, 5, and 8 dimensions retains about 8.2%, 10.2%, 11.9%, and 16.4% of the variance, with corresponding classification accuracies of 50.3%, 51.2%, 57.9%, and 63.4%. In contrast, supervised reduction is substantially more efficient. LDA reaches 85.3% accuracy and NCA reaches 83.1% using only 5 dimensions, under a leakage-free cross-validation protocol, compared with 85.1% for a full 384-dimensional classical baseline. These results indicate that supervised dimensionality reduction can preserve task-relevant information far more effectively than variance-based compression, making compact representations a promising route toward practical hybrid quantum-classical NLP models.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.10089",
+    "journal": "arXiv"
   },
   {
-    "title": "Endurance beyond 10 billion cycles in wurtzite ferroelectrics by confining nitrogen vacancies",
-    "title_zh": "文献研究：Endurance beyond 10 billion cycles in wurtzite ferroelectrics by confining nitrogen vacancies",
-    "summary": "该论文研究纤锌矿铁电体中氮空位的空间约束及其对铁电耐久性的影响。主要结论是，通过限制氮空位的迁移或聚集，可使铁电器件的极化翻转耐久性超过百亿次循环。",
-    "abstract": "Science, Volume 393, Issue 6816, Page 1134-1138, September 2026.",
-    "category": "铁电·极化",
-    "link": "https://www.science.org/doi/abs/10.1126/science.aec7337?af=R",
-    "journal": "AAAS: Science: Table of Contents"
+    "title": "PatternFormer: Learning Multiple Solution Patterns in Reaction--Diffusion Systems",
+    "title_zh": "PatternFormer：学习反应-扩散系统中的多重解模式",
+    "summary": "许多非线性物理、化学和生物模型在相同参数下存在多个解，但现有学习代理模型通常只能输出单一解分支。本文提出基于大语言模型的PatternFormer框架，通过将无序共存解转化为规范序列，以一次自回归推理生成结构化解集。该方法在非线性椭圆问题和Gray-Scott系统中恢复或生成多种共存模式，并显示出跨多稳态系统顺序微调的潜力。",
+    "abstract": "Many nonlinear models across physics, chemistry, and biology exhibit multiple solutions for the same parameters, and capturing this entire solution set is essential for understanding pattern-forming systems. Yet existing learned surrogates are fundamentally single-valued: neural operators map each parameter to a single output, and physics-informed neural networks converge to one branch. We develop PatternFormer (PF), a large language model-based framework for learning the multiple solutions of nonlinear partial differential equations. By transforming unordered coexisting solutions into canonical sequences, PF produces structured solution sets in a single autoregressive pass, terminating automatically for finite families and enforcing physical residual constraints for unbounded ones. On nonlinear elliptic problems it recovers all solution branches in one inference step; on Gray--Scott it generates coexisting Turing patterns, including physically valid states absent from the reference data and beyond training. PF can also be sequentially fine-tuned across multistable systems, toward general foundation models for solution landscapes.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10537151/latest",
+    "journal": "Preprints"
   },
   {
-    "title": "Automated Generation of Commensurate Magnetic Structures based on Spin Space Groups and Graph Theory",
-    "title_zh": "基于自旋空间群与图论的公度磁结构自动生成",
-    "summary": "该工作提出SpinGraph自动化工作流，用于生成在对称性上不同的磁构型，并支持一般自旋空间群及指定单Q或多Q态叠加的精确控制。该方法将对称性操作转换为实空间或傅里叶空间中的图约束，并在构建后重新评估每个结构的对称性。作者将其与AMATIS结合，完成了绝缘单层CrI3自旋相互作用的自动化分析。",
-    "abstract": "arXiv:2609.09679v1 Announce Type: new Abstract: Magnetic structures with symmetry constraints are candidates for energetically favorable configurations. Enumerating these structures is essential for identifying experimental observations and provides unbiased, linearly stable, and optimally sampled reference configurations for energy fitting when extracting spin interactions. We present SpinGraph, an automated workflow generating symmetry-distinct magnetic configurations. SpinGraph is not only compatible with the more general spin space groups, but also allows precise control of the prescribed single- or multi-Q states superposition. For finite groups, we enumerate compatible subgroups directly. For spin space groups with a continuous or special spin-only part, the finite component is enumerated first and then combined with the compatible exact spin-only constraints. These actions are translated into graph constraints in real or Fourier space. The symmetry of every generated structure is re-evaluated after construction. Finally, we integrate SpinGraph with the magnetic analysis code AMATIS to perform a thorough calculation for the spin interactions of the insulating monolayer CrI3. SpinGraph complements the last part of AMATIS and realizes the fully automated workflow for the spin Hamiltonian construction, which is essential for studying phase transitions, spin textures, magnons, and spin dynamics.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.09679",
+    "title": "Surrogate-Assisted Inverse Design and Temperature-Dependent Electrothermal Analysis of an All-Oxide Narrowband Thermophotovoltaic Emitter",
+    "title_zh": "文献研究：Surrogate-Assisted Inverse Design and Temperature-Dependent Electrothermal Analysis of an All-Oxide Narrowband Thermophotovoltaic Emitter",
+    "summary": "arXiv:2609.10252v1 Announce Type: new Abstract: A narrowband emitter aligning with the bandgap of the underlying solar cell is essential for improving the spectral efficiency and thermal stability of…",
+    "abstract": "arXiv:2609.10252v1 Announce Type: new Abstract: A narrowband emitter aligning with the bandgap of the underlying solar cell is essential for improving the spectral efficiency and thermal stability of thermophotovoltaic (TPV) systems. Emitters based on oxide materials present a promising solution to the optical and mechanical performance degradation of traditional emitters, which employ metal-dielectric structures that experience metal oxidation and structural deterioration at high temperatures. Here, we presented a surrogate-assisted inverse-design framework for a narrowband 1D grating emitter comprising ITO and Al2O3 layers on a sapphire substrate. We performed Bayesian optimization over the trained ExtraTrees surrogates on a penalty-augmented objective containing a peak-emission constraint (E_peak > 0.90) while minimizing the full width at half maximum (FWHM) and maximizing the fraction of emission concentrated within the selected peak-centered spectral band to acquire a high, narrowband peak emission. The surrogate model was trained using a dataset of emission spectra obtained from the finite-difference time-domain (FDTD) by systematically varying the layers' thicknesses and the structure's period as the input features, and the narrowband emission's figure of merit (FOM) ((E_peak), wavelength of peak emission (_peak), FWHM, in-band fraction (f_in) for determining the amount of emission outside the peak band, and concentration of peak emission near the peak) was used as the prediction target. The resulting set of predictions for the optimized structure was further validated using the FDTD method.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2609.10252",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Reinforcement learning for Quantum Tiq-Taq-Toe",
+    "title_zh": "文献研究：Reinforcement learning for Quantum Tiq-Taq-Toe",
+    "summary": "arXiv:2411.06429v2 Announce Type: replace Abstract: Quantum Tiq-Taq-Toe is a well-known benchmark and playground for both quantum computing and machine learning. Despite its popularity, no reinforceme…",
+    "abstract": "arXiv:2411.06429v2 Announce Type: replace Abstract: Quantum Tiq-Taq-Toe is a well-known benchmark and playground for both quantum computing and machine learning. Despite its popularity, no reinforcement learning (RL) methods have been applied to Quantum Tiq-Taq-Toe. Although there has been some research on Quantum Chess this game is significantly more complex in terms of computation and analysis. Therefore, we study the combination of quantum computing and reinforcement learning in Quantum Tiq-Taq-Toe, which may serve as an accessible testbed for the integration of both fields. Quantum games are challenging to represent classically due to their inherent partial observability and the potential for exponential state complexity. In Quantum Tiq-Taq-Toe, states are observed through Measurement (a 3x3 matrix of state probabilities) and Move History (a 9x9 matrix of entanglement relations), making strategy complex as each move can collapse the quantum state.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2411.06429",
     "journal": "arXiv"
   }
 ]

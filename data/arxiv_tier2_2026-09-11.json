@@ -18,9 +18,18 @@
     "journal": "ScienceDirect"
   },
   {
+    "title": "Fixed-Dimensional Latent Flow for Generating Variable-Size 3D Molecules",
+    "title_zh": "文献研究：Fixed-Dimensional Latent Flow for Generating Variable-Size 3D Molecules",
+    "summary": "该论文提出固定维度潜变量流模型，用于生成尺寸可变的三维分子。模型通过潜变量流匹配和自回归Transformer联合生成原子种类、坐标及化学状态，并支持性质条件生成。",
+    "abstract": "arXiv:2609.08333v2 Announce Type: replace Abstract: In molecular discovery, molecule size is coupled to composition, structure, and other target properties. Yet most 3D generators require molecule size to be specified before generation. Here, we introduce Equivariant-Free Transformer-Autoencoded Latent Flow Matching, a two-stage generative framework that relies entirely on a single fixed-dimensional molecule-level latent representation to generate variable-size molecules. The second-stage flow matching model samples this latent vector, and an autoregressive Transformer decoder then determines molecule size while generating atom types, coordinates, and chemically informative states. Canonical atom ordering and rigid-pose alignment enable standard Transformers without equivariant layers, while joint decoding of molecular geometry and an enriched chemical state enables reliable, deterministic, chemistry-guided graph recovery without requiring a learned dense pairwise bond decoder. The same fixed-dimensional latent supports unconditional and property-conditioned flow matching, while optional property supervision adds an internal ranking readout, with no separate predictor or reference calculations. On PCQM4Mv2, EF-TALFM achieves the highest fraction of molecules that are unique, training-set novel, pass sanitization and PoseBusters sanity checks, 89.4%, compared with 75.6% for UAE-3D and 69.8% for FlowMol. EF-TALFM also achieves higher measured computational throughput for training and sampling. Across ten target HOMO--LUMO gaps, internal ranking doubles the density functional theory (DFT)-verified hit rate within 0.1,eV, while preserving 97% novelty among unique verified hits. These results demonstrate that fixed-dimensional molecule-level generation followed by symmetry-resolved autoregressive realization provides a practical architecture for open-ended and property-directed 3D molecular design.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.08333",
+    "journal": "arXiv"
+  },
+  {
     "title": "A variational physics-informed graph neural network for heterogeneous solid mechanics",
-    "title_zh": "文献研究：A variational physics-informed graph neural network for heterogeneous solid mechanics",
-    "summary": "该工作提出无监督的变分物理信息图神经网络，用自适应网格图和离散总势能最小化求解非均匀固体力学问题。方法通过有限元Ritz泛函处理材料界面应力跃迁，并避免人为设置界面惩罚项和过渡宽度。",
+    "title_zh": "用于非均质固体力学的变分物理信息图神经网络",
+    "summary": "本文提出一种无标签的变分物理信息图神经网络（PI-GNN），通过离散化而非试探场表示材料非均质性，并在自适应共形网格图上最小化离散总势能。该方法无需罚项、界面权重或预设过渡宽度即可构造满足狄利克雷边界条件的界面表示。在二维和三维小应变弹性及有限应变Neo-Hookean超弹性测试中，其冯·米塞斯误差在广泛刚度对比范围内低于3.58%，但训练成本超过单次有限元求解一个数量级以上。",
     "abstract": "arXiv:2609.10983v1 Announce Type: cross Abstract: Stress localization in heterogeneous solids is governed by the bimaterial interface, where the displacement field remains C⁰-continuous, while in-plane stresses jump due to the stiffness mismatch. Coordinate-based physics-informed neural networks (PINNs) represent this jump via a prescribed regularization width or a weighted interface penalty, making their accuracy sensitive to how phase-contrast changes are handled. This work presents a variational, label-free physics-informed graph neural network (PI-GNN) in which the heterogeneity is carried by the discretization rather than by the trial field. The solver operates on a conforming adaptive mesh graph, assigns constitutive behavior per element, and minimizes the discrete total potential energy as a single unweighted objective in which only first derivatives appear. The discrete energy on piecewise-linear elements coincides with the finite element (FE) Ritz functional. Dirichlet conditions are enforced by construction, with no penalty term, no interface weight, and no prescribed transition width. Using one fixed architecture, optimizer, and loss across small-strain elasticity and finite-strain Neo-Hookean hyperelasticity in two and three dimensions, the von Mises error remains below 3.58% across a stiffness-contrast sweep spanning (Eᵢₙc/Eₘₐₜin[10⁻²,10²]), where a strong-form PINN degrades to 5.58%, and its displacement error reaches 7.66% against 0.49% for the PI-GNN. A trained network halves the (σₓₓ) error of an energy-based PINN (5.01% versus 10.94%). Training cost exceeds a single FE solve by more than an order of magnitude, so the construction is a variationally consistent, penalty-free interface representation for parametric surrogates and inverse identification rather than a replacement for a one-off FE analysis.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.10983",
@@ -45,6 +54,33 @@
     "journal": "arXiv"
   },
   {
+    "title": "Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
+    "title_zh": "文献研究：Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
+    "summary": "该论文研究面向数据驱动本构建模的多样性感知批量主动学习方法，目标是在有限计算或实验预算下提高训练数据采样效率。其核心是利用多样性选择策略构造批量样本，从而提升模型对材料或结构响应的覆盖能力。",
+    "abstract": "Publication date: 5 September 2026 Source: Computational Materials Science, Volume 274 Author(s): Ronak Shoghi, Lukas Morand, Dirk Helm, Alexander Hartmaier",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004982?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Geometric Approach to Zero-Memory Quantum Dot Reservoir Computing",
+    "title_zh": "文献研究：Geometric Approach to Zero-Memory Quantum Dot Reservoir Computing",
+    "summary": "该论文提出一种无内禀记忆的量子点储备池计算方案，通过增加输入节点的空间维度来构造外部记忆。数值结果显示，该多端量子点系统能够完成混沌预测和非线性变换任务。",
+    "abstract": "arXiv:2606.29320v2 Announce Type: replace Abstract: Physical reservoir computing offers an energy-efficient alternative to conventional neural networks, where the material-specific intrinsic memory capacity in a physical system plays an indispensable role. Substituting temporal memory with spatial degrees of freedom, we demonstrate that the memory capacity can be created extrinsically in systems with no intrinsic memory by exploiting the computational space-time tradeoff. Our approach utilizes multidimensional input nodes to function as a spatial memory axis, thereby replacing the dependency on intrinsic history-dependent dynamics in the reservoir. Our scheme is validated in a multi-terminal quantum dot system, whose discrete energy levels provide strong nonlinearity and complexity crucial for reservoir computing, while its short relaxation time leaves no room for intrinsic memory. Numerically, the quantum dot reservoir with a tunable extrinsic memory shows high performance on both chaotic future prediction and nonlinear transformation tasks. Furthermore, from the analysis of quantum state trajectory acquired from task operations, the geometric understanding of the extrinsic memory capacity, nonlinearity, and complexity is provided and their correlations are systematically investigated.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2606.29320",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Generating is not discovering: a pre-registered physics judge for AI-proposed superconductors, calibrated on six known superconductors and one negative control",
+    "title_zh": "文献研究：Generating is not discovering: a pre-registered physics judge for AI-proposed superconductors, calibrated on six known superconductors and one negative control",
+    "summary": "arXiv:2609.10614v1 Announce Type: new Abstract: Generative models now propose millions of \"stable\" crystal structures, and their own referees have shown that stability is not discovery; no public benc…",
+    "abstract": "arXiv:2609.10614v1 Announce Type: new Abstract: Generative models now propose millions of \"stable\" crystal structures, and their own referees have shown that stability is not discovery; no public benchmark asks whether a candidate has the physics to do a job. For superconductors the job is twofold: to pair, with a definite gap symmetry, and to become wire. We present a physics judge that answers both from a structure alone (DFT+U, a gated Wannier model, the full rank-4 RPA susceptibility on a 24³ mesh, the linearized gap equation, an irreducible-representation classifier, a manufacturability funnel) and measure what it says about what generators propose. With answer keys pre-registered before computing, the judge was calibrated on six known superconductors (Nb, Nb₃Sn, MgB₂, BaFe₂As₂, La₂₋ₓSrₓCuO₄, YBa₂Cu₃O₇), recovering the expected class in all six after two dated corrections. On the ruthenium analogue of the iron pnictide, with two runs and their criterion pre-registered the day before, it returns a null verdict at the same physical interaction where iron gives s± (λ₁ le 0.0007 versus 0.096; critical U 4.17 versus 0.97 eV); the pre-registered equal-alpha run fails the letter of the criterion, and we declare the resolution in favour of absolute U as post-hoc. The funnel reproduces the industrial map with thresholds fixed before running. Three generation audits follow: a descriptor sweep over 150 Materials Project metals re-finds the canon; 1,248 MatterGen structures yield 0 candidates that are new, stable and carry a pairing motif; mechanism filters over 47,893 compounds, validated by a blind hold-out, re-derive the community's analogies: geometry plus d-count is necessary but not sufficient. Generation re-finds what is known; judgment is the bottleneck. We propose a public benchmark over the eleven lists of AI-proposed superconductor candidates, none of which classifies gap symmetry.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.10614",
+    "journal": "arXiv"
+  },
+  {
     "title": "Moiré Topology in Twisted Structures with Noncollinear Spin-Orbit Coupling",
     "title_zh": "具有非共线自旋-轨道耦合的扭转结构中的莫尔拓扑",
     "summary": "本文提出一种获得拓扑莫尔微带的新机制，基于具有非共线自旋-轨道耦合的中心对称II型自旋-轨道耦合双层体系，而不依赖谷自由度或六角晶格对称性。层间杂化形成局域赝能隙和高度局域的贝里曲率，扭转后可重构为孤立的拓扑微带。作者以四方Dresselhaus自旋-轨道耦合HgI2及经机器学习优化的PbI2为例，指出更强自旋-轨道耦合有助于获得更窄、更孤立的微带，并支持关联磁性及可调量子自旋霍尔和陈绝缘相。",
@@ -54,39 +90,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
-    "title_zh": "文献研究：Diversity-aware batch-mode active learning for efficient sampling in data-driven constitutive modeling",
-    "summary": "该工作研究面向数据驱动本构建模的多样性感知批量主动学习方法，目标是在有限采样预算下提高训练数据的覆盖度和代表性。其核心思路是将样本多样性纳入批量选择，以提升模型效率和泛化能力。",
-    "abstract": "Publication date: 5 September 2026 Source: Computational Materials Science, Volume 274 Author(s): Ronak Shoghi, Lukas Morand, Dirk Helm, Alexander Hartmaier",
-    "category": "AI×化学·材料",
-    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626004982?dgcid=rss_sd_all",
-    "journal": "ScienceDirect"
-  },
-  {
-    "title": "Geometric Approach to Zero-Memory Quantum Dot Reservoir Computing",
-    "title_zh": "文献研究：Geometric Approach to Zero-Memory Quantum Dot Reservoir Computing",
-    "summary": "研究无内禀时间记忆的量子点储备池计算，通过多维输入节点引入外部空间记忆，并用数值模拟验证其在混沌预测和非线性变换任务中的性能。工作还从量子态轨迹几何角度解释了外部记忆机制。",
-    "abstract": "arXiv:2606.29320v2 Announce Type: replace Abstract: Physical reservoir computing offers an energy-efficient alternative to conventional neural networks, where the material-specific intrinsic memory capacity in a physical system plays an indispensable role. Substituting temporal memory with spatial degrees of freedom, we demonstrate that the memory capacity can be created extrinsically in systems with no intrinsic memory by exploiting the computational space-time tradeoff. Our approach utilizes multidimensional input nodes to function as a spatial memory axis, thereby replacing the dependency on intrinsic history-dependent dynamics in the reservoir. Our scheme is validated in a multi-terminal quantum dot system, whose discrete energy levels provide strong nonlinearity and complexity crucial for reservoir computing, while its short relaxation time leaves no room for intrinsic memory. Numerically, the quantum dot reservoir with a tunable extrinsic memory shows high performance on both chaotic future prediction and nonlinear transformation tasks. Furthermore, from the analysis of quantum state trajectory acquired from task operations, the geometric understanding of the extrinsic memory capacity, nonlinearity, and complexity is provided and their correlations are systematically investigated.",
+    "title": "Learning structural balance of graphs from quantum spectral features",
+    "title_zh": "文献研究：Learning structural balance of graphs from quantum spectral features",
+    "summary": "该论文利用量子谱特征和Ising模型的态密度信息，对带符号图的结构平衡和挫折指数进行机器学习预测。研究表明，态密度矩和有符号闭合路径统计量能够有效表征图的结构平衡。",
+    "abstract": "arXiv:2609.11736v1 Announce Type: cross Abstract: We develop a quantum approach to spectral feature extraction from the density of states (DOS) of a problem-dependent Hamiltonian, and apply it to machine learning on signed graphs. We propose to embed a signed graph as an Ising model instance with positive and negative interactions, and use the standardized moments of the Ising DOS as features for learning. We show that these moments count signed closed walks, are switching-invariant, and are size-free by construction. As a benchmark, we target learning the frustration index, an NP-hard measure of structural balance that can be labeled exactly at moderate size. At zero field, the models can be sampled classically, allowing the quantum extraction procedure to be certified against exact ground truth. We propose DOS-QPE, a phase estimation on a purified maximally mixed probe, which samples the spectral density with orders of magnitude fewer shots than Hadamard test-based trace sampling and feeds the resulting features directly into classically trained models. On 1.4×10⁵ labeled graphs the exact DOS determines the frustration index, and five moments recover it with a mean error of 0.4, well below one sign flip. Beyond zero field, the underlying trace-estimation problem is DQC1-complete, providing access to spectral features for which no efficient classical sampling method is known. Our work opens routes towards quantum applications in social network balance analysis, spin-glass studies, correlation clustering, and protein-interaction networks.",
     "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2606.29320",
+    "link": "https://arxiv.org/abs/2609.11736",
     "journal": "arXiv"
   },
   {
     "title": "Generative Replay Mitigates Sample Starvation in Quantum Architecture Search",
-    "title_zh": "文献研究：Generative Replay Mitigates Sample Starvation in Quantum Architecture Search",
-    "summary": "arXiv:2609.11248v1 Announce Type: cross Abstract: Reinforcement learning (RL) can automate quantum architecture search, but its scalability is limited when useful circuit trajectories become rare in t…",
+    "title_zh": "生成式回放缓解量子架构搜索中的样本匮乏",
+    "summary": "本文提出GenQAS，一种由张量网络引导的强化学习框架，将固定的矩阵乘积态热启动与优先级生成式回放相结合。学习到的局部状态转移模型根据真实状态—动作种子生成合成电路转移，并在双重深度Q网络更新中与真实经验混合。6至12量子比特化学哈密顿量基准和15量子比特横场伊辛模型实验表明，该方法提升了固定预算下的成功概率；在12量子比特任务中相较被动回放最高提升7倍，在含噪6量子比特BeH2迁移实验中达到化学精度所需步数减少92.7%。",
     "abstract": "arXiv:2609.11248v1 Announce Type: cross Abstract: Reinforcement learning (RL) can automate quantum architecture search, but its scalability is limited when useful circuit trajectories become rare in the rapidly expanding search space. Existing replay mechanisms reuse observed transitions; the proposed learned model produces additional predicted one step transitions from real state-action seeds. Here we introduce GenQAS, a tensor network-guided RL framework that combines a fixed matrix product state warm-start with prioritized generative replay. A learned local transition model generates synthetic circuit transitions on demand and mixes them with real experience during Double Deep Q-Network updates. Under a random exploration analysis, near ground state circuits occupy a rapidly shrinking region of the accessible state space. We investigate whether real data anchored synthetic replay can improve the effective training signal in this regime. Across chemical Hamiltonian benchmarks from 6 to 12 qubits, GenQAS improves fixed-budget success probability and identifies compact circuits at competitive energy error. At 12 qubits, it improves final success probability by up to 7.0× over passive replay. On a 15-qubit transverse field Ising model, GenQAS increases success probability from 12% to 21%. In a noisy 6-qubit BeH₂ transfer experiment, generative replay reduces the steps to chemical accuracy by 92.7%. These results show that generative replay can mitigate sample starvation in quantum architecture search and support more resource efficient circuit discovery.",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2609.11248",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Learning structural balance of graphs from quantum spectral features",
-    "title_zh": "文献研究：Learning structural balance of graphs from quantum spectral features",
-    "summary": "论文利用依赖问题的哈密顿量密度状态及其谱矩，为带正负相互作用的有符号图提取量子特征。研究表明，少量谱矩即可较准确地预测图的结构平衡指标。",
-    "abstract": "arXiv:2609.11736v1 Announce Type: cross Abstract: We develop a quantum approach to spectral feature extraction from the density of states (DOS) of a problem-dependent Hamiltonian, and apply it to machine learning on signed graphs. We propose to embed a signed graph as an Ising model instance with positive and negative interactions, and use the standardized moments of the Ising DOS as features for learning. We show that these moments count signed closed walks, are switching-invariant, and are size-free by construction. As a benchmark, we target learning the frustration index, an NP-hard measure of structural balance that can be labeled exactly at moderate size. At zero field, the models can be sampled classically, allowing the quantum extraction procedure to be certified against exact ground truth. We propose DOS-QPE, a phase estimation on a purified maximally mixed probe, which samples the spectral density with orders of magnitude fewer shots than Hadamard test-based trace sampling and feeds the resulting features directly into classically trained models. On 1.4×10⁵ labeled graphs the exact DOS determines the frustration index, and five moments recover it with a mean error of 0.4, well below one sign flip. Beyond zero field, the underlying trace-estimation problem is DQC1-complete, providing access to spectral features for which no efficient classical sampling method is known. Our work opens routes towards quantum applications in social network balance analysis, spin-glass studies, correlation clustering, and protein-interaction networks.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.11736",
     "journal": "arXiv"
   },
   {
@@ -99,12 +117,12 @@
     "journal": "arXiv"
   },
   {
-    "title": "A Unified Theory of Collective Magnon and Orbiton Excitations in Altermagnets",
-    "title_zh": "交错磁体中集体磁振子与轨道子的统一理论",
-    "summary": "交错磁性是一种净磁化为零但具有动量依赖自旋劈裂的共线磁相，其可由不等价的非磁环境或强关联诱导的轨道有序稳定。本文在装饰方格子上建立扩展的Kugel-Khomskii自旋-轨道模型，统一描述这两种机制，并预测相互不杂化但彼此关联、具有特征性手性劈裂的磁振子和轨道子激发。劈裂分别源于晶格环境差异及轨道有序导致的交换各向异性；有限温研究还表明，经典蒙特卡洛模拟可恢复预期的连续二级相变行为。",
-    "abstract": "arXiv:2609.10708v1 Announce Type: new Abstract: Altermagnetism has recently emerged as a distinct collinear magnetic phase exhibiting momentum-dependent spin-splitting despite vanishing net magnetization, as a consequence of inequivalent non-magnetic environments. Lately, it has been proposed that strong electronic correlations may yield spontaneous altermagnetism due to orbital ordering even for equivalent non-magnetic environments. While previous studies have largely focused on the electronic structure, a unified understanding of the collective excitations associated with these two different microscopic mechanisms stabilizing altermagnetism remains absent. Here, we develop an extended Kugel'-Khomskiĭ spin-orbital model on a decorated square lattice that simultaneously incorporates inequivalent non-magnetic environments and correlation-driven orbital ordering within a common theoretical framework. Employing a self-consistent mean-field spin-wave orbital-wave formalism, we demonstrate the emergence of mutually unhybridized but interdependent magnon and orbiton excitations exhibiting characteristic chiral-splitting. We show that the splitting originates from two distinct microscopic contributions: a lattice-dependent term arising from inequivalent non-magnetic environments and an orbital-order-induced exchange-anisotropy term that survives even for equivalent non-magnetic environments. The proposed framework therefore unifies the collective excitations associated with both types of altermagnetism. We further investigate the finite-temperature evolution of the coupled spin-orbital system, revealing the breakdown of spin-wave and orbital-wave approximations through spurious 1st-order transitions, while complementary classical Monte Carlo simulations recover the expected continuous 2nd-order behaviour. Our work establishes a unified microscopic framework for understanding collective magnon and orbiton excitations in altermagnets.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.10708",
+    "title": "Importance of nonlinear long-range electron-phonon interaction for the carrier mobility of anharmonic halide perovskites",
+    "title_zh": "文献研究：Importance of nonlinear long-range electron-phonon interaction for the carrier mobility of anharmonic halide perovskites",
+    "summary": "该工作研究卤化物钙钛矿 CsPbI3 中非线性长程电子-声子相互作用对有限温度载流子迁移率的影响。基于第一性原理和电子自能弛豫时间近似，计算表明单电子-双声子耦合对迁移率具有显著贡献，线性电子-声子耦合近似可能不足。",
+    "abstract": "arXiv:2603.10954v2 Announce Type: replace Abstract: The interaction between the electrons and the lattice vibrations in a solid is responsible for various important effects, such as formation of polarons, temperature dependent bandgaps, phonon-limited carrier transport, and conventional superconductivity. Most works assume a linear electron-phonon interaction, where the electron only interacts with one phonon at a time. However, the validity of this assumption has not been verified in polar anharmonic materials, where large ionic displacements may invalidate the assumption of linear interaction. Here, we show that nonlinear electron-phonon interactions contribute significantly to the finite-temperature electron mobility of the inorganic lead halide perovskite CsPbI₃. The effect of nonlinear interaction is taken into account using the recently derived expression for the long-range part of the one-electron-two-phonon matrix element. We calculate the electron mobility from first principles within the self-energy relaxation-time approximation, treating the electron-phonon coupling in the long-range approximation. Despite these approximations, the calculated mobilities are in good agreement with the available experimental data, while enabling us to isolate and quantify the contribution of nonlinear electron-phonon interactions relative to the conventional linear coupling. We find that the one-electron-two-phonon interaction modifies the temperature dependence of the mobility in CsPbI₃ and reduces its room-temperature value by about 10%. This sizeable contribution results from the combined effects of strong lattice anharmonicity and large thermal phonon populations, the latter being enhanced by the low phonon frequencies associated with the heavy constituent atoms. These results show when nonlinear electron-phonon interactions become relevant, and indicate they should be considered for finite-temperature properties of halide perovskites.",
+    "category": "超导",
+    "link": "https://arxiv.org/abs/2603.10954",
     "journal": "arXiv"
   },
   {
@@ -117,30 +135,12 @@
     "journal": "arXiv"
   },
   {
-    "title": "A substrate booster for P-type 2D ferromagnetic semiconductor",
-    "title_zh": "用于p型二维铁磁半导体的衬底增强方案",
-    "summary": "本文通过将少层Cr2Ge2Te6与反铁磁绝缘体CrOCl构建界面，提出一种衬底工程方案，将前者从双极性半导体显著转变为高性能p型半导体。低于居里温度时，该衬底增强型铁磁半导体场效应晶体管的开关比可达10⁵，磁滞回线的矫顽场可被栅压调节超过200%，从而支持栅辅助磁开关。实验还观察到重空穴掺杂下从临界幂律标度到双幂律行为的交叉，计算结果支持界面电荷转移和电调磁各向异性能的解释。",
-    "abstract": "arXiv:2609.11015v1 Announce Type: new Abstract: Spin transistors with its both charge and spin properties tuned via electrostatic gating are believed capable for widespread use, which however have proven challenging due to the extreme rareness of their physical base -- magnetic semiconductors. The latter are limited within very few systems including diluted magnetic semiconductors (DMS) and two-dimensional ferromagnetic semiconductors (2D-FMS), and known to suffer from inadequate gate-tunability of their electric and/or magnetic properties. Here, we show a substrate engineering paradigm by interfacing few-layered Cr₂Ge₂Te₆ (FL-CGT) with an antiferromagnetic insulator CrOCl. Owing to the subtle interfacial charge transfer couplings, CGT can be drastically turned from an ambipolar semiconductor into a high performance P-type semiconductor. When cooled below the Curie temperature, the ON-OFF ratio in such substrate-boosted FMS field-effect transistor (FET) reaches 10⁵ with its coercive field Hc of magnetic hysteresis loop tunable by a factor of more than 200%, enabling {gate-assisted magnetic switching in the prototype semiconducting spin transistor architecture}. A crossover from critical power-law scaling to a dual power-law behaviour under heavy hole doping was further observed. Our findings signify an efficient interfacial charge transfer and electrically modulated magnetic anisotropy energy supported by calculations. This high performance P-type FMS-FET system suggests that active substrate-boosting paradigm might be a powerful path for the investigation of future gate-tunable spintronic devices.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.11015",
-    "journal": "arXiv"
-  },
-  {
     "title": "High-Temperature ferromagnetism from site-selective filling in (Fe,Ni)₆₋δGeTe₂",
     "title_zh": "文献研究：High-Temperature ferromagnetism from site-selective filling in (Fe,Ni)₆₋δGeTe₂",
     "summary": "该工作研究镍取代(Fe,Ni)6−δGeTe2中高温铁磁性的起源，发现高居里温度磁相来自应变稳定的Fe6GeTe2纳米析出物。第一性原理计算与自旋、角分辨光电子能谱表明，内层铁原子主要贡献局域磁矩，而靠近碲层的外层铁原子产生穿越范德华间隙的自旋极化巡游载流子。",
     "abstract": "arXiv:2609.11862v1 Announce Type: new Abstract: The discovery of high-temperature ferromagnetism in the metallic van der Waals (vdW) system Fe_NGeTe₂ has brought two-dimensional (2D) magnets into technologically relevant temperature scales. Specifically at N = 5, dilution of magnetic moments by nickel substitution counterintuitively achieves a record high Curie temperature of 478~K. Unraveling the origin of this nickel-substitution-induced enhancement is complicated by the compound's structural complexity, coexistent itinerant and local magnetic contributions, and mesoscopic compositional domains. Through coordinated structural and electronic characterization, we identify that the high-T_C magnetic phase arises from a strain-stabilized Fe₆GeTe₂ nano-precipitate. Combining first-principles calculations and spin- and angle-resolved photoemission spectroscopy (ARPES), we uncover a site-specific electronic landscape in which interior iron atoms primarily host localized moments while the outer iron atoms neighboring the tellurium layers produce spin-polarized itinerant carriers that cross the vdW gap. The large energy cost associated with homogeneous nickel substitution is found to favor the spontaneous precipitation of the crystallographically and electronically ``clean'' high-T_C phase. Finally, we compare metal-rich vdW magnets with binary magnetic alloys, and discuss the unifying roles of nano-precipitates in stabilizing otherwise unattainable bulk phases. Our work provides mechanistic insights into the record-high T_C ferromagnetism in (Fe,Ni)₅₊δGeTe₂, establishing a rigorous foundation for the atomic engineering of vdW magnetic metals informed by direct electronic signatures.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2609.11862",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Interplay of spin-lattice and electronic coupling far above Neel ordering in 2D antiferromagnetic CrPS4 and its interface manifestation",
-    "title_zh": "文献研究：Interplay of spin-lattice and electronic coupling far above Neel ordering in 2D antiferromagnetic CrPS4 and its interface manifestation",
-    "summary": "该工作研究二维范德华反铁磁体 CrPS4 中远高于奈尔温度的自旋、晶格与电子耦合。结果表明，短程磁关联诱导局域晶格畸变，增强自旋-声子和电子-声子耦合，并可通过 CrPS4/In2Se3 界面影响邻层的晶格动力学和光电响应。",
-    "abstract": "arXiv:2609.11203v1 Announce Type: new Abstract: A short-range spin correlation driven, strongly intercoupled spin-phonon-electronic state far above TN (~38K) is identified in the low dimensional van der Waals antiferromagnet CrPS4. Temperature-dependent Raman spectroscopy reveals spin-phonon coupling persisting up to T*~120K, concomitant with local lattice distortion. The setting of vibronic progression in photoluminescence spectra suggests the strengthening of electron-phonon coupling around T*. Furthermore, both the electrical transport and optoelectronic response also change significantly at T*. The results indicate that spin-phonon coupling above TN in CrPS4 originates from local lattice distortion induced by short range magnetic correlations which in turn enhances the electron-phonon interaction. Furthermore, using a CrPS4/In2Se3 heterostructure, we demonstrate that the anomaly associated with the coupled degrees of freedom in CrPS4 also influences the adjacent In2Se3 layer. The lattice dynamics of In2Se3 is significantly modified across the magnetic anomaly of CrPS4, and the coupled dynamics is observed at T*. These interfacial manifestation opens up new possibilities for achieving correlated multifunctionalities in artificially designed heterostructure.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.11203",
     "journal": "arXiv"
   },
   {
@@ -153,30 +153,30 @@
     "journal": "arXiv"
   },
   {
+    "title": "Interplay of spin-lattice and electronic coupling far above Neel ordering in 2D antiferromagnetic CrPS4 and its interface manifestation",
+    "title_zh": "文献研究：Interplay of spin-lattice and electronic coupling far above Neel ordering in 2D antiferromagnetic CrPS4 and its interface manifestation",
+    "summary": "研究了二维范德华反铁磁体CrPS4在远高于Neel温度时仍存在的短程自旋关联、自旋-声子耦合和电子-声子耦合，并通过拉曼、光致发光、输运和光电响应等实验揭示其相互关联。CrPS4与In2Se3异质结构中的界面结果表明，磁性层的耦合异常能够显著调制邻近铁电层的晶格动力学。",
+    "abstract": "arXiv:2609.11203v1 Announce Type: new Abstract: A short-range spin correlation driven, strongly intercoupled spin-phonon-electronic state far above TN (~38K) is identified in the low dimensional van der Waals antiferromagnet CrPS4. Temperature-dependent Raman spectroscopy reveals spin-phonon coupling persisting up to T*~120K, concomitant with local lattice distortion. The setting of vibronic progression in photoluminescence spectra suggests the strengthening of electron-phonon coupling around T*. Furthermore, both the electrical transport and optoelectronic response also change significantly at T*. The results indicate that spin-phonon coupling above TN in CrPS4 originates from local lattice distortion induced by short range magnetic correlations which in turn enhances the electron-phonon interaction. Furthermore, using a CrPS4/In2Se3 heterostructure, we demonstrate that the anomaly associated with the coupled degrees of freedom in CrPS4 also influences the adjacent In2Se3 layer. The lattice dynamics of In2Se3 is significantly modified across the magnetic anomaly of CrPS4, and the coupled dynamics is observed at T*. These interfacial manifestation opens up new possibilities for achieving correlated multifunctionalities in artificially designed heterostructure.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.11203",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Unified Theory of Collective Magnon and Orbiton Excitations in Altermagnets",
+    "title_zh": "交错磁体中集体磁振子与轨道子的统一理论",
+    "summary": "交错磁性是一种净磁化为零但具有动量依赖自旋劈裂的共线磁相，其可由不等价的非磁环境或强关联诱导的轨道有序稳定。本文在装饰方格子上建立扩展的Kugel-Khomskii自旋-轨道模型，统一描述这两种机制，并预测相互不杂化但彼此关联、具有特征性手性劈裂的磁振子和轨道子激发。劈裂分别源于晶格环境差异及轨道有序导致的交换各向异性；有限温研究还表明，经典蒙特卡洛模拟可恢复预期的连续二级相变行为。",
+    "abstract": "arXiv:2609.10708v1 Announce Type: new Abstract: Altermagnetism has recently emerged as a distinct collinear magnetic phase exhibiting momentum-dependent spin-splitting despite vanishing net magnetization, as a consequence of inequivalent non-magnetic environments. Lately, it has been proposed that strong electronic correlations may yield spontaneous altermagnetism due to orbital ordering even for equivalent non-magnetic environments. While previous studies have largely focused on the electronic structure, a unified understanding of the collective excitations associated with these two different microscopic mechanisms stabilizing altermagnetism remains absent. Here, we develop an extended Kugel'-Khomskiĭ spin-orbital model on a decorated square lattice that simultaneously incorporates inequivalent non-magnetic environments and correlation-driven orbital ordering within a common theoretical framework. Employing a self-consistent mean-field spin-wave orbital-wave formalism, we demonstrate the emergence of mutually unhybridized but interdependent magnon and orbiton excitations exhibiting characteristic chiral-splitting. We show that the splitting originates from two distinct microscopic contributions: a lattice-dependent term arising from inequivalent non-magnetic environments and an orbital-order-induced exchange-anisotropy term that survives even for equivalent non-magnetic environments. The proposed framework therefore unifies the collective excitations associated with both types of altermagnetism. We further investigate the finite-temperature evolution of the coupled spin-orbital system, revealing the breakdown of spin-wave and orbital-wave approximations through spurious 1st-order transitions, while complementary classical Monte Carlo simulations recover the expected continuous 2nd-order behaviour. Our work establishes a unified microscopic framework for understanding collective magnon and orbiton excitations in altermagnets.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.10708",
+    "journal": "arXiv"
+  },
+  {
     "title": "Breaking Water at Graphene Defects",
     "title_zh": "文献研究：Breaking Water at Graphene Defects",
-    "summary": "研究缺陷石墨烯与水界面上的水分解反应，采用机器学习原子间势探索溶剂环境对反应机制的影响。结果显示，单空位处的溶剂化环境会开启气相孤立水分子中不存在的酸性和碱性反应路径，并形成不同的化学吸附中间体。",
+    "summary": "该论文利用机器学习原子间势研究缺陷石墨烯与水界面上的水解离反应。结果表明，溶剂化作用会改变单空位处的反应机制，开启气相孤立水分子不存在的酸性和碱性解离路径，并形成不同的化学吸附中间体。",
     "abstract": "arXiv:2609.11602v1 Announce Type: cross Abstract: Water dissociation at solid surfaces underpins processes ranging from corrosion and catalysis to electrochemistry and photovoltaics. Defects often serve as reactive sites for dissociation, yet how solvation influences water dissociation at such sites remains poorly understood. Here, we use state-of-the-art machine-learned interatomic potentials to explore water dissociation at defective graphene-water interfaces. We show that solvation qualitatively changes the reaction mechanism at a graphene single vacancy (SV), opening pathways that are absent for an isolated water molecule. Whereas the gas-phase process proceeds via a single concerted channel, the solvated SV splits water through two competing pathways: a basic route forming SV-H and OH-(aq), and an acidic route forming SV-OH and H3O+(aq). These lower-barrier pathways produce distinct chemisorbed intermediates that enhance graphene-water adsorption. Accordingly, even a simple carbon vacancy gives rise to unexpectedly rich interfacial chemistry, coupling surface chemistry to interfacial charge and wettability, with implications for carbon functionalization and nanofluidic transport.",
     "category": "软物质·流体·统计",
     "link": "https://arxiv.org/abs/2609.11602",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Octupole-driven spin torque switching of antiferromagnetic tunnel junctions",
-    "title_zh": "文献研究：Octupole-driven spin torque switching of antiferromagnetic tunnel junctions",
-    "summary": "论文研究全反铁磁磁性隧道结中的八极矩驱动自旋转移力矩，并展示了电流诱导的反铁磁序切换。其核心结论是，尽管总电流自旋中性，手性反铁磁体中的动量依赖自旋极化和磁八极矩仍可产生有效的自旋转矩。",
-    "abstract": "arXiv:2509.03026v2 Announce Type: replace Abstract: Magnetic tunnel junctions (MTJs) based on ferromagnets are canonical devices in spintronics, with wide-ranging applications in data storage, computing, and sensing. They simultaneously exhibit mechanisms for electrical detection and control of magnetic order through the tunneling magnetoresistance (TMR) and spin-transfer torque (STT) effects, respectively. It was long assumed that neither of these effects could be sizeable in all-antiferromagnetic tunnel junctions (AATJs), since they exhibit no net magnetization. Recently, however, it was shown that AATJs based on chiral antiferromagnets do exhibit TMR due to their non-relativistic momentum-dependent spin polarization and cluster magnetic octupole moment (CMO), which are manifestations of their spin-split band structure. However, the reciprocal effect, i.e., the antiferromagnetic counterpart of STT, has been assumed non-existent due to the total electric current being spin-neutral. Here, we report nanoscale AATJs exhibiting this reciprocal effect, which we term octupole-driven spin-transfer torque (OTT). We demonstrate current-induced OTT switching of PtMn3|MgO|PtMn3 AATJs, exhibiting a TMR value of 363% at room temperature and switching current densities of the order of 10 MA/cm2. Our theoretical modeling explains the origin of OTT in terms of the imbalance between intra- and inter-sublattice spin currents across the AATJ, and equivalently, in terms of the non-zero net cluster octupole polarization of each PtMn3 layer. This work establishes a new materials platform for antiferromagnetic spintronics and provides a pathway towards deeply scaled magnetic memory and room-temperature terahertz technologies.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2509.03026",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Phase-Controlled Majorana Zero Modes in Altermagnetic Topological-Insulator Josephson Junctions",
-    "title_zh": "文献研究：Phase-Controlled Majorana Zero Modes in Altermagnetic Topological-Insulator Josephson Junctions",
-    "summary": "论文提出利用交替磁性拓扑绝缘体约瑟夫森结中的晶面依赖安德烈夫相位，控制拓扑超导区域和马约拉纳零能模。研究表明，调节超导相位差可以诱导拓扑相变，并控制零能模的空间定位，同时对适度化学势变化具有一定鲁棒性。",
-    "abstract": "arXiv:2609.11633v1 Announce Type: new Abstract: We exploit facet-dependent Andreev phase shifts to control topological superconductivity with a phase bias in a three-dimensional altermagnetic topological-insulator Josephson junction. In the weak link between two conventional s-wave superconductors, the d-wave altermagnetic order produces facet-dependent momentum shifts of the surface Dirac cones. The resulting net momentum of the states involved in Andreev reflection generates additional propagation phases that differ between facets. Consequently, the facet-resolved Andreev spectra exhibit gap closings at distinct phase biases, giving rise to topological superconducting regimes that host Majorana zero modes(MZMs). We further show that tuning the phase bias controls the spatial localization of these modes. The associated topological superconducting transitions are only weakly affected by moderate variations in the chemical potential, obviating the need for fine-tuning to the Dirac point. Our results establish a platform for realizing and spatially controlling MZMs by tuning the superconducting phase bias in altermagnetic topological-insulator Josephson junctions.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.11633",
     "journal": "arXiv"
   }
 ]
