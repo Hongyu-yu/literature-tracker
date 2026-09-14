@@ -1,32 +1,5 @@
 [
   {
-    "title": "Machine learning-accelerated calculation of diffusion coefficients in crystalline structures from molecular dynamics",
-    "title_zh": "利用机器学习加速从分子动力学计算晶体结构中的扩散系数",
-    "summary": "该工作围绕利用机器学习加速分子动力学中晶体结构扩散系数的计算展开。所给信息仅包括题名、期刊及出版元数据，具体模型、验证方法和计算结果需查阅原文。",
-    "abstract": "Publication date: 25 October 2026 Source: Computational Materials Science, Volume 275 Author(s): Sang-Ho Oh, Jaemin Wang, Byeong-Joo Lee",
-    "category": "AI×化学·材料",
-    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626005987?dgcid=rss_sd_all",
-    "journal": "ScienceDirect"
-  },
-  {
-    "title": "MindTopo: Can Foundation Models Reason in Topological Space?",
-    "title_zh": "MindTopo：基础模型能够在拓扑空间中进行推理吗？",
-    "summary": "空间推理不仅依赖距离、角度和形状等度量性质，也依赖在连续变形下保持不变的拓扑关系。本文提出MindTopo基准，基于认知科学和形式拓扑学，从连续性、分离性、顺序、包围和纽结五种性质评估基础模型的拓扑直觉，并分别考察推理和规划两个认知层次。实验包含11030个实例和13类可控制难度的程序生成任务，结果显示所有多模态大语言模型的推理表现均优于规划表现，最佳模型仍远低于人类水平；图像和视频生成增强的智能体也无法可靠地遵循环境动力学或在状态转换中保持拓扑结构。",
-    "abstract": "arXiv:2609.11900v1 Announce Type: new Abstract: Spatial reasoning depends not only on metric properties such as distance, angle, and shape, but also on topological relations that remain invariant under continuous deformation. Cognitive science identifies these relations as foundational to spatial understanding, yet foundation-model evaluations largely focus on metric or viewpoint-dependent relations. We introduce MindTopo, a benchmark of topological intuition across five properties grounded in cognitive science and formal topology: continuity, separation, order, enclosure, and knots. MindTopo evaluates each property at two cognitive levels. Reasoning asks a model to identify topological relations or infer how they change. Planning instantiates a foundation model as a closed-loop agent whose policy selects environment actions. MindTopo contains 11,030 instances across 13 procedurally generated task types with controllable difficulty. We benchmark 14 MLLMs and study agent configurations augmented with image and video generation, including 3 video generative models in planning settings. Every MLLM performs better on reasoning than on planning, and the best-performing model remains far below observed human performance. On Qwen3-VL-2B-Instruct, supervised fine-tuning and reinforcement learning improve reasoning more than planning. Generated observations retain local cues and reach plausible endpoints, but audited rollouts do not reliably follow environment dynamics or preserve topology across transitions. Our website is at https://mind-topo.github.io/",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2609.11900",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Physics-guided explainable machine learning and uncertainty quantification for predicting unconfined compressive strength of nano shale–quicklime stabilized kaolin clay",
-    "title_zh": "用于预测纳米页岩-生石灰稳定高岭土无侧限抗压强度的物理引导可解释机器学习与不确定性量化",
-    "summary": "稳定土强度的数据驱动预测通常受到实验数据集较小、相关试样之间存在数据泄漏以及物理可解释性有限等因素的制约。本研究建立了一个具有可解释性和不确定性感知能力的框架，用于预测纳米页岩-生石灰稳定高岭土的无侧限抗压强度，并比较了多种回归与机器学习模型。研究通过物理机制启发的特征、嵌套分组交叉验证、SHAP分析及不确定性量化，确定塑性、养护龄期和胶结料-养护相互作用是主要控制因素；最终得到的紧凑型CatBoost模型在可靠性意识下为稳定土初步筛选提供了具有物理解释的工具，但仍需实验室试验进行确认。",
-    "abstract": "Data-driven prediction of stabilized-soil strength is often constrained by small experimental datasets, leakage between related specimens, and limited physical interpretability. This study develops an explainable, uncertainty-aware framework to predict the unconfined compressive strength (UCS) of nano shale–quicklime stabilized kaolin. A specimen-level database of 180 measurements from 36 mixture–curing conditions was analyzed using multiple linear regression (MLR), support vector regression (SVR), random forest (RF), XGBoost, CatBoost, and backpropagation artificial neural network (BP-ANN), with nonlinear models optimized by particle swarm optimization and evaluated through nested GroupKFold cross-validation. Mechanism-inspired features represented binder dosage, binder–curing interactions, nonlinear curing behavior, relative plasticity, and compaction state. Sequential feature ablation identified a compact CatBoost model with six physics-guided descriptors, achieving R2 = 0.841 ± 0.123 and RMSE = 151.11 ± 34.94 kPa. SHAP analysis, sensitivity assessment, and two-dimensional partial dependence mapping identified plasticity, curing duration, and binder–curing interactions as dominant controls and revealed nonlinear stabilizer effects and favorable binder combinations. Monte Carlo input perturbation and group-bootstrap resampling quantified input-driven and model-related uncertainty, with the highest 95% prediction-interval coverage reaching 0.894. The framework provides a physically interpretable, reliability-aware approach for preliminary stabilized-soil screening while retaining confirmatory laboratory testing.",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-10784282/latest",
-    "journal": "Preprints"
-  },
-  {
     "title": "A Density-Matrix Framework for Electronic-Structure Analysis of Electrolytes for Lithium Batteries",
     "title_zh": "用于锂电池电解质电子结构分析的密度矩阵框架",
     "summary": "锂电池中电解质的反应性受到分子官能团、Li⁺溶剂化以及盐阴离子参与的共同影响，而传统量子化学方法难以系统分析多样化电解质分子及其局部溶剂化环境。本文提出以密度矩阵为核心的人工智能平台EMolStudio，整合分子官能化、显式Li⁺第一溶剂化层组装、密度矩阵预测和电子结构解析。对163655个官能化分子和22500个第一溶剂化层团簇的研究显示，不同官能团会引起前线能级、静电势和Li⁺-供体接触的特征性变化，阴离子种类则会重塑前线轨道局域化。该平台通过统一的密度矩阵表示连接分子官能化与盐分辨溶剂化壳层，为理解和设计电池电解质提供了通用工具。",
@@ -36,12 +9,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "Quantum Federated Digital Twin Framework with Explainable Multi-Agent Intelligence for Autonomous Engineering Management",
-    "title_zh": "文献研究：Quantum Federated Digital Twin Framework with Explainable Multi-Agent Intelligence for Autonomous Engineering Management",
-    "summary": "Autonomous engineering management increasingly depends on distributed digital twins that must learn, coordinate, and justify decisions across geographically separated industrial sites without exposing…",
-    "abstract": "Autonomous engineering management increasingly depends on distributed digital twins that must learn, coordinate, and justify decisions across geographically separated industrial sites without exposing proprietary operating data. Existing solutions address these needs only in isolation: federated learning preserves data locality but offers no formal guarantee against gradient-based information leakage; multi-agent reinforcement learning coordinates distributed controllers but rarely explains its own decisions; and digital twins provide high-fidelity virtual representations but are seldom coupled to a decision layer that can act autonomously while remaining auditable by human engineers. This paper proposes the Quantum Federated Digital Twin framework with eXplainable Multi-Agent Intelligence (QFDT-XMAI), a five-layer architecture that couples asset-level digital twins to a quantum-enhanced federated learning layer, a graph-attention multi-agent decision layer, and a dedicated explainability layer. The core methodological contribution is a quantum-fidelity-weighted aggregation rule (QFA-FW) that combines classical federated averaging with a quantum state-overlap weighting term computed from variational quantum circuits trained locally at each site, together with an explainable multi-agent proximal policy optimisation procedure (XMAPPO) that couples agent coordination with Shapley-based attribution and counterfactual validity scoring. The framework is evaluated on a simulated multi-site digital-twin testbed spanning predictive maintenance, dynamic scheduling, and energy-aware operation, and is benchmarked against classical federated averaging with single- and multi-agent deep reinforcement learning, and against quantum federated learning without multi-agent coordination. Simulation results indicate that QFDT-XMAI improves normalised policy return by 6 to 15 percentage points over the strongest baseline, reduces communication rounds required for convergence by approximately 22 percent, and raises the proposed Explainability Fidelity Index from 0.40–0.55 to 0.90 while maintaining comparable decision latency. The findings suggest that jointly engineering quantum-assisted federation, multi-agent coordination, and explainability, rather than treating them as separate add-ons, yields measurable gains for autonomous engineering management under data-locality and auditability constraints",
-    "category": "量子信息·计算",
-    "link": "https://www.researchsquare.com/article/rs-10389450/latest",
+    "title": "Machine learning-accelerated calculation of diffusion coefficients in crystalline structures from molecular dynamics",
+    "title_zh": "利用机器学习加速从分子动力学计算晶体结构中的扩散系数",
+    "summary": "该工作围绕利用机器学习加速分子动力学中晶体结构扩散系数的计算展开。所给信息仅包括题名、期刊及出版元数据，具体模型、验证方法和计算结果需查阅原文。",
+    "abstract": "Publication date: 25 October 2026 Source: Computational Materials Science, Volume 275 Author(s): Sang-Ho Oh, Jaemin Wang, Byeong-Joo Lee",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626005987?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Physics-guided explainable machine learning and uncertainty quantification for predicting unconfined compressive strength of nano shale–quicklime stabilized kaolin clay",
+    "title_zh": "用于预测纳米页岩-生石灰稳定高岭土无侧限抗压强度的物理引导可解释机器学习与不确定性量化",
+    "summary": "稳定土强度的数据驱动预测通常受到实验数据集较小、相关试样之间存在数据泄漏以及物理可解释性有限等因素的制约。本研究建立了一个具有可解释性和不确定性感知能力的框架，用于预测纳米页岩-生石灰稳定高岭土的无侧限抗压强度，并比较了多种回归与机器学习模型。研究通过物理机制启发的特征、嵌套分组交叉验证、SHAP分析及不确定性量化，确定塑性、养护龄期和胶结料-养护相互作用是主要控制因素；最终得到的紧凑型CatBoost模型在可靠性意识下为稳定土初步筛选提供了具有物理解释的工具，但仍需实验室试验进行确认。",
+    "abstract": "Data-driven prediction of stabilized-soil strength is often constrained by small experimental datasets, leakage between related specimens, and limited physical interpretability. This study develops an explainable, uncertainty-aware framework to predict the unconfined compressive strength (UCS) of nano shale–quicklime stabilized kaolin. A specimen-level database of 180 measurements from 36 mixture–curing conditions was analyzed using multiple linear regression (MLR), support vector regression (SVR), random forest (RF), XGBoost, CatBoost, and backpropagation artificial neural network (BP-ANN), with nonlinear models optimized by particle swarm optimization and evaluated through nested GroupKFold cross-validation. Mechanism-inspired features represented binder dosage, binder–curing interactions, nonlinear curing behavior, relative plasticity, and compaction state. Sequential feature ablation identified a compact CatBoost model with six physics-guided descriptors, achieving R2 = 0.841 ± 0.123 and RMSE = 151.11 ± 34.94 kPa. SHAP analysis, sensitivity assessment, and two-dimensional partial dependence mapping identified plasticity, curing duration, and binder–curing interactions as dominant controls and revealed nonlinear stabilizer effects and favorable binder combinations. Monte Carlo input perturbation and group-bootstrap resampling quantified input-driven and model-related uncertainty, with the highest 95% prediction-interval coverage reaching 0.894. The framework provides a physically interpretable, reliability-aware approach for preliminary stabilized-soil screening while retaining confirmatory laboratory testing.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-10784282/latest",
     "journal": "Preprints"
   },
   {
@@ -178,5 +160,23 @@
     "category": "磁性·自旋电子学",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78435?af=R",
     "journal": "Wiley"
+  },
+  {
+    "title": "Full-space multipolarization Janus reconfigurable intelligent metasurface with phase precompensation for bidirectional transmission and asymmetric reflection",
+    "title_zh": "具有相位预补偿功能的全空间多极化Janus可重构智能超表面：实现双向传输与非对称反射",
+    "summary": "本研究提出了一种全空间多极化Janus可重构智能超表面，可在单一孔径内实现双向反射以及正交极化的双向传输。每个超构单元通过微带延迟线将y极化接收贴片与x极化发射贴片耦合，并集成两个PIN二极管；不同二极管状态分别用于反射和偏振转换传输的相位控制。12×12原型样机实现了±60°波束扫描，反射和透射峰值增益分别为18.31 dBi和18.22 dBi，并可通过稀疏孔径产生两个半空间内具有正交极化的四个同时波束。",
+    "abstract": "Reconfigurable intelligent surfaces (RISs) commonly control either reflection or transmission, limiting wavefront manipulation to one half-space or one propagation function. Here we present a full-space multipolarization Janus RIS that supports bidirectional reflection and orthogonally polarized bidirectional transmission within a single aperture. Each meta-atom couples a y-polarized receiving patch to an x-polarized transmitting patch through a microstrip delay line and incorporates two PIN diodes. The 00 and 11 diode states provide 1-bit phase control for forward y-polarized and backward x-polarized reflection, whereas the 01 and 10 states control bidirectional polarization-converting transmission. Delay-line phase precompensation supplies four reflection phases (0°, 90°, 180°, and 270°) and four transmission phases (0°, 45°, 90°, and 135°), mitigating the additional beam produced by 1-bit quantization under plane-wave illumination. Measurements of a 12 × 12 prototype demonstrate beam steering to ± 60°, peak gains of 18.31 dBi in reflection and 18.22 dBi in transmission, and measured aperture efficiencies of 21.3% and 20.7%, respectively. A sparse-aperture configuration further produces four simultaneous beams with orthogonal polarizations in the two half-spaces. The proposed architecture therefore consolidates bidirectional reflection, transmission, polarization conversion, and multibeam operation in one reconfigurable platform.",
+    "category": "铁电·极化",
+    "link": "https://www.researchsquare.com/article/rs-10865143/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "MindTopo: Can Foundation Models Reason in Topological Space?",
+    "title_zh": "MindTopo：基础模型能够在拓扑空间中进行推理吗？",
+    "summary": "空间推理不仅依赖距离、角度和形状等度量性质，也依赖在连续变形下保持不变的拓扑关系。本文提出MindTopo基准，基于认知科学和形式拓扑学，从连续性、分离性、顺序、包围和纽结五种性质评估基础模型的拓扑直觉，并分别考察推理和规划两个认知层次。实验包含11030个实例和13类可控制难度的程序生成任务，结果显示所有多模态大语言模型的推理表现均优于规划表现，最佳模型仍远低于人类水平；图像和视频生成增强的智能体也无法可靠地遵循环境动力学或在状态转换中保持拓扑结构。",
+    "abstract": "arXiv:2609.11900v1 Announce Type: new Abstract: Spatial reasoning depends not only on metric properties such as distance, angle, and shape, but also on topological relations that remain invariant under continuous deformation. Cognitive science identifies these relations as foundational to spatial understanding, yet foundation-model evaluations largely focus on metric or viewpoint-dependent relations. We introduce MindTopo, a benchmark of topological intuition across five properties grounded in cognitive science and formal topology: continuity, separation, order, enclosure, and knots. MindTopo evaluates each property at two cognitive levels. Reasoning asks a model to identify topological relations or infer how they change. Planning instantiates a foundation model as a closed-loop agent whose policy selects environment actions. MindTopo contains 11,030 instances across 13 procedurally generated task types with controllable difficulty. We benchmark 14 MLLMs and study agent configurations augmented with image and video generation, including 3 video generative models in planning settings. Every MLLM performs better on reasoning than on planning, and the best-performing model remains far below observed human performance. On Qwen3-VL-2B-Instruct, supervised fine-tuning and reinforcement learning improve reasoning more than planning. Generated observations retain local cues and reach plausible endpoints, but audited rollouts do not reliably follow environment dynamics or preserve topology across transitions. Our website is at https://mind-topo.github.io/",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2609.11900",
+    "journal": "arXiv"
   }
 ]
