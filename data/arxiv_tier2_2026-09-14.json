@@ -1,5 +1,14 @@
 [
   {
+    "title": "An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
+    "title_zh": "文献研究：An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
+    "summary": "论文提出预训练的神经网络波函数模型Orbformer，在大量平衡和解离分子结构上进行训练，并通过微调描述未见分子的化学键断裂。该模型试图以较低成本处理多参考电子结构，并在多种反应和解离基准上达到接近化学精度的结果。",
+    "abstract": "arXiv:2506.19960v2 Announce Type: replace Abstract: Reliable description of bond breaking remains a major challenge for quantum chemistry due to the multireference character of the electronic structure in dissociating species. Multireference methods in particular suffer from large computational cost, which under the normal paradigm has to be paid anew for each system at a full price, ignoring commonalities in electronic structure across molecules. Quantum Monte Carlo with deep neural networks uniquely offers to exploit such commonalities by pretraining transferable wavefunction models, but all such attempts were so far limited in scope. Here, we bring this paradigm to fruition with Orbformer, a transferable wavefunction model pretrained on 22,000 equilibrium and dissociating structures that can be fine-tuned on unseen molecules reaching an accuracy-cost ratio rivalling classical multireference methods. On established benchmarks as well as more challenging bond dissociations and Diels-Alder reactions, Orbformer is the only method that consistently converges to chemical accuracy (1 kcal/mol). This work turns the idea of amortizing the cost of solving the Schrödinger equation over many molecules into a practical approach in quantum chemistry.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2506.19960",
+    "journal": "arXiv"
+  },
+  {
     "title": "RS-CIDER: A non-local machine learning model for approximating screened hybrid functionals",
     "title_zh": "文献研究：RS-CIDER: A non-local machine learning model for approximating screened hybrid functionals",
     "summary": "该论文提出RS-CIDER非局域机器学习交换泛函，用于近似HSE06中的短程Hartree-Fock交换，并能自洽地计算分子和周期性固体。结果表明其可较好复现HSE06的带隙、局域磁性、极化子局域化和中性缺陷能，并有望显著降低计算成本。",
@@ -9,18 +18,18 @@
     "journal": "arXiv"
   },
   {
-    "title": "Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
-    "title_zh": "文献研究：Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
-    "summary": "本文为三维Rayleigh-Bénard对流构建了等变代理模型，由等变卷积自编码器和等变卷积LSTM组成。模型利用空间对称性压缩复杂流场，并用于预测多尺度时空动力学。",
-    "abstract": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with examples ranging from electromagnetism over nuclear fusion reactors and magneto-hydrodynamics to fluid mechanics and climate modeling. These systems - governed by partial differential equations - present unique challenges regarding the large number of degrees of freedom and the complex dynamics over many scales both in space and time, and additional measures to improve accuracy and sample efficiency are highly desirable. We present an end-to-end equivariant surrogate model consisting of an equivariant convolutional autoencoder and an equivariant convolutional LSTM using G-steerable kernels. As a case study, we consider the three-dimensional Rayleigh-Bénard convection, which describes the buoyancy-driven fluid flow between a heated bottom and a cooled top plate. While the system is E(2)-equivariant in the horizontal plane, the boundary conditions break the translational equivariance in the vertical direction. Our architecture leverages vertically stacked layers of D₄-steerable kernels, with additional partial kernel sharing in the vertical direction for further efficiency improvement. We demonstrate significant gains in sample and parameter efficiency, as well as a better scaling to more complex dynamics. The accompanying code is available under https://github.com/FynnFromme/equivariant-rb-forecasting.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2505.13569",
-    "journal": "arXiv"
+    "title": "AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
+    "title_zh": "文献研究：AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
+    "summary": "该论文利用可解释机器学习加速交替磁性金属有机框架的发现与筛选。研究重点是将人工智能材料发现方法应用于交替磁性框架材料，并提高模型判据的可解释性。",
+    "abstract": "npj Computational Materials, Published online: 14 September 2026; doi:10.1038/s41524-026-02323-3 AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
+    "category": "AI×化学·材料",
+    "link": "https://www.nature.com/articles/s41524-026-02323-3",
+    "journal": "npj Computational Materials"
   },
   {
     "title": "Physics-informed deep learning links geodetic data and fault friction",
     "title_zh": "文献研究：Physics-informed deep learning links geodetic data and fault friction",
-    "summary": "arXiv:2601.20136v3 Announce Type: replace Abstract: Fault slip modeling, based on laboratory-derived friction laws, has significantly enhanced our understanding of fault mechanics. Agreement between m…",
+    "summary": "论文采用物理信息神经网络，从大地测量观测数据中反演断层面的空间非均匀摩擦性质。研究成功重现了日本2010年慢滑移事件的时空位移特征，并揭示了摩擦异质性与慢滑移事件成核和传播之间的联系。",
     "abstract": "arXiv:2601.20136v3 Announce Type: replace Abstract: Fault slip modeling, based on laboratory-derived friction laws, has significantly enhanced our understanding of fault mechanics. Agreement between model predictions and observations supports the hypothesis that observed slip diversity, including fast earthquakes and slow transient slips (Slow Slip Events; SSEs), originates from frictional heterogeneity. However, quantitative assessments of frictional heterogeneity from geodetic observations while fully incorporating fault mechanics are lacking due to the difficulties of high-dimensional optimization. In this study, we aim to address this gap using Physics-Informed Neural Networks (PINNs) to link frictional heterogeneity with geodetic observations. PINNs employ a neural network to represent the spatially variable frictional properties, making their estimation feasible. Targeting the 2010 Bungo SSE in southwest Japan, our estimation reveals heterogeneous friction coinciding with localized SSE nucleation in southwest Shikoku, and subsequent westward propagation. The calculated fault slip of SSE successfully reproduces the spatio-temporal pattern of observed surface displacements. This PINN-based inversion provides a mechanically consistent fault slip model validated through quantitative comparison with observations. Furthermore, we forecast the future fault slip evolution, demonstrating the importance of assimilating observations spanning multiple SSE cycles. Our results demonstrate the potential of PINN for advancing understanding of fault mechanics and enabling physics-based fault slip forecasting.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2601.20136",
@@ -29,20 +38,56 @@
   {
     "title": "Continuous Learning of Gravity Field Irregularities Around Small Bodies via Neural Hamiltonian ODEs",
     "title_zh": "文献研究：Continuous Learning of Gravity Field Irregularities Around Small Bodies via Neural Hamiltonian ODEs",
-    "summary": "arXiv:2609.12022v1 Announce Type: cross Abstract: We propose to learn the unknown dynamics in the proximity of a small body directly from tracking data, representing them as a feed-forward neural netw…",
+    "summary": "论文将前馈神经网络嵌入系统哈密顿量，用神经哈密顿量常微分方程从小天体的轨道跟踪数据中学习未知引力场。连续学习机制能够随着新数据输入更新模型，并在小天体附近的着陆轨迹规划中取得较好的预测精度。",
     "abstract": "arXiv:2609.12022v1 Announce Type: cross Abstract: We propose to learn the unknown dynamics in the proximity of a small body directly from tracking data, representing them as a feed-forward neural network embedded in the system Hamiltonian. The equations of motion form a Neural Hamiltonian Ordinary Differential Equation, whose variational equations provide exact training gradients: estimation uses position and velocity arcs at realistic noise levels, without acceleration or potential labels, and a continual learning approach warm-starts the network as new data are acquired. The known part of the Hamiltonian carries whatever is available, from the central term and spin state to the constant-density model of the imaged shape. We assess the method against a normalized spherical harmonics expansion estimated from identical arcs through the same machinery, on scenarios built on the shapes of Itokawa, 67P, Bennu and Eros. The network remains usable inside the Brillouin sphere: it plans ballistic descents at Itokawa to SI4.6m median touchdown error from tracking alone, against 5.1--SI48.9m for harmonics of degree 4--12, and to SI0.9m with the imaged shape as prior, a configuration that also recovers localised density anomalies invisible to any harmonics degree. The two representations are complementary, and we discuss their combined use across the phases of a small-body mission.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2609.12022",
     "journal": "arXiv"
   },
   {
-    "title": "AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
-    "title_zh": "文献研究：AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
-    "summary": "该研究利用可解释机器学习加速交替磁性金属-有机框架材料的发现。论文主题聚焦于交替磁性候选材料的机器学习筛选及可解释性分析，具体材料、模型和性能结论仅凭题目无法进一步确认。",
-    "abstract": "npj Computational Materials, Published online: 14 September 2026; doi:10.1038/s41524-026-02323-3 AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
-    "category": "AI×化学·材料",
-    "link": "https://www.nature.com/articles/s41524-026-02323-3",
-    "journal": "npj Computational Materials"
+    "title": "Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
+    "title_zh": "文献研究：Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
+    "summary": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with ex…",
+    "abstract": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with examples ranging from electromagnetism over nuclear fusion reactors and magneto-hydrodynamics to fluid mechanics and climate modeling. These systems - governed by partial differential equations - present unique challenges regarding the large number of degrees of freedom and the complex dynamics over many scales both in space and time, and additional measures to improve accuracy and sample efficiency are highly desirable. We present an end-to-end equivariant surrogate model consisting of an equivariant convolutional autoencoder and an equivariant convolutional LSTM using G-steerable kernels. As a case study, we consider the three-dimensional Rayleigh-Bénard convection, which describes the buoyancy-driven fluid flow between a heated bottom and a cooled top plate. While the system is E(2)-equivariant in the horizontal plane, the boundary conditions break the translational equivariance in the vertical direction. Our architecture leverages vertically stacked layers of D₄-steerable kernels, with additional partial kernel sharing in the vertical direction for further efficiency improvement. We demonstrate significant gains in sample and parameter efficiency, as well as a better scaling to more complex dynamics. The accompanying code is available under https://github.com/FynnFromme/equivariant-rb-forecasting.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2505.13569",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Agent-authored deposition recipes for X-ray multilayer mirrors: schema-bound LLM control of a magnetron sputtering system with reflectivity-verified outcomes",
+    "title_zh": "由智能体编写的 X 射线多层镜沉积配方：通过模式约束的大语言模型控制磁控溅射系统并以反射率验证结果",
+    "summary": "该工作测试了大语言模型智能体在受控接口下为 X 射线周期多层镜编写磁控溅射沉积配方的能力。目标为 30 个双层的 Ru/C 多层膜，周期为 6.85 nm，并以 X 射线反射率相对人类参考样品进行评分。四次评分沉积中，相对周期差从初始校准条件下的 20% 降至两轮测量反馈后的 0.79%，同时识别出 16 种面向智能体接口的失效模式。",
+    "abstract": "arXiv:2609.12796v1 Announce Type: new Abstract: Periodic multilayer mirrors for X-rays require a layer period held to about 0.02 nm, set by deposition rates held in the laboratory's own notebook. A large language model agent was given a target multilayer specification and read access to a laboratory archive. Deposition recipes were authored in the native recipe language of a magnetron sputtering system and submitted through a Model Context Protocol bridge of 17 tools in three tiers, with enforcement held in the control application. The target was a 30-bilayer Ru/C multilayer with a period of 6.85 nm, a pair chosen because each period is fitted as two layers. The agent could write only inside a working project of its own, so it could alter neither the calibration it read nor the measurements that scored it. Mirrors were scored against a human-authored reference by X-ray reflectivity, and the 3% acceptance threshold on relative period difference was fixed before deposition. Across four scored agent-authored depositions the relative period difference fell from 20% on the calibration as given to 2.26% after one measured-feedback iteration and 0.79% after a second. Sixteen failure modes of the agent-facing interface were identified. The result is bounded to the period, pair and chamber observed.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.12796",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Fast and Accurate Excitation Energies from Density Matrix Renormalization Group Calculations Improved by Machine Learning",
+    "title_zh": "利用机器学习改进密度矩阵重正化群计算，实现快速且准确的激发能",
+    "summary": "本文将密度矩阵重正化群方法作为完备活性空间求解器与机器学习结合，用于高效、低成本地计算功能材料中的电子激发。针对多环芳香化合物的π电子相关体系，研究展示了该方法的性能，并在最多包含34个π电子的困难实例中验证了机器学习模型的可迁移性和有效性。",
+    "abstract": "arXiv:2609.12616v1 Announce Type: new Abstract: An estimation of optoelectronic properties is a crucial necessity and an ongoing challenge in modern functional material science. This involves accurate accessing of ground and excited states in systems with complex electronic structure that are often too computationally expensive for accurate many-body methods. Building on our previous work on ground states [J. Phys. Chem. Lett. 2025, 16, 3295-3301], we present an efficient and cost-effective approach for evaluating electronic excitations in functional materials, combining the density matrix renormalization group method as a complete active space solver with machine learning techniques. We demonstrate its performance on π-electron-correlated systems, namely polycyclic aromatic compounds. The transferability and effectiveness of the derived machine learning model are demonstrated on a number of challenging examples with up to 34 π-electrons.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.12616",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
+    "title_zh": "文献研究：Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
+    "summary": "论文通过无监督机器学习聚类密度泛函理论计算结果，提取有机分子的主要电子跃迁，并结合角分辨吸收实验构建具有键和取向分辨能力的共振X射线光学张量。该模型能够描述不同取向和晶体堆垛样品的光学响应，并将光谱特征关联到具体化学基团。",
+    "abstract": "arXiv:2509.01734v2 Announce Type: replace Abstract: Local molecular orientation and conformation within nanostructures is central to their behavior in devices, emergent quantum states, and biological processes. X-ray microscopy and scattering at the carbon absorption edge is uniquely sensitive to these phenomena, through transition dipole moments encoded with photon energy and polarization. However, quantitative analysis is precluded due to the lack of accurate optical models with bond and orientation specificity. We generate such a model through an unsupervised machine learning algorithm that clusters density functional theory calculations into principle electronic transitions, quantitatively refined with angle-resolved absorbance measurements. The resulting optical tensor reproduces data from samples with domains of different orientation and crystalline packing. This refinement method connects spectral features to chemical moieties and resolves measurement-inaccessible dipole moments, establishing a new paradigm for label-free orientation analyses of bonds within molecular nanostructures.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2509.01734",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Reinforcement Learning for Syndrome Extraction",
+    "title_zh": "文献研究：Reinforcement Learning for Syndrome Extraction",
+    "summary": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndr…",
+    "abstract": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndrome grows exponentially with the syndrome size, and these implementations vary greatly in fault tolerance, as measured by their logical error rates. This creates a natural search problem: find an implementation with a low logical error rate. Previous work solves this problem but sacrifices either solution quality or scalability. In this paper, we use reinforcement learning and importance sampling to outperform previous work at all scales. Compared with the state of the art automatic scheduling tools AlphaSyndrome and PropHunt, our tool reduces the logical error rate by 25.9% and 71.7% on average, respectively, culminating with a reduction of 97.8% for a surface code with distance 15.",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2609.12020",
+    "journal": "arXiv"
   },
   {
     "title": "Decoding Crystallographic Surface Chirality from Real Space and Momentum Space Images by Machine Learning",
@@ -63,69 +108,6 @@
     "journal": "Nature Electronics"
   },
   {
-    "title": "An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
-    "title_zh": "文献研究：An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
-    "summary": "本文提出Orbformer，一种基于深度神经网络的可迁移波函数模型，并在约22000个平衡与解离结构上进行预训练。结果显示，该模型能够较准确地描述化学键断裂，并在部分体系中达到接近化学精度的能量预测。",
-    "abstract": "arXiv:2506.19960v2 Announce Type: replace Abstract: Reliable description of bond breaking remains a major challenge for quantum chemistry due to the multireference character of the electronic structure in dissociating species. Multireference methods in particular suffer from large computational cost, which under the normal paradigm has to be paid anew for each system at a full price, ignoring commonalities in electronic structure across molecules. Quantum Monte Carlo with deep neural networks uniquely offers to exploit such commonalities by pretraining transferable wavefunction models, but all such attempts were so far limited in scope. Here, we bring this paradigm to fruition with Orbformer, a transferable wavefunction model pretrained on 22,000 equilibrium and dissociating structures that can be fine-tuned on unseen molecules reaching an accuracy-cost ratio rivalling classical multireference methods. On established benchmarks as well as more challenging bond dissociations and Diels-Alder reactions, Orbformer is the only method that consistently converges to chemical accuracy (1 kcal/mol). This work turns the idea of amortizing the cost of solving the Schrödinger equation over many molecules into a practical approach in quantum chemistry.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2506.19960",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Agent-authored deposition recipes for X-ray multilayer mirrors: schema-bound LLM control of a magnetron sputtering system with reflectivity-verified outcomes",
-    "title_zh": "由智能体编写的 X 射线多层镜沉积配方：通过模式约束的大语言模型控制磁控溅射系统并以反射率验证结果",
-    "summary": "该工作测试了大语言模型智能体在受控接口下为 X 射线周期多层镜编写磁控溅射沉积配方的能力。目标为 30 个双层的 Ru/C 多层膜，周期为 6.85 nm，并以 X 射线反射率相对人类参考样品进行评分。四次评分沉积中，相对周期差从初始校准条件下的 20% 降至两轮测量反馈后的 0.79%，同时识别出 16 种面向智能体接口的失效模式。",
-    "abstract": "arXiv:2609.12796v1 Announce Type: new Abstract: Periodic multilayer mirrors for X-rays require a layer period held to about 0.02 nm, set by deposition rates held in the laboratory's own notebook. A large language model agent was given a target multilayer specification and read access to a laboratory archive. Deposition recipes were authored in the native recipe language of a magnetron sputtering system and submitted through a Model Context Protocol bridge of 17 tools in three tiers, with enforcement held in the control application. The target was a 30-bilayer Ru/C multilayer with a period of 6.85 nm, a pair chosen because each period is fitted as two layers. The agent could write only inside a working project of its own, so it could alter neither the calibration it read nor the measurements that scored it. Mirrors were scored against a human-authored reference by X-ray reflectivity, and the 3% acceptance threshold on relative period difference was fixed before deposition. Across four scored agent-authored depositions the relative period difference fell from 20% on the calibration as given to 2.26% after one measured-feedback iteration and 0.79% after a second. Sixteen failure modes of the agent-facing interface were identified. The result is bounded to the period, pair and chamber observed.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.12796",
-    "journal": "arXiv"
-  },
-  {
-    "title": "QTrans: A Quantum Transformer for Sentiment Classification",
-    "title_zh": "文献研究：QTrans: A Quantum Transformer for Sentiment Classification",
-    "summary": "arXiv:2609.12011v1 Announce Type: new Abstract: In small-scale binary sentiment classification scenarios, factors such as negation, contrastive shifts, and cross-word dependencies lead to the non-line…",
-    "abstract": "arXiv:2609.12011v1 Announce Type: new Abstract: In small-scale binary sentiment classification scenarios, factors such as negation, contrastive shifts, and cross-word dependencies lead to the non-linear coupling of sentiment cues, making it difficult for conventional lightweight models to fully capture the contextual relationships between tokens. To address this issue, we propose a model named QTrans, which uses parameterized quantum circuits to construct query, key, and value features and derives attention coefficients from Gaussian distances between quantum measurements. By further integrating a quantum feed-forward neural network, residual connections, and layer normalization, the model establishes an end-to-end trainable quantum-classical hybrid framework for sentiment classification. Experimental results on the MR, CR, and MPQA datasets show that QTrans achieves test accuracies of 72.13%, 69.51%, and 63.45%, respectively, representing improvements of 2.88, 3.17, and 3.79 percentage points over the best-performing classical baselines for each dataset. Overall, QTrans expands the application of parameterized quantum circuits in lightweight sentiment analysis and lays an experimental foundation for further research into quantum multi-head self-attention for modeling textual relationships.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.12011",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Machine Learning-Based Classification of Jhana Advanced Concentrative Absorption Meditation Using 7 Tesla Functional Magnetic Resonance Imaging",
-    "title_zh": "文献研究：Machine Learning-Based Classification of Jhana Advanced Concentrative Absorption Meditation Using 7 Tesla Functional Magnetic Resonance Imaging",
-    "summary": "arXiv:2602.13008v2 Announce Type: replace Abstract: Introduction: Jhana advanced concentrative absorption meditation (ACAM-J) involves profound changes in consciousness, making its neural correlates i…",
-    "abstract": "arXiv:2602.13008v2 Announce Type: replace Abstract: Introduction: Jhana advanced concentrative absorption meditation (ACAM-J) involves profound changes in consciousness, making its neural correlates important for understanding consciousness and well-being. Prior neuroimaging has relied on univariate, group-level contrasts, leaving open whether ACAM-J carries distributed neural signatures decodable from individual scans. This study evaluates whether fMRI-derived regional homogeneity (ReHo) can classify ACAM-J using machine learning. Methods: We analysed 7T fMRI data from 20 advanced meditators who progressed through their standard ACAM-J sequence and two matched control tasks, plus intensive data from one case-study participant held out for final evaluation. ReHo maps were computed per segment and parcellated into 498 regions spanning cortex, subcortex, brainstem, and cerebellum. Within subject-wise stratified cross-validation, feature ranking, recursive feature elimination, and class balancing were applied to training data only; six classifier families were fitted, and the top three per contrast were combined by probability averaging. Results: Across 19 binary comparisons, the ensemble reached an overall average accuracy of 65.87% before and 66.82% after regressing out phenomenology-related variance, with an average Cohen's kappa of 0.2443. Discrimination was strongest for the most separated states (ACAM-J1 vs ACAM-J6, 74.33% accuracy, kappa = 0.5158), while adjacent states were harder to separate. Prefrontal and anterior cingulate areas contributed most to model decisions. Conclusion: ReHo patterns measured at 7T carry information distinguishing ACAM-J from control states and, more modestly, from one another, supporting the feasibility of multivariate decoding of advanced meditation and informing future work on its mechanisms and neuromodulation.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2602.13008",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Fast and Accurate Excitation Energies from Density Matrix Renormalization Group Calculations Improved by Machine Learning",
-    "title_zh": "利用机器学习改进密度矩阵重正化群计算，实现快速且准确的激发能",
-    "summary": "本文将密度矩阵重正化群方法作为完备活性空间求解器与机器学习结合，用于高效、低成本地计算功能材料中的电子激发。针对多环芳香化合物的π电子相关体系，研究展示了该方法的性能，并在最多包含34个π电子的困难实例中验证了机器学习模型的可迁移性和有效性。",
-    "abstract": "arXiv:2609.12616v1 Announce Type: new Abstract: An estimation of optoelectronic properties is a crucial necessity and an ongoing challenge in modern functional material science. This involves accurate accessing of ground and excited states in systems with complex electronic structure that are often too computationally expensive for accurate many-body methods. Building on our previous work on ground states [J. Phys. Chem. Lett. 2025, 16, 3295-3301], we present an efficient and cost-effective approach for evaluating electronic excitations in functional materials, combining the density matrix renormalization group method as a complete active space solver with machine learning techniques. We demonstrate its performance on π-electron-correlated systems, namely polycyclic aromatic compounds. The transferability and effectiveness of the derived machine learning model are demonstrated on a number of challenging examples with up to 34 π-electrons.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.12616",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
-    "title_zh": "文献研究：Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
-    "summary": "本文通过无监督机器学习聚类DFT电子跃迁，并结合角分辨吸收实验，构建了具有化学键和取向分辨能力的共振X射线光学张量。该模型能够描述不同取向和晶体堆垛样品的光学响应，并解析难以直接测量的跃迁偶极矩。",
-    "abstract": "arXiv:2509.01734v2 Announce Type: replace Abstract: Local molecular orientation and conformation within nanostructures is central to their behavior in devices, emergent quantum states, and biological processes. X-ray microscopy and scattering at the carbon absorption edge is uniquely sensitive to these phenomena, through transition dipole moments encoded with photon energy and polarization. However, quantitative analysis is precluded due to the lack of accurate optical models with bond and orientation specificity. We generate such a model through an unsupervised machine learning algorithm that clusters density functional theory calculations into principle electronic transitions, quantitatively refined with angle-resolved absorbance measurements. The resulting optical tensor reproduces data from samples with domains of different orientation and crystalline packing. This refinement method connects spectral features to chemical moieties and resolves measurement-inaccessible dipole moments, establishing a new paradigm for label-free orientation analyses of bonds within molecular nanostructures.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2509.01734",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Reinforcement Learning for Syndrome Extraction",
-    "title_zh": "文献研究：Reinforcement Learning for Syndrome Extraction",
-    "summary": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndr…",
-    "abstract": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndrome grows exponentially with the syndrome size, and these implementations vary greatly in fault tolerance, as measured by their logical error rates. This creates a natural search problem: find an implementation with a low logical error rate. Previous work solves this problem but sacrifices either solution quality or scalability. In this paper, we use reinforcement learning and importance sampling to outperform previous work at all scales. Compared with the state of the art automatic scheduling tools AlphaSyndrome and PropHunt, our tool reduces the logical error rate by 25.9% and 71.7% on average, respectively, culminating with a reduction of 97.8% for a surface code with distance 15.",
-    "category": "量子信息·计算",
-    "link": "https://arxiv.org/abs/2609.12020",
-    "journal": "arXiv"
-  },
-  {
     "title": "PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
     "title_zh": "文献研究：PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
     "summary": "arXiv:2609.12301v1 Announce Type: cross Abstract: We study the problem of estimating unknown parameters in PDE-constrained inverse problems from noisy observations, where the PDE solution is approxima…",
@@ -144,15 +126,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Assessing the magnetic states and the accuracy of first-principles Hubbard corrections for the battery cathode LiₓCoO₂ (x=0,1)",
-    "title_zh": "文献研究：Assessing the magnetic states and the accuracy of first-principles Hubbard corrections for the battery cathode LiₓCoO₂ (x=0,1)",
-    "summary": "该工作利用含自洽 Hubbard 修正、长程范德华相互作用和线性响应方法，系统研究了锂钴氧在不同锂含量下的结构、电子和磁性状态。研究重点评估了 Hubbard 参数、投影轨道选择以及不同磁态对第一性原理描述准确性的影响。",
-    "abstract": "arXiv:2609.12984v1 Announce Type: new Abstract: LiₓCoO₂ is a prototypical layered cathode material for Li-ion batteries, yet its accurate description from first principles remains challenging because of self-interaction errors, weak interlayer interactions, and a complex magnetic energy landscape. Here, we present a systematic investigation of the structural, electronic, magnetic, and electrochemical properties of LiₓCoO₂ (x=0,1) using density-functional theory augmented with self-consistent Hubbard corrections and long-range van der Waals interactions, together with a systematic exploration of possible magnetic states. The on-site interactions on Co-3d and O-2p states, as well as inter-site Co-O interactions, are determined from first principles using linear-response theory in the framework of density-functional perturbation theory, with Löwdin-orthogonalized atomic orbitals employed as Hubbard projectors. For LiCoO₂, the inclusion of Hubbard corrections provides an accurate description of the structural properties, while the electronic structure is very sensitive to the choice of Hubbard projectors. In particular, frontier Wannier-function projectors substantially improve the description of the occupied electronic states compared with localized atomic orbitals. For CoO₂, we demonstrate that a systematic exploration of the magnetic energy landscape is essential to identify the lowest-energy low-spin ground state. However, the resulting Hubbard-corrected electronic structure is insulating, consistent with the prediction of the HSE06 hybrid functional, but in contrast to the experimentally observed metallic behavior. Structural relaxation further drives the system toward a different metallic solution with an electronic configuration inconsistent with low-spin Co⁴⁺ character. Despite these limitations, the calculated intercalation voltages agree well with experiment, with deviations as small as 2%.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.12984",
-    "journal": "arXiv"
-  },
-  {
     "title": "Irreducible sub-nm² ferroelectric domains by 2D-flat polar band in perovskite superlattices",
     "title_zh": "钙钛矿超晶格中二维平坦极性带产生的不可约亚平方纳米铁电畴",
     "summary": "研究发现，铁电 (BaTiO3)1/(BaXO3)1 超晶格（X = Zr、Sn）中存在二维平坦极性声子带，可在四分之一晶胞面积内形成高度局域且相互独立的偶极子。由此产生的准简并态对应不可约的亚平方纳米铁电畴，估算的铁电畴密度超过 300 Tbit/cm2，并可在低电压下独立切换。该铁电相在不同超晶格堆垛方向上都是竞争性基态，有望通过自由悬浮结构或在 MgO 衬底上的外延生长实现。",
@@ -162,13 +135,13 @@
     "journal": "arXiv"
   },
   {
-    "title": "Spin splitting without symmetry: a nearly compensated ferrimagnet and the origin of altermagnetism",
-    "title_zh": "无对称性的自旋劈裂：近补偿亚铁磁体与交替磁性的起源",
-    "summary": "该研究挑战了将共线交替磁体自旋劈裂归因于连接相反自旋子晶格的晶体对称性的常见看法。作者认为，对称性组织劈裂但并不产生劈裂，其根源在于磁性轨道及其配体的各向异性排列。通过三斜 P1 补偿亚铁磁体以及恢复反演中心后的对比，研究指出寻找补偿自旋劈裂磁体应聚焦于轨道排列，而非仅依赖对称性标签。",
-    "abstract": "arXiv:2609.12931v1 Announce Type: new Abstract: The spin splitting of collinear altermagnets is usually attributed to the crystal symmetry relating the opposite-spin sublattices --- a rotation or mirror in place of the translation or inversion of a conventional antiferromagnet. We show that this symmetry organizes the splitting but does not produce it; its origin is the anisotropic arrangement of the magnetic orbitals and their ligands, which also fixes the symmetry itself. Two results establish this. A triclinic (P1) ceMn oxide, a fully compensated ferrimagnet whose two inequivalent sublattices are related by no symmetry, is spin split throughout the Brillouin zone; repositioning the same ligands, atom for atom, to restore an inversion centre relating the two metal sites collapses the splitting to a residual two orders of magnitude smaller, so the splitting follows from the arrangement rather than the symmetry. Symmetry, we show formally, can only ever reverse or forbid a splitting that already exists: it cannot create one between sublattices an arrangement has left electronically identical, nor where the underlying orbitals carry no anisotropy to arrange in the first place. Organizing the analysis through an operation-resolved symmetry hierarchy and reading the crystal classes as a single axis, the enforced nodal planes fall from two to one to zero across the orthorhombic, monoclinic, and triclinic classes while the arrangement-generated splitting persists to the base. The altermagnet and the fully compensated ferrimagnet are thus the two ends of one axis --- the same splitting, organized by symmetry at one end and unorganized at the other --- and the search for compensated spin-split magnets is a search over orbital arrangements rather than symmetry labels.",
+    "title": "Odd-parity magnetism from the generalized Bloch theorem",
+    "title_zh": "文献研究：Odd-parity magnetism from the generalized Bloch theorem",
+    "summary": "该论文提出利用广义 Bloch 定理在原胞尺度描述单 q 螺旋磁体，从而避免大磁超胞带来的计算困难。作者基于第一性原理研究 MnI₂、NiI₂ 和 MnTe₂，发现奇宇称自旋劈裂在 p 轨道能带上最强，且能带自旋纹理直接编码磁有序波矢。",
+    "abstract": "Author(s): Mikkel Christian Larsen and Thomas Olsen Helimagnets naturally host odd-parity spin splitting — spin locked antisymmetrically to momentum — but their theoretical description is hindered by large, sometimes incommensurate magnetic supercells. Here, the authors show that the generalized Bloch theorem removes this barrier: bands, spin polarization, and wavefunctions of any single- q helimagnet can be obtained in the primitive cell and downfolded in reciprocal space. From first principles for MnI 2 , NiI 2 , and MnTe 2 , the authors find splitting maximized for p -orbital bands, and band spin texture that directly encodes the magnetic ordering vector. [Phys. Rev. B 114, 144414] Published Mon Sep 14, 2026",
     "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.12931",
-    "journal": "arXiv"
+    "link": "http://link.aps.org/doi/10.1103/pynw-3dqz",
+    "journal": "Editors' Suggestions"
   },
   {
     "title": "Crystallized Domain Walls in HfO2 Enable Chessboard‐Type Ultra‐High‐Dense Ferroelectric Memory",
@@ -178,5 +151,32 @@
     "category": "铁电·极化",
     "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.77599?af=R",
     "journal": "Wiley: Advanced Science: Table of Contents"
+  },
+  {
+    "title": "Extreme-Scale Linear-Scaling Kohn-Sham DFT at 100 Million Atoms: Bridging Quantum Simulations and Experiments",
+    "title_zh": "文献研究：Extreme-Scale Linear-Scaling Kohn-Sham DFT at 100 Million Atoms: Bridging Quantum Simulations and Experiments",
+    "summary": "该论文介绍 XLSDFT，一种基于密度矩阵分治和 Chebyshev 滤波子空间迭代的线性标度 Kohn-Sham DFT 框架。该方法在超算上实现百万到亿原子量级模拟，并展示了硅晶体和全固态电池界面的超大尺度第一性原理计算能力。",
+    "abstract": "arXiv:2609.13115v1 Announce Type: cross Abstract: Kohn-Sham density functional theory (DFT) remains the workhorse of ab initio materials simulation, yet cubic computational and quadratic memory scaling have confined calculations to a few hundred to thousands of atoms, spanning only nanometers, far below experimentally relevant length scales. We introduce XLSDFT, a linear-scaling DFT framework based on divide-and-conquer decomposition of the one-particle density matrix and Chebyshev-filtered subspace iteration, achieving linear computational and memory scaling while retaining DFT accuracy. Deployed on the LineShine exascale supercomputer, XLSDFT reduces computational complexity by orders of magnitude, enabling unprecedented DFT scale: a 200-million-atom silicon crystal, twentyfold beyond the prior record. Our implementation achieves 96.6% weak-scaling efficiency and sustained 157.9 Pflop/s (FP64) for a 100-million-atom scaling study. We further simulate an 11-million-atom all-solid-state battery interface of unprecedented complexity, 1,000 times beyond prior DFT for such systems, revealing how lithium metal reacts with the solid electrolyte at atomic resolution, in quantitative agreement with spectroscopy experiments.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2609.13115",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Hund’s physics-driven strong correlation in the altermagnet CaCrO3",
+    "title_zh": "文献研究：Hund’s physics-driven strong correlation in the altermagnet CaCrO3",
+    "summary": "论文利用DFT加动力学平均场理论研究金属交替磁体CaCrO3，发现其强关联行为主要由Hund耦合而非Mott机制驱动。计算得到的磁矩与中子衍射结果一致，并揭示了重费米子型行为、平带倾向和显著的有效质量增强。",
+    "abstract": "Altermagnetism has attracted intense interest, but strong correlation effects in altermagnets remain largely unexplored. Here, using density functional theory plus dynamical mean-field theory (DFT+DMFT), we identify CaCrO3, a rare example of a metallic altermagnet, as a Hund altermagnet. We show that Hundness, rather than Mottness, leads to incoherent metallicity with altermagnetic spin splitting and sustains local spin moments. The DFT+DMFT calculated magnetic moment (~ 1.3 µB/Cr) is in quantitative agreement with neutron diffraction (~ 1.2 µB/Cr), while conventional DFT + U predicts an insulating state instead. Furthermore, Hundness promotes incipient flat bands and gives rise to heavy-fermion-like behavior in this 3d system, with effective mass enhancement m*/m ~ 47. This work demonstrates DFT+DMFT as a reliable computational tool for studying strongly correlated altermagnets and highlights the importance of Hund’s physics in these emerging materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-10803890/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Assessing the magnetic states and the accuracy of first-principles Hubbard corrections for the battery cathode LiₓCoO₂ (x=0,1)",
+    "title_zh": "文献研究：Assessing the magnetic states and the accuracy of first-principles Hubbard corrections for the battery cathode LiₓCoO₂ (x=0,1)",
+    "summary": "该论文系统研究 LiₓCoO₂ 在 x=0 和 x=1 时的结构、电子、磁性与电化学性质，重点评估第一性原理 Hubbard 修正、范德华相互作用和不同磁态的影响。结果显示 Hubbard 投影子的选择会显著影响电子结构，Wannier 函数投影子可改善描述。",
+    "abstract": "arXiv:2609.12984v1 Announce Type: new Abstract: LiₓCoO₂ is a prototypical layered cathode material for Li-ion batteries, yet its accurate description from first principles remains challenging because of self-interaction errors, weak interlayer interactions, and a complex magnetic energy landscape. Here, we present a systematic investigation of the structural, electronic, magnetic, and electrochemical properties of LiₓCoO₂ (x=0,1) using density-functional theory augmented with self-consistent Hubbard corrections and long-range van der Waals interactions, together with a systematic exploration of possible magnetic states. The on-site interactions on Co-3d and O-2p states, as well as inter-site Co-O interactions, are determined from first principles using linear-response theory in the framework of density-functional perturbation theory, with Löwdin-orthogonalized atomic orbitals employed as Hubbard projectors. For LiCoO₂, the inclusion of Hubbard corrections provides an accurate description of the structural properties, while the electronic structure is very sensitive to the choice of Hubbard projectors. In particular, frontier Wannier-function projectors substantially improve the description of the occupied electronic states compared with localized atomic orbitals. For CoO₂, we demonstrate that a systematic exploration of the magnetic energy landscape is essential to identify the lowest-energy low-spin ground state. However, the resulting Hubbard-corrected electronic structure is insulating, consistent with the prediction of the HSE06 hybrid functional, but in contrast to the experimentally observed metallic behavior. Structural relaxation further drives the system toward a different metallic solution with an electronic configuration inconsistent with low-spin Co⁴⁺ character. Despite these limitations, the calculated intercalation voltages agree well with experiment, with deviations as small as 2%.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.12984",
+    "journal": "arXiv"
   }
 ]
