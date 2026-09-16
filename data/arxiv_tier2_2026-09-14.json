@@ -11,7 +11,7 @@
   {
     "title": "An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
     "title_zh": "文献研究：An ab initio foundation model of wavefunctions that accurately describes chemical bond breaking",
-    "summary": "arXiv:2506.19960v2 Announce Type: replace Abstract: Reliable description of bond breaking remains a major challenge for quantum chemistry due to the multireference character of the electronic structur…",
+    "summary": "论文提出Orbformer，一种基于深度神经网络的可迁移波函数模型，并在约22000个平衡和解离结构上进行预训练。该模型能够描述分子键断裂和Diels-Alder反应，在多个基准中达到接近化学精度的结果，并改善多参考量子化学计算的成本效率。",
     "abstract": "arXiv:2506.19960v2 Announce Type: replace Abstract: Reliable description of bond breaking remains a major challenge for quantum chemistry due to the multireference character of the electronic structure in dissociating species. Multireference methods in particular suffer from large computational cost, which under the normal paradigm has to be paid anew for each system at a full price, ignoring commonalities in electronic structure across molecules. Quantum Monte Carlo with deep neural networks uniquely offers to exploit such commonalities by pretraining transferable wavefunction models, but all such attempts were so far limited in scope. Here, we bring this paradigm to fruition with Orbformer, a transferable wavefunction model pretrained on 22,000 equilibrium and dissociating structures that can be fine-tuned on unseen molecules reaching an accuracy-cost ratio rivalling classical multireference methods. On established benchmarks as well as more challenging bond dissociations and Diels-Alder reactions, Orbformer is the only method that consistently converges to chemical accuracy (1 kcal/mol). This work turns the idea of amortizing the cost of solving the Schrödinger equation over many molecules into a practical approach in quantum chemistry.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2506.19960",
@@ -29,7 +29,7 @@
   {
     "title": "AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
     "title_zh": "文献研究：AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
-    "summary": "该工作利用可解释机器学习加速发现具有交替磁性的金属有机框架材料，目标是从较大候选空间中识别具有目标磁性特征的体系。研究重点结合了交替磁性材料设计、机器学习筛选和模型可解释性，以提取影响交替磁性的结构与化学因素。",
+    "summary": "该论文以机器学习加速交替磁性金属有机框架的发现，并强调模型的可解释性。根据题目，其核心目标是结合材料筛选与可解释机器学习，识别具有交替磁性特征的金属有机框架候选体系。",
     "abstract": "npj Computational Materials, Published online: 14 September 2026; doi:10.1038/s41524-026-02323-3 AI-accelerated discovery of altermagnetic metal-organic frameworks via interpretable machine learning",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02323-3",
@@ -45,15 +45,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
-    "title_zh": "文献研究：Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
-    "summary": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with ex…",
-    "abstract": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with examples ranging from electromagnetism over nuclear fusion reactors and magneto-hydrodynamics to fluid mechanics and climate modeling. These systems - governed by partial differential equations - present unique challenges regarding the large number of degrees of freedom and the complex dynamics over many scales both in space and time, and additional measures to improve accuracy and sample efficiency are highly desirable. We present an end-to-end equivariant surrogate model consisting of an equivariant convolutional autoencoder and an equivariant convolutional LSTM using G-steerable kernels. As a case study, we consider the three-dimensional Rayleigh-Bénard convection, which describes the buoyancy-driven fluid flow between a heated bottom and a cooled top plate. While the system is E(2)-equivariant in the horizontal plane, the boundary conditions break the translational equivariance in the vertical direction. Our architecture leverages vertically stacked layers of D₄-steerable kernels, with additional partial kernel sharing in the vertical direction for further efficiency improvement. We demonstrate significant gains in sample and parameter efficiency, as well as a better scaling to more complex dynamics. The accompanying code is available under https://github.com/FynnFromme/equivariant-rb-forecasting.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2505.13569",
-    "journal": "arXiv"
-  },
-  {
     "title": "Physics-informed deep learning links geodetic data and fault friction",
     "title_zh": "文献研究：Physics-informed deep learning links geodetic data and fault friction",
     "summary": "arXiv:2601.20136v3 Announce Type: replace Abstract: Fault slip modeling, based on laboratory-derived friction laws, has significantly enhanced our understanding of fault mechanics. Agreement between m…",
@@ -63,30 +54,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
-    "title_zh": "文献研究：PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
-    "summary": "arXiv:2609.12301v1 Announce Type: cross Abstract: We study the problem of estimating unknown parameters in PDE-constrained inverse problems from noisy observations, where the PDE solution is approxima…",
-    "abstract": "arXiv:2609.12301v1 Announce Type: cross Abstract: We study the problem of estimating unknown parameters in PDE-constrained inverse problems from noisy observations, where the PDE solution is approximated using Physics-Informed Neural Networks (PINNs). While PINNs have demonstrated remarkable empirical success, existing estimators often inherit the slow nonparametric convergence rate of the neural-network solution, leading to biased and statistically inefficient inference for the finite-dimensional parameters of interest. To address this, we propose a two-step debiased estimation procedure that combines neural-network-based nonparametric estimation with an influence-function-based bias correction. By eliminating the first-order sensitivity of the estimator to errors in the nuisance function, our procedure yields a sqrtn-consistent and asymptotically normal estimator without requiring undersmoothing of the neural network component. We further extend this framework to Bayesian inference by replacing the original likelihood with a debiased quasi-likelihood and establish a Bernstein-von Mises theorem showing that the resulting posterior contracts at the sqrtn-rate with an asymptotic covariance matching that of the frequentist estimator. As a by-product of our analysis, we establish near-minimax optimal convergence rates for estimating a nonparametric regression function and its derivatives in Sobolev spaces using neural networks. Extensive numerical experiments corroborate our theoretical findings and demonstrate the necessity of the proposed debiasing procedure for valid statistical inference in PDE-constrained inverse problems.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2609.12301",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Reinforcement Learning for Syndrome Extraction",
-    "title_zh": "文献研究：Reinforcement Learning for Syndrome Extraction",
-    "summary": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndr…",
-    "abstract": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndrome grows exponentially with the syndrome size, and these implementations vary greatly in fault tolerance, as measured by their logical error rates. This creates a natural search problem: find an implementation with a low logical error rate. Previous work solves this problem but sacrifices either solution quality or scalability. In this paper, we use reinforcement learning and importance sampling to outperform previous work at all scales. Compared with the state of the art automatic scheduling tools AlphaSyndrome and PropHunt, our tool reduces the logical error rate by 25.9% and 71.7% on average, respectively, culminating with a reduction of 97.8% for a surface code with distance 15.",
-    "category": "量子信息·计算",
-    "link": "https://arxiv.org/abs/2609.12020",
-    "journal": "arXiv"
-  },
-  {
     "title": "Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
     "title_zh": "文献研究：Quantitative and bond-traceable resonant X-ray optical tensors of organic molecules",
-    "summary": "arXiv:2509.01734v2 Announce Type: replace Abstract: Local molecular orientation and conformation within nanostructures is central to their behavior in devices, emergent quantum states, and biological…",
+    "summary": "论文利用无监督机器学习聚类密度泛函理论计算结果，识别有机分子中的主要电子跃迁，并结合角分辨吸收实验构建具有键和取向分辨能力的共振X射线光学张量。该模型能够重现实验中不同取向和晶体堆垛样品的光谱响应。",
     "abstract": "arXiv:2509.01734v2 Announce Type: replace Abstract: Local molecular orientation and conformation within nanostructures is central to their behavior in devices, emergent quantum states, and biological processes. X-ray microscopy and scattering at the carbon absorption edge is uniquely sensitive to these phenomena, through transition dipole moments encoded with photon energy and polarization. However, quantitative analysis is precluded due to the lack of accurate optical models with bond and orientation specificity. We generate such a model through an unsupervised machine learning algorithm that clusters density functional theory calculations into principle electronic transitions, quantitatively refined with angle-resolved absorbance measurements. The resulting optical tensor reproduces data from samples with domains of different orientation and crystalline packing. This refinement method connects spectral features to chemical moieties and resolves measurement-inaccessible dipole moments, establishing a new paradigm for label-free orientation analyses of bonds within molecular nanostructures.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2509.01734",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
+    "title_zh": "文献研究：Surrogate Modeling of 3D Rayleigh-Benard Convection with Equivariant Autoencoders",
+    "summary": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with ex…",
+    "abstract": "arXiv:2505.13569v3 Announce Type: replace-cross Abstract: The use of machine learning for modeling, understanding, and controlling large-scale physics systems is quickly gaining in popularity, with examples ranging from electromagnetism over nuclear fusion reactors and magneto-hydrodynamics to fluid mechanics and climate modeling. These systems - governed by partial differential equations - present unique challenges regarding the large number of degrees of freedom and the complex dynamics over many scales both in space and time, and additional measures to improve accuracy and sample efficiency are highly desirable. We present an end-to-end equivariant surrogate model consisting of an equivariant convolutional autoencoder and an equivariant convolutional LSTM using G-steerable kernels. As a case study, we consider the three-dimensional Rayleigh-Bénard convection, which describes the buoyancy-driven fluid flow between a heated bottom and a cooled top plate. While the system is E(2)-equivariant in the horizontal plane, the boundary conditions break the translational equivariance in the vertical direction. Our architecture leverages vertically stacked layers of D₄-steerable kernels, with additional partial kernel sharing in the vertical direction for further efficiency improvement. We demonstrate significant gains in sample and parameter efficiency, as well as a better scaling to more complex dynamics. The accompanying code is available under https://github.com/FynnFromme/equivariant-rb-forecasting.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2505.13569",
     "journal": "arXiv"
   },
   {
@@ -108,12 +90,30 @@
     "journal": "arXiv"
   },
   {
+    "title": "A spiking neural network-in-logic architecture based on reconfigurable molybdenum disulfide dual-gate transistors with ferroelectric gating",
+    "title_zh": "文献研究：A spiking neural network-in-logic architecture based on reconfigurable molybdenum disulfide dual-gate transistors with ferroelectric gating",
+    "summary": "该论文构建基于可重构二栅MoS2晶体管和铁电栅控的脉冲神经网络逻辑架构。器件兼具逻辑、神经元和突触功能，并通过输入空间剪枝减少不必要的神经元激活，以降低能耗。",
+    "abstract": "Nature Electronics, Published online: 14 September 2026; doi:10.1038/s41928-026-01706-0 Reconfigurable dual-gate ferroelectric transistors that exhibit logic, neuronal and synapse functionalities can provide logic-based spatial pruning of inputs for a spiking neural network, reducing unnecessary neuronal activation and improving energy efficiency.",
+    "category": "铁电·极化",
+    "link": "https://www.nature.com/articles/s41928-026-01706-0",
+    "journal": "Nature Electronics"
+  },
+  {
     "title": "Agent-authored deposition recipes for X-ray multilayer mirrors: schema-bound LLM control of a magnetron sputtering system with reflectivity-verified outcomes",
     "title_zh": "由智能体编写的 X 射线多层镜沉积配方：通过模式约束的大语言模型控制磁控溅射系统并以反射率验证结果",
     "summary": "该工作测试了大语言模型智能体在受控接口下为 X 射线周期多层镜编写磁控溅射沉积配方的能力。目标为 30 个双层的 Ru/C 多层膜，周期为 6.85 nm，并以 X 射线反射率相对人类参考样品进行评分。四次评分沉积中，相对周期差从初始校准条件下的 20% 降至两轮测量反馈后的 0.79%，同时识别出 16 种面向智能体接口的失效模式。",
     "abstract": "arXiv:2609.12796v1 Announce Type: new Abstract: Periodic multilayer mirrors for X-rays require a layer period held to about 0.02 nm, set by deposition rates held in the laboratory's own notebook. A large language model agent was given a target multilayer specification and read access to a laboratory archive. Deposition recipes were authored in the native recipe language of a magnetron sputtering system and submitted through a Model Context Protocol bridge of 17 tools in three tiers, with enforcement held in the control application. The target was a 30-bilayer Ru/C multilayer with a period of 6.85 nm, a pair chosen because each period is fitted as two layers. The agent could write only inside a working project of its own, so it could alter neither the calibration it read nor the measurements that scored it. Mirrors were scored against a human-authored reference by X-ray reflectivity, and the 3% acceptance threshold on relative period difference was fixed before deposition. Across four scored agent-authored depositions the relative period difference fell from 20% on the calibration as given to 2.26% after one measured-feedback iteration and 0.79% after a second. Sixteen failure modes of the agent-facing interface were identified. The result is bounded to the period, pair and chamber observed.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2609.12796",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Reinforcement Learning for Syndrome Extraction",
+    "title_zh": "文献研究：Reinforcement Learning for Syndrome Extraction",
+    "summary": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndr…",
+    "abstract": "arXiv:2609.12020v1 Announce Type: new Abstract: A key subtask of quantum error correction is to extract a syndrome that, if nontrivial, signals an error. The number of possible ways to extract a syndrome grows exponentially with the syndrome size, and these implementations vary greatly in fault tolerance, as measured by their logical error rates. This creates a natural search problem: find an implementation with a low logical error rate. Previous work solves this problem but sacrifices either solution quality or scalability. In this paper, we use reinforcement learning and importance sampling to outperform previous work at all scales. Compared with the state of the art automatic scheduling tools AlphaSyndrome and PropHunt, our tool reduces the logical error rate by 25.9% and 71.7% on average, respectively, culminating with a reduction of 97.8% for a surface code with distance 15.",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2609.12020",
     "journal": "arXiv"
   },
   {
@@ -126,13 +126,13 @@
     "journal": "arXiv"
   },
   {
-    "title": "A spiking neural network-in-logic architecture based on reconfigurable molybdenum disulfide dual-gate transistors with ferroelectric gating",
-    "title_zh": "文献研究：A spiking neural network-in-logic architecture based on reconfigurable molybdenum disulfide dual-gate transistors with ferroelectric gating",
-    "summary": "该论文构建基于可重构二栅MoS2晶体管和铁电栅控的脉冲神经网络逻辑架构。器件兼具逻辑、神经元和突触功能，并通过输入空间剪枝减少不必要的神经元激活，以降低能耗。",
-    "abstract": "Nature Electronics, Published online: 14 September 2026; doi:10.1038/s41928-026-01706-0 Reconfigurable dual-gate ferroelectric transistors that exhibit logic, neuronal and synapse functionalities can provide logic-based spatial pruning of inputs for a spiking neural network, reducing unnecessary neuronal activation and improving energy efficiency.",
-    "category": "铁电·极化",
-    "link": "https://www.nature.com/articles/s41928-026-01706-0",
-    "journal": "Nature Electronics"
+    "title": "PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
+    "title_zh": "文献研究：PDE-constrained inverse problems at the sqrtn rate via debiased physics-informed neural networks",
+    "summary": "arXiv:2609.12301v1 Announce Type: cross Abstract: We study the problem of estimating unknown parameters in PDE-constrained inverse problems from noisy observations, where the PDE solution is approxima…",
+    "abstract": "arXiv:2609.12301v1 Announce Type: cross Abstract: We study the problem of estimating unknown parameters in PDE-constrained inverse problems from noisy observations, where the PDE solution is approximated using Physics-Informed Neural Networks (PINNs). While PINNs have demonstrated remarkable empirical success, existing estimators often inherit the slow nonparametric convergence rate of the neural-network solution, leading to biased and statistically inefficient inference for the finite-dimensional parameters of interest. To address this, we propose a two-step debiased estimation procedure that combines neural-network-based nonparametric estimation with an influence-function-based bias correction. By eliminating the first-order sensitivity of the estimator to errors in the nuisance function, our procedure yields a sqrtn-consistent and asymptotically normal estimator without requiring undersmoothing of the neural network component. We further extend this framework to Bayesian inference by replacing the original likelihood with a debiased quasi-likelihood and establish a Bernstein-von Mises theorem showing that the resulting posterior contracts at the sqrtn-rate with an asymptotic covariance matching that of the frequentist estimator. As a by-product of our analysis, we establish near-minimax optimal convergence rates for estimating a nonparametric regression function and its derivatives in Sobolev spaces using neural networks. Extensive numerical experiments corroborate our theoretical findings and demonstrate the necessity of the proposed debiasing procedure for valid statistical inference in PDE-constrained inverse problems.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2609.12301",
+    "journal": "arXiv"
   },
   {
     "title": "Irreducible sub-nm² ferroelectric domains by 2D-flat polar band in perovskite superlattices",
@@ -162,21 +162,21 @@
     "journal": "Wiley: Advanced Science: Table of Contents"
   },
   {
-    "title": "Unusual phase coexistence regime across the ferroelectric - paraelectric transition",
-    "title_zh": "铁电—顺电相变过程中的异常相共存区间",
-    "summary": "研究通过 X 射线衍射考察了生长于 DyScO3 衬底上的 PbTiO3 外延薄膜在 20–500 摄氏度范围内的结构变化。结果发现，铁电到顺电的相变经过 402–414 摄氏度的特殊过渡性共存态，并在 405 摄氏度发生畴结构转变。作者提出，薄膜中的垂直应变梯度可能使两种独立孪晶相与顺电相共存。",
-    "abstract": "arXiv:2609.12071v1 Announce Type: new Abstract: A PbTiO3 epitaxial thin film grown on a DyScO3 substrate was studied by x-ray diffraction in the temperature range of 20-500 degrees Celsius. It is found that the ferroelectric to paraelectric phase transition proceeds through a peculiar transitional coexistence state extending between 402 degrees Celsius and 414 degrees Celsius. Within this temperature interval, at a temperature of 405 degrees Celsius, a domain structure transition occurs, at which the three-domain c/a1/a2 polytwin phase transforms into an ordinary c/a2 twinned phase. It is proposed that the coexistence of two independent twinned phases with the paraelectric phase is enabled by vertical strain gradients in the film.",
-    "category": "铁电·极化",
-    "link": "https://arxiv.org/abs/2609.12071",
-    "journal": "arXiv"
+    "title": "Hund’s physics-driven strong correlation in the altermagnet CaCrO3",
+    "title_zh": "文献研究：Hund’s physics-driven strong correlation in the altermagnet CaCrO3",
+    "summary": "论文结合DFT与动力学平均场理论研究金属反铁磁体CaCrO3，发现Hund耦合而非Mott机制主导其非相干金属性、反交磁自旋分裂和局域磁矩。计算得到的磁矩与实验一致，并预测了重费米子样行为和显著有效质量增强。",
+    "abstract": "Altermagnetism has attracted intense interest, but strong correlation effects in altermagnets remain largely unexplored. Here, using density functional theory plus dynamical mean-field theory (DFT+DMFT), we identify CaCrO3, a rare example of a metallic altermagnet, as a Hund altermagnet. We show that Hundness, rather than Mottness, leads to incoherent metallicity with altermagnetic spin splitting and sustains local spin moments. The DFT+DMFT calculated magnetic moment (~ 1.3 µB/Cr) is in quantitative agreement with neutron diffraction (~ 1.2 µB/Cr), while conventional DFT + U predicts an insulating state instead. Furthermore, Hundness promotes incipient flat bands and gives rise to heavy-fermion-like behavior in this 3d system, with effective mass enhancement m*/m ~ 47. This work demonstrates DFT+DMFT as a reliable computational tool for studying strongly correlated altermagnets and highlights the importance of Hund’s physics in these emerging materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-10803890/latest",
+    "journal": "Preprints"
   },
   {
-    "title": "Hidden Crossover and Relaxor-Like Response from Emerging Polar Skyrmion Correlations in Ferroelectric Superlattices",
-    "title_zh": "文献研究：Hidden Crossover and Relaxor-Like Response from Emerging Polar Skyrmion Correlations in Ferroelectric Superlattices",
-    "summary": "该论文利用大规模相场模拟研究铁电超晶格中的极性斯格明子关联，发现铁电相内部存在隐藏热 crossover。该 crossover 使层内独立的极性斯格明子转变为层间关联态，并导致类似弛豫铁电体的介电响应峰。",
-    "abstract": "arXiv:2604.26100v2 Announce Type: replace Abstract: Polar skyrmions in ferroelectric superlattices are nanoscale topological polarization textures typically regarded as weakly coupled objects confined to individual layers, with a role secondary to that of the underlying symmetry-breaking order parameter. Here using large-scale phase-field simulations of ferroelectric superlattices, we uncover a hidden thermal crossover deep inside the ferroelectric phase, where polar skyrmions evolve from an uncorrelated, layer-resolved state into an interlayer-correlated ensemble. This crossover occurs without additional symmetry breaking or a new order parameter, but produces a pronounced broad peak in the dielectric susceptibility. The anomaly originates from the competition between correlation-enhanced response, associated with the growth of interlayer skyrmion correlations, and polarization-induced stiffness, which suppresses dielectric fluctuations at low temperature. Under AC driving, the peak shifts with frequency, resembling relaxor ferroelectrics despite the absence of quenched disorder or polar nanoregions. Our results establish a disorder-free route to relaxor-like dielectric response and identify topological defect correlations as an organizing principle for thermodynamic anomalies, providing a mechanism distinct from conventional critical behavior associated with symmetry breaking and divergent order-parameter fluctuations.",
+    "title": "Laser-induced metastable (anti-)skyrmion states with higher-order topological charge",
+    "title_zh": "文献研究：Laser-induced metastable (anti-)skyrmion states with higher-order topological charge",
+    "summary": "研究利用激光从饱和磁化态中诱导Co/Ni多层膜形成斯格明子和反斯格明子，并实现最高达|Q|=3的高阶拓扑电荷。结果表明，通过调节激发通量和面外磁场，可以控制这些亚稳态自旋结构的数量和类型。",
+    "abstract": "arXiv:2609.13112v1 Announce Type: new Abstract: Ultrafast creation and manipulation of topologically non-trivial spin objects promises significant potential for spintronic applications. Here, we demonstrate laser-induced nucleation of skyrmions and antiskyrmions with topological charge up to |Q|=3 from the saturated magnetization state of a Co/Ni-multilayer which does not intrinsically host a skyrmionic ground state. The resulting configuration of spin objects thus constitutes a metastable, thermodynamically hidden magnetic state. We control the number and type of spin objects by the excitation fluence and the external out-of-plane magnetic field.",
     "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2604.26100",
+    "link": "https://arxiv.org/abs/2609.13112",
     "journal": "arXiv"
   }
 ]
