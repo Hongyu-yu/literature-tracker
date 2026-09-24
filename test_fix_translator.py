@@ -62,6 +62,10 @@ def _make_translator(*, provider=None, google=None):
     t._ai_provider_name = "openrouter"
     t._ai_key = "fake-key" if provider is not None else ""
     t._ai_model = None
+    # 机翻引擎链只挂假 Google：真实的 gtx / MyMemory 会联网，测试绝不能碰
+    t._mt_engines = [("google", t.translator.translate, 4500)]
+    t._engine_failures = {}
+    translator_mod.reset_breakers()
     return t
 
 
@@ -199,6 +203,86 @@ def test_failure_leaves_existing_zh_field_untouched():
         except Exception:
             pass
         assert article["title_zh"] == "铁电 HfO2 的旧译文"
+
+
+# --- AI 失败 → 机翻兜底（2026-09 网关 503 事故） ---------------------------
+
+def test_ai_failure_falls_back_to_machine_translation():
+    """key 配了但网关 503：旧逻辑直接抛错，09-16 起日报中文摘要 0 篇。现在要走机翻。"""
+    provider = _FakeProvider(RuntimeError("OpenRouter API错误 (503): no available channel"))
+    google = _FakeGoogle(["机器学习原子间势复现了 HfO2 的铁电翻转势垒。"])
+    t = _make_translator(provider=provider, google=google)
+    assert t.translate(ENGLISH) == "机器学习原子间势复现了 HfO2 的铁电翻转势垒。"
+    assert provider.calls == 1 and len(google.calls) == 1
+
+
+def test_ai_english_echo_falls_back_to_machine_translation():
+    """AI 返回了英文（未翻译）同样算失败，交给机翻，而不是把字段留空。"""
+    t = _make_translator(provider=_FakeProvider(ENGLISH), google=_FakeGoogle(["铁电翻转势垒。"]))
+    assert t.translate(ENGLISH) == "铁电翻转势垒。"
+
+
+def test_ai_breaker_opens_after_consecutive_failures():
+    """连续失败后熔断：之后的请求不再打 AI（每次 call_api 自带重试，不熔断会拖垮整轮）。"""
+    provider = _FakeProvider(RuntimeError("503"))
+    google = _FakeGoogle(["译文一。", "译文二。", "译文三。"])
+    t = _make_translator(provider=provider, google=google)
+    for _ in range(3):
+        assert t.translate(ENGLISH).endswith("。")
+    assert provider.calls == 2, f"熔断后仍在调用 AI：{provider.calls} 次"
+    assert not translator_mod.ai_available()
+    translator_mod.reset_breakers()
+
+
+def test_english_echo_does_not_trip_the_breaker():
+    """AI 吐回英文说明网关是通的：不能因此熔断，否则整轮都不用 AI 了。"""
+    provider = _FakeProvider(ENGLISH)
+    t = _make_translator(provider=provider, google=_FakeGoogle(["译文。"] * 5))
+    for _ in range(4):
+        t.translate(ENGLISH)
+    assert provider.calls == 4
+    assert translator_mod.ai_available()
+
+
+def test_machine_translate_tries_next_engine_when_first_fails():
+    """引擎链：第一个引擎被封（Google 返回 Sorry 页 / 限流），第二个接上。"""
+    t = _make_translator(google=_FakeGoogle([ConnectionError("429 Too Many Requests")]))
+    backup_calls = []
+
+    def _backup(text):
+        backup_calls.append(text)
+        return "备用引擎译文。"
+
+    t._mt_engines = [("google", t.translator.translate, 4500), ("backup", _backup, 480)]
+    assert t.translate(ENGLISH) == "备用引擎译文。"
+    assert backup_calls == [ENGLISH]
+
+
+def test_machine_translate_disables_engine_after_repeated_failures():
+    """被封的引擎连续失败 3 次后本次运行停用，不再每篇都撞一次。"""
+    google = _FakeGoogle([ConnectionError("blocked")] * 10)
+    t = _make_translator(google=google)
+    t._mt_engines = [("google", google.translate, 4500), ("backup", lambda s: "备用。", 480)]
+    for _ in range(5):
+        assert t.translate(ENGLISH) == "备用。"
+    assert len(google.calls) == 3
+
+
+def test_small_chunk_engine_splits_long_sentences():
+    """MyMemory 单次仅 500 字符：没有句号的超长句也必须切开，不能整句丢给引擎。"""
+    t = _make_translator()
+    text = ("word " * 300).strip()
+    chunks = t._split_text(text, 480)
+    assert chunks and all(len(c) <= 480 for c in chunks)
+    assert " ".join(chunks).split() == text.split()
+
+
+def test_announce_prefix_is_not_translated():
+    """arXiv 公告前缀不是正文，不能逐字翻进中文摘要。"""
+    google = _FakeGoogle(["正文译文。"])
+    t = _make_translator(google=google)
+    t.translate("arXiv:2609.25044v1 Announce Type: new Abstract: " + ENGLISH)
+    assert google.calls == [ENGLISH]
 
 
 def _run_all():

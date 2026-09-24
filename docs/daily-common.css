@@ -25,16 +25,17 @@
     .daily-article { background: rgba(255,255,255,0.76); border: 1px solid rgba(148,163,184,0.28); border-radius: 28px; box-shadow: var(--shadow-lg); backdrop-filter: blur(14px); padding: 32px; }
     .daily-hero { padding-bottom: 18px; border-bottom: 1px solid var(--border-color); }
     .daily-kicker { display: inline-flex; align-items: center; gap: 8px; padding: 6px 14px; border-radius: 999px; background: rgba(99,102,241,0.12); color: var(--accent-primary); font-weight: 700; letter-spacing: 0.04em; }
-    .daily-title { margin: 18px 0 10px; font-size: clamp(2rem, 4vw, 3rem); line-height: 1.15; letter-spacing: -0.03em; }
+    .daily-title { margin: 14px 0 8px; font-size: clamp(1.7rem, 3.4vw, 2.5rem); line-height: 1.15; letter-spacing: -0.03em; }
     .daily-subtitle { font-size: 1.02rem; color: var(--text-secondary); margin-bottom: 18px; line-height: 1.8; }
     .daily-quote { margin: 0; padding: 16px 18px; border-left: 4px solid var(--accent-primary); border-radius: 16px; background: rgba(99,102,241,0.08); color: var(--text-secondary); font-size: 1rem; }
     .daily-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 18px 0 22px; }
     .daily-tag { display: inline-flex; align-items: center; padding: 7px 13px; border-radius: 999px; background: rgba(255,255,255,0.92); border: 1px solid var(--border-color); color: var(--text-secondary); font-size: 0.92rem; }
     .daily-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
-    .daily-stat { padding: 18px; border-radius: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.92)); border: 1px solid var(--border-color); }
+    .daily-stat { padding: 12px 16px; border-radius: 16px; background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(248,250,252,0.92)); border: 1px solid var(--border-color); }
     .daily-stat-label { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 6px; }
-    .daily-stat-value { font-size: 1.8rem; font-weight: 800; letter-spacing: -0.03em; }
-    .daily-filter-note { margin-top: 16px; color: var(--text-secondary); line-height: 1.8; }
+    .daily-stat-value { font-size: 1.5rem; font-weight: 800; letter-spacing: -0.03em; }
+    .daily-stat-value small { font-size: .9rem; font-weight: 600; color: var(--text-muted); }
+    .daily-filter-note { margin-top: 12px; color: var(--text-muted); font-size: .9rem; line-height: 1.7; }
     .daily-section { margin-top: 28px; }
     .daily-section-head { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
     .daily-section-index { font-size: 0.92rem; font-weight: 800; color: var(--accent-primary); padding: 5px 10px; border-radius: 999px; background: rgba(99,102,241,0.1); }
@@ -54,8 +55,8 @@
     .daily-paper-body { display: flex; flex-direction: column; }
     .daily-news-title-zh, .daily-paper-title-zh { font-size: 1.12rem; font-weight: 700; line-height: 1.5; margin-bottom: 6px; }
     .daily-news-title-en, .daily-paper-title-en { color: var(--text-secondary); font-size: 0.96rem; line-height: 1.6; }
-    .daily-news-meta, .daily-paper-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
-    .daily-chip { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 999px; font-size: 0.88rem; color: var(--text-secondary); background: rgba(99,102,241,0.08); }
+    .daily-news-meta, .daily-paper-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin: 10px 0; }
+    .daily-chip { display: inline-flex; align-items: center; gap: 6px; padding: 5px 11px; border-radius: 999px; font-size: 0.84rem; color: var(--text-secondary); background: rgba(99,102,241,0.08); }
     .daily-chip-authors { background: rgba(16,185,129,0.08); }
     .daily-chip-score { background: rgba(245,158,11,0.12); }
     .daily-chip-topic { background: rgba(139,92,246,0.12); color: var(--accent-primary); }
@@ -63,15 +64,29 @@
     .daily-chip-priority-p1 { background: rgba(220,38,38,0.12); color: #b91c1c; }
     .daily-chip-priority-p2 { background: rgba(245,158,11,0.14); color: #b45309; }
     .daily-chip-priority-p3 { background: rgba(59,130,246,0.11); color: #1d4ed8; }
-    .daily-relevance { display: grid; grid-template-columns: auto minmax(80px, 180px) auto; gap: 8px; align-items: center; color: var(--text-secondary); font-size: .82rem; margin: 0 0 10px; }
-    .daily-relevance-track { height: 7px; overflow: hidden; border-radius: 999px; background: rgba(99,102,241,.12); }
+    /* 相关度：两枚紧凑徽标（交叉强度 蓝→青 / 与本人画像匹配度 橙→红），与分类标签同一行 */
+    .daily-relevance { display: inline-flex; align-items: center; gap: 6px; padding: 5px 10px; border-radius: 999px; background: rgba(148,163,184,.10); color: var(--text-secondary); font-size: .8rem; white-space: nowrap; }
+    .daily-relevance strong { color: var(--text-primary); font-variant-numeric: tabular-nums; }
+    .daily-relevance-track { display: inline-block; width: 52px; height: 6px; overflow: hidden; border-radius: 999px; background: rgba(99,102,241,.14); }
     .daily-relevance-bar { display: block; height: 100%; border-radius: inherit; background: linear-gradient(90deg,#6366f1,#f59e0b); }
-    /* 两条含义不同的相关度：交叉强度(蓝→青) 与 与本人画像的匹配度(橙→红) */
     .daily-relevance-bar.is-cross { background: linear-gradient(90deg,#6366f1,#22d3ee); }
     .daily-relevance-bar.is-me { background: linear-gradient(90deg,#f59e0b,#ef4444); }
+    /* 作者 · 来源 · 日期：一行纯文字 */
+    .daily-paper-byline { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 8px; margin: 8px 0 0; color: var(--text-muted); font-size: .86rem; line-height: 1.6; }
+    .daily-byline-authors { color: var(--text-secondary); }
+    .daily-byline-sep { opacity: .5; }
+    /* 「与我们研究方向的关系」：最多两段，常显 */
+    .daily-research-relation { margin: 6px 0 4px; padding: 12px 14px; border-radius: 14px; background: rgba(99,102,241,.06); border-left: 3px solid var(--accent-primary); line-height: 1.75; font-size: .95rem; }
+    .daily-relation-head { font-weight: 700; color: var(--accent-primary); font-size: .88rem; margin-bottom: 4px; }
+    .daily-research-relation p { margin: 0; }
+    .daily-research-relation p + p { margin-top: 6px; }
+    .daily-research-relation strong { color: var(--text-primary); }
     .daily-paper-why { margin: 10px 0 0; padding: 10px 12px; border-radius: 10px; line-height: 1.7;
         background: rgba(99,102,241,.07); border-left: 3px solid var(--accent-primary); font-size: .9rem; }
-    .daily-viz { margin-top: 24px; }
+    .daily-viz { margin-top: 14px; }
+    .daily-viz > summary { cursor: pointer; color: var(--text-secondary); font-weight: 600; font-size: .92rem; list-style: none; }
+    .daily-viz > summary::-webkit-details-marker { display: none; }
+    .daily-viz[open] > summary { margin-bottom: 12px; }
     .daily-viz h2 { font-size: 1.05rem; margin: 0 0 12px; }
     .daily-viz-grid { display: grid; grid-template-columns: repeat(3,minmax(280px,1fr)); gap: 12px; overflow-x: auto; }
     .daily-viz-svg { min-width: 280px; padding: 10px; border: 1px solid var(--border-color); border-radius: 16px; background: rgba(255,255,255,.55); }
@@ -85,12 +100,15 @@
     .daily-priority-group > h3 { margin: 0 0 4px; }
     .daily-priority-group > p { margin: 0 0 12px; color: var(--text-secondary); }
     .daily-news-summary, .daily-paper-summary { color: var(--text-primary); line-height: 1.8; }
-    .daily-paper-abstract { color: var(--text-primary); line-height: 1.85; margin: 4px 0 8px; }
+    .daily-paper-abstract { color: var(--text-primary); line-height: 1.85; margin: 2px 0 8px; }
     .daily-paper-abstract strong { color: var(--accent-primary); }
     .daily-paper-highlight { color: var(--text-secondary); line-height: 1.8; margin: 4px 0; background: rgba(245,158,11,0.08); border-radius: 12px; padding: 10px 14px; }
     .daily-paper-highlight strong { color: #b45309; }
     .daily-news-reason { margin-top: 10px; color: var(--text-secondary); }
-    .daily-paper-actions, .daily-news-link { margin-top: 14px; }
+    .daily-paper-actions, .daily-news-link { margin-top: 10px; }
+    .daily-paper-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 14px; }
+    .daily-paper-actions .daily-news-link { margin-top: 0; }
+    .daily-paper-actions .daily-inline-links { margin-top: 0; }
     .daily-news-link { display: inline-flex; align-items: center; gap: 6px; color: var(--accent-primary); text-decoration: none; font-weight: 600; }
     .daily-news-link:hover { color: var(--accent-hover); }
     .daily-paper-head { display: flex; gap: 16px; align-items: flex-start; }
@@ -139,12 +157,18 @@
     .daily-core-count { margin-left: auto; padding: 6px 12px; border-radius: 999px; background: rgba(245,158,11,0.15); color: #b45309; font-weight: 700; font-size: 0.9rem; }
     .daily-core-note { margin: 12px 0 18px; padding: 14px 16px; border-radius: 14px; background: rgba(255,255,255,0.7); border-left: 3px solid #f59e0b; color: var(--text-primary); line-height: 1.8; }
     .daily-core-list { list-style: none; margin: 0; padding: 0; }
-    .daily-core-card { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 14px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.95); border: 1px solid rgba(245,158,11,0.25); border-left: 3px solid #f59e0b; box-shadow: var(--shadow-sm); }
-    .daily-core-card + .daily-core-card { margin-top: 14px; }
-    .daily-core-number { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; font-weight: 800; color: white; background: linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow: var(--shadow-sm); flex-shrink: 0; }
-    .daily-core-title-zh { font-size: 1.1rem; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+    .daily-core-card { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 14px 16px; border-radius: 18px; background: rgba(255,255,255,0.95); border: 1px solid rgba(245,158,11,0.25); border-left: 3px solid #f59e0b; box-shadow: var(--shadow-sm); }
+    .daily-core-card + .daily-core-card { margin-top: 10px; }
+    .daily-core-title-link { color: inherit; text-decoration: none; }
+    .daily-core-title-link:hover { color: #b45309; }
+    .daily-core-work { margin: 4px 0 0; line-height: 1.7; color: var(--text-primary); font-size: .94rem; }
+    .daily-core-why { margin: 4px 0 0; line-height: 1.6; color: var(--text-secondary); font-size: .88rem; }
+    .daily-core-jump { display: inline-block; margin-top: 6px; color: #b45309; font-size: .86rem; font-weight: 600; text-decoration: none; }
+    .daily-core-jump:hover { text-decoration: underline; }
+    .daily-core-number { width: 34px; height: 34px; font-size: .9rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; font-weight: 800; color: white; background: linear-gradient(135deg, #f59e0b, #fbbf24); box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .daily-core-title-zh { font-size: 1.02rem; font-weight: 700; line-height: 1.5; margin-bottom: 2px; }
     .daily-core-title-en { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
-    .daily-core-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
+    .daily-core-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 6px 0 2px; }
     .daily-chip-core { background: rgba(245,158,11,0.18); color: #b45309; font-weight: 600; }
     .daily-core-deep { margin-top: 10px; padding: 12px 14px; border-radius: 12px; background: rgba(245,158,11,0.06); border: 1px dashed rgba(245,158,11,0.35); line-height: 1.75; }
     .daily-core-deep p + p { margin-top: 6px; }
@@ -152,17 +176,21 @@
     .daily-abstract-en { margin: 8px 0; border-top: 1px dashed var(--border-color); padding-top: 8px; }
     .daily-abstract-en > summary { cursor: pointer; color: var(--accent-primary); font-weight: 600; list-style: none; }
     .daily-abstract-en > summary::-webkit-details-marker { display: none; }
-    .daily-abstract-en-body { color: var(--text-secondary); line-height: 1.8; margin: 8px 0 0; font-size: 0.95rem; }
+    .daily-abstract-en-body { color: var(--text-secondary); line-height: 1.8; margin: 8px 0 0; font-size: 0.93rem; }
+    .daily-abstract-zh-body { color: var(--text-primary); line-height: 1.85; margin: 8px 0 0; }
+    .daily-abstract-en > summary { font-size: .9rem; }
     /* 🎯 与你方向相关（focus_score 画像匹配）区块 */
     .daily-focus-section { border-radius: 22px; padding: 22px; margin-top: 26px; background: linear-gradient(135deg, rgba(224,231,255,0.55), rgba(238,242,255,0.88)); border: 1.5px solid rgba(99,102,241,0.4); box-shadow: 0 4px 18px rgba(99,102,241,0.08); }
     .daily-focus-section .daily-section-title { color: var(--accent-primary); }
     .daily-focus-section .daily-section-index { background: rgba(99,102,241,0.16); color: var(--accent-primary); }
     .daily-focus-count { margin-left: auto; padding: 6px 12px; border-radius: 999px; background: rgba(99,102,241,0.14); color: var(--accent-primary); font-weight: 700; font-size: 0.9rem; }
     .daily-focus-list { list-style: none; margin: 0; padding: 0; }
-    .daily-focus-card { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 14px; padding: 18px; border-radius: 18px; background: rgba(255,255,255,0.95); border: 1px solid rgba(99,102,241,0.22); border-left: 3px solid var(--accent-primary); box-shadow: var(--shadow-sm); }
-    .daily-focus-card + .daily-focus-card { margin-top: 14px; }
-    .daily-focus-number { width: 42px; height: 42px; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; font-weight: 800; color: white; background: var(--gradient-accent); box-shadow: var(--shadow-sm); flex-shrink: 0; }
-    .daily-focus-title { font-size: 1.1rem; font-weight: 700; line-height: 1.5; margin-bottom: 4px; }
+    .daily-focus-card { display: grid; grid-template-columns: auto minmax(0,1fr); gap: 12px; padding: 12px 16px; border-radius: 18px; background: rgba(255,255,255,0.95); border: 1px solid rgba(99,102,241,0.22); border-left: 3px solid var(--accent-primary); box-shadow: var(--shadow-sm); }
+    .daily-focus-card + .daily-focus-card { margin-top: 10px; }
+    .daily-focus-title .daily-chip { margin-left: 8px; vertical-align: 2px; }
+    .daily-focus-why { margin: 4px 0 0; color: var(--text-secondary); font-size: .9rem; line-height: 1.6; }
+    .daily-focus-number { width: 34px; height: 34px; font-size: .9rem; display: inline-flex; align-items: center; justify-content: center; border-radius: 14px; font-weight: 800; color: white; background: var(--gradient-accent); box-shadow: var(--shadow-sm); flex-shrink: 0; }
+    .daily-focus-title { font-size: 1.02rem; font-weight: 700; line-height: 1.5; }
     .daily-focus-link { color: inherit; text-decoration: none; }
     .daily-focus-link:hover { color: var(--accent-primary); }
     .daily-focus-meta { display: flex; flex-wrap: wrap; gap: 8px; margin: 12px 0; }
@@ -171,3 +199,21 @@
     .daily-focus-deep p + p { margin-top: 6px; }
     @media (max-width: 720px) { .daily-focus-card { grid-template-columns: 1fr; } .daily-focus-number { width: 38px; height: 38px; } }
   
+    /* 标题后的 # 页内定位锚点：悬停卡片时才显示，平时不打扰阅读 */
+    .daily-paper-card .daily-permalink-link, .daily-news-item .daily-permalink-link { opacity: 0; transition: opacity .15s ease; }
+    .daily-paper-card:hover .daily-permalink-link, .daily-news-item:hover .daily-permalink-link { opacity: 1; }
+    .daily-paper-card:target { outline: 2px solid var(--accent-primary); outline-offset: 2px; }
+    @media (max-width: 720px) {
+      .daily-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .daily-relevance-track { width: 40px; }
+    }
+    [data-theme="dark"] .daily-research-relation { background: rgba(99,102,241,.14); }
+    [data-theme="dark"] .daily-relevance { background: rgba(148,163,184,.16); }
+    [data-theme="dark"] .daily-core-card, [data-theme="dark"] .daily-focus-card { background: rgba(30,41,59,.85); }
+    [data-theme="dark"] .daily-core-section { background: linear-gradient(135deg, rgba(120,53,15,.28), rgba(30,41,59,.9)); }
+    [data-theme="dark"] .daily-focus-section { background: linear-gradient(135deg, rgba(49,46,129,.35), rgba(30,41,59,.9)); }
+    [data-theme="dark"] .daily-core-jump, [data-theme="dark"] .daily-core-title-link:hover { color: #fbbf24; }
+    /* 页首与侧栏已各有一套日期导航，正文 hero 里注入的第三套只会把论文往下挤 */
+    .daily-hero #daily-enhancement-top-nav { display: none; }
+    .daily-paper-abstract.is-clamped { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; cursor: pointer; }
+    .daily-paper-abstract.is-clamped.is-open { display: block; -webkit-line-clamp: unset; }

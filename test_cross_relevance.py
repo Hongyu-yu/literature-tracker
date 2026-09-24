@@ -331,6 +331,65 @@ def test_prompt_carries_the_personal_profile():
     assert "machine learning potential" in prompt   # 画像关键词确实注入了
 
 
+# --- 2026-09-24 规则层收紧：AI 网关连续多日 503，排序全靠规则层 ---------------
+
+
+def test_quantum_computing_titles_are_not_crossover():
+    """09-23 预览：「量子语义通信」「量子神经网络可训练性」「量子-经典 GNN 做银行运维」
+    靠裸词 quantum 拿到标题级交叉分，排在日报第 1~3 位。"""
+    for title in (
+        "End-to-End Quantum Semantic Communication with Variational Quantum Neural Networks",
+        "Coherence-Rate Graphs and the Trainability of Quantum Neural Networks Under Noise",
+        "From IceCube to IT-Sphere: A Hybrid Quantum-Classical GNN for Banking IT Root Cause Analysis",
+    ):
+        item = {"title": title, "abstract": "We study spin and lattice models with a neural network.",
+                "journal": "arXiv", "arxiv_category": "quant-ph"}
+        assert cr.rule_cross_tier(item) == 3, title
+
+
+def test_quantum_many_body_ml_is_still_crossover():
+    """收紧的是裸词，凝聚态/量子化学语境的复合词仍然算科学侧。"""
+    item = {"title": "Transferable neural network quantum state method for quantum chemistry",
+            "journal": "arXiv", "arxiv_category": "physics.chem-ph"}
+    assert cr.rule_cross_tier(item) == 0
+
+
+def test_electromagnetic_does_not_count_as_magnetism():
+    """'electromagnetic' 含子串 'magnet'：LDO 稳压器电路 + 电气 transformer 被判成 AI×磁性。"""
+    item = {"title": "Electromagnetic analysis of low dropout regulator circuit with a transformer",
+            "abstract": "Circuit stability of the regulator.", "journal": "arXiv"}
+    assert cr.cross_signals(item)["science_in_title"] is False
+    assert cr.rule_cross_tier(item) != 0
+
+
+def test_ai_only_title_with_generic_abstract_is_not_crossover():
+    """标题纯 AI、科学侧只来自摘要里的通用词：09-21~23 交叉区被 LLM 智能体论文占满。"""
+    item = {"title": "Testing the Construct Validity of a Functional Valence Axis in LLM Agents",
+            "abstract": "We probe the surface of agent behaviour and the interface between "
+                        "reinforcement learning and material incentives.",
+            "journal": "arXiv", "arxiv_category": "cs.CL"}
+    assert cr.rule_cross_tier(item) == 3
+
+
+def test_ai_only_title_with_specific_science_abstract_stays_crossover():
+    """标题纯 AI、但摘要里有 ≥3 个具体科学对象的（Neural Network Backflow 这类）仍是交叉。"""
+    item = {"title": "Neural Network Backflow with Low-Rank Multi-Determinant Updates",
+            "abstract": "Simulating strongly correlated fermions is hard; we improve the "
+                        "wavefunction ansatz for spin models and compare with quantum monte carlo.",
+            "journal": "arXiv", "arxiv_category": "cond-mat"}
+    assert cr.rule_cross_tier(item) == 1
+
+
+def test_generic_profile_keywords_are_not_listed_as_overlap():
+    item = {"title": "Neural network interatomic potential for ferroelectric HfO2",
+            "abstract": "machine learning"}
+    with mock.patch.object(cr, "_primary_profile",
+                           return_value=("", ("neural network", "machine learning", "hfo2", "ferroelectric"))):
+        hits = cr.matched_personal_keywords(item)
+    assert "neural network" not in hits and "machine learning" not in hits
+    assert set(hits) == {"hfo2", "ferroelectric"}
+
+
 if __name__ == "__main__":
     import sys
     fails = 0

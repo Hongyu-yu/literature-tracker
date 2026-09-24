@@ -50,10 +50,14 @@ def test_clamp_allows_100_chinese_chars_for_highlight():
 
 
 def test_core_deep_prompt_uses_detailed_limits():
-    """深度三字段 prompt 应要求 2~3 句、≤150 字（2026-07-30 用户反馈"太简要"后放宽）。"""
+    """深度三字段 prompt 应要求 2~3 句（2026-07-30 用户反馈"太简要"后放宽）。
+
+    2026-09-24 用户反馈「与我们研究方向的关系」太长、应以介绍工作本身为主：
+    method_point 改为「这项工作做了什么」并保持详细(120~200)，关系/启示两段收短。"""
     import inspect
     src = inspect.getsource(AISummarizer.generate_core_deep_fields)
-    assert "180~320" in src, "method_point/related_work/implication 应要求详细段落"
+    assert "120~200" in src, "method_point 应要求详细介绍这项工作做了什么"
+    assert "180~320" not in src, "关系/启示不再要求三大段长文"
     assert "2~3" in src, "深度三字段应要求每条 2~3 句"
     assert "≤60" not in src and "≤70" not in src, "旧的 60/70 字上限不应保留"
 

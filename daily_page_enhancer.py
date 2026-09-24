@@ -359,7 +359,10 @@ def _ensure_inline_links(soup: BeautifulSoup, item_node: Tag, anchor_id: str) ->
         existing.decompose()
 
     inline = soup.new_tag("div", **{"class": "daily-inline-links"})
-    if source_link is not None and source_link.get("href"):
+    # 新版卡片的操作行里已经有「阅读原文 ↗」，再加一个「原文链接」只是重复
+    has_read_link = actions is not None and actions.select_one(".daily-news-link") is not None \
+        and "daily-paper-actions" in (actions.get("class") or [])
+    if source_link is not None and source_link.get("href") and not has_read_link:
         raw = soup.new_tag(
             "a",
             href=source_link.get("href"),

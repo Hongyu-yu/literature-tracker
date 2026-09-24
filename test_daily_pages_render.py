@@ -30,7 +30,8 @@ def main() -> int:
     assert "测试中文标题" in html
     assert "测试中文一句话总结" in html
     assert "与我们研究方向的关系" in html
-    assert "方法要点" in html
+    # 2026-09-24 起关系块收成两段：「这项工作做了什么」+「与我们的关系」（不再有「方法要点」三大段）
+    assert "这项工作做了什么" in html
     assert "https://example.com/paper" in html
     assert "arXiv" in html
     assert "Alice Smith, Bob Jones, Carol Chen" in html
@@ -82,8 +83,9 @@ def main() -> int:
         print('FAIL: missing core-focus section when core_items present'); return 1
     if '核心关注（ML' not in html_core:
         print('FAIL: missing core heading'); return 1
-    if '方法要点' not in html_core or '启示' not in html_core:
-        print('FAIL: missing deep fields'); return 1
+    # 核心区改为紧凑清单：一句「做了什么」(summary) + 一句关系(related_work)，完整内容在下方卡片
+    if '一句话总结' not in html_core or 'NequIP/Allegro' not in html_core:
+        print('FAIL: missing core work/relation lines'); return 1
 
     summary_no_core = dict(summary_with_core)
     summary_no_core['core_items'] = []
@@ -138,11 +140,12 @@ def test_daily_html_prefers_full_translation_and_renders_relation():
     })
     assert "完整中文翻译优先" in html
     assert "浓缩摘要" not in html
-    # 断言条目**自身**的三段文本被原样渲染出来。
-    # 此前这里断言的是 research_context 模板里的「方法上」「对当前研究最具体的启示」——
-    # 那只是因为 fixture 的 method_point/implication 只有 163 字，被旧的「<180 字就替换成
-    # 模板」规则覆盖掉了。那条规则会删掉真实的 AI 分析，已修复；模板文本因此不再出现。
-    assert "方法关系" in html and "关联关系" in html and "启示关系" in html
+    # 「与我们研究方向的关系」2026-09-24 起收成两段（用户反馈三大段太长）：
+    # ① 这项工作做了什么 —— 取 AI 亮点(summary)；② 与我们的关系 —— 取 related_work 前两句。
+    # 条目**自身**的文本仍原样渲染（不被模板顶掉）；implication 不再逐篇展示。
+    assert "这项工作做了什么" in html and "中文亮点" in html
+    assert "与我们的关系" in html and "关联关系" in html
+    assert "启示关系" not in html
 
 
 def test_build_core_export_has_category_and_link():
@@ -303,12 +306,12 @@ def test_render_unified_item_enriched_has_details_and_image():
 
 def test_render_unified_item_plain_has_no_details():
     from generate_daily_pages import render_unified_item
-    item = {"title": "Plain", "title_en": "Plain", "summary": "brief",
+    item = {"title": "Plain", "title_en": "Plain", "summary": "简要中文亮点",
             "link": "http://x", "journal": "arXiv", "_tier": 2, "_enrich": None}
     html = render_unified_item(item, 2)
     assert 'class="daily-research-relation"' in html
     assert "enrich-badge" not in html
-    assert "brief" in html
+    assert "简要中文亮点" in html
     assert 'data-bookmark-key="http://x"' in html
 
 
@@ -325,10 +328,11 @@ def test_render_unified_item_shows_abstract_then_highlight():
     html = render_unified_item(item, 1)
     assert "daily-paper-abstract" in html and "📄 摘要" in html
     assert "MACE 等变势复现相变温度" in html
-    assert "daily-paper-highlight" in html and "💡 亮点" in html
+    # 亮点并入「与我们研究方向的关系」的第一段「这项工作做了什么」（不再单列一块）
+    assert "这项工作做了什么" in html
     assert "首次把等变势用于钙钛矿相变预测" in html
-    # 摘要块在亮点块之前
-    assert html.index("📄 摘要") < html.index("💡 亮点")
+    # 摘要块在关系块之前
+    assert html.index("📄 摘要") < html.index("这项工作做了什么")
 
 
 def test_render_unified_item_no_abstract_block_when_empty():
@@ -337,7 +341,7 @@ def test_render_unified_item_no_abstract_block_when_empty():
             "link": "http://x", "journal": "arXiv", "_tier": 2, "_enrich": None}
     html = render_unified_item(item, 1)
     assert "📄 摘要" not in html           # 无 abstract_zh 不出摘要块
-    assert "💡 亮点" in html and "只有亮点" in html
+    assert "这项工作做了什么" in html and "只有亮点" in html
     # 亮点不再被 abstract_zh 兜底污染(此处无 abstract_zh,亮点仍是 summary)
 
 
@@ -403,8 +407,10 @@ def test_render_focus_section_cards_sorted_with_three_lines():
     html = render_focus_section(items)
     assert 'id="focus-interest"' in html and "与你方向相关" in html
     assert "2 篇" in html
-    assert "📝 简单总结" in html and "🔗 与我们工作的关系" in html
-    assert "💡 进一步工作建议" in html
+    # 2026-09-24 起只留紧凑条目（标题 + 相关度 + 一句关系），点标题跳到下方完整卡片；
+    # 此前「简单总结 / 关系 / 建议」三段全文与下方卡片重复，同一篇要读两次。
+    assert "🔗 与我们工作的关系" in html and "关系B" in html
+    assert "📝 简单总结" not in html and "进一步工作建议" not in html
     assert "相关度 9" in html and "相关度 5" in html
     assert html.index("高分文") < html.index("低分文")  # 按分数降序
     assert 'href="https://ex/b"' in html
@@ -416,7 +422,7 @@ def test_render_focus_section_skips_empty_analysis_lines():
               "focus_relation": "", "focus_suggestion": "",
               "link": "https://ex/c", "journal": "arXiv"}]
     html = render_focus_section(items)
-    assert "只有总结" in html
+    assert "半空文" in html and "相关度 7" in html   # 没有关系文本时条目照常列出
     assert "与我们工作的关系" not in html  # 空字段跳过
     assert "进一步工作建议" not in html
 
@@ -611,7 +617,7 @@ def test_daily_html_has_overview_svgs_relevance_bar_and_category_chip():
         "focus_score": 8.5,
     }
     page = render_daily_html("2026-07-29", {"overview": "o", "trends": "t", "full_list": [item]})
-    assert "📊 今日概览" in page
+    assert "📊 今日分布图" in page   # 图表默认折叠（<details>），标题改名
     assert page.count("class=\"daily-viz-svg\"") == 3
     assert "daily-relevance-bar" in page and "8.5" in page
     assert "daily-chip-category" in page and "AI×物理" in page
@@ -636,7 +642,8 @@ def test_daily_card_shows_both_relevance_dimensions_and_why():
     html = render_unified_item(item, 1)
     assert "AI×科学交叉" in html and "方向匹配" in html
     assert "is-cross" in html and "is-me" in html
-    assert "🎯 为什么相关" in html
+    # 「为什么相关」并入「与我们研究方向的关系」的第二段「与我们的关系」
+    assert "与我们的关系" in html
     assert "与机器学习势和自旋哈密顿量方向直接相关" in html
     assert "Alice Zhang, Bob Li" in html          # 作者仍在
     # 分组口径已换成交叉，芯片不该再挂 P1/P2/P3 字样
@@ -666,4 +673,4 @@ def test_daily_card_why_falls_back_through_the_same_chain_as_email():
     assert "画像理由" in render_unified_item({**base, "focus_relation": "画像理由"}, 1)
     # me_reason 优先级最高
     html = render_unified_item({**base, "me_reason": "本人理由", "cross_reason": "交叉理由"}, 1)
-    assert "本人理由" in html and "🎯 为什么相关：交叉理由" not in html
+    assert "本人理由" in html and "交叉理由" not in html

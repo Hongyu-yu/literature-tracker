@@ -21,6 +21,7 @@ from functools import lru_cache
 from string import Template
 from typing import Any, Dict, List, Mapping, Optional, Tuple
 
+from text_normalizer import strip_announce_prefix
 from focus_filter import (
     AI_TERMS,
     _has_any,
@@ -74,7 +75,15 @@ _AI_TITLE_TERMS: Tuple[str, ...] = tuple(
 
 _SCIENCE_TITLE_TERMS: Tuple[str, ...] = (
     # —— 物理 ——
-    'quantum', 'spin', 'magnetic', 'magnetism', 'magnet', 'ferroelectric', 'ferromagnet',
+    # 不收裸词 'quantum'（2026-09-24 收紧，与周报宽松词表 09-02 的收紧同理）：AI 挂掉、
+    # 排序全靠这一层的日子里，「量子语义通信」「量子-经典混合 GNN 做银行风控」「量子神经
+    # 网络可训练性」全靠它拿到最高的标题级交叉分，排在日报第 1~3 位。只收凝聚态/量子化学
+    # 语境的复合词。
+    'quantum chemistry', 'quantum material', 'quantum many-body', 'many-body',
+    'quantum monte carlo', 'quantum spin', 'quantum magnet', 'quantum hall', 'quantum dot',
+    'quantum critical', 'quantum phase', 'quantum state', 'quantum transport', 'quantum dynamics',
+    'spin', 'fermion', 'electron', 'majorana', 'neutron scattering', 'plasma',
+    'wavefunction', 'wave function', 'density matrix', 'magnetic', 'magnetism', 'magnet', 'ferroelectric', 'ferromagnet',
     'antiferromagnet', 'multiferroic', 'altermagnet', 'superconduct', 'phonon', 'exciton',
     'polaron', 'moire', 'moiré', 'skyrmion', 'topological', 'weyl', 'magnon', 'hall effect',
     'condensed matter', 'lattice', 'domain wall', 'polarization',
@@ -87,18 +96,61 @@ _SCIENCE_TITLE_TERMS: Tuple[str, ...] = (
     'heterostructure', 'thin film', '2d material', '2d materials', 'monolayer', 'bilayer',
     'crystal', 'crystalline', 'nanostructure', 'dielectric', 'memristor', 'photovoltaic',
     'solar cell', 'metal-organic framework', 'mof', 'graphene', 'defect', 'grain boundary',
+    # 标题里的 materials / atomistic 基本能确定研究对象（摘要里的 material 则到处都是）
+    'materials', 'material propert', 'atomistic', 'atomic', 'cluster expansion',
     # —— 计算方法（作为研究对象出现在标题时才算科学侧）——
     'dft', 'density functional', 'ab initio', 'first-principles', 'first principles',
     'molecular dynamics', 'monte carlo', 'phase field', 'interatomic potential',
     'electronic structure', 'band structure', 'hamiltonian', 'free energy', 'force field',
     'potential energy surface',
     # —— 中文 ——
-    '量子', '自旋', '磁性', '铁电', '铁磁', '反铁磁', '多铁', '超导', '声子', '晶格',
+    '量子化学', '量子材料', '多体', '量子自旋', '量子磁', '量子相变', '量子点', '量子态', '自旋', '磁性', '铁电', '铁磁', '反铁磁', '多铁', '超导', '声子', '晶格',
     '拓扑', '畴壁', '极化', '催化', '电化学', '分子', '光谱', '吸附', '聚合物',
-    '钙钛矿', '半导体', '电极', '电池', '电解质', '合金', '氧化物', '异质结构', '薄膜',
+    '材料', '原子', '电子', '钙钛矿', '半导体', '电极', '电池', '电解质', '合金', '氧化物', '异质结构', '薄膜',
     '单层', '晶体', '介电', '缺陷', '晶界', '第一性原理', '分子动力学', '蒙特卡洛',
     '相场', '原子间势', '电子结构', '能带', '哈密顿量', '自由能', '势能面',
 )
+
+
+# 标题里这些短语会让科学侧词表误命中，匹配前先抹掉：
+#   * 'electromagnetic' 含 'magnet' —— 09-23「低压差稳压器电路的电磁分析」+ 电气 'transformer'
+#     被判成标题级 AI×磁性交叉；
+#   * 量子计算 / 量子机器学习语境（'quantum neural network'、'variational quantum'…）里的
+#     'quantum state' 等不是凝聚态研究对象。
+_SCIENCE_FALSE_FRIENDS: Tuple[str, ...] = ('electromagnetic', 'electromagnetism', '电磁')
+_QUANTUM_COMPUTING_TERMS: Tuple[str, ...] = (
+    'quantum neural network', 'quantum machine learning', 'quantum-classical', 'quantum classical',
+    'variational quantum', 'quantum circuit', 'quantum computing', 'quantum computer',
+    'quantum processor', 'quantum algorithm', 'quantum error', 'qubit', 'quantum feature',
+    'quantum kernel', 'quantum communication', 'quantum semantic', 'quantum annealing',
+    '量子神经网络', '量子机器学习', '量子线路', '量子计算', '量子比特', '量子通信',
+)
+
+
+def _science_title_hit(title_text: str) -> bool:
+    for phrase in _SCIENCE_FALSE_FRIENDS + _QUANTUM_COMPUTING_TERMS:
+        title_text = title_text.replace(phrase, " ")
+    return _has_any(title_text, _SCIENCE_TITLE_TERMS)
+
+
+# 标题只有 AI 词时，摘要里要出现至少这么多个**不同的**科学侧词，才算交叉。
+# 实测 09-01~09-23 共 247 篇「AI 标题 + ai_science」：218 篇摘要只命中 0~1 个
+# （LLM 智能体、推荐系统、RL…），≥3 的 16 篇几乎全是真交叉（RS-CIDER、Neural Network
+# Backflow、电压嵌入等变 MLIP、AdaptNTK…）。
+_ABSTRACT_SCIENCE_MIN_HITS = 3
+
+
+def _science_abstract_hits(item: Mapping[str, Any]) -> int:
+    text = _normalize_text(strip_announce_prefix(item.get("abstract") or ""))
+    for phrase in _SCIENCE_FALSE_FRIENDS + _QUANTUM_COMPUTING_TERMS:
+        text = text.replace(phrase, " ")
+    found = [t for t in _SCIENCE_TITLE_TERMS if t in text]
+    # 'magnet' ⊂ 'magnetic' 这类子串只算一次
+    return sum(1 for t in found if not any(t != o and t in o for o in found))
+
+
+def _is_quantum_computing_title(title_text: str) -> bool:
+    return _has_any(title_text, _QUANTUM_COMPUTING_TERMS)
 
 
 DEFAULT_PROFILE_PATH = "data/focus_interests.json"
@@ -181,6 +233,40 @@ def personal_keyword_hits(item: Mapping[str, Any]) -> int:
     return sum(1 for k in keywords if k in title) * 2 + sum(1 for k in keywords if k in body)
 
 
+# 画像里太泛的词：几乎每篇 AI 论文都命中，列出来等于没说（09-23 预览里一半卡片
+# 的「与我们的关系」只写着「关键词重合：neural network」）。
+_GENERIC_KEYWORDS = frozenset({
+    "neural network", "neural networks", "machine learning", "deep learning",
+    "artificial intelligence", "ai", "ml", "data-driven", "transformer", "model",
+})
+
+
+def matched_personal_keywords(item: Mapping[str, Any], limit: int = 4) -> List[str]:
+    """命中的主学者关键词（标题命中的排前面）。AI 不可用时，「与我们的关系」
+    只能如实说「哪些方向关键词重合」，不能编一句分析出来。"""
+    _, keywords = _primary_profile()
+    if not keywords:
+        return []
+    title = _title_text(item)
+    body = _normalize_text(" ".join([
+        str(item.get("abstract") or ""), str(item.get("abstract_zh") or ""),
+    ]))
+    keywords = [k for k in keywords if k not in _GENERIC_KEYWORDS]
+    in_title = [k for k in keywords if k in title]
+    in_body = [k for k in keywords if k in body and k not in in_title]
+    # 长关键词信息量大（"machine learning potential" 比 "dft" 具体），同档内优先
+    ordered = sorted(in_title, key=len, reverse=True) + sorted(in_body, key=len, reverse=True)
+    out: List[str] = []
+    for k in ordered:
+        # 去掉被更长命中词包含的短词（"potential" ⊂ "machine learning potential"）
+        if any(k in longer for longer in out):
+            continue
+        out.append(k)
+        if len(out) >= limit:
+            break
+    return out
+
+
 def effective_me_score(item: Mapping[str, Any]) -> float:
     """与主学者本人研究的相关度：优先 LLM 的 me_score，缺失时退回关键词规则分。"""
     raw = item.get("me_score")
@@ -254,7 +340,7 @@ def cross_signals(item: Mapping[str, Any]) -> Dict[str, Any]:
     signals = analyze_focus(item)
     title_text = _title_text(item)
     ai_in_title = _has_any(title_text, _AI_TITLE_TERMS)
-    science_in_title = _has_any(title_text, _SCIENCE_TITLE_TERMS)
+    science_in_title = _science_title_hit(title_text)
     side = ""
     for label, key in _SIDE_SIGNALS:
         if signals.get(key):
@@ -268,6 +354,9 @@ def cross_signals(item: Mapping[str, Any]) -> Dict[str, Any]:
         "ai_in_title": ai_in_title,
         "science_in_title": science_in_title,
         "side": side,
+        "quantum_computing": _is_quantum_computing_title(title_text),
+        "science_in_abstract": (ai_in_title and not science_in_title
+                                and _science_abstract_hits(item) >= _ABSTRACT_SCIENCE_MIN_HITS),
     }
 
 
@@ -284,10 +373,21 @@ def rule_cross_tier(item: Mapping[str, Any]) -> int:
         return 3
     if sig["ai_in_title"] and sig["science_in_title"]:
         return 0
+    # 量子计算/量子机器学习：标题里没有任何凝聚态/化学/材料对象时不算交叉。
+    # 否则它们会借摘要里的物理词拿到 ai_science，照样挤进交叉区。
+    if sig["quantum_computing"]:
+        return 3
     # ai_science 单独成立还不够：它的科学侧可能只是摘要里的 surface/interface。
-    # 要求至少有一侧落在标题上，才认作全文层面的交叉。
-    if sig["ai_science"] and (sig["ai_in_title"] or sig["science_in_title"]):
+    # 必须是**科学侧**落在标题上（2026-09-24 收紧，此前 AI 侧落在标题也算）：AI 网关
+    # 挂掉、排序只剩规则层的那几天，09-21~23 交叉区被「LLM 智能体心智理论」「YouTube
+    # 音乐推荐」「拜占庭多智能体 RL」这类纯 AI 论文占满 —— 它们标题里只有 AI 词，
+    # 科学侧全来自摘要里的通用词，analyze_focus 给的 side 也是随手挂上的 materials。
+    # 标题只有 AI 词时，摘要得有足够多个具体的科学对象（_ABSTRACT_SCIENCE_MIN_HITS）。
+    if sig["ai_science"] and (sig["science_in_title"] or sig["science_in_abstract"]):
         return 1
+    if sig["ai_in_title"] and not sig["science_in_title"]:
+        # 标题纯 AI、摘要里的科学词又不够：不算交叉，也不算「其他物理/材料」
+        return 3
     if sig["target_domain"] and not sig["has_ai"]:
         return 2
     return 3

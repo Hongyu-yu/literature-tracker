@@ -209,6 +209,87 @@ def build_direction_note(items: List[Dict[str, Any]], profile: Dict[str, Any] | 
     )
 
 
+# ---------------------------------------------------------------------------
+# 「与我们研究方向的关系」两段式展示
+# ---------------------------------------------------------------------------
+# 此前卡片里是 method_point / related_work / implication 三大段（每段 180~320 字），
+# AI 不可用的日子则整段是 build_relation_fields 的规则套话 ——「方法上，摘要目前只能
+# 确认……需要回到原文核对数据来源、标签定义……」——每篇都一样，读者只会跳过。
+# 现在收成最多两段：① 这项工作做了什么（主体）；② 与我们的关系（1~2 句）。
+
+# 规则模板的特征句：它们是保底套话、不是针对这篇论文的分析，不拿来展示。
+_RULE_TEMPLATE_MARKERS = (
+    "方法上，这篇工作可归入", "方法上，摘要目前只能确认",
+    "它与五位研究人员已有工作的直接连接是", "与团队方向的可能连接在于",
+    "对当前研究最具体的启示不是泛泛地", "的启示是先做可证伪的对接",
+    "源数据只有题名或出版元数据", "仅凭现有元数据无法判断", "可先将该文作为待核查线索",
+) + tuple(_RELATION_DETAILS.values())
+
+_SENTENCE_END_RE = re.compile(r"(?<=[。！？；!?])")
+
+
+def is_rule_template(text: Any) -> bool:
+    value = str(text or "")
+    return any(marker in value for marker in _RULE_TEMPLATE_MARKERS)
+
+
+def clip_sentences(text: Any, max_sentences: int = 2, max_chars: int = 160) -> str:
+    """按句截断：最多 max_sentences 句且不超过 max_chars；首句本身超长时硬截加省略号。"""
+    value = " ".join(str(text or "").split())
+    if not value:
+        return ""
+    out = ""
+    for count, sentence in enumerate(s for s in _SENTENCE_END_RE.split(value) if s.strip()):
+        if count >= max_sentences or len(out) + len(sentence) > max_chars:
+            break
+        out += sentence
+    if not out:
+        out = value[:max_chars].rstrip() + ("…" if len(value) > max_chars else "")
+    return out.strip()
+
+
+def _dup_key(text: Any) -> str:
+    return re.sub(r"\s+", "", strip_announce_prefix(text))[:40]
+
+
+def work_and_relation(item: Dict[str, Any]) -> tuple:
+    """返回 (这项工作做了什么, 与我们的关系)，任一段可能为空串。
+
+    ① 做了什么：AI 亮点(one_sentence_summary/summary) → focus_summary → AI 版 method_point。
+       与中文摘要重复的（fallback 日 summary 就是摘要本身）跳过 —— 摘要已经显示在卡片上。
+    ② 与我们的关系：me_reason → cross_reason → focus_relation → AI 版 related_work；
+       都没有（AI 不可用）时只如实列出重合的方向关键词，不编分析。
+    """
+    shown = {_dup_key(item.get(k)) for k in ("abstract_zh", "abstract_zh_full") if item.get(k)}
+    shown.discard("")
+
+    work = ""
+    # ai_analysis：周报逐篇 AI 解读（≤100 字，就是「这项工作做了什么」）
+    for key in ("one_sentence_summary", "summary", "ai_analysis", "focus_summary", "method_point"):
+        value = strip_announce_prefix(item.get(key))
+        if (not value or not _CJK_SUMMARY_RE.search(value) or is_rule_template(value)
+                or not _usable_summary(value) or _dup_key(value) in shown):
+            continue
+        work = clip_sentences(value, max_sentences=4, max_chars=240)
+        break
+
+    relation = ""
+    for key in ("me_reason", "cross_reason", "focus_relation", "related_work"):
+        value = str(item.get(key) or "").strip()
+        if value and value != "None" and _CJK_SUMMARY_RE.search(value) and not is_rule_template(value):
+            relation = clip_sentences(value, max_sentences=2, max_chars=150)
+            break
+    if not relation:
+        try:
+            from cross_relevance import matched_personal_keywords
+            hits = matched_personal_keywords(item)
+        except Exception:
+            hits = []
+        if hits:
+            relation = "与你方向的关键词重合：" + "、".join(hits) + "。"
+    return work, relation
+
+
 # 判断一段兜底文本是否真的是中文（fallback 日的 summary 字段里装的是英文摘要原文）
 _CJK_SUMMARY_RE = re.compile(r"[\u4e00-\u9fff]")
 

@@ -59,3 +59,13 @@ def test_strip_announce_prefix_leaves_real_text_alone():
         "The dataset is hosted on arXiv:2601.00001 for reference."
     assert strip("") == ""
     assert strip(None) == ""
+
+
+def test_strip_announce_prefix_removes_nature_published_online_header():
+    from text_normalizer import strip_announce_prefix
+    raw = ("Nature Electronics, Published online: 14 September 2026; doi:10.1038/s41928-026-01706-0 "
+           "Reconfigurable dual-gate ferroelectric transistors exhibit logic.")
+    assert strip_announce_prefix(raw) == "Reconfigurable dual-gate ferroelectric transistors exhibit logic."
+    # 正文里出现 "published online" 不能误伤
+    body = "We show that data published online by others, e.g. doi:10.1/x, agree."
+    assert strip_announce_prefix(body) == body

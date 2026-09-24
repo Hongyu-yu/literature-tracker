@@ -307,11 +307,14 @@ _ANNOUNCE_PREFIX_RES = (
     re.compile(r"^\s*arxiv:\s*\S+?\s+announce\s+type:\s*\S+\s*abstract:\s*", re.I),
     # arXiv:2608.22177v1；公告类型：新提交。   /   … 发布类型：替换 摘要：
     re.compile(r"^\s*arxiv:\s*\S+?\s*[；;]?\s*(?:公告类型|发布类型)\s*[：:]\s*[^。\s]+\s*[。]?\s*(?:摘要\s*[：:]\s*)?", re.I),
+    # Nature 系 RSS：Nature Electronics, Published online: 14 September 2026; doi:10.1038/s41928-026-01706-0
+    # （index.json 实测 132 篇，卡片上的「摘要」开头就是这串出版元数据）
+    re.compile(r"^\s*[^,;\n]{2,80},\s*published online:\s*\d{1,2}\s+\w+\s+\d{4}\s*;\s*doi:\s*\S+\s*", re.I),
 )
 
 
 def strip_announce_prefix(value: Any) -> str:
-    """剥掉 arXiv RSS 的公告前缀，返回真正的摘要正文。
+    """剥掉 arXiv RSS 的公告前缀（以及 Nature 系 RSS 的出版元数据前缀），返回真正的摘要正文。
 
     纯函数，不改任何存量数据：调用方在渲染时用它即可。
     前缀不存在时原样返回（只 strip 首尾空白）。

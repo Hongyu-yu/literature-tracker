@@ -30,7 +30,8 @@ from cross_relevance import (
     rule_cross_tier, split_cross_sections,
 )
 from link_utils import normalize_link
-from research_context import build_direction_note, ensure_relation_fields, load_research_profile
+from research_context import (build_direction_note, clip_sentences, ensure_relation_fields,
+                              load_research_profile, pick_summary, work_and_relation)
 
 
 def _resolve_ai() -> Tuple[str, str, Optional[str]]:
@@ -181,6 +182,45 @@ def _enrich_daily_cross(items: List[Dict], max_items: Optional[int] = None) -> i
     except Exception as exc:
         print(f"⚠️ 交叉相关度打分跳过: {exc}")
         return 0
+
+
+def _guarantee_daily_zh(items: List[Dict], label: str = "") -> int:
+    """最后一道保障：日报里每篇都要有中文标题与中文摘要。
+
+    上游 zh_enricher 在 AI 正常时已经翻好了绝大多数条目；这里只补漏网的 ——
+    2026-09 网关连续 503 期间，fetch 阶段的翻译整批失败，09-16 起日报 72 篇里
+    中文摘要 0 篇、标题全是「文献研究：<英文>」占位。机翻不花 AI 预算，所以不受
+    富化预算/熔断约束；上限由 ZH_GUARANTEE_MAX（默认 200）控制耗时。
+
+    同时修正 fallback 日的 summary：它装的是英文摘要原文（被当成「亮点」显示），
+    有了中文摘要后改用 pick_summary 的中文兜底链。
+    """
+    if not items:
+        return 0
+    try:
+        from zh_enricher import _machine_fill, needs_abstract_zh, needs_title_zh
+    except Exception as exc:
+        print(f"⚠️ 中文保障跳过: {exc}")
+        return 0
+    try:
+        cap = max(0, int(os.environ.get("ZH_GUARANTEE_MAX", "200")))
+    except (TypeError, ValueError):
+        cap = 200
+    todo = [it for it in items if needs_title_zh(it) or needs_abstract_zh(it)][:cap]
+    filled = 0
+    if todo:
+        try:
+            filled = _machine_fill(todo)
+        except Exception as exc:
+            print(f"⚠️ 中文保障机翻失败: {exc}")
+        left = sum(1 for it in items if needs_title_zh(it) or needs_abstract_zh(it))
+        print(f"🌐 中文保障{label}: {len(todo)} 篇缺中文 → 机翻补全 {filled} 篇（仍缺 {left} 篇）")
+    for it in items:
+        if not _CJK_RE.search(str(it.get("summary") or "")):
+            fixed = pick_summary(it)
+            if _CJK_RE.search(fixed):
+                it["summary"] = fixed
+    return filled
 
 
 def _new_daily_enrich_budget() -> Dict[str, int]:
@@ -675,13 +715,26 @@ TOPIC_LABELS = {
 }
 
 
+def render_byline(item: Dict) -> str:
+    """作者 · 来源 · 日期，一行纯文字（此前作者被塞进一个彩色胶囊，和分类标签抢视线）。"""
+    parts = []
+    authors = format_authors(item.get("authors"))
+    if authors:
+        parts.append(f'<span class="daily-byline-authors">{safe_text(authors)}</span>')
+    journal = str(item.get("journal") or "").strip()
+    arxiv_cat = arxiv_badge(item)
+    if journal:
+        parts.append(f'<span class="daily-byline-source">{safe_text(journal)}'
+                     + (f' · {safe_text(arxiv_cat)}' if arxiv_cat else '') + '</span>')
+    pub_date = str(item.get("pub_date") or "").strip()
+    if pub_date:
+        parts.append(f'<span class="daily-byline-date">{safe_text(pub_date[:10])}</span>')
+    if not parts:
+        return ""
+    return f'<div class="daily-paper-byline">{"<span class=daily-byline-sep>·</span>".join(parts)}</div>'
+
+
 def render_meta_chips(item: Dict) -> str:
-    journal = safe_text(item.get("journal", ""))
-    arxiv_cat = safe_text(arxiv_badge(item))
-    authors = safe_text(format_authors(item.get("authors")))
-    ai_score = item.get("ai_score")
-    bucket = topic_bucket(item)
-    topic_name = safe_text(TOPIC_LABELS.get(bucket, "相关"))
     category = safe_text(classify_taxonomy(item))
     # 分组口径已从 priority_tier(P1/P2/P3) 换成「AI×科学交叉」，芯片跟着换：
     # 页面分组写着"其他物理/材料进展"、卡片却挂个 P1，读者只会更糊涂。
@@ -691,20 +744,7 @@ def render_meta_chips(item: Dict) -> str:
     else:
         cross_label = "🧲 物理/材料"
         cross_cls = "daily-chip-priority-p3"
-    meta_parts = [
-        f"<span class='daily-chip daily-chip-topic'>🧭 {topic_name}</span>",
-        f"<span class='daily-chip daily-chip-category {cross_cls}'>{cross_label} · {category}</span>",
-    ]
-    if journal:
-        if arxiv_cat:
-            meta_parts.append(f"<span class='daily-chip daily-chip-journal'>📖 {journal} / {arxiv_cat}</span>")
-        else:
-            meta_parts.append(f"<span class='daily-chip daily-chip-journal'>📖 {journal}</span>")
-    if authors:
-        meta_parts.append(f"<span class='daily-chip daily-chip-authors'>👤 {authors}</span>")
-    if ai_score is not None and str(ai_score).strip() != "":
-        meta_parts.append(f"<span class='daily-chip daily-chip-score'>🔥 AI {safe_text(ai_score)}</span>")
-    return "".join(meta_parts)
+    return f"<span class='daily-chip daily-chip-category {cross_cls}'>{cross_label} · {category}</span>"
 
 
 def md_to_html(text):
@@ -752,10 +792,51 @@ def md_to_html(text):
     return "".join(out)
 
 
+def _brief_abstract(full: str, limit: int = 180) -> str:
+    """卡片上默认只露摘要的前几句；完整中英摘要收进折叠块。"""
+    full = (full or "").strip()
+    if len(full) <= limit:
+        return full
+    cut = max(full.rfind(p, 0, limit) for p in "。；！？")
+    return full[: cut + 1] if cut >= limit // 3 else full[:limit].rstrip() + "…"
+
+
+def render_relevance_meters(item: Dict, prefix: str = "daily") -> str:
+    """两枚紧凑相关度徽标（交叉强度 / 方向匹配），与邮件、周报同口径。
+
+    此前是两条横跨整张卡片的进度条，标签在最左、数字在最右，中间大段留白。"""
+    def meter(label: str, value: float, cls: str) -> str:
+        value = max(0.0, min(10.0, value))
+        text = f"{value:.1f}".rstrip("0").rstrip(".")
+        return (f'<span class="{prefix}-relevance {cls}" aria-label="{label} {text} / 10" title="{label} {text} / 10">'
+                f'<span class="{prefix}-relevance-label">{label}</span>'
+                f'<span class="{prefix}-relevance-track"><i class="{prefix}-relevance-bar {cls}" '
+                f'style="width:{value * 10:.1f}%"></i></span>'
+                f'<strong>{text}</strong></span>')
+
+    return (meter("AI×科学交叉", effective_cross_score(item), "is-cross")
+            + meter("方向匹配", effective_me_score(item), "is-me"))
+
+
+def render_relation_box(item: Dict, prefix: str = "daily") -> str:
+    """「🔬 与我们研究方向的关系」：最多两段 —— 这项工作做了什么 + 与我们的关系。"""
+    work, relation = work_and_relation(item)
+    if not (work or relation):
+        return ""
+    parts = []
+    if work:
+        parts.append(f'<p class="{prefix}-relation-work"><strong>这项工作做了什么：</strong>{safe_text(work)}</p>')
+    if relation:
+        parts.append(f'<p class="{prefix}-relation-link"><strong>与我们的关系：</strong>{safe_text(relation)}</p>')
+    return (f'<div class="{prefix}-research-relation"><div class="{prefix}-relation-head">🔬 与我们研究方向的关系</div>'
+            f'{"".join(parts)}</div>')
+
+
 def render_unified_item(item: Dict, index: int) -> str:
-    """单列表条目：列表态 = 中文标题 + 一句话亮点 + 标签(+含图深析徽标)；
-    富化时 <details> 展开 = 信息图 + 中文5要素 + 深析正文。"""
+    """单列表条目：中文标题 → 作者·来源·日期 → 分类与相关度 → 摘要（前几句，完整中英折叠）
+    → 「与我们研究方向的关系」两段 → (含图深析) → 阅读原文。"""
     en = item.get("_enrich")
+    # 规则版三段仍然要补齐：质量门(daily_quality_ok)与邮件都读这三个字段，只是卡片不再整段展示
     ensure_relation_fields(item, load_research_profile())
     title_en = (item.get("title_en") or item.get("title") or "").strip()
     title_zh = (item.get("title_zh") or (en or {}).get("title_zh") or "").strip()
@@ -763,43 +844,23 @@ def render_unified_item(item: Dict, index: int) -> str:
     disp_zh = safe_text(title_zh if show_zh else title_en)
     title_en_block = (f'<div class="daily-paper-title-en">{safe_text(title_en)}</div>'
                       if show_zh and title_en else "")
+    byline_html = render_byline(item)
     meta_html = render_meta_chips(item)
-    # 相关度改成两条：交叉强度与画像匹配度含义不同，合成一个数会把信息抹掉。
-    # 此前只有一条，取的还是 focus_score（五人团队画像分）——与邮件、周报的口径都不一致。
-    def _relevance_bar(label: str, value: float, cls: str) -> str:
-        value = max(0.0, min(10.0, value))
-        text = f"{value:.1f}".rstrip("0").rstrip(".")
-        return (f'<div class="daily-relevance" aria-label="{label} {text} / 10">'
-                f'<span>{label}</span><div class="daily-relevance-track">'
-                f'<i class="daily-relevance-bar {cls}" style="width:{value * 10:.1f}%"></i></div>'
-                f'<strong>{text}</strong></div>')
-
-    relevance_html = (_relevance_bar("AI×科学交叉", effective_cross_score(item), "is-cross")
-                      + _relevance_bar("方向匹配", effective_me_score(item), "is-me"))
-    # 三处正文统一剥掉 arXiv RSS 的公告前缀：实测 index.json 里 3344 处英文摘要、
-    # 144 处中译摘要以 "arXiv:xxxx Announce Type: new Abstract:"（及其中译）开头，
-    # 此前会被当成正文原样显示在卡片和邮件里。
-    abstract_zh = strip_announce_prefix(item.get("abstract_zh_full") or item.get("abstract_zh") or "")
-    abs_html = (f'<p class="daily-paper-abstract"><strong>📄 摘要：</strong>{safe_text(abstract_zh)}</p>'
-                if abstract_zh else "")
+    relevance_html = render_relevance_meters(item)
+    # 统一剥掉 arXiv RSS 的公告前缀：实测 index.json 里 3344 处英文摘要、144 处中译摘要以
+    # "arXiv:xxxx Announce Type: new Abstract:"（及其中译）开头。
+    full_zh = strip_announce_prefix(item.get("abstract_zh_full") or item.get("abstract_zh") or "")
     abstract_en = strip_announce_prefix(item.get("abstract") or "")
-    abs_en_html = (f'<details class="daily-abstract-en"><summary>📖 英文原文</summary>'
-                   f'<p class="daily-abstract-en-body">{safe_text(abstract_en)}</p></details>'
-                   if abstract_en else "")
-    highlight = strip_announce_prefix(item.get("summary") or item.get("one_sentence_summary") or "")
-    hl_html = (f'<p class="daily-paper-highlight"><strong>💡 亮点：</strong>{safe_text(highlight)}</p>'
-               if highlight else "")
-    # 「为什么和你相关」：与邮件、周报同一条兜底链（me_reason → cross_reason → focus_relation）
-    why = str(item.get("me_reason") or item.get("cross_reason") or item.get("focus_relation") or "").strip()
-    why_html = (f'<p class="daily-paper-why"><strong>🎯 为什么相关：</strong>{safe_text(why)}</p>'
-                if why else "")
-    relation_html = (
-        '<details class="daily-research-relation"><summary>🔬 与我们研究方向的关系</summary>'
-        f'<p><strong>📐 方法要点：</strong>{safe_text(item.get("method_point") or "")}</p>'
-        f'<p><strong>🔗 相关工作关联：</strong>{safe_text(item.get("related_work") or "")}</p>'
-        f'<p><strong>💡 对你方向的启示：</strong>{safe_text(item.get("implication") or "")}</p>'
-        '</details>'
-    )
+    # 完整中文摘要默认收成 4 行，点一下展开（长摘要才加这个交互）
+    clamp = len(full_zh) > 150
+    clamp_attrs = (' class="daily-paper-abstract is-clamped" title="点击展开 / 收起" '
+                   'onclick="this.classList.toggle(\'is-open\')"') if clamp else ' class="daily-paper-abstract"'
+    abs_html = (f'<p{clamp_attrs}><strong>📄 摘要：</strong>{safe_text(full_zh)}</p>'
+                if full_zh else "")
+    abs_more_html = (f'<details class="daily-abstract-en"><summary>📖 英文原文</summary>'
+                     f'<p class="daily-abstract-en-body">{safe_text(abstract_en)}</p></details>'
+                     if abstract_en else "")
+    relation_html = render_relation_box(item)
     link = safe_url(item.get("link") or "")
     badge = '<span class="enrich-badge">📊 含图深析</span>' if en else ""
     details = ""
@@ -815,7 +876,7 @@ def render_unified_item(item: Dict, index: int) -> str:
         elems = f'<div class="daily-deep-elements">{rows}</div>' if rows else ""
         deep = en.get("deep_analysis") or ""
         deep_html = f'<div class="deep-body">{md_to_html(deep)}</div>' if deep else ""
-        details = (f'<details class="enrich-details"><summary>📖 展开分析 + 配图</summary>'
+        details = (f'<details class="enrich-details"><summary>📊 展开分析 + 配图</summary>'
                    f'{figure}{elems}{deep_html}</details>')
     return f"""
     <li class="daily-paper-card" id="paper-{index}" data-bookmark-key="{link}">
@@ -825,13 +886,11 @@ def render_unified_item(item: Dict, index: int) -> str:
                 <div class="daily-paper-title-zh">{disp_zh}</div>
                 {title_en_block}
             </div>{badge}</div>
-            <div class="daily-paper-meta">{meta_html}</div>
-            {relevance_html}
+            {byline_html}
+            <div class="daily-paper-meta">{meta_html}{relevance_html}</div>
             {abs_html}
-            {abs_en_html}
-            {hl_html}
-            {why_html}
             {relation_html}
+            {abs_more_html}
             {details}
             <div class="daily-paper-actions"><a class="daily-news-link" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
         </div>
@@ -839,9 +898,20 @@ def render_unified_item(item: Dict, index: int) -> str:
     """
 
 
-def render_focus_section(focus_items: List[Dict]) -> str:
-    """「🎯 与你方向相关」区块：当日 focus_score 命中的文章按分数降序排列，
-    卡片含 简单总结 / 与我们工作的关系 / 进一步工作建议 三行（空字段跳过）。
+def _jump_href(item: Dict, index_by_link: Optional[Dict[str, int]]) -> Tuple[str, bool]:
+    """(链接, 是否页内)：条目在「今日文献」里有卡片就跳页内卡片，否则去原文。"""
+    key = _dedup_key(item.get("link") or "")
+    idx = (index_by_link or {}).get(key) if key else None
+    if idx:
+        return f"#paper-{idx}", True
+    return safe_url(item.get("link") or ""), False
+
+
+def render_focus_section(focus_items: List[Dict], index_by_link: Optional[Dict[str, int]] = None) -> str:
+    """「🎯 与你方向相关」区块：当日 focus_score 命中的文章按分数降序排列。
+
+    只放紧凑条目（标题 + 相关度 + 一句关系），点标题跳到下方完整卡片 —— 此前这里把
+    简单总结 / 关系 / 建议三段全文重复一遍，同一篇论文在页面上要读两次。
     无匹配文章（旧数据无 focus 字段）时返回空串，区块整体隐藏。"""
     items = [it for it in (focus_items or []) if isinstance(it, dict) and it.get("focus_score")]
     if not items:
@@ -857,33 +927,18 @@ def render_focus_section(focus_items: List[Dict]) -> str:
     cards = []
     for i, it in enumerate(items, 1):
         title = (it.get("title_zh") or it.get("title_en") or it.get("title") or "").strip()
-        journal = (it.get("journal") or "").strip()
-        pub_date = (it.get("pub_date") or it.get("date") or "").strip()
-        summary_zh = (it.get("focus_summary") or "").strip()
-        relation = (it.get("focus_relation") or "").strip()
-        suggestion = (it.get("focus_suggestion") or "").strip()
-        link = safe_url(it.get("link") or "")
-        meta_parts = []
-        if journal:
-            meta_parts.append(f"<span class='daily-chip daily-chip-journal'>📖 {safe_text(journal)}</span>")
-        if pub_date:
-            meta_parts.append(f"<span class='daily-chip'>📅 {safe_text(pub_date)}</span>")
-        meta_parts.append(f"<span class='daily-chip daily-chip-focus'>🎯 相关度 {safe_text(it.get('focus_score'))}</span>")
-        analysis_parts = []
-        if summary_zh:
-            analysis_parts.append(f"<p><strong>📝 简单总结：</strong>{safe_text(summary_zh)}</p>")
-        if relation:
-            analysis_parts.append(f"<p><strong>🔗 与我们工作的关系：</strong>{safe_text(relation)}</p>")
-        if suggestion:
-            analysis_parts.append(f"<p><strong>💡 进一步工作建议：</strong>{safe_text(suggestion)}</p>")
-        analysis = f"<div class='daily-focus-deep'>{''.join(analysis_parts)}</div>" if analysis_parts else ""
+        href, internal = _jump_href(it, index_by_link)
+        target = "" if internal else ' target="_blank" rel="noopener noreferrer"'
+        relation = clip_sentences(it.get("focus_relation") or it.get("me_reason") or "", 1, 90)
+        relation_html = (f"<p class='daily-focus-why'><strong>🔗 与我们工作的关系：</strong>{safe_text(relation)}</p>"
+                         if relation and relation != "None" else "")
         cards.append(f"""
-        <li class="daily-focus-card" data-bookmark-key="{link}">
+        <li class="daily-focus-card" data-bookmark-key="{safe_url(it.get('link') or '')}">
             <div class="daily-focus-number">{i:02d}</div>
             <div class="daily-focus-body">
-                <div class="daily-focus-title"><a class="daily-focus-link" href="{link}" target="_blank" rel="noopener noreferrer">{safe_text(title)}</a></div>
-                <div class="daily-focus-meta">{''.join(meta_parts)}</div>
-                {analysis}
+                <div class="daily-focus-title"><a class="daily-focus-link" href="{href}"{target}>{safe_text(title)}</a>
+                <span class="daily-chip daily-chip-focus">🎯 相关度 {safe_text(it.get('focus_score'))}</span></div>
+                {relation_html}
             </div>
         </li>
         """)
@@ -918,7 +973,6 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     unified = build_unified_items(items, enrich_map, aps_items)
     focus_items = [it for it in unified if it.get("focus_score")]
     enriched_count = sum(1 for it in unified if it.get("_enrich"))
-    tag_list = build_daily_tags(items)
     display_date = format_date_display(date_str)
     journal_count = count_unique_journals(items)
     arxiv_count = count_arxiv_items(items)
@@ -928,9 +982,13 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
 
     grouped_html = []
     item_index = 1
+    index_by_link: Dict[str, int] = {}
     for group in group_daily_items(unified):
         cards = []
         for item in group["items"]:
+            key = _dedup_key(item.get("link") or "")
+            if key:
+                index_by_link.setdefault(key, item_index)
             cards.append(render_unified_item(item, item_index))
             item_index += 1
         grouped_html.append(
@@ -943,10 +1001,20 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     for it in items:
         ensure_relation_fields(it, profile)
     overview = safe_text(summary.get('overview', '') or f"今日共收录{len(items)}篇文献。")
-    trends = safe_text(summary.get('trends', '') or "今日热点围绕机器学习、计算物理和功能材料展开，具体结论以原文摘要为准。")
-    direction_note = safe_text(summary.get('research_direction_note', '') or build_direction_note(items, profile))
-    tags_html = "".join(f"<span class='daily-tag'>{safe_text(tag)}</span>" for tag in tag_list)
-    tagline = " | ".join(safe_text(tag) for tag in tag_list)
+    trends = safe_text(summary.get('trends', '') or "")
+    # 「总体关系」只留前两句：规则版后半段是每天一样的套话（「后续筛选应优先核对原文数据……」）
+    direction_note = safe_text(clip_sentences(
+        summary.get('research_direction_note', '') or build_direction_note(items, profile), 2, 200))
+    if summary.get("generated_by") == "fallback":
+        # AI 没跑成的日子，overview/trends 是 ai_summarizer.fallback_summary 的固定句子
+        # （「今日共收录72篇文献，覆盖机器学习、计算物理和功能材料方向」），每天一字不差。
+        # 换成当天真实的构成数字，热点一句不编。
+        group_counts = "、".join(f"{g['title'].split(' ', 1)[-1]} {len(g['items'])} 篇"
+                                for g in group_daily_items(unified) if g["items"])
+        overview = safe_text(f"今日精选 {len(unified)} 篇：{group_counts}。"
+                             f"（AI 摘要服务今日不可用，以下条目的中文标题与摘要可能为机器翻译。）")
+        trends = ""
+    trends_html = f"<p><strong>热点：</strong>{trends}</p>" if trends else ""
 
     sidebar_stats = (
         f"<div class='daily-sidebar-fact'><span>文献总数</span><strong>{len(unified)}</strong></div>"
@@ -954,57 +1022,60 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         f"<div class='daily-sidebar-fact'><span>期刊数</span><strong>{journal_count}</strong></div>"
     )
     from daily_viz import render_priority_svg, render_source_split_svg, render_topic_distribution_svg
+    # 图表默认折叠：三张分布图放在第一屏，把真正要读的论文挤到了一屏半之后
     daily_viz_html = (
-        '<section class="daily-viz" aria-label="今日概览"><h2>📊 今日概览</h2><div class="daily-viz-grid">'
+        '<details class="daily-viz" aria-label="今日概览"><summary>📊 今日分布图（主题 / 来源 / 分层）</summary>'
+        '<div class="daily-viz-grid">'
         + render_topic_distribution_svg(unified)
         + render_source_split_svg(unified)
         + render_priority_svg(unified)
-        + '</div></section>'
+        + '</div></details>'
     )
+    cross_count = sum(1 for it in unified if is_cross_item(it))
 
     filtered_note = ''
     if excluded_count > 0 or focused_total > len(items):
-        filtered_note = f"<p class='daily-filter-note'>原始候选 {raw_total} 篇中，已剔除 {excluded_count} 篇明显偏离主线的内容，并从剩余 {focused_total} 篇主线相关文献中精选 {len(items)} 篇进入日报页，优先保留 AI × 物理 / 化学 / 材料交叉与关键计算方法工作。</p>"
+        filtered_note = f"<p class='daily-filter-note'>原始候选 {raw_total} 篇 → 剔除偏题 {excluded_count} 篇 → 主线 {focused_total} 篇 → 精选 {len(items)} 篇。</p>"
 
     def render_core_section(core_items: List[Dict], note: str) -> str:
+        """核心关注：紧凑的「今日必读」清单 —— 标题 + 一句做了什么 + 一句关系，点标题跳到完整卡片。
+
+        此前这里是完整卡片（全文摘要 + 三大段方法/关联/启示），而同一批论文在下方
+        「今日文献」里又完整出现一次；AI 不可用时三大段还全是规则套话。"""
+        core_items = [it for it in core_items if effective_cross_score(it) >= 2]
         if not core_items:
             return ""
-        note_html = f"<p class='daily-core-note'>{safe_text(note)}</p>" if note else ""
+        note_html = f"<p class='daily-core-note'>{safe_text(clip_sentences(note, 2, 160))}</p>" if note else ""
+        # core_items 在 sidecar 里是 full_list 条目的独立副本：中文保障/富化写进的是
+        # full_list 那份。按链接取回列表里的同一篇，用它的中文与分数字段。
+        unified_by_key = {_dedup_key(u.get("link") or ""): u for u in unified if u.get("link")}
         cards = []
         for i, it in enumerate(core_items, 1):
+            src = unified_by_key.get(_dedup_key(it.get("link") or ""))
+            if src is not None and src is not it:
+                it = {**it, **{k: v for k, v in src.items() if v not in (None, "", [])}}
             ensure_relation_fields(it, load_research_profile())
-            title_zh = safe_text((it.get('title_zh') or '').strip())
-            title_en = safe_text((it.get('title_en') or it.get('title') or '').strip())
-            show_zh_block = bool(title_zh) and title_zh.casefold() != title_en.casefold()
-            journal = safe_text(it.get('journal') or '')
-            abstract_zh = safe_text((it.get('abstract_zh_full') or it.get('abstract_zh') or '').strip())
-            one_sentence = safe_text((it.get('summary') or '').strip())
-            mp = safe_text((it.get('method_point') or '').strip())
-            rw = safe_text((it.get('related_work') or '').strip())
-            im = safe_text((it.get('implication') or '').strip())
-            link = safe_url(it.get('link') or '')
-            title_en_block = f"<div class='daily-core-title-en'>{title_en}</div>" if show_zh_block else ""
-            display_title = title_zh if show_zh_block else title_en
-            deep_block = ""
-            if mp or rw or im:
-                deep_parts = []
-                if mp: deep_parts.append(f"<p><strong>📐 方法要点：</strong>{mp}</p>")
-                if rw: deep_parts.append(f"<p><strong>🔗 相关工作关联：</strong>{rw}</p>")
-                if im: deep_parts.append(f"<p><strong>💡 对你方向的启示：</strong>{im}</p>")
-                deep_block = f"<div class='daily-core-deep'>{''.join(deep_parts)}</div>"
-            abstract_html = f"<p class='daily-paper-abstract'><strong>📄 摘要：</strong>{abstract_zh}</p>" if abstract_zh else ""
-            highlight_html = f"<p class='daily-paper-highlight'><strong>💡 亮点：</strong>{one_sentence}</p>" if one_sentence else ""
+            title_zh = (it.get('title_zh') or '').strip()
+            title_en = (it.get('title_en') or it.get('title') or '').strip()
+            show_zh = bool(title_zh) and title_zh.casefold() != title_en.casefold()
+            display_title = safe_text(title_zh if show_zh else title_en)
+            href, internal = _jump_href(it, index_by_link)
+            target = "" if internal else ' target="_blank" rel="noopener noreferrer"'
+            work, relation = work_and_relation(it)
+            if not work:
+                work = _brief_abstract(strip_announce_prefix(it.get('abstract_zh') or it.get('abstract_zh_full') or ''), 110)
+            work_html = f"<p class='daily-core-work'>{safe_text(clip_sentences(work, 2, 130))}</p>" if work else ""
+            rel_html = f"<p class='daily-core-why'>🎯 {safe_text(relation)}</p>" if relation else ""
+            jump = f"<a class='daily-core-jump' href='{href}'{target}>{'查看完整卡片 ↓' if internal else '阅读原文 ↗'}</a>"
             cards.append(f"""
             <li class="daily-core-card" data-bookmark-key="{safe_url(it.get('link') or '')}">
                 <div class="daily-core-number">{i:02d}</div>
                 <div class="daily-core-body">
-                    <div class="daily-core-title-zh">{display_title}</div>
-                    {title_en_block}
-                    <div class="daily-core-meta"><span class="daily-chip daily-chip-core">🎯 核心关注</span><span class="daily-chip daily-chip-journal">📖 {journal}</span></div>
-                    {abstract_html}
-                    {highlight_html}
-                    {deep_block}
-                    <div class="daily-paper-actions"><a class="daily-news-link" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
+                    <div class="daily-core-title-zh"><a class="daily-core-title-link" href="{href}"{target}>{display_title}</a></div>
+                    <div class="daily-core-meta">{render_relevance_meters(it)}</div>
+                    {work_html}
+                    {rel_html}
+                    {jump}
                 </div>
             </li>
             """)
@@ -1020,6 +1091,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         </section>
         """
 
+    core_display = [it for it in (summary.get('core_items') or []) if effective_cross_score(it) >= 2]
     date_nav_top = _render_date_nav(date_str, position="top")
     date_nav_bottom = _render_date_nav(date_str, position="bottom")
 
@@ -1057,7 +1129,7 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
     {date_nav_top}
     <nav class="daily-toc-sticky" aria-label="移动目录">
       <a href="#summary">摘要</a>
-      {('<a href="#core-focus">核心关注</a>' if summary.get('core_items') else '')}
+      {('<a href="#core-focus">核心关注</a>' if core_display else '')}
       {('<a href="#focus-interest">与你相关</a>' if focus_items else '')}
       <a href="#papers">今日文献</a>
     </nav>
@@ -1066,33 +1138,29 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
         <div class="daily-hero">
           <div class="daily-kicker">AI 文献日报</div>
           <h1 class="daily-title">AI × Science 文献日报 {display_date}</h1>
-          <p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，自动过滤明显偏题的医学、教育与社会科学内容，并按主题重新排版，便于快速深读。</p>
-          <blockquote class="daily-quote">{tagline}</blockquote>
-          <div class="daily-tags">{tags_html}</div>
+          <p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，按交叉强度与方向匹配度排序。</p>
           <div class="daily-stats">
             <div class="daily-stat">
               <div class="daily-stat-label">日报精选</div>
               <div class="daily-stat-value">{len(items)}</div>
             </div>
             <div class="daily-stat">
+              <div class="daily-stat-label">AI × 科学交叉</div>
+              <div class="daily-stat-value">{cross_count}</div>
+            </div>
+            <div class="daily-stat">
               <div class="daily-stat-label">主线候选</div>
               <div class="daily-stat-value">{focused_total}</div>
             </div>
             <div class="daily-stat">
-              <div class="daily-stat-label">期刊 / 来源</div>
-              <div class="daily-stat-value">{journal_count}</div>
-            </div>
-            <div class="daily-stat">
-              <div class="daily-stat-label">arXiv 相关</div>
-              <div class="daily-stat-value">{arxiv_count}</div>
+              <div class="daily-stat-label">arXiv / 期刊</div>
+              <div class="daily-stat-value">{arxiv_count}<small> / {len(items) - arxiv_count}</small></div>
             </div>
           </div>
-          {daily_viz_html}
           {filtered_note}
+          {daily_viz_html}
         </div>
 
-        {render_core_section(summary.get('core_items', []) or [], summary.get('core_direction_note') or '')}
-        {render_focus_section(focus_items)}
         <section id="summary" class="daily-section">
           <div class="daily-section-head">
             <span class="daily-section-index">01</span>
@@ -1100,10 +1168,13 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
           </div>
           <div class="daily-summary-card">
             <p><strong>总览：</strong>{overview}</p>
-            <p><strong>热点：</strong>{trends}</p>
+            {trends_html}
             <p><strong>与我们研究方向的总体关系：</strong>{direction_note}</p>
           </div>
         </section>
+
+        {render_core_section(core_display, summary.get('core_direction_note') or '')}
+        {render_focus_section(focus_items, index_by_link)}
 
         <section id="papers" class="daily-section">
           <div class="daily-section-head">
@@ -1124,9 +1195,9 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
       <aside class="daily-toc">
         <div class="daily-toc-card">
           <div class="daily-toc-title">目录</div>
-          {'<a href="#core-focus"><span>🎯 核心关注</span><span>00</span></a>' if summary.get('core_items') else ''}
-          {'<a href="#focus-interest"><span>🎯 与你相关</span><span>🔍</span></a>' if focus_items else ''}
           <a href="#summary"><span>今日摘要</span><span>01</span></a>
+          {'<a href="#core-focus"><span>🎯 核心关注</span><span>' + str(len(core_display)) + '</span></a>' if core_display else ''}
+          {'<a href="#focus-interest"><span>🎯 与你相关</span><span>' + str(len(focus_items)) + '</span></a>' if focus_items else ''}
           <a href="#papers"><span>今日文献</span><span>📚</span></a>
 
           <div class="daily-sidebar-block">
@@ -1575,13 +1646,19 @@ def main():
                     # 富化(focus 覆盖 + 亮点保障)只在真正生成非空页时进行,按【全局预算】
                     # 每天调一次(跳过的天不浪费 AI),然后按优先级重排。
                     _apply_daily_enrichment(daily_articles, enrich_budget)
+                    # 先把漏翻的补上：AI 日报失败走 fallback 时，页面上的中文全靠这些字段
+                    _guarantee_daily_zh(daily_articles, f" {day_str}")
                     # 富化刚把 cross_score 写进条目，必须按新分重排：
                     # 这一步的顺序决定了 AI 摘要的分块顺序与 core_items 的取材。
                     daily_articles = sorted(daily_articles, key=cross_sort_key)
                     if summarizer is None:
                         raise ValueError("AI_API_KEY is empty; cannot generate daily summary")
                     summary = summarizer.generate_daily_summary(daily_articles, day_str)
-                    if summary.get("generated_by") == "fallback" and os.path.exists(out_path):
+                    # AI 生成过的好页面不许被兜底内容覆盖；但既有页面本身就是兜底版时
+                    # （09-16 起连续多天如此，且没有中文摘要），新的兜底版带机翻中文，更好，
+                    # 照常覆盖 —— 否则这些页面会被「保留」到永远。
+                    if (summary.get("generated_by") == "fallback" and os.path.exists(out_path)
+                            and prev.get("generated_by") != "fallback"):
                         # AI 失败：不用降级内容覆盖已有的好页面，但**不再直接 continue** ——
                         # fallback_summary 本身带着翻译(title_zh/abstract_zh)、关键词与画像
                         # 筛选(focus_*)、核心判定(is_core_focus/core_score)和规则版三段文本，
@@ -1593,6 +1670,8 @@ def main():
                     summary["raw_total"] = len(raw_day_articles)
                     summary["focused_total"] = len(focused_articles)
 
+                _guarantee_daily_zh(summary.get("full_list") or [], f" {day_str} full_list")
+
                 # ---- Core-focus deep fields (ML × ferro/凝聚态) ----
                 try:
                     from config import CORE_FOCUS_CONFIG
@@ -1602,9 +1681,12 @@ def main():
                     full = summary.get("full_list", []) or []
                     min_score = float(CORE_FOCUS_CONFIG.get("min_score", 0.60))
                     max_n = int(CORE_FOCUS_CONFIG.get("daily_max_items", 8))
+                    # 交叉层判为离题(< 2，即规则 tier 3 且无 AI 分)的不进核心：focus_core 的关键词规则
+                    # 会把「量子语义通信」这类量子计算论文判成核心（09-23 核心区第 2、3 条）。
                     core_items = [
                         it for it in full
                         if it.get("is_core_focus") and float(it.get("core_score") or 0.0) >= min_score
+                        and effective_cross_score(it) >= 2
                     ]
                     core_items.sort(key=lambda x: -float(x.get("core_score") or 0.0))
                     core_items = core_items[:max_n]

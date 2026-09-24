@@ -15,7 +15,10 @@ from ai_summarizer import build_provider
 from author_utils import authors_label as format_authors_label
 from abstract_scraper import AbstractScraper
 from text_normalizer import normalize_articles_inplace, normalize_text, strip_announce_prefix
+from ai_breaker import with_breaker
+from research_context import work_and_relation
 from translator import translate_text
+from zh_enricher import needs_abstract_zh, needs_title_zh
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from weekly_page_enhancer import enhance_weekly_archive
 from weekly_prompts import _build_analyze_prompt
@@ -104,29 +107,53 @@ def _weekly_meta_chips(item: Dict, extra: Optional[List[str]] = None) -> str:
 
 
 def _weekly_relevance_html(item: Dict) -> str:
-    """相关度条。同时给出交叉分与画像分——两者含义不同，合成一个数会把信息抹掉。"""
+    """相关度：两枚紧凑徽标（交叉分 / 画像分），与日报卡片同一套样式与口径。
+    两者含义不同，合成一个数会把信息抹掉。"""
     cross = effective_cross_score(item)
     me = effective_me_score(item)
 
-    def bar(label: str, value: float, cls: str) -> str:
+    def meter(label: str, value: float, cls: str) -> str:
+        value = max(0.0, min(10.0, value))
         text = f"{value:.1f}".rstrip("0").rstrip(".")
-        return (f"<div class='weekly-relevance' aria-label='{label} {text} / 10'>"
+        return (f"<span class='weekly-relevance {cls}' aria-label='{label} {text} / 10' title='{label} {text} / 10'>"
                 f"<span>{label}</span>"
-                f"<div class='weekly-relevance-track'><i class='weekly-relevance-bar {cls}' "
-                f"style='width:{max(0.0, min(100.0, value * 10)):.1f}%'></i></div>"
-                f"<strong>{text}</strong></div>")
+                f"<span class='weekly-relevance-track'><i class='weekly-relevance-bar {cls}' "
+                f"style='width:{value * 10:.1f}%'></i></span>"
+                f"<strong>{text}</strong></span>")
 
-    return bar("AI×科学交叉", cross, "is-cross") + bar("方向匹配", me, "is-me")
+    return (f"<div class='weekly-relevance-row'>{meter('AI×科学交叉', cross, 'is-cross')}"
+            f"{meter('方向匹配', me, 'is-me')}</div>")
 
 
-def _weekly_reason_html(item: Dict) -> str:
-    """「为什么和你相关」。me_reason 最贴题，其次交叉理由，再退回 focus_relation。"""
-    reason = str(item.get('me_reason') or item.get('cross_reason')
-                 or item.get('focus_relation') or '').strip()
-    if not reason:
+def _weekly_full_cards_limit() -> int:
+    """每个专题最多多少篇完整卡片（env WEEKLY_FULL_CARDS，默认 40；0 = 不限）。"""
+    try:
+        value = int(os.environ.get("WEEKLY_FULL_CARDS", "40"))
+    except (TypeError, ValueError):
+        value = 40
+    return value if value > 0 else 10 ** 9
+
+
+def _weekly_relation_html(item: Dict) -> str:
+    """「🔬 与我们研究方向的关系」：最多两段 —— 这项工作做了什么 + 与我们的关系。
+
+    与日报共用 research_context.work_and_relation：做了什么优先取 AI 亮点 / 周报逐篇
+    AI 解读；关系取 me_reason → cross_reason → focus_relation → related_work 的前两句。
+    此前核心区块是 方法要点 / 相关工作 / 启示 三大段，外加一行「为什么相关」。"""
+    work, relation = work_and_relation(item)
+    if not (work or relation):
         return ""
-    return (f"<p class='weekly-why'><strong>🎯 为什么相关：</strong>"
-            f"{_safe_multiline(reason)}</p>")
+    parts = []
+    if work:
+        parts.append(f"<p><strong>这项工作做了什么：</strong>{_safe_text(work)}</p>")
+    if relation:
+        parts.append(f"<p><strong>与我们的关系：</strong>{_safe_text(relation)}</p>")
+    return (f"<div class='weekly-relation'><div class='weekly-relation-head'>🔬 与我们研究方向的关系</div>"
+            f"{''.join(parts)}</div>")
+
+
+# 旧名保留给外部引用；内容已并入 _weekly_relation_html
+_weekly_reason_html = _weekly_relation_html
 
 
 def _weekly_abstract_html(item: Dict, anchor: str) -> Tuple[str, str, str]:
@@ -193,16 +220,6 @@ def render_core_weekly_section(summary: Dict) -> str:
     cards = []
     for i, it in enumerate(items, 1):
         link = (it.get('link') or '').strip() or '#'
-        mp = (it.get('method_point') or '').strip()
-        rw = (it.get('related_work') or '').strip()
-        im = (it.get('implication') or '').strip()
-        deep = ""
-        if mp or rw or im:
-            parts = []
-            if mp: parts.append(f"<p><strong>📐 方法要点：</strong>{_t(mp)}</p>")
-            if rw: parts.append(f"<p><strong>🔗 相关工作关联：</strong>{_t(rw)}</p>")
-            if im: parts.append(f"<p><strong>💡 对你方向的启示：</strong>{_t(im)}</p>")
-            deep = f"<div class='weekly-core-deep'>{''.join(parts)}</div>"
         display_title, title_en_html = _weekly_titles(it)
         anchor = f"core-{i:02d}"
         teaser_html, toggle_html, abstract_html = _weekly_abstract_html(it, anchor)
@@ -217,8 +234,7 @@ def render_core_weekly_section(summary: Dict) -> str:
             <div class="weekly-core-meta">{meta_html}</div>
             {_weekly_relevance_html(it)}
             {teaser_html}
-            {_weekly_reason_html(it)}
-            {deep}
+            {_weekly_relation_html(it)}
             <div class="weekly-core-actions">{toggle_html}<a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
             {abstract_html}
           </div>
@@ -281,16 +297,9 @@ def render_focus_weekly_section(articles: List[Dict]) -> str:
     cards = []
     for i, it in enumerate(items, 1):
         link = (it.get('link') or '').strip() or '#'
-        fs = (it.get('focus_summary') or '').strip()
-        fr = (it.get('focus_relation') or '').strip()
-        fg = (it.get('focus_suggestion') or '').strip()
-        deep = ""
-        parts = []
-        if fs: parts.append(f"<p><strong>📝 简单总结：</strong>{_t(fs)}</p>")
-        if fr: parts.append(f"<p><strong>🔗 与我们工作的关系：</strong>{_t(fr)}</p>")
-        if fg: parts.append(f"<p><strong>💡 进一步工作建议：</strong>{_t(fg)}</p>")
-        if parts:
-            deep = f"<div class='weekly-focus-deep'>{''.join(parts)}</div>"
+        # 此前是 简单总结 / 与我们工作的关系 / 进一步工作建议 三段；现在与日报一致收成两段，
+        # focus_summary → 「这项工作做了什么」，focus_relation → 「与我们的关系」
+        deep = _weekly_relation_html(it)
         display_title, title_en_html = _weekly_titles(it)
         anchor = f"focus-{i:02d}"
         teaser_html, toggle_html, abstract_html = _weekly_abstract_html(it, anchor)
@@ -447,7 +456,9 @@ class WeeklySummarizer:
         ) or None
         
         if api_key:
-            self.provider = build_provider(provider, api_key, model=model)
+            # 套熔断：网关整体挂掉时，1300+ 次逐篇判定每次都要等完整重试，
+            # 09-07/14/21 连续三周在 240 分钟上限被取消（见 ai_breaker 模块说明）。
+            self.provider = with_breaker(build_provider(provider, api_key, model=model))
             self.provider_name = provider
         else:
             self.provider = None
@@ -1002,6 +1013,13 @@ class WeeklySummarizer:
             link = article.get('link', '')
             current_abstract = article.get('abstract', '')
             enhanced = False
+            # 中文标题同样要保证：fetch 阶段 AI 翻译失败时 title_zh 为空，周报卡片整块变英文。
+            # translate_text 在 AI 不可用时自动降级机翻（见 translator 模块说明）。
+            if needs_title_zh(article) and (article.get('title') or '').strip():
+                try:
+                    article['title_zh'] = translate_text(article['title'])
+                except Exception:
+                    pass
             
             # 检查是否需要爬取摘要
             if not self.abstract_scraper.is_abstract_valid(current_abstract) and link:
@@ -1015,9 +1033,15 @@ class WeeklySummarizer:
                         article['abstract_zh'] = ""
                     enhanced = True
                     return (i, True, len(new_abstract), None)
-                else:
-                    return (i, False, 0, status)
-            elif current_abstract and not article.get('abstract_zh'):
+                # 抓不到完整摘要时，手上这段（Nature 系 RSS 的简介）照样要有中文：
+                # 此前直接 return，这些论文在周报上永远只有英文。
+                if current_abstract and needs_abstract_zh(article):
+                    try:
+                        article['abstract_zh'] = translate_text(current_abstract)
+                    except Exception:
+                        article['abstract_zh'] = ""
+                return (i, False, 0, status)
+            elif current_abstract and needs_abstract_zh(article):
                 # 如果有摘要但没有翻译，进行翻译
                 try:
                     article['abstract_zh'] = translate_text(current_abstract)
@@ -1027,18 +1051,23 @@ class WeeklySummarizer:
         
         # 并行处理摘要增强（最多5个线程）
         enhanced_count = 0
+        # 「与你方向相关」区块用的是 _collect_focus_articles 直接从原始列表挑出的对象，
+        # 与 filter_articles 产出的副本不是同一批 dict —— 不一起补中文的话，AI 不可用的周
+        # 这个区块（恰恰是最相关的那几十篇）全是英文摘要。
+        seen_obj = {id(a) for a in all_articles}
+        enhance_targets = all_articles + [a for a in focus_articles if id(a) not in seen_obj]
         with ThreadPoolExecutor(max_workers=5) as executor:
-            futures = {executor.submit(enhance_single_article, (i+1, article)): article 
-                      for i, article in enumerate(all_articles)}
+            futures = {executor.submit(enhance_single_article, (i+1, article)): article
+                      for i, article in enumerate(enhance_targets)}
             
             for future in as_completed(futures):
                 try:
                     i, enhanced, length, status = future.result()
                     if enhanced:
                         enhanced_count += 1
-                        print(f"  [{i}/{len(all_articles)}] ✅ 成功获取摘要 ({length} 字符)")
+                        print(f"  [{i}/{len(enhance_targets)}] ✅ 成功获取摘要 ({length} 字符)")
                     elif status:
-                        print(f"  [{i}/{len(all_articles)}] ⚠️ 无法获取摘要: {status}")
+                        print(f"  [{i}/{len(enhance_targets)}] ⚠️ 无法获取摘要: {status}")
                 except Exception as e:
                     print(f"  ⚠️ 处理失败: {e}")
         
@@ -1511,13 +1540,10 @@ class WeeklySummarizer:
             or '覆盖 AI × 物理 / 化学 / 材料交叉研究的一周重点，并保留全文速览入口。'
         )
         hero_quote = _safe_text(shorten_text(hero_quote_raw, 180))
+        # AI 没跑成的周，这里是「（AI分析暂不可用）」之类的占位句 —— 不值得占一整块
+        hero_quote_html = ('' if (summary.get('generated_by') == 'fallback' or '暂不可用' in hero_quote_raw)
+                           else f'<blockquote class="weekly-report-quote">{hero_quote}</blockquote>')
 
-        tag_labels = ['本周总览', '交叉研究', '磁性/铁电', 'AI/机器学习', '期刊分布']
-        if other_articles:
-            tag_labels.append('其他相关文献')
-        if arxiv_count:
-            tag_labels.append('含 arXiv 预印本')
-        tags_html = ''.join(f'<span class="insight-tag">{_safe_text(tag)}</span>' for tag in tag_labels)
 
         def render_overview_bucket(title: str, icon: str, articles: List[Dict], tone_class: str, limit: int = 4) -> str:
             if not articles:
@@ -1543,14 +1569,37 @@ class WeeklySummarizer:
             </div>
             '''
 
+        def render_compact_rows(articles: List[Dict], tone_class: str, start: int) -> str:
+            """超出完整卡片上限的部分：一行一篇（中文标题 · 期刊 · 交叉分），收在折叠块里。"""
+            rows = []
+            for idx, article in enumerate(articles, start):
+                anchor = article_anchor(article, f'{tone_class}-{idx}')
+                title, _ = _weekly_titles(article)
+                raw_journal = str(article.get('journal') or '')
+                journal = _safe_text(WeeklySummarizer._canonical_journal(raw_journal) or raw_journal)
+                score = f"{effective_cross_score(article):.1f}".rstrip('0').rstrip('.')
+                key = _safe_text((article.get('link') or '').strip())
+                rows.append(
+                    f'<li class="weekly-compact-row" id="{anchor}" data-bookmark-key="{key}">'
+                    f'<span class="weekly-compact-num">{idx:02d}</span>'
+                    f'<a href="{_safe_url(article.get("link"))}" target="_blank" rel="noopener noreferrer">{title}</a>'
+                    f'<span class="weekly-compact-meta">{journal} · 交叉 {score}</span></li>')
+            return ''.join(rows)
+
         def render_article_cards(articles: List[Dict], tone_class: str) -> str:
             if not articles:
                 return '<div class="insight-empty">本栏目本周暂无相关文献。</div>'
 
+            # 每个专题只给前 N 篇完整卡片，其余折叠成标题清单：AI 判定不可用的周（判定失败
+            # 默认保留）一份周报有 1000+ 张卡片、5 MB，根本读不完。只改展示，不改选文。
+            full_limit = _weekly_full_cards_limit()
+            # 先按交叉分 / 画像分排序（稳定排序，同分保持原顺序），完整卡片留给最相关的
+            articles = sorted(articles, key=lambda a: (-effective_cross_score(a), -effective_me_score(a)))
+            rest = articles[full_limit:]
+            articles = articles[:full_limit]
             cards = []
             for idx, article in enumerate(articles, 1):
                 raw_link = str(article.get('link') or '#').strip()
-                raw_ai_analysis = str(article.get('ai_analysis') or '').strip()
                 link = _safe_url(raw_link)
                 anchor = article_anchor(article, f'{tone_class}-{idx}')
 
@@ -1564,15 +1613,9 @@ class WeeklySummarizer:
                     extra_chips.append('<span class="weekly-chip weekly-chip-ai">🤖 AI/机器学习</span>')
                 meta_html = _weekly_meta_chips(article, extra=extra_chips)
 
-                note_raw = raw_ai_analysis or article_teaser(article, 180)
-                note_label = 'AI 解读' if raw_ai_analysis else '核心摘录'
-                note_html = ''
-                if note_raw:
-                    note_html = f'<div class="weekly-paper-summary"><strong>{_safe_text(note_label)}：</strong>{_safe_multiline(strip_announce_prefix(note_raw))}</div>'
-
+                # AI 解读（ai_analysis）并入「与我们研究方向的关系」的「这项工作做了什么」；
+                # 没有 AI 解读时不再另起一块「核心摘录」—— 它就是摘要摘录本身，与下面重复。
                 teaser_html, toggle_html, abstract_html = _weekly_abstract_html(article, anchor)
-                # 摘录与 AI 解读重复时只留一份，别让同一段话在卡片里出现两次
-                preview_html = '' if (note_raw and teaser_html and note_raw[:60] in teaser_html) else teaser_html
 
                 cards.append(f'''
                 <article class="weekly-paper-card {tone_class}" id="{anchor}" data-bookmark-key="{_safe_text((article.get('link') or '').strip())}">
@@ -1585,9 +1628,8 @@ class WeeklySummarizer:
                     </div>
                     <div class="weekly-paper-meta">{meta_html}</div>
                     {_weekly_relevance_html(article)}
-                    {note_html}
-                    {preview_html}
-                    {_weekly_reason_html(article)}
+                    {teaser_html}
+                    {_weekly_relation_html(article)}
                     <div class="weekly-paper-actions">
                         {toggle_html}
                         <a class="insight-btn insight-btn-secondary" href="{link}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a>
@@ -1595,7 +1637,12 @@ class WeeklySummarizer:
                     {abstract_html}
                 </article>
                 ''')
-            return f'<div class="weekly-paper-list">{"".join(cards)}</div>'
+            more = ''
+            if rest:
+                more = (f'<details class="weekly-compact-more"><summary>其余 {len(rest)} 篇（标题清单）</summary>'
+                        f'<ol class="weekly-compact-list">{render_compact_rows(rest, tone_class, len(articles) + 1)}</ol>'
+                        f'</details>')
+            return f'<div class="weekly-paper-list">{"".join(cards)}</div>{more}'
 
         def render_journal_stats() -> str:
             if not journal_items:
@@ -2315,9 +2362,12 @@ class WeeklySummarizer:
         .weekly-focus-meta {{ display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }}
         .weekly-chip-focus {{ background:rgba(99,102,241,.16); color:var(--accent-primary); font-weight:600; }}
         /* 三个区块共用的卡片件（核心方向 / 与你方向相关 / 主列表） */
-        .weekly-relevance {{ display:grid; grid-template-columns:auto minmax(70px,150px) auto; gap:8px;
-            align-items:center; color:var(--text-secondary); font-size:.78rem; margin:0 0 6px; }}
-        .weekly-relevance-track {{ height:6px; overflow:hidden; border-radius:999px; background:rgba(99,102,241,.12); }}
+        /* 相关度：两枚紧凑徽标（与日报同一套样式） */
+        .weekly-relevance-row {{ display:flex; flex-wrap:wrap; gap:8px; margin:0 0 8px; }}
+        .weekly-relevance {{ display:inline-flex; align-items:center; gap:6px; padding:4px 10px; border-radius:999px;
+            background:rgba(148,163,184,.10); color:var(--text-secondary); font-size:.78rem; white-space:nowrap; }}
+        .weekly-relevance strong {{ color:var(--text-primary); font-variant-numeric:tabular-nums; }}
+        .weekly-relevance-track {{ display:inline-block; width:52px; height:6px; overflow:hidden; border-radius:999px; background:rgba(99,102,241,.14); }}
         .weekly-relevance-bar {{ display:block; height:100%; border-radius:inherit; }}
         .weekly-relevance-bar.is-cross {{ background:linear-gradient(90deg,#6366f1,#22d3ee); }}
         .weekly-relevance-bar.is-me {{ background:linear-gradient(90deg,#f59e0b,#ef4444); }}
@@ -2327,6 +2377,28 @@ class WeeklySummarizer:
         .weekly-core-card .weekly-paper-title-en,
         .weekly-focus-card .weekly-paper-title-en {{ margin:2px 0 6px; color:var(--text-secondary);
             font-size:.82rem; line-height:1.5; }}
+        /* 超出完整卡片上限的部分：标题清单 */
+        .weekly-compact-more {{ margin-top:14px; border:1px solid var(--border-color); border-radius:16px; padding:12px 16px; background:rgba(255,255,255,.6); }}
+        .weekly-compact-more > summary {{ cursor:pointer; font-weight:600; color:var(--accent-primary); }}
+        .weekly-compact-list {{ list-style:none; margin:10px 0 0; padding:0; display:grid; gap:4px; }}
+        .weekly-compact-row {{ display:flex; gap:10px; align-items:baseline; padding:6px 4px; border-bottom:1px dashed rgba(148,163,184,.25); font-size:.92rem; line-height:1.55; }}
+        .weekly-compact-row a {{ color:var(--text-primary); text-decoration:none; flex:1; min-width:0; }}
+        .weekly-compact-row a:hover {{ color:var(--accent-primary); }}
+        .weekly-compact-num {{ color:var(--text-muted); font-variant-numeric:tabular-nums; font-size:.8rem; }}
+        .weekly-compact-meta {{ color:var(--text-muted); font-size:.8rem; white-space:nowrap; }}
+        [data-theme="dark"] .weekly-compact-more {{ background:rgba(30,41,59,.6); }}
+        .weekly-core-actions, .weekly-paper-actions {{ display:flex; flex-wrap:wrap; align-items:center; gap:12px; margin-top:10px; }}
+        .weekly-report-hero #weekly-enhancement-top-nav {{ display:none; }}
+        @media (max-width:720px){{ .weekly-compact-meta {{ display:none; }} }}
+        /* 「与我们研究方向的关系」：最多两段，与日报一致 */
+        .weekly-relation {{ margin:10px 0 0; padding:12px 14px; border-radius:14px; background:rgba(99,102,241,.06);
+            border-left:3px solid var(--accent-primary); line-height:1.75; font-size:.93rem; }}
+        .weekly-relation-head {{ font-weight:700; color:var(--accent-primary); font-size:.86rem; margin-bottom:4px; }}
+        .weekly-relation p {{ margin:0; }}
+        .weekly-relation p + p {{ margin-top:6px; }}
+        .weekly-relation strong {{ color:var(--text-primary); }}
+        [data-theme="dark"] .weekly-relation {{ background:rgba(99,102,241,.14); }}
+        [data-theme="dark"] .weekly-relevance {{ background:rgba(148,163,184,.16); }}
         .weekly-focus-deep {{ margin-top:10px; padding:12px 14px; border-radius:12px; background:rgba(99,102,241,.06); border:1px dashed rgba(99,102,241,.32); line-height:1.75; }}
         .weekly-focus-deep p + p {{ margin-top:6px; }}
         @media (max-width:720px){{ .weekly-focus-card{{ grid-template-columns:1fr; }} }}
@@ -2350,13 +2422,16 @@ class WeeklySummarizer:
                 <section class="insight-page-hero weekly-report-hero">
                     <div class="insight-kicker">AI 科学周报</div>
                     <h1 class="insight-title">AI × Science 周报 {_safe_text(week_start)} → {_safe_text(week_end)}</h1>
-                    <p class="insight-subtitle">参考 CloudFlare-AI-Insight-Daily 的资讯编排，将一周内 AI × 物理 / 化学 / 材料交叉文献整理为总览、交叉重点、专题速览与期刊分布。</p>
-                    <blockquote class="weekly-report-quote">{hero_quote}</blockquote>
-                    <div class="insight-tags">{tags_html}</div>
+                    <p class="insight-subtitle">一周内 AI × 物理 / 化学 / 材料交叉文献：核心方向、与你相关、专题速览与期刊分布。</p>
+                    {hero_quote_html}
                     <div class="insight-stat-grid">
                         <div class="insight-stat">
                             <div class="insight-stat-label">收录文献</div>
                             <div class="insight-stat-value">{len(all_articles)}</div>
+                        </div>
+                        <div class="insight-stat">
+                            <div class="insight-stat-label">交叉研究</div>
+                            <div class="insight-stat-value">{len(both_articles)}</div>
                         </div>
                         <div class="insight-stat">
                             <div class="insight-stat-label">期刊 / 来源</div>
@@ -2365,10 +2440,6 @@ class WeeklySummarizer:
                         <div class="insight-stat">
                             <div class="insight-stat-label">arXiv / 预印本</div>
                             <div class="insight-stat-value">{arxiv_count}</div>
-                        </div>
-                        <div class="insight-stat">
-                            <div class="insight-stat-label">专题版块</div>
-                            <div class="insight-stat-value">{section_count}</div>
                         </div>
                     </div>
                     <div class="insight-action-row weekly-hero-actions">

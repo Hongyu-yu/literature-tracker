@@ -138,8 +138,9 @@ def main() -> int:
     block = _rcw(wk)
     if 'weekly-core-section' not in block or '本周核心方向' not in block:
         print('FAIL: weekly core section missing heading'); return 1
-    if '方法要点' not in block or '启示' not in block:
-        print('FAIL: weekly deep labels missing'); return 1
+    # 2026-09-24 起收成两段：做了什么（此处取 method_point）+ 与我们的关系（related_work）
+    if '这项工作做了什么' not in block or 'MACE 等变势' not in block or '与 NequIP 同族' not in block:
+        print('FAIL: weekly relation paragraphs missing'); return 1
     if _rcw({'core_items':[], 'core_weekly_note':''}).strip() != '':
         print('FAIL: weekly core section should be empty when no items'); return 1
 
@@ -186,8 +187,11 @@ def test_render_focus_weekly_section_cards_sorted_with_three_lines():
     html = render_focus_weekly_section(items)
     assert 'id="focus-interest"' in html and "与你方向相关" in html
     assert "2 篇" in html
-    assert "📝 简单总结" in html and "🔗 与我们工作的关系" in html
-    assert "💡 进一步工作建议" in html
+    # 2026-09-24 起与日报一致收成两段「与我们研究方向的关系」：
+    # focus_summary → 这项工作做了什么，focus_relation → 与我们的关系；建议一段不再逐篇展示。
+    assert "这项工作做了什么" in html and "总结B" in html
+    assert "与我们的关系" in html and "关系B" in html
+    assert "进一步工作建议" not in html
     # focus_score 芯片改名为「画像分」：卡片上另有两条进度条叫「AI×科学交叉」和
     # 「方向匹配」，三者含义不同，同名会让人以为是同一个数。
     assert "画像分 10" in html and "画像分 4" in html
@@ -237,7 +241,9 @@ def test_weekly_focus_section_wired_shown_and_hidden():
            "is_ferro": True, "is_ai": True}
     html_focus = _render_weekly(_weekly_summary([art], focus=True))
     assert 'id="focus-interest"' in html_focus
-    assert "周总结" in html_focus and "周关系" in html_focus and "周建议" in html_focus
+    # 两段式：「做了什么」取第一个可用的（这里是逐篇 AI 解读，focus_summary 不再重复一遍），
+    # 「与我们的关系」取 focus_relation；建议一段不再逐篇展示。
+    assert "解读。" in html_focus and "周关系" in html_focus
     assert 'href="#focus-interest"' in html_focus  # 目录链接同步出现
     # 旧数据(无 focus 字段) → 无区块、无目录链接
     html_plain = _render_weekly(_weekly_summary([art]))

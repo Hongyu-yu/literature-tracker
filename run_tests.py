@@ -42,6 +42,14 @@ def _runnable(fn):
                or p.kind in (p.VAR_POSITIONAL, p.VAR_KEYWORD)
                for p in sig.parameters.values())
 
+def _reset_ai_breaker():
+    try:
+        import ai_breaker
+        ai_breaker.reset()
+    except Exception:
+        pass
+
+
 def main(argv):
     strict = "--strict" in argv
     unknown_flags = [a for a in argv if a.startswith("-") and a != "--strict"]
@@ -96,6 +104,9 @@ def main(argv):
                 print(f"⊘ {msg}")
                 continue
             try:
+                # ai_breaker 是进程内全局状态：上一个测试用失败的假 provider 触发熔断后，
+                # 下一个测试里的 AI 调用会被直接短路。每个测试前清零，互不串扰。
+                _reset_ai_breaker()
                 fn()
                 passed += 1
                 print(f"✓ {name}.{attr}")

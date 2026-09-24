@@ -5,7 +5,10 @@ Chinese enrichment utilities:
 
 Strategy:
 - Prefer LLM batch translation/summarization via the configured AI provider (OpenRouter recommended).
-- Fallback to GoogleTranslator (deep-translator) for single-item translation when AI is unavailable.
+- Fallback to machine translation (translator.machine_translate: Google → gtx → MyMemory)
+  when AI is not configured **or** when an AI batch fails. 2026-09 网关连续 503 期间，
+  旧逻辑只在「没配 key」时才机翻，key 在、网关挂 → 中文摘要整批留空。
+- 机翻写入的条目带 `zh_source="mt"`；AI 恢复后会被重新纳入候选、用 AI 译文升级。
 """
 
 from __future__ import annotations
@@ -16,7 +19,7 @@ import time
 from typing import Any, Dict, List, Optional
 
 from ai_summarizer import AISummarizer, build_provider
-from text_normalizer import is_suspicious_text, normalize_articles_inplace, normalize_text
+from text_normalizer import is_suspicious_text, normalize_articles_inplace, normalize_text, strip_announce_prefix
 
 
 def _extract_json(text: str) -> Any:
@@ -137,12 +140,13 @@ def enrich_articles_zh(
 
     normalize_articles_inplace(articles)
 
-    # Candidates: missing or corrupted zh fields
+    # Candidates: missing or corrupted zh fields（有 AI key 时，机翻过的条目也纳入，等 AI 升级）
     candidates = [
         a
         for a in articles
         if (
-            not (a.get("title_zh") or "").strip()
+            (api_key and a.get("zh_source") == "mt")
+            or not (a.get("title_zh") or "").strip()
             or not (a.get("abstract_zh") or "").strip()
             or _full_needs_translation(a)
             or is_suspicious_text(a.get("title_zh"))
@@ -160,10 +164,16 @@ def enrich_articles_zh(
 
     updated = 0
 
-    if api_key:
-        provider = build_provider(provider_name, api_key, model=model)
+    if api_key and not _ai_breaker_open():
+        provider = _with_breaker(build_provider(provider_name, api_key, model=model))
+        # AI 没能给出译文的条目：本轮结束前统一交给机翻，保证每篇都有中文
+        mt_pending: List[Dict[str, Any]] = []
+        consecutive_failures = 0
         for start in range(0, len(candidates), batch_size):
             batch = candidates[start : start + batch_size]
+            if consecutive_failures >= _AI_BATCH_FAILURE_LIMIT:
+                mt_pending.extend(batch)
+                continue
             batch_payload = []
             for i, a in enumerate(batch, 1):
                 title = (a.get("title") or "").strip()
@@ -192,9 +202,14 @@ def enrich_articles_zh(
                 mapping, truncated = _parse_llm_batch(resp)
             except Exception as e:
                 # 整批丢弃必须留痕,否则只表现为 updated 偏小,与"没有待翻译条目"无法区分
-                print(f"⚠️ 中文富化批次 {batch_no} 失败,跳过 {len(batch)} 篇(留待后续运行重试): {type(e).__name__}: {e}")
+                print(f"⚠️ 中文富化批次 {batch_no} 失败,{len(batch)} 篇改用机器翻译: {type(e).__name__}: {e}")
+                mt_pending.extend(batch)
+                consecutive_failures += 1
+                if consecutive_failures == _AI_BATCH_FAILURE_LIMIT:
+                    print(f"🛑 中文富化: AI 连续 {consecutive_failures} 批失败,剩余条目全部改用机器翻译")
                 time.sleep(1)
                 continue
+            consecutive_failures = 0
 
             if truncated:
                 print(f"⚠️ 中文富化批次 {batch_no} 响应被截断,已丢弃末条残缺译文(建议调小 batch_size 或提高 AI_MAX_TOKENS)")
@@ -206,7 +221,10 @@ def enrich_articles_zh(
             for i, a in enumerate(batch, 1):
                 item = mapping.get(i)
                 if not item:
+                    mt_pending.append(a)
                     continue
+                # 机翻过的条目：AI 译文一律覆盖（这正是把它们重新纳入候选的目的）
+                upgrade = a.get("zh_source") == "mt"
                 title_zh = normalize_text((item.get("title_zh") or "").strip())
                 abstract_zh = normalize_text((item.get("abstract_zh") or "").strip())
                 abstract_zh_full = normalize_text((item.get("abstract_zh_full") or "").strip())
@@ -216,21 +234,25 @@ def enrich_articles_zh(
                 # —— 每轮都报 updated=N 却一字未改,日志看起来在推进,实则永远不收敛。
                 changed = False
                 if title_zh:
-                    if not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
+                    if upgrade or not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
                         a["title_zh"] = title_zh
                         changed = True
                 if abstract_zh:
-                    if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
+                    if upgrade or not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
                         a["abstract_zh"] = abstract_zh
                         changed = True
                 if abstract_zh_full:
-                    if _full_needs_translation(a):
+                    if upgrade or _full_needs_translation(a):
                         a["abstract_zh_full"] = abstract_zh_full
                         changed = True
+                if upgrade and title_zh and abstract_zh and abstract_zh_full:
+                    a.pop("zh_source", None)
                 if changed:
                     updated += 1
                 else:
                     no_write += 1
+                    if _zh_incomplete(a):
+                        mt_pending.append(a)
 
             if no_write:
                 print(f"⚠️ 中文富化批次 {batch_no}: {no_write}/{len(batch)} 篇拿到的译文未落盘"
@@ -243,41 +265,114 @@ def enrich_articles_zh(
                     pass
             time.sleep(0.2)
 
+        if mt_pending:
+            print(f"🌐 中文富化: {len(mt_pending)} 篇 AI 未给出译文,改用机器翻译兜底")
+            updated += _machine_fill(mt_pending)
         return updated
 
-    # Fallback: Google translate (slower, but avoids empty zh fields)
+    # 未配置 AI，或 AI 已熔断：直接机翻
+    return _machine_fill(candidates)
+
+
+def _ai_breaker_open() -> bool:
+    """进程内 AI 熔断已打开（翻译/周报先撞到网关故障）→ 本轮直接机翻，不再逐批等重试。"""
     try:
-        from translator import translate_text
+        from ai_breaker import ai_available
+        return not ai_available()
+    except Exception:
+        return False
+
+
+def _with_breaker(provider: Any) -> Any:
+    try:
+        from ai_breaker import with_breaker
+        return with_breaker(provider)
+    except Exception:
+        return provider
+
+
+# AI 批次连续失败多少次后，本轮剩余条目不再尝试 AI（网关整体不可用时每批都要等完整重试）
+_AI_BATCH_FAILURE_LIMIT = 2
+
+
+# research_context.ensure_relation_fields 在缺中文标题时写入的占位：含中文字符，
+# 但并不是译文，不能因此被当成「已翻译」。
+_PLACEHOLDER_TITLE_PREFIX = "文献研究："
+
+
+def needs_title_zh(a: Dict[str, Any]) -> bool:
+    title_zh = str(a.get("title_zh") or "").strip()
+    return (
+        not _has_cjk(title_zh)
+        or title_zh.startswith(_PLACEHOLDER_TITLE_PREFIX)
+        or is_suspicious_text(title_zh)
+    )
+
+
+def needs_abstract_zh(a: Dict[str, Any]) -> bool:
+    """有英文摘要、却没有一段真正的中文摘要（abstract_zh 或 abstract_zh_full）。"""
+    if not str(a.get("abstract") or "").strip():
+        return False
+    return not (_has_cjk(a.get("abstract_zh") or "") or _has_cjk(a.get("abstract_zh_full") or ""))
+
+
+def _zh_incomplete(a: Dict[str, Any]) -> bool:
+    return (
+        needs_title_zh(a)
+        or not (a.get("abstract_zh") or "").strip()
+        or _full_needs_translation(a)
+    )
+
+
+def _brief_from_full(full: str, limit: int = 240) -> str:
+    """机翻没有「浓缩版」：取完整译文的前几句（≤limit 字，按句号截断）作 abstract_zh。"""
+    full = (full or "").strip()
+    if len(full) <= limit:
+        return full
+    cut = max(full.rfind(p, 0, limit) for p in "。；！？")
+    return full[: cut + 1] if cut >= limit // 3 else full[:limit].rstrip() + "…"
+
+
+def _machine_fill(items: List[Dict[str, Any]]) -> int:
+    """逐条机翻补齐 title_zh / abstract_zh / abstract_zh_full，返回真正写入的条目数。
+
+    摘要只翻一次：abstract_zh_full 用完整译文，abstract_zh 取其前几句（旧代码对同一段
+    摘要翻两遍，机翻额度与耗时都翻倍）。单条失败不影响其余条目，已写入的字段保留。
+    """
+    try:
+        import translator as _translator_mod
     except Exception:
         return 0
+    translate = getattr(_translator_mod, "machine_translate", None) or _translator_mod.translate_text
 
-    for a in candidates:
-        # 同上:只统计真正写入的条目。另外译文为空时不写(translate_text 对空输入返回 ""),
+    updated = 0
+    for a in items:
+        # 同上:只统计真正写入的条目。译文为空时不写(translate 对空输入返回 ""),
         # 免得把空串盖到已有字段上 —— 留空等下次重试,不制造"看似已翻译"的假象。
         changed = False
         try:
-            if not (a.get("title_zh") or "").strip() or is_suspicious_text(a.get("title_zh")):
-                title_zh = normalize_text(translate_text(a.get("title") or ""))
+            if needs_title_zh(a):
+                title_zh = normalize_text(translate(a.get("title") or a.get("title_en") or ""))
                 if title_zh:
                     a["title_zh"] = title_zh
                     changed = True
-            if not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh")):
-                abstract_zh = normalize_text(translate_text((a.get("abstract") or "")[:2000]))
-                if abstract_zh:
-                    a["abstract_zh"] = abstract_zh
-                    changed = True
-            if _full_needs_translation(a):
-                abstract_zh_full = normalize_text(translate_text(a.get("abstract") or ""))
-                if abstract_zh_full:
-                    a["abstract_zh_full"] = abstract_zh_full
+            need_brief = not (a.get("abstract_zh") or "").strip() or is_suspicious_text(a.get("abstract_zh"))
+            need_full = _full_needs_translation(a)
+            if need_brief or need_full:
+                full = normalize_text(translate(strip_announce_prefix(a.get("abstract") or "")))
+                if full:
+                    if need_full:
+                        a["abstract_zh_full"] = full
+                    if need_brief:
+                        a["abstract_zh"] = _brief_from_full(full)
                     changed = True
         except Exception:
             # 单条翻译失败不影响其余条目(translator 自身已打印 ⚠️ 翻译失败);
             # 本条已写入的字段保留并计入 updated,其余字段留空等下次运行重试
             pass
         if changed:
+            a["zh_source"] = "mt"
             updated += 1
-
     return updated
 
 

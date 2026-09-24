@@ -126,10 +126,15 @@ class _BoomProv:
         raise self.exc
 
 
-def _run_enrich(articles, prov):
-    """跑一次 LLM 富化,返回 (updated, 打印出来的日志)。"""
+def _run_enrich(articles, prov, machine_fill=None):
+    """跑一次 LLM 富化,返回 (updated, 打印出来的日志)。
+
+    AI 没给出译文的条目会交给 _machine_fill(真实实现会联网机翻),这里一律打桩:
+    默认桩什么都不写、返回 0,让这些用例只检验 AI 路径本身的语义。
+    """
     buf = io.StringIO()
     with mock.patch.object(zh_enricher, "build_provider", return_value=prov), \
+            mock.patch.object(zh_enricher, "_machine_fill", machine_fill or (lambda items: 0)), \
             mock.patch("time.sleep"), contextlib.redirect_stdout(buf):
         updated = zh_enricher.enrich_articles_zh(
             articles, provider_name="openrouter", api_key="k")
@@ -188,7 +193,8 @@ def test_batch_failure_is_logged_and_leaves_fields_intact():
                  "title_zh": "已有中文标题"}]
     updated, log = _run_enrich(articles, _BoomProv(RuntimeError("gateway 502")))
     assert updated == 0
-    assert "⚠️" in log and "跳过" in log
+    # 失败批次不再「跳过留待重试」，而是当场交给机翻兜底(见 test_ai_batch_failure_falls_back_to_machine_translation)
+    assert "⚠️" in log and "机器翻译" in log
     assert "gateway 502" in log
     assert articles[0]["title_zh"] == "已有中文标题"   # 失败不得破坏已有数据
 
@@ -349,3 +355,104 @@ def test_complete_payloads_are_still_accepted():
     assert _json_object_is_balanced('{"a":"含 } 的字符串"}') is True
     # 客套话在前、JSON 完整
     assert _json_object_is_balanced('说明：{以上为翻译}\n{"items":[{"index":1,"abstract_zh_full":"甲"}]}') is True
+
+
+# --- AI 失败 → 机翻兜底(2026-09 网关 503 事故:09-16 起日报中文摘要 0 篇) ---
+
+
+def test_ai_batch_failure_falls_back_to_machine_translation():
+    """key 配了但网关 503:旧逻辑整批跳过、字段留空,现在必须当场交给机翻。"""
+    articles = [{"title": f"T{i}", "link": f"http://x/{i}", "abstract": "English abstract."}
+                for i in range(3)]
+    handed = []
+
+    def _fill(items):
+        handed.extend(items)
+        for a in items:
+            a["title_zh"] = "机翻标题"
+        return len(items)
+
+    updated, log = _run_enrich(articles, _BoomProv(RuntimeError("503 no available channel")), _fill)
+    assert handed == articles
+    assert updated == 3
+    assert all(a["title_zh"] == "机翻标题" for a in articles)
+
+
+def test_ai_breaker_stops_calling_ai_after_consecutive_batch_failures():
+    """网关整体不可用时,每批都要等完整重试;连续 2 批失败后剩余批次不再打 AI。"""
+    articles = [{"title": f"T{i}", "link": f"http://x/{i}", "abstract": "English abstract."}
+                for i in range(12 * 5)]
+    prov = _BoomProv(RuntimeError("503"))
+    calls = {"n": 0}
+    real = prov.call_api
+
+    def _counting(prompt):
+        calls["n"] += 1
+        return real(prompt)
+
+    prov.call_api = _counting
+    handed = []
+    _run_enrich(articles, prov, lambda items: handed.extend(items) or 0)
+    assert calls["n"] == 2, f"熔断后仍打了 {calls['n']} 次 AI"
+    assert len(handed) == len(articles), "熔断后剩余条目必须全部交给机翻"
+
+
+def test_missing_items_in_ai_response_go_to_machine_translation():
+    """模型只回了部分条目:没回的那几篇也要机翻补上,而不是留空等下一轮。"""
+    payload = json.dumps({"items": [{
+        "index": 1, "title_zh": "中文标题", "abstract_zh": "浓缩摘要",
+        "abstract_zh_full": "完整忠实中文翻译",
+    }]}, ensure_ascii=False)
+    articles = [{"title": f"T{i}", "link": f"http://x/{i}", "abstract": "English abstract."}
+                for i in (1, 2)]
+    handed = []
+    _run_enrich(articles, _RawProv(payload), lambda items: handed.extend(items) or 0)
+    assert handed == [articles[1]]
+
+
+def test_ai_upgrades_machine_translated_rows():
+    """机翻条目带 zh_source=mt:AI 恢复后重新纳入候选,AI 译文覆盖机翻并清掉标记。"""
+    articles = [{"title": "T", "link": "http://x", "abstract": "English abstract.",
+                 "title_zh": "机翻标题", "abstract_zh": "机翻摘要", "abstract_zh_full": "机翻全文",
+                 "zh_source": "mt"}]
+    prov = _RawProv(json.dumps({"items": [{
+        "index": 1, "title_zh": "AI标题", "abstract_zh": "AI摘要", "abstract_zh_full": "AI全文",
+    }]}, ensure_ascii=False))
+    updated, _log = _run_enrich(articles, prov)
+    assert updated == 1
+    a = articles[0]
+    assert (a["title_zh"], a["abstract_zh"], a["abstract_zh_full"]) == ("AI标题", "AI摘要", "AI全文")
+    assert "zh_source" not in a
+
+
+def test_machine_fill_translates_abstract_once_and_marks_source():
+    """摘要只翻一次(完整译文 → abstract_zh_full,前几句 → abstract_zh),并打上 mt 标记。"""
+    calls = []
+
+    def _mt(text):
+        calls.append(text)
+        return "中文标题" if text == "Ferroelectric HfO2" else "第一句。" * 100
+
+    fake = types.ModuleType("translator")
+    fake.translate_text = lambda t: (_ for _ in ()).throw(AssertionError("应走 machine_translate"))
+    fake.machine_translate = _mt
+    a = {"title": "Ferroelectric HfO2", "link": "http://x", "abstract": "English abstract."}
+    with mock.patch.dict(sys.modules, {"translator": fake}):
+        assert zh_enricher._machine_fill([a]) == 1
+    assert calls == ["Ferroelectric HfO2", "English abstract."]
+    assert a["title_zh"] == "中文标题"
+    assert a["abstract_zh_full"] == "第一句。" * 100
+    assert a["abstract_zh"].endswith("。") and len(a["abstract_zh"]) <= 240
+    assert a["zh_source"] == "mt"
+
+
+def test_machine_fill_replaces_placeholder_title():
+    """「文献研究：<英文>」是无中文时的占位标题,不含真正译文,机翻必须覆盖它。"""
+    fake = types.ModuleType("translator")
+    fake.machine_translate = lambda t: "机翻" if t else ""
+    fake.translate_text = fake.machine_translate
+    a = {"title": "Quantum thing", "link": "http://x", "title_zh": "文献研究：Quantum thing",
+         "abstract_zh": "已有", "abstract_zh_full": "已有全文"}
+    with mock.patch.dict(sys.modules, {"translator": fake}):
+        zh_enricher._machine_fill([a])
+    assert a["title_zh"] == "机翻"
