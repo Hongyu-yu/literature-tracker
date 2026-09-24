@@ -30,6 +30,7 @@ from cross_relevance import (
     rule_cross_tier, split_cross_sections,
 )
 from link_utils import normalize_link
+from ai_breaker import with_breaker
 from research_context import (build_direction_note, byline_parts, card_sections, clip_sentences,
                               ensure_relation_fields, load_research_profile, pick_summary)
 
@@ -112,7 +113,7 @@ def _guarantee_daily_highlights(items: List[Dict], max_items: Optional[int] = No
     try:
         from ai_summarizer import build_provider
         from highlight_guarantee import ensure_highlights
-        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
+        provider = _CountingProvider(with_breaker(build_provider(provider_name, api_key, model=model)))
         updated = ensure_highlights(items, provider=provider, max_items=max_items)
         print(f"✨ 亮点保障补全 {updated} 篇")
         return updated
@@ -141,7 +142,7 @@ def _enrich_daily_focus(items: List[Dict], max_items: Optional[int] = None) -> i
     try:
         from ai_summarizer import build_provider
         from focus_interest import enrich_focus_interest
-        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
+        provider = _CountingProvider(with_breaker(build_provider(provider_name, api_key, model=model)))
         updated = enrich_focus_interest(items, provider=provider, max_items=max_items)
         print(f"🎯 focus 日报富化补全 {updated} 篇")
         return updated
@@ -175,7 +176,7 @@ def _enrich_daily_cross(items: List[Dict], max_items: Optional[int] = None) -> i
     try:
         from ai_summarizer import build_provider
         from cross_relevance import enrich_cross_relevance
-        provider = _CountingProvider(build_provider(provider_name, api_key, model=model))
+        provider = _CountingProvider(with_breaker(build_provider(provider_name, api_key, model=model)))
         updated = enrich_cross_relevance(items, provider=provider, max_items=max_items)
         print(f"🤖 AI×科学 交叉打分 {updated} 篇")
         return updated
@@ -221,6 +222,15 @@ def _guarantee_daily_zh(items: List[Dict], label: str = "") -> int:
             if _CJK_RE.search(fixed):
                 it["summary"] = fixed
     return filled
+
+
+def _sidecar_is_ai(path: str) -> bool:
+    try:
+        with open(path, "r", encoding="utf-8") as f:
+            gen = (json.load(f) or {}).get("generated_by")
+        return bool(gen) and gen != "fallback"
+    except Exception:
+        return False
 
 
 def _new_daily_enrich_budget() -> Dict[str, int]:
@@ -1594,6 +1604,8 @@ def main():
         summarizer.provider = build_provider_extended('localkimi', 'dummy_key')
     elif api_key:
         summarizer = AISummarizer(provider, api_key)
+        # 套熔断：网关整体不可用时，逐天逐块的调用都要等完整重试（见 ai_breaker）
+        summarizer.provider = with_breaker(summarizer.provider)
     else:
         summarizer = None
 
@@ -1748,8 +1760,14 @@ def main():
                     summary["rerender_ok"] = summary["quality_ok"] and not preserved_page
                     print(f"📋 daily quality {day_str}: {quality} "
                           f"(ok={summary['quality_ok']}, rerender_ok={summary['rerender_ok']})")
-                    with open(os.path.join("data", f"daily_summary_{day_str}.json"), "w", encoding="utf-8") as sf:
-                        json.dump(summary, sf, ensure_ascii=False)
+                    sidecar_path = os.path.join("data", f"daily_summary_{day_str}.json")
+                    if preserved_page and _sidecar_is_ai(sidecar_path):
+                        # 已有 AI 版 sidecar 时，兜底版不覆盖它：周报按链接复用其中的编辑式标题/导读/
+                        # 关联启发，邮件也读它。此前 --force 回填遇上 AI 故障，会把好数据换成兜底版。
+                        print(f"⏭️ {day_str}: 已有 AI 版 sidecar，兜底 summary 不覆盖")
+                    else:
+                        with open(sidecar_path, "w", encoding="utf-8") as sf:
+                            json.dump(summary, sf, ensure_ascii=False)
                 except Exception as e:
                     print(f"⚠️ daily summary sidecar skip {day_str}: {e}")
 

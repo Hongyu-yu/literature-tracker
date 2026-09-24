@@ -167,3 +167,43 @@ def main() -> int:
 
 if __name__ == "__main__":
     raise SystemExit(main())
+
+
+def _seed(tmp, *, page_generated_by, sidecar=None):
+    os.makedirs(os.path.join(tmp, "docs/daily"), exist_ok=True)
+    os.makedirs(os.path.join(tmp, "data"), exist_ok=True)
+    with open(os.path.join(tmp, "docs/daily", "summaries.json"), "w", encoding="utf-8") as f:
+        json.dump({"summaries": [{"date": DAY, "file": f"{DAY}.html", "total": 1,
+                                  "digest": "old", "generated_by": page_generated_by}]}, f)
+    if sidecar is not None:
+        with open(os.path.join(tmp, "data", f"daily_summary_{DAY}.json"), "w", encoding="utf-8") as f:
+            json.dump(sidecar, f, ensure_ascii=False)
+
+
+def test_fallback_does_not_overwrite_an_existing_ai_sidecar():
+    """--force 回填遇上 AI 故障：AI 版页面保留，AI 版 sidecar 也必须保留。
+
+    周报按链接复用 sidecar 里的编辑式标题/导读/关联启发，邮件也读它；
+    此前兜底版会把它整份换掉。"""
+    tmp = tempfile.mkdtemp()
+    try:
+        ai_sidecar = {"generated_by": "aigw", "full_list": [{"link": "x", "headline_zh": "AI 写的标题"}]}
+        _seed(tmp, page_generated_by="aigw", sidecar=ai_sidecar)
+        sidecar, page = _run_generation(tmp)
+        assert page == "旧的好页面"
+        assert sidecar == ai_sidecar, "AI 版 sidecar 被兜底版覆盖了"
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
+
+
+def test_fallback_page_is_replaced_by_a_newer_fallback_page():
+    """既有页面本身就是兜底版（09-16 起连续多天、且没有中文摘要）：新的兜底版带机翻中文，照常覆盖。"""
+    tmp = tempfile.mkdtemp()
+    try:
+        _seed(tmp, page_generated_by="fallback", sidecar={"generated_by": "fallback", "full_list": []})
+        with mock.patch.object(generate_daily_pages, "_guarantee_daily_zh", return_value=0):
+            sidecar, page = _run_generation(tmp, existing_page="旧的兜底页面")
+        assert page != "旧的兜底页面", "兜底版旧页面应被新的兜底版替换"
+        assert sidecar and sidecar.get("full_list"), "兜底 sidecar 应被新版替换"
+    finally:
+        shutil.rmtree(tmp, ignore_errors=True)
