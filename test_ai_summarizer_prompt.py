@@ -103,3 +103,13 @@ if __name__ == "__main__":
     for _fn in sorted(k for k in dir() if k.startswith("test_")):
         globals()[_fn](); print(f"✓ {_fn}")
     print("OK")
+
+
+def test_daily_prompt_feeds_late_abstract_claims_and_strips_prefix():
+    """导读要写强结论的限定条件，这类结论常在摘要后半段 —— 喂给模型的摘要放宽到 1500 字符。"""
+    body = "x" * 900 + " ultimately exceed the DMRG accuracy."
+    arts = [{"title": "T", "journal": "arXiv", "authors": ["A"],
+             "abstract": "arXiv:2609.22342v1 Announce Type: new Abstract: " + body}]
+    prompt = _make_summarizer()._build_prompt(arts, "2026-01-01")
+    assert "exceed the DMRG accuracy" in prompt
+    assert "Announce Type" not in prompt

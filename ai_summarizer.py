@@ -26,6 +26,7 @@ except ImportError:
     repair_json = None
 
 from research_context import build_direction_note, ensure_relation_fields, load_research_profile, profile_direction_digest
+from text_normalizer import strip_announce_prefix
 
 
 def _clamp_text(text: str, max_chars: int) -> str:
@@ -674,7 +675,10 @@ class AISummarizer:
             else:
                 authors = str(authors or "")
 
-            abstract = (article.get('abstract', ''))[:600]
+            # 600 → 1500：导读要写出强结论的比较口径与限定条件，而「超过 DMRG」「首次」这类结论
+            # 通常在摘要后半段（范例 2609.22342 的 DMRG / N₂ / I₂ 结果从第 800 字符起），截在 600
+            # 模型根本看不到。公告前缀先剥掉，不占预算。
+            abstract = strip_announce_prefix(article.get('abstract', ''))[:1500]
             # 不在提示词里给链接，防止 AI 试图复述链接导致出错
             # 仅给序号、标题、期刊、作者、摘要
             articles_text.append(
