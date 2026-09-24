@@ -11,6 +11,14 @@ on:
         description: "Force regenerate (ignore digest cache)"
         required: false
         default: "true"
+      allow_fallback:
+        # 默认 false：回填只接受 AI 生成的日报，AI 失败就保留旧页面（一天最多等 1 小时）。
+        # AI 网关长时间不可用时（如 2026-09 的 503），设为 true：不等 AI，直接用兜底版
+        # 重建页面 —— 兜底版现在带机器翻译的中文标题/摘要，好过旧的无中文页面；
+        # 已有的 AI 版页面不会被兜底版覆盖（generate_daily_pages 按 generated_by 判断）。
+        description: "AI 不可用时也重建（用机翻兜底，不等 AI）"
+        required: false
+        default: "false"
 
 permissions:
   contents: write
@@ -64,10 +72,10 @@ jobs:
           AI_CROSS_DAILY_MAX: ${{ vars.AI_CROSS_DAILY_MAX || '60' }}
           DAILY_MAX_KEEP: ${{ vars.DAILY_MAX_KEEP || '72' }}
           AI_DAILY_MAX_PER_CALL: "20"
-          AI_DAILY_WAIT_MAX_SECONDS: "3600"
+          AI_DAILY_WAIT_MAX_SECONDS: ${{ inputs.allow_fallback == 'true' && '0' || '3600' }}
           AI_DAILY_WAIT_BASE_SECONDS: "20"
           AI_DAILY_WAIT_MAX_SLEEP_SECONDS: "300"
-          AI_DAILY_NO_FALLBACK: "1"
+          AI_DAILY_NO_FALLBACK: ${{ inputs.allow_fallback == 'true' && '0' || '1' }}
           FORCE_MODE: ${{ inputs.force }}
           DAYS: ${{ inputs.days }}
         # dispatch 输入经 env 传入，避免把用户输入拼进 shell 命令
