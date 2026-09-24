@@ -28,7 +28,8 @@ def _summary():
 def test_build_daily_email_html_contains_highlight_links_poster_and_subject():
     subject, html = daily_email.build_daily_email_html(_summary(), DAY, SITE)
     assert subject == f"📚 每日文献日报 · {DAY}"
-    assert "💡 亮点" in html and "该工作构建神经网络势" in html
+    # 2026-09-24 起按单篇范例版式：「亮点」改名「导读」
+    assert "💡 导读" in html and "该工作构建神经网络势" in html
     assert f'{SITE}/daily/{DAY}.html' in html
     assert f'{SITE}/images/posters/ax123.webp' in html
     # 芯片从恒定的 P1/P2/P3（实测线上每张卡片都是 P1，零信息量）换成交叉相关度
@@ -301,7 +302,8 @@ def test_cards_explain_why_each_paper_is_relevant():
         _cross_item(cross_reason="等变神经网络势用于铁电钙钛矿的极化翻转模拟"),
     ]}
     _, html = daily_email.build_daily_email_html(summary, DAY, SITE)
-    assert "🎯 为什么相关" in html
+    # 「为什么相关」并入「与我们工作的关联与启发」的「关联」一行
+    assert "与我们工作的关联与启发" in html and "关联：" in html
     assert "等变神经网络势用于铁电钙钛矿的极化翻转模拟" in html
 
 
@@ -364,3 +366,21 @@ def test_aps_deep_read_stays_in_the_cards_even_without_ai_content():
     assert html.count("阅读原文") == 2
     assert html.index("APS 全文精读文章") < html.index("面向铁电钙钛矿的机器学习原子间势")
 
+
+
+def test_email_card_follows_single_paper_layout():
+    """用户给的范例：编辑式标题 → 原题 → 作者、来源、日期 → 导读 → 中文摘要翻译 → 关联与启发。"""
+    item = _cross_item(
+        headline_zh="神经网络量子态：训练瓶颈可能出在梯度估计",
+        authors=["Yi-Ran Xue", "Rui Wang"], pub_date="2026-09-16",
+        one_sentence_summary="这篇与 ML 加多体的兴趣直接相关。作者指出训练难源于梯度噪声。",
+        abstract_zh_full="我们提出无偏直接估计器。",
+        me_reason="与多体求解器方向直接相关。",
+        implication="可移植到自旋-晶格耦合模型。",
+    )
+    _, html = daily_email.build_daily_email_html({"overview": "o", "full_list": [item]}, DAY, SITE)
+    order = ["神经网络量子态：训练瓶颈可能出在梯度估计", "原题：", "作者：Yi-Ran Xue、Rui Wang。",
+             "💡 导读", "📄 摘要（中文翻译）", "与我们工作的关联与启发", "关联：", "启发：", "阅读原文"]
+    pos = [html.find(x) for x in order]
+    assert all(p >= 0 for p in pos), [x for x, p in zip(order, pos) if p < 0]
+    assert pos == sorted(pos)

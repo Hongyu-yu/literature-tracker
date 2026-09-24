@@ -6,6 +6,7 @@
 import os
 import sys
 import json
+import re
 import requests
 import html
 from urllib.parse import urlparse
@@ -16,7 +17,8 @@ from author_utils import authors_label as format_authors_label
 from abstract_scraper import AbstractScraper
 from text_normalizer import normalize_articles_inplace, normalize_text, strip_announce_prefix
 from ai_breaker import with_breaker
-from research_context import work_and_relation
+from link_utils import normalize_link
+from research_context import byline_parts, card_sections
 from translator import translate_text
 from zh_enricher import needs_abstract_zh, needs_title_zh
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -87,23 +89,25 @@ _ABSTRACT_TEASER_CHARS = 220
 
 
 def _weekly_meta_chips(item: Dict, extra: Optional[List[str]] = None) -> str:
-    """期刊 / 作者 / 日期 三件套，与日报 render_meta_chips 对齐。"""
-    parts = []
+    """「作者：A、B、C。期刊，日期（入库）」一行文字 + 标签（范例版式，与日报卡片一致）。"""
+    bp = byline_parts(item)
     journal = str(item.get('journal') or '').strip()
     if journal:
         # 显示规范期刊名，而不是原始 feed 标题：
         # 'Wiley: Advanced Science: Table of Contents' → 'Advanced Science'。
-        # 归一化函数早就有（顶刊闸门一直在用），只是展示这一侧没接。
-        parts.append(f"<span class='weekly-chip weekly-chip-journal'>📚 "
-                     f"{_safe_text(WeeklySummarizer._canonical_journal(journal) or journal)}</span>")
-    authors = format_authors_label(item.get('authors'), max_names=4)
-    if authors:
-        parts.append(f"<span class='weekly-chip weekly-chip-authors'>👤 {_safe_text(authors)}</span>")
-    pub_date = str(item.get('pub_date') or item.get('date') or '').strip()
-    if pub_date:
-        parts.append(f"<span class='weekly-chip'>📅 {_safe_text(pub_date)}</span>")
-    parts.extend(extra or [])
-    return "".join(parts)
+        canonical = WeeklySummarizer._canonical_journal(journal) or journal
+        bp["source"] = bp["source"].replace(journal, canonical, 1) if bp["source"] else canonical
+    segs = []
+    if bp["authors"]:
+        segs.append(f"<span class='weekly-byline-authors'>作者：{_safe_text(bp['authors'])}。</span>")
+    src = "，".join(x for x in (bp["source"], bp["date"] or str(item.get('date') or '')) if x)
+    if bp["fetched"]:
+        src += f"（{bp['fetched']}）"
+    if src:
+        segs.append(f"<span class='weekly-byline-source'>{_safe_text(src)}</span>")
+    byline = f"<div class='weekly-byline'>{''.join(segs)}</div>" if segs else ""
+    chips = "".join(extra or [])
+    return byline + (f"<div class='weekly-chip-row'>{chips}</div>" if chips else "")
 
 
 def _weekly_relevance_html(item: Dict) -> str:
@@ -125,6 +129,68 @@ def _weekly_relevance_html(item: Dict) -> str:
             f"{meter('方向匹配', me, 'is-me')}</div>")
 
 
+# 日报 AI 已经为每篇写好的字段：周报直接复用（按链接对上），不再为同一篇论文花第二次 AI。
+_DAILY_REUSE_FIELDS = (
+    "headline_zh", "title_zh", "abstract_zh", "abstract_zh_full", "summary",
+    "related_work", "implication", "me_reason", "cross_reason", "cross_score", "me_score",
+    "fetch_time",
+)
+
+
+_ARXIV_VERSION_RE = re.compile(r"(arxiv\.org/(?:abs|pdf)/[^/?#]+?)v\d+$")
+
+
+def _paper_key(link: str) -> str:
+    """同一篇在日报与索引里的链接可能差 http/https、末尾斜杠、arXiv 版本号。"""
+    s = normalize_link(link).strip().lower().rstrip("/")
+    s = s.replace("http://", "https://", 1)
+    return _ARXIV_VERSION_RE.sub(r"\1", s)
+
+
+def _merge_daily_fields(articles: List[Dict], week_start: str, week_end: str,
+                        data_dir: str = "data") -> int:
+    """把 data/daily_summary_<日>.json 里同一篇论文的 AI 字段补进周报条目（只补空字段）。
+
+    周报从 index.json 取文，那里没有编辑式标题、导读、关联与启发 —— 这些只在日报 AI
+    产出的 sidecar 里。日报按抓取日归档，比 pub_date 晚一两天很常见，所以窗口往后多看 3 天。
+    返回补到字段的条目数。fail-soft：sidecar 缺失/损坏直接跳过。
+    """
+    try:
+        start = datetime.strptime(week_start, "%Y-%m-%d")
+        end = datetime.strptime(week_end, "%Y-%m-%d") + timedelta(days=3)
+    except (TypeError, ValueError):
+        return 0
+    by_link: Dict[str, Dict] = {}
+    day = start
+    while day <= end:
+        path = os.path.join(data_dir, f"daily_summary_{day.strftime('%Y-%m-%d')}.json")
+        day += timedelta(days=1)
+        try:
+            with open(path, "r", encoding="utf-8") as f:
+                rows = (json.load(f) or {}).get("full_list") or []
+        except Exception:
+            continue
+        for row in rows:
+            if isinstance(row, dict) and row.get("link"):
+                by_link.setdefault(_paper_key(row["link"]), row)
+    merged = 0
+    for a in articles or []:
+        if not isinstance(a, dict) or not a.get("link"):
+            continue
+        row = by_link.get(_paper_key(a["link"]))
+        if not row:
+            continue
+        changed = False
+        for key in _DAILY_REUSE_FIELDS:
+            value = row.get(key)
+            if value in (None, "", []) or a.get(key) not in (None, "", []):
+                continue
+            a[key] = value
+            changed = True
+        merged += changed
+    return merged
+
+
 def _weekly_full_cards_limit() -> int:
     """每个专题最多多少篇完整卡片（env WEEKLY_FULL_CARDS，默认 40；0 = 不限）。"""
     try:
@@ -134,21 +200,23 @@ def _weekly_full_cards_limit() -> int:
     return value if value > 0 else 10 ** 9
 
 
-def _weekly_relation_html(item: Dict) -> str:
-    """「🔬 与我们研究方向的关系」：最多两段 —— 这项工作做了什么 + 与我们的关系。
+def _weekly_lede_html(item: Dict) -> str:
+    """💡 导读：日报 AI 写的导读（周报复用）→ 周报逐篇 AI 解读 → focus_summary。"""
+    lede = card_sections(item)["lede"]
+    return f"<p class='weekly-lede'><strong>💡 导读：</strong>{_safe_text(lede)}</p>" if lede else ""
 
-    与日报共用 research_context.work_and_relation：做了什么优先取 AI 亮点 / 周报逐篇
-    AI 解读；关系取 me_reason → cross_reason → focus_relation → related_work 的前两句。
-    此前核心区块是 方法要点 / 相关工作 / 启示 三大段，外加一行「为什么相关」。"""
-    work, relation = work_and_relation(item)
-    if not (work or relation):
-        return ""
+
+def _weekly_relation_html(item: Dict) -> str:
+    """「🔗 与我们工作的关联与启发」：关联 + 启发，由已有字段组合（与日报、邮件同一套取法）。"""
+    sec = card_sections(item)
     parts = []
-    if work:
-        parts.append(f"<p><strong>这项工作做了什么：</strong>{_safe_text(work)}</p>")
-    if relation:
-        parts.append(f"<p><strong>与我们的关系：</strong>{_safe_text(relation)}</p>")
-    return (f"<div class='weekly-relation'><div class='weekly-relation-head'>🔬 与我们研究方向的关系</div>"
+    if sec["relation"]:
+        parts.append(f"<p><strong>关联：</strong>{_safe_text(sec['relation'])}</p>")
+    if sec["inspiration"]:
+        parts.append(f"<p><strong>启发：</strong>{_safe_text(sec['inspiration'])}</p>")
+    if not parts:
+        return ""
+    return (f"<div class='weekly-relation'><div class='weekly-relation-head'>🔗 与我们工作的关联与启发</div>"
             f"{''.join(parts)}</div>")
 
 
@@ -171,7 +239,8 @@ def _weekly_abstract_html(item: Dict, anchor: str) -> Tuple[str, str, str]:
     teaser = teaser_src[:_ABSTRACT_TEASER_CHARS].rstrip()
     if len(teaser_src) > _ABSTRACT_TEASER_CHARS:
         teaser += "…"
-    teaser_html = f"<p class='weekly-abstract-teaser'><strong>📄 摘要：</strong>{_safe_text(teaser)}</p>"
+    label = "📄 摘要（中文翻译）：" if zh else "📄 摘要："
+    teaser_html = f"<p class='weekly-abstract-teaser'><strong>{label}</strong>{_safe_text(teaser)}</p>"
     blocks = []
     if zh:
         blocks.append("<div class='weekly-abstract-block'><div class='weekly-abstract-label'>中文摘要</div>"
@@ -187,17 +256,17 @@ def _weekly_abstract_html(item: Dict, anchor: str) -> Tuple[str, str, str]:
 
 
 def _weekly_titles(item: Dict) -> Tuple[str, str]:
-    """(展示标题, 英文副标题 HTML)。中文优先——核心区块此前直接取 title，
-    而 title 在缺中文翻译时就是英文原标题，于是整块变成英文。"""
+    """(展示标题, 原题 HTML)。编辑式标题 headline_zh 优先，其次中文译名，最后英文原题。"""
+    headline = card_sections(item)["headline"]
     zh = str(item.get('title_zh') or '').strip()
     en = str(item.get('title_en') or item.get('title') or '').strip()
     if not zh:
         # core_items 的 'title' 字段构造时已是"中文优先"，但可能等于英文
         cand = str(item.get('title') or '').strip()
         zh = cand if cand and cand.casefold() != en.casefold() else ""
-    display = zh or en or '未命名文献'
-    sub = (f"<div class='weekly-paper-title-en'>{_safe_text(en)}</div>"
-           if zh and en and zh.casefold() != en.casefold() else "")
+    display = headline or zh or en or '未命名文献'
+    sub = (f"<div class='weekly-paper-title-en'>原题：{_safe_text(en)}</div>"
+           if en and display.casefold() != en.casefold() else "")
     return _safe_text(display), sub
 
 
@@ -233,6 +302,7 @@ def render_core_weekly_section(summary: Dict) -> str:
             {title_en_html}
             <div class="weekly-core-meta">{meta_html}</div>
             {_weekly_relevance_html(it)}
+            {_weekly_lede_html(it)}
             {teaser_html}
             {_weekly_relation_html(it)}
             <div class="weekly-core-actions">{toggle_html}<a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
@@ -318,6 +388,7 @@ def render_focus_weekly_section(articles: List[Dict]) -> str:
             {title_en_html}
             <div class="weekly-focus-meta">{meta_html}</div>
             {_weekly_relevance_html(it)}
+            {_weekly_lede_html(it)}
             {teaser_html}
             {deep}
             <div class="weekly-core-actions">{toggle_html}<a href="{_u(link)}" target="_blank" rel="noopener noreferrer">阅读原文 ↗</a></div>
@@ -1004,6 +1075,10 @@ class WeeklySummarizer:
             empty['focus_articles'] = focus_articles
             return empty
 
+        n_reused = _merge_daily_fields(all_articles + focus_articles, week_start, week_end)
+        if n_reused:
+            print(f"♻️ 复用日报 AI 字段（编辑式标题/导读/关联与启发）: {n_reused} 篇")
+
         # 增强摘要：为所有文章爬取完整摘要并翻译（并行处理）
         print(f"\n📄 正在增强 {len(all_articles)} 篇文章的摘要...")
         
@@ -1239,6 +1314,11 @@ class WeeklySummarizer:
                 core_items_enriched.append({
                     "title": a.get("title_zh") or a.get("title", ""),
                     "title_zh": a.get("title_zh", ""),
+                    "headline_zh": a.get("headline_zh", ""),
+                    "summary": a.get("summary", ""),
+                    "ai_analysis": a.get("ai_analysis", ""),
+                    "fetch_time": a.get("fetch_time", ""),
+                    "arxiv_category": a.get("arxiv_category", ""),
                     "title_en": a.get("title", ""),
                     "link": a.get("link", ""),
                     "journal": a.get("journal", ""),
@@ -1248,8 +1328,8 @@ class WeeklySummarizer:
                     "abstract_zh": a.get("abstract_zh", ""),
                     "abstract_zh_full": a.get("abstract_zh_full", ""),
                     "method_point": info.get("method_point", ""),
-                    "related_work": info.get("related_work", ""),
-                    "implication": info.get("implication", ""),
+                    "related_work": info.get("related_work", "") or a.get("related_work", ""),
+                    "implication": info.get("implication", "") or a.get("implication", ""),
                     "core_score": _cs(a),
                     "cross_score": a.get("cross_score"),
                     "cross_reason": a.get("cross_reason", ""),
@@ -1628,6 +1708,7 @@ class WeeklySummarizer:
                     </div>
                     <div class="weekly-paper-meta">{meta_html}</div>
                     {_weekly_relevance_html(article)}
+                    {_weekly_lede_html(article)}
                     {teaser_html}
                     {_weekly_relation_html(article)}
                     <div class="weekly-paper-actions">
@@ -2393,6 +2474,13 @@ class WeeklySummarizer:
         /* 「与我们研究方向的关系」：最多两段，与日报一致 */
         .weekly-relation {{ margin:10px 0 0; padding:12px 14px; border-radius:14px; background:rgba(99,102,241,.06);
             border-left:3px solid var(--accent-primary); line-height:1.75; font-size:.93rem; }}
+        .weekly-core-meta, .weekly-focus-meta, .weekly-paper-meta {{ display:block; }}
+        .weekly-byline {{ color:var(--text-muted); font-size:.85rem; line-height:1.6; margin:6px 0 4px; }}
+        .weekly-byline-authors {{ color:var(--text-secondary); }}
+        .weekly-chip-row {{ display:flex; flex-wrap:wrap; gap:6px; margin:4px 0 6px; }}
+        .weekly-lede {{ margin:8px 0 0; line-height:1.8; color:var(--text-primary); }}
+        .weekly-lede strong {{ color:#b45309; }}
+        [data-theme="dark"] .weekly-lede strong {{ color:#fbbf24; }}
         .weekly-relation-head {{ font-weight:700; color:var(--accent-primary); font-size:.86rem; margin-bottom:4px; }}
         .weekly-relation p {{ margin:0; }}
         .weekly-relation p + p {{ margin-top:6px; }}

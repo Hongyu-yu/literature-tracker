@@ -16,7 +16,10 @@ from focus_core import classify_taxonomy, priority_tier
 from focus_filter import focus_priority
 from cross_relevance import effective_cross_score, is_cross_item
 from link_utils import normalize_link
-from research_context import pick_summary
+from research_context import byline_parts, card_sections, pick_summary
+from text_normalizer import strip_announce_prefix
+
+_CJK_RE = re.compile(r"[\u4e00-\u9fff]")
 
 
 DEFAULT_SITE_BASE = "https://hongyu-yu.github.io/literature-tracker"
@@ -112,8 +115,23 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
     cards = []
     posters = 0
     for item in main_items[:item_max]:
-        title = escape(str(item.get("title_zh") or item.get("title") or item.get("title_en") or "未命名文献"))
-        highlight = escape(pick_summary(item))
+        # 版式与日报网页卡片一致（用户给的单篇范例）：
+        # 编辑式标题 → 原题 → 作者、来源、日期 → 导读 → 中文摘要翻译 → 与我们工作的关联与启发
+        sec = card_sections(item)
+        title_en = str(item.get("title_en") or item.get("title") or "").strip()
+        main_title = sec["headline"] or str(item.get("title_zh") or "").strip() or title_en or "未命名文献"
+        title = escape(main_title)
+        orig_html = (f'<p style="color:#6b7280;font-size:13px;margin:0 0 4px">原题：{escape(title_en)}</p>'
+                     if title_en and title_en.casefold() != main_title.casefold() else "")
+        bp = byline_parts(item)
+        src = "，".join(x for x in (bp["source"], bp["date"]) if x) + (f'（{bp["fetched"]}）' if bp["fetched"] else "")
+        byline = "".join(x for x in ((f'作者：{bp["authors"]}。' if bp["authors"] else ""), src) if x)
+        byline_html = (f'<p style="color:#6b7280;font-size:13px;margin:0 0 10px">{escape(byline)}</p>'
+                       if byline else "")
+        full_zh = strip_announce_prefix(item.get("abstract_zh_full") or item.get("abstract_zh") or "")
+        if not _CJK_RE.search(full_zh):
+            full_zh = ""
+        lede = sec["lede"] or ("" if full_zh else pick_summary(item))
         link = _safe_url(item.get("link"))
         category = escape(classify_taxonomy(item))
         score = effective_cross_score(item)
@@ -122,20 +140,27 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
         if image and posters < poster_max:
             posters += 1
             image_html = f'<a href="{link}"><img src="{image}" width="520" alt="{title} 海报" style="max-width:100%;height:auto;border-radius:10px"></a>'
-        # 「为什么和你相关」。me_reason 排最前：它说的是"与你本人研究画像的哪个方向
-        # 对得上"，比 cross_reason（交叉点落在哪）更贴题。两者由同一次 LLM 调用产出。
-        # 都没有时退回 focus_relation —— 那个字段一直存在、质量很好，却从没露过面。
-        reason = str(item.get("me_reason") or item.get("cross_reason")
-                     or item.get("focus_relation") or "").strip()
+        lede_html = (f'<p style="line-height:1.75;margin:10px 0"><strong style="color:#b45309">💡 导读：</strong>'
+                     f'{escape(lede)}</p>') if lede else ""
+        abstract_html = (f'<p style="line-height:1.7;color:#4b5563;font-size:14px;margin:10px 0">'
+                         f'<strong>📄 摘要（中文翻译）：</strong>{escape(full_zh)}</p>') if full_zh else ""
+        # 关联：me_reason → cross_reason → focus_relation → related_work；启发：implication
+        # （card_sections 统一取，规则模板套话不展示）
+        rel_rows = []
+        if sec["relation"]:
+            rel_rows.append(f'<div><strong>关联：</strong>{escape(sec["relation"])}</div>')
+        if sec["inspiration"]:
+            rel_rows.append(f'<div style="margin-top:4px"><strong>启发：</strong>{escape(sec["inspiration"])}</div>')
         reason_html = (
-            f'<p style="line-height:1.7;color:#3730a3;background:#eef2ff;padding:10px 12px;'
-            f'border-radius:8px;margin:10px 0"><strong>🎯 为什么相关：</strong>{escape(reason)}</p>'
-        ) if reason else ""
+            '<div style="line-height:1.7;color:#3730a3;background:#eef2ff;padding:10px 12px;'
+            'border-radius:8px;margin:10px 0"><div style="font-weight:700;margin-bottom:4px">'
+            f'🔗 与我们工作的关联与启发</div>{"".join(rel_rows)}</div>'
+        ) if rel_rows else ""
         cards.append(
             '<div style="border:1px solid #e5e7eb;border-radius:12px;padding:16px;margin:14px 0">'
             f'<span style="color:#4f46e5;font-weight:700">相关度 {score:.0f}/10 · {category}</span>'
-            f'<h2 style="font-size:17px;margin:8px 0">{title}</h2>{image_html}'
-            f'<p style="line-height:1.7"><strong>💡 亮点：</strong>{highlight}</p>{reason_html}'
+            f'<h2 style="font-size:17px;margin:8px 0 4px">{title}</h2>{orig_html}{byline_html}{image_html}'
+            f'{lede_html}{abstract_html}{reason_html}'
             f'<a href="{link}" style="color:#4f46e5">阅读原文 →</a></div>'
         )
     content = "".join(cards) if cards else '<p style="padding:20px">今日暂无目标方向文献。</p>'
@@ -159,7 +184,11 @@ def build_daily_email_html(summary: Dict[str, Any], day_str: str, site_base: str
             f'<ul style="padding-left:20px;margin:0">{rows}</ul>{more}</div>'
         )
 
-    overview = escape(str((summary or {}).get("overview") or f"今日收录 {len(items)} 篇重点文献。"))
+    overview_raw = str((summary or {}).get("overview") or f"今日收录 {len(items)} 篇重点文献。")
+    if (summary or {}).get("generated_by") == "fallback":
+        # AI 没跑成的日子 overview 是 fallback_summary 的固定句子（每天一字不差），不如直说
+        overview_raw = "AI 摘要服务今日不可用，中文标题与摘要为机器翻译。"
+    overview = escape(overview_raw)
     n_cross = len(main_items)
     tally = (f"共 {len(items)} 篇，今日没有 AI×科学交叉方向的文献，先列前 {n_cross} 篇"
              if promoted else

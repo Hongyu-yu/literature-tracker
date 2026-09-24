@@ -100,7 +100,8 @@ _SCIENCE_TITLE_TERMS: Tuple[str, ...] = (
     'materials', 'material propert', 'atomistic', 'atomic', 'cluster expansion',
     # —— 计算方法（作为研究对象出现在标题时才算科学侧）——
     'dft', 'density functional', 'ab initio', 'first-principles', 'first principles',
-    'molecular dynamics', 'monte carlo', 'phase field', 'interatomic potential',
+    # 不收裸词 'monte carlo'：RL / 金融里的「Monte-Carlo planning / tree search」同样写它
+    'molecular dynamics', 'kinetic monte carlo', 'phase field', 'interatomic potential',
     'electronic structure', 'band structure', 'hamiltonian', 'free energy', 'force field',
     'potential energy surface',
     # —— 中文 ——
@@ -127,7 +128,20 @@ _QUANTUM_COMPUTING_TERMS: Tuple[str, ...] = (
 )
 
 
+def _with_dehyphenated(text: str) -> str:
+    """原文 + 把连字符换成空格的一份，两份一起匹配。
+
+    标题常写 'neural-network-based'、'machine-learned'，词表里是 'neural network'；
+    反过来词表里的 'many-body'、'first-principles' 又要匹配带连字符的原文。
+    2026-09-22 的「Gradient-estimator design … neural-network-based variational optimization」
+    （神经网络量子态，正中 ML×多体方向）就因为这个拿不到标题级 AI 信号，排进最低档，
+    在 469 → 72 的截断里被丢掉。
+    """
+    return f"{text} \n {text.replace('-', ' ')}"
+
+
 def _science_title_hit(title_text: str) -> bool:
+    title_text = _with_dehyphenated(title_text)
     for phrase in _SCIENCE_FALSE_FRIENDS + _QUANTUM_COMPUTING_TERMS:
         title_text = title_text.replace(phrase, " ")
     return _has_any(title_text, _SCIENCE_TITLE_TERMS)
@@ -141,7 +155,7 @@ _ABSTRACT_SCIENCE_MIN_HITS = 3
 
 
 def _science_abstract_hits(item: Mapping[str, Any]) -> int:
-    text = _normalize_text(strip_announce_prefix(item.get("abstract") or ""))
+    text = _with_dehyphenated(_normalize_text(strip_announce_prefix(item.get("abstract") or "")))
     for phrase in _SCIENCE_FALSE_FRIENDS + _QUANTUM_COMPUTING_TERMS:
         text = text.replace(phrase, " ")
     found = [t for t in _SCIENCE_TITLE_TERMS if t in text]
@@ -150,7 +164,7 @@ def _science_abstract_hits(item: Mapping[str, Any]) -> int:
 
 
 def _is_quantum_computing_title(title_text: str) -> bool:
-    return _has_any(title_text, _QUANTUM_COMPUTING_TERMS)
+    return _has_any(_with_dehyphenated(title_text), _QUANTUM_COMPUTING_TERMS)
 
 
 DEFAULT_PROFILE_PATH = "data/focus_interests.json"
@@ -339,7 +353,7 @@ def cross_signals(item: Mapping[str, Any]) -> Dict[str, Any]:
     """交叉判定用到的全部派生信号。纯函数，不修改输入。"""
     signals = analyze_focus(item)
     title_text = _title_text(item)
-    ai_in_title = _has_any(title_text, _AI_TITLE_TERMS)
+    ai_in_title = _has_any(_with_dehyphenated(title_text), _AI_TITLE_TERMS)
     science_in_title = _science_title_hit(title_text)
     side = ""
     for label, key in _SIDE_SIGNALS:

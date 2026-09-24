@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """AI 日报 prompt 字数要求与 clamp 阈值回归（stdlib-only, 无网络）。
-确保：摘要 ≤200 字、亮点 3~5 句 ≤250 字、深度三字段 ≤150 字的硬性要求写进 prompt；
+确保：摘要 ≤200 字、导读 4~6 句 ≤320 字（原亮点 3~5 句 ≤250 字）、深度三字段 ≤150 字的硬性要求写进 prompt；
 clamp 阈值放行新长度（否则 AI 写够了也会被截断）。"""
 from ai_summarizer import AISummarizer, _clamp_text
 
@@ -25,7 +25,10 @@ def test_daily_prompt_requires_longer_abstract_and_highlight():
     prompt = _make_summarizer()._build_prompt(_ARTS, "2026-01-01")
     assert "≤200" in prompt, "abstract_zh 应要求 ≤200 字"
     assert "3~5" in prompt, "one_sentence_summary 应要求 3~5 句"
-    assert "≤250" in prompt, "亮点应要求 ≤250 字"
+    # 2026-09-24 亮点改为用户范例式导读（相关性 + 洞见 + 做法 + 结果 + 结论适用范围 + 定位），
+    # 上限从 ≤250 放宽到 ≤320；本断言的本意是「不许回退到过短的上限」。
+    assert "≤320" in prompt, "导读应要求 ≤320 字"
+    assert "headline_zh" in prompt and "适用范围" in prompt
     # 旧的过短上限不应再出现在硬性要求里
     assert "≤120 字" not in prompt and "≤40 字" not in prompt and "≤100" not in prompt
 

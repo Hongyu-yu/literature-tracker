@@ -29,12 +29,11 @@ def main() -> int:
     assert "Test English Title" in html
     assert "测试中文标题" in html
     assert "测试中文一句话总结" in html
-    assert "与我们研究方向的关系" in html
-    # 2026-09-24 起关系块收成两段：「这项工作做了什么」+「与我们的关系」（不再有「方法要点」三大段）
-    assert "这项工作做了什么" in html
+    # 2026-09-24 起按范例版式：导读 + 中文摘要翻译 + 「与我们工作的关联与启发」
+    assert "💡 导读" in html
     assert "https://example.com/paper" in html
     assert "arXiv" in html
-    assert "Alice Smith, Bob Jones, Carol Chen" in html
+    assert "Alice Smith、Bob Jones、Carol Chen" in html   # 范例格式：作者用顿号分隔
     assert "AI × Science 文献日报" in html
     assert 'application/rss+xml' in html
     assert '2026-03-15.xml' in html
@@ -83,7 +82,7 @@ def main() -> int:
         print('FAIL: missing core-focus section when core_items present'); return 1
     if '核心关注（ML' not in html_core:
         print('FAIL: missing core heading'); return 1
-    # 核心区改为紧凑清单：一句「做了什么」(summary) + 一句关系(related_work)，完整内容在下方卡片
+    # 核心区改为紧凑清单：一句导读(summary) + 一句关联(related_work)，完整内容在下方卡片
     if '一句话总结' not in html_core or 'NequIP/Allegro' not in html_core:
         print('FAIL: missing core work/relation lines'); return 1
 
@@ -140,12 +139,13 @@ def test_daily_html_prefers_full_translation_and_renders_relation():
     })
     assert "完整中文翻译优先" in html
     assert "浓缩摘要" not in html
-    # 「与我们研究方向的关系」2026-09-24 起收成两段（用户反馈三大段太长）：
-    # ① 这项工作做了什么 —— 取 AI 亮点(summary)；② 与我们的关系 —— 取 related_work 前两句。
-    # 条目**自身**的文本仍原样渲染（不被模板顶掉）；implication 不再逐篇展示。
-    assert "这项工作做了什么" in html and "中文亮点" in html
-    assert "与我们的关系" in html and "关联关系" in html
-    assert "启示关系" not in html
+    # 2026-09-24 起按用户给的单篇范例排版：导读（AI 亮点 summary）+ 中文摘要翻译
+    # + 「与我们工作的关联与启发」（related_work → 关联、implication → 启发，各取前两句）。
+    # 条目**自身**的文本原样渲染（不被模板顶掉）；method_point 不再逐篇展示（导读已覆盖）。
+    assert "💡 导读" in html and "中文亮点" in html
+    assert "与我们工作的关联与启发" in html
+    assert "关联关系" in html and "启示关系" in html
+    assert "方法关系" not in html
 
 
 def test_build_core_export_has_category_and_link():
@@ -309,7 +309,8 @@ def test_render_unified_item_plain_has_no_details():
     item = {"title": "Plain", "title_en": "Plain", "summary": "简要中文亮点",
             "link": "http://x", "journal": "arXiv", "_tier": 2, "_enrich": None}
     html = render_unified_item(item, 2)
-    assert 'class="daily-research-relation"' in html
+    # 没有任何关联/启发文本（AI 没跑、也没有画像关键词命中）时不出空的关联块
+    assert 'class="daily-research-relation"' not in html
     assert "enrich-badge" not in html
     assert "简要中文亮点" in html
     assert 'data-bookmark-key="http://x"' in html
@@ -328,11 +329,10 @@ def test_render_unified_item_shows_abstract_then_highlight():
     html = render_unified_item(item, 1)
     assert "daily-paper-abstract" in html and "📄 摘要" in html
     assert "MACE 等变势复现相变温度" in html
-    # 亮点并入「与我们研究方向的关系」的第一段「这项工作做了什么」（不再单列一块）
-    assert "这项工作做了什么" in html
+    # 范例版式：导读（AI 亮点）在前，中文摘要翻译在后
+    assert "💡 导读" in html
     assert "首次把等变势用于钙钛矿相变预测" in html
-    # 摘要块在关系块之前
-    assert html.index("📄 摘要") < html.index("这项工作做了什么")
+    assert html.index("💡 导读") < html.index("📄 摘要")
 
 
 def test_render_unified_item_no_abstract_block_when_empty():
@@ -341,7 +341,7 @@ def test_render_unified_item_no_abstract_block_when_empty():
             "link": "http://x", "journal": "arXiv", "_tier": 2, "_enrich": None}
     html = render_unified_item(item, 1)
     assert "📄 摘要" not in html           # 无 abstract_zh 不出摘要块
-    assert "这项工作做了什么" in html and "只有亮点" in html
+    assert "💡 导读" in html and "只有亮点" in html
     # 亮点不再被 abstract_zh 兜底污染(此处无 abstract_zh,亮点仍是 summary)
 
 
@@ -642,10 +642,10 @@ def test_daily_card_shows_both_relevance_dimensions_and_why():
     html = render_unified_item(item, 1)
     assert "AI×科学交叉" in html and "方向匹配" in html
     assert "is-cross" in html and "is-me" in html
-    # 「为什么相关」并入「与我们研究方向的关系」的第二段「与我们的关系」
-    assert "与我们的关系" in html
+    # 「为什么相关」并入「与我们工作的关联与启发」的「关联」一行
+    assert "与我们工作的关联与启发" in html and "关联：" in html
     assert "与机器学习势和自旋哈密顿量方向直接相关" in html
-    assert "Alice Zhang, Bob Li" in html          # 作者仍在
+    assert "Alice Zhang、Bob Li" in html          # 作者仍在（范例格式：顿号分隔）
     # 分组口径已换成交叉，芯片不该再挂 P1/P2/P3 字样
     assert "P1 ·" not in html and "P3 ·" not in html
 
@@ -674,3 +674,36 @@ def test_daily_card_why_falls_back_through_the_same_chain_as_email():
     # me_reason 优先级最高
     html = render_unified_item({**base, "me_reason": "本人理由", "cross_reason": "交叉理由"}, 1)
     assert "本人理由" in html and "交叉理由" not in html
+
+
+def test_card_follows_the_single_paper_layout_the_user_asked_for():
+    """用户给的范例：编辑式标题 → 原题 → 作者、来源、日期 → 导读 → 中文摘要翻译 → 关联与启发。"""
+    from generate_daily_pages import render_unified_item
+    item = {
+        "title": "Gradient-estimator design overcomes trainability barriers in neural-network-based variational optimization",
+        "title_zh": "梯度估计器设计克服神经网络变分优化中的可训练性障碍",
+        "headline_zh": "神经网络量子态：训练瓶颈可能出在梯度估计",
+        "authors": ["Yi-Ran Xue", "Rui Wang", "Baigeng Wang", "Chenan Wei"],
+        "journal": "arXiv", "arxiv_category": "cond-mat", "pub_date": "2026-09-16",
+        "fetch_time": "2026-09-23T15:59:17", "link": "https://arxiv.org/abs/2609.22342v1",
+        "summary": "这篇与 ML 加多体的兴趣直接相关。作者指出训练难往往源于梯度估计噪声。",
+        "abstract_zh_full": "神经网络变分方法……我们提出无偏直接估计器。",
+        "abstract": "Neural-network variational methods ...",
+        "me_reason": "与机器学习哈密顿量、多体求解器方向直接相关。",
+        "implication": "可把自适应相位估计器移植到自旋-晶格耦合模型的变分求解。",
+    }
+    html = render_unified_item(item, 1)
+    order = ["神经网络量子态：训练瓶颈可能出在梯度估计", "原题：Gradient-estimator design",
+             "作者：Yi-Ran Xue、Rui Wang、Baigeng Wang、Chenan Wei。", "arXiv · cond-mat，2026-09-16（09-23 入库）",
+             "💡 导读", "📄 摘要（中文翻译）", "与我们工作的关联与启发", "关联：", "启发：", "📖 英文原文"]
+    pos = [html.find(x) for x in order]
+    assert all(p >= 0 for p in pos), [x for x, p in zip(order, pos) if p < 0]
+    assert pos == sorted(pos), "版式顺序不对"
+
+
+def test_card_title_falls_back_to_translation_then_english():
+    from generate_daily_pages import card_titles
+    assert card_titles({"title": "T en", "title_zh": "中文题"}) == ("中文题", "T en")
+    assert card_titles({"title": "T en"}) == ("T en", "")
+    # headline 不是中文（AI 抄了英文）时不用
+    assert card_titles({"title": "T en", "title_zh": "中文题", "headline_zh": "T en"})[0] == "中文题"

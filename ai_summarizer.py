@@ -690,19 +690,26 @@ class AISummarizer:
             "输出: {\n"
             '  "index": X,\n'
             '  "title_zh": "二维范德华 NbOI2 中的室温铁电性",\n'
+            '  "headline_zh": "二维铁电：NbOI2 在室温下实现面外极化翻转",\n'
             '  "abstract_zh": "在二维 NbOI2 薄层中观测到稳定的面外铁电翻转，矫顽场约 0.3 V/nm，"\n'
             '                "室温保持时间 > 10^4 s；通过二次谐波与压电力显微镜确认极化方向，"\n'
             '                "并给出层厚依赖的相变温度，为低维非易失存储提供候选体系。",\n'
-            '  "one_sentence_summary": "首次在二维 NbOI2 中实现室温稳定的面外铁电翻转，矫顽场低至 0.3 V/nm，'
-            '极化保持时间超过 10^4 秒。作者结合二次谐波与压电力显微镜直接确认极化方向，并给出层厚依赖的'
-            '铁电相变温度，排除了衬底应变的干扰。该体系兼具薄层可集成性与长保持时间，为低功耗非易失存储'
-            '与可重构光电器件提供了新的二维材料平台。"\n'
+            '  "one_sentence_summary": "这篇与二维滑移铁电的方向直接相关。作者在 NbOI2 薄层中观测到室温稳定的面外'
+            '铁电翻转，矫顽场约 0.3 V/nm、极化保持超过 10^4 秒，并用二次谐波与压电力显微镜确认极化方向、给出层厚'
+            '依赖的相变温度。需要注意，“室温稳定”基于少数样品的保持测试，摘要未报告器件级循环耐久性，不能直接推广为'
+            '可用的存储器件。它更适合作为二维铁电极化机制与薄层尺寸效应的实验基准。"\n'
             "}\n"
         )
 
+        try:
+            from cross_relevance import primary_profile_digest
+            reader_profile = primary_profile_digest(max_chars=1200)
+        except Exception:
+            reader_profile = ""
         return (
             f"你将分析 {date} 的 {len(articles)} 篇学术文献（凝聚态物理 / 计算材料科学 / AI for science 方向），"
             "生成一份面向同行研究者的高信息密度中文日报。\n\n"
+            f"【主要读者的研究兴趣】\n{reader_profile or '（未配置）'}\n\n"
             f"【团队研究方向背景】\n{research_context or '团队聚焦机器学习材料模拟、铁电/磁性材料、缺陷与有限温度动力学。'}\n"
             "请据此判断每篇文献与团队工作的真实交叉点；没有直接关系时明确说明，不要为了关联而臆测。\n\n"
             f"【文献列表】（格式: [序号] Title / Journal / Authors / Abstract）\n{articles_str}\n\n"
@@ -712,16 +719,24 @@ class AISummarizer:
             "**禁止**把 title_zh 填成英文原标题或英文多数词；若检测到输出的 title_zh 里中文字符占比 < 50%，视为违反要求。\n"
             "2. abstract_zh：用中文把摘要写成 ≤200 字的研究要点概括，必须写出：体系/方法/关键数值或结论，"
             "尽量多覆盖。禁止任何套话：'本研究/取得进展/具有重要意义/为…提供新思路/点击查看' 等一律不允许。\n"
-            "3. one_sentence_summary：一段 3~5 句、≤250 字的中文亮点详述，必须覆盖：核心创新点 + "
-            "关键方法细节（模型架构/训练策略/关键参数）+ 最强定量结论 + 对凝聚态/"
-            "AI for science 方向的意义。要落到具体材料/现象/方法，不得空泛。\n"
-            "4. 全部用中文；不输出链接（程序按序号自动补全）；不得编造原文没有的数据。\n"
-            "5. 每篇额外输出 method_point（120~200 字：这项工作具体做了什么——研究对象、方法、关键结果）、"
+            "3. headline_zh：编辑式中文标题，格式「研究对象或方向：核心发现/判断」，不超过 28 字，"
+            "不是逐字翻译，要让读者一眼看出这篇说了什么（例：「神经网络量子态：训练瓶颈可能出在梯度估计」）。\n"
+            "4. one_sentence_summary：一段 4~6 句、≤320 字的中文导读（至少 3~5 句），依次写：\n"
+            "   ① 开头一句点明它与主要读者哪条研究兴趣相关、相关程度（如「这篇与 ML 加多体的兴趣直接相关」；"
+            "关系弱就直说「与本组方向关系较远」）；\n"
+            "   ② 作者指出的核心问题或洞见；③ 具体做法（模型/算法/计算或实验设置）；"
+            "④ 在哪些体系上验证、最强的定量结果；\n"
+            "   ⑤ 结论的适用范围：摘要里「超过 SOTA/DMRG」「普适」「首次」这类强结论，说明比较口径与限定条件，"
+            "不能推广成什么；只依据摘要内容，摘要没说的不要编造；\n"
+            "   ⑥ 一句定位：它更适合作为什么（可复用方法/基准/数据），而不是什么。\n"
+            "   要落到具体材料/现象/方法，不写套话。\n"
+            "5. 全部用中文；不输出链接（程序按序号自动补全）；不得编造原文没有的数据。\n"
+            "6. 每篇额外输出 method_point（不超过 80 字：核心方法一句话）、"
             "related_work（1~2 句、不超过 100 字：与团队研究方向的具体关系，没有直接关系就直说）、"
             "implication（不超过 80 字：一个可借鉴点）；"
             "不能臆测 DREAM 尚未开展的具体机制，信息不足时明确说明。\n"
-            "6. summaries 必须覆盖所有输入序号，index 严格一致。\n"
-            "7. highlights：仅挑选 ≤3 篇**真正**最突出的工作（创新点、方法论或关键结论）。"
+            "7. summaries 必须覆盖所有输入序号，index 严格一致。\n"
+            "8. highlights：仅挑选 ≤3 篇**真正**最突出的工作（创新点、方法论或关键结论）。"
             "reason ≤25 字，必须落到具体材料/现象/方法，不得写 '重要进展/意义重大' 之流。\n\n"
             f"{example_block}\n"
             # 必须出现小写 "json" 字样：启用 json_object 模式时，上游要求输入消息里
@@ -732,7 +747,7 @@ class AISummarizer:
             '  "overview": "今日文献总览（中文，2-3句，含具体方向与代表性工作）",\n'
             '  "trends": "研究热点分析（中文，3-5句）",\n'
             '  "summaries": [\n'
-            '    {"index": 1, "title_zh": "...", "abstract_zh": "...", "one_sentence_summary": "...", "method_point": "详细方法路线...", "related_work": "与团队已有工作连接...", "implication": "可执行迁移方案..."},\n'
+            '    {"index": 1, "title_zh": "...", "headline_zh": "...", "abstract_zh": "...", "one_sentence_summary": "导读...", "method_point": "核心方法...", "related_work": "与我们工作的关联...", "implication": "可借鉴的启发..."},\n'
             f'    ... (共 {len(articles)} 条)\n'
             "  ],\n"
             '  "highlights": [\n'
@@ -774,8 +789,9 @@ class AISummarizer:
     {{
       "index": 1,
       "title_zh": "中文标题（翻译原标题）",
+      "headline_zh": "编辑式中文标题「研究对象：核心发现」，≤28字",
       "abstract_zh": "摘要中文概括（≤200字，写出体系/方法/关键结论）",
-      "one_sentence_summary": "一段3~5句、≤250字的中文亮点详述（创新点+方法细节+最强定量结论+方向意义）"
+      "one_sentence_summary": "一段4~6句、≤320字的中文导读（相关性一句 + 核心洞见 + 做法 + 最强定量结果 + 结论适用范围 + 定位）"
     }}
   ]
 }}
@@ -971,7 +987,11 @@ class AISummarizer:
                 title_zh = _clamp_text(raw_title_zh, 80)
                 abstract_zh_raw = ai_info.get('abstract_zh') or ""
                 abstract_zh = _clamp_text(abstract_zh_raw, 240)
-                one_sentence = _clamp_text(ai_info.get('one_sentence_summary') or "", 300)
+                one_sentence = _clamp_text(ai_info.get('one_sentence_summary') or "", 400)
+                raw_headline = str(ai_info.get('headline_zh') or "").strip()
+                if _looks_untranslated_title(raw_headline, article.get('title') or ""):
+                    raw_headline = ""
+                headline_zh = _clamp_text(raw_headline, 40)
                 if not (title_zh or abstract_zh or one_sentence):
                     missing_summary_count += 1
                 if any(
@@ -989,6 +1009,7 @@ class AISummarizer:
                     "title_en": article.get('title'),
                     # Empty-on-failure (front-end shows "—"), never leak "标题翻译失败" style placeholders.
                     "title_zh": title_zh,
+                    "headline_zh": headline_zh,
                     "abstract_zh": abstract_zh,
                     # 透传给日报卡片/focus 专区渲染：英文原文折叠、完整中文翻译、兴趣匹配三字段
                     "abstract": article.get('abstract'),
@@ -1002,6 +1023,7 @@ class AISummarizer:
                     "journal": article.get("journal", ""),
                     "authors": article.get("authors", []),
                     "pub_date": article.get("pub_date", ""),
+                    "fetch_time": article.get("fetch_time", ""),
                     "ai_score": article.get("ai_score"),
                     "source_url": article.get("source_url", ""),
                     "arxiv_category": article.get("arxiv_category", ""),
@@ -1190,6 +1212,7 @@ class AISummarizer:
                     "journal": a.get("journal", ""),
                     "authors": a.get("authors", []),
                     "pub_date": a.get("pub_date", ""),
+                    "fetch_time": a.get("fetch_time", ""),
                     "ai_score": a.get("ai_score"),
                     "source_url": a.get("source_url", ""),
                     "arxiv_category": a.get("arxiv_category", ""),

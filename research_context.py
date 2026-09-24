@@ -290,6 +290,100 @@ def work_and_relation(item: Dict[str, Any]) -> tuple:
     return work, relation
 
 
+# ---------------------------------------------------------------------------
+# 单篇卡片的统一内容（日报网页 / 周报网页 / 邮件共用）
+# ---------------------------------------------------------------------------
+# 版式按用户给的范例：
+#   神经网络量子态：训练瓶颈可能出在梯度估计            ← headline_zh（编辑式标题）
+#   原题：Gradient-estimator design overcomes …          ← 英文原题
+#   作者：A、B、C、D。arXiv，2026-09-16（09-23 入库）
+#   这篇与 ML 加多体的兴趣直接相关。作者指出……           ← lede（导读：做了什么 + 结论的适用范围）
+#   中文摘要翻译
+#   与我们工作的关联与启发                              ← relation + inspiration（已有字段组合）
+
+def _clean_cjk(value: Any) -> str:
+    text = strip_announce_prefix(value)
+    if not text or text == "None" or not _CJK_SUMMARY_RE.search(text):
+        return ""
+    return text
+
+
+def card_sections(item: Dict[str, Any]) -> Dict[str, str]:
+    """返回 {headline, lede, relation, inspiration}，任一项可能为空串。
+
+    * headline：AI 写的编辑式中文标题（headline_zh）。缺失时由调用方退回 title_zh。
+    * lede：导读 —— AI 亮点(one_sentence_summary/summary) → 周报逐篇解读(ai_analysis)
+      → focus_summary。与卡片上的中文摘要重复的（fallback 日 summary 就是摘要本身）跳过。
+    * relation：关联 —— me_reason → cross_reason → focus_relation → related_work 的前两句；
+      都没有（AI 不可用）时只如实列出重合的方向关键词，不编分析。
+    * inspiration：启发 —— implication → focus_suggestion 的前两句。
+    规则模板生成的套话（ensure_relation_fields 的保底文本）一律不展示。
+    """
+    shown = {_dup_key(item.get(k)) for k in ("abstract_zh", "abstract_zh_full") if item.get(k)}
+    shown.discard("")
+
+    headline = _clean_cjk(item.get("headline_zh"))
+
+    lede = ""
+    # method_point 放最后：周报核心区的深读字段就是「这项工作具体做了什么」（规则模板已过滤）
+    for key in ("one_sentence_summary", "summary", "ai_analysis", "focus_summary", "method_point"):
+        value = _clean_cjk(item.get(key))
+        if not value or is_rule_template(value) or not _usable_summary(value) or _dup_key(value) in shown:
+            continue
+        # 句数上限放宽：导读里的「；」也算断句点，范例那段按此切有 9 句，最后一句「定位」不能丢
+        lede = clip_sentences(value, max_sentences=12, max_chars=420)
+        break
+
+    relation = ""
+    for key in ("me_reason", "cross_reason", "focus_relation", "related_work"):
+        value = _clean_cjk(item.get(key))
+        if value and not is_rule_template(value):
+            relation = clip_sentences(value, max_sentences=2, max_chars=150)
+            break
+    if not relation:
+        try:
+            from cross_relevance import matched_personal_keywords
+            hits = matched_personal_keywords(item)
+        except Exception:
+            hits = []
+        if hits:
+            relation = "与你方向的关键词重合：" + "、".join(hits) + "。"
+
+    inspiration = ""
+    for key in ("implication", "focus_suggestion"):
+        value = _clean_cjk(item.get(key))
+        if value and not is_rule_template(value) and _dup_key(value) != _dup_key(relation):
+            inspiration = clip_sentences(value, max_sentences=2, max_chars=130)
+            break
+
+    return {"headline": headline, "lede": lede, "relation": relation, "inspiration": inspiration}
+
+
+def byline_parts(item: Dict[str, Any], max_names: int = 6) -> Dict[str, str]:
+    """{authors, source, date, fetched}：作者用顿号分隔（范例格式），来源含 arXiv 分类。"""
+    from author_utils import normalize_author_names
+
+    names = normalize_author_names(item.get("authors"))
+    authors = "、".join(names[:max_names]) + (f" 等 {len(names)} 人" if len(names) > max_names else "")
+    journal = str(item.get("journal") or "").strip()
+    # 交叉列表的分类串很长（cond-mat.supr-con+cond-mat.mtrl-sci+physics.comp-ph…），只留主分类
+    cat = str(item.get("arxiv_category") or "").strip().split("+")[0]
+    source = f"{journal} · {cat}" if journal.lower() == "arxiv" and cat else journal
+    pub = str(item.get("pub_date") or "").strip()[:10]
+    fetched = str(item.get("fetch_time") or "").strip()[:10]
+    # 入库晚于发布 2 天以上才提示（范例里的「这两天新入库」）：arXiv 周末积压、期刊 RSS 滞后
+    note = ""
+    if pub and fetched and fetched > pub:
+        try:
+            from datetime import date as _date
+            gap = (_date.fromisoformat(fetched) - _date.fromisoformat(pub)).days
+        except ValueError:
+            gap = 0
+        if gap >= 2:
+            note = f"{fetched[5:]} 入库"
+    return {"authors": authors, "source": source, "date": pub, "fetched": note}
+
+
 # 判断一段兜底文本是否真的是中文（fallback 日的 summary 字段里装的是英文摘要原文）
 _CJK_SUMMARY_RE = re.compile(r"[\u4e00-\u9fff]")
 

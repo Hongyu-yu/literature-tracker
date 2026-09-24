@@ -390,6 +390,30 @@ def test_generic_profile_keywords_are_not_listed_as_overlap():
     assert set(hits) == {"hfo2", "ferroelectric"}
 
 
+def test_hyphenated_ai_terms_count_as_title_signal():
+    """2026-09-22 真实漏选：标题写 'neural-network-based'，词表是 'neural network'，
+    拿不到标题级 AI 信号 → 最低档 → 在 469→72 的截断里被丢掉。它正是用户举例要看的论文。"""
+    item = {
+        "title": "Gradient-estimator design overcomes trainability barriers in "
+                 "neural-network-based variational optimization",
+        "abstract": "arXiv:2609.22342v1 Announce Type: new Abstract: Neural networks provide expressive "
+                    "representations for scientific computing. However, even sufficiently expressive networks "
+                    "can suffer training failure in weak-gradient regimes, limiting their practical use in "
+                    "quantum many-body physics and ab initio quantum chemistry. ... correlated flux models, "
+                    "and ultimately exceed the density matrix renormalization group (DMRG) accuracy. It further "
+                    "achieves chemical accuracy in N2 bond breaking and in I2 with explicit spin-orbit coupling.",
+        "journal": "arXiv", "arxiv_category": "cond-mat",
+    }
+    assert cr.cross_signals(item)["ai_in_title"] is True
+    assert cr.rule_cross_tier(item) <= 1
+
+
+def test_monte_carlo_planning_is_not_a_science_signal():
+    item = {"title": "Online Robust Reinforcement Learning Through Monte-Carlo Planning",
+            "abstract": "We study planning.", "journal": "arXiv", "arxiv_category": "cs.LG"}
+    assert cr.rule_cross_tier(item) == 3
+
+
 if __name__ == "__main__":
     import sys
     fails = 0

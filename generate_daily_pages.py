@@ -30,8 +30,8 @@ from cross_relevance import (
     rule_cross_tier, split_cross_sections,
 )
 from link_utils import normalize_link
-from research_context import (build_direction_note, clip_sentences, ensure_relation_fields,
-                              load_research_profile, pick_summary, work_and_relation)
+from research_context import (build_direction_note, byline_parts, card_sections, clip_sentences,
+                              ensure_relation_fields, load_research_profile, pick_summary)
 
 
 def _resolve_ai() -> Tuple[str, str, Optional[str]]:
@@ -716,22 +716,19 @@ TOPIC_LABELS = {
 
 
 def render_byline(item: Dict) -> str:
-    """作者 · 来源 · 日期，一行纯文字（此前作者被塞进一个彩色胶囊，和分类标签抢视线）。"""
-    parts = []
-    authors = format_authors(item.get("authors"))
-    if authors:
-        parts.append(f'<span class="daily-byline-authors">{safe_text(authors)}</span>')
-    journal = str(item.get("journal") or "").strip()
-    arxiv_cat = arxiv_badge(item)
-    if journal:
-        parts.append(f'<span class="daily-byline-source">{safe_text(journal)}'
-                     + (f' · {safe_text(arxiv_cat)}' if arxiv_cat else '') + '</span>')
-    pub_date = str(item.get("pub_date") or "").strip()
-    if pub_date:
-        parts.append(f'<span class="daily-byline-date">{safe_text(pub_date[:10])}</span>')
-    if not parts:
+    """「作者：A、B、C。arXiv · cond-mat，2026-09-16（09-23 入库）」一行纯文字（范例格式）。"""
+    parts = byline_parts(item)
+    segs = []
+    if parts["authors"]:
+        segs.append(f'<span class="daily-byline-authors">作者：{safe_text(parts["authors"])}。</span>')
+    src = "，".join(x for x in (parts["source"], parts["date"]) if x)
+    if parts["fetched"]:
+        src += f'（{parts["fetched"]}）'
+    if src:
+        segs.append(f'<span class="daily-byline-source">{safe_text(src)}</span>')
+    if not segs:
         return ""
-    return f'<div class="daily-paper-byline">{"<span class=daily-byline-sep>·</span>".join(parts)}</div>'
+    return f'<div class="daily-paper-byline">{"".join(segs)}</div>'
 
 
 def render_meta_chips(item: Dict) -> str:
@@ -818,35 +815,47 @@ def render_relevance_meters(item: Dict, prefix: str = "daily") -> str:
             + meter("方向匹配", effective_me_score(item), "is-me"))
 
 
-def render_relation_box(item: Dict, prefix: str = "daily") -> str:
-    """「🔬 与我们研究方向的关系」：最多两段 —— 这项工作做了什么 + 与我们的关系。"""
-    work, relation = work_and_relation(item)
-    if not (work or relation):
-        return ""
+def render_relation_box(item: Dict, prefix: str = "daily", sections: Optional[Dict[str, str]] = None) -> str:
+    """「🔗 与我们工作的关联与启发」：关联（1~2 句）+ 启发（1~2 句），由已有字段组合。"""
+    sec = sections or card_sections(item)
     parts = []
-    if work:
-        parts.append(f'<p class="{prefix}-relation-work"><strong>这项工作做了什么：</strong>{safe_text(work)}</p>')
-    if relation:
-        parts.append(f'<p class="{prefix}-relation-link"><strong>与我们的关系：</strong>{safe_text(relation)}</p>')
-    return (f'<div class="{prefix}-research-relation"><div class="{prefix}-relation-head">🔬 与我们研究方向的关系</div>'
+    if sec["relation"]:
+        parts.append(f'<p class="{prefix}-relation-link"><strong>关联：</strong>{safe_text(sec["relation"])}</p>')
+    if sec["inspiration"]:
+        parts.append(f'<p class="{prefix}-relation-idea"><strong>启发：</strong>{safe_text(sec["inspiration"])}</p>')
+    if not parts:
+        return ""
+    return (f'<div class="{prefix}-research-relation"><div class="{prefix}-relation-head">🔗 与我们工作的关联与启发</div>'
             f'{"".join(parts)}</div>')
 
 
+def card_titles(item: Dict, en: Optional[Dict] = None, sections: Optional[Dict[str, str]] = None) -> Tuple[str, str]:
+    """(主标题, 原题)。主标题优先编辑式标题 headline_zh，其次中文译名；原题是英文原标题。"""
+    sec = sections or card_sections(item)
+    title_en = (item.get("title_en") or item.get("title") or "").strip()
+    title_zh = (item.get("title_zh") or (en or {}).get("title_zh") or "").strip()
+    main = sec["headline"] or title_zh
+    if not main or main.casefold() == title_en.casefold():
+        return title_en or "未命名文献", ""
+    return main, title_en
+
+
 def render_unified_item(item: Dict, index: int) -> str:
-    """单列表条目：中文标题 → 作者·来源·日期 → 分类与相关度 → 摘要（前几句，完整中英折叠）
-    → 「与我们研究方向的关系」两段 → (含图深析) → 阅读原文。"""
+    """单篇卡片（用户给的范例版式）：
+    编辑式中文标题 → 原题 → 作者·来源·日期 → 分类与相关度 → 导读
+    → 中文摘要翻译 → 与我们工作的关联与启发 → 英文原文(折叠) → (含图深析) → 阅读原文。"""
     en = item.get("_enrich")
     # 规则版三段仍然要补齐：质量门(daily_quality_ok)与邮件都读这三个字段，只是卡片不再整段展示
     ensure_relation_fields(item, load_research_profile())
-    title_en = (item.get("title_en") or item.get("title") or "").strip()
-    title_zh = (item.get("title_zh") or (en or {}).get("title_zh") or "").strip()
-    show_zh = bool(title_zh) and title_zh.casefold() != title_en.casefold()
-    disp_zh = safe_text(title_zh if show_zh else title_en)
-    title_en_block = (f'<div class="daily-paper-title-en">{safe_text(title_en)}</div>'
-                      if show_zh and title_en else "")
+    sec = card_sections(item)
+    main_title, orig_title = card_titles(item, en, sec)
+    title_en_block = (f'<div class="daily-paper-title-en">原题：{safe_text(orig_title)}</div>'
+                      if orig_title else "")
     byline_html = render_byline(item)
     meta_html = render_meta_chips(item)
     relevance_html = render_relevance_meters(item)
+    lede_html = (f'<p class="daily-paper-lede"><strong>💡 导读：</strong>{safe_text(sec["lede"])}</p>'
+                 if sec["lede"] else "")
     # 统一剥掉 arXiv RSS 的公告前缀：实测 index.json 里 3344 处英文摘要、144 处中译摘要以
     # "arXiv:xxxx Announce Type: new Abstract:"（及其中译）开头。
     full_zh = strip_announce_prefix(item.get("abstract_zh_full") or item.get("abstract_zh") or "")
@@ -855,12 +864,12 @@ def render_unified_item(item: Dict, index: int) -> str:
     clamp = len(full_zh) > 150
     clamp_attrs = (' class="daily-paper-abstract is-clamped" title="点击展开 / 收起" '
                    'onclick="this.classList.toggle(\'is-open\')"') if clamp else ' class="daily-paper-abstract"'
-    abs_html = (f'<p{clamp_attrs}><strong>📄 摘要：</strong>{safe_text(full_zh)}</p>'
+    abs_html = (f'<p{clamp_attrs}><strong>📄 摘要（中文翻译）：</strong>{safe_text(full_zh)}</p>'
                 if full_zh else "")
     abs_more_html = (f'<details class="daily-abstract-en"><summary>📖 英文原文</summary>'
                      f'<p class="daily-abstract-en-body">{safe_text(abstract_en)}</p></details>'
                      if abstract_en else "")
-    relation_html = render_relation_box(item)
+    relation_html = render_relation_box(item, sections=sec)
     link = safe_url(item.get("link") or "")
     badge = '<span class="enrich-badge">📊 含图深析</span>' if en else ""
     details = ""
@@ -883,11 +892,12 @@ def render_unified_item(item: Dict, index: int) -> str:
         <span class="daily-paper-number">{index:02d}</span>
         <div class="daily-paper-body">
             <div class="daily-paper-head"><div class="daily-paper-titles">
-                <div class="daily-paper-title-zh">{disp_zh}</div>
+                <div class="daily-paper-title-zh">{safe_text(main_title)}</div>
                 {title_en_block}
             </div>{badge}</div>
             {byline_html}
             <div class="daily-paper-meta">{meta_html}{relevance_html}</div>
+            {lede_html}
             {abs_html}
             {relation_html}
             {abs_more_html}
@@ -926,7 +936,7 @@ def render_focus_section(focus_items: List[Dict], index_by_link: Optional[Dict[s
     items = sorted(items, key=_score, reverse=True)
     cards = []
     for i, it in enumerate(items, 1):
-        title = (it.get("title_zh") or it.get("title_en") or it.get("title") or "").strip()
+        title = card_titles(it)[0]
         href, internal = _jump_href(it, index_by_link)
         target = "" if internal else ' target="_blank" rel="noopener noreferrer"'
         relation = clip_sentences(it.get("focus_relation") or it.get("me_reason") or "", 1, 90)
@@ -1055,13 +1065,11 @@ def render_daily_html(date_str: str, summary: Dict) -> str:
             if src is not None and src is not it:
                 it = {**it, **{k: v for k, v in src.items() if v not in (None, "", [])}}
             ensure_relation_fields(it, load_research_profile())
-            title_zh = (it.get('title_zh') or '').strip()
-            title_en = (it.get('title_en') or it.get('title') or '').strip()
-            show_zh = bool(title_zh) and title_zh.casefold() != title_en.casefold()
-            display_title = safe_text(title_zh if show_zh else title_en)
+            sec = card_sections(it)
+            display_title = safe_text(card_titles(it, None, sec)[0])
             href, internal = _jump_href(it, index_by_link)
             target = "" if internal else ' target="_blank" rel="noopener noreferrer"'
-            work, relation = work_and_relation(it)
+            work, relation = sec["lede"], sec["relation"]
             if not work:
                 work = _brief_abstract(strip_announce_prefix(it.get('abstract_zh') or it.get('abstract_zh_full') or ''), 110)
             work_html = f"<p class='daily-core-work'>{safe_text(clip_sentences(work, 2, 130))}</p>" if work else ""

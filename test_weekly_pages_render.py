@@ -138,8 +138,9 @@ def main() -> int:
     block = _rcw(wk)
     if 'weekly-core-section' not in block or '本周核心方向' not in block:
         print('FAIL: weekly core section missing heading'); return 1
-    # 2026-09-24 起收成两段：做了什么（此处取 method_point）+ 与我们的关系（related_work）
-    if '这项工作做了什么' not in block or 'MACE 等变势' not in block or '与 NequIP 同族' not in block:
+    # 2026-09-24 起按单篇范例版式：导读（此处取深读 method_point）+ 关联与启发（related_work / implication）
+    if '💡 导读' not in block or 'MACE 等变势' not in block or '与 NequIP 同族' not in block \
+            or '可迁移反铁磁' not in block:
         print('FAIL: weekly relation paragraphs missing'); return 1
     if _rcw({'core_items':[], 'core_weekly_note':''}).strip() != '':
         print('FAIL: weekly core section should be empty when no items'); return 1
@@ -188,10 +189,10 @@ def test_render_focus_weekly_section_cards_sorted_with_three_lines():
     assert 'id="focus-interest"' in html and "与你方向相关" in html
     assert "2 篇" in html
     # 2026-09-24 起与日报一致收成两段「与我们研究方向的关系」：
-    # focus_summary → 这项工作做了什么，focus_relation → 与我们的关系；建议一段不再逐篇展示。
-    assert "这项工作做了什么" in html and "总结B" in html
-    assert "与我们的关系" in html and "关系B" in html
-    assert "进一步工作建议" not in html
+    # 2026-09-24 起按单篇范例版式：focus_summary → 导读；focus_relation → 关联；
+    # focus_suggestion → 启发（「与我们工作的关联与启发」组合已有字段）。
+    assert "💡 导读" in html and "总结B" in html
+    assert "与我们工作的关联与启发" in html and "关系B" in html and "建议B" in html
     # focus_score 芯片改名为「画像分」：卡片上另有两条进度条叫「AI×科学交叉」和
     # 「方向匹配」，三者含义不同，同名会让人以为是同一个数。
     assert "画像分 10" in html and "画像分 4" in html
@@ -267,7 +268,7 @@ def test_core_weekly_cards_show_authors_date_and_abstracts_like_the_daily():
         "method_point": "方法要点内容", "core_score": 0.9,
     }], "core_weekly_note": "本周说明"}
     html = render_core_weekly_section(summary)
-    assert "Alice Zhang, Bob Li" in html          # 作者
+    assert "作者：Alice Zhang、Bob Li。" in html     # 作者（范例格式：顿号分隔）
     assert "2026-08-25" in html                    # 日期
     assert "中文摘要" in html and "English Abstract" in html
     assert "查看完整摘要" in html                  # 长摘要折叠，不再整段直出
@@ -321,3 +322,23 @@ def test_weekly_chips_show_canonical_journal_not_raw_feed_title():
     # 本来就规范的名字不能被洗坏
     assert "arXiv" in _weekly_meta_chips({"journal": "arXiv"})
     assert "Phys. Rev. X" in _weekly_meta_chips({"journal": "Phys. Rev. X"})
+
+
+def test_weekly_reuses_daily_ai_fields_by_link():
+    """周报从 index.json 取文，那里没有编辑式标题/导读/关联启发 —— 按链接从日报 sidecar 补。
+    链接差 http/https、arXiv 版本号也要对上；已有字段不覆盖；窗口往后多看 3 天（日报按抓取日归档）。"""
+    import json, os, tempfile
+    from weekly_summary import _merge_daily_fields
+    with tempfile.TemporaryDirectory() as d:
+        row = {"link": "https://arxiv.org/abs/2609.22342", "headline_zh": "神经网络量子态：训练瓶颈可能出在梯度估计",
+               "summary": "这篇与 ML 加多体的兴趣直接相关。", "implication": "可借鉴", "title_zh": "日报译名"}
+        with open(os.path.join(d, "daily_summary_2026-09-23.json"), "w", encoding="utf-8") as f:
+            json.dump({"full_list": [row]}, f, ensure_ascii=False)
+        arts = [{"link": "http://arxiv.org/abs/2609.22342v1", "title_zh": "已有译名"},
+                {"link": "https://arxiv.org/abs/9999.00001"}]
+        n = _merge_daily_fields(arts, "2026-09-14", "2026-09-20", data_dir=d)
+    assert n == 1
+    assert arts[0]["headline_zh"].startswith("神经网络量子态")
+    assert arts[0]["implication"] == "可借鉴"
+    assert arts[0]["title_zh"] == "已有译名"      # 已有字段不覆盖
+    assert "headline_zh" not in arts[1]
