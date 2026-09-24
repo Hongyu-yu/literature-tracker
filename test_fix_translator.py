@@ -64,7 +64,9 @@ def _make_translator(*, provider=None, google=None):
     t._ai_model = None
     # 机翻引擎链只挂假 Google：真实的 gtx / MyMemory 会联网，测试绝不能碰
     t._mt_engines = [("google", t.translator.translate, 4500)]
-    t._engine_failures = {}
+    t._engine_state = {}
+    t._min_intervals = {}      # 测试里不节流
+    t._wait_budget = 0         # 测试里不等冷却
     translator_mod.reset_breakers()
     return t
 
@@ -259,7 +261,7 @@ def test_machine_translate_tries_next_engine_when_first_fails():
 
 
 def test_machine_translate_disables_engine_after_repeated_failures():
-    """被封的引擎连续失败 3 次后本次运行停用，不再每篇都撞一次。"""
+    """被限流的引擎连续失败 3 次后进入冷却，冷却期内不再每篇都撞一次。"""
     google = _FakeGoogle([ConnectionError("blocked")] * 10)
     t = _make_translator(google=google)
     t._mt_engines = [("google", google.translate, 4500), ("backup", lambda s: "备用。", 480)]
@@ -301,3 +303,60 @@ def _run_all():
 
 if __name__ == "__main__":
     raise SystemExit(_run_all())
+
+
+def test_engine_recovers_after_cooldown_instead_of_being_disabled_for_the_run():
+    """2026-09-24 回填：Google 限流后旧逻辑本次运行永久停用它，16 天日报几乎没翻出中文。
+    限流是暂时的 —— 冷却期满必须再试。"""
+    google = _FakeGoogle([ConnectionError("429")] * 3 + ["恢复后的译文。"])
+    t = _make_translator(google=google)
+    for _ in range(3):
+        _assert_raises(lambda: t.translate(ENGLISH), "单引擎失败应抛错")
+    _assert_raises(lambda: t.translate(ENGLISH), "冷却期内不应再请求")
+    assert len(google.calls) == 3
+    t._engine_state["google"].cooldown_until = 0     # 模拟冷却期满
+    assert t.translate(ENGLISH) == "恢复后的译文。"
+
+
+class _FakeClock:
+    def __init__(self, start=1000.0):
+        self.now = start
+        self.slept = []
+
+    def monotonic(self):
+        return self.now
+
+    def sleep(self, seconds):
+        self.slept.append(seconds)
+        self.now += max(0.0, seconds)
+
+
+def test_all_engines_cooling_waits_within_budget():
+    clock = _FakeClock()
+    t = _make_translator(google=_FakeGoogle(["等到了。"]))
+    t._wait_budget = 10 ** 6
+    with mock.patch.object(translator_mod.time, "sleep", clock.sleep), \
+         mock.patch.object(translator_mod.time, "monotonic", clock.monotonic):
+        t._state("google").cooldown_until = clock.now + 30
+        assert t.translate(ENGLISH) == "等到了。"
+    assert clock.slept and abs(clock.slept[0] - 30) < 1e-6, "所有引擎都在冷却时应等到冷却结束再试"
+
+
+def test_content_failure_does_not_trigger_cooldown():
+    """引擎吐回英文是内容问题（引擎是通的），不计入限流失败。"""
+    google = _FakeGoogle([ENGLISH] * 5 + ["译文。"])
+    t = _make_translator(google=google)
+    for _ in range(5):
+        _assert_raises(lambda: t.translate(ENGLISH), "吐回英文应视为失败")
+    assert t.translate(ENGLISH) == "译文。"
+
+
+def test_throttle_spaces_requests():
+    clock = _FakeClock()
+    t = _make_translator(google=_FakeGoogle(["一。", "二。"]))
+    t._min_intervals = {"google": 5.0}
+    with mock.patch.object(translator_mod.time, "sleep", clock.sleep), \
+         mock.patch.object(translator_mod.time, "monotonic", clock.monotonic):
+        t.translate(ENGLISH)
+        t.translate(ENGLISH)
+    assert clock.slept == [5.0], f"第二次请求应等满最小间隔: {clock.slept}"

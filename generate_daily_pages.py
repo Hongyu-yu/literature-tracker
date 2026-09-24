@@ -114,7 +114,9 @@ def _guarantee_daily_highlights(items: List[Dict], max_items: Optional[int] = No
         from ai_summarizer import build_provider
         from highlight_guarantee import ensure_highlights
         provider = _CountingProvider(with_breaker(build_provider(provider_name, api_key, model=model)))
-        updated = ensure_highlights(items, provider=provider, max_items=max_items)
+        # 不做「翻译摘要前 200 字当亮点」的兜底：那只是摘要开头的机翻，不是导读，还会和
+        # _guarantee_daily_zh 对同一段摘要再翻一遍（2026-09-24 回填时这批重复请求触发了 Google 限流）。
+        updated = ensure_highlights(items, provider=provider, max_items=max_items, translate_fallback=False)
         print(f"✨ 亮点保障补全 {updated} 篇")
         return updated
     except Exception as exc:
@@ -1665,9 +1667,10 @@ def main():
                 else:
                     # 富化(focus 覆盖 + 亮点保障)只在真正生成非空页时进行,按【全局预算】
                     # 每天调一次(跳过的天不浪费 AI),然后按优先级重排。
-                    _apply_daily_enrichment(daily_articles, enrich_budget)
-                    # 先把漏翻的补上：AI 日报失败走 fallback 时，页面上的中文全靠这些字段
+                    # 先把漏翻的补上：AI 日报失败走 fallback 时，页面上的中文全靠这些字段；
+                    # 放在富化之前，亮点保障看到已有中文摘要就不会再为同一篇发请求
                     _guarantee_daily_zh(daily_articles, f" {day_str}")
+                    _apply_daily_enrichment(daily_articles, enrich_budget)
                     # 富化刚把 cross_score 写进条目，必须按新分重排：
                     # 这一步的顺序决定了 AI 摘要的分块顺序与 core_items 的取材。
                     daily_articles = sorted(daily_articles, key=cross_sort_key)

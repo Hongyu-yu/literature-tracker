@@ -19,9 +19,10 @@ from __future__ import annotations
 
 import os
 from deep_translator import GoogleTranslator
+import threading
 import time
 import re
-from typing import Callable, List, Optional, Tuple
+from typing import Callable, Dict, List, Optional, Tuple
 
 from ai_breaker import ai_available, record_ai_failure, record_ai_success
 from ai_breaker import reset as reset_breakers  # noqa: F401  (测试与调用方经由本模块重置)
@@ -90,8 +91,37 @@ def _mymemory_translate(text: str) -> str:
     return str((data.get("responseData") or {}).get("translatedText") or "")
 
 
-# 同一引擎连续失败多少次后本进程内停用（被封 IP / 额度用完时不要每篇都再撞一次）
+# ---------------------------------------------------------------------------
+# 引擎节流与退避
+# ---------------------------------------------------------------------------
+# 2026-09-24 回填现场：AI 不可用时一口气机翻了约 67 段，Google 在 GitHub runner 上随即限流；
+# 旧逻辑连续失败 3 次就「本次运行停用」该引擎，三个引擎全部停用后 16 天日报几乎没翻出中文。
+# 限流是暂时的：改成 ①每个引擎两次请求之间留最小间隔；②连续失败 3 次进入冷却
+# （30s → 60s → … ≤600s），冷却期满再试；③所有引擎都在冷却时，在总等待预算内等最早的那个。
 _ENGINE_FAILURE_LIMIT = 3
+_COOLDOWN_BASE = 30.0
+_COOLDOWN_MAX = 600.0
+_DEFAULT_MIN_INTERVAL = {"google": 1.0, "google-gtx": 1.0, "mymemory": 2.0}
+# 整个进程内为「等引擎冷却」最多睡多久（秒）；用完后所有引擎都在冷却就直接失败
+_WAIT_BUDGET = {"left": None}
+
+
+def _wait_budget_left() -> float:
+    if _WAIT_BUDGET["left"] is None:
+        try:
+            _WAIT_BUDGET["left"] = max(0.0, float(os.environ.get("MT_WAIT_BUDGET", "1200")))
+        except (TypeError, ValueError):
+            _WAIT_BUDGET["left"] = 1200.0
+    return _WAIT_BUDGET["left"]
+
+
+class _EngineState:
+    def __init__(self):
+        self.lock = threading.Lock()
+        self.last_call = 0.0
+        self.failures = 0
+        self.cooldowns = 0
+        self.cooldown_until = 0.0
 
 
 class Translator:
@@ -158,6 +188,53 @@ class Translator:
 
         return self.machine_translate(clean_text)
 
+    def _state(self, name: str) -> _EngineState:
+        states = getattr(self, "_engine_state", None)
+        if states is None:
+            states = self._engine_state = {}
+        if name not in states:
+            states[name] = _EngineState()
+        return states[name]
+
+    def _min_interval(self, name: str) -> float:
+        overrides = getattr(self, "_min_intervals", None)
+        if overrides is not None:
+            return float(overrides.get(name, 0.0))
+        env = (os.environ.get("MT_MIN_INTERVAL") or "").strip()
+        if env:
+            try:
+                return max(0.0, float(env))
+            except ValueError:
+                pass
+        return _DEFAULT_MIN_INTERVAL.get(name, 1.0)
+
+    def _throttled(self, name: str, fn: Callable[[str], str]) -> Callable[[str], str]:
+        """同一引擎两次请求之间至少隔 _min_interval 秒（多线程共用一把锁）。"""
+        state = self._state(name)
+        interval = self._min_interval(name)
+
+        def call(text: str) -> str:
+            if interval > 0:
+                with state.lock:
+                    wait = state.last_call + interval - time.monotonic()
+                    if wait > 0:
+                        time.sleep(wait)
+                    state.last_call = time.monotonic()
+            return fn(text)
+
+        return call
+
+    def _record_engine_failure(self, name: str, exc: Exception) -> None:
+        state = self._state(name)
+        state.failures += 1
+        if state.failures >= _ENGINE_FAILURE_LIMIT:
+            cool = min(_COOLDOWN_BASE * (2 ** state.cooldowns), _COOLDOWN_MAX)
+            state.cooldowns += 1
+            state.failures = 0
+            state.cooldown_until = time.monotonic() + cool
+            print(f"⏸️ 机翻引擎 {name} 连续失败 {_ENGINE_FAILURE_LIMIT} 次，冷却 {cool:.0f}s 后再试"
+                  f"（第 {state.cooldowns} 次；最近错误: {str(exc)[:160]}）")
+
     def machine_translate(self, text: str) -> str:
         """只走机器翻译引擎链（不碰 AI）。全部失败抛 TranslationError。"""
         if not text or not text.strip():
@@ -165,31 +242,44 @@ class Translator:
         clean_text = self._clean(text)
         if not clean_text:
             return ""
-        failures = getattr(self, "_engine_failures", None)
-        if failures is None:
-            failures = self._engine_failures = {}
+        engines = self._engines()
+
+        now = time.monotonic()
+        ready = [e for e in engines if self._state(e[0]).cooldown_until <= now]
+        if not ready and engines:
+            # 全部在冷却：在预算内等最早恢复的那个（限流通常几十秒就解除）
+            soonest = min(self._state(e[0]).cooldown_until for e in engines)
+            wait = soonest - now
+            budget = getattr(self, "_wait_budget", None)
+            left = _wait_budget_left() if budget is None else budget
+            if wait <= left:
+                print(f"⏳ 所有机翻引擎都在冷却，等待 {wait:.0f}s")
+                time.sleep(max(0.0, wait))
+                if budget is None:
+                    _WAIT_BUDGET["left"] = left - wait
+                now = time.monotonic()
+                ready = [e for e in engines if self._state(e[0]).cooldown_until <= now]
 
         errors = []
-        for name, fn, max_chunk in self._engines():
-            if failures.get(name, 0) >= _ENGINE_FAILURE_LIMIT:
-                continue
+        for name, fn, max_chunk in ready:
             try:
-                result = self._translate_chunks(fn, clean_text, max_chunk)
-                failures[name] = 0
+                result = self._translate_chunks(self._throttled(name, fn), clean_text, max_chunk)
+                self._state(name).failures = 0
                 return result
-            except Exception as e:
-                failures[name] = failures.get(name, 0) + 1
+            except TranslationError as e:
+                # 内容问题（空译文 / 原样吐回英文）说明引擎是通的，不计入限流失败
                 errors.append(f"{name}: {str(e)[:120]}")
-                if failures[name] == _ENGINE_FAILURE_LIMIT:
-                    print(f"🛑 机翻引擎 {name} 连续失败 {_ENGINE_FAILURE_LIMIT} 次，本次运行停用")
-        detail = "; ".join(errors) or "所有机翻引擎均已停用"
+            except Exception as e:
+                errors.append(f"{name}: {str(e)[:120]}")
+                self._record_engine_failure(name, e)
+        detail = "; ".join(errors) or "所有机翻引擎都在冷却，等待预算已用完"
         print(f"⚠️ 翻译失败: {detail}")
         raise TranslationError(f"机器翻译全部失败: {detail}")
 
     def _translate_chunks(self, fn: Callable[[str], str], clean_text: str, max_chunk: int) -> str:
         if len(clean_text) <= max_chunk:
             return self._verified(fn(clean_text), clean_text)
-        # 有字符上限的引擎需要分段翻译
+        # 有字符上限的引擎需要分段翻译（请求间隔由 _throttled 控制）
         translated_chunks = []
         for chunk in self._split_text(clean_text, max_chunk):
             translated = fn(chunk)
@@ -198,7 +288,6 @@ class Translator:
             if not (translated or "").strip():
                 raise TranslationError("分段翻译缺失其中一段，放弃本次译文")
             translated_chunks.append(translated.strip())
-            time.sleep(0.5)  # 避免请求过快
         return self._verified(''.join(translated_chunks), clean_text)
 
     @staticmethod
