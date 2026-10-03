@@ -1,35 +1,35 @@
 [
   {
     "title": "Train for Accuracy, Execute at Scale: Architecture-Preserving Inference for Equivariant Atomistic Foundation Models",
-    "title_zh": "文献研究：Train for Accuracy, Execute at Scale: Architecture-Preserving Inference for Equivariant Atomistic Foundation Models",
-    "summary": "Equivariant atomistic foundation models provide broadly transferable interatomic potentials trained against quantum-mechanical reference data, but their repeated execution at simulation scale remains…",
+    "title_zh": "训练准确性，大规模执行：等变原子基础模型的架构保留推理",
+    "summary": "等变原子基础模型提供了针对量子力学参考数据训练的广泛可转移的原子间势，但它们在模拟规模上的重复执行仍然是计算和内存密集型的。我们推出了 Symmetrix-XL，这是一种推理引擎，可以扩展预训练的 MACE 检查点，而无需重新训练、蒸馏或修改其学习权重。它结合了流式边缘执行以避免扩展边缘中间体的图范围实现、模型专用代码生成以编译特定于检查点的运算符，以及平铺执行以重用有界设备内存工作空间。",
     "abstract": "arXiv:2610.01036v1 Announce Type: new Abstract: Equivariant atomistic foundation models provide broadly transferable interatomic potentials trained against quantum-mechanical reference data, but their repeated execution at simulation scale remains computationally and memory intensive. We present Symmetrix-XL, an inference engine that scales pretrained MACE checkpoints without retraining, distillation, or modification of their learned weights. It combines streamed-edge execution to avoid graph-wide materialization of expanded edge intermediates, model-specialized code generation to compile checkpoint-specific operators, and tiled execution to reuse a bounded device-memory workspace. On complete LAMMPS-step benchmarks, Symmetrix-XL reduces inference time by 3.1-5.0 times relative to ML-IAP + cuEquivariance across tested A100 and RTX 5090 workloads. On a single A100 80 GB GPU, the tested MACE-OMAT-0 capacity boundary increases from 24,565 atoms to 11.24 million atoms. This substantially lowers the hardware threshold for simulations that would otherwise require spatial decomposition across many GPUs and compute nodes. The same backend weak-scales to 703 million atoms on 64 A800 GPUs at 93.8 percent efficiency. Energy, force, stress, molecular-dynamics stability, and Matbench Discovery evaluations reproduce reference MACE behavior within measured tolerances. Case studies spanning solid-state, interfacial, and reactive systems demonstrate the increased capacity in realistic workflows. These results establish post-training execution as a scaling axis complementary to model redesign, compression, and distributed scale-out, and show that the practical accuracy-cost frontier depends on both model architecture and inference execution.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.01036",
     "journal": "arXiv"
   },
   {
-    "title": "Long-Range Machine Learning Interatomic Potentials for Defect Energetics in SrTiO₃",
-    "title_zh": "文献研究：Long-Range Machine Learning Interatomic Potentials for Defect Energetics in SrTiO₃",
-    "summary": "Machine learning interatomic potentials (MLIPs) have advanced rapidly in recent years, yet the majority of models remain semilocal in nature and neglect long-range electrostatic interactions. A growin…",
-    "abstract": "arXiv:2610.00794v1 Announce Type: new Abstract: Machine learning interatomic potentials (MLIPs) have advanced rapidly in recent years, yet the majority of models remain semilocal in nature and neglect long-range electrostatic interactions. A growing number of long-range models have emerged to address this limitation, but systematic benchmarks comparing their performance on physically realistic systems remain scarce. In this work, we assess three long-range MLIPs -- MACE-POLAR, MACE-LES, and LOREM, against a short-range baseline MACE model, on their ability to capture long-range Coulombic interactions, progressing from idealised synthetic point-charge systems to first-principles data on realistic crystal structures. This progression allows us to isolate model's capability to learn electrostatic interactions from the many competing energy contributions, such as dielectric screening and exchange-correlation, that are present in DFT total energies. As a physically motivated benchmark system, we focus on strontium titanate SrTiO₃ with Sr--O Schottky vacancy pairs, a material in which long-range charge interactions play a central role and which serves as a natural stepping stone towards the study of charged polarons and other electronic and optical properties. Building on this benchmark, we further examine oxygen vacancy migration in the presence of the Sr--O Schottky pair, using climbing-image nudged elastic band calculations and molecular dynamics to obtain activation barriers as a function of the vacancy pair separation, providing further extrapolation test of each model's ability to capture the electrostatic effects that govern defect transport.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.00794",
-    "journal": "arXiv"
-  },
-  {
     "title": "Variational study of the magnetization plateaus in the spin-1/2 kagome Heisenberg antiferromagnet: An approach from vision transformer neural quantum states",
-    "title_zh": "文献研究：Variational study of the magnetization plateaus in the spin-1/2 kagome Heisenberg antiferromagnet: An approach from vision transformer neural quantum states",
-    "summary": "We analyze the magnetization curve of the spin-1/2 kagome Heisenberg model in a magnetic field. Using state-of-the-art variational wave functions based on neural networks, we confirm the presence of r…",
+    "title_zh": "自旋 1/2 kagome 海森堡反铁磁体中磁化平台的变分研究：来自视觉变换器神经量子态的方法",
+    "summary": "我们分析了自旋 1/2 kagome 海森堡模型在磁场中的磁化曲线。使用基于神经网络的最先进的变分波函数，我们确认在饱和值的 m=1/3、5/9 和 7/9 处存在鲁棒的磁化平台，并通过 sqrt3×sqrt3 晶胞的晶格平移的自发对称破缺来稳定。对于更具挑战性的 m=1/9 平台，我们发现了两个竞争的价键晶体，具体取决于系统尺寸，它们都破坏了平移和点群对称性，并且具有更大的 3×3 晶胞。这种具有磁化平均值局部调制的量子态可以在不久的将来通过实验观察到。",
     "abstract": "arXiv:2602.12998v2 Announce Type: replace Abstract: We analyze the magnetization curve of the spin-1/2 kagome Heisenberg model in a magnetic field. Using state-of-the-art variational wave functions based on neural networks, we confirm the presence of robust magnetization plateaus at m=1/3, 5/9 and 7/9 of the saturation value, stabilized by a spontaneous symmetry breaking of lattice translations with a sqrt3× sqrt3 unit cell. Regarding the more challenging m=1/9 plateau, we find two competing valence bond crystals depending on the system size, both breaking translation as well as point group symmetries and with a larger 3× 3 unit cell. Such quantum states with local modulations of the magnetization average values could be observed experimentally in the near future.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2602.12998",
     "journal": "arXiv"
   },
   {
+    "title": "Long-Range Machine Learning Interatomic Potentials for Defect Energetics in SrTiO₃",
+    "title_zh": "SrTiO₃ 缺陷能量学的长程机器学习原子间势",
+    "summary": "机器学习原子间势（MLIP）近年来发展迅速，但大多数模型本质上仍然是半局域的，并且忽略了长程静电相互作用。为了解决这一限制，出现了越来越多的远程模型，但比较它们在物理现实系统上的性能的系统基准仍然很少。在这项工作中，我们根据短程基线 MACE 模型评估了三种远程 MLIP——MACE-POLAR、MACE-LES 和 LOREM，评估它们捕获长程库仑相互作用的能力，从理想化的合成点电荷系统发展到现实晶体结构的第一原理数据。",
+    "abstract": "arXiv:2610.00794v1 Announce Type: new Abstract: Machine learning interatomic potentials (MLIPs) have advanced rapidly in recent years, yet the majority of models remain semilocal in nature and neglect long-range electrostatic interactions. A growing number of long-range models have emerged to address this limitation, but systematic benchmarks comparing their performance on physically realistic systems remain scarce. In this work, we assess three long-range MLIPs -- MACE-POLAR, MACE-LES, and LOREM, against a short-range baseline MACE model, on their ability to capture long-range Coulombic interactions, progressing from idealised synthetic point-charge systems to first-principles data on realistic crystal structures. This progression allows us to isolate model's capability to learn electrostatic interactions from the many competing energy contributions, such as dielectric screening and exchange-correlation, that are present in DFT total energies. As a physically motivated benchmark system, we focus on strontium titanate SrTiO₃ with Sr--O Schottky vacancy pairs, a material in which long-range charge interactions play a central role and which serves as a natural stepping stone towards the study of charged polarons and other electronic and optical properties. Building on this benchmark, we further examine oxygen vacancy migration in the presence of the Sr--O Schottky pair, using climbing-image nudged elastic band calculations and molecular dynamics to obtain activation barriers as a function of the vacancy pair separation, providing further extrapolation test of each model's ability to capture the electrostatic effects that govern defect transport.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.00794",
+    "journal": "arXiv"
+  },
+  {
     "title": "BranchIP: Learning Adaptive Equivariant Computation for Interatomic Potentials",
-    "title_zh": "文献研究：BranchIP: Learning Adaptive Equivariant Computation for Interatomic Potentials",
-    "summary": "Equivariant machine learning interatomic potentials (MLIPs) have revolutionized atomistic modeling, but accurate treatment of complex materials and molecular systems demands expensive models. This lim…",
+    "title_zh": "BranchIP ：学习原子间电位的自适应等变量计算",
+    "summary": "等变机器学习原子间势（ MLIP ）彻底改变了原子学建模，但对复杂材料和分子系统的准确处理需要昂贵的模型。这限制了模拟长度和时间尺度，张量积是一个关键的计算瓶颈。最近出现的基础规模MLIP进一步加剧了这一挑战。我们提出了Branch Interatomic Potential （ BranchIP ） ，这是一种用于学习自适应张量积计算的单模型框架，使用新的蒸馏损失进行训练。",
     "abstract": "arXiv:2610.02013v1 Announce Type: cross Abstract: Equivariant machine learning interatomic potentials (MLIPs) have revolutionized atomistic modeling, but accurate treatment of complex materials and molecular systems demands expensive models. This limits simulation length- and time-scales, with tensor products a key computational bottleneck. The recent emergence of foundation-scale MLIPs further exacerbates this challenge. We present Branch Interatomic Potential (BranchIP), a single-model framework for learned adaptive tensor product computation, trained with a novel distillation loss. In our experiments on two systems of physical interest, a heterogeneous catalysis system and a proton-conducting solid acid electrolyte, BranchIP accelerates MLIPs across model sizes by up to 2.4× while reducing memory usage by up to 2.6×. This is achieved while maintaining physical fidelity. Furthermore, the learned adaptive computation provides model interpretability by revealing which interactions demand deeper computation and showing how computational depth relates to chemical complexity and dynamics.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.02013",
@@ -37,11 +37,20 @@
   },
   {
     "title": "Reference-free certification of machine-learning interatomic potentials",
-    "title_zh": "文献研究：Reference-free certification of machine-learning interatomic potentials",
-    "summary": "Universal machine-learning interatomic potentials now reach held-out energy and force errors so small that they no longer predict how a model behaves in simulation. Here we show that a potential can b…",
+    "title_zh": "机器学习原子间势的无参考认证",
+    "summary": "通用机器学习原子间势现在达到了非常小的保留能量和力误差，以至于它们不再预测模型在模拟中的行为。在这里，我们表明，可以根据数学或物理必要性精确的玻恩-奥本海默曲面满足的属性，在没有任何参考计算的情况下对势进行分级。我们将这些性质分为四个系列：对称性和不变性、自洽性和可积性、统计力学平衡和规律性，并将它们变成十四个廉价的探针，每个探针都针对一个精确且独立于化学和参考方法的目标进行认证。",
     "abstract": "arXiv:2610.00585v1 Announce Type: new Abstract: Universal machine-learning interatomic potentials now reach held-out energy and force errors so small that they no longer predict how a model behaves in simulation. Here we show that a potential can be graded without any reference calculation, against properties the exact Born-Oppenheimer surface satisfies by mathematical or physical necessity. We organise these properties into four families, symmetry and invariance, self-consistency and integrability, statistical-mechanical equilibrium and regularity, and turn them into fourteen inexpensive probes, each certifying against a target that is exact and independent of chemistry and reference method. Every probe therefore returns an absolute, architecture-comparable score from the energies, forces and stresses a potential already exposes, and reveals failures a fixed test set cannot. Applied to 64 pretrained potentials, the suite resolves two orders of magnitude of certified quality at comparable reported accuracy, and flags a fine-tuned potential whose reference errors improve while its surface degrades until molecular dynamics fails. An interactive leaderboard of all 64 models is available at https://jhaens.github.io/pescert-bench.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2610.00585",
+    "journal": "arXiv"
+  },
+  {
+    "title": "From Energy-Force Weighting to Primal-Dual Optimization of Machine-Learned Interatomic Potentials",
+    "title_zh": "从能量-力加权到机器学习原子间势的原始对偶优化",
+    "summary": "机器学习的原子间势通常通过加权和标量化来拟合，它将能量和力误差结合在一个损失中。然而，标称重量只能识别相对于完整验配协议的潜力。因此，我们将能量-力平衡视为物理模型选择的协议相关问题。对于熔融 LiCl、液态 H2O 和 Si 的固定基原子团簇膨胀模型，所得标量化路径包含极端重量下的主导态。它们的非支配子集取决于求解器，并且分布外 Si 路径是非单调的。我们通过最小化受归一化力损失上限影响的正则化能量目标来取代直接权重选择。预计双上升根据力约束残差调整拉格朗日乘数。",
+    "abstract": "arXiv:2610.00876v1 Announce Type: cross Abstract: Machine-learned interatomic potentials are commonly fitted by weighted-sum scalarization, which combines energy and force errors in a single loss. A nominal weight, however, identifies a potential only relative to the complete fitting protocol. We therefore treat energy--force balancing as a protocol-dependent problem of physical model selection. For fixed-basis atomic cluster expansion models of molten LiCl, liquid H₂O, and Si, the resulting scalarization paths contain dominated states at extreme weights. Their nondominated subsets depend on the solver, and the out-of-distribution Si path is nonmonotone. We replace direct weight selection by minimizing the regularized energy objective subject to an upper bound on the normalized force loss. Projected dual ascent adjusts the Lagrange multiplier from the force-constraint residual. A frozen-multiplier limited-memory quasi-Newton refinement then returns the final model. Across the three systems, the constrained procedure reaches the solver-matched low-error region and gives measured speedups of 6.7--8.9 over completed scalarization scans under the stated timing convention. Physical-property calculations show that first-shell geometry is comparatively insensitive to the selected balance, whereas transport and solid-state observables vary more strongly. These results identify the fitted model--protocol pair as the relevant object of energy--force model selection and support force-constrained fitting as an explicit selection rule.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.00876",
     "journal": "arXiv"
   },
   {
@@ -54,9 +63,18 @@
     "journal": "arXiv"
   },
   {
+    "title": "Walshness: an intrinsic neural-network representability metric for quantum states",
+    "title_zh": "Walshness：量子态的内在神经网络可表示性度量",
+    "summary": "神经量子态（NQS）已经成为量子态的强大表示，在量子多体物理领域的应用迅速扩展。然而，我们对神经网络何时能够有效表示物理量子态的理解仍然有限，部分原因是 NQS 的非线性参数化、量子态复杂的符号结构以及对基选择的敏感依赖性。我们引入了 Walshness，一种量子态的复杂性度量，用于量化它是否接受紧凑的神经网络表示。我们严格证明，当且仅当通用量子多体态对于各种 NQS 架构具有限制 Walshness 时，它才允许有效的 NQS 表示。",
+    "abstract": "arXiv:2610.00505v1 Announce Type: cross Abstract: Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networks can efficiently represent physical quantum states remains limited, in part due to the nonlinear parameterization of NQS, the intricate sign structure of quantum states, and the sensitive dependence on basis choice. We introduce Walshness, a complexity metric of a quantum state which quantifies whether it admits a compact neural-network representation. We rigorously prove that a general quantum many-body state admits an efficient NQS representation if and only if it has bounded Walshness for various NQS architectures. We provide an algorithm for finding the optimal basis by minimizing the energy of a corresponding classical spin model. This allows us to empirically improve the learnability of various physical quantum states, including ground states of the transverse-field Ising model and mixed-field toric code, often reducing infidelity by orders of magnitude, and recovers and generalizes the basis choice given by the well-known Marshall sign rule in frustrated antiferromagnets. Our results provide an intrinsic complexity metric for quantum states with provable connections to their neural-network representability.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.00505",
+    "journal": "arXiv"
+  },
+  {
     "title": "A Machine Learning Closure for Polymer Integral Equation Theory",
-    "title_zh": "文献研究：A Machine Learning Closure for Polymer Integral Equation Theory",
-    "summary": "Polymer reference interaction site model (PRISM) theory, a descendant of Ornstein-Zernike liquid state theory, is a powerful tool to predict the structure and thermodynamics of equilibrium polymer sys…",
+    "title_zh": "聚合物积分方程理论的机器学习闭包",
+    "summary": "聚合物参考相互作用位点模型（PRISM）理论是 Ornstein-Zernike 液态理论的后代，是预测平衡聚合物体系的结构和热力学的有力工具，但其准确性和适用性在某些重要情况下可能受到限制。通常，这些缺点可以追溯到用于求解积分方程的解析闭包关系。在这里，我们提出了一种基于机器学习（ML）的闭合关系，在均聚物熔体和溶液的粗粒度分子动力学模拟数据集上进行训练。",
     "abstract": "arXiv:2509.11030v4 Announce Type: replace Abstract: Polymer reference interaction site model (PRISM) theory, a descendant of Ornstein-Zernike liquid state theory, is a powerful tool to predict the structure and thermodynamics of equilibrium polymer systems, but its accuracy and applicability can be limited in some important cases. Typically, these shortcomings are traced to the analytical closure relationships used to solve the integral equations. Here, we propose a machine learning (ML)-based closure relation trained on a dataset of coarse-grained molecular dynamics simulations of homopolymer melts and solutions. PRISM theory with the ML closure outperforms traditional atomic closures (e.g., Percus-Yevick) in predicting the structure of typical coarse-grained model systems. We also use the ML closure to accurately model the results of small-angle neutron scattering experiments. This ML-enhanced PRISM theory can therefore enable rapid soft materials discovery and design efforts.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2509.11030",
@@ -73,20 +91,11 @@
   },
   {
     "title": "Port-Hamiltonian Neural Networks for Systems with Multiple Asymptotically Stable Equilibria",
-    "title_zh": "文献研究：Port-Hamiltonian Neural Networks for Systems with Multiple Asymptotically Stable Equilibria",
-    "summary": "Stable port-Hamiltonian neural networks certify asymptotic stability by construction. Yet, their Hamiltonian is a global Lyapunov function with a single global minimum, so they can represent only dyna…",
+    "title_zh": "具有多个渐近稳定平衡的系统的Port-Hamiltonian神经网络",
+    "summary": "稳定端口-汉密尔顿神经网络通过构造来证明渐近稳定性。然而，它们的Hamiltonian是具有单个全局最小值的全局Lyapunov函数，因此它们只能表示具有一个吸引子的动态系统。我们证明，这甚至排除了能量景观形成双井的简单系统，并且我们通过将哈密顿函数参数化为由一个输入-凸网络生成的布雷格曼发散的乘积来克服这一限制。我们证明了所得模型是局部Lyapunov稳定的，稳定平衡的共存迫使额外的非渐近稳定平衡存在，所有平衡都位于有界区域，并且在几乎所有稳定性成立的双曲性假设下。",
     "abstract": "arXiv:2610.01356v1 Announce Type: new Abstract: Stable port-Hamiltonian neural networks certify asymptotic stability by construction. Yet, their Hamiltonian is a global Lyapunov function with a single global minimum, so they can represent only dynamic systems with one attractor. We demonstrate that this excludes even simple systems with energy landscapes forming a double well, and we overcome the restriction by parametrising the Hamiltonian as a product of Bregman divergences generated by one input-convex network. We prove that the resulting model is locally Lyapunov stable, that the coexistence of stable equilibria forces additional non-asymptotically-stable equilibria to exist, that all equilibria lie in a bounded region, and under a hyperbolicity assumption that almost-everywhere stability holds. On three systems our approach is able to recover the energy surface characteristics and improve the convergence speed by 1.8×-8.5×.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.01356",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Walshness: an intrinsic neural-network representability metric for quantum states",
-    "title_zh": "文献研究：Walshness: an intrinsic neural-network representability metric for quantum states",
-    "summary": "Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networ…",
-    "abstract": "arXiv:2610.00505v1 Announce Type: cross Abstract: Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networks can efficiently represent physical quantum states remains limited, in part due to the nonlinear parameterization of NQS, the intricate sign structure of quantum states, and the sensitive dependence on basis choice. We introduce Walshness, a complexity metric of a quantum state which quantifies whether it admits a compact neural-network representation. We rigorously prove that a general quantum many-body state admits an efficient NQS representation if and only if it has bounded Walshness for various NQS architectures. We provide an algorithm for finding the optimal basis by minimizing the energy of a corresponding classical spin model. This allows us to empirically improve the learnability of various physical quantum states, including ground states of the transverse-field Ising model and mixed-field toric code, often reducing infidelity by orders of magnitude, and recovers and generalizes the basis choice given by the well-known Marshall sign rule in frustrated antiferromagnets. Our results provide an intrinsic complexity metric for quantum states with provable connections to their neural-network representability.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.00505",
     "journal": "arXiv"
   },
   {
@@ -100,8 +109,8 @@
   },
   {
     "title": "Learning ab initio phase-field models",
-    "title_zh": "文献研究：Learning ab initio phase-field models",
-    "summary": "Simulating microstructure evolution requires quantum-mechanical accuracy and mesoscopic reach in length and time scales, a combination that no current method achieves. Classical phase-field models pro…",
+    "title_zh": "从头开始学习相场模型",
+    "summary": "模拟微观结构演化需要量子力学精度以及长度和时间尺度的介观范围，这是当前方法无法实现的组合。经典相场模型提供了这种范围，但其准确性受到唯象自由能和迁移率的限制。在这里，我们开发了一个从头开始学习相场模型的框架，其中介观方程不是假设的，而是在明确的假设下从分子动力学到物种密度场的 Mori-Zwanzig 投影导出的。该方程未指定的非局域自由能和迁移率由神经网络参数化，并从从头精度的机器学习原子间势生成的短分子动力学轨迹中学习。我们展示了行星条件下铁硼熔体和氢氦混合物的框架。",
     "abstract": "arXiv:2610.01432v1 Announce Type: new Abstract: Simulating microstructure evolution requires quantum-mechanical accuracy and mesoscopic reach in length and time scales, a combination that no current method achieves. Classical phase-field models provide this reach, but their accuracy is limited by phenomenological free energies and mobilities. Here we develop a framework for learning ab initio phase-field models, where the mesoscopic equation is not postulated but derived from a Mori-Zwanzig projection of molecular dynamics onto species-density fields under explicit assumptions. The nonlocal free energy and mobility left unspecified by this equation are parametrized by neural networks and learned from short molecular dynamics trajectories generated with machine-learning interatomic potentials of ab initio accuracy. We demonstrate the framework on an iron-boron melt and on hydrogen-helium mixtures under planetary conditions. For iron-boron, the model shows that the melt at the FeB₄ composition is spinodally unstable at ambient pressure but stabilized at 10 GPa, offering a thermodynamic rationale for why FeB₄ has been synthesized only under high pressure. For hydrogen-helium, the model predicts the immiscibility boundary and captures droplet nucleation and growth in helium-rain simulations of a column corresponding to 2.2 million atoms, far beyond the scale of atomistic modeling at comparable accuracy. Trained across compositions and conditions, such models could provide a mesoscopic counterpart to ab initio molecular dynamics.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.01432",
@@ -118,8 +127,8 @@
   },
   {
     "title": "EP-Flow: Disordered Crystal Structure Prediction without Site-Level Annotations",
-    "title_zh": "文献研究：EP-Flow: Disordered Crystal Structure Prediction without Site-Level Annotations",
-    "summary": "Generative models have made rapid progress in ordered crystal structure prediction, yet many functional materials are intrinsically disordered, with substitutional mixing, vacancies, or interstitial s…",
+    "title_zh": "EP-Flow：无位点级注释的无序晶体结构预测",
+    "summary": "生成模型在有序晶体结构预测方面取得了快速进展，但许多功能材料本质上是无序的，置换混合、空位或间隙物质控制着它们的性能。现有的晶体生成器要么假设确定的位点占用，要么需要位点级无序注释，当化学式是主要输入时，这些注释通常不可用。我们通过占据分布矩阵（ODM）制定无序晶体结构预测，这是一种连续的按物种表示，统一了有序晶体、固溶体、空位无序和间隙占据。有效的 ODM 必须满足耦合的位点占用、质量守恒和非负约束，将每个样本放置在依赖于公式的传输多胞体上。",
     "abstract": "arXiv:2610.01315v1 Announce Type: cross Abstract: Generative models have made rapid progress in ordered crystal structure prediction, yet many functional materials are intrinsically disordered, with substitutional mixing, vacancies, or interstitial species controlling their properties. Existing crystal generators either assume deterministic site occupations or require site-level disorder annotations, which are often unavailable when the chemical formula is the primary input. We formulate disordered crystal structure prediction through an Occupancy Distribution Matrix (ODM), a continuous site-by-species representation that unifies ordered crystals, solid solutions, vacancy disorder, and interstitial occupancy. A valid ODM must satisfy coupled site-wise occupancy, mass-conservation, and non-negativity constraints, placing each sample on a formula-dependent transportation polytope. We propose Entropic Polytope Flow (EP-Flow), a marginal-constrained flow matching framework that canonicalizes heterogeneous polytopes into a shared double-centered space, learns a marginal-preserving flow, and recovers feasible occupancies through a Sinkhorn inverse map. By jointly generating occupancies, fractional coordinates, and lattice parameters, EP-Flow achieves state-of-the-art performance on formula-conditioned disordered CSP benchmarks derived from COD and MPDS, substantially outperforming adapted ordered-crystal generators. Analyses further show that EP-Flow recovers sparse and chemically meaningful local disorder patterns rather than merely matching global composition statistics.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.01315",
@@ -163,20 +172,11 @@
   },
   {
     "title": "Charge and spin dynamics in spintronic THz emitters from Time-Dependent Density Functional Theory",
-    "title_zh": "文献研究：Charge and spin dynamics in spintronic THz emitters from Time-Dependent Density Functional Theory",
-    "summary": "Spintronic terahertz (THz) emitters based on ferromagnet/heavy-metal heterostructures provide efficient broadband sources of THz radiation, yet the microscopic relation between ultrafast spin transpor…",
+    "title_zh": "来自瞬态密度泛函理论的自旋电子太赫兹发射器中的电荷和自旋动力学",
+    "summary": "基于铁磁体/重金属异质结构的自旋电子太赫兹（THz）发射器提供了高效的宽带太赫兹辐射源，但超快自旋输运和电荷重新分布之间的微观关系仍未完全了解。在这里，我们采用瞬态密度泛函理论来实时和空间地解析 Co/Pt 和 Co/W 双层的耦合电荷、自旋和磁化动力学。尽管层间自旋电流动力学性质相似，但这两种异质结构表现出明显不同的层间电荷转移：Co/Pt 显示出从 Pt 到 Co 的相对较小且部分反向的转移，而 Co/W 表现出从 Co 到 W 的较大且持续的转移。",
     "abstract": "arXiv:2610.01089v1 Announce Type: new Abstract: Spintronic terahertz (THz) emitters based on ferromagnet/heavy-metal heterostructures provide efficient broadband sources of THz radiation, yet the microscopic relation between ultrafast spin transport and charge redistribution remains incompletely understood. Here, we employ time-dependent density functional theory to resolve the coupled charge, spin, and magnetization dynamics of Co/Pt and Co/W bilayers in real time and space. Despite qualitatively similar interlayer spin-current dynamics, the two heterostructures exhibit markedly different interlayer charge transfer: Co/Pt shows a relatively small and partially reversed transfer from Pt to Co, whereas Co/W exhibits a larger and persistent transfer from Co to W. We trace these differences to the material-dependent ground-state electronic structure and the spin- and orbital-resolved phase space accessible to photoexcited carriers. Spin-resolved dynamics further reveal coexisting spin-orbit-mediated redistribution and optically induced intersite spin transfer, including a delayed minority-spin transfer from the heavy metal to Co common to both systems. While net electronic spin angular momentum is transferred between the layers, we find no corresponding net transfer of electronic orbital angular momentum. In Co/W, the persistent redistribution of electronic density from interstitial to atom-centered states additionally provides strong evidence for light-induced electronic localization. These results demonstrate that ultrafast spin transport does not uniquely determine charge or angular-momentum redistribution in spintronic THz emitters, which instead depends critically on the material-specific electronic phase space.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2610.01089",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Mechanism of Incommensurate Magnetic Order in BaCo₂(AsO₄)₂: Interplay of Frustrated Further-Neighbor Exchanges and Bond-Directional Anisotropy",
-    "title_zh": "文献研究：Mechanism of Incommensurate Magnetic Order in BaCo₂(AsO₄)₂: Interplay of Frustrated Further-Neighbor Exchanges and Bond-Directional Anisotropy",
-    "summary": "The microscopic mechanism governing the zero-field incommensurate magnetic order in the honeycomb cobaltate BaCo₂(AsO₄)₂ remains a significant unresolved problem, particularly concerning the relative…",
-    "abstract": "arXiv:2610.00626v1 Announce Type: new Abstract: The microscopic mechanism governing the zero-field incommensurate magnetic order in the honeycomb cobaltate BaCo₂(AsO₄)₂ remains a significant unresolved problem, particularly concerning the relative contributions of bond-directional Kitaev-type interactions and exchange frustration. This study investigates an extended J₁--K--Γ--Γ'--J₂--J₃ model, which incorporates XXZ-type exchange anisotropies on the honeycomb lattice. Nearest-neighbor parameters are constrained by ab initio electronic structure calculations. By integrating the analytical Luttinger-Tisza approach with exact diagonalization calculations under twisted boundary conditions, we delineate the classical and quantum phase diagrams across the (J₂, J₃) parameter space. We demonstrate that the stabilization of the experimentally observed incommensurate spiral phase, propagating along the Γ→ M direction, does not necessitate an anomalously dominant Kitaev coupling. Instead, this phase arises naturally from the synergistic interplay between exchange frustration, driven by further-neighbor couplings (J₂, J₃), and intermediate off-diagonal bond anisotropies (Γ, Γ'). In the quantum regime, we elucidate the competition between this incommensurate manifold and an out-of-plane ferromagnetic (FM_z) phase, which is selectively stabilized via a quantum order-by-disorder mechanism. Our findings reconcile conflicting interpretations of the magnetic interactions in BaCo₂(AsO₄)₂ and establish the microscopic origin and stability range of its incommensurate ground state.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2610.00626",
     "journal": "arXiv"
   }
 ]
