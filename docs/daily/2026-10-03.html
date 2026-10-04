@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-10-03 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-10-03.xml" rel="alternate" title="2026-10-03 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-10-03.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-10-03</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-10-02.html">← 前一天 · 2026-10-02</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/10/03</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，按交叉强度与方向匹配度排序。</p>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">AI × 科学交叉</div>
+<div class="daily-stat-value">1</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv / 期刊</div>
+<div class="daily-stat-value">0<small> / 14</small></div>
+</div>
+</div>
+<details aria-label="今日概览" class="daily-viz"><summary>📊 今日分布图（主题 / 来源 / 分层）</summary><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 154"><title>主题分布</title><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">10</text><text class="vl" x="8" y="78">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="38.0" x="142" y="64"></rect><text class="vn" x="186.0" y="78">2</text><text class="vl" x="8" y="106">AI×化学·材料</text><rect class="vb" height="18" rx="5" width="19.0" x="142" y="92"></rect><text class="vn" x="167.0" y="106">1</text><text class="vl" x="8" y="134">超导</text><rect class="vb" height="18" rx="5" width="19.0" x="142" y="120"></rect><text class="vn" x="167.0" y="134">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">14</text></svg><svg aria-label="方向分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>方向分层</title><text class="vt" x="8" y="20">方向分层</text><text class="vl" x="8" y="50">神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="36"></rect><text class="vn" x="148.0" y="50">0</text><text class="vl" x="8" y="78">AI × 物理/材料/化学</text><rect class="vb" height="18" rx="5" width="14.6" x="142" y="64"></rect><text class="vn" x="162.6" y="78">1</text><text class="vl" x="8" y="106">其他物理/材料</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">13</text></svg></div></details>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-10-02.html">前一天 · 2026-10-02</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-03.html">最新一期 · 2026-10-03</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-03.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日精选 14 篇：AI × 物理 / 材料 / 化学 1 篇、其他物理 / 材料进展 13 篇。（AI 摘要服务今日不可用，以下条目的中文标题与摘要可能为机器翻译。）</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在机器学习与物理建模，并落到晶体结构、功能材料和结构—性质关系、磁性、自旋以及自旋—晶格耦合、缺陷、畴壁、成核和开关动力学、声子、有限温度和输运性质。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。</p>
+</div>
+</section>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">2 篇</span>
+</div>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626005045?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-1">PolyGraphPy：用于原子模拟和机器学习驱动的聚合物设计的统一 Python 框架</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">出版日期：2026 年 10 月 25 日 资料来源：Computational Materials Science，第 275 卷 作者：João G.C.S. Duarte、Shruti Venkatram、Morg…</p>
+<a class="daily-core-jump" href="#paper-1">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78714?af=R">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-2">圆柱形纳米线磁性纹理的电流驱动手性检测</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-core-work">先进功能材料，EarlyView。</p>
+<a class="daily-core-jump" href="#paper-2">查看完整卡片 ↓</a>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">14 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🤖 AI × 物理 / 材料 / 化学</h3><p>机器学习与第一性原理、分子动力学、材料与化学问题的交叉研究。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626005045?dgcid=rss_sd_all" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005045?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">PolyGraphPy：用于原子模拟和机器学习驱动的聚合物设计的统一 Python 框架</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005045?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">PolyGraphPy: A unified Python framework for atomistic simulation and machine learning-driven polymer design</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🤖 AI×科学 · AI×化学·材料</span><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>出版日期：2026 年 10 月 25 日 资料来源：Computational Materials Science，第 275 卷 作者：João G.C.S. Duarte、Shruti Venkatram、Morgan Cencer、Traian Dumitricǎ、Ketson R.M.多斯桑托斯</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 25 October 2026 Source: Computational Materials Science, Volume 275 Author(s): João G.C.S. Duarte, Shruti Venkatram, Morgan Cencer, Traian Dumitricǎ, Ketson R.M. dos Santos</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626005045?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧲 其他物理 / 材料进展</h3><p>不含机器学习成分的凝聚态、铁电磁性与材料工作。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78714?af=R" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78714?af=R" rel="noopener noreferrer" target="_blank">圆柱形纳米线磁性纹理的电流驱动手性检测</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78714?af=R" rel="noopener noreferrer" target="_blank">Current‐Driven Chirality Detection of Magnetic Textures in Cylindrical Nanowires</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Javier Rial、Alejandro Rivelles、Sofia Caspani、Célia T. Sousa、Rodrigo Guedas、José Luis Prieto 等 7 人。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78714?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-cooper-pairs-superconducting-critical-temperature.html" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-cooper-pairs-superconducting-critical-temperature.html" rel="noopener noreferrer" target="_blank">在对密度波中发现高于超导临界温度的库珀对</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-cooper-pairs-superconducting-critical-temperature.html" rel="noopener noreferrer" target="_blank">Cooper pairs found above superconducting critical temperature in pair density waves</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 超导</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>伊利诺伊大学香槟分校格兰杰工程学院的物理学家发现了一种新形式的超导行为。对金属二碲化铀的实验表明，库珀对（负责超导性的复合电子单元）可以组织成不均匀的图案，即使在主超导相不存在时也存在这种图案。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Physicists with the University of Illinois Urbana-Champaign's Grainger College of Engineering have identified a new form of superconducting behavior. Experiments on the metal uranium ditelluride reveal that Cooper pairs, the composite electron units responsible for superconductivity, can organize into nonuniform patterns that exist even when the main superconducting phase is absent.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-cooper-pairs-superconducting-critical-temperature.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-scientists-superconductor-reversal-symmetry.html" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-scientists-superconductor-reversal-symmetry.html" rel="noopener noreferrer" target="_blank">科学家发现第一个打破时间反转对称性的I型超导体</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-scientists-superconductor-reversal-symmetry.html" rel="noopener noreferrer" target="_blank">Scientists discover first type I superconductor that breaks time-reversal symmetry</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>超导体是无电阻导电并在冷却至超低温时释放磁场的材料。根据它们的量子结构，它们还可以展示磁悬浮等奇怪的特性。但现在事情变得有点奇怪了。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Superconductors are materials that conduct electricity with no resistance and expel magnetic fields when cooled to ultralow temperatures. And depending on their quantum structure, they can also showcase strange properties like magnetic levitation. But now things are getting a little weirder.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-scientists-superconductor-reversal-symmetry.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78799?af=R" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78799?af=R" rel="noopener noreferrer" target="_blank">外延 La0.5Sr0.5CoOx 神经形态忆阻器中拓扑电阻开关的原子尺度可视化</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78799?af=R" rel="noopener noreferrer" target="_blank">Atomic‐Scale Visualization of Topotactic Resistive Switching in Epitaxial La0.5Sr0.5CoOx Neuromorphic Memristors</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Zi‐Qin Hong、Yen‐Jung Chen、Shih‐Chao Chang、Jui‐yuan Chen、Jan‐Chi Yang、Wen‐Wei Wu。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78799?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-78416-w" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-78416-w" rel="noopener noreferrer" target="_blank">可穿戴机器人的意志控制</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-78416-w" rel="noopener noreferrer" target="_blank">Volitional control of wearable robots</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Massimo Sartori、Gregory S. Sawicki。</span><span class="daily-byline-source">Nature Communications，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>该评论推动了人机界面的发展，该界面可以解码脊髓运动神经元活动以及运动中的人体产生的肌肉力量信息。这种接口可以使神经肌肉功能范围内的用户能够自愿控制具有类似肌肉行为的可穿戴机器人。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">This Comment motivates the development of human–machine interfaces that decode spinal motor neuron activity and resulting muscle force information in moving humans. Such interfaces could enable users across the neuromuscular functional spectrum to volitionally control wearable robots with muscle-like behaviour.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-78416-w" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78776?af=R" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78776?af=R" rel="noopener noreferrer" target="_blank">Spiro-OMeTAD 分子工程实现耐用高效的钙钛矿光伏</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78776?af=R" rel="noopener noreferrer" target="_blank">Molecular Engineering of Spiro‐OMeTAD for Durable and Efficient Perovskite Photovoltaics</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Chenyang Xia、Jiakang Zhang、Jihao Zhao、Jinxian Yang、Ruotong Kang、Sirui Han 等 11 人。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：perovskite。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78776?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78747?af=R" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78747?af=R" rel="noopener noreferrer" target="_blank">金属卤化物钙钛矿光催化剂的晶面工程：进展与展望</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78747?af=R" rel="noopener noreferrer" target="_blank">Crystal Facet‐Engineering of Metal Halide Perovskite Photocatalysts: Progress and Perspectives</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Biao Zhou、Jiayi Li、Xinyu Yang、Keyou Yan。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：perovskite。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78747?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78757?af=R" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78757?af=R" rel="noopener noreferrer" target="_blank">Ni调控的水合氧化钒的部分重构用于快速耐用的水系锌离子电池</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78757?af=R" rel="noopener noreferrer" target="_blank">Ni‐Regulated Partial Reconstruction of Hydrated Vanadium Oxide for Fast and Durable Aqueous Zinc‐Ion Batteries</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Zhihan Kong、Penghua Liang、Tengyu Yao、Xinyue Mu、Dingwei Ji、Longbiao Yu 等 13 人。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78757?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78817?af=R" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78817?af=R" rel="noopener noreferrer" target="_blank">有机半导体和氧化物半导体能否共存？混合薄膜晶体管的功能异质接口</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78817?af=R" rel="noopener noreferrer" target="_blank">Can Organic and Oxide Semiconductors Do More Than Coexist? Functional Heterointerfaces for Hybrid Thin‐Film Transistors</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Minchul Roh、Juhyung Seo、Woojo Kim、Dong Hyun Lee、Wangmyung Choi、Junhwan Choi 等 8 人。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78817?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78834?af=R" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78834?af=R" rel="noopener noreferrer" target="_blank">聚丙烯酸的反应时 pH 稳定和乙醇介导的生长控制用于高效水热 Sb2(S,Se)3 太阳能电池</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78834?af=R" rel="noopener noreferrer" target="_blank">Reaction‐Time pH Stabilization by Poly(acrylic acid) with Ethanol‐Mediated Growth Control for Efficient Hydrothermal Sb2(S,Se)3 Solar Cells</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Juhee Lee、Geumha Lim、Wookyung Jeon、Seongju Park、Jinwoo Chu、Yohan Yoon 等 8 人。</span><span class="daily-byline-source">Wiley，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进功能材料，EarlyView。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Functional Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78834?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-6682277/latest" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-6682277/latest" rel="noopener noreferrer" target="_blank">超级堆旋回：与超大陆旋回耦合的基底地幔结构的重组</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-6682277/latest" rel="noopener noreferrer" target="_blank">The Superpile Cycle: the reorganisation of basal mantle structures coupled to the supercontinent cycle</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Abigail Plimmer、J. Huw Davies。</span><span class="daily-byline-source">Preprints，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>地球表面和深层之间的耦合是地球动力学的基础，但这些相互作用的本质仍然不完全清楚。这些过程难以捉摸，部分原因是缺乏对核幔边界（CMB）附近大型低剪切速度区（LLSVP）的性质和演化及其在地幔循环中的作用的约束。在这里，我们使用一套 24 个 3D 地幔循环模型，涵盖 CMB 温度、板块速度、粘度结构和基底层特性的广泛参数空间，来评估类 LLSVP 结构的稳定性及其与上升流、下降流和板块构造的关系。我们提出了“超级桩循环”的假设（以其与超大陆循环的密切联系而命名，并使用“超级桩”一词来描述非洲和太平洋下方的 LLSVP），该假设描述了地球深处响应超大陆动力学的演化。超大陆由稳定的俯冲带和对映的基底地幔结构聚集在一起，然后分裂。在扩散过程中，新的俯冲带形成，板片诱发更复杂的地幔流，并在短暂的“重排事件”期间破坏最低地幔中稳定的二级结构，其中地幔柱变得更多且分布更广泛。随着俯冲带位置的稳定，类 LLSVP 的结构趋向于回到反足堆，羽流活动变得更加集中，新的超大陆聚集在一起。这种周期性和事件的相对顺序在整个模型组中是一致的，表明超大陆动力学、基底地幔结构和上升流随时间的分布之间存在耦合关系。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">The coupling between the surface and deep Earth is fundamental to the dynamics of the planet, yet the nature of these interactions remain incompletely understood. These processes are elusive, in part, because of a lack of constraints on the nature and evolution large low shear-velocity provinces (LLSVPs) near the core-mantle boundary (CMB), and their role in mantle circulation. Here we use a suite of 24 3D mantle circulation models, spanning a wide parameter space of CMB temperature, plate velocity, viscosity structure, and basal layer properties, to assess the stability of LLSVP-like structures and their relationships to upwellings, downwellings, and plate tectonics. We propose the hypothesis of a `superpile cycle' (named after its close ties to the supercontinent cycle, and usage of the term `super-pile' to describe LLSVPs beneath Africa and Pacific Ocean) that depicts the evolution of the deep Earth in response to supercontinent dynamics. Supercontinents assemble with stable subduction girdles and antipodal basal mantle structures, then break apart. During dispersal, new subduction zones form, slabs induce more complex mantle flow and disrupt the stable degree 2 structure in the lowermost mantle during a brief `rearrangement event', in which mantle plumes become more numerous and widely distributed. As subduction zone locations stabilise, LLSVP-like structures tend back to antipodal piles, plume activity becomes more focussed, and a new supercontinent assembles. This cyclicity, and the relative ordering of events, is consistent across the model suite , suggesting a coupled relationship between supercontinent dynamics, basal mantle structures, and distribution of upwellings through time.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-6682277/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626006440?dgcid=rss_sd_all" id="paper-13">
+<span class="daily-paper-number">13</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006440?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">ICDP ：原子模拟的不可约笛卡尔动态注意潜力</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006440?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">ICDP: an irreducible Cartesian dynamic-attention potential for atomistic simulations</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>出版日期： 2027年1月来源： Computational Materials Science ，第276卷作者： Huaijuan Zang ， Xuan Li ， Yang Li ， Jing Jin ， Chong Zhao ， Fan Yang ， Zhao Niu</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Huaijuan Zang, Xuan Li, Yang Li, Jing Jin, Chong Zhao, Fan Yang, Zhao Niu</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006440?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-13">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-qa-quantum-society.html" id="paper-14">
+<span class="daily-paper-number">14</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-qa-quantum-society.html" rel="noopener noreferrer" target="_blank">问答：量子计算机将如何改变社会？</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-qa-quantum-society.html" rel="noopener noreferrer" target="_blank">Q&amp;A: How will quantum computers change society?</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-03</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>曾经被称为“白日梦”的量子计算机现在正接近实际应用。世界各地的公司和研究机构都在激烈竞争开发这项技术，该技术有潜力快速执行一些即使对传统超级计算机来说也极其困难的计算。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Once called a "pipe dream," quantum computers are now approaching practical use. Companies and research institutes around the world are in fierce competition to develop this technology, which has the potential to rapidly perform some calculations that are extremely difficult even for conventional supercomputers.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-qa-quantum-society.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-14">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-10-02.html">← 前一天 · 2026-10-02</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-10-02.html">前一天 · 2026-10-02</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-03.html">最新一期 · 2026-10-03</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-03.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#core-focus"><span>🎯 核心关注</span><span>2</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>14</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">PolyGraphPy：用于原子模拟和机器学习驱动的聚合物设计的统一 Python 框架<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">圆柱形纳米线磁性纹理的电流驱动手性检测<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">在对密度波中发现高于超导临界温度的库珀对<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">科学家发现第一个打破时间反转对称性的I型超导体<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">外延 La0.5Sr0.5CoOx 神经形态忆阻器中拓扑电阻开关的原子尺度可视化<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">可穿戴机器人的意志控制<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">Spiro-OMeTAD 分子工程实现耐用高效的钙钛矿光伏<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">金属卤化物钙钛矿光催化剂的晶面工程：进展与展望<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">Ni调控的水合氧化钒的部分重构用于快速耐用的水系锌离子电池<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">有机半导体和氧化物半导体能否共存？混合薄膜晶体管的功能异质接口<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">聚丙烯酸的反应时 pH 稳定和乙醇介导的生长控制用于高效水热 Sb2(S,Se)3 太阳能电池<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">超级堆旋回：与超大陆旋回耦合的基底地幔结构的重组<span class="daily-outline-meta">12</span></a><a class="daily-outline-link" href="#paper-13">ICDP ：原子模拟的不可约笛卡尔动态注意潜力<span class="daily-outline-meta">13</span></a><a class="daily-outline-link" href="#paper-14">问答：量子计算机将如何改变社会？<span class="daily-outline-meta">14</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-10-02.html">前一天 · 2026-10-02</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-03.html">最新一期 · 2026-10-03</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-03.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
