@@ -28,7 +28,7 @@
   },
   {
     "title": "Equivariant generative diffusion learns and generalizes the structural ensemble of amorphous oxides",
-    "title_zh": "文献研究：Equivariant generative diffusion learns and generalizes the structural ensemble of amorphous oxides",
+    "title_zh": "等变量生成扩散学习和推广无定形氧化物的结构集合",
     "summary": "Amorphous materials are statistical ensembles rather than definitive structures, and conventional density-functional (DFT) and machine-learned-potential simulations sample only a small part of that en…",
     "abstract": "arXiv:2610.03973v1 Announce Type: new Abstract: Amorphous materials are statistical ensembles rather than definitive structures, and conventional density-functional (DFT) and machine-learned-potential simulations sample only a small part of that ensemble. We present an SE(3)-equivariant denoising-diffusion model that learns the configurational distribution of amorphous oxides, so the model itself is the structure database. The learning is data efficient. A model trained on 1,781 DFT configurations suffices to reproduce partial radial distribution functions, coordination statistics and bond-angle distributions, and to generate models of over 3×10⁵ atoms at a cost comparable to that of the cheapest classical pair potentials. The trained model can propose amorphous atomic structures for first-principles relaxation to explore the configuration space. For example, it locates an amorphous Zr-Ta-O structure 36 meV/atom below the previously known minimum. Generation can also extend beyond trained conditions to non-stoichiometric compositions, other mass densities, interfaces, and doping. First-principles verification confirms that generation can be steered to a requested energy, and shows that the denoising training loss does not rank generative quality, because the two measure different things.",
     "category": "AI×物理",
@@ -61,6 +61,24 @@
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2608.29413",
     "journal": "arXiv"
+  },
+  {
+    "title": "Learning From Atoms: Machine Learning Enabled Design of Durable PtCo Fuel Cell Catalysts (Adv. Funct. Mater. 80/2026)",
+    "title_zh": "从原子中学习：支持机器学习的耐用 PtCo 燃料电池催化剂设计（Adv. Funct. Mater. 80/2026）",
+    "summary": "Advanced Functional Materials, Volume 36, Issue 80, 5 October 2026.",
+    "abstract": "Advanced Functional Materials, Volume 36, Issue 80, 5 October 2026.",
+    "category": "AI×化学·材料",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78240?af=R",
+    "journal": "Wiley"
+  },
+  {
+    "title": "Learning From Atoms: Machine Learning Enabled Design of Durable PtCo Fuel Cell Catalysts",
+    "title_zh": "从原子中学习：支持机器学习的耐用 PtCo 燃料电池催化剂的设计",
+    "summary": "Advanced Functional Materials, Volume 36, Issue 80, 5 October 2026.",
+    "abstract": "Advanced Functional Materials, Volume 36, Issue 80, 5 October 2026.",
+    "category": "AI×化学·材料",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.75914?af=R",
+    "journal": "Wiley"
   },
   {
     "title": "Physics-informed neural operator for parametric phase-field modelling of interfacial degradation and microstructural evolution",
@@ -118,8 +136,8 @@
   },
   {
     "title": "Learning Lattice Parameters from Powder X-Ray Diffraction Data Using Invariants",
-    "title_zh": "文献研究：Learning Lattice Parameters from Powder X-Ray Diffraction Data Using Invariants",
-    "summary": "We present a machine learning (ML) method to determine unit cell parameters from powder X-Ray diffraction (XRD) data using a novel invariant lattice representation. In ML, the data representation used…",
+    "title_zh": "使用不变量从粉末 X 射线衍射数据学习晶格参数",
+    "summary": "我们提出了一种机器学习 (ML) 方法，使用新颖的不变晶格表示从粉末 X 射线衍射 (XRD) 数据确定晶胞参数。在机器学习中，所使用的数据表示会对预测质量产生重大影响。以前的方法直接从 XRD 输入预测晶格参数 (a,b,c,α,β,γ)。然而，这些参数很大程度上取决于所使用的晶胞缩减或约定。在这项工作中，我们基于双谱（一种由晶格点的球谐投影构建的描述符）构建了与原始单元约定无关的倒晶格的不变表示。",
     "abstract": "arXiv:2607.21829v2 Announce Type: replace Abstract: We present a machine learning (ML) method to determine unit cell parameters from powder X-Ray diffraction (XRD) data using a novel invariant lattice representation. In ML, the data representation used can have a substantial impact on the prediction quality. Previous approaches have directly predicted lattice parameters (a,b,c,α,β,γ) from XRD inputs. However, these parameters depend strongly on the unit cell reduction or convention used. In this work, we construct an invariant representation of the reciprocal lattice that is independent of primitive cell convention, based on the bispectrum--a descriptor built from spherical harmonic projections of lattice points. The calculation of the lattice bispectrum is differentiable, and we demonstrate how to invert it using gradient-based optimization initialized from a nearest-neighbor lookup. We show that with a fixed ML model architecture, using the lattice bispectrum as the ML target rather than the unit cell parameters leads to more accurate lattice parameter predictions. For example, using the MP-20 dataset, the bispectrum reduces length mean absolute percentage error (MAPE) from 11.08% to 2.43% and angle MAPE from 12.15% to 2.45% compared to direct prediction with the same model architecture. We additionally benchmark our approach against pre-existing XRD to crystal structure models such as Crystalyze and assess its performance on experimental data. Beyond unit cell representation, we anticipate this invariant lattice representation could serve more broadly as a geometry-aware target for other crystallographic machine learning tasks such as structure generation.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2607.21829",
@@ -127,8 +145,8 @@
   },
   {
     "title": "MOSAIC: Addressing Space for Local, Steerable, and Scalable Atomistic Generation",
-    "title_zh": "文献研究：MOSAIC: Addressing Space for Local, Steerable, and Scalable Atomistic Generation",
-    "summary": "Generative models are opening new possibilities in molecular discovery and materials science. Realizing this potential, however, requires both local control over atomic placement and the ability to as…",
+    "title_zh": "MOSAIC：局部、可操纵和可扩展原子生成的寻址空间",
+    "summary": "生成模型正在为分子发现和材料科学开辟新的可能性。然而，要实现这一潜力，既需要对原子布局进行局部控制，又需要组装大型异构结构的能力。我们引入了 Mosaic，一种混合网格粒子表示形式，它将空间划分为包含原子槽的锚定区域。每个槽都对占用、原子种类和与其锚点的连续位移进行编码，为局部调节、分层生成和可扩展组装提供持久的空间地址。因为 Mosaic 定义的是表示而不是模型，所以它可以与不同的生成主干配对。",
     "abstract": "arXiv:2610.04161v1 Announce Type: new Abstract: Generative models are opening new possibilities in molecular discovery and materials science. Realizing this potential, however, requires both local control over atomic placement and the ability to assemble large, heterogeneous structures. We introduce Mosaic, a hybrid mesh-particle representation that partitions space into anchored regions containing atom slots. Each slot encodes occupancy, atomic species, and a continuous displacement from its anchor, providing persistent spatial addresses for local conditioning, hierarchical generation, and scalable assembly. Because Mosaic defines a representation rather than a model, it can be paired with different generative backbones. With the molecular backbone held fixed, its local support and coordinate prior improve molecular connectivity and validity, the resulting model samples efficiently across molecular sizes and enables fine-grained spatial control. At larger material scales, the same representation enables generation of atomistic polycrystals conditioned on coarse spatial layouts. Most notably, locality turns large-scale generation into a bounded assembly problem, enabling structure generation with more than one million atoms. Together, this establishes local spatial addressing as a practical foundation for steerable generation of matter across scales, from individual molecules to large-scale structures of broader engineering significance.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.04161",
@@ -136,8 +154,8 @@
   },
   {
     "title": "Spectral Analysis of Molecular Features: When Richer Features Do Not Guarantee Better Generalization",
-    "title_zh": "文献研究：Spectral Analysis of Molecular Features: When Richer Features Do Not Guarantee Better Generalization",
-    "summary": "The spectral properties of feature embeddings offer critical insights into model generalization and representation quality. While deep learning models are widely used for molecular property prediction…",
+    "title_zh": "分子特征的光谱分析：当更丰富的特征不能保证更好的泛化时",
+    "summary": "特征嵌入的光谱特性为模型泛化和表示质量提供了重要的见解。虽然深度学习模型广泛用于分子特性预测，但核方法在低数据范围内仍然具有竞争力，但它们的光谱行为在很大程度上尚未被探索。我们首次对不同表示形式的核脊回归进行全面光谱分析，包括分子指纹 (ECFP)、预训练 Transformer、图神经网络和 3D 描述符，并在 QM9、MoleculeNet 和 Therapeutics Data Commons 基准上进行评估。",
     "abstract": "arXiv:2510.14217v3 Announce Type: replace-cross Abstract: The spectral properties of feature embeddings offer critical insights into model generalization and representation quality. While deep learning models are widely used for molecular property prediction, kernel methods remain competitive in low-data regimes, yet their spectral behavior is largely unexplored. We present the first comprehensive spectral analysis of kernel ridge regression across diverse representations, including molecular fingerprints (ECFP), pretrained transformers, graph neural networks, and 3D descriptors, evaluated on QM9, MoleculeNet, and Therapeutics Data Commons benchmarks. Surprisingly, richer spectral features do not consistently yield better generalization performance, contradicting common representation heuristics used in self-supervised learning (SSL). Across four spectral metrics, only ECFP-based kernels show a strictly positive correlation with performance, particularly SSE, ID, and SR on MoleculeNet. Global 3D representations exhibit mixed behavior; transformer-based representations are consistently positive across all four metrics, whereas local 3D representations show a negative trend and no significant correlations. Truncation analysis further emphasizes this disparity: for local 3D representations on thermodynamic targets, fewer than 2% of eigenvalues, and occasionally as few as 0.02%, are needed to recover 95% of performance, whereas ECFP and transformer kernels require significantly more. By demonstrating a strong dependence on both task and representation, our results challenge the heuristic that richer spectra inherently improve generalization, providing new guidance for evaluating representations in SSL and in label-limited scientific tasks.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2510.14217",
@@ -145,8 +163,8 @@
   },
   {
     "title": "At-Scale Discovery of High-Voltage Cathode Active Materials for Na-Ion Batteries via Charged-Only Structures and Committee Divide-and-Conquer Learning",
-    "title_zh": "文献研究：At-Scale Discovery of High-Voltage Cathode Active Materials for Na-Ion Batteries via Charged-Only Structures and Committee Divide-and-Conquer Learning",
-    "summary": "Current cathode-active materials (CAMs) designed for sodium-ion batteries (SIBs) suffer from low operating voltages, limited energy density, irreversible phase transitions, and low intrinsic electrica…",
+    "title_zh": "通过仅充电结构和委员会分而治之学习大规模发现钠离子电池高压阴极活性材料",
+    "summary": "目前为钠离子电池（SIB）设计的阴极活性材料（CAM）存在工作电压低、能量密度有限、不可逆相变和固有电导率低等问题。在这项工作中，我们开发了可泛化和可转移的基于描述符的机器学习（ML）模型，以及基于组合和图的神经网络（NN）和转移学习（TL）模型，所有模型都在仅充电结构而不是充电/放电对的数据集上进行训练。使用由前四个经过训练的 ML 模型组成的委员会，将平均电压预测为目标属性。",
     "abstract": "arXiv:2605.27229v2 Announce Type: replace Abstract: Current cathode-active materials (CAMs) designed for sodium-ion batteries (SIBs) suffer from low operating voltages, limited energy density, irreversible phase transitions, and low intrinsic electrical conductivity. In this work, we have developed generalizable and transferable descriptor-based machine learning (ML) models, along with composition- and graph-based neural networks (NNs) and transfer learning (TL) models, all trained on a dataset of charged-only structures rather than charged/discharged pairs. Using a committee of the top four trained ML models, the mean voltage is predicted as the target property. More importantly, we show that uncertainty quantification can improve the reliability of candidate selection for training subsequent higher-generation models by including structures for which the current committee models are least confident. In this way, the new expensive ab initio data provide information in regions where the original models most need improvement. We have showcased the transferability of the final generation models by applying them to a large database of Na-free inorganic host structures curated from Materials Project, AFLOW, OQMD, and GNoME for at-scale SIB CAM discovery. A comprehensive interactive online database, NaCAM-Atlas, was also developed, containing 14,843 CAMs with voltages greater than 3 V for SIBs. Finally, a subset of the top-ranked candidate CAMs was validated through explicit, high-throughput first-principles calculations of voltage profiles, structural robustness upon sodiation/desodiation, and electronic properties. Together, this integrated data curation, ML training and improvement, and first-principles validation strategy establishes a scalable and transferable framework for accelerating the discovery of stable, high-voltage CAMs for SIBs and beyond.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2605.27229",
@@ -160,23 +178,5 @@
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41928-026-01721-1",
     "journal": "Nature Electronics"
-  },
-  {
-    "title": "Two superconducting pairing models with a Kitaev spin-liquid glue: microscopic kernel and parity alternation on odd-fold bond stars",
-    "title_zh": "文献研究：Two superconducting pairing models with a Kitaev spin-liquid glue: microscopic kernel and parity alternation on odd-fold bond stars",
-    "summary": "We construct two superconducting pairing models on doped Kitaev honeycomb, whose microscopic kernels are derived rather than assumed. Both are driven by a bond-local glue neutral between the even- and…",
-    "abstract": "arXiv:2610.06157v1 Announce Type: new Abstract: We construct two superconducting pairing models on doped Kitaev honeycomb, whose microscopic kernels are derived rather than assumed. Both are driven by a bond-local glue neutral between the even- and odd-parity pairing channels; the chirality--parity linkage is set by bond-star geometry, not by the microscopic glue. (i) Model~1(odd-parity sector): the kernel follows from the flux-sector selection rule of the pure model, fixing its component-diagonal, nearest-neighbor separable, rank-one-per-bond form, with w_α=J_K²χ_αpropto r_α m_α, where m_α follows from the Hellmann--Feynman theorem and r_αsimeq0.24 is computed numerically. The spin-vertex state is a unitary triplet with a bond-locked anisotropic mathbf d vector; its gap is a Gram sum of bond sines, so nodal directions are fixed by geometry. (ii) Model~2(even): the kernel is fixed by the C₃ little-group selection rule of a zone-corner chiral phonon, up to a Cooper-channel extension whose momentum constraint we state explicitly. The charge-vertex pairing is a d+id singlet: the parity decomposition f_±=g_±+p_± projects onto g_±, so chirality is slaved to the phonon polarization, with C=±4 and κₓy/T=2κ₀. Reversing the pump helicity reverses the Chern number, Kerr rotation, and thermal Hall sign. (iii) General theorem: on odd-fold bond stars, the angular-momentum ladder of a single-star chiral form factor alternates in parity. Every chiral state selected by such a bond-local form factor is a geometrically enforced singlet--triplet composite with universal amplitude ratios (n=3: doplus p; n=5: goplus p or doplus f); coherent doubled-star combinations can restore parity purity. The Chern number of the mixed state follows the dominant on-shell component across a topological boundary. The spin glue drives C=±2; the charge kernel C=±4.",
-    "category": "铁电·极化",
-    "link": "https://arxiv.org/abs/2610.06157",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Component-Level Evaluation of Adaptive PINN Training for CFD-Oriented Crystal Growth Simulation",
-    "title_zh": "文献研究：Component-Level Evaluation of Adaptive PINN Training for CFD-Oriented Crystal Growth Simulation",
-    "summary": "Physics-informed neural network (PINN) training minimizes a weighted combination of partial differential equation (PDE), boundary-condition, and initial-condition losses. Because adaptive methods modi…",
-    "abstract": "arXiv:2610.05127v1 Announce Type: new Abstract: Physics-informed neural network (PINN) training minimizes a weighted combination of partial differential equation (PDE), boundary-condition, and initial-condition losses. Because adaptive methods modify these weights during training, their weighted total losses are not always directly comparable. We compare fixed-weight PINN, gradient-normalized PINN (GNPINN), and a rule-based adaptive controller (AgenticPINN) under matched settings on a heat-equation benchmark and a simplified Czochralski-oriented thermal-fluid problem. In the crystal-growth MLP experiment, adaptive control reduced the PDE residual from the order of 10⁻⁵ to 10⁻⁶, while the boundary-condition loss increased from the order of 10⁻⁵ to 10⁻². On the heat-equation benchmark, GNPINN achieved the lowest relative L₂ field error (0.054), whereas AgenticPINN obtained the smallest PDE residual but a relative L₂ error of 1.368. Gaussian-process surrogates were additionally evaluated using case-wise holdout tests on corrected Czochralski CFD parameter sweeps. The temperature-field error for the temperature sweep was approximately 6%, whereas the axial-velocity error for the crystal-rotation sweep was approximately 42%. These findings show that adaptive control can improve equation satisfaction while weakening other physical constraints. PINN training should therefore be evaluated using separate PDE, boundary-condition, and solution-error metrics rather than weighted total loss alone.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.05127",
-    "journal": "arXiv"
   }
 ]
