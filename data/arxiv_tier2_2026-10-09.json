@@ -117,6 +117,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Symbolic ensemble learning enables discovery of fast accurate physics-based interatomic potentials",
+    "title_zh": "符号集成学习能够快速准确地发现基于物理的原子间势",
+    "summary": "作者：Bilvin Varughese、Aditya Koneru、Adil Muhammad、Troy D. Loeffler、Sukriti Manna、Subramanian K. R. S. Sankaranarayanan、Jan Michael Y. Carrillo、Orcun Yildiz 和 Thomas Peterka 机器学习通过从头开始准确地提供力场，改变了材料模拟，但弥合高维回归和物理可解释性之间的差距仍然是一个巨大的挑战。",
+    "abstract": "Author(s): Bilvin Varughese, Aditya Koneru, Adil Muhammad, Troy D. Loeffler, Sukriti Manna, Subramanian K. R. S. Sankaranarayanan, Jan Michael Y. Carrillo, Orcun Yildiz, and Thomas Peterka Machine learning has transformed materials simulation by delivering force fields with ab initio accuracy, yet bridging the gap between high-dimensional regression and physical interpretability remains a grand challenge. Conventional analytical potentials offer transparency but often fail to capture … [Phys. Rev. Materials 10, 103802] Published Fri Oct 09, 2026",
+    "category": "AI×物理",
+    "link": "http://link.aps.org/doi/10.1103/gkpd-gtzp",
+    "journal": "Phys. Rev. Materials"
+  },
+  {
     "title": "Data driven screening of CaCu₅-type magnetic structures",
     "title_zh": "CaCu₅型磁性结构的数据驱动筛选",
     "summary": "我们开发了机器学习辅助工作流程，用于快速筛选 CaCu₅ 结构系列中的候选永磁体。我们通过替换生成了 60,000 多个结构。使用预训练材料模型、材料项目数据和用于磁化强度预测的机器学习模型的组合来筛选这些成分。四个标准，即金属丰度、负形成能、凸包之上的能量≤50~meV/原子以及高于采用的≥0.75~T阈值的预测磁化强度将第一性原理计算的初始化学空间减少到439个候选者。密度泛函理论计算表明，159 种化合物表现出正轴向磁各向异性能量，比测试的面内方向更有利于 [001]。",
@@ -169,14 +178,5 @@
     "category": "AI×物理",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aea8c8",
     "journal": "Machine Learning: Science and Technology"
-  },
-  {
-    "title": "The Lattice of Transition Laws",
-    "title_zh": "过渡法则的格子",
-    "summary": "扩散和自回归（AR）长期以来一直被视为不同类别的生成模型，扩散专门针对连续领域，而 AR 专门针对离散标记。最近的工作试图结合这两种模型的优点，并且每种混合模型都通过设计固定了其解码时间表。在本文中，我们询问是否可以在以固定步数进行解码之前预测一种模型的解码时间表的性能。我们将扩散、AR 和之间的模型描述为一个腐败网格上的路径，并将调度的成本定义为其并行步骤丢弃的依赖性。成本表明零成本计划的最少步骤是由数据的几何形状设置的，对于令牌和连续字段也是如此。",
-    "abstract": "arXiv:2610.11216v1 Announce Type: new Abstract: Diffusion and autoregression (AR) have long been seen as different categories of generative models, with diffusion specialising in continuous fields and AR specialising in discrete tokens. Recent work seeks to combine the advantages of the two models, and each hybrid fixes its decoding schedule by design. In this paper, we ask whether the performance of decoding schedules of one model can be predicted before decoding at a fixed number of steps. We describe diffusion, AR, and models in between as paths on one corruption lattice, and define the cost of a schedule as the dependence its parallel steps discard. The cost shows that the fewest steps of a zero-cost schedule are set by the geometry of the data, in the same way for tokens and for continuous fields. In particular, for data that are Markov on a graph and dependent along its paths, the fewest steps equal the graph's treedepth, which is logarithmic in the length of a sequence and linear in the side length of a grid. With fewer steps than the treedepth, every schedule pays a positive cost, whose ranking we predict before decoding with a kernel of pairwise dependence estimated from pretrained weights. Across text generation, image generation, and video generation, we verify most of the predictions about the rankings of different schedules under different metrics and benchmarks. This work therefore provides a design principle for decoding for future AR models, diffusion models, and anything in between. Our code is available at https://github.com/TSUITUENYUE/The-Lattice-of-Transition-Laws.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.11216",
-    "journal": "arXiv"
   }
 ]

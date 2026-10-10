@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-10-10 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-10-10.xml" rel="alternate" title="2026-10-10 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-10-10.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-10-10</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-10-09.html">← 前一天 · 2026-10-09</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/10/10</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，按交叉强度与方向匹配度排序。</p>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">AI × 科学交叉</div>
+<div class="daily-stat-value">0</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv / 期刊</div>
+<div class="daily-stat-value">0<small> / 14</small></div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 15 篇 → 剔除偏题 1 篇 → 主线 14 篇 → 精选 14 篇。</p>
+<details aria-label="今日概览" class="daily-viz"><summary>📊 今日分布图（主题 / 来源 / 分层）</summary><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 154"><title>主题分布</title><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">9</text><text class="vl" x="8" y="78">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="63.3" x="142" y="64"></rect><text class="vn" x="211.3" y="78">3</text><text class="vl" x="8" y="106">超导</text><rect class="vb" height="18" rx="5" width="21.1" x="142" y="92"></rect><text class="vn" x="169.1" y="106">1</text><text class="vl" x="8" y="134">量子信息·计算</text><rect class="vb" height="18" rx="5" width="21.1" x="142" y="120"></rect><text class="vn" x="169.1" y="134">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">14</text></svg><svg aria-label="方向分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>方向分层</title><text class="vt" x="8" y="20">方向分层</text><text class="vl" x="8" y="50">神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="36"></rect><text class="vn" x="148.0" y="50">0</text><text class="vl" x="8" y="78">AI × 物理/材料/化学</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="64"></rect><text class="vn" x="148.0" y="78">0</text><text class="vl" x="8" y="106">其他物理/材料</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">14</text></svg></div></details>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-10-09.html">前一天 · 2026-10-09</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-10.html">最新一期 · 2026-10-10</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-10.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日精选 14 篇：其他物理 / 材料进展 14 篇。（AI 摘要服务今日不可用，以下条目的中文标题与摘要可能为机器翻译。）</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在强化学习和闭环控制，并落到声子、有限温度和输运性质、磁性、自旋以及自旋—晶格耦合、晶体结构、功能材料和结构—性质关系、铁电/多铁、极化翻转和电场驱动过程。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。</p>
+</div>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">14 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🧲 其他物理 / 材料进展</h3><p>不含机器学习成分的凝聚态、铁电磁性与材料工作。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10866402/latest" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10866402/latest" rel="noopener noreferrer" target="_blank">发热/吸热流体通过多孔板的不稳定 MHD 流动，温度和浓度在滑流状态下变化</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10866402/latest" rel="noopener noreferrer" target="_blank">Unsteady MHD flow of Heat generating / absorbing fluid through porous plate with variable temperature and concentration in a slip flow regime</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Shaik Mubarak、M. Suryanarayana Reddy、M. C. Raju。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>本研究研究了在粘性、不可压缩、导电流体的滑流情况下，通过浸入多孔材料中的无限垂直多孔板进行的非定常磁流体动力学（MHD）自由对流传热和传质。该板受到一致的横向磁场的作用。扰动方法为无量纲控制方程提供了解析解。对影响速度、温度和浓度分布的物理参数进行了图形分析和深入讨论。这些参数包括热格拉霍夫数、修正格拉霍夫数、磁参数、磁导率参数、辐射参数、热量产生/吸收、普朗特数、施密特数、化学反应参数以及索雷特数。根据研究结果，速度剖面随着浮力和磁导率参数的增加而上升，而随着磁参数和由于洛伦兹力的阻性滑移效应而下降。热辐射和热源显着增强了温度分布和热边界层厚度，而较高的普朗特数由于较低的热扩散率而减小了温度场。浓度分布随着施密特数和化学反应参数的增加而减小，而由于热扩散效应的增强，浓度分布随着索雷特数的增加而增加。还讨论了控制参数对表面摩擦系数、努塞尔数和舍伍德数等工程量的影响。目前的研究为通过多孔介质的辐射MHD传输现象提供了有价值的见解，并且在地热工程、化学反应堆、核反应堆冷却系统、石油工程、能量传输系统和隔热技术方面具有潜在的应用。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">The present study investigates the unsteady magnetohydrodynamic (MHD) free convective heat and mass transfer flow via an infinite vertical porous plate immersed in a porous material under slip flow circumstances of a viscous, incompressible, electrically conducting fluid. The plate is subjected to a consistent transverse magnetic field. The perturbation approach provides an analytical solution to the non-dimensional governing equations. Physical parameters that affect velocity, temperature, and concentration distributions are graphically analyzed and thoroughly discussed. These parameters include thermal Grashof number, modified Grashof number, magnetic parameter, permeability parameter, radiation parameter, heat generation/absorption, Prandtl number, Schmidt number, chemical reaction parameter, as well as Soret number. According to the findings, the velocity profile rises as the buoyancy and permeability parameters increase, while it falls with the magnetic parameter and slip effects due to the resistive Lorentz force. Thermal radiation and heat source significantly enhance the temperature distribution and thermal boundary layer thickness, while higher Prandtl number reduces the temperature field because of lower thermal diffusivity. The concentration profile decreases with increasing Schmidt number and chemical reaction parameter, whereas it increases with increasing Soret number due to enhanced thermal diffusion effects. The effects of the governing parameters on engineering quantities such as skin friction coefficient, Nusselt number, and Sherwood number are also discussed. The present investigation provides valuable insight into radiative MHD transport phenomena through porous media and has potential applications in geothermal engineering, chemical reactors, nuclear reactor cooling systems, petroleum engineering, energy transport systems, and thermal insulation technologies.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10866402/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-quantum-chip-multiple-photons-path.html" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-quantum-chip-multiple-photons-path.html" rel="noopener noreferrer" target="_blank">量子芯片可同时容纳多个光子，为可扩展存储器开辟道路</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-quantum-chip-multiple-photons-path.html" rel="noopener noreferrer" target="_blank">Quantum chip holds multiple photons at once, opening path to scalable memory</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 量子信息·计算</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>对于高度脆弱的量子信息系统，存储量子信息的能力至关重要，但也具有挑战性。量子信息以称为光子的光粒子形式传输，光子通常必须暂时暂停（或“存储”），同时其他较慢的量子操作才能赶上。这种存储必须在小至 1 厘米（0.4 英寸）的微芯片上进行——光在几万亿分之一秒内覆盖的距离。将光子存储一微秒将代表量子芯片功能的巨大飞跃。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">For highly fragile quantum information systems, the ability to store quantum information is vital—but also challenging. Quantum information is transported in particles of light called photons, which often must be temporarily paused (or "stored") while other, slower quantum operations catch up. This storage must be performed on microchips as small as 1 centimeter (0.4 inches)—a distance covered by light in a few trillionths of a second. Storing photons for a microsecond would represent a massive leap forward for the capabilities of quantum chips.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-quantum-chip-multiple-photons-path.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-quantum-cores-fingerprints-black-holes.html" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-quantum-cores-fingerprints-black-holes.html" rel="noopener noreferrer" target="_blank">三个受量子启发的核心在黑洞的振铃上留下了相反的指纹</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-quantum-cores-fingerprints-black-holes.html" rel="noopener noreferrer" target="_blank">Three quantum-inspired cores leave opposite fingerprints on the ringing of black holes</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>每个黑洞的中心都隐藏着一个问题。爱因斯坦的理论预测，任何落入其中的东西都会被压碎成一个奇点，一个密度无限大的点，理论本身就会崩溃。大多数物理学家期望量子引力用有限的东西代替那个点。但中心隐藏在地平线后面。我们怎样才能知道那里有什么？</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Every black hole hides a question at its center. Einstein's theory predicts that whatever falls in is crushed into a singularity, a point of infinite density where the theory itself breaks down. Most physicists expect quantum gravity to replace that point with something finite. But the center lies hidden behind the horizon. How could we ever learn what is there?</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-quantum-cores-fingerprints-black-holes.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11168357/latest" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11168357/latest" rel="noopener noreferrer" target="_blank">活化膨润土和生物炭的体外评价：T-2 毒素和玉米赤霉烯酮吸附和肠道屏障保护</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11168357/latest" rel="noopener noreferrer" target="_blank">In Vitro Evaluation of Activated Bentonite and Biochar: T-2 Toxin and Zearalenone Adsorption and Intestinal Barrier Protection</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Adela Mullerova、Zbynek Dzuman、Radek Machat、Sylvie Skalickova、Renata Kucerova、Michal Psurny 等 11 人。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>霉菌毒素吸附剂通常仅通过毒素结合能力来评价。然而，单独的吸附并不能反映胃肠道条件下的结合稳定性或肠上皮的生物保护。本研究采用综合物理化学和生物学方法，比较了基于膨润土和生物炭的商业和实验吸附剂对 T-2 毒素和玉米赤霉烯酮 (ZEN) 的影响。测试了七种材料：一种商业活化膨润土，两种实验膨润土及其 NaCl 活化变体，以及两种实验生物炭。该评估结合了物理化学表征、连续吸附-解吸（模拟胃到肠的转变）以及使用 IPEC-J2 细胞中的连续跨上皮电阻 (ECIS-TEER) 监测的生物功效评估。氯化钠活化根据母体材料改变膨润土表面特性，而不破坏蒙皂石框架。后续测试揭示了仅通过初始吸附隐藏的毒素保留差异。实验生物炭 1 显示出对两种毒素的完全结合效率，而商业活性膨润土则超过 93%。物理化学结合不能可靠地预测生物保护。商业膨润土可保护两种毒素的屏障功能。实验膨润土 2 和生物炭 1 可防止 T-2 毒素，而实验膨润土 1 则能最好地支持对 ZEN 的保护，其活化形式会改变屏障反应动力学。这些发现表明，吸附能力、结合稳定性和上皮屏障功能的保留代表了吸附剂功效的互补维度。将顺序吸附-解吸与连续 ECIS-TEER 监测相结合，为评估霉菌毒素吸附剂提供了一个全面的框架。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Mycotoxin adsorbents are usually evaluated solely by toxin-binding capacity. However, adsorption alone does not reflect binding stability under gastrointestinal conditions or biological protection of the intestinal epithelium. This study compared commercial and experimental bentonite- and biochar-based adsorbents against T-2 toxin and zearalenone (ZEN) using an integrated physicochemical and biological approach. Seven materials were tested: one commercial activated bentonite, two experimental bentonites and their NaCl-activated variants, and two experimental biochars. The evaluation combined physicochemical characterization, sequential adsorption-desorption (simulating gastric-to-intestinal transitions), and biological efficacy assessment using continuous transepithelial electrical resistance (ECIS-TEER) monitoring in IPEC-J2 cells. NaCl activation altered bentonite surface properties depending on the parent material without disrupting the smectite framework. Sequential testing revealed differences in toxin retention hidden by initial adsorption alone. Experimental biochar 1 showed complete binding efficiency for both toxins, while commercial activated bentonite exceeded 93%. Physicochemical binding did not reliably predict biological protection. Commercial bentonite protected barrier function against both toxins. Experimental bentonite 2 and biochar 1 protected against T-2 toxin, whereas experimental bentonite 1 best supported protection against ZEN, with its activated form altering barrier-response kinetics. These findings demonstrate that adsorption capacity, binding stability, and preservation of epithelial barrier function represent complementary dimensions of adsorbent efficacy. Integrating sequential adsorption–desorption with continuous ECIS-TEER monitoring provides a comprehensive framework for evaluating mycotoxin adsorbents.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11168357/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11180817/latest" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11180817/latest" rel="noopener noreferrer" target="_blank">羟基锡酸锌上甘油与 CO2 羰基化生成甘油碳酸酯</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11180817/latest" rel="noopener noreferrer" target="_blank">Carbonylation of Glycerol with CO2 to Glycerol Carbonate over Zinc Hydroxystannate</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Hsueh-Lin Chen、Wan-I Chen、Ya-Chen Yu、Bing-Hung Chen。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 3 / 10" class="daily-relevance is-me" title="方向匹配 3 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:30.0%"></i></span><strong>3</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>本研究研究了在羟基锡酸锌 (ZHS) 催化剂上甘油与 CO2 的直接羰基化反应，在相对温和的反应条件下合成碳酸甘油酯 (GLC)。反应在半间歇式反应器中在 120°C 和 5 bar CO2 下进行 6 小时。采用Zn2+–Sn4+与NaOH共沉淀(ZSCP)、ZSCP进一步水热处理或碱辅助表面处理(CPAST)制备ZHS催化剂，并比较其催化性能。在所检查的催化剂中，由 CPAST 制备的 ZHS 提供了最高的 GLC 产率，为 17.1%，而 ZSCP 衍生的 ZHS 为 15.9%。 XPS分析表明ZHS的表面碱度与Sn4+部分还原为Sn2+以及随之形成的表面氧空位有关。在没有 ZHS 的情况下，甘油主要发生低聚，而 ZHS 则促进 CO2 活化并掺入甘油中形成 GLC。值得注意的是，GLC 产率与哈米特指示剂法测定的 ZHS 催化剂的表面碱度表现出很强的线性相关性，表明表面碱度是控制催化活性的关键描述符。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：vacancies。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">This study investigates the direct carbonylation of glycerol with CO2 over zinc hydroxystannate (ZHS) catalysts for the synthesis of glycerol carbonate (GLC) under relatively milder reaction conditions. Reactions were conducted in a semi-batch reactor at 120 °C and 5 bar CO2 for 6 h. ZHS catalysts were prepared by Zn2+–Sn4+ coprecipitation with NaOH (ZSCP), ZSCP by further hydrothermal treatment, or by alkaline-assisted surface treatment (CPAST), and their catalytic performances were compared. Among the catalysts examined, ZHS prepared by CPAST afforded the highest GLC yield of 17.1%, compared with 15.9% for ZSCP-derived ZHS. XPS analysis indicated that the surface basicity of ZHS is associated with partial reduction of Sn4+ to Sn2+ and the concomitant formation of surface oxygen vacancies. In the absence of ZHS, glycerol predominantly underwent oligomerization, whereas ZHS promoted the activation and incorporation of CO2 into glycerol to form GLC. Notably, the GLC yield exhibited a strong linear correlation with the surface basicity of the ZHS catalysts determined by the Hammett indicator method, demonstrating that surface basicity is a key descriptor governing catalytic activity.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11180817/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11079991/latest" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11079991/latest" rel="noopener noreferrer" target="_blank">氯化镧对发芽的调控机制</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11079991/latest" rel="noopener noreferrer" target="_blank">Regulation mechanism of lanthanum chloride on germination</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Chun Liu、Wu Chen、Caiyan Dong、Zihao Ding。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>本研究旨在探讨外源~(18)氯化镧(LaCl3)对小麦种子萌发及幼苗生理特性的调节作用[20]，以筛选最有利于其生长发育的最佳处理浓度[20]。以小麦种子为实验材料[21]，设空白对照组(CK)和6个梯度处理组(T1~T6)[22]，每组设3个生物重复。每个培养皿 23 个，接种 25 粒种子，分别加入 10 mL 浓度为 0（CK）、60、24 120、180、240、300 和 360 mg·L-1 的 LaCl3 溶液，同时保持滤纸湿润。发芽3天后，测定相关指标。盆栽试验中，当苗高达到5厘米时，每3天喷洒10毫升相应的处理液。培养20天后，测定根长、须根数、鲜重、株高、叶绿素含量以及超氧化物歧化酶（SOD）、过氧化物酶（POD）、过氧化氢酶（CAT）等关键酶活性。实验表明，氯化镧对小麦生长具有“微刺激、强抑制”的双重作用。其中，T4至T6组由于浓度过高，生长受到严重抑制，无法获得有效的酶活性数据。生理指标检测显示，与CK组相比，低浓度T1组（60 mg·L-1）SOD、POD、CAT活性分别显着升高31.43%、71.82%、69.74%（P&lt;0.05）。中浓度T3组(180 mg·L-1)协同作用更显着，三种酶活性分别增加44%、135.16%和114.47%。 T1、T2和T3组的叶绿素含量也显着增加，分别增加了39.84%、20.86%和33.69%。相关分析表明，SOD、POD、CAT活性与种子发芽率、须根数、根长呈负相关。叶绿素含量与须根数量也呈显着负相关。综上所述，本实验的最佳浓度为180 mg·L-1 LaCl3处理。在此条件下，小麦种子的发芽率和幼苗的综合生理生长指标均表现出最好的表现。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">The purpose of this study to investigate the regulatory effects of exogenous 18 lanthanum chloride (LaCl3) on wheat seed germination and seedling physiological 19 characteristics, in order to screen for the optimal treatment concentration that is most 20 conducive to its growth and development.Wheat seeds were used as experimental 21 materials, and a blank control group (CK) and six gradient treatment groups (T1 to T6) 22 were set up, with three biological replicates in each group. Inoculate 25 seeds into 23 each culture dish and apply 10 mL of LaCl3 solution at concentrations of 0 (CK), 60, 24 120, 180, 240, 300, and 360 mg·L⁻¹, respectively, while keeping the filter paper moist. After 3 days of germination, relevant indicators will be measured. In the pot experiment, when the seedling height reaches 5 cm, 10 mL of corresponding treatment solution is sprayed every 3 days. After 20 days of cultivation, the root length, number of fibrous roots, fresh weight, plant height, chlorophyll content, as well as key enzyme activities such as superoxide dismutase (SOD), peroxidase (POD), and catalase (CAT) are measured.The experiment showed that lanthanum chloride exhibited a dual effect of "Minimal stimulation and strong suppression" on wheat growth. Among them, the T4 to T6 groups suffered severe growth inhibition due to excessive concentration, and effective enzyme activity data could not be obtained. Physiological indicators testing showed that compared with the CK group, the low concentration T1 group (60 mg·L-1) significantly increased the activities of SOD, POD, and CAT by 31.43%, 71.82%, and 69.74%, respectively (P&lt;0.05). The synergistic effect of the medium concentration T3 group (180 mg·L-1) was more significant, with the activities of the three enzymes increasing by 44%, 135.16%, and 114.47%, respectively. The chlorophyll content in T1, T2, and T3 groups also significantly increased by 39.84%, 20.86%, and 33.69%, respectively. Correlation analysis revealed that the activities of SOD, POD, and CAT were negatively correlated with seed germination rate, number of fibrous roots, and root length. There was also a significant negative correlation between chlorophyll content and number of fibrous roots. In summary, the optimal concentration for this experiment was 180 mg·L-1 LaCl3 treatment. Under these conditions, the germination rate of wheat seeds and the comprehensive physiological growth indicators of seedlings showed the best performance.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11079991/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11117473/latest" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11117473/latest" rel="noopener noreferrer" target="_blank">用于可持续、无环氧树脂混合印刷电子产品的生物基苯并恶嗪导电粘合剂</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11117473/latest" rel="noopener noreferrer" target="_blank">Bio-based benzoxazine electrically conductive adhesives for sustainable and epoxy-free hybrid printed electronics</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：I. Petsagkourakis、O. J. Hagel、A. Sawatdee、S. Carniello、E. Schwarz-Funder、A. Gasslander 等 11 人。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>导电粘合剂 (ECA) 对于印刷和混合电子产品中表面安装器件的组装至关重要；然而，传统的环氧基系统具有毒性且使用寿命有限。在这项工作中，我们提出了一种基于苯并恶嗪的各向异性导电粘合剂（ACA），其源自生物基二酚酸苯并恶嗪（DPA-Bz）与1,12-二氨基十二烷（DIADO）的共聚，并结合了环保的金属填料。与传统的苯并恶嗪相比，开发的系统能够降低固化温度（~ 150°C），从而提高与温度敏感基材的相容性。从电气角度来看，优化的铜基 ACA 具有低接触电阻和明显的各向异性导电性，其电气性能可与商用环氧基粘合剂相媲美。此外，ACA 在加速老化（85°C / 85% RH）和热冲击测试下保持稳定的电气行为，表明在环境压力下具有强大的可靠性。最后，生命周期评估显示，与参考镍基粘合剂（6.27 千克二氧化碳/千克）相比，全球变暖潜力降低（5.48 千克二氧化碳/千克），并且通过无溶剂配方和增加回收铜含量进一步降低了减排潜力。所提出的基于苯并恶嗪的 ACA 实现了与商业系统相当的电气和机械性能，同时改善了环境性能并降低了毒性，凸显了其作为下一代电子组装的可持续替代品的潜力，并为绿色电子产品开辟了道路。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Electrically conductive adhesives (ECAs) are critical for the assembly of surface-mounted devices in printed and hybrid electronics; however, conventional epoxy-based systems are associated with toxicity and limited working life. In this work, we present a benzoxazine-based anisotropic conductive adhesive (ACA) derived from a bio-based diphenolic acid benzoxazine (DPA-Bz) copolymerized with 1,12-diaminododecane (DIADO), combined with environmentally preferable metallic fillers. The developed system enables reduced curing temperatures (~ 150°C) compared to conventional benzoxazines, improving compatibility with temperature-sensitive substrates. From an electrical standpoint, the optimized Cu-based ACA exhibits low contact resistance and clear anisotropic conductivity with electrical performance comparable to a commercial epoxy-based adhesive. Furthermore, the ACA maintains stable electrical behavior under accelerated aging (85°C / 85% RH) and thermal shock testing, indicating robust reliability under environmental stress. Finally, life cycle assessment reveals a reduced global warming potential (5.48 kg CO₂/kg) compared to a reference Ni-based adhesive (6.27 kg CO₂/kg), with further reduction potential through solvent-free formulations and increased recycled copper content. The presented benzoxazine-based ACA achieves comparable electrical and mechanical performance to commercial systems while delivering improved environmental performance and reduced toxicity, highlighting its potential as a sustainable alternative for next-generation electronic assembly and opening the path towards greener electronics.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11117473/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9807732/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9807732/latest" rel="noopener noreferrer" target="_blank">自动乘客出行中的认知工作和界面要求：公共事件报告的基于分类的分析</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9807732/latest" rel="noopener noreferrer" target="_blank">Cognitive Work and Interface Requirements in Autonomous Passenger Mobility: A Taxonomy-Based Analysis of Public Incident Reports</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Karim Hardy。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>自主乘客流动改变了人类工作的分配，而不是将其从运输业务中移除。无人驾驶机器人出租车、受监督的乘客自动驾驶系统、自动班车和远程辅助移动服务为乘客、车内操作员、远程监管人员、应急响应人员和周围道路使用者创造了新的认知工作。这项研究分析了公共自动驾驶事件记录作为人类与自主交互的痕迹，并开发了基于分类的界面需求帐户。包含 2,760 个最新公开报告版本的精选语料库被过滤为 2,646 个自动乘客移动记录和 1,411 个与界面相关的报告级案例，汇总为 1,158 个事件集群。编码分类将重复发生的事件模式与人体工程学结构联系起来，包括模式意识、控制权限、远程认知工作、降级状态通信、外部可读性、乘客引导和操作边界管理。结果表明，最常见的主要界面系列涉及路边、停车或停车状态交互；远程或共享监督；控制转移；回退或降级操作；和操作边界压力源。研究结果表明，自动乘客出行的安全性取决于系统状态、权限、后备行为和预期的人类行为在多个参与者和接口层之间的清晰性。该研究为设计和验证自动乘客移动操作中的人机界面提供了一个以需求为导向的框架。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Autonomous passenger mobility changes the distribution of human work rather than removing it from transport operations. Driverless robotaxis, supervised passenger automated driving systems, autonomous shuttles, and remotely assisted mobility services create new cognitive work for passengers, in-vehicle operators, remote supervisors, emergency responders, and surrounding road users. This study analyzes public automated-driving incident records as traces of human-autonomy interaction and develops a taxonomy-based account of interface requirements. A curated corpus of 2,760 latest public report versions was filtered to 2,646 autonomous passenger mobility records and 1,411 interface-relevant report-level cases, aggregated into 1,158 incident clusters. The coding taxonomy links recurring incident patterns to ergonomics constructs including mode awareness, control authority, remote cognitive work, degraded-state communication, external legibility, passenger guidance, and operational boundary management. Results show that the most frequent primary interface families concern curbside, parking, or stop-state interaction; remote or shared supervision; control transfer; fallback or degraded operation; and operational-boundary stressors. The findings indicate that safety in autonomous passenger mobility depends on making system state, authority, fallback behavior, and expected human action legible across multiple actors and interface layers. The study contributes a requirements-oriented framework for designing and verifying human-autonomy interfaces in autonomous passenger mobility operations.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9807732/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10859407/latest" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10859407/latest" rel="noopener noreferrer" target="_blank">通过降雨驱动的生态水文指数评估气候变化对湿地植被和水资源的影响：来自比哈尔邦卡巴特尔湿地地区的卫星证据</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10859407/latest" rel="noopener noreferrer" target="_blank">Assessing Climate Change Impacts on Wetland Vegetation and Water Resources through Rainfall-Driven Ecohydrological Indices: Satellite-based evidence from the Kabartal Wetland Region, Bihar</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Manu Raj Sharma、Abhishek Akarsh。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>湿地是动态的社会生态系统，其持久性和生态功能受到水文气候变化的强烈调节。降水、地表水可用性、植被动态和大气蒸发需求的变化可以改变湿地水文、生态系统生产力和恢复力，特别是在气候和人为压力不断增加的情况下。本研究通过整合气候、水文、蒸散量和卫星衍生的生态指标，评估了印度比哈尔邦卡巴特尔湿地地区 (KWR) 的长期生态水文转变。使用季节性指数（SI）、降雨异常指数（RAI）、90%可靠降雨量、修正曼-肯德尔（MMK）检验和森斜率评估了1901-2024年的长期降雨变化和趋势，同时分析了2002-2024年的实际蒸散量（ET）和潜在蒸散量（PET）。利用陆地卫星衍生的修正归一化水分指数 (MNDWI) 和归一化植被指数 (NDVI) 来量化 1989 年至 2024 年季风前后期间地表水范围和植被覆盖的变化。结果显示，湿地地表水范围大幅收缩，季风前从 31 平方公里减少到 14 平方公里（54.83%），季风期间从 44 平方公里减少到 19 平方公里1989年至2024年季风后期间，降雨量呈现较强的季节性，SI值主要分布在0.8至1.4之间，表明干旱期较长，降水集中在较短的季风窗口内。 RAI 分析表明，从以潮湿为主的条件逐步转变为更频繁的负降雨异常，特别是在 2000 年之后。贝古萨拉伊、萨马斯蒂普尔和卡加里亚的年降雨量显着下降，森斜率分别为 - 1.54、- 1.72 和 - 2.34 毫米年⁻1，而季风降雨也表现出显着减少的趋势。这三个地区的历史平均年降雨量约为 1,131、1,170 和 1,154 毫米，预计到 2044 年将分别下降至约 1,025、1,054 和 985 毫米。尽管该地区总体上潮湿、水过剩，但蒸散量与蒸发量之间的关系显示出明显的季节性湿度限制，年蒸发量约为 1,950–2,450 毫米，而蒸散量仅为 350–650 毫米。降雨量与 ET (r = 0.5) 和潜热通量 (r = 0.5) 呈正相关，但与 PET (r = − 0.5) 呈负相关，表明生态系统用水对降水可用性和大气需求的敏感性。降雨量减少、降雨量变率增加、地表水范围缩小、植被退化和持续的 ET-PET 不平衡的综合表明，KWR 正在经历从水过剩湿地系统向季节性水生态压力增加的逐步转变。这些发现强调需要恢复河流与湿地的连通性、保护湿地集水区和植被、规范取水和土地利用转换、加强季风水保留以及加强基于社区和气候适应能力的湿地治理。这种综合干预措施对于维护湿地生态完整性、加强区域水安全以及推进可持续水管理的可持续发展目标 6 (SDG 6) 至关重要。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Wetlands are dynamic socio-ecological systems whose persistence and ecological functioning are strongly regulated by hydroclimatic variability. Changes in precipitation, surface-water availability, vegetation dynamics, and atmospheric evaporative demand can alter wetland hydrology, ecosystem productivity, and resilience, particularly under increasing climatic and anthropogenic pressures. This study evaluates the long-term ecohydrological transformation of the Kabartal Wetland Region (KWR) sBihar, India, by integrating climatic, hydrological, evapotranspiration, and satellite-derived ecological indicators. Long-term rainfall variability and trends were assessed for 1901–2024 using the Seasonality Index (SI), Rainfall Anomaly Index (RAI), 90% dependable rainfall, Modified Mann–Kendall (MMK) test, and Sen’s slope, while actual evapotranspiration (ET) and potential evapotranspiration (PET) were analysed for 2002–2024. Landsat-derived Modified Normalized Difference Water Index (MNDWI) and Normalized Difference Vegetation Index (NDVI) were used to quantify changes in surface-water extent and vegetation cover during pre- and post-monsoon periods between 1989 and 2024. The results reveal a substantial contraction of wetland surface-water extent, declining from 31 to 14 km² (54.83%) during pre-monsoon and from 44 to 19 km² (56.81%) during post-monsoon between 1989 and 2024. Rainfall exhibited strong seasonality, with SI values predominantly ranging from 0.8 to 1.4, indicating prolonged dry periods and concentration of precipitation within a short monsoonal window. RAI analysis indicates a progressive shift from predominantly wet conditions towards more frequent negative rainfall anomalies, particularly after 2000. Annual rainfall declined significantly across Begusarai, Samastipur, and Khagaria, with Sen’s slopes of − 1.54, − 1.72, and − 2.34 mm yr⁻¹, respectively, while monsoonal rainfall also exhibited significant decreasing trends. Historical mean annual rainfall of approximately 1,131, 1,170, and 1,154 mm in the three districts is projected to decline to about 1,025, 1,054, and 985 mm by 2044, respectively. Despite the region's generally humid, water-surplus character, the ET–PET relationship shows pronounced seasonal moisture limitation, with annual PET ranging from approximately 1,950–2,450 mm compared with ET of only 350–650 mm. Rainfall was positively correlated with ET (r = 0.5) and latent heat flux (r = 0.5) but negatively correlated with PET (r = − 0.5), demonstrating the sensitivity of ecosystem water use to precipitation availability and atmospheric demand. The convergence of declining rainfall, increasing rainfall variability, reduced surface-water extent, vegetation degradation, and persistent ET–PET disequilibrium indicates that KWR is undergoing a progressive transition from a predominantly water-surplus wetland system towards increasing seasonal hydro ecological stress. These findings highlight the need to restore river–wetland connectivity, protect wetland catchments and vegetation, regulate water extraction and land-use conversion, enhance monsoon-water retention, and strengthen community-based and climate-resilient wetland governance. Such integrated interventions are essential to maintain wetland ecological integrity, strengthen regional water security, and advance Sustainable Development Goal 6 (SDG 6) on sustainable water management.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10859407/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-10982431/latest" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10982431/latest" rel="noopener noreferrer" target="_blank">铜材料浆料侵蚀磨损应力分析研究</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-10982431/latest" rel="noopener noreferrer" target="_blank">Investigation of Stress Analysis on Copper Material in Slurry Erosion Wear</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Bhushan D. Nandre、Girish R. Desale。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>在侵蚀磨损中，称为侵蚀剂的冲击颗粒会在目标样本上产生显着的应力。接触应力的严重程度取决于侵蚀物的大小和形状、侵蚀物的速度等。在目前的工作中，低碳钢侵蚀物撞击铜样本。低碳钢侵蚀剂的冲击能量通过改变其速度保持恒定。光学显微镜用于测定铜样品上由于低碳钢球形颗粒的撞击而产生的压痕坑的直径。赫兹方程用于计算目标材料表面的接触面积和应力集中。 ANSYSY 软件模拟了类似的条件。  用实验方法得到的应力集中结果与ANSYS显式动力学软件的结果几乎一致。最后得出结论，应力集中是侵蚀磨损的主导因素，需要研究人员进一步详细研究。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">In erosion wear the impacting particles called as erodent are responsible to generate stress on target specimen significantly. The severity of contact stress depends on erodent size and shape, erodent velocity, etc. In present work mild steel erodent impacted on copper specimen. The impact energy of mild steel erodent kept constant by varying their velocities. The optical microscope is used to determine the diameter of indentation craters on copper specimen due to impact of mild steel spherical shape particles. Hertz equation is used to calculate contact area and stress concentration at target material surface. Similar conditions are simulated in ANSYSY software.  Stress concentration findings with experimental method almost in line with the ANSYS explicit dynamics software results. Finally it is concluded that stress concentration is dominant factor in erosion wear which needs to investigate further in detail by investigators.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-10982431/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11150873/latest" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11150873/latest" rel="noopener noreferrer" target="_blank">阅读读者：新闻互动什么时候会表现出短暂的观点开放性？</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11150873/latest" rel="noopener noreferrer" target="_blank">Reading the Reader: When Do News Interactions Reveal Momentary Viewpoint Openness?</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Bruce Ferwerda。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>新闻互动如何表明读者愿意与不同政治来源互动？选择对方文章记录选择，打开记录访问，可信度记录判断。我们使用三个数据集检查观点开放性：NewsLens 中的可信度评级、NeMig 中显示列表中的选择以及 IDEA 中推荐文章的开篇率。每一个都涵盖一个时期、一个界面、一个动作，因此没有一个能够建立持久的性格。我们将限时推理称为强调观点开放性：在观察期间，相对于同方来源，读者对对方来源的反应如何。在考虑了所提供的内容、政治方面和读者通常的反应水平后，我们测试早期的反应是否可以改善对后来的反应的预测。在 NewsLens 中，除了文章差异和通常的评分之外，读者与媒体之间的政治联盟对他们的可信度评级的影响程度始终存在差异；这支持了可信度判断中的暂时观点开放性。在 NeMig 中，政治立场和每个列表中的来源预测选择哪一方，而早期的选择和移民态度并不能确定在各轮中重复的额外偏好。在 IDEA 中，读者在总体政治新闻打开频率上存在差异，但在几周内他们打开哪一边的频率没有差异。因此，NeMig 历史支持从选择情况进行预测，IDEA 历史支持整体开放趋势；两者都没有揭示出反复出现的个人来源差异。读者模型应该保留这些差异，而不是把每一个对立面的互动都标记为开放性。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">What does a news interaction show about a reader's willingness to engage with politically different sources? Selecting an opposing-side article records a choice, opening it records access, and a trustworthiness rating records judgment. We examine viewpoint openness using three datasets: trustworthiness ratings in NewsLens, choices from a displayed list in NeMig, and openings of recommended articles in IDEA. Each covers one period, interface, and action, so none can establish a lasting disposition. We call the time-bounded inference emphmomentary viewpoint openness: how favorably a reader responds to opposing-side sources relative to same-side sources during the observed period. We test whether early responses improve prediction of later ones after accounting for what was offered, political side, and the reader's usual response level. In NewsLens, readers consistently differ in how much political alignment between themselves and the outlet changes their trustworthiness ratings, beyond article differences and usual scoring; this supports momentary viewpoint openness in trustworthiness judgments. In NeMig, political position and the sources in each list predict which side is chosen, while earlier choices and migration attitudes do not identify an additional preference that repeats across rounds. In IDEA, readers differ consistently in overall political-news opening frequency, but not in which side they open more often across weeks. The NeMig history therefore supports prediction from the choice situation, and the IDEA history supports an overall opening tendency; neither reveals a recurring personal source-side difference. A reader model should preserve these differences rather than label every opposing-side interaction as openness.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11150873/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11088012/latest" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11088012/latest" rel="noopener noreferrer" target="_blank">部分可观测性和自适应干扰下认知无人机群的可解释的基于图的元强化学习</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11088012/latest" rel="noopener noreferrer" target="_blank">Explainable graph-based meta-reinforcement learning for cognitive UAV swarms under partial observability and adaptive jamming</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Arshad Ali、Muhammad Shaharyar Ramzan、Eraj Khan、Adeel Ahmad、Gahangir Hossain。</span><span class="daily-byline-source">Preprints，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>用于认知无人机（UAV）群的多智能体深度强化学习框架越来越多地捆绑图协调、元学习和可解释性，但很少显示该机制何时真正有帮助。我们提出了 XM-MADRL，这是一种可解释的元学习图框架，适用于有争议的电磁环境中的无人机群，以及一项可隔离其组件何时发挥作用的对照研究。在针对可预测干扰的完全可观察性下，协调和元适应不会带来任何可衡量的好处：该框架仅与普通的近端策略优化（PPO）基线相关联。在针对自适应、反应性干扰机的部分可观测性下，相同的框架在每个频谱指标上都更好，将数据包传输率提高六倍（16.8% 与 2.5%；Cohen's d 为 4.45），抗干扰性从大约 0% 到 11.1%，平均信号与干扰加噪声比从 ((-3.7)) dB 提高到 ((-1.3)) dB，均显着经过 Holm-Bonferroni 校正（调整后的 P 低于 0.0001）超过 10 颗种子。增加内存但不增加通信的循环控制与 PPO 一样严重失败，并且组件消融表明增益并非归因于图形消息传递。元学习提高了对看不见的干扰机的零攻击泛化能力（数据包传输分别为 32.0% 和 4.2%）。协调和元适应是有条件的能力，而不是普遍的改进。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Multi-agent deep reinforcement learning frameworks for cognitiveunmanned aerial vehicle (UAV) swarms increasingly bundle graph coordination,meta-learning and explainability, yet it is rarely shown when that machineryactually helps. We present XM-MADRL, an explainable meta-learning graphframework for UAV swarms in contested electromagnetic environments, togetherwith a controlled study that isolates when its components pay off. Under fullobservability against a predictable jammer, coordination and meta-adaptationgive no measurable benefit: the framework merely ties a vanilla proximal policyoptimisation (PPO) baseline. Under partial observability against an adaptive,reactive jammer, the same framework is better on every spectrum metric, raisingpacket delivery ratio sixfold (16.8% versus 2.5%; Cohen's d of 4.45),anti-jamming from approximately 0% to 11.1%, and meansignal-to-interference-plus-noise ratio from ((-3.7)) to ((-1.3)) dB, allsignificant after Holm--Bonferroni correction (adjusted P below0.0001) over ten seeds. A recurrent control that adds memory but notcommunication fails as badly as PPO, and a component ablation shows the gain isnot due to graph message passing. Meta-learning improves zero-shotgeneralisation to unseen jammers (packet delivery 32.0% versus 4.2%).Coordination and meta-adaptation are conditional capabilities, not universalimprovements.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11088012/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.nature.com/articles/s41467-026-78376-1" id="paper-13">
+<span class="daily-paper-number">13</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-78376-1" rel="noopener noreferrer" target="_blank">用于高保真非谐波量子位的扭曲超导量子二极管</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.nature.com/articles/s41467-026-78376-1" rel="noopener noreferrer" target="_blank">原题：Twisted superconducting quantum diodes for high fidelity anharmonic qubits</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Han Zhong、Denis Kochan、Igor Žutić、Yingying Wu。</span><span class="daily-byline-source">Nature Communications，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 超导</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>超导二极管可以为超导和量子电路提供不可逆元件，但二极管效率在量子器件性能中的作用仍不清楚。在这里，作者证明了扭曲 NbSe2 中增强的超导二极管效应，并表明即使是中等程度的非互易性也足以稳定非谐波量子位电路。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Superconducting diodes can provide nonreciprocal elements for superconducting and quantum circuits, but the role of diode efficiency in quantum-device performance remains unclear. Here, the authors demonstrate an enhanced superconducting diode effect in twisted NbSe2 and show that even a moderate degree of nonreciprocity is sufficient to stabilize anharmonic qubit circuits.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.nature.com/articles/s41467-026-78376-1" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-13">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-hybrid-quantum-foundational-effect.html" id="paper-14">
+<span class="daily-paper-number">14</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-hybrid-quantum-foundational-effect.html" rel="noopener noreferrer" target="_blank">混合量子计算机在新环境中观察基础量子效应</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-hybrid-quantum-foundational-effect.html" rel="noopener noreferrer" target="_blank">Hybrid quantum computer observes foundational quantum effect in a new setting</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-10</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>牛津大学物理系的物理学家使用由量子位和量子振荡器组成的混合量子计算机来观察量子模拟中的阿哈罗诺夫-玻姆效应。这种效应是一种量子现象，其中粒子可以通过围绕磁通量运动来获得可测量的相位，即使它从未穿过存在磁场的区域。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Physicists in the Department of Physics at the University of Oxford have used a hybrid quantum computer, made up of qubits and quantum oscillators, to observe the Aharonov–Bohm effect in a quantum simulation. The effect is a quantum phenomenon in which a particle can acquire a measurable phase by traveling around a magnetic flux, even though it never passes through a region where a magnetic field is present.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-hybrid-quantum-foundational-effect.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-14">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-10-09.html">← 前一天 · 2026-10-09</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-10-09.html">前一天 · 2026-10-09</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-10.html">最新一期 · 2026-10-10</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-10.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>14</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>3</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">发热/吸热流体通过多孔板的不稳定 MHD 流动，温度和浓度在滑流状态下变化<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">量子芯片可同时容纳多个光子，为可扩展存储器开辟道路<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">三个受量子启发的核心在黑洞的振铃上留下了相反的指纹<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">活化膨润土和生物炭的体外评价：T-2 毒素和玉米赤霉烯酮吸附和肠道屏障保护<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">羟基锡酸锌上甘油与 CO2 羰基化生成甘油碳酸酯<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">氯化镧对发芽的调控机制<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">用于可持续、无环氧树脂混合印刷电子产品的生物基苯并恶嗪导电粘合剂<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">自动乘客出行中的认知工作和界面要求：公共事件报告的基于分类的分析<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">通过降雨驱动的生态水文指数评估气候变化对湿地植被和水资源的影响：来自比哈尔邦卡巴特尔湿地地区的卫星证据<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">铜材料浆料侵蚀磨损应力分析研究<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">阅读读者：新闻互动什么时候会表现出短暂的观点开放性？<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">部分可观测性和自适应干扰下认知无人机群的可解释的基于图的元强化学习<span class="daily-outline-meta">12</span></a><a class="daily-outline-link" href="#paper-13">用于高保真非谐波量子位的扭曲超导量子二极管<span class="daily-outline-meta">13</span></a><a class="daily-outline-link" href="#paper-14">混合量子计算机在新环境中观察基础量子效应<span class="daily-outline-meta">14</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-10-09.html">前一天 · 2026-10-09</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-10.html">最新一期 · 2026-10-10</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-10.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
