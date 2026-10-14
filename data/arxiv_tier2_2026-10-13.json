@@ -1,5 +1,14 @@
 [
   {
+    "title": "Noise-resilient training of machine learning interatomic potentials",
+    "title_zh": "文献研究：Noise-resilient training of machine learning interatomic potentials",
+    "summary": "The accuracy of machine learning interatomic potentials suffers from reference data that contain numerical noise. Often originating from unconverged or inconsistent electronic-structure calculations,…",
+    "abstract": "The accuracy of machine learning interatomic potentials suffers from reference data that contain numerical noise. Often originating from unconverged or inconsistent electronic-structure calculations, this noise is challenging to identify. Existing mitigation strategies, such as manual filtering or iterative refinement of outliers, require either substantial expert effort or multiple expensive retraining cycles, making them difficult to scale to large datasets. Here, we introduce a noise-resilient training method that automatically down-weighs noisy samples, without requiring additional reference calculations. By tracking the loss distribution via an exponential moving average, this unsupervised method identifies outliers throughout a single training run. We show that this approach prevents overfitting and matches the performance of iterative refinement baselines with significantly reduced overhead. The method’s effectiveness is demonstrated by recovering accurate physical observables for liquid water from unconverged reference data, including diffusion coefficients. Furthermore, we validate its scalability by training a foundation model for organic chemistry on the SPICE dataset, where it reduces both energy and force errors. This framework provides a simple, automated solution for training robust models on imperfect datasets across dataset sizes.",
+    "category": "AI×化学·材料",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/14/144116/3406405/Noise-resilient-training-of-machine-learning",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
     "title": "A neural network driven strategy for PyC interphase design in ceramic matrix composites",
     "title_zh": "陶瓷基复合材料PyC相间设计的神经网络驱动策略",
     "summary": "出版日期： 2027年1月来源： Computational Materials Science ，第276卷作者： Chong Wei ， Zhuang Li ， Cheng Zhang ， Shuang Liang ， Qinqin Xu",
@@ -36,6 +45,15 @@
     "journal": "Nature"
   },
   {
+    "title": "Irreducible sub-nm 2 ferroelectric domains by 2D-flat polar band in perovskite superlattices",
+    "title_zh": "文献研究：Irreducible sub-nm 2 ferroelectric domains by 2D-flat polar band in perovskite superlattices",
+    "summary": "Irreducible sub-nm 2 ferroelectric domains by 2D-flat polar band in perovskite superlattices",
+    "abstract": "npj Computational Materials, Published online: 13 October 2026; doi:10.1038/s41524-026-02354-w Irreducible sub-nm 2 ferroelectric domains by 2D-flat polar band in perovskite superlattices",
+    "category": "铁电·极化",
+    "link": "https://www.nature.com/articles/s41524-026-02354-w",
+    "journal": "npj Computational Materials"
+  },
+  {
     "title": "Dynamic magnetic and hysteresis properties of an edge-modified Kekulene monolayer: A Monte Carlo study",
     "title_zh": "边缘改性Kekulene单层的动态磁性和磁滞特性：蒙特卡罗研究",
     "summary": "出版日期： 2027年1月来源： Computational Materials Science ，第276卷作者： E.M. Jalal、D. Bokpe、N. Hachem、T.D. Oke、M. El Bouziani",
@@ -43,6 +61,24 @@
     "category": "磁性·自旋电子学",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626006671?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
+  },
+  {
+    "title": "Building new non-empirical hybrid and double-hybrid density functionals from the TCA family of GGA expressions",
+    "title_zh": "文献研究：Building new non-empirical hybrid and double-hybrid density functionals from the TCA family of GGA expressions",
+    "summary": "The Tognetti–Cortona–Adamo (TCA) correlation functional, and their subsequent variants, constitutes an important family of nonempirical generalized gradient approximations that have found successful a…",
+    "abstract": "The Tognetti–Cortona–Adamo (TCA) correlation functional, and their subsequent variants, constitutes an important family of nonempirical generalized gradient approximations that have found successful applications in molecular and solid-state electronic structure calculations. In this work, we present a systematic assessment of the original TCA functional together with the revTCA, gracTCA, and transTCA variants within nonempirical hybrid (TCA0) and double-hybrid (TCA-QIDH) frameworks. Their performance is evaluated using the comprehensive GMTKN55 benchmark database, including more detailed analysis of the challenging MB16-43 and SIE4x4 subsets, as well as three different global performance metrics: WTMAD-2A, WTMAD-2B, and the recently proposed WTMAD-4. The results reveal a consistent improvement in accuracy upon ascending “Jacob’s ladder,” with the nonempirical double-hybrid models reducing the global errors by approximately a factor of 2–3 relative to their GGA counterparts. Among the semilocal functionals, the original TCA correlation provides the most balanced overall performance, while the differences among the various TCA-based models become much less pronounced at the double-hybrid level. Importantly, the relative ranking of the functionals is essentially unaffected by the choice of the WTMAD metric, demonstrating the robustness of the conclusions with respect to the weighting scheme adopted for the GMTKN55 database. The remaining deficiencies are associated with dispersion-dominated intermolecular interactions, highlighting the potential use of some long-range correlation corrections. Overall, this study confirms that the TCA functional, particularly when adopted in a double-hybrid scheme, constitutes a reliable and transferable framework for the development of accurate density functional approximations applicable to a broad range of chemical problems.",
+    "category": "其他",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/14/144112/3406404/Building-new-non-empirical-hybrid-and-double",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
+    "title": "Cooling down trees for finite-temperature quantum dynamics: Purification within ML-MCTDH",
+    "title_zh": "文献研究：Cooling down trees for finite-temperature quantum dynamics: Purification within ML-MCTDH",
+    "summary": "Simulating multidimensional quantum systems at finite temperature is inherently challenging as the system is no longer described by a single, pure-state wavefunction but by a density operator, squarin…",
+    "abstract": "Simulating multidimensional quantum systems at finite temperature is inherently challenging as the system is no longer described by a single, pure-state wavefunction but by a density operator, squaring an already exponential scaling of the Hilbert space. Building upon the compact wavefunction ansatz of the multi-layer multiconfiguration time-dependent Hartree (ML-MCTDH) method, we present a new scheme for simulating finite-temperature quantum dynamics based on purification. Here, a density operator is mapped to a single ML-MCTDH wavefunction in an enlarged Hilbert space, comprising physical and auxiliary degrees of freedom. In the key step, one obtains a pure-state representation of the canonical density operator via imaginary time-propagation of the infinite-temperature state. The most important observation is that this state can be exactly decomposed as a Hartree product of maximally entangled combined modes, each combined mode consisting of a physical degree of freedom and its auxiliary counterpart. Through dynamically pruning the node ranks of the ML-tree during the “cool down” stage yields a compact finite-temperature wavefunction, thus accelerating the real-time propagation and enabling finite-temperature simulations of multidimensional, correlated molecular systems. Our method circumvents both intensive statistical sampling and costly tensor-decomposition of the full density-operator, while being broadly applicable to model Hamiltonians and general ab initio potential energy surfaces alike. Two applications of the method are presented: benchmark results on the thermal ground-state of H 2 O, as well as temperature-dependent infrared absorption spectra of the more challenging, floppy H3O2− anion.",
+    "category": "其他",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/14/144115/3406402/Cooling-down-trees-for-finite-temperature-quantum",
+    "journal": "The Journal of Chemical Physics Current Issue"
   },
   {
     "title": "Correlating Charge-Storage Kinetics, Quantum Capacitance, and Surface Charge Density in Bi2O2S: An Experimental-DFT Study",
@@ -73,8 +109,8 @@
   },
   {
     "title": "Synergistic Effect of Cu Doping and g-C 3 N 4 /BiVO 4 Heterojunction for Boosted Visible-Light Photocatalytic Degradation of RhB",
-    "title_zh": "Cu掺杂和g-C 3 N 4 /BiVO 4 异质结的协同效应促进RhB的可见光光催化降解",
-    "summary": "半导体异质结的构建与元素掺杂相结合是优化光催化材料光学性能的可行且有效的策略。在这项工作中，通过简单的合成路线成功制备了 Cu 掺杂的 g-C3N4/BiVO4 复合光催化剂。表征证实 BiVO4 纳米颗粒均匀生长在 g-C3N4 纳米片上，其中 Cu 物质与三嗪环配位形成接触良好的异质结界面。在可见光照射下，优化的Cu/g-C3N4/BiVO4复合材料在60分钟内实现了92.01%的罗丹明B（RhB）降解效率，显着优于纯g-C3N4、BiVO4和Cu/g-C3N4。",
+    "title_zh": "文献研究：Synergistic Effect of Cu Doping and g-C 3 N 4 /BiVO 4 Heterojunction for Boosted Visible-Light Photocatalytic Degradation of RhB",
+    "summary": "The construction of semiconductor heterojunctions combined with elemental doping is a feasible and efficient strategy to optimize the optical properties of photocatalytic materials. In this work, Cu-d…",
     "abstract": "The construction of semiconductor heterojunctions combined with elemental doping is a feasible and efficient strategy to optimize the optical properties of photocatalytic materials. In this work, Cu-doped g-C3N4/BiVO4 composite photocatalysts were successfully fabricated via a facile synthetic route. Characterization confirmed that BiVO4 nanoparticles uniformly grow on g-C3N4 nanosheets, with Cu species coordinating with the triazine ring to form a well-contacted heterojunction interface. Under visible-light irradiation, the optimized Cu/g-C3N4/BiVO4 composite achieved a rhodamine B (RhB) degradation efficiency of 92.01% within 60 min, significantly outperforming pure g-C3N4, BiVO4, and Cu/g-C3N4. In addition, the composite maintains excellent cyclic stability after four repeated degradation tests, with only a slight decrease in catalytic activity. Radical trapping experiments verify that ·O2- and h⁺ are the dominant active species responsible for RhB photodegradation. To further clarify the intrinsic enhancement mechanism at the atomic level, density functional theory (DFT) calculations were performed. The theoretical results intuitively reveal the electronic structure modulation and interfacial charge transfer behavior induced by Cu doping and heterojunction construction, confirming the establishment of a Type-II charge transfer pathway. The synergistic effect between Cu doping and heterojunction structure effectively broadens the visible-light absorption range and suppresses the recombination of photogenerated carriers. This work clarifies the structure-activity relationship of modified g-C3N4-based composites via combined experimental and theoretical investigations, providing a reliable reference for the design and preparation of high-efficiency visible-light photocatalysts.",
     "category": "其他",
     "link": "https://www.researchsquare.com/article/rs-11042394/latest",
@@ -82,8 +118,8 @@
   },
   {
     "title": "A Framework Based on hp-Finite Elements for Solving the Time-Harmonic Maxwell Equations",
-    "title_zh": "基于hp有限元求解时谐麦克斯韦方程组的框架",
-    "summary": "由于双旋度算子的不确定性、寄生模式的存在以及大频率下求解振荡解的高计算成本，时谐麦克斯韦方程的精确计算解仍然是计算电磁学中的一个核心挑战。在这项工作中，我们开发了一种 HP 有限元方法来求解时谐麦克斯韦方程的双旋度算子，以及由此产生的振荡模式。该方法使用 Engquist-Majda 吸收边界条件和自适应 hp 细化来有效处理无界域和复杂的场行为。为了补充分析，基于残差估计和使用局部平滑度指标的手动预细化之间的自动选择，开发了完整的自适应实现。",
+    "title_zh": "文献研究：A Framework Based on hp-Finite Elements for Solving the Time-Harmonic Maxwell Equations",
+    "summary": "The accurate computational solution of the time-harmonic Maxwell equations remains a central challenge in computational electromagnetics due to the indefinite nature of the double curl operator, the p…",
     "abstract": "The accurate computational solution of the time-harmonic Maxwell equations remains a central challenge in computational electromagnetics due to the indefinite nature of the double curl operator, the presence of spurious modes, and the high computational cost of resolving oscillatory solutions at large frequencies. In this work, we develop a hp-finite element method to solve the double-curl operator of time-harmonic Maxwell equations, as well as the resulting oscillatory modes. The approach uses Engquist-Majda absorbing boundary conditions and adaptive hp-refinements to efficiently handle unbounded domains and complex field behavior. To complement the analysis, a complete adaptive implementation is developed based on residual error estimation, and automatic selection between hand p-refinement using a local smoothness indicator. This provides a practical realization of the proposed adaptive strategy. We present stability analysis and establish a priori and a posteriori error estimates that ensure optimal decay of the discretization error. The numerical results confirm mathematical rigor of the formulation and demonstrate that the balance between hand p-refinements yields optimal convergence with respect to the degrees of freedom. This method provides a substantial improvement in accuracy and efficiency compared to conventional finite element for time-harmonic electromagnetic fields. One can show [4] that the solution of problem (8) coincides with that of (7).",
     "category": "磁性·自旋电子学",
     "link": "https://www.researchsquare.com/article/rs-10997183/latest",
@@ -91,8 +127,8 @@
   },
   {
     "title": "Comparison of calcined and sulfonated α-hematite as catalysts for biodiesel production from cow tallow",
-    "title_zh": "煅烧和磺化α-赤铁矿作为牛脂生产生物柴油催化剂的比较",
-    "summary": "将由废铁屑中的α-赤铁矿制备的锻铁 (CI) 和磺化锻铁 (SCI) 催化剂用于利用牛脂生产生物柴油进行比较。该研究报道了在 900 °C 下煅烧 CI，然后用浓硫酸处理 CI 以获得 SCI。 X 射线衍射给出报告的 CI 晶粒尺寸为 1.237 nm，SCI 晶粒尺寸为 1.944 nm。",
+    "title_zh": "煅烧和磺化α-赤铁矿作为牛脂生物柴油生产催化剂的比较",
+    "summary": "比较了由废铁屑衍生的α-赤铁矿制备的煅烧铁（ CI ）和磺化煅烧铁（ SCI ）催化剂对牛脂生物柴油生产的影响。该研究报告在900 ℃下进行CI煅烧，随后用浓硫酸处理CI以获得SCI。X射线衍射给出了CI为1.237 nm ， SCI为1.944 nm的微晶尺寸。",
     "abstract": "Calcined iron (CI) and sulfonated calcined iron (SCI) catalysts prepared from alpha-hematite derived from waste iron filings were compared for biodiesel production from cow tallow. The study reports calcination at 900 °C for CI and subsequent treatment of CI with concentrated sulfuric acid to obtain SCI. X-ray diffraction gave reported crystallite sizes of 1.237 nm for CI and 1.944 nm for SCI. Brunauer-Emmett-Teller analysis showed a higher specific surface area for SCI (337.13 m²/g) than for CI (294.72 m²/g), together with a larger pore volume (0.201 versus 0.152 cm³/g), a narrower pore width, and a smaller reported pore diameter. Both catalysts were evaluated at methanol-to-oil ratios of 3:1, 4:1, 5:1 and 6:1 in a 100 mL glass reactor on a digital magnetic stirrer with yield calculated as (mass of biodiesel produced / mass of cow tallow used) × 100. The highest yield for both catalysts occurred at 5:1, reaching 60.953% with CI and 62.159% with SCI. Across all tested ratios, CI had the higher reported arithmetic mean yield (51.79% versus 49.36%), largely because SCI showed a pronounced decrease at 4:1. The evidence therefore supports SCI as the higher-performing catalyst at the reported optimum ratio, while CI appears more consistent across the tested methanol-to-oil range. Because the source manuscript contains conflicting statements about some preparation conditions and does not provide numerical fatty acid methyl ester composition data, these points are not reconstructed or supplemented.",
     "category": "磁性·自旋电子学",
     "link": "https://www.researchsquare.com/article/rs-10743675/latest",
@@ -100,8 +136,8 @@
   },
   {
     "title": "Generative Quantum Search for Combinatorial Optimization: Learning Shallow Quantum Samplers for Classically Refined Solution Subspaces",
-    "title_zh": "用于组合优化的生成量子搜索：学习经典细化解决方案子空间的浅量子采样器",
-    "summary": "我们将生成量子本征解算器 + 量子选择配置交互 (GQE+QSCI) 架构从量子化学移植到组合图优化。我们的框架 GQO+QSS（生成量子优化 + 量子选择搜索）遵循相同的原理：ML 生成电路程序，量子采样器生成位串，经典恢复修复并将其扩展到受限子空间，经典求解器在该子空间内找到最佳值。",
+    "title_zh": "文献研究：Generative Quantum Search for Combinatorial Optimization: Learning Shallow Quantum Samplers for Classically Refined Solution Subspaces",
+    "summary": "We port the Generative Quantum Eigensolver + Quantum-Selected Configuration Interaction (GQE+QSCI) architecture from quantum chemistry to combinatorial graph optimization. Our framework, GQO+QSS (Gene…",
     "abstract": "We port the Generative Quantum Eigensolver + Quantum-Selected Configuration Interaction (GQE+QSCI) architecture from quantum chemistry to combinatorial graph optimization. Our framework, GQO+QSS (Generative Quantum Optimization + Quantum-Selected Search), follows the same principle: ML generates circuit programs, quantum samplers produce bitstrings, classical recovery repairs and expands them into a restricted subspace, and a classical solver finds the optimum within that subspace. We formalize the key quantity as the recovery-basin mass pr(qθ,G) = Prx∼qθ [x ∈ Ar(G)], where Ar(G) = x : Er(R(x))∩X∗(G) ̸= ∅ is the preimage of the optimal set under repair R and r-flip expansion Er. Under B independent shots, success probability becomes Psuccess = 1 − (1 − pr)B. The quantum-benefit question reduces to: does pr(qquantum,G) > pr(qclassical,G)? We test this on MaximumWeighted Independent Set (MWIS) with a preregistered, frozen protocol. All 150 ground truths are certified with CBC + brute-force verification. Exact recovery-basin masks are enumerated for all n ≤ 20 instances. Nine samplers are compared on a held-out test set: uniform, greedy, simulated annealing, tabu search, multi-start local search, Metropolis, warm-start QAOA, oracle QAOA, and a matched learned classical policy. Key findings:  1. Tabu search dominates at all sizes (pr = 0.82–0.94), followed by simulated annealing. All quantum samplers and the learned classical policy lose to both at every problem size under the frozen test protocol.  2. Oracle QAOA loses to SA under fair evaluation: With random QAOA configurations (not per-instance optimized), oracle QAOA achieves pr = 0.014 at n = 28 vs SA’s 0.088. The earlier positive result (pr = 0.185 vs 0.130) required per-instance best-of-50 configuration selection—an oracle upper bound, not a deployable method.  3. Learned classical policy matches oracle QAOA: A matched 140K-parameter classical policy achieves pr = 0.005–0.101, comparable to oracle QAOA’s 0.014–0.113. The quantum circuit’s proposal distribution provides no structural advantage over a matched learned classical model in this setting.  4. Recovery-basin masks reveal the phase structure: At r = 2, uniform-sampling Precover drops from 0.975 (n = 16) to 0.775 (n = 20) at B = 200, identifying the regime where sampler quality matters.  5. Hardware robustness without advantage: 136 cores on Piast-Q show 93.4% recovery consistency between QPU and simulator, but no basin-mass advantage.  This is a falsification study: Under rigorous, preregistered evaluation with matched learned baselines, shallow QAOA-derived proposal distributions do not outperform matched classical proposal models, and both lose to strong classical baselines (SA, tabu). The earlier positive oracle result was an artifact of per-instance configuration selection. We claim no quantum advantage.",
     "category": "量子信息·计算",
     "link": "https://www.researchsquare.com/article/rs-11337099/latest",
@@ -109,8 +145,8 @@
   },
   {
     "title": "Gravity and quantum information linked through a derivation of Einstein's equations",
-    "title_zh": "通过爱因斯坦方程的推导将重力和量子信息联系起来",
-    "summary": "最近的研究表明，引力和量子信息紧密相连，时空的形状可以追溯到信息在量子场中存储的方式。",
+    "title_zh": "文献研究：Gravity and quantum information linked through a derivation of Einstein's equations",
+    "summary": "Recent research shows that gravity and quantum information are deeply connected and that the shape of spacetime can be traced back to the way information is stored in quantum fields.",
     "abstract": "Recent research shows that gravity and quantum information are deeply connected and that the shape of spacetime can be traced back to the way information is stored in quantum fields.",
     "category": "量子信息·计算",
     "link": "https://phys.org/news/2026-10-gravity-quantum-linked-derivation-einstein.html",
@@ -128,7 +164,7 @@
   {
     "title": "Lateral photovoltaic effect in SiO2/TeO2/Bi2Te3/n-Si structure",
     "title_zh": "SiO2/TeO2/Bi2Te3/n-Si结构的横向光伏效应",
-    "summary": "研究了 SiO2/TeO2/Bi2Te3/n-Si 混合异质结构中的横向光伏效应 (LPE) 作为光波长、温度、照明位置和磁场的函数。使用热电子发射模型估计该结构的肖特基势垒高度为ΦB = 0.3 eV。在 λ = 1 µm 附近观察到 LPE 的显着变化，包括光电压极性的反转。这表明与 Si 衬底和 Bi2Te3 薄膜中载流子光生相关的两个主要光伏通道之间的转变。研究发现，与 Si 相关的贡献对磁场敏感，而与 Bi2Te3 相关的贡献几乎不受影响。",
+    "summary": "研究了SiO2/TeO2/Bi2Te3/n-Si杂化异质结构的横向光伏效应(LPE)随光波长、温度、照明位置和磁场的变化。使用热电子发射模型估计结构的肖特基势垒高度为ΦB = 0.3eV。在λ = 1 µm附近观察到LPE的显着变化，包括光电压极性的逆转。这表明Si衬底和Bi2Te3薄膜中与载流子光电生成相关的两个主要光伏通道之间的过渡。发现与Si相关的贡献对磁场敏感，而与Bi2Te3相关的贡献几乎不受影响。",
     "abstract": "The lateral photovoltaic effect (LPE) in a SiO2/TeO2/Bi2Te3/n-Si hybrid heterostructure was investigated as a function of light wavelength, temperature, illumination position, and magnetic field. The Schottky barrier height of the structure was estimated to be ΦB = 0.3 eV using the thermionic emission model. A pronounced change in the LPE is observed near λ = 1 µm, including a reversal of the photovoltage polarity. This indicates the transition between two dominant photovoltaic channels associated with carrier photogeneration in the Si substrate and Bi2Te3 film. The Si-related contribution was found to be sensitive to the magnetic field, whereas the Bi2Te3-related contribution remains nearly unaffected. The magnetic-field effect on the Si-related LPE is attributed to interface states localized near the Bi2Te3/n-Si interface. These results demonstrate the coexistence of distinct photovoltaic channels in Bi2Te3/Si-based hybrid structures and provide insight into the mechanisms governing their photoelectric and magnetically sensitive response.",
     "category": "磁性·自旋电子学",
     "link": "https://www.researchsquare.com/article/rs-11114104/latest",
@@ -142,41 +178,5 @@
     "category": "磁性·自旋电子学",
     "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9920959?af=R",
     "journal": "Wiley"
-  },
-  {
-    "title": "Multicomponent Magnetic Domain Walls in Rhombohedral Graphene",
-    "title_zh": "菱面体石墨烯中的多组分磁畴壁",
-    "summary": "磁序的空间纹理，例如磁畴壁和斯格明子，是磁性中的基本物体。在菱形多层石墨烯中，磁序涉及自旋和谷自由度，开启了新的空间纹理的可能性。在这里，我们通过对菱面体石墨烯谷不平衡四分之一金属相中的一维畴壁的微观研究来探索这种可能性。我们发现了两种不同类别的畴壁。一种类似于传统的磁畴壁，在两个块体状态之间局部旋转，而另一种本质上是多组分的，并探索在任一体域中都没有占据的状态。哪种纹理的实现是由间隔洪德耦合和自旋轨道耦合之间的竞争控制的，我们识别了实验特征来区分它们。",
-    "abstract": "Spatial textures of magnetic order, such as domain walls and skyrmions, are fundamental objects in magnetism. In rhombohedral multilayer graphene, magnetic order involves spin and valley degrees of freedom, opening the possibility of qualitatively new spatial textures. Here, we explore this possibility through a microscopic study of a one-dimensional domain wall in the valley-imbalanced quarter-metal phase of rhombohedral graphene. We uncover two different classes of domain walls. One resembles a conventional magnetic domain wall, locally rotating between the two bulk states, whereas the other is intrinsically multicomponent and explores states that are not occupied in either bulk domain. Which texture is realized is controlled by the competition between intervalley Hund's coupling and spin-orbit coupling, and we identify experimental signatures to distinguish them. For a superconducting junction formed across the wall, we further show that the superconducting phase difference couples directly to the intervalley-coherent phase of the texture, allowing precession of this internal phase to generate a voltage. This mechanism provides an explanation for the resistive domain walls recently observed in chiral superconductors [arXiv2605.13303] and predicts accompanying magnetization oscillations that could be detected using GHz-frequency AC probes. Our theory establish a microscopic connection between multicomponent magnetic textures, their internal dynamics, and superconducting transport.",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.researchsquare.com/article/rs-11157706/latest",
-    "journal": "Preprints"
-  },
-  {
-    "title": "Optical Responses of Topological and Plasmonic Heterostructures for Photothermal and Photocatalytic Applications",
-    "title_zh": "光热和光催化应用中拓扑和等离子异质结构的光学响应",
-    "summary": "高级功能材料， EarlyView。",
-    "abstract": "Advanced Functional Materials, EarlyView.",
-    "category": "拓扑·电子结构",
-    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78942?af=R",
-    "journal": "Wiley"
-  },
-  {
-    "title": "Orientation Mechanics and Kinetic Constraints of In-Situ Low-Field Magnetic Alignment in Vat Photopolymerization",
-    "title_zh": "还原光聚合中原位低场磁取向的取向机制和动力学约束",
-    "summary": "在槽光聚合 (VP) 过程中微填料的原位磁性排列提供了一种制造功能复合材料的途径，但电磁硬件改造引入了显着的空间、运动学和热学权衡。本技术说明评估了改装为基于商用液晶显示器 (LCD) 的 VP 打印机的低场亥姆霍兹线圈的操作边界。",
-    "abstract": "In-situ magnetic alignment of microfillers during vat photopolymerization (VP) offers a route to fabricating functional composites, but electromagnetic hardware retrofits introduce significant spatial, kinematic, and thermal trade-offs. This technical note evaluates the operational boundaries of a low-field Helmholtz coil retrofitted to a commercial liquid crystal display (LCD)-based VP printer. Despite single-particle models predicting sufficient torque to overcome viscous drag, active-field operation (0.31- 0.40 mT ) yielded modest directional alignment (S2D=0.156±0.104, R2=0.60±0.26, across N=5 samples, 10 total region of interests (ROIs), 0.092 wt%  / 0.038 vol% ) compared to isotropic controls (S2D=-0.004±0.044, R2=0.45±0.15). This work delivers two key contributions: (1) it establishes that low-field conditions (0.31–0.40 mT) mark the lower sensitivity threshold required to initiate weak, statistically verifiable microscale directional bias above background noise, while quantifying the substantial field deficit relative to the ~15–50 mT needed for macro-scale functional anisotropy, and (2) it presents an analytical framework decoupling physical order parameters (S2D) from distribution curve fitting (R2), demonstrating that fit accuracy alone cannot confirm alignment. Primary performance bottlenecks-including fibre agglomeration, field magnitude deficits, and rapid particle sedimentation restricting printing to single layers-are quantified to provide critical engineering scaling criteria for future high-field magnetic additive manufacturing systems.",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.researchsquare.com/article/rs-11199912/latest",
-    "journal": "Preprints"
-  },
-  {
-    "title": "Substorm Triggering Processes During Different Phases of Geomagnetic Storms: A Case Study",
-    "title_zh": "地磁暴不同阶段的亚暴触发过程：案例研究",
-    "summary": "利用卫星和地面站的观测，我们研究了触发地磁风暴不同阶段发生的两个亚暴扩展阶段的可能机制。主要发现总结如下。对于在风暴开始和初始阶段发生的亚暴，能量存储过程主要受到增强的太阳风速和动压力的调节，而行星际磁场（IMF）的南转似乎是膨胀阶段开始的关键触发因素。对于风暴恢复阶段发生的亚暴，能量储存主要与IMF南转有关，而扩张阶段在IMF南转后经过一段时间延迟后开始。对这两个事件的详细分析表明，地磁风暴期间触发亚暴扩展的机制可能与孤立的非风暴亚暴期间的机制不同。",
-    "abstract": "Using observations from satellites and ground-based stations, we investigate the possible mechanisms triggering the expansion phases of two substorms that occurred during different phases of a geomagnetic storm. The main findings are summarized as follows. For the substorm occurring during the storm commencement and initial phase, the energy storage process is primarily modulated by enhanced solar wind speed and dynamic pressure, whereas a southward turning of the interplanetary magnetic field (IMF) appears to be a key trigger for the onset of the expansion phase. For the substorm occurring during the storm recovery phase, energy storage is primarily associated with the southward IMF, while the expansion phase begins after a time delay following the southward turning of the IMF. Detailed analysis of these two events suggests that the mechanisms triggering substorm expansion during geomagnetic storms may differ from those operating during isolated, non-storm substorms. In contrast, previous studies have identified northward turnings of the IMF as an important indicator of expansion-phase onset in substorms under non-storm conditions. These results provide new insight into the relationship between geomagnetic storm evolution and substorm development in Earth’s magnetosphere.",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.researchsquare.com/article/rs-11099429/latest",
-    "journal": "Preprints"
   }
 ]
