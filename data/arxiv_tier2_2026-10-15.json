@@ -10,8 +10,8 @@
   },
   {
     "title": "Deep Learning of Phase Transitions for Bilinear-Biquadratic Spin-1 Chains from Correlation Aspects",
-    "title_zh": "文献研究：Deep Learning of Phase Transitions for Bilinear-Biquadratic Spin-1 Chains from Correlation Aspects",
-    "summary": "We investigate the role of different correlation functions in reconstructing the phase diagram of the spin-1 bilinear-biquadratic chain, parametrized by the angle θ between the bilinear and biquadrati…",
+    "title_zh": "从相关性角度深度学习双线性双二次自旋 1 链的相变",
+    "summary": "我们使用我们之前开发的无标签机器学习管道 citeMing21、Ming23 研究了不同相关函数在重建 spin-1 双线性双二次链相图中的作用，通过双线性和双二次耦合之间的角度 θ 进行参数化，其中自动编码器将 iDMRG 相关矩阵压缩为潜在特征，并通过轮廓分析进行 K 均值聚类将它们分组为相。",
     "abstract": "arXiv:2610.19995v1 Announce Type: new Abstract: We investigate the role of different correlation functions in reconstructing the phase diagram of the spin-1 bilinear-biquadratic chain, parametrized by the angle θ between the bilinear and biquadratic couplings, using our previously developed label-free machine-learning pipeline citeMing21, Ming23, in which an autoencoder compresses iDMRG correlation matrices into latent features and K-means clustering with silhouette analysis groups them into phases. Without any prior labels, the scheme reveals four natural phases, the Haldane, dimerized, critical trimerized, and ferromagnetic phases, and accurately locates the Takhtajan-Babujian (θ=-π/4), SU(3)-symmetric Uimin-Lai-Sutherland (θ=π/4), and Ferro-Dimer (θ=5π/4) transition points; a shallow supervised refinement further sharpens the phase boundaries. We find that different correlation functions play fundamentally different roles in phase identification. The SU(3)-symmetric correlation alone selects a four-cluster partition that can be associated with the four phases, whereas the spin-spin and dimer-dimer correlations must be combined to recover the complete phase diagram. In contrast, the trimer-trimer correlation behaves as a marginal correlation: it is insufficient for phase identification by itself but improves the precision of the predicted phase boundaries when combined with the other correlations. Furthermore, the latent representations and silhouette values reveal signatures that we relate to the θ dependence of the correlations within each phase and, tentatively, to the underlying renormalization-group structure. These results demonstrate that machine learning can not only identify quantum phases but also uncover the physical information encoded in different correlation functions.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.19995",
@@ -28,8 +28,8 @@
   },
   {
     "title": "ActMOF: Mapping Reticular Synthesis through Active Learning",
-    "title_zh": "文献研究：ActMOF: Mapping Reticular Synthesis through Active Learning",
-    "summary": "Reticular chemistry allows metal-organic frameworks (MOFs) to be designed from their building units, yet their synthesis remains constrained by sparse experimental data, noisy crystallization outcomes…",
+    "title_zh": "ActMOF：通过主动学习绘制网状综合",
+    "summary": "网状化学允许从其构建单元设计金属有机框架（MOF），但其合成仍然受到实验数据稀疏、结晶结果嘈杂以及缺乏比较主动学习策略的基准的限制。虽然贝叶斯优化 (BO) 等数据驱动方法可以提高合成成功率，但预先选择合适的优化器来绘制 MOF 结晶图谱在很大程度上仍然是凭经验得出的。在这里，我们提出 ActMOF，一个基于实验的基准，用于比较羧酸铝 MOF 合成中的搜索策略。 ActMOF 是通过实验测量的微波合成来模拟的，每个编码条件都分配了一个基于衍射峰强度和半峰全宽计算的结晶度指数。",
     "abstract": "arXiv:2610.19404v1 Announce Type: new Abstract: Reticular chemistry allows metal-organic frameworks (MOFs) to be designed from their building units, yet their synthesis remains constrained by sparse experimental data, noisy crystallization outcomes, and the absence of benchmarks for comparing active-learning strategies. While data-driven approaches such as Bayesian optimization (BO) can improve synthesis success rates, selecting appropriate optimizers beforehand for mapping MOF crystallization landscapes remains largely empirical. Here we present ActMOF, an experiment-grounded benchmark for comparing search strategies in aluminum-carboxylate MOF synthesis. ActMOF is emulated from experimentally measured microwave syntheses with each encoded condition assigned a crystallinity index calculated based on diffraction peak intensity and full width at half-maximum. By benchmarking policies guided by Gaussian processes (GP), tree ensembles and large language models (LLM), ActMOF placed the GP family among the leading policies for active learning in sparse synthesis landscapes. It then demonstrated transferability by guiding the microwave synthesis of six reticularly related aluminum MOFs. All six campaigns gave crystalline products within a fixed budget of 12 experiments each, and established a reusable testbed for AI-driven MOF synthesis.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.19404",
@@ -108,6 +108,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Fluctuation-driven multi-step charge density wave melting in monolayer TiSe₂",
+    "title_zh": "单层TiSe ₂中波动驱动的多步电荷密度波熔化",
+    "summary": "TiSe ₂中电荷密度波（ CDW ）相的确切微观起源、对称性和热熔融机制仍然存在激烈争论，特别是关于手性结构顺序和多步相变。利用由精确的机器学习原子间势驱动的大规模分子动力学，我们解决了单层TiSe ₂的有限温度结构动力学。我们证明， CDW熔化偏离了传统的均值场二阶行为，经历了两步过程，其特征是具有增殖畴壁的扩展波动区（ 200-250 K ）、相位退相干、组分选择性熔化和过阻尼的软光学声子。此外，各向异性长波长热波动自发稳定具有P1对称性的不对称3Q CDW级。",
+    "abstract": "arXiv:2604.20355v2 Announce Type: replace Abstract: The exact microscopic origin, symmetry, and thermal melting mechanism of the charge density wave (CDW) phase in TiSe₂ remain intensely debated, particularly regarding chiral structural order and multi-step phase transitions. Using large-scale molecular dynamics driven by an accurate machine-learning interatomic potential, we resolve the finite-temperature structural dynamics of the monolayer TiSe₂. We demonstrate that CDW melting deviates from conventional mean-field second-order behavior, undergoing a two-step process characterized by an extended fluctuation region (200-250 K) with proliferating domain walls, phase decoherence, component-selective melting, and an overdamped soft optical phonon. Furthermore, anisotropic long-wavelength thermal fluctuations spontaneously stabilize an asymmetric 3Q CDW order with P1 symmetry. These findings provide a unified microscopic framework for fluctuation-driven transitions in 2D quantum materials, demonstrating that the complex CDW physics of TiSe₂ is captured entirely via non-perturbative electron-phonon and phonon-phonon interactions.",
+    "category": "其他凝聚态",
+    "link": "https://arxiv.org/abs/2604.20355",
+    "journal": "arXiv"
+  },
+  {
     "title": "Non-Abelian quantum Hall states at strong Landau level mixing: finding anyons with first-principles AI",
     "title_zh": "非阿贝尔量子霍尔在强朗道水平混合状态：使用第一原理AI寻找任意子",
     "summary": "非阿贝尔任意子，即构成容错拓扑量子计算基础的奇异粒子，预计将在偶分母填充因子下以分数量子霍尔态出现。确定实现了哪种拓扑顺序已被证明是一个具有挑战性的问题，需要对逼真的朗道水平混合进行准确的、非扰动的处理，迄今为止理论研究中一直缺少这种处理。在这里，我们提出了非阿贝尔量子霍尔问题的第一个完整解，其中包括所有电子和所有朗道能级，用于填充因子ν = 3/2的自旋极化电子。",
@@ -135,6 +144,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Beyond Kitaev exchange: Γ'-driven magnetism in Ag₃LiRh₂O₆",
+    "title_zh": "超越基塔耶夫交换：Ag₃LiRh2O₆ 中 γ' 驱动的磁性",
+    "summary": "在基塔耶夫磁体中，挫折来自于键依赖性自旋各向异性相互作用，这有可能实现备受追捧的量子自旋液相。然而，以基塔耶夫交换为主的材料实现很少，并且扩展基塔耶夫模型的广泛参数空间在很大程度上仍未通过实验进行探索。在这里，我们使用密度泛函理论、簇多体、自旋波和密度矩阵重正化计算来表明，最近发现的蜂窝状铑酸盐Ag₃LiRh2O₆具有非对角线交换Ђ'，其数量级仅次于铁磁Kitaev交换K₁。",
+    "abstract": "arXiv:2610.19770v1 Announce Type: new Abstract: In Kitaev magnets, frustration arises from bond-dependent spin anisotropic interactions, which can potentially realize sought-after quantum spin liquid phases. However, material realizations with dominating Kitaev exchange are scarce and the broad parameter space of extended Kitaev models remains largely unexplored experimentally. Here, we use density-functional theory, cluster many-body, spin-wave, and density-matrix renormalization calculations to show that the recently discovered honeycomb rhodate Ag₃LiRh₂O₆ hosts an off-diagonal exchange Γ₁' that is second in magnitude only to the ferromagnetic Kitaev exchange K₁. This combination of K₁ and Γ₁' explains key experimental observations, an unusually high magnetic ordering temperature of 94 K at ambient pressure and its rapid decrease under hydrostatic pressure as Ag₃LiRh₂O₆ evolves from ferromagnetic toward zigzag order within the honeycomb planes. Our spin-wave calculations further predict an unusual topology of the magnon bands arising from the Γ₁' term in the spin Hamiltonian of the honeycomb layer. We show that the large trigonal splitting of t₂g states enhances Γ₁', the hitherto underappreciated term in Kitaev magnets, and opens the way to new interesting regimes of the extended Kitaev model.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.19770",
+    "journal": "arXiv"
+  },
+  {
     "title": "Ab initio study of magnetic Cu 2 Sb compounds related to antiferromagnetic CuMnAs",
     "title_zh": "文献研究：Ab initio study of magnetic Cu 2 Sb compounds related to antiferromagnetic CuMnAs",
     "summary": "The antiferromagnetic metal CuMnAs has become a workhorse of antiferromagnetic spintronics. A broad range of phenomena has been demonstrated in this material, most notably current-induced switching an…",
@@ -144,39 +162,21 @@
     "journal": "Preprints"
   },
   {
-    "title": "Influence of the Néel vector on the bulk electronic structure of MnTe measured from the (1 bar1 00) surface",
-    "title_zh": "文献研究：Influence of the Néel vector on the bulk electronic structure of MnTe measured from the (1 bar1 00) surface",
-    "summary": "Altermagnetism gives rise to momentum-dependent spin splitting without net magnetization. Here, we use angle-resolved photoemission spectroscopy (ARPES) to investigate bulk α-MnTe single crystals clea…",
-    "abstract": "arXiv:2610.20383v1 Announce Type: new Abstract: Altermagnetism gives rise to momentum-dependent spin splitting without net magnetization. Here, we use angle-resolved photoemission spectroscopy (ARPES) to investigate bulk α-MnTe single crystals cleaved along the (1bar100) plane - an orientation that preserves the compensated magnetic symmetry at the surface and substantially reduces surface effects and k_z broadening. We resolve the three-dimensional bulk band structure with markedly enhanced spectral clarity. The d-wave band splitting, driven by the altermagnetic order and spin-orbit coupling in the Γ-K-M nodal plane, shows a perfect match to theoretical predictions. We further establish that the valence-band maximum occurs near the A point, identifying the corresponding hole pockets as the states governing the transport properties. Spatially resolved measurements reveal systematic variations of the band dispersion along Γ-K and A-L, associated with different pinning of the Néel vector at the surface. Our results establish a surface-sensitive route to resolving the bulk altermagnetic electronic structure of MnTe and provide direct spectroscopic evidence for Néel-vector-dependent band splitting.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2610.20383",
-    "journal": "arXiv"
+    "title": "Development and applications of an extended modified embedded-atom method interatomic potential for binary Ni-V alloys",
+    "title_zh": "文献研究：Development and applications of an extended modified embedded-atom method interatomic potential for binary Ni-V alloys",
+    "summary": "Author(s): Mengwan Li, Tao Liu, Binglun Yin, Xiaoxiao Ma, Che Fan, Xun-Li Wang, and Zhaoxuan Wu Recent experiments show a binary Ni-V face-centered cubic (FCC) solid solution alloy possessing superior…",
+    "abstract": "Author(s): Mengwan Li, Tao Liu, Binglun Yin, Xiaoxiao Ma, Che Fan, Xun-Li Wang, and Zhaoxuan Wu Recent experiments show a binary Ni-V face-centered cubic (FCC) solid solution alloy possessing superior strength and work hardenability exceeding extant multiprincipal element alloys with an FCC solid solution structure. The outstanding mechanical properties can be attributed to V solid solution st… [Phys. Rev. Materials 10, 103606] Published Thu Oct 15, 2026",
+    "category": "其他",
+    "link": "http://link.aps.org/doi/10.1103/jljs-ldv5",
+    "journal": "Phys. Rev. Materials"
   },
   {
-    "title": "Magnetic proximity beyond the interface: Layer-sequence-dependent exchange in WSe₂/CrI₃ heterostructures",
-    "title_zh": "文献研究：Magnetic proximity beyond the interface: Layer-sequence-dependent exchange in WSe₂/CrI₃ heterostructures",
-    "summary": "Magnetic proximity effects in transition metal dichalcogenide (TMD)/2D-magnet heterostructures are often described in terms of the magnetization of the interfacial magnetic layer. Here, we show that t…",
-    "abstract": "arXiv:2610.19582v1 Announce Type: new Abstract: Magnetic proximity effects in transition metal dichalcogenide (TMD)/2D-magnet heterostructures are often described in terms of the magnetization of the interfacial magnetic layer. Here, we show that this picture is sufficient to describe the neutral-exciton valley splitting of the TMD, but incomplete for its hole-doped electronic structure. We study a gate-tunable van der Waals heterostructure composed of monolayer WSe₂ in direct contact with trilayer CrI₃. By combining spatially and helicity-resolved reflection-contrast spectroscopy with magnetic circular dichroism, we identify two distinct magnetic domains in the trilayer CrI₃: one with purely antiferromagnetic interlayer coupling and one with a mixed antiferromagnetic (AFM)/ferromagnetic~(FM) coupling. In both domains, the sign of the neutral-exciton valley splitting of WSe₂ switches with the magnetization reversal of the adjacent CrI₃ layer. In contrast, helicity-resolved positive-trion spectroscopy of WSe₂ reveals a qualitatively different response. While the AFM domain shows a strongly helicity-selective trion resonance, the mixed AFM/FM domain exhibits trion resonances in both helicities. This behavior disappears when all CrI₃ layers are aligned in a parallel magnetization direction. Our results demonstrate that charged excitons are sensitive to the full layer-resolved magnetic sequence of the adjacent 2D-magnet, revealing magnetic proximity beyond the interface.",
+    "title": "Designing Hamiltonians with Exactly Flat Higher-Vortexable Bands",
+    "title_zh": "设计具有精确平坦的高涡能带的哈密顿量",
+    "summary": "阿哈罗诺夫-卡舍尔哈密顿量的零模在任何非均匀磁场中形成完全平坦的可涡旋陈氏带，类似于最低的朗道能级。我们询问哪些本地哈密顿主义者拥有完全平坦的高涡旋能带。对于标量哈密顿量，精确平坦的第一可涡带需要与局部场成比例的质量；狄拉克类似物具有相同的结构。对于具有非零平均通量的周期性伯纳尔双层石墨烯，当且仅当层间跳跃具有非零均值时，精确的零模对才是真正可第一涡旋的；相反，零均值跳跃给出了可分解的对。多轨道模型产生任意阶的精确高涡链，同时保持一阶动量。",
+    "abstract": "arXiv:2610.20380v1 Announce Type: new Abstract: The zero modes of the Aharonov-Casher Hamiltonian form an exactly flat, vortexable Chern band in any nonuniform magnetic field, analogous to the lowest Landau level. We ask which local Hamiltonians host exactly flat higher-vortexable bands. For a scalar Hamiltonian, an exactly flat first-vortexable band requires a mass proportional to the local field; the Dirac analogue has the same structure. For periodic Bernal bilayer graphene with nonzero mean flux, the exact zero-mode pair is genuinely first-vortexable if and only if the interlayer hopping has nonzero mean; zero-mean hopping instead gives a decomposable pair. Multiorbital models yield exact higher-vortexable chains to arbitrary order, while remaining first order in momentum.",
     "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2610.19582",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Magneto-optical signatures of plateau states in the kagome spin-ice HoAgGe",
-    "title_zh": "文献研究：Magneto-optical signatures of plateau states in the kagome spin-ice HoAgGe",
-    "summary": "Coupling of itinerant electrons to non-collinear spin structures in frustrated rare-earth magnets leads to unusual transport properties. While these complex magnetic orders are expected to modify the…",
-    "abstract": "arXiv:2504.10274v2 Announce Type: replace Abstract: Coupling of itinerant electrons to non-collinear spin structures in frustrated rare-earth magnets leads to unusual transport properties. While these complex magnetic orders are expected to modify the electronic structure, underlying microscopic mechanisms have been rarely identified. Using magnetoreflectance spectroscopy and ab initio calculations, we reveal reconstructions of the electronic structure across the magnetization plateaus of the kagome spin-ice HoAgGe. We find an unusual optical anisotropy: a larger conductivity perpendicular to the kagome planes originating from the hybridization of Ho 4f flat bands with conduction electrons. Moreover, these flat bands are also responsible for the pronounced magnetoreflectance observed at the metamagnetic transitions. Most importantly, the magnetoreflectance behaves completely differently for excitations near the Fermi level and higher-energy interband transitions. The former, expected to sensitively probe variations in band topology near the Fermi level, shows abrupt non-monotonous changes between the magnetic states, while the interband excitations mimic the field dependence of the magnetization. These observations imply that in HoAgGe, the unusual magnetotransport likely reflects variation of band topology between plateau states. More generally, our study shows that heavy-electron bands near the Fermi level offer an efficient way to control the band structure and thereby the transport and optical properties of non-collinear magnets.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2504.10274",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Odd-to-Even-Layer Switch of Spontaneous Excitonic State in rmTiSe₂ Thin Films",
-    "title_zh": "文献研究：Odd-to-Even-Layer Switch of Spontaneous Excitonic State in rmTiSe₂ Thin Films",
-    "summary": "rmTiSe₂ is a candidate of high temperature excitonic condensates with spontaneous exciton formation in addition to its charge density wave (CDW). However, direct observation and manipulation of this e…",
-    "abstract": "arXiv:2610.19370v1 Announce Type: new Abstract: rmTiSe₂ is a candidate of high temperature excitonic condensates with spontaneous exciton formation in addition to its charge density wave (CDW). However, direct observation and manipulation of this electron-hole paring state formation is still lacking. Here, using varying-temperature angle-resolved photoemission spectroscopy (VT-ARPES), we observe a distinct odd-to-even-layer switch of spontaneous exciton state formation with the evident correlated band structure in rmTiSe₂ thin films. While the odd-layer rmTiSe₂ films show a sharp band structure in single-particle picture superimposed by CDW renormalization, in the even-layer rmTiSe₂ films, the full-filling valence band (VB) opens a distinct notch at the top, and the conductive band (CB) shows a significant extra signal extending above Fermi level with spectra broadening. These features indicate that the extra holes (notched VB) and electrons (broadening CB above Fermi level) form spontaneous excitons in even-layer rmTiSe₂. Based on a correlated electron-hole model extracted from the tight-binding description, we reproduce the characterized band structures with spontaneous exciton formation, where the interlayer inter-band coupling in rmTiSe₂ plays a key role, which leads to an odd-to-even-layer switch of the excitonic state formation. Our results provide direct evidences of the spontaneous exciton formation, promising an excitonic condensate as versatile platform for realizing Bose-Einstein condensate (BEC) and investigating novel correlated phenomena.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2610.19370",
+    "link": "https://arxiv.org/abs/2610.20380",
     "journal": "arXiv"
   }
 ]
