@@ -1,8 +1,8 @@
 [
   {
     "title": "Hybrid Ab Initio and Empirical Machine Learning Models for the Potential Energy Surface",
-    "title_zh": "文献研究：Hybrid Ab Initio and Empirical Machine Learning Models for the Potential Energy Surface",
-    "summary": "Author(s): Pablo Peña-Cano and Pablo M. Piaggi We propose a methodology to generate hybrid machine learning models for the potential energy surface trained simultaneously on data from ab initio electr…",
+    "title_zh": "势能面的混合从头算和经验机器学习模型",
+    "summary": "作者：Pablo Peña-Cano 和 Pablo M. Piaggi 我们提出了一种方法来生成势能表面的混合机器学习模型，该模型同时根据从头开始的电子结构计算数据和实验中的热力学和/或结构可观测数据进行训练。该方法基于损失函数的使用...... [Phys。莱特牧师。 137, 166102] 2026 年 10 月 14 日星期三发布",
     "abstract": "Author(s): Pablo Peña-Cano and Pablo M. Piaggi We propose a methodology to generate hybrid machine learning models for the potential energy surface trained simultaneously on data from ab initio electronic structure calculations and on thermodynamic and/or structural observables from experiment. The approach is based on the use of a loss function… [Phys. Rev. Lett. 137, 166102] Published Wed Oct 14, 2026",
     "category": "AI×物理",
     "link": "http://link.aps.org/doi/10.1103/x3hc-52cp",
@@ -19,11 +19,20 @@
   },
   {
     "title": "Knowledge-Guided Construction of Machine Learning Potentials for Reactive Behavior in Energetic Materials",
-    "title_zh": "文献研究：Knowledge-Guided Construction of Machine Learning Potentials for Reactive Behavior in Energetic Materials",
-    "summary": "Energetic materials involve multiple interactions, making reliable machine-learning potentials (MLPs) difficult to construct without extensive datasets. Here, we enhance the ability of the neural netw…",
+    "title_zh": "知识引导构建含能材料反应行为的机器学习潜力",
+    "summary": "含能材料涉及多种相互作用，如果没有大量数据集，就很难构建可靠的机器学习潜力 (MLP)。在这里，我们增强了神经网络原子间势（NNAP）使用 sphmulti 描述分子系统的能力，sphmulti 是一种精炼的球谐基组，它将额外的径向基与每个径向通道中元素特定的化学权重相结合。我们进一步将超活跃学习、最远点采样和迭代充分性标准与知识引导的关键事件相结合，使 NNAP 能够保留用于描述材料系统的基本信息。",
     "abstract": "arXiv:2610.17987v1 Announce Type: new Abstract: Energetic materials involve multiple interactions, making reliable machine-learning potentials (MLPs) difficult to construct without extensive datasets. Here, we enhance the ability of the neural network interatomic potential (NNAP) to describe molecular systems using sphmulti, a refined spherical-harmonic basis set that combines extra radial basis with element-specific chemical weighting in each radial channel. We further integrate hyperactive learning, farthest-point sampling, and iterative sufficiency criteria with knowledge-guided key events, enabling the NNAP to retain essential information for describing the material system. For 3,3'-diamino-4,4'-azoxyfurazan, the resulting NNAP is trained on only 13,680 configurations yet captures key properties, including the isomerization barrier, pyrolysis activation energy, and shock Hugoniot behavior. NNAP-driven molecular dynamics simulations further reveal that pyrolysis proceeds through furazan-ring opening followed by chain reactions, whereas shock loading induces anisotropic hydrogen transfer driven by interlayer structural deformations. This work enables efficient and reliable MLPs for energetic materials.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.17987",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Accurately Generalizing Deep-Learning Hamiltonian Methods to Plane-Wave Density Functional Theory",
+    "title_zh": "将深度学习哈密顿方法准确推广到平面波密度泛函理论",
+    "summary": "从材料结构预测密度泛函理论 (DFT) 哈密顿量的深度神经网络提供了高效电子结构计算的途径。然而，将定域原子轨道 (AO) 哈密顿学习扩展到具有混合泛函的平面波 (PW) 计算需要一个紧凑的 AO 表示，以保留非定域算子的影响。在这里，我们提出了一种从一小部分选定的 PW 本征态和特征值中构建非正交 AO 哈密顿量的可投影性引导构造。保留高可投射性状态，并选择更高能量的状态来完成 AO 子空间，避免经验转变及其对学习目标的任意贡献。",
+    "abstract": "arXiv:2610.18317v1 Announce Type: new Abstract: Deep neural networks that predict density functional theory (DFT) Hamiltonians from material structures offer a route to efficient electronic-structure calculations. However, extending localized atomic-orbital (AO) Hamiltonian learning to plane-wave (PW) calculations with hybrid functionals requires a compact AO representation that preserves the effects of nonlocal operators. Here we propose a projectability-guided construction of nonorthogonal AO Hamiltonians from a small, selected set of PW eigenstates and eigenvalues. High-projectability states are retained, and selected higher-energy states complete the AO subspace, avoiding an empirical shift and its arbitrary contribution to the learning targets. Because the construction uses PW eigenstates and eigenvalues, it incorporates nonlocal contributions present in the reference calculation without explicitly reconstructing their AO matrix elements. Benchmarks for MoS2 and sodium phases show accurate reproduction of PW bands with smaller AO bases than real-space reconstruction. The resulting PBE and HSE Hamiltonians can be learned by equivariant neural networks, connecting PW reference calculations with electronic-structure prediction. This approach broadens the range of PW DFT calculations available for AO Hamiltonian learning and enables compact, accurate training targets for developing more widely applicable electronic-structure models.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.18317",
     "journal": "arXiv"
   },
   {
@@ -55,8 +64,8 @@
   },
   {
     "title": "Prediction of solvent aggregation in CO 2 -loaded aqueous amines using machine learning molecular dynamics simulations",
-    "title_zh": "文献研究：Prediction of solvent aggregation in CO 2 -loaded aqueous amines using machine learning molecular dynamics simulations",
-    "summary": "Aggregation of ion pairs formed during CO 2 capture may govern absorption thermodynamics and kinetics, but it is often overestimated by fixed-charge classical force fields. Here, we demonstrate the pr…",
+    "title_zh": "使用机器学习分子动力学模拟预测负载 CO 2 的水性胺中的溶剂聚集",
+    "summary": "CO 2 捕获期间形成的离子对的聚集可能控制吸收热力学和动力学，但固定电荷经典力场常常高估它。在这里，我们展示了图神经网络原子间势的前景，它提供了量子级的精度，可直接评估负载 CO 2 的胺水溶液中离子产物的聚集趋势。",
     "abstract": "Aggregation of ion pairs formed during CO 2 capture may govern absorption thermodynamics and kinetics, but it is often overestimated by fixed-charge classical force fields. Here, we demonstrate the promise of graph neural network interatomic potentials, which offer quantum-level accuracy, for directly evaluating the aggregation tendencies of ionic products in CO 2 -loaded aqueous amine solutions.",
     "category": "AI×物理",
     "link": "https://pubs.aip.org/aip/jcp/article/165/14/144504/3406498/Prediction-of-solvent-aggregation-in-CO2-loaded",
@@ -72,54 +81,63 @@
     "journal": "arXiv"
   },
   {
-    "title": "Can Universal Machine-Learning Interatomic Potentials Capture Small Polarons? A Geometry-Based Benchmark in Transition-Metal Oxides",
-    "title_zh": "文献研究：Can Universal Machine-Learning Interatomic Potentials Capture Small Polarons? A Geometry-Based Benchmark in Transition-Metal Oxides",
-    "summary": "Small polarons, formed when excess electrons become localized through lattice distortions, play a critical role in charge transport, catalysis, and degradation processes in transition-metal (TM) oxide…",
-    "abstract": "arXiv:2610.17352v1 Announce Type: new Abstract: Small polarons, formed when excess electrons become localized through lattice distortions, play a critical role in charge transport, catalysis, and degradation processes in transition-metal (TM) oxides. Whether universal machine-learning interatomic potentials (uMLIPs), which lack explicit electronic degrees of freedom, can describe them remains unclear. Here, we investigate H-induced electron localization across a range of TM oxides using a geometric descriptor based on TM-O bond-length expansion (Z-score) to identify polaronic distortions. We find that uMLIPs exhibit varying degrees of electron localization, from delocalized states to metastable small polarons, with their behavior strongly dependent on the training data and treatment of electronic correlations. In particular, the absence of Hubbard U corrections for specific TM cations in the training data leads to electron delocalization, in contrast to DFT+U predictions. Although some uMLIPs reproduce polaron hopping barriers during coupled proton-polaron transfer, all of them fail to stabilize spatially separated polaron-donor configurations, instead favoring localization near the H dopant.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2610.17352",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Toward a Multimodal Foundation Model for Plasma State Reconstruction",
-    "title_zh": "文献研究：Toward a Multimodal Foundation Model for Plasma State Reconstruction",
-    "summary": "Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics. We present a proof of concept toward a multimodal foundation model for plasma state recons…",
-    "abstract": "arXiv:2610.15076v1 Announce Type: new Abstract: Plasma experiments observe coupled physical states through sparse, heterogeneous, and incomplete diagnostics. We present a proof of concept toward a multimodal foundation model for plasma state reconstruction during magnetic reconnection, motivated by the Facility for Laboratory Reconnection Experiments (FLARE). Using 250 synthetic VPIC simulations at fixed reference electron beta βₑ₀=0.2, with 225 training runs and 25 disjoint validation runs, we train a 5.5M-parameter residual 3D U-Net to reconstruct three magnetic-field components and electron density from incomplete observations. The model combines spatial-only pooling, which preserves all 24 temporal frames, with global spatiotemporal self-attention and rotary positional encoding. Independently masking magnetic and density modalities across random, grid, block, and temporal patterns enables sparse sensing, cross-modal completion, density super-resolution, and temporal completion with a single set of weights and no task-specific retraining. With density fully hidden, just 0.1% magnetic spatial visibility reduces median density NRMSE from approximately 0.9 to 0.1. Conversely, observed density improves current-density reconstruction when magnetic data are absent or extremely sparse. With no magnetic observations, roughly 1% density visibility approaches the density reconstruction accuracy achieved with fully observed magnetic fields, although current structure remains more dependent on direct magnetic measurements. Full magnetic conditioning also stabilizes completion of missing future density frames. These results demonstrate bidirectional cross-modal predictive coupling within this simulation regime. Generalization across plasma regimes or to experimental measurements remains untested.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2610.15076",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Solvating machine-learning interatomic potentials for solution-phase chemistry",
-    "title_zh": "文献研究：Solvating machine-learning interatomic potentials for solution-phase chemistry",
-    "summary": "Most machine-learning interatomic potentials (MLIPs) are trained on gas-phase data, which limits their use for chemistry in solution. Here, we introduce AnySolv, a transferable implicit solvation pote…",
-    "abstract": "arXiv:2610.17226v1 Announce Type: new Abstract: Most machine-learning interatomic potentials (MLIPs) are trained on gas-phase data, which limits their use for chemistry in solution. Here, we introduce AnySolv, a transferable implicit solvation potential that provides solvent-dependent energy and force corrections to existing gas-phase potentials without retraining them. It is trained on 1.4 million solvation energies and forces computed with density functional theory (DFT) and SMD in 36 solvents, spanning charged, open-shell, and transition-state structures. Because solvents are represented by continuous physical descriptors, AnySolv supports 179 solvents, including those absent from training. On external benchmarks, AnySolv reproduces DFT-SMD solvation energies to 2-4 meV mean absolute error at more than three orders of magnitude lower cost, and it matches the accuracy of DFT-SMD against experimental solvation free energies. This enables screening of the mechanisms of 120 nucleophilic aromatic substitution reactions in six phases as well as molecular dynamics simulations that reproduce the experimentally observed solvent-dependent conformational preferences of alanine dipeptide. By providing transferable solvation corrections to existing MLIPs, AnySolv enables scalable simulations of solvent-dependent chemical reactivity and molecular dynamics.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2610.17226",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Accurately Generalizing Deep-Learning Hamiltonian Methods to Plane-Wave Density Functional Theory",
-    "title_zh": "文献研究：Accurately Generalizing Deep-Learning Hamiltonian Methods to Plane-Wave Density Functional Theory",
-    "summary": "Deep neural networks that predict density functional theory (DFT) Hamiltonians from material structures offer a route to efficient electronic-structure calculations. However, extending localized atomi…",
-    "abstract": "arXiv:2610.18317v1 Announce Type: new Abstract: Deep neural networks that predict density functional theory (DFT) Hamiltonians from material structures offer a route to efficient electronic-structure calculations. However, extending localized atomic-orbital (AO) Hamiltonian learning to plane-wave (PW) calculations with hybrid functionals requires a compact AO representation that preserves the effects of nonlocal operators. Here we propose a projectability-guided construction of nonorthogonal AO Hamiltonians from a small, selected set of PW eigenstates and eigenvalues. High-projectability states are retained, and selected higher-energy states complete the AO subspace, avoiding an empirical shift and its arbitrary contribution to the learning targets. Because the construction uses PW eigenstates and eigenvalues, it incorporates nonlocal contributions present in the reference calculation without explicitly reconstructing their AO matrix elements. Benchmarks for MoS2 and sodium phases show accurate reproduction of PW bands with smaller AO bases than real-space reconstruction. The resulting PBE and HSE Hamiltonians can be learned by equivariant neural networks, connecting PW reference calculations with electronic-structure prediction. This approach broadens the range of PW DFT calculations available for AO Hamiltonian learning and enables compact, accurate training targets for developing more widely applicable electronic-structure models.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.18317",
-    "journal": "arXiv"
-  },
-  {
     "title": "Material and thermal properties of MgCl 2 molten salt by ab initio and machine-learning molecular-dynamics simulations",
-    "title_zh": "文献研究：Material and thermal properties of MgCl 2 molten salt by ab initio and machine-learning molecular-dynamics simulations",
-    "summary": "We study the structural, thermophysical, and dynamical properties of molten MgCl 2 over a wide temperature range using Ab Initio Molecular Dynamics (AIMD) and molecular dynamics simulations based on m…",
+    "title_zh": "通过从头计算和机器学习分子动力学模拟研究 MgCl 2 熔盐的材料和热性能",
+    "summary": "我们使用从头算分子动力学 (AIMD) 和基于机器学习相互作用势 (MLIP) 的分子动力学模拟来研究熔融 MgCl 2 在宽温度范围内的结构、热物理和动力学特性。 MLIP 可以以一小部分计算成本实现接近 AIMD 的精度，从而能够模拟更大的系统和更长的时间尺度。这开辟了在非平衡条件下研究系统的可能性，从而可以计算物理性质，例如热导率或粘度，而这些物理性质在 AIMD 可访问的典型时间和长度尺度上无法可靠地获得。我们遵循两种互补的方法来开发和评估 MLIP。",
     "abstract": "We study the structural, thermophysical, and dynamical properties of molten MgCl 2 over a wide temperature range using Ab Initio Molecular Dynamics (AIMD) and molecular dynamics simulations based on machine-learning interaction potentials (MLIPs). MLIPs can achieve near-AIMD accuracy at a fraction of the computational cost, enabling simulations of larger systems and longer timescales. This opens up the possibility of studying the system under out-of-equilibrium conditions, which in turn allows for the calculation of physical properties, such as the thermal conductivity or viscosity, that cannot be obtained reliably for the typical time and length scales accessible to AIMD. We follow two complementary approaches to develop and evaluate the MLIPs. First, we develop a Deep Potential (DP) from scratch using AIMD trajectories at different temperatures. Second, we also evaluate two out-of-the-box foundation models and a fine-tuned version of one of them. The fine-tuning is performed using configurations from the AIMD trajectories originally used to train the DP. We compare the predictions of the trained DP, the foundation models, and AIMD simulations with the available experimental data and provide a comprehensive calculation of the most important physical quantities of molten MgCl 2 . We compute densities, radial and angular distribution functions, thermal conductivity, heat capacity, viscosity, and diffusion coefficients over the 1000–1600 K temperature range. This range is relevant to important technological applications such as thermal energy storage, generation IV nuclear reactors, and concentrated solar power systems. Finally, we briefly review the accuracy and performance of the different MLIP versions used throughout the work.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/14/144503/3406499/Material-and-thermal-properties-of-MgCl2-molten",
     "journal": "The Journal of Chemical Physics Current Issue"
   },
   {
+    "title": "Can Universal Machine-Learning Interatomic Potentials Capture Small Polarons? A Geometry-Based Benchmark in Transition-Metal Oxides",
+    "title_zh": "通用机器学习原子间势能捕获小极化子吗？过渡金属氧化物基于几何的基准",
+    "summary": "当多余的电子通过晶格畸变局部化时形成的小极化子在过渡金属（TM）氧化物的电荷传输、催化和降解过程中发挥着关键作用。缺乏明确电子自由度的通用机器学习原子间势（uMLIP）是否可以描述它们仍不清楚。在这里，我们使用基于 TM-O 键长扩展（Z 分数）的几何描述符来研究 H 诱导的电子在一系列 TM 氧化物中的局域化，以识别极化子畸变。我们发现 uMLIP 表现出不同程度的电子局域化，从离域态到亚稳态小极化子，其行为强烈依赖于训练数据和电子相关性的处理。",
+    "abstract": "arXiv:2610.17352v1 Announce Type: new Abstract: Small polarons, formed when excess electrons become localized through lattice distortions, play a critical role in charge transport, catalysis, and degradation processes in transition-metal (TM) oxides. Whether universal machine-learning interatomic potentials (uMLIPs), which lack explicit electronic degrees of freedom, can describe them remains unclear. Here, we investigate H-induced electron localization across a range of TM oxides using a geometric descriptor based on TM-O bond-length expansion (Z-score) to identify polaronic distortions. We find that uMLIPs exhibit varying degrees of electron localization, from delocalized states to metastable small polarons, with their behavior strongly dependent on the training data and treatment of electronic correlations. In particular, the absence of Hubbard U corrections for specific TM cations in the training data leads to electron delocalization, in contrast to DFT+U predictions. Although some uMLIPs reproduce polaron hopping barriers during coupled proton-polaron transfer, all of them fail to stabilize spatially separated polaron-donor configurations, instead favoring localization near the H dopant.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.17352",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Machine-learned topological transport of magnetic colloids",
+    "title_zh": "磁性胶体的机器学习拓扑传输",
+    "summary": "通过调节均匀磁场的方向，可以在磁性图案上方传输磁性微粒。在周期性图案中，驱动控制回路缠绕在由图案的对称性决定的特殊方向上，从而诱导一个晶胞的传输。传输受到拓扑保护，其轨迹由围绕特殊方向的控制环的缠绕数控制。在非周期性模式中，特殊方向是位置相关的，排除了使用一小组缠绕数来对传输进行全局表征。我们在这里使用经过布朗动力学模拟数据训练的强化学习代理，该代理使用磁性模式的局部环境来决定控制回路上的动作。该代理直接从粒子响应中自主发现拓扑传输协议，而无需事先表征磁势景观。",
+    "abstract": "arXiv:2610.17344v1 Announce Type: new Abstract: By modulating the orientation of a uniform magnetic field it is possible to transport magnetic microparticles above magnetic patterns. In periodic patterns, driving control loops that wind around special orientations, which are dictated by the symmetry of the pattern, induce transport by one unit cell. The transport is topologically protected with trajectories controlled by the winding numbers of the control loop around the special orientations. In non-periodic patterns, the special orientations are position dependent, precluding a global characterization of the transport using a small set of winding numbers. We use here a reinforcement learning agent trained with Brownian dynamics simulation data that uses the local environment of the magnetic pattern to decide an action over the control loop. The agent autonomously discovers topological transport protocols directly from the particle response without prior characterization of the magnetic potential landscape. An agent trained solely on a complex non-periodic pattern directly generalizes to completely unseen periodic, quasicrystalline, and disordered substrates. Moreover, the agent dynamically adjusts the control loop to transport particles across lattice defects and to counterbalance external drift forces that would cause static topological loops to fail. By adding a pathfinding algorithm to the model, we additionally achieve simultaneous, independent transport of multiple identical colloids along different on demand trajectories. We demonstrate that the control loops can be directly transferred to an experimental setup to successfully drive magnetic microparticles across a non-uniform magnetic thin film.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.17344",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Wisevolve Potential Engine: Machine-Learning Molecular Dynamics at 100 Million Atom-Steps per Second on a Single GPU",
+    "title_zh": "Wisevolve 潜在引擎：在单个 GPU 上每秒 1 亿原子步的机器学习分子动力学",
+    "summary": "通用分子动力学软件支持不同的原子间势和模拟要求。在模拟阶段，随着原子构型的演变，加载的势模型和所需的计算通常保持固定。我们提出了 Wisevolve 势引擎 (WPE)，它使用来自 GPUMD 的信息来选择和重用针对模型和仿真阶段量身定制的 GPU 执行策略。 GPUMD 保留模拟控制和模拟数据的所有权。",
+    "abstract": "arXiv:2610.17366v1 Announce Type: new Abstract: General-purpose molecular dynamics software supports diverse interatomic potentials and simulation requirements. Within a simulation stage, the loaded potential model and the required calculations typically remain fixed as the atomic configuration evolves. We present the Wisevolve Potential Engine (WPE), which uses this information from GPUMD to select and reuse a GPU execution policy tailored to the model and simulation stage. GPUMD retains simulation control and ownership of the simulation data. On a single NVIDIA RTX 5090, WPE-enabled GPUMD (GPUMD-WPE) achieves a median throughput of 109 million atom-step/s across 106 neuroevolution potential (NEP) workloads. For a 15.1-million-atom diamond Si system, it sustains 142 million atom-step/s. Relative to GPUMD, geometric-mean speedups are 3.49x across these NEP workloads, 3.61x across 16 workloads using NEP with dynamic charges (qNEP), 1.24x across 28 classical-potential workloads, and 10.5x across 56 path-integral molecular dynamics (PIMD) configurations. End-to-end calculations of water structure, lattice thermal conductivity, and PIMD thermal expansion show close agreement with corresponding GPUMD results and published simulation results. A separate 12.5-million-atom Cu shock-compression simulation demonstrates its applicability to large-scale nonequilibrium dynamics. These results support model- and stage-specific specialization as a practical way to accelerate GPU potential evaluation in general-purpose molecular dynamics workflows.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.17366",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Solvating machine-learning interatomic potentials for solution-phase chemistry",
+    "title_zh": "解决溶液相化学的机器学习原子间势",
+    "summary": "大多数机器学习原子间势（MLIP）都是根据气相数据进行训练的，这限制了它们在溶液化学中的应用。在这里，我们引入了 AnySolv，一种可转移的隐式溶剂化势，可为现有气相势提供依赖于溶剂的能量和力校正，而无需重新训练它们。它接受了 140 万个溶剂化能和力的训练，这些溶剂化能和力是通过密度泛函理论 (DFT) 和 SMD 在 36 种溶剂中计算得出的，涵盖带电、开壳层和过渡态结构。由于溶剂由连续的物理描述符表示，因此 AnySolv 支持 179 种溶剂，包括训练中缺少的溶剂。",
+    "abstract": "arXiv:2610.17226v1 Announce Type: new Abstract: Most machine-learning interatomic potentials (MLIPs) are trained on gas-phase data, which limits their use for chemistry in solution. Here, we introduce AnySolv, a transferable implicit solvation potential that provides solvent-dependent energy and force corrections to existing gas-phase potentials without retraining them. It is trained on 1.4 million solvation energies and forces computed with density functional theory (DFT) and SMD in 36 solvents, spanning charged, open-shell, and transition-state structures. Because solvents are represented by continuous physical descriptors, AnySolv supports 179 solvents, including those absent from training. On external benchmarks, AnySolv reproduces DFT-SMD solvation energies to 2-4 meV mean absolute error at more than three orders of magnitude lower cost, and it matches the accuracy of DFT-SMD against experimental solvation free energies. This enables screening of the mechanisms of 120 nucleophilic aromatic substitution reactions in six phases as well as molecular dynamics simulations that reproduce the experimentally observed solvent-dependent conformational preferences of alanine dipeptide. By providing transferable solvation corrections to existing MLIPs, AnySolv enables scalable simulations of solvent-dependent chemical reactivity and molecular dynamics.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.17226",
+    "journal": "arXiv"
+  },
+  {
+    "title": "High-throughput screening of Heusler alloys for thermoelectrics combining machine-learned densities of states and first-principles transport",
+    "title_zh": "结合机器学习的态密度和第一原理输运对热电用赫斯勒合金进行高通量筛选",
+    "summary": "热电技术将废热转化为电能，但寻找新的热电技术需要传输计算，这对于整个数据库来说成本太高。因此，搜索选择从电子态密度（DOS）中计算什么，越来越多地通过机器学习来预测，但这样的选择很少经过测试。我们对 DXMag 数据库中的所有 106,235 个 Heusler 结构进行了测试，筛选了 51,257 个密度泛函光谱和 54,978 个神经网络预测，并通过 3,625 个能带结构和输运计算来判断。",
+    "abstract": "arXiv:2610.18179v1 Announce Type: new Abstract: Thermoelectrics turn waste heat into electricity, but finding new ones requires transport calculations too costly for whole databases. Searches therefore choose what to calculate from the electronic density of states (DOS), increasingly predicted by machine learning, yet such choices are rarely tested. We test them on all 106,235 Heusler structures in the DXMag database, screening 51,257 on density-functional spectra and 54,978 on neural-network predictions, and judging both by 3,625 band-structure and transport calculations. A DOS-derived Seebeck indicator ranks most compounds passing every transport and stability test within the top 1% of their population, and ten of the eleven established half-Heusler thermoelectrics calculated pass. Predicted spectra lose most band gaps, unnoticed by spectral-similarity metrics, yet still rank passing compounds near the top. The screen certifies 80 computational candidates, 61 without reported measurements. Computed or predicted, the DOS can choose what to calculate; only a band structure shows whether a gap exists.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2610.18179",
+    "journal": "arXiv"
+  },
+  {
     "title": "From scrap to prime: Designing high-performance alloys from dirty feedstocks with machine learning",
-    "title_zh": "文献研究：From scrap to prime: Designing high-performance alloys from dirty feedstocks with machine learning",
-    "summary": "Science Advances, Volume 12, Issue 42, October 2026.",
+    "title_zh": "从废料到优质材料：利用机器学习从肮脏的原料中设计高性能合金",
+    "summary": "《科学进展》，第 12 卷，第 42 期，2026 年 10 月。",
     "abstract": "Science Advances, Volume 12, Issue 42, October 2026.",
     "category": "AI×化学·材料",
     "link": "https://www.science.org/doi/abs/10.1126/sciadv.aeg9183?af=R",
@@ -127,8 +145,8 @@
   },
   {
     "title": "Extrapolating Collisional Rate Coefficients for Molecules of Astrophysical Interest Using Neural Networks",
-    "title_zh": "文献研究：Extrapolating Collisional Rate Coefficients for Molecules of Astrophysical Interest Using Neural Networks",
-    "summary": "State-to-state rate coefficients for inelastic molecular collisions are essential inputs for non-local thermodynamic equilibrium radiative transfer models, yet their computation using quantum scatteri…",
+    "title_zh": "使用神经网络推断天体物理分子的碰撞率系数",
+    "summary": "非弹性分子碰撞的态间速率系数是非局部热力学平衡辐射传递模型的重要输入，但使用量子散射方法进行计算对于大分子和高度激发的旋转态是禁止的。我们研究了人工神经网络在不执行额外散射计算的情况下扩展现有碰撞激发率系数数据集的能力。使用分子量子数、能级能量、能隙和动力学温度作为描述符来训练多层感知器模型，并针对对数速率系数进行优化。",
     "abstract": "arXiv:2610.18278v1 Announce Type: new Abstract: State-to-state rate coefficients for inelastic molecular collisions are essential inputs for non-local thermodynamic equilibrium radiative transfer models, yet their computation using quantum scattering methods is prohibitive for large molecules and highly excited rotational states. We investigate the ability of artificial neural networks to extend existing datasets of collisional excitation rate coefficients without performing additional scattering calculations. A multilayer perceptron model was trained using molecular quantum numbers, level energies, energy gaps, and kinetic temperature as descriptors, and optimized on logarithmic rate coefficients. The model was tested on diverse collision systems ranging from simple diatomic molecules (CO, SiO) to open-shell species (SO), small asymmetric tops (H₂O, SO₂), and complex organic molecules (benzonitrile and vinyl cyanide) colliding with H₂ molecules or He atoms. Extrapolations were performed toward higher rotational levels, higher temperatures, and combinations of both. For most systems, predictions of rate coefficients involving previously unseen rotational states yielded mean error factors between 1.1 and 1.5, with the dominant rate coefficients generally reproduced more accurately than weaker transitions. Temperature extrapolations proved particularly successful, while combined extrapolations in temperature and rotational levels remained accurate to within a factor of two in most cases. The prediction quality depends on the interplay between dataset size, temperature range, molecular complexity, and the presence of clear collisional propensity rules. Overall, the approach demonstrates that machine learning can provide a practical route to extending collisional datasets for astrophysical applications, especially for large molecules for which additional quantum-scattering calculations are computationally demanding.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.18278",
@@ -136,8 +154,8 @@
   },
   {
     "title": "Transfer learning-aided, artificial intelligence approach to evaluate optical properties of materials for classical and quantum photonic applications",
-    "title_zh": "文献研究：Transfer learning-aided, artificial intelligence approach to evaluate optical properties of materials for classical and quantum photonic applications",
-    "summary": "In this study, an artificial intelligence-assisted evaluation of the refractive indices of different materials is performed. The evaluation of the refractive index is necessary to design photonic devi…",
+    "title_zh": "迁移学习辅助的人工智能方法可评估经典和量子光子应用材料的光学特性",
+    "summary": "在这项研究中，对不同材料的折射率进行了人工智能辅助评估。折射率的评估对于设计用于各种经典和量子光子应用的光子器件以及从理论上分析实验结果是必要的。折射率是影响光与物质相互作用的关键参数之一。虽然折射率可以通过实验测量，但通过计算手段进行估计具有不需要昂贵仪器、训练有素的研究人员的优点，并且可以避免潜在的基于实验室的不确定性。因此，在本研究中，人工智能被用来估计两种材料（即贵金属和半导体）的光学常数。为此，使用人工神经网络来估计特定材料对于各种光波长的折射率的实部和虚部。",
     "abstract": "arXiv:2610.15904v1 Announce Type: new Abstract: In this study, an artificial intelligence-assisted evaluation of the refractive indices of different materials is performed. The evaluation of the refractive index is necessary to design photonic devices for various classical and quantum photonic applications, and to theoretically analyse experimental results. The refractive index is one of the crucial parameters that affect the interaction of light with matter. Although the refractive index can be measured experimentally, its estimation via computational means provide the advantage of not requiring costly instrumentation, trained researchers and could avoid potential laboratory-based uncertainties. Therefore, in this study, artificial intelligence is implemented to estimate the optical constants of two types of materials, i.e., noble metals, and semiconductors. To this end, an artificial neural network is used to estimate the real and the imaginary parts of the refractive index of a specific material for various wavelengths of light. Then, the knowledge of the trained neural network is employed to initiate and train new neural networks to estimate the refractive indices of other materials. For the training of a neural network, various methods can be deployed. However, the application of the training can be a time-consuming process. A transfer learning approach is here implemented to provide a faster training solution for the problem under study. The implementation of transfer learning allows training the neural networks for a new material with higher speed or accuracy when compared to non-knowledge transfer-based training. Our results show the efficiency of the proposed technique in accurately evaluating the real and imaginary parts of the refractive index of different materials.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.15904",
@@ -145,8 +163,8 @@
   },
   {
     "title": "Two-atom interaction potential database supporting physics-informed features for machine learning and material property prediction",
-    "title_zh": "文献研究：Two-atom interaction potential database supporting physics-informed features for machine learning and material property prediction",
-    "summary": "Accurately predicting the energy and relevant properties of molecules and complex crystalline systems remains a cornerstone of computational materials science. While density functional theory (DFT) of…",
+    "title_zh": "二原子相互作用势数据库支持用于机器学习和材料特性预测的物理信息特征",
+    "summary": "准确预测分子和复杂晶体系统的能量和相关特性仍然是计算材料科学的基石。虽然密度泛函理论 (DFT) 提供了高精度，但其计算成本对于大规模材料而言却令人望而却步。在这项工作中，我们提出了一个全面的、基于第一原理的两原子相互作用势和原子间力数据库，以通过基于物理的机器学习加速属性预测。该数据库通过 GPAW 软件包使用自旋极化 DFT 进行计算，包含由 68 个独特元素生成的所有 2346 个可能的原子对，作为原子间距离的函数。",
     "abstract": "Accurately predicting the energy and relevant properties of molecules and complex crystalline systems remains a cornerstone of computational materials science. While density functional theory (DFT) offers high accuracy, its computational cost scales prohibitively for large-scale materials. In this work, we present a comprehensive, first-principles-derived database of two-atom interaction potentials and interatomic forces to accelerate the property prediction via physics-informed machine learning. Computed using spin-polarized DFT via the GPAW package, the database encompasses all 2346 possible atomic pairs generated from 68 unique elements as a function of interatomic distance. The practical utility of this database was demonstrated within the many-body expansion framework by engineering highly descriptive features to predict three distinct types of energy for benchmarking. First, the framework was applied to predict the total energy of molecules within the G2/97 database. Second, for defect energetics on 2D materials (the IMP2D database), localized concentric shell potentials and spatial gradients were introduced to capture the formation energy of adsorbate defects. Finally, for molecular energetics within the QM9 database, we developed advanced descriptors, including a potential-based matrix, a two-body Bag of Bonds, and a three-body Ray’s asymmetric parameter histogram to evaluate atomization energy. Evaluated using kernel ridge regression, the combined two-body and three-body feature set yielded an outstanding test result with the mean absolute error of 0.186 eV ( R 2 = 0.9994) on a 10 000-samples subset. This framework showcases the power of utilizing explicit, database-derived potentials as robust descriptors for high-fidelity predictions of energy and relevant properties.",
     "category": "AI×物理",
     "link": "https://pubs.aip.org/aip/jcp/article/165/14/144119/3406504/Two-atom-interaction-potential-database-supporting",
@@ -154,29 +172,11 @@
   },
   {
     "title": "PolyFKAN: Integrating Fourier-KAN layers into graph neural networks for polymer property prediction",
-    "title_zh": "文献研究：PolyFKAN: Integrating Fourier-KAN layers into graph neural networks for polymer property prediction",
-    "summary": "Graph neural networks have become a central tool for polymer property prediction, but their fixed activation functions can impose a low-pass spectral bias that smooths over the sharp, multi-scale stru…",
+    "title_zh": "PolyFKAN：将 Fourier-KAN 层集成到图神经网络中以进行聚合物性能预测",
+    "summary": "图神经网络已成为聚合物性能预测的核心工具，但它们的固定激活函数可以施加低通光谱偏差，从而平滑区分化学相似聚合物的尖锐的多尺度结构性能变化。我们使用 PolyFKAN 解决了这一限制，这是一种多任务图学习架构，它通过 Fourier Kolmogorov-Arnold 网络层增强了 PolyGNN 主干的预测头。",
     "abstract": "Graph neural networks have become a central tool for polymer property prediction, but their fixed activation functions can impose a low-pass spectral bias that smooths over the sharp, multi-scale structure–property variations that distinguish chemically similar polymers. We address this limitation with PolyFKAN, a multitask graph-learning architecture that augments the prediction head of a polyGNN backbone with Fourier Kolmogorov–Arnold network layers. PolyFKAN represents edge-wise activations as truncated Fourier series and couples the resulting spectral branch to the standard multilayer perceptron (MLP) pathway through a bounded residual gate, thereby increasing functional expressivity without disrupting the learned graph embeddings. Across 17 polymer properties spanning electronic, thermodynamic, optical/dielectric, thermal, and gas-permeability domains, PolyFKAN achieves statistically significant improvement over a tightly controlled polyGNN baseline on 11 of 17 targets (one-sided t -test, p < 0.05), with one additional target showing marginal improvement. The gains are especially pronounced for multi-scale properties, including more than 15% average root mean squared error reduction for large-penetrant gas permeabilities and more than 15% improvement across optical and dielectric targets. Hierarchical ablation further reveals that optimal Fourier bandwidth is property-dependent: difficult, multi-scale targets require broader spectral capacity with stronger amplitude control, whereas high-fidelity targets benefit from lighter regularization. These results establish Fourier-KAN prediction heads as a minimally invasive and physically aligned inductive bias for polymer informatics.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/14/144905/3406503/PolyFKAN-Integrating-Fourier-KAN-layers-into-graph",
     "journal": "The Journal of Chemical Physics Current Issue"
-  },
-  {
-    "title": "Wisevolve Potential Engine: Machine-Learning Molecular Dynamics at 100 Million Atom-Steps per Second on a Single GPU",
-    "title_zh": "文献研究：Wisevolve Potential Engine: Machine-Learning Molecular Dynamics at 100 Million Atom-Steps per Second on a Single GPU",
-    "summary": "General-purpose molecular dynamics software supports diverse interatomic potentials and simulation requirements. Within a simulation stage, the loaded potential model and the required calculations typ…",
-    "abstract": "arXiv:2610.17366v1 Announce Type: new Abstract: General-purpose molecular dynamics software supports diverse interatomic potentials and simulation requirements. Within a simulation stage, the loaded potential model and the required calculations typically remain fixed as the atomic configuration evolves. We present the Wisevolve Potential Engine (WPE), which uses this information from GPUMD to select and reuse a GPU execution policy tailored to the model and simulation stage. GPUMD retains simulation control and ownership of the simulation data. On a single NVIDIA RTX 5090, WPE-enabled GPUMD (GPUMD-WPE) achieves a median throughput of 109 million atom-step/s across 106 neuroevolution potential (NEP) workloads. For a 15.1-million-atom diamond Si system, it sustains 142 million atom-step/s. Relative to GPUMD, geometric-mean speedups are 3.49x across these NEP workloads, 3.61x across 16 workloads using NEP with dynamic charges (qNEP), 1.24x across 28 classical-potential workloads, and 10.5x across 56 path-integral molecular dynamics (PIMD) configurations. End-to-end calculations of water structure, lattice thermal conductivity, and PIMD thermal expansion show close agreement with corresponding GPUMD results and published simulation results. A separate 12.5-million-atom Cu shock-compression simulation demonstrates its applicability to large-scale nonequilibrium dynamics. These results support model- and stage-specific specialization as a practical way to accelerate GPU potential evaluation in general-purpose molecular dynamics workflows.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2610.17366",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Fourier-Space Approach to Physics-Informed Magnetization Reconstruction from Nitrogen-Vacancy Measurements",
-    "title_zh": "文献研究：Fourier-Space Approach to Physics-Informed Magnetization Reconstruction from Nitrogen-Vacancy Measurements",
-    "summary": "Author(s): Alexander Setescak, Florian Bruckner, Dieter Suess, Young-Gwan Choi, Hayden Binger, Lotte Boer, Chenhui Zhang, Hyunsoo Yang, Claire Donnelly, Uri Vool, and Claas Abert Reconstructing magnet…",
-    "abstract": "Author(s): Alexander Setescak, Florian Bruckner, Dieter Suess, Young-Gwan Choi, Hayden Binger, Lotte Boer, Chenhui Zhang, Hyunsoo Yang, Claire Donnelly, Uri Vool, and Claas Abert Reconstructing magnetization textures from nitrogen-vacancy (NV) magnetometry stray-field measurements is a challenging, fundamentally ill-posed inverse problem, further complicated by the unknown effective distance between sensor and magnetic material. Here we show that incorporating a micromagneti… [Phys. Rev. Lett. 137, 166702] Published Wed Oct 14, 2026",
-    "category": "AI×物理",
-    "link": "http://link.aps.org/doi/10.1103/nc5g-3yw9",
-    "journal": "Phys. Rev. Lett."
   }
 ]
