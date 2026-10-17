@@ -19,12 +19,21 @@
   },
   {
     "title": "SIEVE: Overcoming Topological Obstruction in Equivariant Self-Supervised Learning",
-    "title_zh": "SIEVE ：克服等变自监督学习中的拓扑障碍",
-    "summary": "我们确定了3D点云掩码自动编码和SE (3)等变量网络之间的理论不兼容性。我们证明了标准掩蔽触发拓扑崩溃，有效地迫使模型在没有参考帧的情况下产生方向幻觉。为了解决这个问题，我们引入了SIEVE （ Scalar Invariant Extraction Via Equivariance ） ，这是一种SE （ 3 ）等变量自监督框架，可将点云几何压缩为不变标量嵌入。其核心是球面投影掩码，它保持全局姿势，同时混淆局部语义，通过构造避开障碍。",
+    "title_zh": "SIEVE：克服等变自监督学习中的拓扑障碍",
+    "summary": "我们发现 3D 点云屏蔽自动编码和 SE(3) 等变网络之间理论上不兼容。我们证明标准掩蔽会触发拓扑崩溃，有效地迫使模型在没有参考系的情况下产生幻觉方向。为了解决这个问题，我们引入了 SIEVE（通过等方差进行标量不变提取），这是一种 SE(3) 等变自监督框架，可将点云几何压缩为不变标量嵌入。其核心是球形投影掩模，它保留全局姿态，同时混淆局部语义，避开构造造成的障碍。实验证实，SIEVE 避免了常数掩模和噪声掩模失败时发生的预测崩溃。",
     "abstract": "arXiv:2610.21087v1 Announce Type: new Abstract: We identify a theoretical incompatibility between 3D point cloud masked autoencoding and SE(3)-equivariant networks. We prove that standard masking triggers a topological collapse, effectively forcing the model to hallucinate orientation without a reference frame. To resolve this, we introduce SIEVE (Scalar Invariant Extraction Via Equivariance), an SE(3)-equivariant self-supervised framework that compresses point cloud geometry into invariant scalar embeddings. At its core is the spherical projection mask, which preserves global pose while obfuscating local semantics, sidestepping the obstruction by construction. Experiments confirm that SIEVE circumvents the predicted collapse where constant and noise masks fail. On downstream point cloud tasks, the resulting embeddings improve over coordinate-based baselines and hand-crafted geometric descriptors, with the largest gains on generalization to unseen shape categories.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.21087",
     "journal": "arXiv"
+  },
+  {
+    "title": "On-demand phase-field modeling: Three-dimensional neural-network Landau energy for HfO₂",
+    "title_zh": "按需相场建模：HfO2 的三维神经网络 Landau 能量",
+    "summary": "作者：Yusuke Tamura、Kairi Masuda、Shin Kiyohara 和 Yu Kumagai 从头开始的计算表明，HfO2 在降维下的鲁棒铁电性源于一种独特的模式耦合，其中反极性模式稳定了极性畸变。基于这些见解，使用这些晶格模型提出了兰道-德文郡能量模型……[Phys。 Rev. B 114, 214104] 2026 年 10 月 16 日星期五发布",
+    "abstract": "Author(s): Yusuke Tamura, Kairi Masuda, Shin Kiyohara, and Yu Kumagai Ab initio calculations suggest that the robust ferroelectricity of HfO₂ at reduced dimensions arises from a unique mode coupling in which an antipolar mode stabilizes a polar distortion. Based on these insights, Landau-Devonshire energy models have been proposed using these lattice m… [Phys. Rev. B 114, 214104] Published Fri Oct 16, 2026",
+    "category": "铁电·极化",
+    "link": "http://link.aps.org/doi/10.1103/pbqf-6p27",
+    "journal": "Phys. Rev. B"
   },
   {
     "title": "Physics-guided AI reconstructs hidden patterns inside ultrathin magnets from external fields",
@@ -37,8 +46,8 @@
   },
   {
     "title": "Learning relaxation time distributions from spectral induced polarization data with a complex-valued variational autoencoder",
-    "title_zh": "使用复值变分自编码器从光谱诱导极化数据中学习弛豫时间分布",
-    "summary": "光谱诱导偏振（ SIP ）是一种用于表征地下材料的地球物理方法。它通过施加交流电来测量岩石和土壤的频率相关的复杂电阻率。Debye和Warburg分解是分析和解释SIP数据的标准方法，因为它们允许估计几何材料的弛豫时间分布（ RTD ）。然而，传统的分解方法独立处理测量，尽管SIP数据具有复杂值性质，但在实值空间中工作，并提供有限的不确定性量化。这些限制降低了常规分解在异构数据集上的有效性。",
+    "title_zh": "使用复值变分自动编码器从光谱诱发偏振数据学习弛豫时间分布",
+    "summary": "光谱诱发极化 (SIP) 是一种用于表征地下材料的地球物理方法。它通过施加交流电来测量岩石和土壤的频率相关复电阻率。 Debye 和 Warburg 分解是分析和解释 SIP 数据的标准方法，因为它们可以估计岩土材料的弛豫时间分布 (RTD)。然而，传统的分解方法独立地处理测量，尽管 SIP 数据具有复值性质，但仍然在实值空间中工作，并且提供有限的不确定性量化。这些限制降低了异构数据集上传统分解的有效性。",
     "abstract": "arXiv:2603.13973v3 Announce Type: replace Abstract: Spectral induced polarization (SIP) is a geophysical method used to characterize subsurface materials. It measures the frequency-dependent complex electrical resistivity of rocks and soils through the application of an alternating current. Debye and Warburg decompositions are standard methods for analyzing and interpreting SIP data, as they allow estimation of the relaxation time distribution (RTD) of geomaterials. However, conventional decomposition approaches treat measurements independently, work in real-valued spaces despite the complex-valued nature of SIP data, and provide limited uncertainty quantification. These limitations reduce the effectiveness of conventional decomposition on heterogeneous datasets. We reformulate the decomposition approach as an unsupervised machine learning problem and introduce a conditional variational autoencoder (CVAE) that learns a shared mapping from SIP datasets to continuous RTDs. The model is validated on a dataset comprising 140 laboratory and field SIP measurements of granular mixtures, sedimentary and igneous rock, and cementitious materials. The CVAE operates in complex-valued data space and achieves reconstruction errors of 0.53 % and 0.27 % for the imaginary and phase components of resistivity, respectively, with evidence of improvement over conventional methods at corresponding p-values of 0.007 and 0.06. The inferred RTDs are stable and physically consistent, and their total chargeability and mean relaxation time correlate with polarizable grain content and grain size, respectively, with coefficients of determination up to 0.98. An additional contribution of the proposed method is the learned latent representation, which organizes SIP spectra into a structured space. Unsupervised clustering in a two-dimensional projection of this space improves the silhouette score by nearly a factor of two relative to conventional RTD parameters.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2603.13973",
@@ -64,8 +73,8 @@
   },
   {
     "title": "Microwave spectroscopic evidence of a moiré-commensurate electron crystal in monolayer graphene",
-    "title_zh": "单层石墨烯中莫尔相称电子晶体的微波光谱证据",
-    "summary": "我们通过共面波导（ sim50 mK ， 15.4--18 T ）的宽带微波传输探测莫尔对准单层石墨烯器件的最低朗道水平的电导率，通过低-高频带差D （ ν ）隔离纵向通道。我们解决了D （ ν ）中的一系列极小值，这些极小值沿着固定载流子密度的线漂移，而不是固定Landau填充，这是莫尔相称电子晶体的特征。最强最小值存在于每个场中，并且不匹配分数量子霍尔或整数侯世达态。",
+    "title_zh": "单层石墨烯中莫尔相当电子晶体的微波光谱证据",
+    "summary": "我们通过共面波导 (sim50 mK, 15.4--18 T) 的宽带微波传输来探测莫尔排列单层石墨烯器件的最低朗道能级的电导率，通过低负高频带差 D(ν) 隔离纵向通道。我们解决了 D(ν) 中的一系列最小值，这些最小值沿着固定载流子密度线而不是固定朗道填充线随场漂移，这是莫尔相当电子晶体的标志。最强的最小值存在于每个场中，并且不匹配分数量子霍尔或整数霍夫施塔特状态。",
     "abstract": "arXiv:2610.21875v1 Announce Type: new Abstract: We probe the conductivity of the lowest Landau level of a moiré-aligned monolayer graphene device by broadband microwave transmission through a coplanar waveguide (sim50 mK, 15.4--18 T), isolating the longitudinal channel through a low-minus-high frequency band difference D(ν). We resolve a series of minima in D(ν) that drift with field along lines of fixed carrier density rather than fixed Landau filling, the hallmark of moiré-commensurate electron crystals. The strongest minimum is present at every field and matches no fractional quantum Hall or integer Hofstadter state. It lies at band filling s=1/3, one electron for every three moiré cells---the generalized Wigner crystal that DaSilva, Jung, and MacDonald predict as the most favorable fixed-density (t=0) commensuration. The weaker minima fall near neighboring commensurate fillings.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.21875",
@@ -108,9 +117,18 @@
     "journal": "arXiv"
   },
   {
+    "title": "A rigid commensurate host and a defect that switches: vacancies in the frustrated alternating spin-(1, 1/2) Heisenberg chain",
+    "title_zh": "刚性相称的主体和转换的缺陷：受挫交替自旋-(1, 1/2) 海森堡链中的空位",
+    "summary": "具有令人沮丧的次近邻耦合 J2 的交替自旋-(1,tfrac12) 海森堡链通过不连续过渡到性质保持开放的单线态而失去了其利布-马蒂斯矩。使用 SU(2) 对称密度矩阵重正化群（其中总自旋是量子数标签），我们识别该相并跟踪其中的单个空位。总自旋直接从 S=L/4 塌缩到 S=0，没有部分偏振窗口。单重态相至关重要：其单重态-三重态能隙接近1/L，其纠缠熵随中心电荷csimeq1.8呈对数增长，其调制波矢量（从L=80外推至200）在3π/4处相当，且与J2无关至5×10⁻⁵。",
+    "abstract": "arXiv:2610.22140v1 Announce Type: new Abstract: The alternating spin-(1,tfrac12) Heisenberg chain with a frustrating next-nearest-neighbor coupling J₂ loses its Lieb--Mattis moment through a discontinuous transition to a singlet whose nature was left open. Using an SU(2)-symmetric density-matrix renormalization group, in which the total spin is a quantum-number label, we identify that phase and follow a single vacancy through it. The total spin collapses directly from S=L/4 to S=0, with no partially polarized window. The singlet phase is critical: its singlet--triplet gap closes as 1/L, its entanglement entropy grows logarithmically with a central charge csimeq1.8, and its modulation wavevector, extrapolated from L=80 to 200, is commensurate at 3π/4 and independent of J₂ to 5×10⁻⁵. Removing the central S=1 site switches the ground state of the doped chain from a triplet to a singlet at J₂ast=0.3068(3), where the host shows no feature; the triplet is not bound to the vacancy but spread over one of the two segments it leaves. The transmission of correlations through the vacancy saturates at a finite value below J₂ast, T(infty)=0.102(15) and 0.036(9) at J₂=0.28 and 0.30, and the cut-chain law Tpropto L⁻¹ is excluded on both sides. We also show that the longitudinal correlator is not an observable in a triplet sector.",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2610.22140",
+    "journal": "arXiv"
+  },
+  {
     "title": "Entanglement and apparent thermality in simulated black holes",
-    "title_zh": "模拟黑洞中的纠缠和表观热性",
-    "summary": "我们使用手性自旋链模拟器的平均场极限研究量子黑洞半经典极限中的霍金辐射的表观热度，该模拟器模拟在连续体中黑洞时空上传播的费米子。在这种自由理论状态下，不会发生真正的热化。尽管如此，我们表明，跨事件视界的双分区产生了一个减小的密度矩阵，其模式职业遵循明显的热费米-狄拉克分布。相比之下，远离地平线的分区不表现出这种热分布，反映出没有热行为。",
+    "title_zh": "模拟黑洞中的纠缠和表观热度",
+    "summary": "我们使用手性自旋链模拟器的平均场极限研究了量子黑洞半经典极限中霍金辐射的表观热性，该模拟器模拟了在连续体中黑洞时空上传播的费米子。在这种自由理论体系中，不会发生真正的热化。尽管如此，我们表明，跨事件视界的二分会产生一个降低的密度矩阵，其模态占据遵循表观热费米-狄拉克分布。相反，远离地平线的隔断不会表现出这样的热分布，反映出不存在热行为。",
     "abstract": "arXiv:2509.22774v3 Announce Type: replace-cross Abstract: We investigate the apparent thermality of Hawking radiation in the semi-classical limit of quantum black holes using the mean-field limit of a chiral spin-chain simulator, which models fermions propagating on a black hole space-time in the continuum. In this free-theory regime, no genuine thermalisation occurs. Nevertheless, we show that a bipartition across the event horizon yields a reduced density matrix whose mode occupations follow an apparent thermal Fermi-Dirac distribution. In contrast, partitions away from the horizon do not exhibit such thermal distributions, reflecting the absence of thermal behaviour. Our results demonstrate that Hawking radiation appears thermal only with respect to horizon bipartitions in free theories, with genuine thermal behaviour expected to emerge only in the presence of strong interactions deep in the black hole interior, a study of which we leave for future work.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2509.22774",
@@ -127,8 +145,8 @@
   },
   {
     "title": "Plasmon Collapse in a Directional Strange Metal",
-    "title_zh": "定向奇异金属中的等离子体坍缩",
-    "summary": "奇异金属广泛存在于强相关的量子物质中，并与高温超导性和量子临界性密切相关，但它们的微观电荷动力学仍未从根本上得到解决。无论是定义明确的集体模式在不连贯的电子流体中生存还是溶解成过度阻尼的连续体，仍然存在激烈的争论。在这里，使用高动量分辨率的非弹性电子散射辅以方向分辨传输，我们表明范德华化合物MoOCl ₂是一种“坏”金属，已知具有异常“好”的等离子体，在电子相干和电荷动力学方面表现出惊人的二分法。运输揭示了沿着一个平面晶体轴的相干费米液体行为和沿着正交轴的非相干奇异金属响应。",
+    "title_zh": "定向奇异金属中的等离子体激元塌缩",
+    "summary": "奇怪的金属广泛存在于强相关量子物质中，并与高温超导性和量子临界性密切相关，但它们的微观电荷动力学仍未从根本上得到解决。明确定义的集体模式是在不相干的电子流体中生存还是溶解在过阻尼连续体中仍然存在激烈争论。在这里，采用高动量分辨率非弹性电子散射并辅以方向分辨输运，我们证明了范德华化合物MoOCl2，一种已知拥有异常“好”等离子体激元的“坏”金属，在电子相干性和电荷动力学方面表现出惊人的二分性。输运揭示了沿一个面内晶体轴的相干费米液体行为和沿正交轴的非相干奇怪金属响应。",
     "abstract": "arXiv:2610.21209v1 Announce Type: new Abstract: Strange metals are widespread in strongly correlated quantum matter and closely intertwined with high-temperature superconductivity and quantum criticality, yet their microscopic charge dynamics remain fundamentally unresolved. Whether well-defined collective modes survive in an incoherent electronic fluid or dissolve into overdamped continua remains intensely debated. Here, employing high-momentum-resolution inelastic electron scattering complemented by direction-resolved transport, we show that the van der Waals compound MoOCl₂, a \"bad\" metal known to host unusually \"good\" plasmons, exhibits a striking dichotomy in electronic coherence and charge dynamics. Transport reveals coherent Fermi liquid behavior along one in-plane crystallographic axis and an incoherent strange metal response along the orthogonal axis. This dichotomy extends directly to the charge response. The Fermi liquid direction supports a well-defined, long-lived plasmon, whereas the strange metal direction exhibits an overdamped excitation that progressively loses its collective character with increasing momentum. Beyond a critical momentum (q_c approx 0.008 mathringA⁻¹), the mode undergoes a reversal into negative dispersion and ultimately collapses into a broad, nearly featureless continuum with a robust high-energy boundary (E_c approx 1.75 eV). Remarkably, thickness-dependent measurements show that both q_c and E_c remain nearly unchanged despite substantial modifications of Coulomb screening, revealing them as intrinsic scales of incoherent charge density fluctuations. These results establish a unique single-material platform in which coherent and incoherent electronic states are partitioned into in-plane orthogonal channels, and demonstrate that incoherent electronic fluids retain intrinsically structured charge dynamics beyond the quasiparticle paradigm.",
     "category": "超导",
     "link": "https://arxiv.org/abs/2610.21209",
@@ -159,24 +177,6 @@
     "abstract": "arXiv:2603.28368v2 Announce Type: replace Abstract: Simulating cavity quantum electrodynamics in synthetic platforms offers a route to studying light--matter physics without real photons. We reassess the frequently invoked analogy between harmonically trapped, spin--orbit-coupled atoms and the quantum Rabi and Dicke models, with particular emphasis on squeezing and entanglement. A single non-interacting atom realizes the quantum Rabi Hamiltonian exactly, up to elementary spin and phase-space rotations. For N non-interacting atoms, however, the center-of-mass mode is only one member of a complete orthonormal set containing N-1 relative modes. We prove that, after all modes are included, the spin--spin terms generated by the collective mode cancel exactly against those generated by the relative modes. Equivalently, the original Hamiltonian is a sum of independent one-particle Hamiltonians and therefore cannot create interparticle entanglement from a separable state. Contact interactions invalidate this cancellation but do not remove the relative modes or turn the exact many-body Hamiltonian into a Dicke model. A one-mode Dicke description can arise only as a controlled low-energy approximation after all relevant relative excitations have been shown to be spectrally suppressed. We discuss this distinction together with experimental scales, finite temperature, and possible mode-selection strategies. We also distinguish the single-particle interference underlying density fringes from the interaction-stabilized stripe supersolid observed in many-body condensates.",
     "category": "量子信息·计算",
     "link": "https://arxiv.org/abs/2603.28368",
-    "journal": "arXiv"
-  },
-  {
-    "title": "The bulk spectral gap is certifiable from above but uncomputable from below",
-    "title_zh": "体光谱间隙可以从上方证明，但从下方无法计算",
-    "summary": "确定热力学极限中的光谱间隙是量子多体物理学的一个核心挑战。当施加固定边界条件时，这个问题是不可判定的：即使有无限的资源，也没有算法可以决定每个哈密顿量是否有间隙。然而，热力学极限旨在捕捉非常大系统的内在特性，这不应该取决于如何选择它们的边界。因此，在这里，我们考虑体光谱间隙问题，该问题仅涉及无限系统的固有激发，与任何边界无关。我们首先给出一个通用算法，产生一个关于体块间隙的经过认证的上限层次结构，以更多计算为代价任意紧。",
-    "abstract": "arXiv:2606.03836v4 Announce Type: replace-cross Abstract: Determining spectral gaps in the thermodynamic limit is a central challenge in quantum many-body physics. When a fixed boundary condition is imposed, this problem is undecidable: no algorithm, even with unlimited resources, can decide for every Hamiltonian whether it is gapped. Yet the thermodynamic limit is meant to capture the intrinsic properties of very large systems, which should not depend on how their boundaries are chosen. Here, we therefore consider the bulk spectral gap problem, which concerns only the intrinsic excitations of the infinite system, independently of any boundary. We first give a general algorithm producing a hierarchy of certified upper bounds on the bulk gap, arbitrarily tight at the cost of more computation. Second, we prove that the spectral gap problem remains undecidable in the bulk: no algorithm can decide whether the bulk gap is positive, already for translationally invariant nearest-neighbour chains of fixed local dimension. The bulk spectral gap is thus certifiable from above but uncomputable from below. More precisely, the bulk-gaplessness promise problem is RE-complete, exactly as hard as the halting problem. The same construction also shows that deciding whether an explicitly given state is a ground state of the infinite system is undecidable. Finally, we apply the upper-bounding algorithm to the spin-1/2 kagome Heisenberg antiferromagnet to produce the first nontrivial certified upper bounds on its bulk gap.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2606.03836",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Novel high-pressure silicon allotrope with quartz topology from first principles",
-    "title_zh": "第一原理石英拓扑的新型高压硅同素异形体",
-    "summary": "提出了一种具有石英拓扑结构的新型硅同素异形体qtz Si ，并使用第一原理密度泛函理论与四种已知同素异形体（ dia Si-I、lon Si-IV、bsn Si-II和gsi Si-III ）一起进行了研究。qtz Si被发现表现出最小的原子平均体积（ 18.06 A3 ）、最高密度（ 2.582 g/cm3 ）、最高体积模量（ 98 GPa ）和最高最大声子频率（ 16 THz ） ，同时表现出最低的剪切模量（ 37 GPa ）。",
-    "abstract": "arXiv:2610.21683v1 Announce Type: new Abstract: A novel silicon allotrope, qtz Si, with quartz topology is proposed and investigated alongside four known allotropes (dia Si-I, lon Si-IV, bsn Si-II, and gsi Si-III) using first-principles density functional theory. qtz Si is found to exhibit the smallest atom-averaged volume (18.06 A3), highest density (2.582 g/cm3), highest bulk modulus (98 GPa), and highest maximum phonon frequency (16 THz) among the five, while showing the lowest shear modulus (37 GPa). All five allotropes are confirmed to satisfy the Born stability criteria and to display positive phonon frequencies throughout the Brillouin zone, i.e., they are mechanically and dynamically stable. Electronic structure calculations show that qtz Si is a semimetal with a vanishing gap, whereas dia Si and lon Si are semiconductors, and bsn and gsi allotropes are weakly metallic. Energy-volume equations of state place gsi and qtz 0.11-0.15 eV/atom above dia, bsn, and lon, consistent with their identification as high-pressure or metastable phases.",
-    "category": "其他凝聚态",
-    "link": "https://arxiv.org/abs/2610.21683",
     "journal": "arXiv"
   }
 ]
