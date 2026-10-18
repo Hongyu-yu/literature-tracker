@@ -20,7 +20,7 @@
   {
     "title": "SIEVE: Overcoming Topological Obstruction in Equivariant Self-Supervised Learning",
     "title_zh": "SIEVE：克服等变自监督学习中的拓扑障碍",
-    "summary": "我们发现 3D 点云屏蔽自动编码和 SE(3) 等变网络之间理论上不兼容。我们证明标准掩蔽会触发拓扑崩溃，有效地迫使模型在没有参考系的情况下产生幻觉方向。为了解决这个问题，我们引入了 SIEVE（通过等方差进行标量不变提取），这是一种 SE(3) 等变自监督框架，可将点云几何压缩为不变标量嵌入。其核心是球形投影掩模，它保留全局姿态，同时混淆局部语义，避开构造造成的障碍。实验证实，SIEVE 避免了常数掩模和噪声掩模失败时发生的预测崩溃。",
+    "summary": "我们发现 3D 点云掩码自动编码和 SE(3) 等变网络之间理论上不兼容。我们证明标准掩蔽会触发拓扑崩溃，有效地迫使模型在没有参考系的情况下产生幻觉方向。为了解决这个问题，我们引入了 SIEVE（通过等方差进行标量不变提取），这是一种 SE(3) 等变自监督框架，可将点云几何压缩为不变标量嵌入。其核心是球形投影掩模，它保留全局姿态，同时混淆局部语义，避开构造造成的障碍。实验证实，SIEVE 避免了常数掩模和噪声掩模失败时发生的预测崩溃。",
     "abstract": "arXiv:2610.21087v1 Announce Type: new Abstract: We identify a theoretical incompatibility between 3D point cloud masked autoencoding and SE(3)-equivariant networks. We prove that standard masking triggers a topological collapse, effectively forcing the model to hallucinate orientation without a reference frame. To resolve this, we introduce SIEVE (Scalar Invariant Extraction Via Equivariance), an SE(3)-equivariant self-supervised framework that compresses point cloud geometry into invariant scalar embeddings. At its core is the spherical projection mask, which preserves global pose while obfuscating local semantics, sidestepping the obstruction by construction. Experiments confirm that SIEVE circumvents the predicted collapse where constant and noise masks fail. On downstream point cloud tasks, the resulting embeddings improve over coordinate-based baselines and hand-crafted geometric descriptors, with the largest gains on generalization to unseen shape categories.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.21087",
