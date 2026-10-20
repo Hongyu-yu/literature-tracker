@@ -10,8 +10,8 @@
   },
   {
     "title": "Training Dataset Matters for Machine Learning Interatomic Potentials: Water Simulation as an Example",
-    "title_zh": "训练数据集对于机器学习原子间势很重要：以水模拟为例",
-    "summary": "机器学习原子间势 (MLIP) 的准确预测依赖于涵盖相关热力学条件和相的训练数据集。以水为例，我们表明，MLIP 采样数据集不充分会导致对密度、熔化温度和核量子效应的错误预测。相比之下，使用相同电子结构方法在综合数据集上训练的 MLIP 可以产生与 MLIP 架构无关的一致属性预测，其密度与参考计算在定量上一致。",
+    "title_zh": "文献研究：Training Dataset Matters for Machine Learning Interatomic Potentials: Water Simulation as an Example",
+    "summary": "Accurate predictions of machine learning interatomic potentials (MLIPs) rely on training datasets covering relevant thermodynamic conditions and phases. Using water as an example, we show that insuffi…",
     "abstract": "arXiv:2512.23939v2 Announce Type: replace Abstract: Accurate predictions of machine learning interatomic potentials (MLIPs) rely on training datasets covering relevant thermodynamic conditions and phases. Using water as an example, we show that insufficiently sampled datasets of MLIPs lead to wrong predictions of densities, melting temperatures, and nuclear quantum effects. In contrast, MLIPs trained on comprehensive datasets with the same electronic structure method yield consistent property predictions agnostic of MLIP architecture, with densities in quantitative agreement with reference calculations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2512.23939",
@@ -36,15 +36,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Microscopic origin of polytype-dependent melting in SiC revealed by machine-learning molecular dynamics",
-    "title_zh": "机器学习分子动力学揭示 SiC 中多型依赖熔化的微观起源",
-    "summary": "预测晶体结构如何影响高温稳定性仍然是材料建模和设计中的一个关键挑战。碳化硅 (SiC) 是已知的热稳定性和化学稳定性最高的材料之一，为研究这一问题提供了理想的系统，因为它的许多多型体保留了相似的局部四面体键合，但长程堆叠几何形状不同。为了确定多型结构对 SiC 高温稳定性的影响，我们将相共存机器学习分子动力学与有限温度声子分析相结合，通过微调的 MACE 原子间势来实现，该势能准确描述多种 SiC 多型的晶体、高温和无序构型。",
-    "abstract": "Predicting how crystal structure influences high-temperature stability remains a key challenge in materials modeling and design. Silicon carbide (SiC), one of the most thermally and chemically stable materials known, provides an ideal system for studying this problem because its many polytypes preserve similar local tetrahedral bonding while differing in long-range stacking geometry. To determine the impact of polytype structure on the high-temperature stability of SiC, we combine phase-coexistence machine-learning molecular dynamics with finite-temperature phonon analysis, enabled by a fine-tuned MACE interatomic potential that accurately describes crystalline, high-temperature, and disordered configurations across multiple SiC polytypes. We identify a clear stability ordering, 3C > 2H > 9R, reflected consistently in structural disordering, interlayer sliding, and finite-temperature phonon spectra. Across all polytypes, melting initiates through the formation of short C–C contacts and carbon-rich local regions, followed by a progressive loss of tetrahedral Si–C connectivity. The reduced stability of the long-period 9R polytype is associated with a denser manifold of low-frequency transverse-acoustic modes arising from its stacking periodicity and associated zone folding, which broaden and soften further at high temperature. These modes can provide additional low-energy channels for thermally activated lateral bilayer motion, consistent with the larger sliding amplitudes observed in 9R and their positive correlation with local structural disorder.",
-    "category": "其他凝聚态",
-    "link": "https://pubs.aip.org/aip/jcp/article/165/15/154703/3406738/Microscopic-origin-of-polytype-dependent-melting",
-    "journal": "The Journal of Chemical Physics Current Issue"
-  },
-  {
     "title": "Physics-Informed Machine Learning for Response Tensors in Crystalline Magnets: Application to Kagome Metals",
     "title_zh": "晶体磁体响应张量的物理信息机器学习：在 Kagome 金属中的应用",
     "summary": "从磁性纹理预测响应张量是非共线磁体研究中的一个关键挑战。用于构造给定响应张量的描述符的现有方法仅限于一阶多极展开或仅限于简单的磁结构。在这项工作中，我们为任意晶体结构和磁性纹理构建了完整的对称不变描述符基础，为响应张量的机器学习建模提供了可解释的特征。我们修改标准主成分分析框架并导出层次稳定的不相关阶次参数：扩展阶次参数空间以包含更高阶的自旋阶次引入与先前的阶次参数不相关的额外阶次参数。我们将该框架应用于磁 kagome 晶格中反常霍尔电导率 (AHC) 的回归和分类。",
@@ -64,12 +55,30 @@
   },
   {
     "title": "Reconstruction of Magnetic Fields with a Physics-Informed Neural Network",
-    "title_zh": "使用物理信息神经网络重建磁场",
-    "summary": "磁场及其梯度的准确重建对于评估和控制精密测量实验中的系统效应至关重要。我们开发了一种基于物理的神经网络 (PINN) 方法，该方法根据无源麦克斯韦方程组 nablacdotB=0 和 nablatimesB=0 重建三维磁场。在我们之前关于 PINN 方法通过外部位置测量重建难以到达的内部区域磁场的工作的扩展中，我们现在证明了应用 PINN 方法从受麦克斯韦方程组约束的离散测量点提取磁场梯度项的可行性。",
+    "title_zh": "文献研究：Reconstruction of Magnetic Fields with a Physics-Informed Neural Network",
+    "summary": "Accurate reconstruction of magnetic fields and their gradients is essential for assessing and controlling systematic effects in precision measurement experiments. We have developed a physics-informed…",
     "abstract": "arXiv:2610.23691v1 Announce Type: new Abstract: Accurate reconstruction of magnetic fields and their gradients is essential for assessing and controlling systematic effects in precision measurement experiments. We have developed a physics-informed neural network (PINN) method which reconstructs three-dimensional magnetic fields subject to the source-free Maxwell equations, nablacdotB=0 and nablatimesB=0. In an extension of our previous work on PINN methods for reconstruction of magnetic fields in inaccessible interior regions via measurements at exterior locations, we now demonstrate the feasibility of applying PINN methods to the extraction of magnetic field gradient terms from discrete measurement points subject to constraints from Maxwell's equations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.23691",
     "journal": "arXiv"
+  },
+  {
+    "title": "Microscopic origin of polytype-dependent melting in SiC revealed by machine-learning molecular dynamics",
+    "title_zh": "文献研究：Microscopic origin of polytype-dependent melting in SiC revealed by machine-learning molecular dynamics",
+    "summary": "Predicting how crystal structure influences high-temperature stability remains a key challenge in materials modeling and design. Silicon carbide (SiC), one of the most thermally and chemically stable…",
+    "abstract": "Predicting how crystal structure influences high-temperature stability remains a key challenge in materials modeling and design. Silicon carbide (SiC), one of the most thermally and chemically stable materials known, provides an ideal system for studying this problem because its many polytypes preserve similar local tetrahedral bonding while differing in long-range stacking geometry. To determine the impact of polytype structure on the high-temperature stability of SiC, we combine phase-coexistence machine-learning molecular dynamics with finite-temperature phonon analysis, enabled by a fine-tuned MACE interatomic potential that accurately describes crystalline, high-temperature, and disordered configurations across multiple SiC polytypes. We identify a clear stability ordering, 3C > 2H > 9R, reflected consistently in structural disordering, interlayer sliding, and finite-temperature phonon spectra. Across all polytypes, melting initiates through the formation of short C–C contacts and carbon-rich local regions, followed by a progressive loss of tetrahedral Si–C connectivity. The reduced stability of the long-period 9R polytype is associated with a denser manifold of low-frequency transverse-acoustic modes arising from its stacking periodicity and associated zone folding, which broaden and soften further at high temperature. These modes can provide additional low-energy channels for thermally activated lateral bilayer motion, consistent with the larger sliding amplitudes observed in 9R and their positive correlation with local structural disorder.",
+    "category": "其他凝聚态",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/15/154703/3406738/Microscopic-origin-of-polytype-dependent-melting",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
+    "title": "Machine-learning disordered Hubbard model underlying semiconductor quantum dot based two-dimensional spin qubit arrays",
+    "title_zh": "文献研究：Machine-learning disordered Hubbard model underlying semiconductor quantum dot based two-dimensional spin qubit arrays",
+    "summary": "Author(s): Jacob R. Taylor and Sankar Das Sarma We theoretically develop a machine-learning-based method for inferring the random onsite-energy fluctuations in disordered two-dimensional (2D) generali…",
+    "abstract": "Author(s): Jacob R. Taylor and Sankar Das Sarma We theoretically develop a machine-learning-based method for inferring the random onsite-energy fluctuations in disordered two-dimensional (2D) generalized Hubbard models underlying spin-qubit platforms, using vision-based neural networks trained on tensor-network-generated charge-stability data. We… [Phys. Rev. B 114, 245124] Published Mon Oct 19, 2026",
+    "category": "AI×物理",
+    "link": "http://link.aps.org/doi/10.1103/lt2l-s7bk",
+    "journal": "Phys. Rev. B"
   },
   {
     "title": "Learning the self-energy through equivariant neural networks",
@@ -82,8 +91,8 @@
   },
   {
     "title": "Multitask learning with semiempirical orbital charges enables sample-efficient MLIPs",
-    "title_zh": "具有半经验轨道电荷的多任务学习可实现样本高效的 MLIP",
-    "summary": "机器学习原子间势 (MLIP) 需要生成计算成本高昂的大规模训练数据集，以准确模拟材料和分子。使用多任务学习结合电子结构信息可以提高样本效率，但是，对于大型数据集来说，对随原子数量呈二次方缩放的完整哈密顿矩阵进行训练是很困难的。在这项工作中，我们表明，利用轨道解析的半经验电荷进行多任务学习可显着提高 MLIP 中的样本效率和准确性。为了有效地预测轨道电荷，我们实施了专门的等变模型，与不变基线相比，减少了电荷预测误差。",
+    "title_zh": "文献研究：Multitask learning with semiempirical orbital charges enables sample-efficient MLIPs",
+    "summary": "Machine learning interatomic potentials (MLIPs) require generating computationally expensive, large-scale training datasets to accurately simulate materials and molecules. Incorporating electronic str…",
     "abstract": "arXiv:2605.24073v2 Announce Type: replace Abstract: Machine learning interatomic potentials (MLIPs) require generating computationally expensive, large-scale training datasets to accurately simulate materials and molecules. Incorporating electronic structure information using multitask learning improves sample efficiency, however, training on full Hamiltonian matrices, which scale quadratically with the number of atoms, is intractable for large datasets. In this work, we show that multitask learning utilizing orbitally resolved semiempirical charges significantly improves sample efficiency and accuracy in MLIPs. To efficiently predict orbital charges, we implement a specialized equivariant model, reducing charge prediction error compared to an invariant baseline. By augmenting training with computationally inexpensive GFN1-xTB orbital charges, which scale linearly with the number of atoms, our model achieves a 58% reduction in energy mean absolute error relative to energy-only baselines, and requires five times less data to match their performance. Against the stronger baseline of joint energy-and-force training, orbital charges still reduce the energy error by 12%. Furthermore, our approach matches or outperforms models trained on expensive density functional theory (DFT) atomic charges, capturing orbitally resolved electronic complexity and forcing the network to learn a physically accurate latent space that spontaneously clusters metals by shared chemical properties. Because orbital charges are only required during training, this approach preserves inference efficiency, providing a scalable recipe for developing accurate, data-efficient foundation models for complex chemical systems.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2605.24073",
@@ -127,8 +136,8 @@
   },
   {
     "title": "ADT: All-Atom Diffusion Tokenizer for 3D Molecular Structures",
-    "title_zh": "ADT：3D 分子结构的全原子扩散分词器",
-    "summary": "离散结构标记化为自回归 3D 分子生成提供了一条有前途的途径。 Yet, existing tokenizers face a trade-off between compact representation and all-atom reconstruction: atom-level tokens preserve atomic details but produce long sequences, while compact residue-level protein…",
+    "title_zh": "文献研究：ADT: All-Atom Diffusion Tokenizer for 3D Molecular Structures",
+    "summary": "Discrete structural tokenization provides a promising route to autoregressive 3D molecular generation. Yet, existing tokenizers face a trade-off between compact representation and all-atom reconstruct…",
     "abstract": "arXiv:2610.23265v1 Announce Type: new Abstract: Discrete structural tokenization provides a promising route to autoregressive 3D molecular generation. Yet, existing tokenizers face a trade-off between compact representation and all-atom reconstruction: atom-level tokens preserve atomic details but produce long sequences, while compact residue-level protein tokens typically omit side-chain geometry. To overcome this limitation, we propose All-atom Diffusion Tokenizer (ADT), which decouples token granularity from reconstruction resolution. ADT uses one structural token per atom for small molecules and one token per protein residue that jointly represents backbone and side-chain geometry. To mitigate geometric distortion introduced by quantization, we leverage the generative capacity of diffusion models to recover fine-grained atomic geometry beyond deterministic decoding from discrete tokens. Extensive experiments across small molecules and proteins demonstrate that ADT achieves strong reconstruction from compact discrete representations while enabling high-quality autoregressive generation of both small molecules and all-atom protein structures. These results establish compact structural tokens as an effective discrete interface for all-atom molecular reconstruction and generation.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.23265",
@@ -145,8 +154,8 @@
   },
   {
     "title": "A Topological Signature of Learning under Noisy Labels",
-    "title_zh": "噪声标签下学习的拓扑签名",
-    "summary": "噪声监督如何改变神经网络学习的表示？训练精度衡量与训练标签的一致性，但提供的有关表示几何的信息很少。我们使用持久同源性来跟踪神经激活中跨距离阈值的循环结构。实验涵盖图像分类、文本分类和模运算。在固定的 CIFAR-10/ResNet-18 训练探针上，大小相同的干净标签和损坏标签子集在第 10 轮时没有显示出可检测到的持久性差异，而损坏标签子集在第 50 轮时具有更高的持久性。",
+    "title_zh": "文献研究：A Topological Signature of Learning under Noisy Labels",
+    "summary": "How does noisy supervision change the representations learned by a neural network? Training accuracy measures agreement with training labels but provides little information about representation geomet…",
     "abstract": "arXiv:2610.23491v1 Announce Type: new Abstract: How does noisy supervision change the representations learned by a neural network? Training accuracy measures agreement with training labels but provides little information about representation geometry. We use persistent homology to track loop structure across distance thresholds in neural activations. Experiments span image classification, text classification, and modular arithmetic. On a fixed CIFAR-10/ResNet-18 training probe, equally sized clean-label and corrupted-label subsets show no detectable persistence difference at epoch 10, whereas corrupted-label subsets have higher persistence at epoch 50. The contrast survives uniform-scale controls, even though predictions match the assigned noisy labels for only 7-11% of corrupted probe examples at that checkpoint. Normalisation preserves the crossover between clean and noisy training trajectories on CIFAR-10/ResNet-18, whereas CIFAR-100/ResNet-18 shows no crossover under any of the five evaluated constructions. In a separate noise-rate calibration comparison across five pipelines, mean activation norm achieves a higher mean in-sample R2 than raw persistence (0.936 versus 0.908). These findings show that noisy supervision leaves a measurable geometric signature even when agreement with corrupted labels is low. Comparing persistence under scale controls with label-fitting measurements offers a way to study how representations respond to label corruption beyond what training accuracy reveals.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.23491",
@@ -168,15 +177,6 @@
     "abstract": "arXiv:2610.23375v1 Announce Type: new Abstract: Altermagnets have recently gained attention for hosting symmetry-enforced spin-split bands despite zero net magnetization. Angle-resolved photoelectron spectroscopy (ARPES) offers direct access to their electronic structure. However, the intrinsic surface sensitivity of this technique complicates the identification of the observed features: Surface states can be misinterpreted as the spin-split counterpart of bulk bands. This issue becomes particularly relevant for layered intercalated systems, where micrometer-sized domains with distinct terminations often coexist on a cleaved surface. We discuss this scenario for CoNb₄Se₈, one of the first established layered altermagnets. Supported by density functional theory calculations, we employ micro-ARPES to probe individual domains and reveal two contrasting surface terminations. We identify Co- and Se-terminated domains with characteristic surface states arising from bulk-surface connectivity of the material. Our work shows that termination-dependent surface contributions are essential for the reliable spectroscopic identification of altermagnetism and for assessing its presence across the family of layered materials.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2610.23375",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Coherent phonons in photoexcited semiconductors from first principles",
-    "title_zh": "从第一原理看光激发半导体中的相干声子",
-    "summary": "相干声子是锁相晶格振动，可为材料中的非平衡动力学提供灵敏的探针。现有的第一原理运动方程（EOM）方法已经成功地描述了金属和半金属中的相干声子，但将其扩展到半导体需要处理由能隙上方激发产生的长寿命电子-空穴等离子体。在这里，我们通过将改变晶格平衡的残余等离子体力与等离子体诱导的电子结构重正化结合起来，将第一原理 EOM 框架扩展到光激发半导体。对于单层 MoTe2，仅当包含重正化能带结构时，计算出的与载流子密度相关的 Te 位移才与约束密度泛函微扰理论一致。",
-    "abstract": "arXiv:2610.22901v1 Announce Type: new Abstract: Coherent phonons are phase-locked lattice vibrations that provide a sensitive probe of nonequilibrium dynamics in materials. Existing first-principles equation-of-motion (EOM) approaches have successfully described coherent phonons in metals and semimetals, but their extension to semiconductors requires treating the long-lived electron--hole plasma created by above-gap excitation. Here we extend the first-principles EOM framework to photoexcited semiconductors by incorporating the residual plasma force that shifts the lattice equilibrium together with the plasma-induced renormalization of the electronic structure. For monolayer MoTe₂, the calculated carrier-density-dependent Te displacement agrees with constrained density-functional perturbation theory only when the renormalized band structure is included. We then show that increasing the photoexcited carrier density enhances both the initial total force and the plasma-shifted equilibrium position of the A₁g mode, producing larger coherent lattice oscillations. This density-controlled response appears in both the atomic displacement and the coherent-phonon-induced band renormalization, providing complementary signatures for ultrafast reflectivity and time- and angle-resolved photoemission spectroscopy.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2610.22901",
     "journal": "arXiv"
   }
 ]
