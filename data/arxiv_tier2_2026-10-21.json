@@ -37,17 +37,26 @@
   },
   {
     "title": "Interpretable Machine Learning Reveals Atom-Resolved VOCs Adsorption and Reactivity on Metal Oxides",
-    "title_zh": "文献研究：Interpretable Machine Learning Reveals Atom-Resolved VOCs Adsorption and Reactivity on Metal Oxides",
-    "summary": "The adsorption and reactivity of volatile organic compounds (VOCs) on metal oxides govern catalytic reaction pathways, yet predictive rules remain elusive because molecular functionality, surface chem…",
+    "title_zh": "可解释的机器学习揭示了原子解析的 VOC 在金属氧化物上的吸附和反应性",
+    "summary": "挥发性有机化合物 (VOC) 在金属氧化物上的吸附和反应控制着催化反应途径，但由于分子功能、表面化学和吸附几何结构紧密耦合，预测规则仍然难以捉摸。在这里，我们报告了一种可转移吸附双塔框架（AdsDT），它独立编码分子和晶体特征，以直接从未松弛的 CIF 结构预测吸附能。通过在 Open Catalyst 2020 数据集上进行预训练并通过中间吸附系统逐步转移，AdsDT 能够快速构建金属氧化物-VOC 相互作用数据库，并与密度泛函理论计算（R2 = 0.85）高度一致。",
     "abstract": "The adsorption and reactivity of volatile organic compounds (VOCs) on metal oxides govern catalytic reaction pathways, yet predictive rules remain elusive because molecular functionality, surface chemistry, and adsorption geometry are strongly coupled. Here we report a transferable adsorption dual-tower framework (AdsDT) that independently encodes molecular and crystal features to predict adsorption energies directly from unrelaxed CIF structures. By pretraining on the Open Catalyst 2020 dataset and progressively transferring through intermediate adsorption systems, AdsDT enables rapid construction of metal oxides-VOCs interaction databases and achieves strong agreement with density functional theory calculations (R2 = 0.85). Using 816 TiO2 (anatase, 101)-VOCs adsorption configurations, we combine molecular fingerprints, SHAP analysis, and graph attention mapping to identify fragment-level and atom-resolved adsorption contribution. Saturated alkyl carbon environments increase predicted adsorption energies, whereas unsaturated and electronegative atoms, particularly carbonyl oxygen, favor stronger adsorption. Extension to eight representative metal oxides reveals material-dependent and functional-group correlation. Furthermore, a bond activation score integrating atomic attention, bond dissociation energy, and bond polarization links adsorption configurations to reaction pathways, showing that adsorption sites activate neighboring bonds through electronic redistribution rather than serving simply as cleavage centers. These results provide transferable atom-resolved descriptors for VOCs adsorption and catalytic reactivity across metal oxides.",
     "category": "AI×化学·材料",
     "link": "https://www.researchsquare.com/article/rs-11192911/latest",
     "journal": "Preprints"
   },
   {
+    "title": "Decoding Perovskite Interfaces: Machine Learning Uncovers Geometry‐Matched Dual‐Site Hydrogen Bonding",
+    "title_zh": "解码钙钛矿界面：机器学习揭示几何匹配的双位点氢键",
+    "summary": "应用化学国际版，EarlyView。",
+    "abstract": "Angewandte Chemie International Edition, EarlyView.",
+    "category": "AI×化学·材料",
+    "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9718249?af=R",
+    "journal": "Wiley"
+  },
+  {
     "title": "SimuScan-Agent: language-model orchestration of synthetic-data-driven autonomous atomic force microscopy",
-    "title_zh": "文献研究：SimuScan-Agent: language-model orchestration of synthetic-data-driven autonomous atomic force microscopy",
-    "summary": "Atomic force microscopy (AFM) enables nanoscale characterization, but large-area investigations remain slow and require coordination of data preparation, model training and instrument operation. Here…",
+    "title_zh": "SimuScan-Agent：合成数据驱动的自主原子力显微镜的语言模型编排",
+    "summary": "原子力显微镜 (AFM) 能够实现纳米级表征，但大面积研究仍然缓慢，并且需要协调数据准备、模型训练和仪器操作。在这里，我们介绍 SimuScan-Agent，这是一个法学硕士精心设计的框架，可将自然语言目标转换为自适应 AFM 工作流程。将多模态形态源与物理信息模拟相结合，它可以生成带注释的合成数据集，无需手动对每个图像进行标记，训练和部署分割和表示学习模型，并使用在线检测和特定于类的采样目标来指导采集。",
     "abstract": "Atomic force microscopy (AFM) enables nanoscale characterization, but large-area investigations remain slow and require coordination of data preparation, model training and instrument operation. Here we introduce SimuScan-Agent, an LLM-orchestrated framework that translates natural-language objectives into adaptive AFM workflows. Combining multimodal morphological sources with physics-informed simulation, it generates annotated synthetic datasets without manual per-image labeling, trains and deploys segmentation and representation-learning models, and guides acquisition using online detections and class-specific sampling objectives. In simulations, probabilistic active exploration reduced measurements and sampled area by approximately 71% relative to raster scanning. Experimentally, SimuScan-Agent explored a ~10 mm² region by sampling 17.2% of available positions, estimating class-specific spatial distributions and assembling a morphological library to identify representative and atypical nanostructures. By linking synthetic-data generation, machine learning and adaptive acquisition through natural-language interaction, the framework lowers barriers to goal-directed nanoscale studies and offers a foundation for more intelligent, autonomous AFM systems that adapt experimental decisions to what they learn during measurement.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-11435524/latest",
@@ -73,8 +82,8 @@
   },
   {
     "title": "Effective Atom Theory: Gradient-Driven Materials Design",
-    "title_zh": "文献研究：Effective Atom Theory: Gradient-Driven Materials Design",
-    "summary": "We introduce Effective Atom Theory (EAT), which embeds discrete atomic identities into a continuous differentiable space. During optimization, sites pass through temporary effective mixtures, then are…",
+    "title_zh": "有效原子理论：梯度驱动材料设计",
+    "summary": "我们引入有效原子理论（EAT），它将离散原子恒等式嵌入到连续可微空间中。在优化过程中，位点经过临时有效的混合物，然后被驱动为完全离散的、物理上可实现的原子。这使得 DFT 和 MLIP 中基于梯度的优化成为可能，从而比离散方法产生数量级的加速。 EAT 在 128 个原子电池中恢复了 NaCl 的精确基态，重建了 Cu-Pd 相图，优化了用于析氧的高熵氧化物，并发现了 SrTiO3 所示的键合拓扑。",
     "abstract": "arXiv:2509.07180v2 Announce Type: replace Abstract: We introduce Effective Atom Theory (EAT), which embeds discrete atomic identities into a continuous differentiable space. During optimization, sites pass through temporary effective mixtures, then are driven to fully discrete, physically realizable atoms. This enables gradient-based optimization in DFT and MLIPs, yielding orders-of-magnitude acceleration over discrete methods. EAT recovers the exact ground state of NaCl in a 128 atom cell, reconstructs the Cu-Pd phase diagram, optimizes high-entropy oxides for oxygen evolution, and discovers bonding topologies as demonstrated for SrTiO3.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2509.07180",
@@ -82,8 +91,8 @@
   },
   {
     "title": "INCARBench: A Benchmark for Scientific Configuration in VASP INCAR by Large Language Models",
-    "title_zh": "文献研究：INCARBench: A Benchmark for Scientific Configuration in VASP INCAR by Large Language Models",
-    "summary": "Large language models (LLMs) are increasingly being integrated into first-principles computational workflows, yet their ability to configure scientific calculations remains poorly understood. Here, we…",
+    "title_zh": "INCARBench：大型语言模型在 VASP INCAR 中科学配置的基准",
+    "summary": "大型语言模型 (LLM) 越来越多地被集成到第一原理计算工作流程中，但人们对它们配置科学计算的能力仍然知之甚少。在这里，我们介绍 INCARBench，这是一个通过配置生成和修复任务评估维也纳从头算仿真包 (VASP) 输入配置的法学硕士的基准。对 19 种模型配置的评估揭示了当前前沿模型之间的巨大功能差异。虽然一些模型实现了较高的语义和策略准确性，但任务关键正确性仍然大大降低，这表明参数级正确性并不一定意味着科学有效的配置。",
     "abstract": "arXiv:2606.23571v2 Announce Type: cross Abstract: Large language models (LLMs) are increasingly being integrated into first-principles computational workflows, yet their ability to configure scientific calculations remains poorly understood. Here, we introduce INCARBench, a benchmark for evaluating LLMs on input configuration for the Vienna Ab initio Simulation Package (VASP) through both configuration generation and repair tasks. Evaluating 19 model configurations reveals substantial capability differences among current frontier models. While several models achieve high semantic and policy accuracy, task-critical correctness remains substantially lower, demonstrating that parameter-level correctness does not necessarily imply scientifically valid configurations. Failure analysis shows that errors concentrate in physically coupled settings involving DFT+U, magnetism, and correlated materials, where multiple constraints must be satisfied simultaneously. Repair evaluation further reveals that correcting incorrect settings and preserving already-valid configurations are distinct capabilities, with configuration preservation remaining a major challenge. These findings establish scientific configuration as a measurable capability of large language models and provide a foundation for developing more reliable AI systems for computational materials science.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.23571",
@@ -100,8 +109,8 @@
   },
   {
     "title": "CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
-    "title_zh": "文献研究：CrystalAR: Autoregressive Modeling for Symmetric Crystal Generation",
-    "summary": "Deep generative modeling has achieved remarkable progress in crystal generation. Given the rich symmetries inherent in crystalline structures, recent work has sought to explicitly incorporate space-gr…",
+    "title_zh": "CrystalAR：对称晶体生成的自回归建模",
+    "summary": "深度生成建模在晶体生成方面取得了显着进展。鉴于晶体结构固有的丰富对称性，最近的工作试图将空间群对称性明确地纳入生成模型中，从而能够更有效地探索新颖的对称模板。然而，引入对称模板增加了原子种类和晶体学位点之间化学计量关系的组合复杂性，同时在离散晶体学模板的灵活探索和将这些模板忠实地实现为连续三维结构之间产生了基本的张力。为了应对这些挑战，我们提出了 CrystalAR，这是一个统一的自回归框架，可以在单个生成序列中对威科夫对称模板和完整的晶体结构进行建模。",
     "abstract": "arXiv:2610.27762v1 Announce Type: cross Abstract: Deep generative modeling has achieved remarkable progress in crystal generation. Given the rich symmetries inherent in crystalline structures, recent work has sought to explicitly incorporate space-group symmetry into generative models, enabling more effective exploration of novel symmetry templates. Yet introducing symmetry templates increases the combinatorial complexity of stoichiometric relationships between atomic species and crystallographic sites, while creating a fundamental tension between flexible exploration of discrete crystallographic templates and faithful realization of these templates as continuous three-dimensional structures. To address these challenges, we propose CrystalAR, a unified autoregressive framework that models Wyckoff symmetry templates and complete crystal structures within a single generative sequence. Specifically, CrystalAR reformulates continuous coordinate generation as a symmetry-conditioned hierarchy of discrete spatial localization decisions, autoregressively refining the positions of all symmetry-inequivalent sites across resolution levels while jointly modeling their spatial configuration within each level. This discrete hierarchical formulation further enables constraint-aware search over both crystallographic templates and geometric realizations. As a result, CrystalAR retains strong symmetry-template generation capability while achieving competitive de novo generation performance and template-free crystal structure prediction (CSP) accuracy. These results suggest that symmetry-template generation can be retained alongside broadly competitive de novo generation performance and competitive CSP without reliance on symmetry templates retrieved from prior data, providing a promising alternative paradigm for symmetry-preserving crystal generation.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.27762",
@@ -135,6 +144,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "A Hybrid TFT-NBEATS Framework for Robust Multi-Horizon Photovoltaic Power Forecasting",
+    "title_zh": "用于稳健多视野光伏功率预测的混合 TFT-NBEATS 框架",
+    "summary": "准确的多层面光伏发电功率预测对于电网稳定、能源调度和光伏电池电网系统的高效运行至关重要。然而，现有模型往往无法共同捕获短期变异性和长期时间模式，同时缺乏统一的多视野能力和可解释性。为了解决这些限制，本研究提出了一种新颖的混合深度学习框架，该框架将时间融合变压器 (TFT) 和 N-BEATS 集成在基于注意力的融合架构中。所提出的模型利用 TFT 来学习短期时间依赖性和动态特征重要性，而 N-BEATS 通过可解释的基础分解来捕获长期趋势和季节性成分。",
+    "abstract": "arXiv:2610.27155v1 Announce Type: new Abstract: Accurate multi-horizon photovoltaic (PV) power forecasting is essential for grid stability, energy scheduling, and the efficient operation of PVbatterygrid systems. However, existing models often fail to jointly capture short-term variability and long-term temporal patterns, while lacking unified multi-horizon capability and interpretability. To address these limitations, this study proposes a novel hybrid deep learning framework that integrates a Temporal Fusion Transformer (TFT) and N-BEATS within an attention-based fusion architecture. The proposed model leverages TFT to learn short-term temporal dependencies and dynamic feature importance, while N-BEATS captures long-term trend and seasonal components through interpretable basis decomposition. An adaptive attention mechanism dynamically fuses both branches, enabling balanced multi-scale learning. The framework simultaneously generates forecasts for 30-minute, 2-hour, 6-hour, 12-hour, and 24-hour horizons within a single unified pipeline. The model is evaluated using multi-year real-world datasets from the Desert Knowledge Australia Solar Centre (DKASC). Experimental results demonstrate superior performance over statistical, machine learning, and deep learning baselines. The proposed model achieves RMSE values of 42.35, 46.27, 52.29, and 48.11 across the 20162017, 2023, 2024, and 20252026 datasets, respectively, corresponding to a 3540% reduction compared to the best baseline (TFT). Additionally, MAPE remains below 5% across all datasets, indicating high predictive accuracy and stability. The model also provides interpretability through attention visualization and trendseasonality decomposition, and is deployed on a cloud-based platform for real-time forecasting. These results demonstrate that the proposed framework is robust, interpretable, and suitable for practical renewable energy applications.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2610.27155",
+    "journal": "arXiv"
+  },
+  {
     "title": "Generalized Spin Groups and Applications to Magnons",
     "title_zh": "广义自旋群及其在磁振子中的应用",
     "summary": "自旋群为各向同性海森堡模型提供了自然对称框架，其中自旋和晶格自由度是可分离的。他们最近在描述电子能带结构、磁振子能带拓扑和输运现象方面发现了广泛的应用。然而，描述磁振子的典型自旋哈密顿量不仅包含各向同性海森堡交换，还包含自旋轨道耦合（SOC）引起的各向异性相互作用，包括Dzyaloshinskii-Moriya（DM）相互作用、伽玛交换和单离子各向异性（SIA），这些相互作用强烈影响磁振子性质。最近，一些研究还揭示了交流磁体中的相对论磁振子输运现象。",
@@ -160,23 +178,5 @@
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2610.27663",
     "journal": "arXiv"
-  },
-  {
-    "title": "Quantum Fisher Information in semiclassical magnon systems",
-    "title_zh": "半经典磁子系统中的量子费希尔信息",
-    "summary": "量子费希尔信息（ QFI ）是一种见证固态材料中多体量子纠缠的强大光谱工具，但如何将其与凝聚态系统的其他特征联系起来并不总是很明显。在本研究中，我们通过检查简单的理论自旋系统来阐述QFI在凝聚态物质中的含义和解释。我们使用有限尺寸的自旋系统来说明QFI量化了波函数内量子纠缠的动量依赖程度（即给定波矢量处的纠缠深度）。随后，我们使用半经典挫折自旋模型来证明，在线性自旋波理论（ LSWT ）的背景下， QFI量化了基态中磁子挤压的动量依赖程度。",
-    "abstract": "arXiv:2607.20424v2 Announce Type: replace Abstract: Quantum Fisher Information (QFI) is a powerful spectroscopic tool to witness many-body quantum entanglement in solid state materials, but it is not always obvious how to relate it to other characteristics of condensed matter systems. In this study we elaborate on the meaning and interpretation of QFI in condensed matter by examining simple theoretical spin systems. We use finite sized spin systems to illustrate that QFI quantifies the momentum- dependent degree of quantum entanglement (that is the entanglement depth at a given wave vector) within a wave function. We subsequently use semiclassical frustrated spin models to show that, in the context of linear spin wave theory (LSWT), QFI quantifies the momentum-dependent degree of magnon squeezing in the ground state. In antiferromagnets with a zero-energy Goldstone mode, LSWT breaks down and QFI (and entanglement depth) diverges at the magnetic ordering wave vector. We also show examples of emergent quantum phases in frustrated spin systems that do not appear in classical phase diagrams. When these emergent phases are approached, QFI diverges across multiple wave vectors in momentum space. Taken together, QFI is not only helpful as a lower bound for entanglement depth, but serves as a momentum-resolved probe of entanglement that offers a novel perspective on quantum critical phenomena.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.20424",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Electronic structure study of ferrimagnetic Mn 2 CrO 4",
-    "title_zh": "亚铁磁性Mn 2 CrO 4 电子结构研究",
-    "summary": "出版日期：2026 年 12 月 来源：化学物理快报，第 899 卷 作者：G.D. Dwivedi, T.W.日元 (D. Chandrasekhar) 卡卡拉 (Kakarla)、A. 辛格 (A. Singh)",
-    "abstract": "Publication date: December 2026 Source: Chemical Physics Letters, Volume 899 Author(s): G.D. Dwivedi, T.W. Yen, D. Chandrasekhar Kakarla, A. Singh",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.sciencedirect.com/science/article/pii/S0009261426004148?dgcid=rss_sd_all",
-    "journal": "ScienceDirect"
   }
 ]
