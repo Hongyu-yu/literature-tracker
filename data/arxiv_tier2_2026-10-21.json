@@ -36,15 +36,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Interpretable Machine Learning Reveals Atom-Resolved VOCs Adsorption and Reactivity on Metal Oxides",
-    "title_zh": "可解释的机器学习揭示了原子解析的 VOC 在金属氧化物上的吸附和反应性",
-    "summary": "挥发性有机化合物 (VOC) 在金属氧化物上的吸附和反应控制着催化反应途径，但由于分子功能、表面化学和吸附几何结构紧密耦合，预测规则仍然难以捉摸。在这里，我们报告了一种可转移吸附双塔框架（AdsDT），它独立编码分子和晶体特征，以直接从未松弛的 CIF 结构预测吸附能。通过在 Open Catalyst 2020 数据集上进行预训练并通过中间吸附系统逐步转移，AdsDT 能够快速构建金属氧化物-VOC 相互作用数据库，并与密度泛函理论计算（R2 = 0.85）高度一致。",
-    "abstract": "The adsorption and reactivity of volatile organic compounds (VOCs) on metal oxides govern catalytic reaction pathways, yet predictive rules remain elusive because molecular functionality, surface chemistry, and adsorption geometry are strongly coupled. Here we report a transferable adsorption dual-tower framework (AdsDT) that independently encodes molecular and crystal features to predict adsorption energies directly from unrelaxed CIF structures. By pretraining on the Open Catalyst 2020 dataset and progressively transferring through intermediate adsorption systems, AdsDT enables rapid construction of metal oxides-VOCs interaction databases and achieves strong agreement with density functional theory calculations (R2 = 0.85). Using 816 TiO2 (anatase, 101)-VOCs adsorption configurations, we combine molecular fingerprints, SHAP analysis, and graph attention mapping to identify fragment-level and atom-resolved adsorption contribution. Saturated alkyl carbon environments increase predicted adsorption energies, whereas unsaturated and electronegative atoms, particularly carbonyl oxygen, favor stronger adsorption. Extension to eight representative metal oxides reveals material-dependent and functional-group correlation. Furthermore, a bond activation score integrating atomic attention, bond dissociation energy, and bond polarization links adsorption configurations to reaction pathways, showing that adsorption sites activate neighboring bonds through electronic redistribution rather than serving simply as cleavage centers. These results provide transferable atom-resolved descriptors for VOCs adsorption and catalytic reactivity across metal oxides.",
-    "category": "AI×化学·材料",
-    "link": "https://www.researchsquare.com/article/rs-11192911/latest",
-    "journal": "Preprints"
-  },
-  {
     "title": "Decoding Perovskite Interfaces: Machine Learning Uncovers Geometry‐Matched Dual‐Site Hydrogen Bonding",
     "title_zh": "解码钙钛矿界面：机器学习揭示几何匹配的双位点氢键",
     "summary": "应用化学国际版，EarlyView。",
@@ -52,6 +43,15 @@
     "category": "AI×化学·材料",
     "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9718249?af=R",
     "journal": "Wiley"
+  },
+  {
+    "title": "Interpretable Machine Learning Reveals Atom-Resolved VOCs Adsorption and Reactivity on Metal Oxides",
+    "title_zh": "可解释的机器学习揭示了原子解析的 VOC 在金属氧化物上的吸附和反应性",
+    "summary": "挥发性有机化合物 (VOC) 在金属氧化物上的吸附和反应控制着催化反应途径，但由于分子功能、表面化学和吸附几何结构紧密耦合，预测规则仍然难以捉摸。在这里，我们报告了一种可转移吸附双塔框架（AdsDT），它独立编码分子和晶体特征，以直接从未松弛的 CIF 结构预测吸附能。通过在 Open Catalyst 2020 数据集上进行预训练并通过中间吸附系统逐步转移，AdsDT 能够快速构建金属氧化物-VOC 相互作用数据库，并与密度泛函理论计算（R2 = 0.85）高度一致。",
+    "abstract": "The adsorption and reactivity of volatile organic compounds (VOCs) on metal oxides govern catalytic reaction pathways, yet predictive rules remain elusive because molecular functionality, surface chemistry, and adsorption geometry are strongly coupled. Here we report a transferable adsorption dual-tower framework (AdsDT) that independently encodes molecular and crystal features to predict adsorption energies directly from unrelaxed CIF structures. By pretraining on the Open Catalyst 2020 dataset and progressively transferring through intermediate adsorption systems, AdsDT enables rapid construction of metal oxides-VOCs interaction databases and achieves strong agreement with density functional theory calculations (R2 = 0.85). Using 816 TiO2 (anatase, 101)-VOCs adsorption configurations, we combine molecular fingerprints, SHAP analysis, and graph attention mapping to identify fragment-level and atom-resolved adsorption contribution. Saturated alkyl carbon environments increase predicted adsorption energies, whereas unsaturated and electronegative atoms, particularly carbonyl oxygen, favor stronger adsorption. Extension to eight representative metal oxides reveals material-dependent and functional-group correlation. Furthermore, a bond activation score integrating atomic attention, bond dissociation energy, and bond polarization links adsorption configurations to reaction pathways, showing that adsorption sites activate neighboring bonds through electronic redistribution rather than serving simply as cleavage centers. These results provide transferable atom-resolved descriptors for VOCs adsorption and catalytic reactivity across metal oxides.",
+    "category": "AI×化学·材料",
+    "link": "https://www.researchsquare.com/article/rs-11192911/latest",
+    "journal": "Preprints"
   },
   {
     "title": "SimuScan-Agent: language-model orchestration of synthetic-data-driven autonomous atomic force microscopy",
@@ -92,7 +92,7 @@
   {
     "title": "INCARBench: A Benchmark for Scientific Configuration in VASP INCAR by Large Language Models",
     "title_zh": "INCARBench：大型语言模型在 VASP INCAR 中科学配置的基准",
-    "summary": "大型语言模型 (LLM) 越来越多地被集成到第一原理计算工作流程中，但人们对它们配置科学计算的能力仍然知之甚少。在这里，我们介绍 INCARBench，这是一个通过配置生成和修复任务评估维也纳从头算仿真包 (VASP) 输入配置的法学硕士的基准。对 19 种模型配置的评估揭示了当前前沿模型之间的巨大功能差异。虽然一些模型实现了较高的语义和策略准确性，但任务关键正确性仍然大大降低，这表明参数级正确性并不一定意味着科学有效的配置。",
+    "summary": "大型语言模型 (LLM) 越来越多地被集成到第一原理计算工作流程中，但人们对它们配置科学计算的能力仍然知之甚少。在这里，我们介绍 INCARBench，这是一个通过配置生成和修复任务评估维也纳从头算仿真包 (VASP) 输入配置的法学硕士的基准。评估 19 种模型配置揭示了当前前沿模型之间的巨大功能差异。虽然一些模型实现了较高的语义和策略准确性，但任务关键正确性仍然大大降低，这表明参数级正确性并不一定意味着科学有效的配置。",
     "abstract": "arXiv:2606.23571v2 Announce Type: cross Abstract: Large language models (LLMs) are increasingly being integrated into first-principles computational workflows, yet their ability to configure scientific calculations remains poorly understood. Here, we introduce INCARBench, a benchmark for evaluating LLMs on input configuration for the Vienna Ab initio Simulation Package (VASP) through both configuration generation and repair tasks. Evaluating 19 model configurations reveals substantial capability differences among current frontier models. While several models achieve high semantic and policy accuracy, task-critical correctness remains substantially lower, demonstrating that parameter-level correctness does not necessarily imply scientifically valid configurations. Failure analysis shows that errors concentrate in physically coupled settings involving DFT+U, magnetism, and correlated materials, where multiple constraints must be satisfied simultaneously. Repair evaluation further reveals that correcting incorrect settings and preserving already-valid configurations are distinct capabilities, with configuration preservation remaining a major challenge. These findings establish scientific configuration as a measurable capability of large language models and provide a foundation for developing more reliable AI systems for computational materials science.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.23571",
