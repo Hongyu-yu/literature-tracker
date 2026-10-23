@@ -28,8 +28,8 @@
   },
   {
     "title": "A General Topological Symmetry Index for Critical Orbits In Neural Network Loss Landscapes",
-    "title_zh": "文献研究：A General Topological Symmetry Index for Critical Orbits In Neural Network Loss Landscapes",
-    "summary": "A systematic understanding of the global structure of neural-network loss landscapes remains challenging due to their high dimensionality. Symmetries arising from network architectures and learning ob…",
+    "title_zh": "神经网络损失景观中关键轨道的通用拓扑对称指数",
+    "summary": "由于其高维性，对神经网络损失景观的全局结构的系统理解仍然具有挑战性。网络架构和学习目标产生的对称性提供了一种研究该结构各个方面的方法。尽管越来越多的研究引起了人们对这些对称性的关注，但对它们以及它们产生的临界轨道的系统表征仍然不完整。为了解决这一差距，在这项工作中，我们基于等变度理论家族的方法建立了拓扑对称指数来解码这些对称性。该框架适用于任意网络架构，并包括适用于简并临界轨道的方法。该指数检测临界点的各向同性并量化相应的净拓扑贡献。",
     "abstract": "arXiv:2610.28864v1 Announce Type: new Abstract: A systematic understanding of the global structure of neural-network loss landscapes remains challenging due to their high dimensionality. Symmetries arising from network architectures and learning objectives provide a way to investigate aspects of this structure. Although a growing number of studies have drawn attention to these symmetries, a systematic characterization of them, as well as of the critical orbits they give rise to, remains incomplete. To address this gap, in this work we establish a topological symmetry index, based on the methodologies from the family of equivariant degree theories, to decode these symmetries. The frameworks apply to arbitrary network architectures and include methods applicable to degenerate critical orbits. The index detects the isotropy of the critical points and quantifies the corresponding net topological contributions. Several examples, including softplus MLPs, Transformers, and equivariant neural networks, are presented to illustrate the computations.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.28864",
@@ -73,8 +73,8 @@
   },
   {
     "title": "STAR-XPC: Set Transformer for Estimating X-ray Transmission in Polymer Composites",
-    "title_zh": "文献研究：STAR-XPC: Set Transformer for Estimating X-ray Transmission in Polymer Composites",
-    "summary": "Evaluating the energy transmission ratio of an X-ray beam through a polymer composite is a challenging task in radiation shielding studies. The reference solution with Monte Carlo transport simulation…",
+    "title_zh": "STAR-XPC：用于估计聚合物复合材料中 X 射线透射的设置变压器",
+    "summary": "评估 X 射线束穿过聚合物复合材料的能量透射比是辐射屏蔽研究中的一项具有挑战性的任务。蒙特卡罗输运模拟的参考解决方案非常准确，但计算成本昂贵：我们的每个参考模拟的上限为 4×10⁹ 光子历史和 20,000 秒（超过 5 小时）的时间限制，而封闭式分析方法无法代表如此复杂的场景。我们提出了一种人工神经网络模型，可在 1-3 毫秒内将无序多组分子成分、它们的质量分数和四个体物理描述符直接映射到传输比 I(t)/I₀。",
     "abstract": "arXiv:2610.28709v1 Announce Type: new Abstract: Evaluating the energy transmission ratio of an X-ray beam through a polymer composite is a challenging task in radiation shielding studies. The reference solution with Monte Carlo transport simulation is highly accurate but computationally expensive: each of our reference simulations is capped at 4×10⁹ photon histories and a 20,000 s (over 5 hours) time limit, while closed-form analytical methods fail to represent such complex scenarios. We present an artificial neural network model that maps the unordered multi-set of molecular constituents, their mass fractions, and four bulk physical descriptors directly to the transmission ratio I(t)/I₀ in 1-3 milliseconds. The model is a Set Transformer, which makes it permutation invariant by construction and accepts mixtures of different sizes up to 11 constituents within a fixed-size padded set. Each constituent is embedded with a chemistry-pretrained transformer language model, ChemBERTa. In our proposed method, training data are produced by an automated PENELOPE/penEasy pipeline using the radiation source at 30, 80, 100, and 120 kV tube voltages over polyethylene-based shielding composite slabs of thicknesses spanning 0.15-2.5 mm. After preprocessing, the dataset contains n = 4697 simulated configurations on which a leakage-free, jointly stratified 10-fold cross-validation is performed, attaining mean squared error MSE = (1.12 ± 0.56)×10⁻⁴, normalized-MSE percentage NMSE% = 0.0294% ± 0.0147%, and R² = 0.9988. The corresponding per-sample percentage errors give an alpha-trimmed (α = 0.10) absolute percentage error (APE) of 1.66% and a median APE of 1.15%. Our model's inference is several orders of magnitude faster than the underlying Monte Carlo simulation (sub-millisecond per query vs. several hours for the reference run) with effective accuracy in predicting I(t)/I₀.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.28709",
@@ -82,8 +82,8 @@
   },
   {
     "title": "A machine learning closure for polymer integral equation theory",
-    "title_zh": "文献研究：A machine learning closure for polymer integral equation theory",
-    "summary": "Polymer reference interaction site model (PRISM) theory, a descendant of Ornstein–Zernike liquid state theory, is a powerful tool to predict the structure and thermodynamics of equilibrium polymer sys…",
+    "title_zh": "聚合物积分方程理论的机器学习闭包",
+    "summary": "聚合物参考相互作用位点模型（PRISM）理论是 Ornstein-Zernike 液态理论的后代，是预测平衡聚合物体系的结构和热力学的有力工具，但其准确性和适用性在某些重要情况下可能受到限制。通常，这些缺点可以追溯到用于求解积分方程的解析闭包关系。在这里，我们提出了一种基于机器学习（ML）的闭合关系，在均聚物熔体和溶液的粗粒度分子动力学模拟数据集上进行训练。",
     "abstract": "Polymer reference interaction site model (PRISM) theory, a descendant of Ornstein–Zernike liquid state theory, is a powerful tool to predict the structure and thermodynamics of equilibrium polymer systems, but its accuracy and applicability can be limited in some important cases. Typically, these shortcomings are traced to the analytical closure relationships used to solve the integral equations. Here, we propose a machine learning (ML)-based closure relation trained on a dataset of coarse-grained molecular dynamics simulations of homopolymer melts and solutions. PRISM theory with the ML closure outperforms traditional atomic closures (e.g., Percus–Yevick) in predicting the structure of typical coarse-grained model systems. We also use the ML closure to accurately model the results of small-angle neutron scattering experiments. This ML-enhanced PRISM theory can, therefore, enable rapid soft materials discovery and design efforts.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/16/164904/3407112/A-machine-learning-closure-for-polymer-integral",
@@ -100,8 +100,8 @@
   },
   {
     "title": "Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry",
-    "title_zh": "文献研究：Mamba Quantum Eigensolver (MQE): A Selective State Space Model for Scalable Ground State Simulations in Quantum Chemistry",
-    "summary": "Predicting molecular electronic structure using Quantum Computing approaches is a challenge in Computational Chemistry. Traditional Variational Quantum Eigensolvers (VQEs) are typically hindered by op…",
+    "title_zh": "Mamba 量子本征求解器 (MQE)：用于量子化学中可扩展基态模拟的选择性状态空间模型",
+    "summary": "使用量子计算方法预测分子电子结构是计算化学中的一个挑战。传统的变分量子本征求解器 (VQE) 通常会受到优化挑战的阻碍。另一种生成量子本征解算器 (GQE) 通过将基态搜索重新表述为离散序列生成来缓解这一问题，但其 Transformer 主干网络面临着二次计算复杂性的问题，成为较大分子的可扩展性的瓶颈。",
     "abstract": "arXiv:2610.29779v1 Announce Type: new Abstract: Predicting molecular electronic structure using Quantum Computing approaches is a challenge in Computational Chemistry. Traditional Variational Quantum Eigensolvers (VQEs) are typically hindered by optimization challenges. The alternative Generative Quantum Eigensolver (GQE) mitigates this by reformulating ground-state search as discrete sequence generation, but its Transformer backbone suffers from quadratic computational complexity, bottlenecking scalability for larger molecules. To address this, we introduce the Mamba Quantum Eigensolver (Mamba-QE), which replaces the Transformer with a Selective State Space Model (SSM) to process operator sequences with linear O(L) complexity. Additionally, we integrate a distance-conditioned mechanism enabling the direct prediction of complete potential energy surfaces (PES). Evaluated on the H₂ molecule, Mamba-QE reproduces Full Configuration Interaction (FCI) reference energies well within chemical accuracy, achieving an energy error below 3×10⁻⁶ Ha across 16 geometries with zero variational violations. Mamba-QE maintains high expressive power while establishing a robust, scalable foundation for quantum simulations of complex molecular systems.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.29779",
@@ -109,17 +109,26 @@
   },
   {
     "title": "macroqc 2.0: An electronic structure theory software for large-scale applications",
-    "title_zh": "文献研究：macroqc 2.0: An electronic structure theory software for large-scale applications",
-    "summary": "macroqc is a quantum chemistry software package designed for high-accuracy electronic structure computations and large-scale molecular simulations. The macroqc framework provides efficient implementat…",
+    "title_zh": "Macroqc 2.0：适合大规模应用的电子结构理论软件",
+    "summary": "Macroqc 是一款量子化学软件包，专为高精度电子结构计算和大规模分子模拟而设计。 Macroqc 框架为各种多体微扰理论和耦合簇 (CC) 方法提供了能量和解析梯度的高效实现。特别是，二阶 Møller-Plesset 微扰理论 (MP2)、耦合簇单簇和双簇 (CCSD) 以及带有微扰三元组的 CCSD [CCSD(T)] 的解析梯度实现表现出出色的计算性能，即使与已建立的商业量子化学程序相比也是如此。",
     "abstract": "macroqc is a quantum chemistry software package designed for high-accuracy electronic structure computations and large-scale molecular simulations. The macroqc framework provides efficient implementations of energies and analytic gradients for a wide range of many-body perturbation theory and coupled-cluster (CC) methods. In particular, the analytic gradient implementations of second-order Møller–Plesset perturbation theory (MP2), coupled-cluster singles and doubles (CCSD), and CCSD with perturbative triples [CCSD(T)] exhibit excellent computational performance, even in comparison with established commercial quantum chemistry programs. In addition to conventional correlated methods, macroqc incorporates several advanced capabilities, including molecular fragmentation techniques for ground and excited state molecular systems and density-fitted analytic gradients. The software also supports interoperability with selected external packages through a flexible plugin framework, allowing developers to construct customized interfaces and extensions. The notable features of macroqc are the linear-scaling systematic molecular fragmentation (LSSMF) and the cluster-in-molecule (CIM) approaches, which enable the application of high-level post-Hartree–Fock approaches to large molecular systems that would otherwise be computationally prohibitive. Furthermore, the new machine learning (ML) library enables the integration of data-driven approaches into quantum chemical workflows, providing efficient tools for developing and applying ML-based models for molecular property prediction and electronic structure computations. With its combination of efficient implementations, advanced theoretical methods, and extensible design, macroqc is expected to serve as a useful platform for a broad range of computational chemistry applications.",
     "category": "AI×物理",
     "link": "https://pubs.aip.org/aip/jcp/article/165/16/162501/3407139/macroqc-2-0-An-electronic-structure-theory",
     "journal": "The Journal of Chemical Physics Current Issue"
   },
   {
+    "title": "Symmetry-Based Parameter Efficient Low-Rank Fine-Tuning for High-Throughput Calculation of Lattice Thermal Conductivity",
+    "title_zh": "基于对称性的参数高效低阶微调，用于晶格热导率的高通量计算",
+    "summary": "准确有效地预测晶格热导率 (LTC) 对于开发热电、微电子和光伏应用材料至关重要。在这里，我们提出了一种在具有共同晶体对称性的化合物的大型数据集中高通量计算 LTC 的方法。我们的方法将 MatterSim 1M 通用机器学习原子间势的微调与基于玻尔兹曼输运方程解的 LTC 计算相结合。我们引入了一种基于低秩自适应的基于对称性的小样本微调策略（SBFS-FT）。在这种方法中，MatterSim 1M 对一小部分精心挑选的具有共同晶体对称性的化合物进行微调。",
+    "abstract": "arXiv:2610.29634v1 Announce Type: new Abstract: Accurate and efficient prediction of lattice thermal conductivity (LTC) is essential for developing materials for thermoelectric, microelectronic, and photovoltaic applications. Here, we present a methodology for high-throughput calculation of LTC across large datasets of compounds sharing a common crystal symmetry. Our approach combines fine-tuning of the MatterSim 1M universal machine-learned interatomic potential with LTC calculations based on the solution of the Boltzmann transport equation. We introduce a symmetry-based few-shot fine-tuning strategy (SBFS-FT) based on low-rank adaptation. In this approach, MatterSim 1M is fine-tuned on a small, carefully selected set of compounds that share a common crystal symmetry. The resulting potential is then applicable for accurate LTC calculations for compounds with this crystal symmetry, even if they were not included in the fine-tuning set. We tested our methodology on datasets of half-Heusler compounds (space group 216), materials with space group 225, and spinels (space group 227). We demonstrated that LTC calculations with MatterSim 1M fine-tuned using SBFS-FT exhibited a mean absolute relative difference from the reference results (obtained using moment tensor potentials and polyMLPs) 2-3 times smaller than that achieved with the non-fine-tuned MatterSim 1M potential. Moreover, the accuracy of LTC calculations with MatterSim 1M after SBFS-FT was comparable to that achieved using the MatterSim 1M potentials individually fine-tuned for each compound. Importantly, SBFS-FT enabled generation of the potential suitable for accurate LTC calculations across large compound datasets substantially faster than fine-tuning of MatterSim 1M for each compound individually, reducing the computational time by approximately a factor of 5-7 for a dataset of 100 compounds.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.29634",
+    "journal": "arXiv"
+  },
+  {
     "title": "Introducing Vmol software: A highly parallelized multi-purpose DFT program based on real-space grid formalism",
-    "title_zh": "文献研究：Introducing Vmol software: A highly parallelized multi-purpose DFT program based on real-space grid formalism",
-    "summary": "We present a review of “Vmol,” a highly parallelized, multi-purpose density functional theory (DFT) software based on a real-space grid formalism. By utilizing higher-order finite difference methods a…",
+    "title_zh": "Vmol 软件简介：基于实空间网格形式的高度并行化多用途 DFT 程序",
+    "summary": "我们对“Vmol”进行了回顾，这是一种基于真实空间网格形式的高度并行、多用途密度泛函理论 (DFT) 软件。通过利用高阶有限差分方法和非局部赝势，“Vmol”可作为 Kohn-Sham DFT 计算的通用且计算稳健的平台。凭借混合并行实现（消息传递接口/OpenMP），它可以在集成许多处理器的大规模并行计算机上提供高性能。",
     "abstract": "We present a review of “Vmol,” a highly parallelized, multi-purpose density functional theory (DFT) software based on a real-space grid formalism. By utilizing higher-order finite difference methods and nonlocal pseudopotentials, “Vmol” serves as a versatile and computationally robust platform for Kohn–Sham DFT calculations. By virtue of the hybrid parallel implementation (message passing interface/OpenMP), it delivers high performance on massively parallel computers integrating many processors. In the development of these several decades, “Vmol” offered marked adaptability as an electronic structure program to various extensions, such as the hybrid Quantum Mechanical (QM)/Molecular Mechanical (MM) approach and its combination with a theory of solutions (QM/MM-energy representation) based on statistical mechanics. We provide brief reviews of these methods as well as the important results obtained by their applications. “Vmol” was also utilized to implement kinetic energy and static correlation functionals formulated within the novel framework of DFT. The outline of the method will also be reviewed.",
     "category": "软物质·流体·统计",
     "link": "https://pubs.aip.org/aip/jcp/article/165/16/164110/3407122/Introducing-Vmol-software-A-highly-parallelized",
@@ -127,8 +136,8 @@
   },
   {
     "title": "Orbitol: Crystal Generation on Wyckoff Orbits",
-    "title_zh": "文献研究：Orbitol: Crystal Generation on Wyckoff Orbits",
-    "summary": "Generative models propose crystalline materials by learning composition and geometry, but unconditional sampling gives no direct control over the space group, which constrains whether responses such a…",
+    "title_zh": "Orbitol：威科夫轨道上的晶体生成",
+    "summary": "生成模型通过学习成分和几何形状来提出晶体材料，但无条件采样无法直接控制空间群，这限制了压电等响应是否允许对称。我们推出了 Orbitol，一种基于 Crystalite 扩散变压器构建的晶体生成器，用威科夫轨道令牌取代了原子令牌。给定一个空间群和占据威科夫位置的集合，Orbitol 会生成每个轨道的原子类型和自由坐标以及兼容的晶格，因此每个有效结构在所请求的群的操作下都是不变的。在评估的设置下，它生成结构的速度比对称感知基线快两到三个数量级。",
     "abstract": "arXiv:2610.30086v1 Announce Type: new Abstract: Generative models propose crystalline materials by learning composition and geometry, but unconditional sampling gives no direct control over the space group, which constrains whether responses such as piezoelectricity are symmetry-allowed. We present Orbitol, a crystal generator built on the Crystalite diffusion Transformer that replaces atom tokens with Wyckoff-orbit tokens. Given a space group and a collection of occupied Wyckoff positions, Orbitol generates the atom type and free coordinates of each orbit together with a compatible lattice, so every valid structure is invariant under the operations of the requested group. It generates structures two to three orders of magnitude faster than the symmetry-aware baselines at the evaluated settings. On MP-20, 13.8% of Orbitol's attempts yielded stable or metastable, unique and novel structures that retained the requested space group after relaxation, compared with 10.8% for SGFM, the next best model. We also introduce SPARC, a score that combines retention of the raw detected space group with agreement between the retained-group and training distributions. Finally, we used Orbitol to generate candidates in piezoelectric crystal classes. Of the structures selected by internal screening, 89% passed our density functional theory checks, and 79% also matched no Materials Project or Alexandria entry with the same space group. Their median figure of merit was nine times that of the piezoelectric materials computed in the Materials Project, and 24% of the new candidates ranked in that set's top 10%.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.30086",
@@ -136,8 +145,8 @@
   },
   {
     "title": "The effect of electrocatalyst roughness and morphology on selectivity due to mass transport",
-    "title_zh": "文献研究：The effect of electrocatalyst roughness and morphology on selectivity due to mass transport",
-    "summary": "Mass transport can significantly affect electrocatalytic selectivity as surface-bound reaction intermediates are exchanged between the electrode and bulk electrolyte. The underlying desorption–re-adso…",
+    "title_zh": "电催化剂粗糙度和形态对传质选择性的影响",
+    "summary": "当表面结合的反应中间体在电极和本体电解质之间交换时，质量传递可以显着影响电催化选择性。潜在的解吸-再吸附-反应机制允许中间体作为部分转化的产物逸出表面或重新吸附以继续转化，但目前尚不清楚催化剂形态如何影响这种竞争。在这里，我们重点关注电催化剂表面形态的作用及其在传输耦合动力学模型中的有效表示。",
     "abstract": "Mass transport can significantly affect electrocatalytic selectivity as surface-bound reaction intermediates are exchanged between the electrode and bulk electrolyte. The underlying desorption–re-adsorption–reaction mechanism allows an intermediate to escape the surface as a partially converted product or re-adsorb for continued conversion, but it is still not clear how the catalyst morphology affects this competition. Here, we focus on the role of the electrocatalyst surface morphology and its effective representation in transport-coupled kinetic models. Using CO selectivity during CO 2 reduction on copper as a model system, we compare predictions from a 1D diffusion model, where surface roughness serves as a single morphological descriptor, against a more advanced 3D diffusion model that explicitly resolves the full catalyst geometry. We analyze the results in terms of overlapping diffusion spheres between neighboring catalyst particles and find that the two models largely agree across the experimentally relevant parameter space due to a simple disparity in length scales. As diffusion occurs on a ∼μm scale, spatially resolved features of typical nm-sized catalyst particles are inconsequential. Surface roughness thus emerges as a surprisingly robust descriptor of electrocatalytic selectivity within the desorption–re-adsorption–reaction mechanism.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/16/164704/3407136/The-effect-of-electrocatalyst-roughness-and",
@@ -153,30 +162,21 @@
     "journal": "arXiv"
   },
   {
+    "title": "Ab Initio Approach for Quantum Magnets with Coupled Cluster and Transcorrelation",
+    "title_zh": "具有耦合簇和互相关的量子磁体从头算方法",
+    "summary": "最近邻交换耦合 J₁ 是用于理解实际材料中的磁性的哈密顿量模型的最简单成分。然而，它的从头确定需要高水平的相关处理和波函数展开的大量基础。在这里，我们使用嵌入式簇方法计算了五个氧桥自旋 1/2 量子磁体（Sr2CuO3、La2CuO4、NdNiO2、ZnCu3(OH)6Cl2 和 Li2CuO2）的 J₁，桥接角从 180^circ 到 94^circ，以及从反铁磁耦合到铁磁耦合的交叉。",
+    "abstract": "arXiv:2610.29324v1 Announce Type: new Abstract: The nearest-neighbour exchange coupling J₁ is the simplest ingredient of model Hamiltonians used to understand magnetism in real materials. Nevertheless, its ab initio determination requires a high-level correlation treatment and a large basis for wave function expansion. Here we compute J₁ for five oxygen-bridged spin-1/2 quantum magnets --- Sr₂CuO₃, La₂CuO₄, NdNiO₂, ZnCu₃(OH)₆Cl₂, and Li₂CuO₂ --- spanning bridging angles from 180^circ to 94^circ and the crossover from antiferromagnetic to ferromagnetic coupling, using embedded-cluster methodology. To describe the open-shell singlets we use 2-determinant coupled cluster with single and double excitations, which recovers the orbital-breathing enhancement of superexchange from a minimal reference. Basis-set errors are found to be large: extrapolation to the complete basis-set (CBS) limit shifts J₁ by up to 50 meV from bases of double-ζ quality. Transcorrelated Hamiltonians reproduce the CBS estimates with modest basis set sizes, yielding an excellent accuracy against experiment at highly affordable cost. These results are the first application of transcorrelated methods in strongly correlated solid-state systems, and establish transcorrelation as a powerful theory in computational research of materials.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.29324",
+    "journal": "arXiv"
+  },
+  {
     "title": "Characterizing universal topological phases beyond spatial embedding",
     "title_zh": "表征空间嵌入之外的通用拓扑相位",
     "summary": "尽管汉密尔顿定律支配波-物质相互作用，但物质拓扑相位的传统表征需要的不仅仅是汉密尔顿定律，它依赖于在闭逆空间流形上定义的全局不变量或与位置算子的局部换向关系。这种空间依赖性排除了在抽象平台上对拓扑相位的独特表征，其哈密顿量可以独立于其空间嵌入进行定义。在这里，我们建立了一个表征通用拓扑相位的框架，其基础是任意汉密尔顿保留变形下拓扑特征的不变性。我们构造了一个基于汉密尔顿的空间嵌入，根据系统的连通性对系统的成分进行分组。",
     "abstract": "arXiv:2610.29022v1 Announce Type: new Abstract: Although Hamiltonians govern wave-matter interactions, conventional characterizations of topological phases of matter require more than the Hamiltonian alone, relying on global invariants defined on closed reciprocal-space manifolds or local commutation relations with position operators. This spatial dependence precludes a unique characterization of topological phases on an abstract platform, whose Hamiltonian can be defined independently of its spatial embedding. Here we establish a framework for characterizing universal topological phases, grounded in the invariance of topological features under arbitrary Hamiltonian-preserving deformations. We construct a Hamiltonian-based spatial embedding that groups a system's constituents according to their connectivity. This embedding, which reproduces the results of conventional topological diagnostics in established systems, enables a coherent extension of topological phases to complex networks using the Hamiltonian alone, further highlighting exceptional robustness in small-world networks. Our results reshape the conceptual foundations of topological physics by decoupling topological characterization from prescribed physical platforms.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.29022",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Charge Density Wave transient states induced by ultrashort hard X-ray pulses",
-    "title_zh": "文献研究：Charge Density Wave transient states induced by ultrashort hard X-ray pulses",
-    "summary": "The interaction of quantum systems with ultrashort laser pulses may lead to transient states far from equilibrium. Among these, Charge Density Wave (CDW) systems offer very rich non-equilibrium physic…",
-    "abstract": "arXiv:2610.29860v1 Announce Type: new Abstract: The interaction of quantum systems with ultrashort laser pulses may lead to transient states far from equilibrium. Among these, Charge Density Wave (CDW) systems offer very rich non-equilibrium physics when submitted to ultrashort optical excitations in the infrared regime. In this Letter, we show that CDW systems pumped by ultrashort x-ray pulses excite the system in very different way. The x-ray pump, 6000 times more energetic than a laser pulse, pumping and probing the whole bulk system simultaneously, drives CDW systems in a novel reversible out of equilibrium state. The successive CDW states observed in the NbSe₃ system with respect to the arrival of x-ray pulses follow a non-thermal kinetic path. It is characterized by a change in 2k_F wavevector, correlation lengths and electronic gap, as well as a change of dimensionality, all of this takes place within a very long recovery time ranging from 450ns to 0.01s. Several scenarios are proposed, including transient nucleation and recombination of charged topological objects.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2610.29860",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Spatiotemporal spin transport from first principles",
-    "title_zh": "从第一原理出发的时空自旋输运",
-    "summary": "操纵量子信息和自旋电子器件的自旋需要对长时间和长度尺度上的量子输运进行定量预测。我们在维格纳函数形式中引入了第一原理密度矩阵量子输运的计算框架，该框架促进了自旋动力学和输运模拟，同时考虑了器件长度尺度上的电子声子散射。这使我们能够阐明现实的自旋轨道场（例如 Rashba 和持久自旋螺旋）对几种材料中相干自旋输运的影响，以及随着电子声子散射强度的增加而向非相干输运的转变。",
-    "abstract": "arXiv:2505.07745v2 Announce Type: replace Abstract: Manipulating spin for quantum information and spintronic devices requires quantitative prediction of quantum transport over long time and length scales. We introduce a computational framework for first-principles density-matrix quantum transport within the Wigner function formalism that facilitates spin dynamics and transport simulations, while accounting for electron-phonon scattering at device length scales. This allows us to elucidate the impact of realistic spin-orbit fields, such as Rashba and persistent spin helix, on coherent spin transport in several materials, as well as the transition to incoherent transport with increasing strength of electron-phonon scattering. We identify three distinct regimes of incoherent spin transport corresponding to the free induction decay, Dyakonov-Perel and Elliott-Yafet regimes of spin relaxation, and find a scattering-strength-independent spin diffusion length within the Dyakonov-Perel regime. With applied magnetic fields, spin transport in this regime is sensitive to scattering strength and leads to asymmetric Hanle curves that probe the internal spin-orbit field of the material.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2505.07745",
     "journal": "arXiv"
   }
 ]
