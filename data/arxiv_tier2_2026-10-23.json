@@ -36,6 +36,15 @@
     "journal": "Wiley: Advanced Science: Table of Contents"
   },
   {
+    "title": "Physics-aware neural networks enable robust and full atomic structure determination via low-dose atomic electron tomography",
+    "title_zh": "物理感知神经网络通过低剂量原子电子断层扫描实现稳健且完整的原子结构测定",
+    "summary": "物理感知神经网络通过低剂量原子电子断层扫描实现稳健且完整的原子结构测定",
+    "abstract": "npj Computational Materials, Published online: 23 October 2026; doi:10.1038/s41524-026-02363-9 Physics-aware neural networks enable robust and full atomic structure determination via low-dose atomic electron tomography",
+    "category": "AI×物理",
+    "link": "https://www.nature.com/articles/s41524-026-02363-9",
+    "journal": "npj Computational Materials"
+  },
+  {
     "title": "Efficient thermal and mechanical property prediction of highly filled bimodal particle-reinforced polymer composites using a modified embedded-element method and machine learning",
     "title_zh": "使用改进的嵌入式元件方法和机器学习对高填充双峰颗粒增强聚合物复合材料进行有效的热学和力学性能预测",
     "summary": "出版日期： 2026年10月25日来源：《计算材料科学》第275卷作者：刘强、周鼎义、王志强、吴志涵、段克、张建伟、何永柳",
@@ -46,8 +55,8 @@
   },
   {
     "title": "PYTHIA, a transferable machine learning framework for simultaneous defect and adsorption site optimization",
-    "title_zh": "文献研究：PYTHIA, a transferable machine learning framework for simultaneous defect and adsorption site optimization",
-    "summary": "Machine learning has permeated material optimization, providing high value. Nevertheless, its re- liance on a high number of samples limits its applicability to relatively explored material families.…",
+    "title_zh": "PYTHIA，一种可迁移的机器学习框架，用于同时优化缺陷和吸附位点",
+    "summary": "机器学习已经渗透到材料优化中，提供了高价值。然而，它对大量样本的依赖限制了它对相对探索的材料族的适用性。在本文中，我们通过 PYTHIA（概率可转移分层交互架构）框架将机器学习的适用性扩展到新颖和待研究的材料。 Pythia 利用两个最强大的机器学习概念：基础模型和迁移学习。我们采用一个复杂的基础模型，在化学相似分子的大型数据集上进行训练，其目标在物理上接近我们的预测目标。然后，我们冻结权重并使用变换器层执行子空间对齐，并使用高斯过程添加不确定性量化。",
     "abstract": "arXiv:2610.31539v1 Announce Type: new Abstract: Machine learning has permeated material optimization, providing high value. Nevertheless, its re- liance on a high number of samples limits its applicability to relatively explored material families. In this paper we extend the applicability of machine learning to novel and understudied materials through the PYTHIA (Probabilistic Yet Transferable Hierarchical Interaction Architecture) framework. Pythia utilizes two of the most powerful machine learning concepts, foundational models and transfer learning. We employ a complex foundational model trained on a large dataset of chemically similar molecules, on a target that is physically close to our prediction target. Then, we freeze the weights and perform subspace alignment with the use of a transformer layer and add uncertainty quantification with gaussian processes. These two layers can be trained on a limited dataset yet allow us to leverage the gained knowl- edge and the studied materials and complex architectures. The resulting model is used as a surrogate for a Bayesian Optimization scheme. To showcase the robustness of the framework, we applied it to the investigation of adsorption and defect optimization of two distinct systems. Not only were we able to correctly and efficiently identify the optimal adsorption sites of even complex a",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2610.31539",
@@ -91,8 +100,8 @@
   },
   {
     "title": "Charge Density Waves and In-Gap States in Coupled Chains and Moiré Superlattices",
-    "title_zh": "文献研究：Charge Density Waves and In-Gap States in Coupled Chains and Moiré Superlattices",
-    "summary": "Charge density waves (CDWs) arise from the interplay between electrons and lattice distortions and are a hallmark of low-dimensional systems. Here we study coupled Su-Schrieffer-Heeger chains, both la…",
+    "title_zh": "耦合链和莫尔超晶格中的电荷密度波和带隙态",
+    "summary": "电荷密度波 (CDW) 由电子和晶格畸变之间的相互作用产生，是低维系统的标志。 Here we study coupled Su-Schrieffer-Heeger chains, both lattice-matched ladders and lattice-mismatched moiré superlattices, and find a rich set of CDW phases together with symmetry-protected bound sta…",
     "abstract": "arXiv:2610.30281v1 Announce Type: new Abstract: Charge density waves (CDWs) arise from the interplay between electrons and lattice distortions and are a hallmark of low-dimensional systems. Here we study coupled Su-Schrieffer-Heeger chains, both lattice-matched ladders and lattice-mismatched moiré superlattices, and find a rich set of CDW phases together with symmetry-protected bound states. In lattice-matched chains, the competition between electron-phonon coupling and interchain tunneling drives a sequence of CDW phases, including staggered dimers, trimers, and incommensurate states. These phases are generally gapped and host bound states protected by crystalline symmetries rather than chiral symmetry, and are therefore not pinned to zero energy. Lattice mismatch further reconstructs these phases into long-period supermoiré CDWs, with an ordered array of defects, pinned to the moiré length scale, that host localized electronic states. Interchain tunneling and lattice mismatch thus emerge as natural control parameters for CDW order and bound states in one-dimensional chains.",
     "category": "其他凝聚态",
     "link": "https://arxiv.org/abs/2610.30281",
@@ -109,12 +118,21 @@
   },
   {
     "title": "Fixed-Dimensional Latent Flow for Generating Variable-Size 3D Molecules",
-    "title_zh": "文献研究：Fixed-Dimensional Latent Flow for Generating Variable-Size 3D Molecules",
-    "summary": "Molecular size is intrinsically linked to composition, structure, and properties, but most 3D molecular generators treat size as a predefined input rather than a quantity to be generated. We introduce…",
+    "title_zh": "用于生成可变尺寸 3D 分子的固定维度潜流",
+    "summary": "分子尺寸本质上与组成、结构和性质相关，但大多数 3D 分子生成器将尺寸视为预定义的输入，而不是要生成的数量。我们引入了无等变变压器自动编码潜在流匹配，这是一个两阶段框架，它使用流匹配对固定维潜在向量进行采样，并采用自回归变压器来确定分子大小、原子类型、坐标和化学属性。规范原子排序和刚性姿势对齐使 Transformer 无需等变层，而解码属性则指导键重建。",
     "abstract": "arXiv:2609.08333v4 Announce Type: replace Abstract: Molecular size is intrinsically linked to composition, structure, and properties, but most 3D molecular generators treat size as a predefined input rather than a quantity to be generated. We introduce Equivariant-Free Transformer-Autoencoded Latent Flow Matching, a two-stage framework that samples a fixed-dimensional latent vector using flow matching and employs an autoregressive Transformer to determine molecular size, atom types, coordinates, and chemical attributes. Canonical atom ordering and rigid-pose alignment enable Transformers without equivariant layers, while decoded attributes guide bond reconstruction. On PCQM4Mv2, unconditional generation yields 87.9% unique and novel molecules passing sanitization and PoseBusters checks, exceeding baselines with lower end-to-end training and sampling time and higher end-to-end throughput. Across ten target HOMO-LUMO gaps, internal ranking retains 30% of the screened candidates and increases the density functional theory-verified hit rate within 0.1 eV of the target from 25.0% to 52.4%, while largely preserving novelty and diversity. These results demonstrate fixed-dimensional latent generation with autoregressive decoding as a practical approach to molecular design without prespecifying size.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2609.08333",
     "journal": "arXiv"
+  },
+  {
+    "title": "Accurate vector magnetometer via Zeeman Rabi oscillations",
+    "title_zh": "通过塞曼拉比振荡精确矢量磁力计",
+    "summary": "作者：T. S. Menon、D. P. Hewatt、C. Kiehl、M. Ellmeier、S. Knappe 和 C. A. Regal 磁场方向的精确测量对于从磁导航到空间科学的各种应用至关重要，但利用紧凑型光泵磁力计 (OPM) 实现高角度精度仍然具有挑战性。作者展示了一种基于微型铷蒸气池中射频驱动的塞曼拉比振荡的矢量 OPM。通过将校准的射频场与基于 Floquet 的原子模型相结合，他们使用单光轴实现了平均角度精度为 80 μrad 的无死区矢量测量。",
+    "abstract": "Author(s): T. S. Menon, D. P. Hewatt, C. Kiehl, M. Ellmeier, S. Knappe, and C. A. Regal Accurate measurements of magnetic field direction are essential for applications ranging from magnetic navigation to space science, yet achieving high angular accuracy with compact optically pumped magnetometers (OPMs) remains challenging. The authors demonstrate a vector OPM based on radio-frequency-driven Zeeman Rabi oscillations in a microfabricated rubidium vapor cell. By combining calibrated radio-frequency fields with a Floquet-based atomic model, they achieve dead-zone-free vector measurements with a mean angular accuracy of 80 μrad using a single optical axis. This is a promising route toward compact, high-accuracy OPMs that can be integrated into existing architectures. [Phys. Rev. Applied 26, 044073] Published Fri Oct 23, 2026",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/ll3s-5fq9",
+    "journal": "Phys. Rev. Applied"
   },
   {
     "title": "Exact few-magnon Bethe scars of the non-integrable alternating Heisenberg chain",
@@ -159,24 +177,6 @@
     "abstract": "arXiv:2610.31184v1 Announce Type: new Abstract: Local polar distortions, their collective ordering, and their field-driven reversal have been studied extensively in ferroelectric perovskites for decades. Here we identify an unusual behavior in the ferroelectric halide perovskite CsGeBr3 using large-scale molecular dynamics with first-principles-trained interatomic potentials. In its nominally cubic phase the Ge off-centering forms one-dimensional polar chains that extend over at least tens of nanometers and relax on nanosecond timescales, four orders of magnitude slower than in BaTiO3 and PbTiO3, with CsSnBr3 in between. The cubic CsGeBr3 phase is a dynamically disordered state in which oppositely polarized chains flip throughout the crystal, and a long-lived one-dimensional local polarization coexists with zero net polarization. A simple three-dimensional perovskite thus hosts long-ranged one-dimensional polar correlations with remarkably slow dynamics. In the ferroelectric phase the same chains set a one-dimensional switching mechanism, in which the polarization reverses chain by chain.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2610.31184",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Anyon Chern bands of opposite sign and reversed drift",
-    "title_zh": "具有相反符号和反向漂移的任何陈省身带",
-    "summary": "分数量子霍尔态的基本带电激发是任意子。如果没有连续的平移对称性，它们就会获得分散性和更丰富的动态。我们研究了周期性调制磁场中填充 1/3 时的劳克林准空穴，这是二维材料中分数陈绝缘体的常见模型。从微观波函数中，我们推导出其引导中心坐标的换向器，该坐标由控制其波包的多体贝里曲率设置。每个晶胞有两个通量量子的调制将准空穴带分成陈数为 6 和 -3 的带；只要弱调制在任意子带之间打开间隙，这种相反的符号就是通用的。",
-    "abstract": "arXiv:2610.30743v1 Announce Type: new Abstract: The elementary charged excitations of fractional quantum Hall states are anyons. Without continuous translation symmetry, they acquire a dispersion and richer dynamics. We study the Laughlin quasihole at filling 1/3 in a periodically modulated magnetic field, a common model of fractional Chern insulators in two-dimensional materials. From the microscopic wave functions, we derive the commutator of its guiding-center coordinates, set by a many-body Berry curvature that governs its wave packets. A modulation with two flux quanta per unit cell splits the quasihole band into bands with Chern numbers 6 and -3; such opposite signs are generic as long as a weak modulation opens a gap between the anyon bands. In the C=-3 band, the quasihole drifts against EtimesB, although the magnetic field has the same sign everywhere. Perturbation theory in the modulation explains these results, and large-scale Monte Carlo calculations confirm them. Anyon bands thus acquire their own topology, which controls anyon motion and may shape the phases of itinerant anyons.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2610.30743",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Nonlinear Canonical Transformations for Studying Spin-1/2 Hamiltonians",
-    "title_zh": "用于研究自旋 1/2 哈密顿量的非线性正则变换",
-    "summary": "强相关的量子系统，包括受挫自旋晶格，对于传统的耦合簇方法来说仍然具有挑战性，因为它们的基态通常表现出强烈的多参考特征和对称性破缺。尽管多参考和对称投影耦合簇理论很有前景，但它们还不是黑盒方法，需要针对特定系统进行开发。 XXZ 和 J1-J2 旋转模型提供了严格的基准。基于自旋 BCS 的耦合簇方法可能需要高激发等级才能恢复强相关状态下的精确基态物理。",
-    "abstract": "arXiv:2610.30403v1 Announce Type: new Abstract: Strongly correlated quantum systems, including frustrated spin lattices, remain challenging for conventional coupled-cluster methods because their ground states often exhibit strong multireference character and symmetry breaking. Although multireference and symmetry-projected coupled-cluster theories are promising, they are not yet black-box methods and require system-specific development. The XXZ and J₁-J₂ spin models provide demanding benchmarks. Spin-BCS-based coupled-cluster methods may require high excitation ranks to recover the exact ground-state physics in strongly correlated regimes. We introduce a nonlinear spin-fermion-spin (SFS) transformation designed to map a strongly correlated spin Hamiltonian into a new spin Hamiltonian whose ground state is more accurately described at the mean-field level. For a representative SFS transformation, we identify a compact Clifford circuit that maps transformed product states to circuit-dressed, generally entangled states in the original representation. The transformed Hamiltonian can then be treated using broken-symmetry mean-field theory and post-mean-field methods. Benchmarks for the XXZ and J₁-J₂ Hamiltonians show that spin mean-field theory in the transformed representation reduces the energy error relative to conventional spin-BCS mean field. The spin-BCS-based coupled-cluster calculations for the one-dimensional XXZ model provide substantially improved accuracy relative to the corresponding untransformed methods. In 2D, the accuracy of the transformed mean-field solutions depends on the site ordering and boundary conditions, as nonlocal strings can appear. These results show that exact transformations of operator representations can serve as many-body preconditioners for mean-field and low-rank coupled-cluster approximations to strongly correlated spin systems.",
-    "category": "超导",
-    "link": "https://arxiv.org/abs/2610.30403",
     "journal": "arXiv"
   }
 ]
