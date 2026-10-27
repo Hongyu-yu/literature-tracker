@@ -1,0 +1,182 @@
+[
+  {
+    "title": "A thermodynamic correction layer for machine learning interatomic potentials",
+    "title_zh": "用于机器学习原子间势的热力学校正层",
+    "summary": "机器学习原子间势能够在大长度和时间尺度上以接近从头开始的精度进行原子模拟。基础模型将这种能力扩展到整个元素周期表，但继承了用于生成训练数据的电子结构方法的热力学描述。因此，相对相位稳定性的小误差可能会导致转变温度的大误差。我们引入了附加热力学校正层，该层可将相自由能移向评估参考，而无需重新训练或修改基础电势。一阶热力学结构将所需的相自由能位移直接转换为构型能量目标，该目标使用线性原子团簇展开进行拟合，并根据测量的自由能迭代细化。",
+    "abstract": "arXiv:2610.34551v1 Announce Type: new Abstract: Machine learning interatomic potentials enable atomistic simulations with near ab initio accuracy over large length and time scales. Foundation models extend this capability across the periodic table but inherit the thermodynamic description of the electronic structure methods used to generate their training data. Small errors in relative phase stability can therefore produce large errors in transformation temperatures. We introduce an additive thermodynamic correction layer that shifts phase free energies towards an assessed reference without retraining or modifying the base potential. A first order thermodynamic construction converts the required phase free energy shifts directly into configuration energy targets, which are fitted using a linear atomic cluster expansion and refined iteratively from measured free energies. We apply the method to melting and solid to solid transformations across elements with different crystal structures using a foundation GRACE model. After the correction, all transformation temperatures lie within the prescribed tolerance of the assessed values, including Ca, Ti, and Zr, where a solid to solid transition and melting are corrected together. Static energy curves, bulk moduli, and liquid structure remain close to those of the base model. Vacancy formation energies, thermal expansion, and liquid density depend on the corrected phase balance and change where the correction is large. The method requires neither retraining, differentiable dynamics, nor access to the parameters of the base potential. It provides a modular route for combining transferable atomistic models with assessed phase thermodynamics.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.34551",
+    "journal": "arXiv"
+  },
+  {
+    "title": "CrystalREPA: Transferring Physical Priors from Universal MLIPs to Crystal Generative Models",
+    "title_zh": "CrystalREPA：将物理先验从通用 MLIP 转移到 Crystal 生成模型",
+    "summary": "晶体生成模型主要学习稳定晶体的外观，很少明确监督它们稳定的原因。我们通过能量探测揭示了最先进的晶体生成模型与预训练的通用机器学习原子间势（MLIP）之间存在巨大的表征差距，并表明这种差距可以通过简单的训练时间对齐来弥补。",
+    "abstract": "arXiv:2605.08960v2 Announce Type: replace Abstract: Crystal generative models mainly learn what stable crystals look like, with little explicit supervision for what makes them stable. We reveal a substantial representation gap between state-of-the-art crystal generative models and pretrained universal machine learning interatomic potentials (MLIPs) via energy probing, and show this gap can be closed by a simple training-time alignment. We propose Crystal REPresentation Alignment (CrystalREPA), a plug-and-play framework that aligns the atom-wise hidden states of generative encoders with frozen MLIP representations through an element-aware contrastive objective, transferring stability-aware atomistic priors with marginal training overhead and no additional inference cost. Across three generative frameworks, ten MLIP teachers, and two benchmark datasets, CrystalREPA consistently improves the thermodynamic stability, structural validity, and structural fidelity of generated crystals. Equally important, we find that an MLIP's transfer effectiveness is poorly predicted by its accuracy on standard leaderboards (e.g., Matbench Discovery) but strongly predicted by the distinguishability of its atom-wise representation space, yielding a practical, accuracy-independent criterion for selecting MLIP teachers for generative transfer. Code is available at https://github.com/Chengqian-Zhang/CrystalREPA.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2605.08960",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Revealing the proton slingshot mechanism in solid acid electrolytes through machine learning molecular dynamics",
+    "title_zh": "通过机器学习分子动力学揭示固体酸性电解质中的质子弹弓机制",
+    "summary": "在固体酸性电解质 CsH2PO4 和 CsHSO4 中，快速质子传导的起源长期以来一直存在争议，归因于局部质子跳跃或聚阴离子旋转。然而，聚阴离子旋转的确切作用及其与质子跳跃的相互作用仍未解决。由等变神经网络力场驱动的纳秒级分子动力学模拟揭示了一种微妙的质子弹弓机制：质子首先由旋转的聚阴离子携带，随后进行 O-H 键重新取向，并且组合运动能够实现长程跳跃。该机制挑战了传统的旋转桨轮模型，揭示了长程传输是由仅有限的聚阴离子旋转辅助的显着的O-H键重新取向引起的。",
+    "abstract": "arXiv:2503.15389v2 Announce Type: replace Abstract: In solid acid electrolytes CsH₂PO₄ and CsHSO₄, the origin of fast proton conduction has long been debated, attributed either to local proton hopping or to polyanion rotation. However, the precise role of polyanion rotation and its interplay with proton hopping remained unresolved. Nanosecond-scale molecular dynamics simulations, driven by equivariant neural network force fields, reveal a nuanced proton slingshot mechanism: protons are first carried by rotating polyanions, followed by O-H bond reorientation, and the combined motion enables long-range jumps. This mechanism challenges the conventional revolving paddlewheel model, revealing long-range transport arises from significant O-H bond reorientation assisted by only limited polyanion rotation. Despite their structural similarity, CsH₂PO₄ and CsHSO₄ exhibit qualitatively different transport behavior, governed by their distinct proton concentrations. In CsH₂PO₄, two rotation rates with different activation energies emerge, while CsHSO₄ displays a single-rate process with faster productive polyanion dynamics. The higher proton concentration in CsH₂PO₄ frustrates PO₄ rotation, resulting in slower dynamics than for SO₄ in CsHSO₄. In CsH₂PO₄, we further identify a unique correlation between oxygen sharing and proton transport, arising from the extra proton per polyanion. Together, our findings establish a unified framework linking polyanion rotation, proton coordination, and long-range transport, and suggest that tuning proton concentration could accelerate rotation and enhance conductivity.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2503.15389",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Parity-equivariant prediction of conformer-resolved electronic circular dichroism spectra accelerates absolute configuration assignment",
+    "title_zh": "构象异构体分辨电子圆二色光谱的奇偶等变预测加速了绝对构型分配",
+    "summary": "电子圆二色性 (ECD) 是分配手性分子绝对构型的关键实验探针，但解释测量的光谱通常需要昂贵的时间相关密度泛函理论 (TDDFT) 计算。现有的几种用于 ECD 预测的机器学习方法速度更快，但其准确性仍然远远低于实验应用所需的水平。在这里，我们介绍 PhysECD，这是一种奇偶校验 E(3) 等变框架，它从其基础量子化学量构建光谱，通过构建确保正确的手性光学对称性。",
+    "abstract": "arXiv:2608.21892v2 Announce Type: replace Abstract: Electronic circular dichroism (ECD) is a key experimental probe for assigning the absolute configuration of chiral molecules, but interpreting measured spectra often requires costly time-dependent density functional theory (TDDFT) calculations. The few existing machine learning methods for ECD prediction are faster, but their accuracy still falls well short of that required for experimental applications. Here we introduce PhysECD, a parity-aware E(3)-equivariant framework that builds the spectrum from its underlying quantum-chemical quantities, ensuring correct chiroptical symmetry by construction. To improve generalization and support experimental applications, we construct SCECD, a conformer-resolved dataset of 578,104 computed spectra spanning diverse natural products with one to five stereocentres. PhysECD predicts ECD spectra from conformer geometries in milliseconds, achieving state-of-the-art accuracy on the CMCDS benchmark and SCECD. Validation against 77 experimental spectra further demonstrates that PhysECD can serve as a fast alternative to TDDFT for assigning the absolute configuration of complex chiral molecules.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2608.21892",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Autonomous atomistic-continuum coupling through uncertainty-aware active learning",
+    "title_zh": "通过不确定性感知主动学习实现自主原子连续耦合",
+    "summary": "我们开发了一种不确定性感知代理建模方法，用于将原子动力学蒙特卡罗（KMC）表面化学求解器与跨不同物理长度和时间尺度的连续多物种流体动力学求解器耦合。替代模型预测六种物质的边界质量通量及其不确定性，连续介质求解器会对其进行监控，以便在需要新的训练数据时自动触发额外的 KMC 模拟。这可以实现高效的多尺度耦合并保持用户指定的精度水平。我们演示了反应性卤化物-钙钛矿气相沉积方法，该方法涉及多物质蒸气射流撞击反应性基材。",
+    "abstract": "arXiv:2610.33272v1 Announce Type: cross Abstract: We develop an uncertainty-aware surrogate modeling approach for coupling an atomistic kinetic Monte Carlo (KMC) surface-chemistry solver with a continuum multi-species fluid dynamics solver across disparate physical length and time scales. The surrogate model predicts boundary mass fluxes for six species and their uncertainties, which the continuum solver monitors to automatically trigger additional KMC simulations when new training data are needed. This enables efficient multiscale coupling and maintains a user-specified level of accuracy. We demonstrate the approach for reactive halide-perovskite vapor deposition, which involves a multi-species vapor jet impinging on a reactive substrate. The KMC solver uses a DFT-calibrated energetics model that we construct as part of this work and provides net deposition and desorption rates for six species. With a conservative uncertainty threshold, the surrogate-coupled approach reproduces cumulative mass fluxes of the directly coupled approach with errors typically within 10-20%, while capturing the non-monotonic dependence of net deposition on species partial pressure. Importantly, the results show that detailed crystal structure need not be explicitly represented to predict quantities exchanged between atomistic and continuum solvers; species-resolved mass fluxes provide a sufficiently low-dimensional representation of the atomistic response. For this accuracy target, the autonomous online-learning approach reduces the number of required atomistic simulations by two to three orders of magnitude relative to direct multiscale coupling.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2610.33272",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Structure–reactivity relationships in IBX-mediated alcohol oxidation: Insights from DFT and machine learning",
+    "title_zh": "IBX 介导的酒精氧化中的结构-反应性关系：DFT 和机器学习的见解",
+    "summary": "出版日期：2026 年 10 月 26 日在线发布来源：化学物理快报作者：Morteza Jamshidi、Jason A. Smith、Brian F. Yates",
+    "abstract": "Publication date: Available online 26 October 2026 Source: Chemical Physics Letters Author(s): Morteza Jamshidi, Jason A. Smith, Brian F. Yates",
+    "category": "AI×物理",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0009261426004720?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Active learning for the design of a ductile nanocomposite from brittle constituents",
+    "title_zh": "主动学习从脆性成分设计延性纳米复合材料",
+    "summary": "出版日期：2027 年 1 月 资料来源：Computational Materials Science，第 276 卷 作者：Mark Potter、Charles F. Jekel、Trenton Kirchdoerfer、Yunfeng Shi",
+    "abstract": "Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Mark Potter, Charles F. Jekel, Trenton Kirchdoerfer, Yunfeng Shi",
+    "category": "AI×化学·材料",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626006634?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "Steric‐Pressure‐Driven Topological Reconstruction for High‐Performance Zintl Phase Thermoelectrics with Machine‐Learning Validation",
+    "title_zh": "具有机器学习验证的高性能Zintl相热电学的立体压力驱动拓扑重建",
+    "summary": "先进科学， EarlyView。",
+    "abstract": "Advanced Science, EarlyView.",
+    "category": "拓扑·电子结构",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.78519?af=R",
+    "journal": "Wiley: Advanced Science: Table of Contents"
+  },
+  {
+    "title": "Designing Strongly Correlated Quantum Phases of Matter with Foundation Neural-Network Quantum States",
+    "title_zh": "利用基础神经网络量子态设计强相关的物质量子相",
+    "summary": "材料设计是一个逆问题：找到基态表现出所需特性的微观哈密顿量的耦合。对于强相关的量子系统，这在很大程度上仍然遥不可及，因为每个候选哈密顿量都需要自己昂贵的模拟。在这里，我们展示了基础神经网络量子态（对整个哈密顿量家族的基态进行编码的单波函数）使这种搜索变得高效。由于哈密顿耦合作为神经网络输入，因此任何基态属性都可以直接在耦合空间中通过梯度下降进行优化。我们使用这种方法在维度递增的耦合空间中搜索二维自旋模型中的非磁性相。",
+    "abstract": "arXiv:2609.40209v2 Announce Type: replace Abstract: Materials design is an inverse problem: finding the couplings of a microscopic Hamiltonian whose ground state exhibits a desired property. For strongly correlated quantum systems, this remains largely out of reach, as each candidate Hamiltonian requires its own costly simulation. Here we show that Foundation Neural-Network Quantum States, single wave functions that encode the ground states of an entire family of Hamiltonians, make this search efficient. Because the Hamiltonian couplings enter as neural-network inputs, any ground-state property can be optimized by gradient descent directly in coupling space. We use this approach to search for nonmagnetic phases in two-dimensional spin models in coupling spaces of increasing dimensionality. Specifically, we focus on quantum spin liquids, exotic phases of matter in which quantum fluctuations prevent magnetic order at zero temperature. In the largest search space considered, spanned by eight superexchange couplings and containing many paradigmatic frustrated spin systems, the optimization converges to the J₁-J₂-δ Heisenberg model when starting from a magnetic phase. We show that the ground state at the optimum set of couplings has neither magnetic nor valence-bond order in the thermodynamic limit, leading to a new quantum spin-liquid candidate. The approach is completely general and can be extended to other models and physical properties to optimize, demonstrating that Neural-Network Quantum States are tools not only for simulating quantum matter but also for designing it.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.40209",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Precursor Ratio-Controlled Chloride Vacancies in Lead-Free KCuCl3-x Memristors for Forming-Free Gradual Resistive Switching and Neuromorphic Learning",
+    "title_zh": "无铅 KCuCl3-x 忆阻器中前驱体比例控制的氯空位，用于无成型渐进电阻开关和神经形态学习",
+    "summary": "忆阻材料的缺陷工程为调节神经形态计算所需的离子传输和模拟电阻开关提供了强大的策略。在这里，我们报告了无铅全无机 KCuCl3-x 薄膜中氯空位（VCl）工程的湿化学合成路线，并建立了缺陷浓度、电子结构、输运动力学和神经形态性能之间的直接相关性。受控的前驱体比率变化可系统地调节 KCuCl3-x 薄膜中的 VCl 浓度，从而驱动末端氯化物位点优先形成空位、带隙变窄并增强电子无序。",
+    "abstract": "arXiv:2610.35436v1 Announce Type: new Abstract: Defect engineering of memristive materials offers a powerful strategy for regulating ionic transport and analog resistive switching required for neuromorphic computing. Here, we report a wet chemical synthesis route for chloride-vacancy (VCl) engineering in lead-free all-inorganic KCuCl3-x thin films and establish a direct correlation between defect concentration, electronic structure, transport dynamics, and neuromorphic performance. Controlled precursor-ratio variation systematically tunes the VCl concentration in KCuCl3-x thin films, driving preferential vacancy formation at the terminal chloride sites, band-gap narrowing, and enhanced electronic disorder. W/KCuCl3-x/FTO memristors exhibit stable bipolar VCM-type resistive switching, with increasing VCl concentration promoting forming-free operation. An optimal VCl concentration (~ 1.3*10²¹ cm⁻³) provides a balance between ionic mobility and defect controllability, resulting in highly linear potentiation/depression characteristics and superior pulse endurance (>104 cycles). When the experimentally measured conductance characteristics of the optimized memristor are implemented as synaptic weights in artificial neural network simulations, recognition accuracies of 98.96% and 91.82% are achieved on the MNIST and Fashion-MNIST datasets, respectively. These findings establish precursor ratio-controlled VCl engineering as an effective strategy for simultaneously optimizing ionic transport, analog switching, and neuromorphic learning in lead-free halide perovskite memristors, providing a general materials design principle for energy-efficient neuromorphic electronics.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.35436",
+    "journal": "arXiv"
+  },
+  {
+    "title": "High-efficiency solid-state electrochemical thermal switching through phonon engineering of 2D materials",
+    "title_zh": "通过二维材料的声子工程实现高效固态电化学热开关",
+    "summary": "具有大热对比度的可逆固态热开关仍然很少见，但对于先进的热管理至关重要。使用通用机器学习原子间势 (uMLIP) 和密度泛函理论 (DFT)，我们筛选了 57 种过渡金属二硫属化物 (TMDC)，跨越具有 Li 和 Mg 嵌入的 1T 和 2H 相。在这些候选材料中，LiₐZrS2 结合了出色的热导率转换和低热容。锂化成Li0.125ZrS2将横截面热导率从约3.7降低至0.05Wm-1K-1。开关行为超过了之前报道的固态电化学热开关。",
+    "abstract": "arXiv:2610.35547v1 Announce Type: new Abstract: Reversible solid-state thermal switches with large thermal contrasts remain rare, yet are essential for advanced thermal management. Using universal machine-learned interatomic potentials (uMLIPs) and density functional theory (DFT), we screen 57 transition metal dichalcogenides (TMDCs), spanning the 1T and 2H phases with Li and Mg intercalation. Among the candidates, LiₐZrS₂ combines exceptional thermal conductivity switching with low heat capacity. Lithiation to Li₀.₁₂₅ZrS₂ reduces the cross-plane thermal conductivity from approximately 3.7 to 0.05 W m⁻¹ K⁻¹. The switching behaviour exceeds that of previously reported solid-state electrochemical thermal switches. Device-level modelling further demonstrates the potential for waste-heat recovery, with a pulsed system capturing 86% of the energy recovered by an ideal switch. We attribute the switching behaviour to substantial softening of the Zr--Zr framework, with the mean force constant decreasing from approximately 4.2 to 1.2 eV mathrmmathringA⁻², alongside enhanced scattering of heat-carrying acoustic phonons. These findings establish electrochemical intercalation as a promising route to engineering thermal transport in layered materials.",
+    "category": "其他凝聚态",
+    "link": "https://arxiv.org/abs/2610.35547",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Stable, High-Order Time-Stepping Scheme for the Drift-Diffusion Model in Modern Solar Cell Simulation",
+    "title_zh": "现代太阳能电池模拟中漂移扩散模型的稳定、高阶时间步进方案",
+    "summary": "本文提出了一种用于先进太阳能电池的一维瞬态漂移扩散模拟器，将结构保持的有限体积空间离散与 Scharfetter-Gummel 型通量和高阶 L 稳定隐式龙格库塔 (Radau IIA) 时间积分器集成在一起。该方案确保局部电荷守恒，处理尖锐的材料界面，实现二阶空间和五阶时间收敛，并表现出优异的计算效率和数值稳定性。其准确性根据 p-n 结中的经典耗尽近似进行了验证，并根据通用协议下的有机光伏器件的四个独立软件实现进行了验证。",
+    "abstract": "arXiv:2603.09063v2 Announce Type: replace Abstract: This paper presents a one-dimensional transient drift-diffusion simulator for advanced solar cells, integrating a structure-preserving finite-volume spatial discretization with Scharfetter-Gummel-type fluxes and a high-order, L-stable implicit Runge-Kutta (Radau IIA) temporal integrator. The scheme ensures local charge conservation, handles sharp material interfaces, achieves second-order spatial and fifth-order temporal convergence, and exhibits excellent computational efficiency and numerical stability. Its accuracy is verified against the classical depletion approximation in p-n junction and validated against four independent software implementations for an organic photovoltaic device under a common protocol. The framework's extensibility is demonstrated by incorporating exciton kinetics in organic solar cells, capturing multi-timescale dynamics, and by modeling mobile ions in perovskite solar cells, reproducing characteristic J-V hysteresis without empirical parameters. This work provides a robust, high-order numerical foundation for simulating coupled charge, exciton, and ion transport in next-generation photovoltaic devices.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2603.09063",
+    "journal": "arXiv"
+  },
+  {
+    "title": "MatOS: An Agent Operating System for Materials Research",
+    "title_zh": "MatOS：材料研究代理操作系统",
+    "summary": "材料研究依赖于分散且不断增长的数据、知识和模拟工具，一项研究通常跨越文献分析、计算和实验等多天的工作流程。大型语言模型代理现在可以检索材料数据，操作模拟代码，并与自主实验室关闭设计-合成-表征循环。然而，用新功能扩展这些代理、让长时间运行的任务保持在正轨上并让它们从过去的任务和用户反馈中学习仍然很困难。在这里，我们介绍 MatOS，一个用于材料研究的代理操作系统，具有三个核心组件：（1）分层科学资产图，将数据、知识、工具、技能、角色和工作流程组织为可重用资产；",
+    "abstract": "arXiv:2610.34203v1 Announce Type: cross Abstract: Materials research relies on scattered and growing data, knowledge, and simulation tools, and a single study often spans multi-day workflows across literature analysis, computation, and experiment. Large language model agents can now retrieve materials data, operate simulation codes, and close design-synthesis-characterization loops with autonomous laboratories. However, extending these agents with new capabilities, keeping long-running tasks on track, and letting them learn from past tasks and user feedback remain difficult. Here we present MatOS, an agent operating system for materials research with three core components: (1) a layered scientific asset graph that organizes data, knowledge, tools, skills, roles, and workflows as reusable assets; (2) a stateful adaptive workflow that runs tasks as explicit execution graphs with scientific checks, so that they can be resumed and traced; and (3) evidence-driven asset evolution, which revises these assets from execution records and user feedback. On ResearchClawBench, MatOS improves on the previously best-performing agent by 11.15% with the same base model and extends the cost-score Pareto frontier. With a common base model, it outperforms Codex CLI and Claude Code, exceeding Codex CLI by 2.13% on MatTools and 4.17% on SciAgentGym. In eight research cases, MatOS narrowed more than 30 million candidate structures to 97 solid-electrolyte candidates, identified 89 halide variants with higher computed conductivity than their parent structures, linked the force errors of 11 pretrained interatomic potentials to local atomic environments, and supported two new methods that reduce errors by 3.1% and 13.6% relative to their baselines. These results show that organizing research capabilities as reusable, evolving assets enables agents to carry out long, multistage materials studies. Code is available at https://github.com/DingyangLyu/MatOS.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2610.34203",
+    "journal": "arXiv"
+  },
+  {
+    "title": "TCSP3.0: Template-Based Crystal Structure Prediction with Coefficient-Preserving Element Substitution and Structural Diversity",
+    "title_zh": "TCSP3.0：基于模板的晶体结构预测，具有保留系数的元素替换和结构多样性",
+    "summary": "基于模板的晶体结构预测（CSP）通过元素替换将已知的晶体结构转移到新的成分，因此其准确性取决于检索合适的模板、映射元素并对所得候选正确排序。在 T180 基准上审核原始 TCSP2.0 实现，我们发现 2,347 个选定结构中有 469 个 (20%) 具有错误的组成，这是由忽略化学计量系数的元素映射以及级联或破坏元素符号的顺序文本替换引起的。我们提出 TCSP3.0，它强制保留系数映射，在解析的结构上同时替换物种并验证每个候选的组成和细胞。",
+    "abstract": "arXiv:2610.34029v1 Announce Type: new Abstract: Template-based crystal structure prediction (CSP) transfers a known crystal structure to a new composition by element substitution, so its accuracy depends on retrieving suitable templates, mapping elements and ranking the resulting candidates correctly. Auditing the original TCSP2.0 implementation on the T180 benchmark, we found that 469 of its 2,347 selected structures (20%) have the wrong composition, caused by element mappings that ignore stoichiometric coefficients and by sequential text substitution that cascades or corrupts element symbols. We propose TCSP3.0, which enforces coefficient-preserving mappings, substitutes species simultaneously on parsed structures and validates every candidate's composition and cell. It further adds periodic-number retrieval, soft oxidation-state evidence, radius-compatibility scoring, structural deduplication, and ORB-v3 machine-learning-potential relaxation and energy ranking of its candidates, as used by deep generative CSP baselines. TCSP3.0 achieves Top-1 and Top-20 match rates of 72.2% and 90.6% on T180, compared with 28.3% and 45.6% for TCSP2.0, and a Top-20 match rate of 74.0% on a new 800-target benchmark (T800). On T180 it also outperforms PNcsp+ and deep generative models CrystalFlow and MaskGXT (Top-1 72.2% versus at most 63.9%). Even without relaxation, TCSP3.0 reaches 67.8% at Top-1 and 90.6% at Top-20 in a median of 28 s per target on two CPU cores, about ten times faster than CrystalFlow. Paired ten-arm ablations on T180 and T800 show that most of the improvement comes from the correctness fixes; structural deduplication significantly improves the Top-5 match rate, embedding-based retrieval is required for coverage, and the remaining scoring features have small or null effects.",
+    "category": "AI×化学·材料",
+    "link": "https://arxiv.org/abs/2610.34029",
+    "journal": "arXiv"
+  },
+  {
+    "title": "From Autonomous Knowledge Generation to Generalizable Property Prediction: A Precision-First Pipeline for Electro-Optic Materials Discovery",
+    "title_zh": "从自主知识生成到可概括的属性预测：用于电光材料发现的精度第一管道",
+    "summary": "电光材料的折射率随施加的电场线性变化（普克尔斯效应），它为量子计算设定了光调制器和微波光链路的速度和能量。设计更好的材料需要优化成分以及温度、应变和偏置场。然而，一般存储库缺乏电光张量数据。我们提出了一个管道，可以根据文献构建这样一个数据库，遵循以下规则：“没有值比错误的值更好”。该管道有五个阶段：物理感知采集、通过 LLM 和确定性表解析器进行布局感知提取、三层验证门、使用中值和中值绝对偏差的跨论文共识，以及通过留一材料排除 (LOMO) 测试审核的抗噪声代理模型。",
+    "abstract": "arXiv:2610.34628v1 Announce Type: new Abstract: Electro-optic materials, whose refractive index changes linearly with an applied electric field (the Pockels effect), set the speed and energy of optical modulators and microwave-to-optical links for quantum computing. Designing better materials requires optimizing composition alongside temperature, strain, and bias field. However, general repositories lack electro-optic tensor data. We present a pipeline that builds such a database from literature following the rule: \"no value is better than a wrong value.\" The pipeline has five stages: physics-aware acquisition, layout-aware extraction via LLM and deterministic table parsers, a three-tier verification gate, cross-paper consensus using median and median absolute deviation, and a noise-robust surrogate model audited by leave-one-material-out (LOMO) testing. Physics enters directly: notation is mapped, point-group symmetry-forbidden Pockels components are rejected, equivalent labels are merged, and values carry provenance tags. In a run over 49 publications, the gate processed 816 candidates into 414 accepted, 215 held for review, and 187 rejected. Against a hand-certified gold standard of 303 values from 16 papers, the run achieved a precision of 0.51 and recall of 0.48 for exact record matches. Across four database snapshots, held-out materials where the surrogate model beat a predict-the-mean baseline grew from 1 of 4 to 9 of 13 as the database expanded from 10 to 22 materials. While not a controlled comparison, this trend supports the premise that a precision-oriented, physics-checked database can power forward models beyond its training set and clarifies requirements for inverse material design.",
+    "category": "量子信息·计算",
+    "link": "https://arxiv.org/abs/2610.34628",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Phase fluctuations dominated superconductivity in a thick Granular Boron-Doped Diamond film",
+    "title_zh": "相涨落主导了厚粒状掺硼金刚石薄膜的超导性",
+    "summary": "我们研究了 1.2 微米厚的颗粒状硼掺杂金刚石薄膜的超导特性，其中紧密堆积的晶粒形成了约瑟夫森结的无序网络。该薄膜在临界温度 T_c ~ 3 K 下表现出急剧的超导转变。其输运特性可以通过相涨落的 Ambegaokar-Halperin 理论很好地描述。使用两线圈互感技术直接测量穿透深度揭示了经典的相位涨落主导行为：低于 T_c，超流体密度 (nₛ) 在较宽的温度范围内线性变化（这是热相位涨落的标志），然后在超低温下转变为 T2 依赖性。",
+    "abstract": "arXiv:2610.34319v1 Announce Type: new Abstract: We investigate the superconducting properties of a 1.2-μm-thick granular boron-doped diamond film, where tightly packed grains form a disordered network of Josephson junctions. The film exhibits a sharp superconducting transition at a critical temperature, T_c ~ 3 K. Its transport properties are well described by the Ambegaokar-Halperin theory of phase fluctuations. Direct measurements of the penetration depth using a two-coil mutual inductance technique reveal classic phase-fluctuation-dominated behavior: below T_c, the superfluid density (nₛ) varies linearly over a wide temperature range - a hallmark of thermal phase fluctuations - before crossing over to a T² dependence at ultra-low temperatures. Both the large low-temperature penetration depth, λ(0) ~ 8.8 μm, and the slope of the linear ns variation in the thermal regime reveal a remarkably low superfluid stiffness in the range of 0.5-0.8 K. These results establish granular boron-doped diamond films as an excellent model system for investigating the role of long-wavelength phase fluctuations in three-dimensional superconductors.",
+    "category": "超导",
+    "link": "https://arxiv.org/abs/2610.34319",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Dynamic helimagnetism via charged spin current",
+    "title_zh": "通过带电自旋电流实现动态螺旋磁学",
+    "summary": "我们提出了对与携带电荷和自旋电流的传导电子耦合的经典局部自旋的理论和数值研究，从 s-d 交换哈密顿量导出有效的运动方程。应用于周期性排列的一维自旋链，这些方程产生两个电流驱动的螺旋相：仅由纯自旋电流稳定的静态螺旋，以及一旦添加小电荷电流分量就会出现的相干进动螺旋。对于给定的螺旋波数，进动角频率 ω 和朝向难轴的倾斜比 Δ 可以从运动方程解析得出，而进动螺旋的波数 qᵣₘ ₕₑₗᵢₓ 通过启发式构造的有效拉格朗日函数来选择。",
+    "abstract": "arXiv:2610.34927v1 Announce Type: new Abstract: We present a theoretical and numerical study of classical, localized spins coupled to conduction electrons that carry both charge and spin currents, deriving the effective equations of motion from the s-d exchange Hamiltonian. Applied to a periodically arranged one-dimensional spin chain, these equations yield two current-driven helical phases: a static helix stabilized by a pure spin current alone, and a coherently precessing helix that appears once a small charge-current component is added. For a given helical wavenumber, the precession angular frequency ω and the canting ratio Δ toward the hard axis follow analytically from the equations of motion, while the wavenumber qᵣₘ ₕₑₗᵢₓ of the precessing helix is selected by a heuristically constructed effective Lagrangian. Direct numerical integration of the same equations of motion reproduces all three observables wherever it yields a coherent helix. The helix chirality is set by a long-range, current-generated Dzyaloshinskii-Moriya (DM)-type coupling rather than an intrinsic DM interaction, so materials without bulk or interfacial DM interactions could also host current-controlled helical order. Because the helical pitch, precession frequency, and canting ratio are all continuously tunable by the current amplitudes, these helices could serve as probes of spin currents.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.34927",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Edelstein Effect in Ferromagnetic Monolayers Fe3GaTe2 and Fe3GeTe2",
+    "title_zh": "铁磁单层 Fe3GaTe2 和 Fe3GeTe2 中的埃德尔斯坦效应",
+    "summary": "埃德尔斯坦效应能够在非中心对称范德华磁体中实现本征电流诱导的自旋极化。在这里，我们使用基于 Wannier 的第一原理线性响应计算来比较单层 ceFe3GaTe2 和 ceFe3GeTe2 的 Edelstein 响应。尽管具有相同的非中心对称 D₃ₕ 对称性和选择规则，但这两种材料在幅度、符号和能量依赖性方面表现出明显不同的时间反转偶数和奇数自旋累积。强响应主要发生在ceFe3GaTe2 的-0.4~eV 附近和ceFe3GeTe2 的+0.4~eV 附近。",
+    "abstract": "arXiv:2610.34296v1 Announce Type: new Abstract: The Edelstein effect enables intrinsic current-induced spin polarization in noncentrosymmetric van der Waals magnets. Here, we compare the Edelstein responses of monolayer ceFe3GaTe2 and ceFe3GeTe2 using first-principles Wannier-based linear-response calculations. Despite sharing the same noncentrosymmetric D₃ₕ symmetry and selection rules, the two materials show markedly different time-reversal-even and -odd spin accumulations in magnitude, sign, and energy dependence. Strong responses occur mainly near -0.4~eV in ceFe3GaTe2 and +0.4~eV in ceFe3GeTe2. At the intrinsic Fermi level, atom-resolved analysis shows that Ga-to-Ge substitution reverses the even contribution of the inequivalent Fe3 site for both in-plane magnetization directions and enhances its negative odd contribution, reorganizing the cancellation among atomic sites. Momentum-resolved calculations link the hole-side response of ceFe3GaTe2 to a few large Γ-centered Fermi contours, whereas the electron-side response of ceFe3GeTe2 involves dense Fe-3d bands with strong interband contributions. The even response arises from incomplete cancellation of opposite-sign intraband Fermi-surface contributions, while the odd response originates from interband coherence between closely spaced states. Magnetization rotation reveals symmetry-constrained angular dependences with higher-order harmonics, especially in the xz plane, while biaxial strain causes substantial amplitude changes and sign reversals. These results show how crystal symmetry, electronic structure, magnetization orientation, and lattice deformation govern the intrinsic Edelstein effect in ceFe3XTe2 (X=Ga,Ge).",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.34296",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Robust spin splitting and fermiology in the layered altermagnet CoNb4Se8",
+    "title_zh": "层状交替磁体 CoNb4Se8 中的鲁棒自旋分裂和费米学",
+    "summary": "交变磁学挑战了共线磁相的传统分类，将补偿磁化与动量相关的非相对论自旋分裂相结合。虽然在 MnTe 和 CrSb 等三维化合物中已经建立了交变磁带分裂，但层状交变磁体在光谱学方面的研究仍然很少。在这里，结合终端分辨微 ARPES、精细光子能量映射、自旋 ARPES 和密度泛函理论，我们绘制了层状 g 波交替磁体 CoNb₄Se₈ 的三维费米学，该层状 g 波交替磁体 CoNb₄Se₈ 是通过 2H-NbSe2 的有序 Co 插层获得的。",
+    "abstract": "arXiv:2502.20010v3 Announce Type: replace Abstract: Altermagnetism defies conventional classifications of collinear magnetic phases, combining compensated magnetization with momentum-dependent, nonrelativistic spin splitting. While altermagnetic band splitting has been established in three-dimensional compounds such as MnTe and CrSb, layered altermagnets remain far less explored spectroscopically. Here, combining termination-resolved micro-ARPES, fine photon-energy mapping, spin-ARPES and density functional theory, we map the three-dimensional fermiology of the layered g-wave altermagnet CoNb₄Se₈, obtained by ordered Co intercalation of 2H-NbSe₂. We resolve the spin-split branches of the altermagnetic pairs directly in the raw photoemission spectra and, with spin-ARPES at these experimentally identified momenta, show the reversal of the spin polarization at opposite momenta and between two regions of the sample, consistent with opposite time-reversal domains, and its absence along the symmetry-protected nodal Γ--K direction. We further report a weak low-temperature anomaly near T₀approx50 to 60 K, detected by magnetometry, temperature-dependent micro-ARPES and ultrafast reflectivity, whose microscopic origin remains open. These results provide a momentum-resolved benchmark of the electronic structure of a layered altermagnet.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2502.20010",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Temperature-dependent magnetic properties of the antiferromagnet Mn₂Au",
+    "title_zh": "反铁磁体 Mn2Au 随温度变化的磁性",
+    "summary": "Mn2Au 因其高尼尔温度、适度的各向异性、允许电流感应自旋轨道扭矩的层状自旋结构以及超快自旋动力学而成为反铁磁自旋电子学最有前途的材料之一。通过超短电/光手段进一步了解和控制 Mn2Au 中的磁序以实现超快自旋电子学应用，需要准确了解其磁特性如何依赖于温度。在这里，我们提出了 Mn2Au 单晶随温度变化的宏观磁特性的原子自旋动力学模拟。我们基于之前的从头计算引入了自旋哈密顿量，该计算产生与齐纳-阿库洛夫-卡伦-卡伦幂定律一致的磁化强度的各向异性常数的随温度变化的缩放。",
+    "abstract": "arXiv:2610.35153v1 Announce Type: new Abstract: Mn₂Au is one of the most promising materials for antiferromagnetic spintronics due to its high Néel temperature, moderate anisotropy, layered spin structure allowing current induced spin-orbit-torques, and ultrafast spin dynamics. Further understanding and control of the magnetic order in Mn₂Au for ultrafast spintronics applications via ultrashort electric/optical means requires accurate understanding of how its magnetic properties depend on temperature. Here we present atomistic spin dynamics simulations of the temperature-dependent macroscopic magnetic properties of Mn₂Au single crystals. We introduce a spin Hamiltonian based on previous ab initio calculations which produces temperature-dependent scaling of the anisotropy constants with magnetisation consistent with Zener-Akulov-Callen-Callen power laws. The calculated temperature dependence of exchange stiffness follows a scaling law with magnetisation of m¹.⁸³ₑ , and predicts a temperature-dependent domain wall width that agrees very well with direct simulation. Our model provides an understanding of temperature-dependent magnetic properties of Mn₂Au that enables large-scale simulation of the working conditions of spintronic devices.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2610.35153",
+    "journal": "arXiv"
+  }
+]

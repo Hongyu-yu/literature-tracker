@@ -1,8 +1,8 @@
 [
   {
     "title": "Physics consistent conditional flow matching model as a plasma physics surrogate model",
-    "title_zh": "作为等离子体物理代用模型的物理一致条件流匹配模型",
-    "summary": "稳态系统的物理知情代理建模通常难以应对数据稀缺和软惩罚损失带来的优化不稳定性。与在训练期间依赖显式可微PDE残差的流行物理知情生成方法不同，我们的框架针对的是闭式控制方程不可用或不可微的系统。我们引入了一个统一的连续时间条件流匹配（ CFM ）框架，用于代理建模和稀疏数据同化，在低温等离子体动力学上进行评估。通过将数据相关的插值与动态掩蔽相结合，我们的方法在单个架构内处理无条件预测和缺失数据插补。",
+    "title_zh": "作为等离子体物理替代模型的物理一致条件流匹配模型",
+    "summary": "稳态系统的基于物理的替代建模经常面临数据稀缺和软惩罚损失导致的优化不稳定的问题。与在训练过程中依赖于显式的、可微的 PDE 残差的主流物理生成方法不同，我们的框架针对的是闭式控制方程不可用或不可微的系统。我们引入了一个统一的连续时间条件流匹配（CFM）框架，用于替代建模和稀疏数据同化，并在低温等离子体动力学上进行评估。通过将数据相关插值与动态屏蔽相结合，我们的方法可以在单个架构中处理无条件预测和缺失数据插补。",
     "abstract": "Physics-informed surrogate modeling for steady-state systems often struggles with data scarcity and optimization instabilities from soft penalty losses. Unlike prevailing physics-informed generative methods that rely on explicit, differentiable PDE residuals during training, our framework targets systems where closed-form governing equations are unavailable or non-differentiable. We introduce a unified continuous-time conditional flow matching (CFM) framework for surrogate modeling and sparse data assimilation, evaluated on low-temperature plasma dynamics. By combining data-dependent interpolants with dynamic masking, our approach handles unconditioned prediction and missing-data imputation within a single architecture. We replace standard velocity matching with a direct state-prediction ( -prediction) objective, eliminating variance-induced sampling inefficiencies in deterministic regimes. For inference, the formulation supports both time-dependent ODE integration (CFM- ) and an autonomous regime (CFM- ) that enables measurement conditioning via anchor substitution. Global conservation laws are enforced via post-hoc geometric projections rather than loss regularizers. Results show that both CFM variants achieve superior accuracy, sample efficiency under data scarcity, and raw physical consistency over standard regressors. Furthermore, macroscopic constraints alone yield negligible reductions in test error, confirming the necessity of a data-driven generative prior over the physical manifold.",
     "category": "AI×物理",
     "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aeaf46",
@@ -101,7 +101,7 @@
   {
     "title": "Realization of a Synthetic Hall Torus with a Topological Charge Pump in a Spinor Bose-Einstein Condensate",
     "title_zh": "在旋量玻色-爱因斯坦凝聚态中利用拓扑电荷泵实现合成霍尔环面",
-    "summary": "我们报告了使用旋量玻色-爱因斯坦凝聚体合成霍尔环面的第一个实验实现，该凝聚体被限制在具有原位成像的环形陷阱中。通过拉曼和微波场循环耦合三个超精细自旋态，我们在合成维度中施加了一个周期边界条件，该条件与真实空间环阱一起实现了环形几何形状，其中合成磁通量穿透表面。这种通量诱导方位密度调制，其周期性由量化的环形通量唯一决定，这是霍尔环面的标志。然后，我们通过绝热地改变通过环面的轴向通量来实现拓扑电荷泵，从而诱导原子的量化方位向传输。",
+    "summary": "我们报告了利用原位成像将旋量玻色-爱因斯坦凝聚限制在环形陷阱中的合成霍尔环面的首次实验实现。通过拉曼场和微波场循环耦合三个超精细自旋态，我们在合成维度上施加周期性边界条件，它与真实空间环陷阱一起实现了具有穿透表面的合成磁通量的环形几何结构。这种通量引起方位密度调制，其周期性由量子化环形通量唯一确定，这是霍尔环面的标志。然后，我们通过绝热地改变通过环面的轴向通量来实现拓扑电荷泵，从而诱导原子的量子化方位角传输。我们进一步研究了当系统从圆柱形拓扑转变为环形拓扑时这些调制的开始。",
     "abstract": "arXiv:2602.14549v2 Announce Type: replace Abstract: We report the first experimental realization of a synthetic Hall torus using a spinor Bose-Einstein condensate confined in a ring-shaped trap with in situ imaging. By cyclically coupling three hyperfine spin states via Raman and microwave fields, we impose a periodic boundary condition in the synthetic dimension, which, together with a real-space ring trap, realizes a toroidal geometry with synthetic magnetic flux penetrating the surface. This flux induces azimuthal density modulations whose periodicity is uniquely determined by the quantized toroidal flux, a hallmark of the Hall torus. We then implement a topological charge pump by adiabatically varying an axial flux through the torus, inducing quantized azimuthal transport of the atoms. We further investigate the onset of these modulations as the system transitions from cylindrical to toroidal topology. Our results establish a versatile platform for exploring quantum Hall physics and topological phenomena in synthetic curved spaces.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2602.14549",
@@ -124,6 +124,15 @@
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2610.31924",
     "journal": "arXiv"
+  },
+  {
+    "title": "Transparency-controlled multiple charge transfer in superconducting junctions with local shot-noise scanning tunneling spectroscopy",
+    "title_zh": "利用局部散粒噪声扫描隧道光谱在超导结中控制透明度控制的多重电荷转移",
+    "summary": "作者：Yudai Sato、Maialen Ortego Larrazabal、Jian-Feng Ge、Ingmar Swart、Doohee Cho、Wolfgang Belzig、Juan Carlos Cuevas、Milan P. Allan 和 Jiasen Niu 有限电压下超导结中的电荷传输受安德烈夫反射控制，包括多次安德烈夫反射，这是实现多次电荷转移的过程，这是散粒噪声可以直接量化的一个标志。由于从散粒噪声中提取有效电荷...... [物理。",
+    "abstract": "Author(s): Yudai Sato, Maialen Ortego Larrazabal, Jian-Feng Ge, Ingmar Swart, Doohee Cho, Wolfgang Belzig, Juan Carlos Cuevas, Milan P. Allan, and Jiasen Niu Charge transport in superconducting junctions at finite voltages is governed by Andreev reflections, including multiple Andreev reflections, which are processes that enable multiple charge transfer, a hallmark that shot noise can directly quantify. Since the effective charge extracted from shot-nois… [Phys. Rev. B 114, 204508] Published Mon Oct 26, 2026",
+    "category": "超导",
+    "link": "http://link.aps.org/doi/10.1103/81fz-49c6",
+    "journal": "Phys. Rev. B"
   },
   {
     "title": "Approximating the Gibbs Measure of Spherical Spin Glasses to Within o(N⁻¹/²) in the Replica Symmetric Phase",
@@ -168,15 +177,6 @@
     "abstract": "arXiv:2610.31893v1 Announce Type: new Abstract: In this study, we investigate heat current correlations between two edge states coupled through a constriction in the fractional quantum Hall regime at filling factor ν = 1/3. This configuration allows us to map the system onto an interacting Tomonaga-Luttinger liquid with a local impurity, where the interaction parameter takes the value κ = 1/2. This specific parameter value enables the application of the refermionization method. By solving the refermionized Hamiltonian, we compute the heat current and evaluate the finite-frequency heat auto- and cross-correlation functions. Our results reveal asymmetric behavior with frequency, corresponding to absorption and emission noise, respectively. Furthermore, we examine several limiting cases, including low- and high-temperature limits as well as strong- and weak-backscattering regimes. In the weak backscattering regime, the Lorenz number approaches 4L₀ at high voltage, suggesting a rescaling of the Wiedemann-Franz law due to interactions. A detailed study of the heat current fluctuations has made it possible to identify and derive expressions for the dominant contribution in the various regimes of interest, and to reveal the predominance of partition noise.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2610.31893",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Heterogeneous superconductivity emerging from a charge-stripe state in kagome lattices",
-    "title_zh": "Kagome 晶格中电荷条纹态出现的异质超导性",
-    "summary": "电荷密度波（CDW）和超导长期以来被认为是相互竞争的秩序。然而，最近的成就表明，这两种集体电子现象之间的相互作用可能更加令人困惑，它们的合作会产生新的现象。在这里，我们报告了 Kagome 超导体 CsV3Sb5-xSnx 的一个独特案例，其中超导特性按照 CDW 顺序的形式演化。当 CsV3Sb5 中的三 Q CDW 在 xc = 0.07 处转变为短程条纹状 CDW 时，超导特性随之发生突然变化。",
-    "abstract": "arXiv:2610.32097v1 Announce Type: new Abstract: Charge density wave (CDW) and superconductivity have long been recognized as competing orders. However, recent achievements establish that the interplay between these two collective electronic phenomena can be more perplexing, with emergent phenomena arising from their cooperation. Here we report a distinctive case of the kagome superconductors CsV3Sb5-xSnx, in which the characteristics of superconductivity evolve in accordance with the form of CDW order. As the triple-Q CDW in CsV3Sb5 transforms to a short-range stripelike CDW at xc = 0.07, a sudden change in superconducting properties occurs concomitantly. A combination of thermodynamic, electrical transport and scanning tunneling microscopy experiments reveals a heterogeneous superconducting state beyond xc: the superconducting gap exhibits pronounced spatial variation, in conformity with a distribution of critical temperature and the resulted superconducting precursor effects. Moreover, abundant normal fluid persists deep into the superconducting state, as evidenced by remnants of electronic specific heat and zero-energy quasiparticle interference. These observations are unrelated to the chemical inhomogeneity and residual strain effect introduced by Sn substitution. Instead, they emulate the phenomenology that a sign-changing superconducting order parameter is subject to strong pair-breaking scattering with the short-range charge stripes and hence reflect the unconventional nature of superconductivity developing inside the charge-stripe state.",
-    "category": "超导",
-    "link": "https://arxiv.org/abs/2610.32097",
     "journal": "arXiv"
   }
 ]
