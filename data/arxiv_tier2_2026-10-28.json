@@ -1,8 +1,8 @@
 [
   {
     "title": "Sustainability-Aware Discovery of Dual-Atom Hydrogen Evolution Catalysts via a Unified Machine Learning Framework for Activity and Carbon Cost",
-    "title_zh": "文献研究：Sustainability-Aware Discovery of Dual-Atom Hydrogen Evolution Catalysts via a Unified Machine Learning Framework for Activity and Carbon Cost",
-    "summary": "Catalyst discovery for green hydrogen has optimized activity alone, deferring economic and environmental costs to stages where they disqualify otherwise promising candidates. Here we introduce a unifi…",
+    "title_zh": "通过活动和碳成本的统一机器学习框架，以可持续性意识发现双原子析氢催化剂",
+    "summary": "绿色氢催化剂的发现本身就优化了活性，将经济和环境成本推迟到使其他有希望的候选者失去资格的阶段。在这里，我们介绍了一个统一的机器学习框架，可以在单个管道中筛选催化活性和货币化碳成本。机器学习潜力可以以密度泛函理论的精度预测析氢活性和稳定性。第二个模型根据已发布的碳社会成本估计进行训练，将每位候选人的具体二氧化碳转化为货币负担。通过 23 种过渡金属和 20 种氮配位基序筛选 460 种石墨烯支撑的双原子催化剂，产生了 26 种活性、可合成的候选催化剂。然后两个轴发生冲突。",
     "abstract": "arXiv:2605.29821v2 Announce Type: replace Abstract: Catalyst discovery for green hydrogen has optimized activity alone, deferring economic and environmental costs to stages where they disqualify otherwise promising candidates. Here we introduce a unified machine learning framework that screens catalytic activity and monetized carbon cost in a single pipeline. A machine learning potential predicts hydrogen evolution activity and stability at density-functional-theory accuracy. A second model, trained on published estimates of the social cost of carbon, converts each candidate's embodied CO2 into a monetary burden. Screening 460 graphene-supported dual-atom catalysts across 23 transition metals and 20 nitrogen-coordination motifs yields 26 active, synthesizable candidates. The two axes then conflict. The most active candidates span Mn-, Fe-, Zr-, Cr-, Cu-, Ni-, Ti-, Nb-, V-, Pd-, Au-, and Rh-based catalysts, indistinguishable in adsorption energy yet spanning a 58,000-fold range in carbon cost. Joint optimization selects Mn2@2Nf and Zr2@2Nc, matching the best precious-metal activity at tens-of-thousands-fold lower carbon cost, independent of catalyst loading.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2605.29821",
@@ -18,6 +18,15 @@
     "journal": "Machine Learning: Science and Technology"
   },
   {
+    "title": "Machine Learning Hamiltonians with Polarizations for Heterogeneous Systems",
+    "title_zh": "异构系统的机器学习哈密顿量极化",
+    "summary": "机器学习哈密顿量使用局部原子结构来确定局部哈密顿矩阵元素，而无需进行自洽计算。它们已被用于研究大型系统并对其电子和光学特性进行高通量筛选。哈密顿量的预测本质上是电子静电势能的预测；然而，对于异质系统，这种势能通常由远处的特征决定，例如界面或表面偶极子，甚至纳米器件中的施加电压。因此，它不能仅由局部原子结构决定。从这个意义上说，需要使用本征原子偶极子、施加的外部势能和极化率自洽地求解电子静电势能。幸运的是，固有偶极子和极化率是局部属性，而施加的势能是规定的输入。",
+    "abstract": "arXiv:2610.36839v1 Announce Type: new Abstract: Machine learning Hamiltonians use local atomic structures to determine local Hamiltonian matrix elements without carrying out self-consistent calculations. They have been used to study large systems and to carry out high-throughput screening for their electronic and optical properties. The prediction of the Hamiltonian is essentially the prediction of the electron electrostatic potential energy; however, for heterogeneous systems, this potential energy is often determined by faraway features, such as interface or surface dipoles, or even an applied voltage in a nanodevice. Thus, it cannot be determined by local atomic structures alone. In this sense, one needs to solve the electron electrostatic potential energy self-consistently using intrinsic atomic dipoles, the applied external potential energy, and polarizabilities. Fortunately, the intrinsic dipoles and polarizabilities are local properties, whereas the applied potential energy is a prescribed input. In this work, we propose DeepH-Polar, a physically informed machine learning Hamiltonian model that explicitly predicts intrinsic atomic dipoles and polarizability tensors and uses them to solve the electron electrostatic potential energy self-consistently. Benchmarks on polar GaN systems and crystalline-Si/amorphous-SiO₂ interfaces demonstrate improved Hamiltonian accuracy and reproduction of thickness-dependent electrostatic variations, as well as spatially nonuniform field-induced screening that models without polarization fail to capture. Our model also allows us to study nanoscale electronic devices. By iteratively solving the Hamiltonian eigenproblem and self-consistently updating free-carrier occupations and the electrostatic potential, we simulate an 8,194-atom gated semiconductor device.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.36839",
+    "journal": "arXiv"
+  },
+  {
     "title": "Machine-learning interatomic potentials for battery materials: Defect-dependent lithium adsorption and local transferability on graphene",
     "title_zh": "电池材料的机器学习原子间电位：缺陷依赖性锂吸附和石墨烯的局部可转移性",
     "summary": "出版日期： 2027年1月来源： Computational Materials Science ，第276卷作者： Yuhan Sun ， Xiao Huang",
@@ -25,6 +34,15 @@
     "category": "其他凝聚态",
     "link": "https://www.sciencedirect.com/science/article/pii/S092702562600652X?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
+  },
+  {
+    "title": "Walshness: an intrinsic neural-network representability metric for quantum states",
+    "title_zh": "Walshness：量子态的内在神经网络可表示性度量",
+    "summary": "神经量子态（NQS）已经成为量子态的强大表示，在量子多体物理领域的应用迅速扩展。然而，我们对神经网络何时能够有效表示物理量子态的理解仍然有限，部分原因是 NQS 的非线性参数化、量子态复杂的符号结构以及对基选择的敏感依赖性。我们引入了 Walshness，一种量子态的复杂性度量，用于量化它是否接受紧凑的神经网络表示。我们严格证明，对于各种 NQS 架构，如果通用量子多体态具有有界 Walshness，则它承认有效的 NQS 表示，反之亦然。",
+    "abstract": "arXiv:2610.00505v2 Announce Type: replace-cross Abstract: Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networks can efficiently represent physical quantum states remains limited, in part due to the nonlinear parameterization of NQS, the intricate sign structure of quantum states, and the sensitive dependence on basis choice. We introduce Walshness, a complexity metric of a quantum state which quantifies whether it admits a compact neural-network representation. We rigorously prove that a general quantum many-body state admits an efficient NQS representation if it has bounded Walshness, and vice versa, for various NQS architectures. We provide an algorithm for finding the optimal basis by minimizing the energy of a corresponding classical spin model. This allows us to empirically improve the learnability of various physical quantum states, including ground states of the transverse-field Ising model and mixed-field toric code, often reducing infidelity by orders of magnitude, and generalizes the basis choice given by the well-known Marshall sign rule in frustrated antiferromagnets. Our results provide an intrinsic complexity metric for quantum states with provable connections to their neural-network representability.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2610.00505",
+    "journal": "arXiv"
   },
   {
     "title": "Machine learning enabled design of sustainable alloys considering real world constraints",
@@ -36,18 +54,9 @@
     "journal": "arXiv"
   },
   {
-    "title": "Machine Learning Hamiltonians with Polarizations for Heterogeneous Systems",
-    "title_zh": "文献研究：Machine Learning Hamiltonians with Polarizations for Heterogeneous Systems",
-    "summary": "Machine learning Hamiltonians use local atomic structures to determine local Hamiltonian matrix elements without carrying out self-consistent calculations. They have been used to study large systems a…",
-    "abstract": "arXiv:2610.36839v1 Announce Type: new Abstract: Machine learning Hamiltonians use local atomic structures to determine local Hamiltonian matrix elements without carrying out self-consistent calculations. They have been used to study large systems and to carry out high-throughput screening for their electronic and optical properties. The prediction of the Hamiltonian is essentially the prediction of the electron electrostatic potential energy; however, for heterogeneous systems, this potential energy is often determined by faraway features, such as interface or surface dipoles, or even an applied voltage in a nanodevice. Thus, it cannot be determined by local atomic structures alone. In this sense, one needs to solve the electron electrostatic potential energy self-consistently using intrinsic atomic dipoles, the applied external potential energy, and polarizabilities. Fortunately, the intrinsic dipoles and polarizabilities are local properties, whereas the applied potential energy is a prescribed input. In this work, we propose DeepH-Polar, a physically informed machine learning Hamiltonian model that explicitly predicts intrinsic atomic dipoles and polarizability tensors and uses them to solve the electron electrostatic potential energy self-consistently. Benchmarks on polar GaN systems and crystalline-Si/amorphous-SiO₂ interfaces demonstrate improved Hamiltonian accuracy and reproduction of thickness-dependent electrostatic variations, as well as spatially nonuniform field-induced screening that models without polarization fail to capture. Our model also allows us to study nanoscale electronic devices. By iteratively solving the Hamiltonian eigenproblem and self-consistently updating free-carrier occupations and the electrostatic potential, we simulate an 8,194-atom gated semiconductor device.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.36839",
-    "journal": "arXiv"
-  },
-  {
     "title": "A generative foundation model for 2D magnetized plasma turbulence",
-    "title_zh": "文献研究：A generative foundation model for 2D magnetized plasma turbulence",
-    "summary": "We present a proof-of-principle study demonstrating a conditional generative foundation model for self-organizing magnetized plasma turbulence. Built on a multichannel flow-matching framework with a s…",
+    "title_zh": "二维磁化等离子体湍流的生成基础模型",
+    "summary": "我们提出了一项原理验证研究，展示了自组织磁化等离子体湍流的条件生成基础模型。该模型建立在采用谱分解策略的多通道流量匹配框架之上，并针对从流体动力学到绝热参数范围内的二维修正长谷川-若谷 (MHW) 湍流的直接数值模拟进行训练。无需重新训练，这个单一模型成功地执行了三个不同的下游任务：（i）无条件生成统计上忠实的准稳态快照，恢复方向能谱和振幅统计数据，从中直接推断出统计传输量，包括湍流通量和有效扩散率及其不确定性；",
     "abstract": "arXiv:2610.36155v1 Announce Type: new Abstract: We present a proof-of-principle study demonstrating a conditional generative foundation model for self-organizing magnetized plasma turbulence. Built on a multichannel flow-matching framework with a spectral decomposition strategy, the model is trained on direct numerical simulations of 2D modified Hasegawa-Wakatani (MHW) turbulence across the hydrodynamic to adiabatic parameter range. Without retraining, this single model successfully performs three distinct downstream tasks: (i) unconditional generation of statistically faithful quasi-steady-state snapshots that recover the directional energy spectra and amplitude statistics, from which statistical transport quantities, including turbulent flux and effective diffusivity, alongside their uncertainties, are inferred directly; (ii) super-resolution from 4× and 8× downsampled observations to reconstruct fine-scale turbulence and large-scale zonal structures; and (iii) full-field inpainting from sparse spatial observations covering as little as sim 10% of the domain. The generated fields faithfully reproduce regime-dependent turbulence vs. zonal-flow states and energy partitioning. Under extreme sparsity the long-correlation zonal flows are pinned by only a handful of observations, while the residual uncertainty concentrates in the small-scale turbulent fluctuations. These results establish flow-matching generative models as powerful, unified surrogates for state generation, statistical inference, and sparse-data reconstruction, providing a scalable baseline for 3D plasma turbulence and experimental applications.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2610.36155",
@@ -55,20 +64,11 @@
   },
   {
     "title": "Data-driven synthesis of high-fidelity triaxial magnetic waveforms for quantum control",
-    "title_zh": "文献研究：Data-driven synthesis of high-fidelity triaxial magnetic waveforms for quantum control",
-    "summary": "We present a system for generating arbitrary, triaxial magnetic waveforms with a spectral content spanning from DC to tens of kHz, a critical capability for quantum control and spin manipulation. To c…",
+    "title_zh": "用于量子控制的高保真三轴磁波形的数据驱动合成",
+    "summary": "我们提出了一种用于生成任意三轴磁波形的系统，其频谱内容从直流到数十kHz，这是量子控制和自旋操纵的关键能力。为了补偿放大器线圈动态，我们采用数据驱动的方法来确定数值补偿模型。该方法使用根据要生成的特定波形进行校准的有限脉冲响应 (FIR) 滤波器来参数化系统响应。通过对已识别模型进行频域反演而设计的驱动信号的应用能够合成复杂的场序列，并在静态和单频或多频时间段之间进行急剧的过渡。实验结果验证了该工作的波形保真度和瞬态性能，从而展示了该方法的精度和可行性。",
     "abstract": "arXiv:2603.24052v2 Announce Type: replace Abstract: We present a system for generating arbitrary, triaxial magnetic waveforms with a spectral content spanning from DC to tens of kHz, a critical capability for quantum control and spin manipulation. To compensate for amplifier-coil dynamics, we implement a data-driven approach to identify a numerical compensation model. The method parametrizes the system response using a Finite Impulse Response (FIR) filter calibrated on the specific waveform to be generated. The application of a driving signal designed via frequency-domain inversion of the identified model enables the synthesis of complex field sequences with sharp transitions between static and single- or multi-frequency temporal segments. The work is validated with experimental results demonstrating waveform fidelity and transient performance, thereby showcasing the precision and feasibility of the method.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2603.24052",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Walshness: an intrinsic neural-network representability metric for quantum states",
-    "title_zh": "文献研究：Walshness: an intrinsic neural-network representability metric for quantum states",
-    "summary": "Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networ…",
-    "abstract": "arXiv:2610.00505v2 Announce Type: replace-cross Abstract: Neural quantum states (NQS) have emerged as powerful representations of quantum states with rapidly expanding applications across quantum many-body physics. Yet our understanding of when neural networks can efficiently represent physical quantum states remains limited, in part due to the nonlinear parameterization of NQS, the intricate sign structure of quantum states, and the sensitive dependence on basis choice. We introduce Walshness, a complexity metric of a quantum state which quantifies whether it admits a compact neural-network representation. We rigorously prove that a general quantum many-body state admits an efficient NQS representation if it has bounded Walshness, and vice versa, for various NQS architectures. We provide an algorithm for finding the optimal basis by minimizing the energy of a corresponding classical spin model. This allows us to empirically improve the learnability of various physical quantum states, including ground states of the transverse-field Ising model and mixed-field toric code, often reducing infidelity by orders of magnitude, and generalizes the basis choice given by the well-known Marshall sign rule in frustrated antiferromagnets. Our results provide an intrinsic complexity metric for quantum states with provable connections to their neural-network representability.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2610.00505",
     "journal": "arXiv"
   },
   {
@@ -91,8 +91,8 @@
   },
   {
     "title": "Attention as Lattice Gauge Theory: Relations Interact Only Through Wilson Loops",
-    "title_zh": "文献研究：Attention as Lattice Gauge Theory: Relations Interact Only Through Wilson Loops",
-    "summary": "Relations compose through the entity they share - Alice is Bob's mother and Bob is Carol's father, so Alice is Carol's grandmother - and the order matters, since a father's mother is not a mother's fa…",
+    "title_zh": "作为格子规范理论的注意力：关系仅通过威尔逊环相互作用",
+    "summary": "关系通过他们共享的实体构成 - Alice 是 Bob 的母亲，Bob 是 Carol 的父亲，因此 Alice 是 Carol 的祖母 - 并且顺序很重要，因为父亲的母亲不是母亲的父亲；验证组合关系意味着关闭循环。我们证明，如果每个实体的坐标系可以独立旋转（每个实体坐标系自由度），则遵循以下三件事。在纯规格领域，不共享循环的关系根本无法相互作用。三角形唯一的规范不变分数是其完整函数 H = Tᵢⱼ Tⱼₖ Tₖᵢ 的类函数 - 威尔逊循环。",
     "abstract": "arXiv:2610.37656v1 Announce Type: cross Abstract: Relations compose through the entity they share - Alice is Bob's mother and Bob is Carol's father, so Alice is Carol's grandmother - and the order matters, since a father's mother is not a mother's father; verifying a composed relation means closing the loop. We show that if each entity's coordinate frame may be rotated independently (per-entity frame freedom), three things follow. In the pure-gauge sector, relations that share no cycle cannot interact at all. The only gauge-invariant score of a triangle is a class function of its holonomy H = Tᵢⱼ Tⱼₖ Tₖᵢ - a Wilson loop. And the only equivariant update of an edge is U = Ψ(H), Tᵢⱼ with Ψ conjugation-equivariant. Edge attention by Wilson loops is therefore not one design among many but the unique form the symmetry permits. Three communities hold pieces of this form: the commuting-operator embeddings of knowledge graphs are its abelian (commuting) sector; AlphaFold's triangle update and the Edge Transformer have its shape - an edge updated through the third vertex - without its constraints; and lattice QCD builds it equivariantly on lattices. We instantiate the equivariant sub-family on general relational graphs as holonomy attention. With no training and composition alone, it infers unobserved S₄ relations on sparse graphs at 0.88 with a fifth of the edges corrupted, at or slightly below specialist synchronization algorithms, where every commutative architecture is capped at 0.083; its holonomy score flags corrupted triangles at AUC 0.99 where commuting scores are capped at 0.76 by a second selection rule, and it separates clusters without labels.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.37656",
@@ -154,8 +154,8 @@
   },
   {
     "title": "Protonic thermoelectric effect of Superionic H₂O and magnetic field generation in Uranus and Neptune",
-    "title_zh": "文献研究：Protonic thermoelectric effect of Superionic H₂O and magnetic field generation in Uranus and Neptune",
-    "summary": "The origin of the anomalous magnetic fields of Uranus and Neptune, with significant tilts and multi-dipole configurations, is central to understanding the internal structure and evolution of the ice g…",
+    "title_zh": "超离子水的质子热电效应以及天王星和海王星的磁场产生",
+    "summary": "天王星和海王星异常磁场的起源，具有显着的倾斜和多偶极结构，对于理解冰巨星的内部结构和演化至关重要。最近的研究证实，超离子 H2O 冰具有热力学稳定性，并构成其冰幔中的主要 H2O 相。在这里，我们使用深度学习和从头算分子动力学来研究超离子 H2O 冰的热和质子输运特性。我们证明超离子 H2O 冰表现出明显的质子热电效应，在天王星内部的最大塞贝克系数可以达到 sim 620 μV K⁻1，而海王星的塞贝克系数较低，在 570-585 μV K⁻1 范围内。",
     "abstract": "arXiv:2601.03659v3 Announce Type: replace-cross Abstract: The origin of the anomalous magnetic fields of Uranus and Neptune, with significant tilts and multi-dipole configurations, is central to understanding the internal structure and evolution of the ice giants. Recent investigations confirmed that superionic H₂O ice is thermodynamically stable and constitutes the dominant H₂O phase within their icy mantles. Here, we use deep learning and ab initio molecular dynamics to investigate the thermal and protonic transport properties of superionic H₂O ice. We demonstrate that superionic H₂O ice exhibits a pronounced protonic thermoelectric effect, with a maximum Seebeck coefficient that can reach sim 620 μV K⁻¹ within the interior of Uranus, whereas Neptune's is lower, within the range of 570-585 μV K⁻¹. Consequently, the temperature gradients in the icy mantles can induce proton migration, thereby driving magnetic field generation. Based on this mechanism, and within a dipolar approximation that captures the mean field, the disparities in mean dipolar magnetic field strength between Uranus and Neptune can be explained exclusively by their differing internal temperature gradients, and the predicted mean field strengths are comparable to those observed by Voyager 2.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2601.03659",
