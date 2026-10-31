@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-10-31 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-10-31.xml" rel="alternate" title="2026-10-31 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-10-31.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-10-31</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-10-30.html">← 前一天 · 2026-10-30</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/10/31</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，按交叉强度与方向匹配度排序。</p>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">21</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">AI × 科学交叉</div>
+<div class="daily-stat-value">1</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">21</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv / 期刊</div>
+<div class="daily-stat-value">0<small> / 21</small></div>
+</div>
+</div>
+<p class="daily-filter-note">原始候选 22 篇 → 剔除偏题 1 篇 → 主线 21 篇 → 精选 21 篇。</p>
+<details aria-label="今日概览" class="daily-viz"><summary>📊 今日分布图（主题 / 来源 / 分层）</summary><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 210"><title>主题分布</title><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">14</text><text class="vl" x="8" y="78">磁性·自旋电子学</text><rect class="vb" height="18" rx="5" width="27.1" x="142" y="64"></rect><text class="vn" x="175.1" y="78">2</text><text class="vl" x="8" y="106">铁电·极化</text><rect class="vb" height="18" rx="5" width="27.1" x="142" y="92"></rect><text class="vn" x="175.1" y="106">2</text><text class="vl" x="8" y="134">AI×化学·材料</text><rect class="vb" height="18" rx="5" width="13.6" x="142" y="120"></rect><text class="vn" x="161.6" y="134">1</text><text class="vl" x="8" y="162">拓扑·电子结构</text><rect class="vb" height="18" rx="5" width="13.6" x="142" y="148"></rect><text class="vn" x="161.6" y="162">1</text><text class="vl" x="8" y="190">软物质·流体·统计</text><rect class="vb" height="18" rx="5" width="13.6" x="142" y="176"></rect><text class="vn" x="161.6" y="190">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">21</text></svg><svg aria-label="方向分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>方向分层</title><text class="vt" x="8" y="20">方向分层</text><text class="vl" x="8" y="50">神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="0.0" x="142" y="36"></rect><text class="vn" x="148.0" y="50">0</text><text class="vl" x="8" y="78">AI × 物理/材料/化学</text><rect class="vb" height="18" rx="5" width="9.5" x="142" y="64"></rect><text class="vn" x="157.5" y="78">1</text><text class="vl" x="8" y="106">其他物理/材料</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">20</text></svg></div></details>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-10-30.html">前一天 · 2026-10-30</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-31.html">最新一期 · 2026-10-31</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-31.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日精选 21 篇：AI × 物理 / 材料 / 化学 1 篇、其他物理 / 材料进展 20 篇。（AI 摘要服务今日不可用，以下条目的中文标题与摘要可能为机器翻译。）</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在第一性原理标注与结构优化，并落到晶体结构、功能材料和结构—性质关系、铁电/多铁、极化翻转和电场驱动过程、磁性、自旋以及自旋—晶格耦合、缺陷、畴壁、成核和开关动力学。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。</p>
+</div>
+</section>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">5 篇</span>
+</div>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626006518?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-2">Ta-X（X = Co、Cr、Ni）二元和 CoNiAlTiVTaCr 化学复合合金的第二最近邻修正嵌入原子方法原子间势</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">出版日期：2027 年 1 月 来源：计算材料科学，第 276 卷 作者：Ahmad Ostovari Moghaddam、Rachel Fereidonnejad、Alexey Nikolaevich Bardushk…</p>
+<p class="daily-core-why">🎯 与你方向的关键词重合：interatomic potential。</p>
+<a class="daily-core-jump" href="#paper-2">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007263?dgcid=rss_sd_all">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-1">机器学习洞察多孔碳材料</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">出版日期：2027 年 1 月 来源：计算材料科学，第 276 卷 作者：Alina A. Chubarova、Darya A. Sergeicheva、Mikhail V. Trenikhin、Olga A. Knya…</p>
+<a class="daily-core-jump" href="#paper-1">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007032?dgcid=rss_sd_all">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-3">第一性原理测定反铁磁赤铁矿中亚晶格 3D 矢量磁场</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-core-work">出版日期：2027 年 1 月 来源：Computational Materials Science，第 276 卷 作者：Sigma-Jun Lu</p>
+<a class="daily-core-jump" href="#paper-3">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.9374593?af=R">
+<div class="daily-core-number">04</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-4">可见光加速光敏铁电体中超低电场诱导的反极性到极性顺序的转换</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">应用化学国际版，EarlyView。</p>
+<p class="daily-core-why">🎯 与你方向的关键词重合：ferroelectric。</p>
+<a class="daily-core-jump" href="#paper-4">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11359181/latest">
+<div class="daily-core-number">05</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-5">粘弹性压电纤维增强复合材料层状结构中瑞利型波的建模</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-core-work">研究了粘弹性压电纤维增强复合材料（ VRFRC ）层中瑞利型表面波通过机械不完美界面结合到各向同性弹性半空间上的传播。</p>
+<a class="daily-core-jump" href="#paper-5">查看完整卡片 ↓</a>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">21 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🤖 AI × 物理 / 材料 / 化学</h3><p>机器学习与第一性原理、分子动力学、材料与化学问题的交叉研究。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007263?dgcid=rss_sd_all" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007263?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">机器学习洞察多孔碳材料</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007263?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Machine learning insight into porous carbon materials</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🤖 AI×科学 · AI×化学·材料</span><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 1 月 来源：计算材料科学，第 276 卷 作者：Alina A. Chubarova、Darya A. Sergeicheva、Mikhail V. Trenikhin、Olga A. Knyazheva、Aleksandr V. Lavrenov、Pavel V. Prudnikov</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Alina A. Chubarova, Darya A. Sergeicheva, Mikhail V. Trenikhin, Olga A. Knyazheva, Aleksandr V. Lavrenov, Pavel V. Prudnikov</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007263?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧲 其他物理 / 材料进展</h3><p>不含机器学习成分的凝聚态、铁电磁性与材料工作。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626006518?dgcid=rss_sd_all" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006518?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Ta-X（X = Co、Cr、Ni）二元和 CoNiAlTiVTaCr 化学复合合金的第二最近邻修正嵌入原子方法原子间势</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006518?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Second nearest-neighbor modified embedded-atom method interatomic potentials for the Ta-X (X = Co, Cr, Ni) binary and CoNiAlTiVTaCr chemically complex alloys</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 1 月 来源：计算材料科学，第 276 卷 作者：Ahmad Ostovari Moghaddam、Rachel Fereidonnejad、Alexey Nikolaevich Bardushko、Maksim Alekseevich Frolov、Mohammad Moaddeli</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：interatomic potential。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Ahmad Ostovari Moghaddam, Rahele Fereidonnejad, Alexey Nikolaevich Bardushko, Maksim Alekseevich Frolov, Mohammad Moaddeli</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626006518?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007032?dgcid=rss_sd_all" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007032?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">第一性原理测定反铁磁赤铁矿中亚晶格 3D 矢量磁场</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007032?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">First-principles determination of sub-lattice 3D vector magnetic fields in antiferromagnetic hematite</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 1 月 来源：Computational Materials Science，第 276 卷 作者：Sigma-Jun Lu</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Sigma-Jun Lu</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007032?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.9374593?af=R" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.9374593?af=R" rel="noopener noreferrer" target="_blank">可见光加速光敏铁电体中超低电场诱导的反极性到极性顺序的转换</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.9374593?af=R" rel="noopener noreferrer" target="_blank">Visible Light Accelerates Ultralow Electric Field‐Induced Switching of Antipolar‐to‐Polar Orders in Photoactive Ferroelectric</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Linjie Wei、Yi Liu、Ji Qi、Liwei Tang、Jingtian Zhang、Mengyao Zhang 等 8 人。</span><span class="daily-byline-source">Wiley，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 铁电·极化</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>应用化学国际版，EarlyView。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：ferroelectric。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.9374593?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11359181/latest" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11359181/latest" rel="noopener noreferrer" target="_blank">粘弹性压电纤维增强复合材料层状结构中瑞利型波的建模</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11359181/latest" rel="noopener noreferrer" target="_blank">Modeling of Rayleigh-type waves in a viscoelastic piezoelectric fiber-reinforced composite layered Structure</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Bikram Dholey、Kshitish Ch. Mistri、Amrita Das、Gopal Chandra Shit。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 铁电·极化</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>研究了粘弹性压电纤维增强复合材料（ VRFRC ）层中瑞利型表面波通过机械不完美界面结合到各向同性弹性半空间上的传播。复合材料的两种成分都是耗散的： PZT纤维被处理为粘弹性压电固体，环氧基体被处理为粘弹性电介质，各自由作用于应力应变和电场-电位移对的开尔文-沃伊特元素描述，因此每个相和均匀化复合材料都是被动的。复杂、频率相关的有效常数是通过弹性-粘弹性对应原理将复杂成分常数引入材料强度/混合规则（ SM/RM ）关系中获得的。不完美结合以法向和切向线性滑移条件表示，上表面无牵引且电开口，金属基底接地界面。推导并求解了相位速度和基模归一化衰减的精确8 × 8复色散关系，无需任何小损耗近似。结果表明，纤维体积分数通过层刚度和压电刚度控制色散，基体的粘性弛豫时间（主要是η c ， q 33和η c ， q 44 ）控制衰减，同时保持相速度几乎不变，纤维粘弹性仅在高纤维含量时才变得显著，并且界面顺应性，特别是正常顺应性，降低了相速度和色散中的衰减范围，还分析了模态形状、粒子轨道、电位分布和基于速度的机电耦合度量；群速度显示出对纤维含量和键质量敏感的明显的空气相最小值，而基于速度的耦合度量K 2 = 2 （ c开− c短路）/c开路对于富纤维层达到约3.3%。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">The propagation of Rayleigh-type surface waves in a viscoelastic piezoelectric fiber-reinforced composite (VRFRC) layer bonded to an isotropic elastic half-space through a mechanically imperfect interface is investigated. Both constituents of the composite are dissipative: the PZT fibers are treated as viscoelastic piezoelectric solids and the epoxy matrix as a viscoelastic dielectric, each described by Kelvin–Voigt elements acting on the stress–strain and on the electric field–electric displacement pairs, so that every phase, and the homogenized composite, is passive. The complex , frequency-dependent effective constants are obtained by introducing the complex constituent constants into the strength-of-materials/rule-of-mixtures (SM/RM) relations through the elastic–viscoelastic correspondence principle. The imperfect bond is represented by normal and tangential linear-slip conditions, the upper surface is traction-free and electrically open, and the metallic substrate grounds the interface. An exact 8 × 8 complex dispersion relation is derived and solved, without any small-loss approximation, for the phase velocity and the normalized attenuation of the fundamental mode. The results show that the fiber volume fraction controls the dispersion through the layer stiffness and piezoelectric stiffening, the viscous relaxation times of the matrix (chiefly η c,q 33 and η c,q 44) control the attenuation while leaving the phase velocity almost unchanged, fiber viscoelasticity becomes significant only at high fiber content, and interfacial compliance, in particular the normal compliance, lowers the phase velocity and the attenuation in the dispersive range. Mode shapes, particle orbits, the electric potential distribution and a velocity-based electromechani-cal coupling measure are also analysed; the group velocity shows a pronounced Airy-phase minimum that is sensitive to the fiber content and the bond quality, and the velocity-based coupling measure K 2 = 2(c open − c short)/c open reaches about 3.3% for fiber-rich layers.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11359181/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html" rel="noopener noreferrer" target="_blank">UTe2 揭示了极压下两种超导特性</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html" rel="noopener noreferrer" target="_blank">UTe₂ reveals two flavors of superconductivity under extreme pressure</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">Physics News，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 拓扑·电子结构</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>量子研究人员正在寻找一种拓扑超导体，这种材料如果被发现，将通过结合两种不同的超导“风味”，从而在量子计算方面取得重大进展。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Quantum researchers are searching for a topological superconductor—a material that, if discovered, would allow major advances in quantum computing by combining two distinct "flavors" of superconductivity.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://phys.org/news/2026-10-ute-reveals-flavors-superconductivity-extreme.html" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-9975866/latest" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9975866/latest" rel="noopener noreferrer" target="_blank">自由基对量子库需要什么：可读能力，没有量子优势，以及核寄存器标准</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-9975866/latest" rel="noopener noreferrer" target="_blank">What a radical-pair quantum reservoir would require: readable capacity, no quantum advantage, and a nuclear-register criterion</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Hikaru Wakaura、Taiki Tanimae。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 磁性·自旋电子学</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>自由基对磁感受背后的电子-核自旋相干性是否也可以支持生物计算已经被推测了几十年，但从未进行过定量。我们将隐色素型自由基对视为贮存计算机，通过电子退相干解决自由基对主方程，并像真正的周转一样驱动它--通过自旋相关对的诞生，其单重字符对输入进行编码。接下来是三个结果，但没有一个是预期的结果。储层可由普通化学物质进行强化：产品带走的核极化使其无记忆底板2.0的样本外信息处理能力为4.7 ，没有光谱。没有量子优势：经典的网络匹配通道对通道超出五自旋储层49--123%。记忆视界不是由微秒对的寿命设定，而是由周转间隔设定，因为核寄存器在反磁性产物中的重组中幸存下来--所以结合约束是化学的而不是时间的，即在周转之间重复使用emphsame寄存器。预测寄存器的松弛而不是假设它使该约束可检验：在地磁场中，完整蛋白质上的质子在毫秒而不是几秒钟内松弛，将视界限制在神经带下方，除非寄存器的偶极向量比蛋白质重新定向的速度快约2.5倍（ τβfflesssim6 ~ ns ）。幸存下来的是在更坚实的基础上提出了一个更小的主张：一种标准，其两个常数可以在体外测量，而不是从未测量过中心弛豫时间的标准。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Whether the electron--nuclear spin coherence behind radical-pair magnetoreception could also support biological emphcomputation has been conjectured for decades but never made quantitative. We treat a cryptochrome-type radical pair as a reservoir computer, solving the radical-pair master equation with electronic decoherence and driving it as a real turnover does---by the birth of a spin-correlated pair whose singlet character encodes the input. Three results follow, none of them the expected one. The reservoir is emphreadable by ordinary chemistry: the nuclear polarisation the product carries away gives an out-of-sample information-processing capacity of 4.7 against its own memoryless floor of 2.0, with no spectroscopy. There is no quantum advantage: a classical network matched channel-for-channel exceeds the five-spin reservoir by 49--123%. And the memory horizon is set not by the microsecond pair lifetime but by the turnover interval, because the nuclear register survives recombination in the diamagnetic product---so the binding constraint is chemical rather than temporal, namely that the emphsame register be reused between turnovers. Predicting the register's relaxation instead of assuming it makes that constraint testable: at the geomagnetic field a proton on the intact protein relaxes in milliseconds, not seconds, capping the horizon below the neural band unless the register's dipolar vector reorients about two and a half times faster than the protein (τᵣₘ ₑfflesssim6~ns). What survives is a smaller claim on firmer ground: a criterion whose two constants can be measured in vitro, in place of one whose central relaxation time was never measured at all.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-9975866/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11297903/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11297903/latest" rel="noopener noreferrer" target="_blank">作为氖原子内 2s2p 电子同步机制的斯托克斯一般定理</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11297903/latest" rel="noopener noreferrer" target="_blank">The general Stokes’ theorem as the mechanism for synchronizing 2s2p electrons within a neon atom</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Kunming Xu。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>点、弧、面和实体是球体的四个正交空间维度。当它们应用于氖壳原子结构的描述时，我们得出的结论是，两个成熟的 2px 电子轨道都表现为两个直径点；两个 2py 轨道均呈两个半圆弧形状；两个 2pz 轨道分布在两个半球形表面上；两个 2s 轨道形成实心球层。电子遵循球面量的动态演算而不是物理量的线性代数，循环地从一种类型的轨道转变为另一种类型的轨道。这种维度变换需要一种解决简谐振动方程的新方法，并通过格林定理、斯托克斯定理和高斯定理发现了 2s2p 电子的同步机制。我们对 2px、2py 和 2pz 电子轨道进行了精细的几何区分，这些电子轨道与量子力学中的电子轨道向后兼容。电子轨道以几何学、三角学、动力学微积分和矢量积分微积分的相干方式来表征。它们优雅的配位机制得益于四维空间梯度中2p轨道各向异性的巨大优势，为氖原子四元理论提供了有力的证据，并为地球生物圈和人体免疫系统的调节机制提供了敏锐的洞察。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Points, arcs, surfaces, and solids are four orthogonal space dimensions of a sphere. When they are applied to the description of the atomic structure of a neon shell, we draw the conclusion that both full-fledged 2px electronic orbitals manifest as two diametric points; both 2py orbitals take the shape of two semicircular arcs; both 2pz orbitals spread over two hemispherical surfaces; and both 2s orbitals form a solid spherical layer. The electrons transform from one type of orbitals to another cyclically following dynamic calculus of spherical quantities rather than linear algebra of physical quantities. Such dimensional transformations entail a fresh approach to solving harmonic oscillation equations and lead to the discovery of the synchronization mechanism for 2s2p electrons by Green’s theorem, Stokes’ theorem, and Gauss’s theorem. We make fine geometrical distinctions between 2px, 2py, and 2pz electronic orbitals, which are backwards compatible with those in quantum mechanics. Electronic orbitals are characterized from geometry, trigonometry, dynamic calculus, and vector integral calculus in a coherent manner. Their elegant coordination mechanism is a great benefit of 2p orbitals anisotropy in the four-dimensional space gradients, furnishing strong evidence of the quaternity theory for a neon atom, and providing a sharp insight into the mechanisms that regulate the biosphere on the earth and the immune system of a human body.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11297903/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11229891/latest" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11229891/latest" rel="noopener noreferrer" target="_blank">受众对遗产文创产品的评价：评价者层面和产品层面方差的多层次分析</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11229891/latest" rel="noopener noreferrer" target="_blank">Audience evaluation of heritage-derived cultural-creative products: a multilevel analysis of rater-level and product-level variance</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Zetian Wang、Fangming Zhao、Wentao Tang、Mingfeng Xiao、Lingling Zheng。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>对源自遗产的文化创意产品的研究通常将观众评分解释为产品之间的差异，但每个评分也反映了给出评分的人。本研究探讨了这两种方差来源如何影响对源自中国云南的陀螺陀螺的六种设计的评估。 228 名受访者每人对两个随机分配的设计进行评分，共给出 456 项评价。交叉随机效应模型估计了每个响应的评估者和产品份额，评估者内部和评估者之间的分析区分了评估判断之间的两种关联。评估者在设计感知方面占81.6%，在文化真实性方面占81.8%，在审美评价方面占56.1%。产品间平均差异占每次判断的比例小于1%；这些份额在替代样本筛选下是相似的。文化熟悉度（通过自评对源文化的了解和对民族风格的兴趣来衡量）解释了评分者水平差异的 7.2% 至 22.8%。产品的真实性排名也因熟悉程度而异。在描述性感知中，活力显示出最明显的产品差异（产品份额为 4.9%），尽管其观察到的顺序并不遵循设计预期的静态和动态形式。这三个评估判断在评估者之间密切相关。在评估者内部，没有检测到真实性和审美评价之间的关联，包括在校正测量误差之后。设计感知与通过真实性进行的审美评价的间接关联度在评分者之间为 0.31，在评分者内部为 0.00。在这个设计体系中，评价分数主要区分观众成员。重复刺激研究应报告方差如何在评估者和产品之间划分，并在解释汇总系数之前区分评估者内部和评估者之间的关联。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Studies of heritage-derived cultural-creative products often interpret audience ratings as differences between products, yet each rating also reflects the person who gives it. This study examined how these two sources of variance contribute to evaluations of six designs derived from the Wa jicong top, a spinning top from Yunnan, China. Each of 228 respondents rated two randomly assigned designs, giving 456 evaluations. Crossed random-effects models estimated the rater and product shares of each response, and within-rater and between-rater analyses separated two kinds of association among evaluative judgements. Raters accounted for 81.6% of the variance in design perception, 81.8% in perceived cultural authenticity and 56.1% in aesthetic evaluation. Average differences between products accounted for less than 1% of each judgement; these shares were similar under alternative sample screenings. Cultural familiarity, measured through self-rated knowledge of the source culture and interest in ethnic styling, explained 7.2% to 22.8% of rater-level variance. The ranking of products on authenticity also varied with familiarity. Of the descriptive perceptions, dynamism showed the clearest product difference (product share 4.9%), although its observed ordering did not follow the designs' intended static and dynamic forms. The three evaluative judgements were strongly associated between raters. Within raters, no association between authenticity and aesthetic evaluation was detected, including after correction for measurement error. The indirect association of design perception with aesthetic evaluation through authenticity was 0.31 between raters and 0.00 within them. In this design system, evaluative scores primarily distinguished audience members. Repeated-stimulus studies should report how variance divides between raters and products and distinguish within-rater from between-rater associations before interpreting pooled coefficients.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11229891/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75579?af=R" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75579?af=R" rel="noopener noreferrer" target="_blank">空气稳定自由基添加剂调节高效有机太阳能电池中的自旋相关复合</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75579?af=R" rel="noopener noreferrer" target="_blank">Air‐Stable Radical Additives Modulate Spin‐Dependent Recombination in High‐Efficiency Organic Solar Cells</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Mengni Wang、Dingding Qiu、Yajie Zhang、Wenzhao Wang、Jin Fang、Rui Wang 等 10 人。</span><span class="daily-byline-source">Wiley: Advanced Materials: Table of Contents，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进材料，早期观点。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75579?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://onlinelibrary.wiley.com/doi/10.1002/anie.4402713?af=R" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4402713?af=R" rel="noopener noreferrer" target="_blank">通过有机双阳离子补偿掺杂制备明亮的卤化锡钙钛矿量子点</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4402713?af=R" rel="noopener noreferrer" target="_blank">Bright Tin Halide Perovskite Quantum Dots via Organic Dication Compensatory Doping</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Ole F. Dressler、Paul Golias、John L. Lyons、Stefanie Frick、Sebastian Siol、Sure Ceylan 等 12 人。</span><span class="daily-byline-source">Wiley，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>应用化学国际版，EarlyView。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：perovskite。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Angewandte Chemie International Edition, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://onlinelibrary.wiley.com/doi/10.1002/anie.4402713?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11063421/latest" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11063421/latest" rel="noopener noreferrer" target="_blank">五种肯尼亚金丝桃属植物精油生物活性的GC-MS化学分析、化学分裂和通过在线预测</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11063421/latest" rel="noopener noreferrer" target="_blank">GC-MS chemoprofiling, chemotaxonomic differentiation and PASS online prediction of biological activities of essential oils from five Kenyan Hypericum species</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Jared Misonge Onyancha、Geoffrey Sengera Ogeto、Peter Maina Mbugua、May Chao Mungulle、Norman Wairagu Wachira。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>金丝桃属植物是精油的潜在来源。虽然有来自世界其他地区的关于金丝桃精油（ Eos ）挥发性成分的报道，但肯尼亚的金丝桃种类在很大程度上仍未被探索。目前的研究使用多变量化学计量学方法评估了在肯尼亚采集的五种金丝桃属植物的Eos的化学变异性。通过加氢蒸馏提取Eos ，并使用气相色谱-质谱（ GC–MS ）进行分析。此外，还对物质的活性光谱进行了预测。在数据清理（包括合并重复化合物、去除缺失化合物和自动缩放）后，对113种化合物的数据集进行主成分分析（ PCA ）、Pearson相关分析、分层聚类分析、植物化学分类分析、多样性指数、Venn分析和鉴别化合物评估。挥发性剖面显示出明显的种间变化。倍半萜类以金丝桃属（ Hypericum kiboense ）、黑金丝桃属（ Hypericum roeperianum ）、金丝桃属（ Hypericum peplidifolium ）和金丝桃属（ Hypericum scioanum ）为主，而金丝桃属（ Hypericum revolutum ）含有更强的单萜类成分，以α-菠萝烯（ α-pinene ， 43.04% ）和丁香烯（ caryophyllene ， 19.40%特征性主要成分包括H. kiboense中的valencene （ 28.77% ）、H. roeperianum中的6-羟基-1-苯基己烷-1,3-二酮（ 11.73% ）、H. peplidifolium中的丁香烯（ 15.06% ）和H.scioanum （ 10.68 ％ ） ，前两个主要成分解释了总变异的68.2 ％ ，并清楚地分离了物种。相关性分析显示，物种间相似性普遍较弱，但辣椒与小球藻之间的相似性较强（ r = 0.81 ）。聚类分析确定了三个主要的化疗组。多样性指标进一步突出了物种之间丰富性、均匀性和整体多样性的显著差异。五种金丝桃属植物具有不同但部分重叠的挥发性油指纹，并且在化学上不可互换。这些结果为趋化细胞学、质量控制和未来的生物活性指导研究提供了宝贵的基础。预测的生物活性曲线显示，在所研究的金丝桃精油中，抗血吸虫活性的发生次数最多，其次是抗肿瘤和凋亡激动剂活性。排名表进一步显示，一些不太频繁的活动，如溶痉尿活动和粘膜保护，具有较高的加权平均Pa评分，这表明预测的生物活性较强但分布较窄。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Hypericum species are potential sources of essential oils. Whereas there exists reported work on volatile constituents of Hypericum essential oils (Eos) from other parts of the world, the species of Hypericums in Kenya remain largely unexplored. The current study assessed the chemical variability of Eos from five Hypericum species collected in Kenya using multivariate chemometric approaches. Eos were extracted by hydrodistillation and analyzed using gas chromatography–mass spectrometry (GC–MS). Further, prediction of activity spectra for substances was done. After data cleaning, including merging duplicate compounds, removing absent compounds, and autoscaling, a dataset of 113 compounds was subjected to principal component analysis (PCA), Pearson correlation analysis, hierarchical cluster analysis, phytochemical class profiling, diversity indices, Venn analysis, and discriminating-compound assessment. The volatile profiles showed clear interspecific variation. Sesquiterpenes predominated in Hypericum kiboense, Hypericum roeperianum, Hypericum peplidifolium, and Hypericum scioanum, whereas Hypericum revolutum contained a stronger monoterpene component dominated by α-pinene (43.04%) and caryophyllene (19.40%). Characteristic major constituents included valencene in H. kiboense (28.77%), 6-hydroxy-1-phenylhexane-1,3-dione in H. roeperianum (11.73%), caryophyllene in H. peplidifolium (15.06%), and caryophyllene oxide in H. scioanum (10.68%). The first two principal components explained 68.2% of total variation and clearly separated the species. Correlation analysis revealed generally weak similarities among species, except for the strong relationship between H. peplidifolium and H. scioanum (r = 0.81). Cluster analysis identified three major chemotypic groups. Diversity metrics further highlighted substantial differences in richness, evenness, and overall diversity among species. The five Hypericum species possess distinct but partially overlapping volatile oil fingerprints and are not chemically interchangeable. The results provide a valuable foundation for chemotaxonomy, quality control, and future bioactivity-guided investigations. The predicted biological activity profile showed that antieczematic activity had the highest number of occurrences across the investigated Hypericum essential oils, followed by antineoplastic and apoptosis agonist activities. The ranking table further showed that some less frequent activities, such as spasmolytic urinary activity and mucomembranous protection, had high weighted mean Pa scores, suggesting strong but more narrowly distributed predicted bioactivity.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11063421/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75585?af=R" id="paper-13">
+<span class="daily-paper-number">13</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75585?af=R" rel="noopener noreferrer" target="_blank">动态分子支架能够实现稳定钙钛矿太阳能电池的热机械应力调节和自适应缺陷修复</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75585?af=R" rel="noopener noreferrer" target="_blank">Dynamic Molecular Scaffold Enables Thermomechanical Stress Regulation and Adaptive Defect Healing for Stable Perovskite Solar Cells</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Gang Wang、Zhengyan He、Fenghua Zhang、Qilin Wei、Xiong Li、Ke Jing 等 10 人。</span><span class="daily-byline-source">Wiley: Advanced Materials: Table of Contents，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>先进材料，早期观点。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：perovskite。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Advanced Materials, EarlyView.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75585?af=R" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-13">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11192829/latest" id="paper-14">
+<span class="daily-paper-number">14</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11192829/latest" rel="noopener noreferrer" target="_blank">通过表面工程贝壳衍生的生物无机颗粒实现膨胀型涂料的协同防火和耐水性</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11192829/latest" rel="noopener noreferrer" target="_blank">Synergistic Fire Protection and Water Resistance of Intumescent Coatings via Surface- Engineered Shell-Derived Biogenic Inorganic Particles</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Wenzhou Du、Guizhuang Zhu、Luyao Wang、Mingxue Huang、Yangxu Wang。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>钢结构膨胀型防火涂料存在耐水性差、高温炭层薄弱的问题。在此，利用 KH-550 对壳源性生物无机颗粒 (SBIP) 进行表面功能化，并将其作为生物基协同填料掺入有机硅-丙烯酸/环氧水性膨胀涂料 (IFR-EP/SAE) 中。进行了包括燃烧模拟、热重分析、极限氧指数 (LOI)、锥形量热法、SEM 和拉曼光谱在内的表征，以研究界面相容性、防火性、热稳定性、耐水老化性和炭演化。 KH-550 功能化改善了 SBIP 与基质的相容性，同时观察到对阻燃性的明显双相浓度依赖性影响，其中 3 wt.% SE-SBIP 显示出最佳性能。与空白对照相比，添加量为3重量％。 ％将背面钢的峰值温度降低至289.27°C，将LOI提高至42.5%，并将初始快速热降解温度从304°C提高至363°C。水浸泡48小时后，仍保持良好的阻燃抑烟性能，峰值放热率和总排烟量降低。拉曼分析显示 ID/IG 比率从 1.36 降低至 1.07，表明炭石墨化增强。这项工作为开发耐用的生物基防火涂料提供了可持续的策略。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Steel-structure intumescent fire-retardant coatings suffer from poor water resistance and weak high-temperature char layers. Herein, shell-derived biogenic inorganic particles (SBIPs) were surface-functionalized with KH-550 and incorporated as a bio-based synergistic filler into silicone-acrylic/epoxy waterborne intumescent coatings (IFR-EP/SAE). Characterizations including combustion simulation, thermogravimetry, limiting oxygen index (LOI), cone calorimetry, SEM, and Raman spectroscopy were performed to investigate interfacial compatibility, fire protection, thermal stability, water-aging resistance, and char evolution. KH-550 functionalization improved SBIP–matrix compatibility, while a distinct biphasic concentration-dependent effect on flame retardancy was observed, with 3 wt.% SE-SBIPs showing optimal performance. Compared with the blank control, the addition amount of 3 wt. % reduced the peak back-side steel temperature to 289.27°C, increased the LOI to 42.5%, and raised the initial rapid thermal-degradation temperature from 304 to 363°C. After 48 h water immersion, it maintained favorable flame-retardant and smoke-suppression performance, with reduced peak heat-release rate and total smoke release. Raman analysis showed a decreased ID/IG ratio from 1.36 to 1.07, indicating enhanced char graphitization. This work provides a sustainable strategy for developing durable bio-based fire-protective coatings.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11192829/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-14">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11094060/latest" id="paper-15">
+<span class="daily-paper-number">15</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11094060/latest" rel="noopener noreferrer" target="_blank">使用纳米粒子作为模型纳米级探针研究动态细胞外环境中的粒子行为</a><a class="daily-permalink-link" href="#paper-15" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11094060/latest" rel="noopener noreferrer" target="_blank">A study of particle behaviour in dynamic extracellular environments using nanoparticles as model nanoscale probes</a><a class="daily-permalink-link" href="#paper-15" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Genevieve Schleyer、Eann A. Patterson、Judith M. Curran。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>量化复杂生物环境中纳米粒子的行为对于理解异质生命系统内的运输和相互作用至关重要。荧光标记通常用于可视化纳米颗粒；然而，荧光探针的表面修饰可以改变纳米粒子的相互作用并掩盖天然行为。因此，需要可用的无标记方法来表征生物学相关条件下的纳米颗粒动力学。在这项研究中，使用基于光学焦散的显微镜技术来跟踪 100 nm 金纳米颗粒在人间充质干细胞 (hMSC) 单层上方细胞外空间中的运动。使用扩散系数、异常扩散指数和凸包度量来分析纳米颗粒轨迹，以量化传输行为。结果表明，局部细胞外环境显着影响纳米颗粒动力学。在存在胎牛血清的情况下，纳米粒子扩散速率在暴露于 hMSC 层一小时后显着变化。表面电荷、蛋白质含量和相对于细胞的颗粒定位也对迁移率有显着影响。与理想化布朗运输预测的比较表明，活的细胞外环境表现为动态且不断变化的运输介质，可以改变纳米颗粒的运动。这些发现强调了纳米级运输对局部生物条件的敏感性，并建立了用于研究异质生物系统中纳米颗粒动力学的无标记框架。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Quantifying nanoparticle behaviour in complex biological environments is essential for understanding transport and interactions within heterogeneous living systems. Fluorescent labelling is commonly used to visualise nanoparticles; however, surface modification by fluorescent probes can alter nanoparticle interactions and obscure native behaviour. Therefore, accessible label-free methods are needed to characterise nanoparticle dynamics under biologically relevant conditions. In this study, an optical caustics-based microscopy technique was used to track the motion of 100 nm gold nanoparticles in the extracellular space above human mesenchymal stem cell (hMSC) monolayers. Nanoparticle trajectories were analysed using diffusion coefficients, anomalous diffusion exponents, and convex hull metrics to quantify transport behaviour. Results demonstrated that the local extracellular environment significantly influences nanoparticle dynamics. In the presence of fetal bovine serum, nanoparticle diffusion rates changed significantly after one hour of exposure to the hMSC layer. Surface charge, protein content, and particle localisation relative to cells also had a marked effect on mobility. Comparison with idealised Brownian transport predictions showed that the living extracellular environment behaves as a dynamic and evolving transport medium that modifies nanoparticle movement. These findings highlight the sensitivity of nanoscale transport to local biological conditions and establish a label-free framework for investigating nanoparticle dynamics in heterogeneous biological systems.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11094060/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-15">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11267446/latest" id="paper-16">
+<span class="daily-paper-number">16</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11267446/latest" rel="noopener noreferrer" target="_blank">热带气候条件下直耦直流和变频交流光伏抽水系统性能比较分析</a><a class="daily-permalink-link" href="#paper-16" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11267446/latest" rel="noopener noreferrer" target="_blank">Comparative performance analysis of direct-coupled DC and variable-frequency AC photovoltaic water pumping systems under tropical climatic conditions</a><a class="daily-permalink-link" href="#paper-16" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Felix Ngangoum Welaji、Ariel Teyou Ngoupo、Bertrand Bodo、/ Yaouba、Venant Sorel Chara-Dackou、Charles Bertrand Gubong Takam 等 9 人。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>农村热带地区往往缺乏电网接入，越来越依赖光伏抽水。本研究在相同条件下（光伏阵列、电机泵、液压系统和需求）对两种架构进行了数值比较：直接耦合直流系统和带MPPT的变频交流系统。模拟使用喀麦隆四个站点Meskine、Agola、Mbé和Soa的典型气象年数据（ 2005-2023 ） ，时间步长为1分钟。光伏发电机采用单二极管模型建模，直流分支包括电机电机动力学，而交流分支使用具有自适应扰动和观测MPPT的准稳态功率传递模型。结果显示，三个地点的交流年抽水量超过了直流： Meskine为+18.9% ， Agola为+24.3% ， Mbé为+7.8%。在SOA时，未观察到AC增益（ -1.8 ％ ，不显著）。该排名跟随当地气候，反映在能源效率、温度校正的性能比和运行时间上。分解交流增益表明，它主要源于通过MPPT更好地利用光伏电力， MPPT在高绝缘场地捕获了84-87 ％的理论电位，而在Mbé捕获了66 ％的理论电位，而不是在考虑的时间分辨率下更快的重启响应。因此，交流优势不是普遍的，而是取决于气候的，这要求在做出任何技术选择之前进行特定地点的评估。本研究的一个显而易见的局限性是，辐照时间序列，每小时可用，然后外推到一分钟的步长，无法解决每小时的瞬变。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Rural tropical areas often lack grid access and increasingly rely on photovoltaic water pumping. This study numerically compares two architectures under identical conditions (PV array, motor pump, hydraulic system, and demand): a direct-coupled DC system and a variable-frequency AC system with MPPT. Simulations use Typical Meteorological Year data (2005–2023) from four Cameroon sites, Meskine, Agola, Mbé, and Soa, at a 1-min time step. The PV generator is modeled with a single-diode model, the DC branch includes electromechanical motor dynamics, while the AC branch uses a quasi-steady power transfer model with an adaptive perturb-and-observe MPPT. Results show that the AC annual pumped volume exceeds DC at three sites: +18.9% at Meskine, + 24.3% at Agola, and + 7.8% at Mbé. At Soa, no AC gain was observed (− 1.8%, not significant). This ranking follows the local climate and is mirrored in energy efficiency, temperature-corrected Performance Ratio, and operating time. Decomposing the AC gain shows that it stems mainly from better utilization of photovoltaic power through MPPT, which captures 84–87% of the theoretical potential at high-insolation sites versus 66% at Mbé, rather than from a faster restart response at the temporal resolution considered. AC superiority is therefore not universal but climate-dependent, which argues for a site-specific assessment before any technological choice is made. An explicit limitation of this study is that the irradiance time series, available hourly and then extrapolated to one-minute steps, cannot resolve sub-hourly transients.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11267446/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-16">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11220820/latest" id="paper-17">
+<span class="daily-paper-number">17</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11220820/latest" rel="noopener noreferrer" target="_blank">球墨铸铁低压熔模铸造：控制填充对石墨形态和断裂机制的影响</a><a class="daily-permalink-link" href="#paper-17" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11220820/latest" rel="noopener noreferrer" target="_blank">Low-Pressure Investment Casting of Ductile Iron: Effect of Controlled Filling on Graphite Morphology and Fracture Mechanisms</a><a class="daily-permalink-link" href="#paper-17" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Herman Aleš、Kopanica Zdeněk、Petr Chytka、Novák Vít。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 软物质·流体·统计</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>本研究探讨了低压熔模铸造（LPIC）这一新工艺与传统重力熔模铸造（GIC）相比对球墨铸铁件完整性和机械性能的影响。尽管熔模铸造广泛用于高精度部件，但其在球墨铸铁中的应用仍然受到湍流引起的缺陷和凝固条件控制不足的限制。为了消除成分变化，EN-GJS-500 球墨铸铁铸件采用两种工艺从单一熔体生产，并通过拉伸、夏比冲击和硬度测试、光学显微镜和断口扫描电子显微镜 (SEM) 进行评估。与 GIC 相比，LPIC 的极限抗拉强度提高了约 22%（从 564 MPa 增加到 687 MPa），伸长率提高了约 52%，而屈服强度和硬度仍保持可比性。冲击强度下降了约 29%，但分散性明显降低。 LPIC 铸件表现出更高的结核数量、更小的平均结核直径（28 µm 与 51 µm）以及更均匀的石墨分布。断口分析揭示了主要断裂机制从 GIC 中的石墨结核断裂到 LPIC 中的基体控制失效的转变。这些发现表明，LPIC 的好处不仅仅限于减少缺陷数量，还包括改变石墨-基体相互作用和负载转移。层流填充和压力辅助凝固的结合被认为可以减少双膜形成并增强补缩。因此，LPIC 代表了在要求严格的工程应用中提高球墨铸铁熔模铸件性能的一条有前途的途径。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">This study investigates the effect of low-pressure investment casting (LPIC), a novel process, on the integrity and mechanical properties of ductile iron castings in comparison with conventional gravity investment casting (GIC). Although investment casting is widely used for high-precision components, its application to ductile iron remains limited by turbulence-induced defects and insufficient control of solidification conditions. To eliminate compositional variability, EN-GJS-500 ductile iron castings were produced by both processes from a single melt and evaluated by tensile, Charpy impact and hardness testing, light microscopy and scanning electron microscopy (SEM) of the fracture surfaces. Compared with GIC, LPIC increased the ultimate tensile strength by approximately 22% (from 564 to 687 MPa) and the elongation by approximately 52%, whereas the yield strength and hardness remained comparable. The impact strength decreased by approximately 29%, although with considerably lower scatter. The LPIC castings exhibited a higher nodule count, a smaller mean nodule diameter (28 µm vs. 51 µm) and a more homogeneous graphite distribution. Fractography revealed a transition in the dominant fracture mechanism from graphite nodule fracture in GIC to matrix-controlled failure in LPIC. These findings suggest that the benefits of LPIC extend beyond a reduced defect population and include a modification of the graphite–matrix interaction and load transfer. The combination of laminar filling and pressure-assisted solidification is considered to reduce bifilm formation and enhance feeding. LPIC therefore represents a promising route for improving the performance of ductile iron investment castings in demanding engineering applications.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11220820/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-17">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11313682/latest" id="paper-18">
+<span class="daily-paper-number">18</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11313682/latest" rel="noopener noreferrer" target="_blank">用于光伏电池混合能源系统的双输入双输出DC-DC转换器的开发和实验验证</a><a class="daily-permalink-link" href="#paper-18" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11313682/latest" rel="noopener noreferrer" target="_blank">Development and Experimental Validation of a Dual-Input Dual-Output DC-DC Converter for PV–Battery Hybrid Energy Systems</a><a class="daily-permalink-link" href="#paper-18" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Saber Zare、Amirhossein Rajaei、Mohammad Karimianfard。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>由于可再生能源的固有波动性，其输出电流和电压表现出明显的间歇性，使其不足以实现独立的可持续电力输送。为了解决这个问题，通常会部署将可再生能源与辅助存储或发电机组相结合的混合系统。本研究引入了一种利用T源阻抗网络的创新双输入双输出（ DIDO ） DC-DC转换器配置。在建议的设置中，光伏（ PV ）阵列和电池存储单元充当双输入端口。转换器受到控制，以便当光伏输出低于负载要求时，电池补偿任何功率缺陷，而多余的光伏发电则用于在剩余期间为电池充电。对变频器的数学模型和工作模式进行了全面分析。此外，还实施了爬坡算法，以实现光伏系统的最大功率点跟踪（ MPPT ）。通过MATLAB/Simulink仿真评估设计的可行性，并在不同操作场景下使用硬件原型进行实验验证。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Due to the inherently fluctuating nature of renewable energy sources, their output current and voltage exhibit significant intermittency, rendering them insufficient for standalone sustainable power delivery. To address this, hybrid systems combining renewables with auxiliary storage or generation units are commonly deployed. This study introduces an innovative dual-input dual-output (DIDO) DC-DC converter configuration utilizing a T-source impedance network. In the proposed setup, a photovoltaic (PV) array and a battery storage unit serve as the dual input ports. The converter is controlled such that the battery compensates for any power deficits when the PV output falls short of the load requirements, whereas excess PV generation is directed to charge the battery during surplus periods. The mathematical model and operational modes of the converter are thoroughly analyzed. Additionally, the Hill Climbing algorithm is implemented to realize Maximum Power Point Tracking (MPPT) for the PV system. The feasibility of the design is assessed through MATLAB/Simulink simulations and verified experimentally using a hardware prototype under diverse operating scenarios.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11313682/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-18">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11377684/latest" id="paper-19">
+<span class="daily-paper-number">19</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11377684/latest" rel="noopener noreferrer" target="_blank">重建现实：在沉浸式远程呈现中实现基于隐形传送的运动</a><a class="daily-permalink-link" href="#paper-19" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11377684/latest" rel="noopener noreferrer" target="_blank">Reconstructed Reality: Enabling Teleportation-Based Locomotion in Immersive Telepresence</a><a class="daily-permalink-link" href="#paper-19" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Eetu Laukka、Evan G. Center、Steven M. LaValle、Timo Ojala、Matti Pouke。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>高延迟和虚拟现实 (VR) 不适阻碍了利用头戴式显示器 (HMD) 的远程呈现或远程操作系统的大规模采用。在使用 360 度摄像头呈现远程环境的沉浸式远程呈现场景中，预计延迟可达数秒。这种延迟使得这些系统的传统连续手动控制变得困难。此外，由于头显的使用，这些系统的用户很容易出现VR晕眩症。我们提出了一种新颖的方法，可以在这些限制下改善远程呈现运动体验。该论文首先回顾了之前发表的原型设计文章，然后整合了实际用例的新发现，复制和扩展了这些发现。我们得出的结论是，相对于标准的基于操纵杆的连续控制方法，通过实时 3D 重建虚拟环境作为物理环境 (VEIPE) 的接口来使用远程传送是非常有益的。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">High latency and virtual reality (VR) sickness hinders the mass adoption of telepresence or teleoperated systems utilizing head-mounted displays (HMDs). In immersive telepresence scenarios that use 360 degree cameras to present the remote environment, latencies of up to seconds are expected. Such delays make traditional continuous manual control of these systems difficult. In addition, due to the use of HMDs, users of these systems are prone to VR sickness. We present a novel method to enable an improved telepresence locomotion experience under these constraints. The paper first recounts a previously published article of a prototype design, and then integrates new findings of a realistic use-case, replicating and extending these findings. We conclude that it is highly beneficial to use teleportation through a real-time 3D reconstructed virtual environment as an interface to a physical environment (VEIPE) in embodied immersive telepresence, relative to a standard joystick-based continuous control method.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11377684/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-19">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11330101/latest" id="paper-20">
+<span class="daily-paper-number">20</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11330101/latest" rel="noopener noreferrer" target="_blank">阿尔及利亚半干旱流域灌溉水质指数 (IWQI) 绘图和水化学聚类的机器学习和 GIS 集成框架</a><a class="daily-permalink-link" href="#paper-20" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11330101/latest" rel="noopener noreferrer" target="_blank">Machine Learning and GIS-Integrated Framework for Irrigation Water Quality Index (IWQI) Mapping and Hydrochemical Clustering in an Algerian Semi-Arid Watershed</a><a class="daily-permalink-link" href="#paper-20" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Zahra Benkhamallah、Bachir Hallouche、Khaled Korichi。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 6 / 10" class="daily-relevance is-me" title="方向匹配 6 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:60.0%"></i></span><strong>6</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>在 Ain Temouchent 地区，地表水严重有限，地下水成为家庭供应和农业灌溉的主要来源。本研究通过按照 Meireles 方法计算灌溉水质指数 (IWQI)、通过 GIS 绘制其空间分布并用两种机器学习方法补充分析来评估 El Melah 流域地下水的灌溉适宜性：(i) 具有留一交叉验证 (LOOCV) 的随机森林 (RF) 模型和 SHAP 可解释性分析，以确定 IWQI 退化的主要驱动因素； (ii) K 均值和层次聚类来描绘水化学相并提供传统 Wilcox 图的统计替代方案。整个研究区域的盐度升高（EC：1,034–5,010 µS cm⁻1）。 RF 模型实现了 LOOCV R² = 0.61，SHAP 分析确认 Na⁺ 和 EC 是 IWQI 退化的主要驱动因素。层次聚类解析了三个水化学相：Ca2+-HCO3⁻大陆组、Na⁺-Cl⁻蒸发岩影响组和海水入侵组，所有这些都通过单向方差分析证实在统计上不同（p &lt; 0.05）。总体而言，该流域的地下水质量对灌溉用途有中度到严重的限制，其中北部地区受海洋渗透的影响最为严重。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">In the Ain Temouchent region, surface water is severely limited, leaving groundwater as the primary source for both domestic supply and agricultural irrigation. This study evaluates the suitability of El Melah watershed groundwater for irrigation by computing the Irrigation Water Quality Index (IWQI) following the Meireles approach, mapping its spatial distribution through GIS, and complementing the analysis with two machine learning methods: (i) a Random Forest (RF) model with Leave-One-Out Cross-Validation (LOOCV) and SHAP explainability analysis to identify the dominant drivers of IWQI degradation; and (ii) K-means and hierarchical clustering to delineate hydrochemical facies and provide a statistically grounded alternative to the conventional Wilcox diagram. Salinity is elevated throughout the study area (EC: 1,034–5,010 µS cm⁻¹). The RF model achieved LOOCV R² = 0.61, with Na⁺ and EC confirmed as the dominant IWQI degradation drivers by SHAP analysis. Hierarchical clustering resolved three hydrochemical facies: a Ca²⁺-HCO₃⁻ continental group, a Na⁺-Cl⁻ evaporite-influenced group, and a seawater-intrusion group, all confirmed as statistically distinct by one-way ANOVA (p &lt; 0.05). Overall, groundwater quality in the watershed ranges from moderate to severe restriction for irrigation use, with the northern sector most critically affected by marine infiltration.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11330101/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-20">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11153446/latest" id="paper-21">
+<span class="daily-paper-number">21</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11153446/latest" rel="noopener noreferrer" target="_blank">富营养化水库中的Eichhornia crassipes管理：覆盖减少，快速再定植和蓝藻动力学</a><a class="daily-permalink-link" href="#paper-21" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11153446/latest" rel="noopener noreferrer" target="_blank">Eichhornia crassipes management in a eutrophic reservoir: Cover reduction, rapid recolonization, and cyanobacterial dynamics</a><a class="daily-permalink-link" href="#paper-21" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Daniel H. C. Salim¹、Caio C. S. Mello¹、Gabriel Pereira²、Raian V. Maretto³、Camila C. Amorim¹。</span><span class="daily-byline-source">Preprints，2026-10-31</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 3 / 10" class="daily-relevance is-me" title="方向匹配 3 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:30.0%"></i></span><strong>3</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>机械收获被广泛用于控制水库中的Eichhornia crassipes ，但其性能是通过去除生物量而不是减少和稳定植被来判断的。我们将使用U-Net分割得出的129个月Sentinel-1时间序列与收获记录和水质监测相结合，以评估177公顷富营养热带城市水库的收获活动、反复扩张和浮游植物反应。收获努力与覆盖变化不成比例：具有可比生物质去除的活动产生了对比的结果。覆盖率降低后进行了重新定植，最快的两次发作分别在19天和20天内使水库规模覆盖率翻了一番。在低覆盖阶段之后，膨胀最快，并且随着开放水面被占用而下降，而收获对覆盖增益施加了较弱的限制。在水库出口，较高的覆盖率与旱季期间较低的蓝藻密度和优势相关，而叶绿素-a与覆盖率无关。使用可解释的人工智能（ SHAP ）解释的特定站点随机森林模型保留了真实颜色和大型植物覆盖，作为蓝藻密度的主要预测因子。这些发现区分了大植物管理中经常混淆的三个维度：操作努力、空间结果和生态状态。因此，收获的生物质应被视为努力指标，而净覆盖率变化、剩余覆盖率和反弹提供了管理绩效的直接衡量标准。结合深度学习卫星测绘、运营记录、可解释的机器学习和原位监测可以支持自适应收获，但持久的控制也需要减少营养和悬浮固体负荷。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Mechanical harvesting is widely used to control Eichhornia crassipes in reservoirs, yet its performance is judged by biomass removed rather than the reduction and stabilization of plant cover. We integrated a 129 month Sentinel-1 time series derived using U-Net segmentation with harvesting records and water quality monitoring to evaluate harvest campaigns, recurrent expansion and phytoplankton responses in a 177 ha eutrophic tropical urban reservoir. Harvesting effort was not proportional to cover change: campaigns with comparable biomass removal produced contrasting outcomes. Cover reductions were followed by recolonization, with the two fastest episodes doubling reservoir scale cover in 19 and 20 days. Expansion was fastest after low cover phases and declined as open water surface became occupied, whereas harvesting imposed a weaker constraint on cover gain. At the reservoir outlet, higher cover was associated with lower cyanobacterial density and dominance during the dry season, while chlorophyll-a remained unrelated to cover. Station specific Random Forest models interpreted with explainable AI (SHAP) retained true color and macrophyte cover as main predictors of cyanobacterial density. These findings distinguish three dimensions often conflated in macrophyte management: operational effort, spatial outcome and ecological state. Harvested biomass should therefore be treated as an effort metric, whereas net cover change, residual cover and rebound provide direct measures of management performance. Combining deep learning satellite mapping, operational records, explainable machine learning and in situ monitoring can support adaptive harvesting, but durable control will also require reductions in nutrient and suspended solid loads.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11153446/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-21">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-10-30.html">← 前一天 · 2026-10-30</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-10-30.html">前一天 · 2026-10-30</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-31.html">最新一期 · 2026-10-31</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-31.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#core-focus"><span>🎯 核心关注</span><span>5</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>21</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>5</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">机器学习洞察多孔碳材料<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">Ta-X（X = Co、Cr、Ni）二元和 CoNiAlTiVTaCr 化学复合合金的第二最近邻修正嵌入原子方法原子间势<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">第一性原理测定反铁磁赤铁矿中亚晶格 3D 矢量磁场<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">可见光加速光敏铁电体中超低电场诱导的反极性到极性顺序的转换<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">粘弹性压电纤维增强复合材料层状结构中瑞利型波的建模<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">UTe2 揭示了极压下两种超导特性<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">自由基对量子库需要什么：可读能力，没有量子优势，以及核寄存器标准<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">作为氖原子内 2s2p 电子同步机制的斯托克斯一般定理<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">受众对遗产文创产品的评价：评价者层面和产品层面方差的多层次分析<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">空气稳定自由基添加剂调节高效有机太阳能电池中的自旋相关复合<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">通过有机双阳离子补偿掺杂制备明亮的卤化锡钙钛矿量子点<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">五种肯尼亚金丝桃属植物精油生物活性的GC-MS化学分析、化学分裂和通过在线预测<span class="daily-outline-meta">12</span></a><a class="daily-outline-link" href="#paper-13">动态分子支架能够实现稳定钙钛矿太阳能电池的热机械应力调节和自适应缺陷修复<span class="daily-outline-meta">13</span></a><a class="daily-outline-link" href="#paper-14">通过表面工程贝壳衍生的生物无机颗粒实现膨胀型涂料的协同防火和耐水性<span class="daily-outline-meta">14</span></a><a class="daily-outline-link" href="#paper-15">使用纳米粒子作为模型纳米级探针研究动态细胞外环境中的粒子行为<span class="daily-outline-meta">15</span></a><a class="daily-outline-link" href="#paper-16">热带气候条件下直耦直流和变频交流光伏抽水系统性能比较分析<span class="daily-outline-meta">16</span></a><a class="daily-outline-link" href="#paper-17">球墨铸铁低压熔模铸造：控制填充对石墨形态和断裂机制的影响<span class="daily-outline-meta">17</span></a><a class="daily-outline-link" href="#paper-18">用于光伏电池混合能源系统的双输入双输出DC-DC转换器的开发和实验验证<span class="daily-outline-meta">18</span></a><a class="daily-outline-link" href="#paper-19">重建现实：在沉浸式远程呈现中实现基于隐形传送的运动<span class="daily-outline-meta">19</span></a><a class="daily-outline-link" href="#paper-20">阿尔及利亚半干旱流域灌溉水质指数 (IWQI) 绘图和水化学聚类的机器学习和 GIS 集成框架<span class="daily-outline-meta">20</span></a><a class="daily-outline-link" href="#paper-21">富营养化水库中的Eichhornia crassipes管理：覆盖减少，快速再定植和蓝藻动力学<span class="daily-outline-meta">21</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-10-30.html">前一天 · 2026-10-30</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-10-31.html">最新一期 · 2026-10-31</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-10-31.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
