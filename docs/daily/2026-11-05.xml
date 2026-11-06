@@ -5,16 +5,16 @@
     <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-11-05.html</link>
     <description>2026-11-05 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
     <language>zh-CN</language>
-    <lastBuildDate>Fri, 06 Nov 2026 04:53:13 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 19:40:21 GMT</lastBuildDate>
     <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-11-05.xml" rel="self" type="application/rss+xml"/>
     <item>
-        <title>机器学习完整的主动空间波函数重建</title>
+        <title>Machine Learning the Complete Active-Space Wavefunction Reconstruction</title>
         <link>https://arxiv.org/abs/2611.06779</link>
         <description><![CDATA[📚 arXiv
 
 👤 Aniruddha Seal, Bhavnesh Jangid, Helen S. Clifford, Andrew L. Ferguson, Laura Gagliardi
 
-机器学习的原子间势能实现多参考质量的反应动力学，但不保留预测能量和力背后的电子结构。通过独立执行完整的活动空间自洽场 (CASSCF) 计算来恢复此信息既昂贵又可能不一致。我们引入了完整主动空间波函数重建（CAS-WR）模型，该模型从 CASSCF 数据中学习几何相关的电子结构，并重建 CAS 波函数，而无需重复轨道优化。结合基于不确定性的主动学习，CAS-WR 被证明适用于 Diels--Alder 反应和 ceTiC+ 催化的 C--H 激活。]]></description>
+arXiv:2611.06779v1 Announce Type: new Abstract: Machine-learned interatomic potentials enable multireference-quality reaction dynamics but do not retain the electronic structure underlying the predicted energies and forces. Recovering this information by independently performing complete active space self-consistent field (CASSCF) calculations is both expensive and potentially inconsistent. We introduce the Complete Active-Space Wave Function Reconstruction (CAS-WR) model, which learns the geometry-dependent electronic structure from CASSCF data and reconstructs the CAS wave function without repeated orbital optimization. Combined with uncertainty-based active learning, CAS-WR is demonstrated for the Diels--Alder reaction and ceTiC+-catalyzed C--H activation. The approach enables trajecto…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06779</guid>
     </item>
@@ -28,11 +28,11 @@
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0927025626005926?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>通过分解线性模型进行交互嵌入，用于多元素机器学习原子间势</title>
+        <title>Interaction embedding via factorized linear models for multi-element machine learning interatomic potentials</title>
         <link>https://pubs.aip.org/aip/jcp/article/165/17/174119/3408194/Interaction-embedding-via-factorized-linear-models</link>
         <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
 
-线性机器学习原子间势，例如超快力场 (UF3)，可以以较低的计算成本提供接近密度泛函理论的准确性。然而，它们的参数数量随着化学物质的数量而增加，限制了它们在多元素系统中的使用。我们用伪相互作用 UF3 (PI-UF3) 来解决这个缩放问题，这是一种因式分解的线性模型，其中 Z ( k ) 真实 k 体势被表示为少量共享伪相互作用 P ( k ) ≪ Z ( k ) 的线性组合。学习元素嵌入是非线性势的标准；]]></description>
+Linear machine-learning interatomic potentials, such as the Ultra-Fast Force Field (UF3), deliver near-density functional theory accuracy at low computational cost. Their number of parameters, however, grows combinatorially with the number of chemical species, limiting their use on multi-element systems. We address this scaling problem with pseudo-interaction UF3 (PI-UF3), a factorized linear model in which the Z ( k ) real k -body potentials are expressed as linear combinations of a small number P ( k ) ≪ Z ( k ) of shared pseudo-interactions. Learned element embeddings are standard in nonlinear potentials; inside a linear model, the embedding becomes a rank constraint on the coefficient matrix of each body order, and the resulting bilinear problem is trained with alternating least squar…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/17/174119/3408194/Interaction-embedding-via-factorized-linear-models</guid>
     </item>
@@ -57,13 +57,13 @@
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0010465526004066?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>超越截止值的从头算精度：数千万原子规模的分布式消息传递等变注意力</title>
+        <title>Ab Initio Accuracy Beyond the Cutoff: Distributed Message-Passing Equivariant Attention at Tens-of-Millions-of-Atom Scale</title>
         <link>https://arxiv.org/abs/2611.06122</link>
         <description><![CDATA[📚 arXiv
 
 👤 Allex Kan, Ji Zhang, Hao Yin, Hao Li, Owen Fu, Xunxing Chen 等13位作者
 
-分子动力学根据原子力和轨迹积分预测分子运动。密度泛函理论 (DFT) 提供了第一原理力，但其 O(N3) 成本限制了对数千个原子的模拟；经验力场规模可达数百万，但错过了键断裂和电荷转移。等变消息传递 Transformer 以线性成本学习从头开始的潜力。堆叠层将信息传播到单个截止范围之外，使四层的感受野高达 23Å。在这个前沿，规模受到通信的限制：层在设备之间交换边界特征，力反向传播重复交换，移动原子改变相邻图和张量形状。]]></description>
+arXiv:2611.06122v1 Announce Type: cross Abstract: Molecular dynamics predicts molecular motion from atomic forces and trajectory integration. Density functional theory (DFT) provides first-principles forces, but its O(N³) cost limits simulations to thousands of atoms; empirical force fields scale to millions but miss bond breaking and charge transfer. Equivariant message-passing Transformers learn the ab initio potential at linear cost. Stacked layers propagate information beyond a single cutoff, giving four layers a receptive field up to 23Å. At this frontier, scale is limited by communication: layers exchange boundary features across devices, force backpropagation repeats the exchange, and moving atoms change neighbor graphs and tensor shapes. We present Tessera, a distributed runtime t…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06122</guid>
     </item>
@@ -86,15 +86,26 @@
         <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0010465526004467?dgcid=rss_sd_all</guid>
     </item>
     <item>
-        <title>高变压器比等离子体加力燃烧室，用于将 X 射线自由电子激光光子能量扩展至 gtrsim50 keV</title>
+        <title>High-transformer-ratio plasma-based afterburner for extending X-ray free-electron laser photon energies to gtrsim50 keV</title>
         <link>https://arxiv.org/abs/2611.05957</link>
         <description><![CDATA[📚 arXiv
 
 👤 Songtang Han, Letian Liu, Zhiyan Yang, Zhuo Pan, Xueqing Yan, Xinlu Xu
 
-gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能量密度物理学和核物理学的应用，但很难从现有的 X 射线自由电子激光 (XFEL) 设施中获得。基于等离子体的加力燃烧器提供了一种增加电子束能量的紧凑途径，但高变压器比 (TR) 操作容易受到软管不稳定的影响，这会严重降低见证光束质量。我们建议使用横向椭圆驱动光束来激发具有轴向变化聚焦梯度的椭圆非线性等离子体尾流，从而通过电子感应加速器退相干来抑制见证光束。]]></description>
+arXiv:2611.05957v1 Announce Type: new Abstract: Bright coherent X-rays in the gtrsim50 keV range are highly desirable for applications in materials science, high-energy-density physics, and nuclear physics, but are difficult to obtain from present X-ray free-electron laser (XFEL) facilities. Plasma-based afterburners offer a compact route to increasing the electron-beam energy, yet high transformer ratio (TR) operation is vulnerable to hosing instability, which can severely degrade the witness beam quality. We propose using a transversely elliptical driver beam to excite an elliptical nonlinear plasma wake with an axially varying focusing gradient, thereby suppressing the witness beam hosing through betatron decoherence. Three-dimensional particle-in-cell simulations show that, for a 3 kA…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05957</guid>
+    </item>
+    <item>
+        <title>Predicting stable planar boron clusters: Bonding rules, stability criteria, and global structure search accelerated by a machine learning force field</title>
+        <link>http://link.aps.org/doi/10.1103/x3bz-g9zz</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim 等7位作者
+
+Author(s): Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim, and Feng Ding Boron's electron deficiency favors multicenter bonding and enables planar or quasiplanar boron nanostructures with unusually stable pristine edges and corners. Yet a compact bonding picture that explains these stability trends remains elusive. Here we introduce a bonding model for triangular-lattice… [Phys. Rev. B 114, 254105] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/x3bz-g9zz</guid>
     </item>
     <item>
         <title>DefectSkills：指导人工智能代理通过半导体和绝缘体点缺陷的第一原理计算</title>
@@ -106,6 +117,17 @@ gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能�
 第一原理缺陷计算现在可以由 AI 代理自主执行，并通过已建立的计算方法和开源 Python 工具包实现。然而，可靠且可重复的缺陷计算需要明确的科学和技术指导，帮助代理解决歧义并避免计算设置、执行、后处理和分析中的错误。在这里，我们展示了 DefectSkills，这是一组结构化提示，为人工智能代理使用维也纳从头算仿真包 (VASP) 执行半导体和绝缘体点缺陷的第一性原理计算提供人机交互指导。]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05654</guid>
+    </item>
+    <item>
+        <title>Unsupervised Neural Operators for Rotating Relativistic Stars: High-Fidelity Equation of State Inference and Pulsar Spin Evolution at Scale</title>
+        <link>https://arxiv.org/abs/2611.05790</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Anarya Ray
+
+arXiv:2611.05790v1 Announce Type: cross Abstract: Observed populations of rotating neutron stars~(NSs) with millisecond-order periods are powerful probes of fundamental physics. Mass-radius measurements inform poorly constrained properties of degenerate nuclear matter, whereas high-fidelity population synthesis connects unknowns in NS formation and binary evolution to large radio-timing surveys. However, repeated structure calculations are prohibitive due to the computational cost of solving the highly coupled partial differential equations of axisymmetric general relativistic hydrostatic equilibrium that govern rotating NS interiors. Non-rotating calculations or approximate rotational corrections can bias equation of state inference and limit the fidelity of population synthesis in traci…]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.05790</guid>
     </item>
     <item>
         <title>具有激子极化波导的神经网络</title>
@@ -141,15 +163,26 @@ gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能�
         <guid isPermaLink="true">https://arxiv.org/abs/2608.01779</guid>
     </item>
     <item>
-        <title>Drift-React：通过 SE(3) 漂移场一步生成反应路径</title>
+        <title>Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields</title>
         <link>https://arxiv.org/abs/2605.22990</link>
         <description><![CDATA[📚 arXiv
 
 👤 Rémi Schlama, Philippe Schwaller
 
-绘制反应路径和过渡态 (TS) 是化学的基础，但大规模计算成本高昂。最小能量路径（MEP）决定了反应速率和机制，但通过电子结构方法恢复它需要数千次昂贵的力评估。最近的生成模型加速了 TS 识别，但依赖于迭代推理，并且仅预测孤立的鞍点快照，缺少连续反应轨迹。我们引入了 Drift-React，这是一个 SE(3) 等变生成框架，它仅根据反应物和产物几何形状预测单次正向传递中的完整反应路径。]]></description>
+arXiv:2605.22990v2 Announce Type: replace Abstract: Mapping reaction pathways and transition states (TS) is fundamental to chemistry but computationally expensive at scale. The minimum energy pathway (MEP) dictates reaction rates and mechanisms, yet recovering it via electronic-structure methods requires thousands of costly force evaluations. Recent generative models accelerate TS identification but rely on iterative inference and only predict isolated saddle-point snapshots, missing the continuous reaction trajectory. We introduce Drift-React, an SE(3)-equivariant generative framework that predicts complete reaction pathways in a single forward pass from only reactant and product geometries. By shifting distribution evolution to training via a Sinkhorn-weighted drifting field, Drift-Reac…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2605.22990</guid>
+    </item>
+    <item>
+        <title>Third-order intrinsic anomalous Hall effect in altermagnets</title>
+        <link>http://link.aps.org/doi/10.1103/8nkd-ksnd</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Longjun Xiang, Hao Jin, Jian Wang
+
+Author(s): Longjun Xiang, Hao Jin, and Jian Wang Altermagnets, as an emergent class of quantum magnets, have recently attracted considerable attention, yet an intrinsic transport hallmark of altermagnetic order remains elusive. Here, through spin-group and magnetic Laue-group symmetry analyses, we identify the third-order intrinsic anomalous Hall … [Phys. Rev. B 114, L291401] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/8nkd-ksnd</guid>
     </item>
     <item>
         <title>多晶材料中晶粒生长的热调节时间序列预测</title>
@@ -306,13 +339,13 @@ gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能�
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06293</guid>
     </item>
     <item>
-        <title>费米子 Tonks-Girardeau 气体的解析二体密度矩阵谱</title>
+        <title>Analytic two-body density-matrix spectrum of the Fermionic Tonks-Girardeau gas</title>
         <link>https://arxiv.org/abs/2611.05820</link>
         <description><![CDATA[📚 arXiv
 
 👤 Abel Rojo-Francàs, Joan Martorell, Francesc Sabater, Bruno Juliá-Díaz
 
-量子多体系统的二体密度矩阵（TBDM）提供有关粒子相关性的信息，例如配对。在这项工作中，我们在第二次量子化中使用其精确的基态波函数推导了费米子 Tonks-Girardeau 气体的 TBDM 的完整谱。我们获得了任意数量粒子的所有特征值和特征向量的解析表达式，并识别了两种不同类型的特征态：由成对动量模式叠加形成的集体态和单行列式态。我们提供了这种结构的物理解释，解释了不同本征态的起源及其简并性。]]></description>
+arXiv:2611.05820v1 Announce Type: new Abstract: The two-body density matrix (TBDM) of a quantum many-body system provides information about particle correlations, e.g., pairing. In this work, we derive the complete spectrum of the TBDM of the fermionic Tonks-Girardeau gas using its exact ground-state wavefunction in second quantization. We obtain analytical expressions for all eigenvalues and eigenvectors for an arbitrary number of particles and identify two different types of eigenstates: collective states, formed by superpositions of paired momentum modes, and single-determinant states. We provide a physical interpretation of this structure, explaining the origin of the different eigenstates and their degeneracies. We further derive an asymptotic expansion for the largest eigenvalue, im…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05820</guid>
     </item>
@@ -449,20 +482,42 @@ gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能�
         <guid isPermaLink="true">https://arxiv.org/abs/2607.27771</guid>
     </item>
     <item>
-        <title>自动生成交换相关响应核</title>
+        <title>Automatic generation of exchange–correlation response kernels</title>
         <link>https://pubs.aip.org/aip/jcp/article/165/17/174122/3408196/Automatic-generation-of-exchange-correlation</link>
         <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
 
-计算密度泛函响应特性需要将交换相关 (xc) 能量的导数与网格上的扰动密度进行收缩。虽然 xc 函数的导数长期以来可用于 Libxc 等库的高阶，但周围的收缩层（将它们与基于网格的基函数和密度数据组合成总 xc 贡献的链式法则）却在每个程序中针对每个函数族、自旋情况和属性进行手动推导和手动编码。我们提出了 libxckernel ，一个通过符号微分自动生成这一层的库。 xc 泛函的成分在密度矩阵中表示为倍半线性形式，因此 xc 能量可以微分到任何阶，而泛函导数保持不透明。]]></description>
+Computing density-functional response properties requires contracting derivatives of the exchange–correlation (xc) energy with perturbed densities on a grid. While the xc functional’s derivatives have long been available to high orders from libraries such as Libxc, the surrounding contraction layer—the chain rule that combines them with the grid-based basis-function and density data into the total xc contribution—has instead been hand-derived and hand-coded in every program, for every functional family, spin case, and property. We present libxckernel , a library that automatically generates this layer by symbolic differentiation. The xc functional’s ingredients are expressed as sesquilinear forms in the density matrix, so the xc energy can be differentiated to any order while the function…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/17/174122/3408196/Automatic-generation-of-exchange-correlation</guid>
     </item>
     <item>
-        <title>受阻偶极平面转子链中的量子临界行为</title>
+        <title>Exact organization of density matrices and entanglement structure in the Kitaev spin liquid</title>
+        <link>http://link.aps.org/doi/10.1103/cvny-cwj5</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Chen-Chih Wang, Yi-Ping Huang, Sungkit Yip
+
+Author(s): Chen-Chih Wang, Yi-Ping Huang, and Sungkit Yip We give an exact form of the density matrix for the spin-1/2 Kitaev spin liquid, expressed in terms of spin operators, and study the entanglement structure of the Kitaev honeycomb model within the spin framework. We show that the density matrix is naturally organized by equivalence classes of string… [Phys. Rev. B 114, 305105] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/cvny-cwj5</guid>
+    </item>
+    <item>
+        <title>Field-tuned and zero-field fractional Chern insulators in twisted bilayer graphene</title>
+        <link>http://link.aps.org/doi/10.1103/gmtx-h1gs</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Daniel E. Parker, Patrick Ledwith, Eslam Khalaf, Tomohiro Soejima, Johannes Hauschild, Yonglong Xie 等10位作者
+
+Author(s): Daniel E. Parker, Patrick Ledwith, Eslam Khalaf, Tomohiro Soejima, Johannes Hauschild, Yonglong Xie, Andrew Pierce, Michael P. Zaletel, Amir Yacoby, and Ashvin Vishwanath In contrast to the fractional quantum Hall (FQH) effect, where electron density fixes the applied magnetic field, fractional Chern insulators (FCIs) can realize FQH states in comparatively weak or even zero magnetic fields. Previous theoretical work highlighted magic-angle graphene as a promising FC… [Phys. Rev. B 114, 295104] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/gmtx-h1gs</guid>
+    </item>
+    <item>
+        <title>Quantum critical behavior in chains of hindered dipolar planar rotors</title>
         <link>https://pubs.aip.org/aip/jcp/article/165/17/174120/3408164/Quantum-critical-behavior-in-chains-of-hindered</link>
         <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
 
-我们研究了受六倍现场电位阻碍的偶极平面转子线性链的基态特性，该模型由限制在绿柱石六角形空腔中的水分子驱动。通过密度矩阵重正化群计算，我们使用冯诺依曼纠缠熵和极化的粘合剂比来定位无序相和铁电有序相之间的量子相变。六倍钉扎强度的扫描表明，增加的阻碍将临界偶极耦合 g c 移至更小的值。这些结果表明晶体场位阻可以促进而不是抑制偶极有序。这项工作对受限分子转子中的铁电和量子器件调谐具有重要意义。]]></description>
+We study the ground-state properties of linear chains of dipolar planar rotors hindered by a sixfold on-site potential, a model motivated by water molecules confined in the hexagonal cavities of beryl. Using density matrix renormalization group calculations, we locate the quantum phase transition between the disordered and ferroelectrically ordered phases using the von Neumann entanglement entropy and the Binder ratio of the polarization. A sweep of the sixfold pinning strength shows that increasing hindrance shifts the critical dipolar coupling g c to smaller values. These results suggest that crystal-field hindrance can promote, rather than suppress, dipolar ordering. This work has implications for ferroelectricity and quantum-device tuning in confined molecular rotors.]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/17/174120/3408164/Quantum-critical-behavior-in-chains-of-hindered</guid>
     </item>
@@ -487,24 +542,24 @@ gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能�
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06614</guid>
     </item>
     <item>
-        <title>具有相等磁电标量的横向单轴双各向异性介质的闭式二进格林函数</title>
+        <title>Closed-form dyadic Green functions for transversely uniaxial bianisotropic medium with equal magnetoelectric scalars</title>
         <link>https://arxiv.org/abs/2611.06172</link>
         <description><![CDATA[📚 arXiv
 
 👤 Akhlesh Lakhtakia, Tom G. Mackay
 
-Weiglhofer 于 1994 年提出了具有相等磁电标量的横向单轴双各向异性介质。利用标量分解方法，他得出结论，该介质的并进格林函数不能以闭合形式找到。这个结论是不正确的。这里再现了推导的要点，并给出了无界介质的所有四个二进格林函数的封闭式表达式，将电场和磁场与电场和磁场源电流密度联系起来。]]></description>
+arXiv:2611.06172v1 Announce Type: new Abstract: A transversely uniaxial bianisotropic medium with equal magnetoelectric scalars was conceived by Weiglhofer in 1994. Using the scalar factorization method, he concluded that the dyadic Green functions of this medium could not be found in closed form. That conclusion is incorrect. The essentials of the derivation are reproduced here, and closed-form expressions are given for all four dyadic Green functions of the unbounded medium, linking the electric and magnetic fields to electric and magnetic source current densities.]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06172</guid>
     </item>
     <item>
-        <title>开壳构型状态函数作为无相辅助场量子蒙特卡罗的试验状态</title>
+        <title>Open-shell Configuration State Functions as trial states for phaseless auxiliary-field quantum Monte Carlo</title>
         <link>https://arxiv.org/abs/2611.06790</link>
         <description><![CDATA[📚 arXiv
 
 👤 Don Danilov, Hugh G. A. Burton, James Shee
 
-分子系统中开壳层态的准确描述对近似电子结构方法提出了挑战。一种新兴方法是变分优化单个用户选择的配置状态函数（CSF）的轨道，即被构造为总自旋算子的本征态的 Slater 行列式的线性组合。在这项工作中，我们探索了使用这些轨道优化的单个 CSF 作为无相辅助场量子蒙特卡罗 (ph-AFQMC) 中的试验波函数，这是一种随机方法，通过在虚时间内演化初始状态来恢复电子相关性，但受到试验状态的约束。]]></description>
+arXiv:2611.06790v1 Announce Type: new Abstract: The accurate description of open-shell states in molecular systems poses challenges for approximate electronic structure methods. One emerging approach is to variationally optimize the orbitals of a single user-selected Configuration State Function (CSF), i.e., a linear combination of Slater determinants that is constructed as an eigenstate of the total spin operator. In this work we explore the use of these orbital-optimized single CSFs as trial wavefunctions in phaseless auxiliary-field quantum Monte Carlo (ph-AFQMC), a stochastic method that recovers electron correlation by evolving an initial state in imaginary time, subject to a constraint imposed by the trial state. We investigate the symmetric stretch of H-He-H, a series of small p-bl…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06790</guid>
     </item>
@@ -520,24 +575,90 @@ Weiglhofer 于 1994 年提出了具有相等磁电标量的横向单轴双各向
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05815</guid>
     </item>
     <item>
-        <title>使用分子轨道网格估计分子对中电子耦合的有效方法：CubeMap 的推广</title>
+        <title>An efficient approach to estimate electronic couplings in molecular pairs using molecular orbital grids: A generalization of CubeMap</title>
         <link>https://pubs.aip.org/aip/jcp/article/165/17/174121/3408168/An-efficient-approach-to-estimate-electronic</link>
         <description><![CDATA[📚 The Journal of Chemical Physics Current Issue
 
-估计电子耦合 (V) 对于理解分子系统之间的基本电子转移过程至关重要，因此，开发计算有效的方法来快速而准确地估计电子耦合是（生物）化学和材料科学的核心。我们最近提出了一种新颖的超快近似，称为 CubeMap [R.鲁伯特-阿尔比奥尔等人。 ，J.化学。物理。 162, 064105 (2025)]，评估分子对中的 V。 CubeMap 通过拟合常数 C 利用 V 和分子轨道重叠积分 (S) 之间众所周知的线性关系 (V = C·S)。]]></description>
+Estimating electronic couplings ( V ) is essential to understanding the fundamental electron-transfer process between molecular systems and, consequently, developing computationally efficient approaches for their fast, yet accurate estimation is central to (bio)chemistry and materials science. We have recently proposed a novel and ultrafast approximation, called CubeMap [R. Rubert-Albiol et al. , J. Chem. Phys. 162 , 064105 (2025)], to evaluate V in molecular pairs. CubeMap exploits the well-known linear relationship ( V = C · S ) between V and the molecular orbital overlap integral ( S ) via a fitting constant C . Nevertheless, the original CubeMap formulation required an initial system-specific parameterization, limiting the broad and general applicability of the method for the final us…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://pubs.aip.org/aip/jcp/article/165/17/174121/3408168/An-efficient-approach-to-estimate-electronic</guid>
     </item>
     <item>
-        <title>使用铁磁多功能材料进行磁诱导反应碳捕获</title>
+        <title>Electrostatic control enables robust helical edge-channel transport in III-V quantum spin Hall insulators</title>
+        <link>http://link.aps.org/doi/10.1103/vj43-4lv3</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Manuel Meyer, Tobias Fähndrich, Sebastian Schmid, Justus Walter, Martin Kamp, Adriana Wolf 等15位作者
+
+Author(s): Manuel Meyer, Tobias Fähndrich, Sebastian Schmid, Justus Walter, Martin Kamp, Adriana Wolf, Sergey Krishtopenko, Guillaume Sigu, Jean-Baptiste Rodriguez, Eric Tournié, Gérald Bastard, Frédéric Teppe, Fabian Hartmann, Sven Höfling, and Benoit Jouault Quantum spin Hall transport in InAs/GaInSb-based two-dimensional topological insulators can be limited by parasitic bulk and edge contributions. We demonstrate that these limitations are effectively mitigated through electrostatic control in dual-gated InAs/GaInSb/InAs trilayer quantum wells grown o… [Phys. Rev. B 114, 305302] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/vj43-4lv3</guid>
+    </item>
+    <item>
+        <title>Frustration-driven spin liquid ground state in the Jₑff=frac12 zigzag chain antiferromagnet ZnCoP₂O₇</title>
+        <link>http://link.aps.org/doi/10.1103/1b15-5ldr</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Koushik Chakraborty, Aditi Agrawal, Isha, K. M. Ranjith, Anzar Ali, M. Isobe 等17位作者
+
+Author(s): Koushik Chakraborty, Aditi Agrawal, Isha, K. M. Ranjith, Anzar Ali, M. Isobe, Abhisek Bandyopadhyay, G. B. G. Stenning, Jonas A. Krieger, Thomas J. Hicken, Luetkens Hubertus, F. Demmel, Sanghamitra Mukhopadhyay, H.-J. Grafe, B. Büchner, D. T. Adroja, and Arvind Kumar Yogi We report a comprehensive experimental investigation of the magnetic ground state in ZnCoP₂O₇, where Co²⁺ ions in octahedral coordination realize an effective Jₑff=1/2 state and form a quasi-one-dimensional zigzag lattice comprising alter… [Phys. Rev. B 114, 254404] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/1b15-5ldr</guid>
+    </item>
+    <item>
+        <title>Ligand-mediated origin of altermagnetic spin splitting</title>
+        <link>http://link.aps.org/doi/10.1103/s83n-w474</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Luigi Camerano, Federico Bisti, Gianni Profeta
+
+Author(s): Luigi Camerano, Federico Bisti, and Gianni Profeta Altermagnets host spin-split electronic bands despite zero net magnetization, opening new routes for spintronics beyond conventional ferromagnets. Going beyond symmetry-based classifications, which specify allowed terms but not their hierarchy, here we use first-principles calculations and Wannier H… [Phys. Rev. B 114, 264408] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/s83n-w474</guid>
+    </item>
+    <item>
+        <title>Magnetically Induced Reactive Carbon Capture With Ferromagnetic Multi‐Function Materials</title>
         <link>https://onlinelibrary.wiley.com/doi/10.1002/anie.4875918?af=R</link>
         <description><![CDATA[📚 Wiley
 
 👤 Hyewon Lee, Cody J. Wrasman, Steven C. Hayden, Madeline Van Winkle, Klaertje K. Hesselink, Chae Jeong‐Potter 等10位作者
 
-应用化学国际版，EarlyView。]]></description>
+Angewandte Chemie International Edition, EarlyView.]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://onlinelibrary.wiley.com/doi/10.1002/anie.4875918?af=R</guid>
+    </item>
+    <item>
+        <title>Orbital-splitter current in altermagnets</title>
+        <link>http://link.aps.org/doi/10.1103/l9tb-zgnm</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Koushik Ghorai, Sayan Sarkar, Amit Agarwal
+
+Author(s): Koushik Ghorai, Sayan Sarkar, and Amit Agarwal In collinear altermagnets, the real-space rotational symmetry of opposite spin sublattices generates a large nonrelativistic spin-splitter current. Orbital transport in this setting has remained largely unexplored. Here, we introduce the orbital-splitter current (OSC), an orbital analog of the spin-… [Phys. Rev. B 114, 285407] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/l9tb-zgnm</guid>
+    </item>
+    <item>
+        <title>Polarization-controlled switching of magnetic anisotropy in the rare-earth van der Waals heterostructure EuSn₂Sb₂/In₂Te₃</title>
+        <link>http://link.aps.org/doi/10.1103/45mp-m9lm</link>
+        <description><![CDATA[📚 Phys. Rev. Materials
+
+👤 Chaoran Niu, Jiazhuang Si, Chen Yang, Bing Wang, Zhansheng Gao, Jun-Hyung Cho
+
+Author(s): Chaoran Niu, Jiazhuang Si, Chen Yang, Bing Wang, Zhansheng Gao, and Jun-Hyung Cho Based on first-principles calculations, we investigate the magnetoelectric coupling in the multiferroic van der Waals (vdW) heterostructure EuSn₂Sb₂/In₂Te₃. We demonstrate that reversing the ferroelectric polarization of the In_{2… [Phys. Rev. Materials 10, 114405] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/45mp-m9lm</guid>
+    </item>
+    <item>
+        <title>Strong electron correlations and ligand hybridization for altermagnetism</title>
+        <link>http://link.aps.org/doi/10.1103/q75s-35k6</link>
+        <description><![CDATA[📚 Editors' Suggestions
+
+👤 Byungkyun Kang, Anderson Janotti, Dai Q. Ho, Myoung-Hwan Kim, Chul Hong Park, Sangkook Choi 等8位作者
+
+Author(s): Byungkyun Kang, Anderson Janotti, Dai Q. Ho, Myoung-Hwan Kim, Chul Hong Park, Sangkook Choi, Mark R. Pederson, and Eunja Kim Altermagnetism arises from the breaking of time-reversal symmetry in antiferromagnets, leading to spin-band splitting. However, recent reports indicate inconsistencies in its observation in strongly correlated materials. Here, the authors employ dynamical mean-field theory to show that strong correlations in MnF 2 suppress spin-band splitting, whereas MnTe exhibits significant spin-band splitting due to both strong correlations and sizable ligand hybridization, establishing it as an ideal altermagnetic candidate. These findings provide a pathway for designing altermagnets in strongly correlated systems. [Phys. Rev. B 114, 295105] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/q75s-35k6</guid>
     </item>
     <item>
         <title>超韧磁弹性芳纶丝磁铁矿纤维中的结构编码磁各向异性</title>
@@ -551,24 +672,35 @@ Weiglhofer 于 1994 年提出了具有相等磁电标量的横向单轴双各向
         <guid isPermaLink="true">https://advanced.onlinelibrary.wiley.com/doi/10.1002/adma.75589?af=R</guid>
     </item>
     <item>
-        <title>使用扰乱动力学的双向隐形传态：实用协议</title>
+        <title>Traveling-wave-mediated remote magnon-magnon coupling</title>
+        <link>http://link.aps.org/doi/10.1103/yyd4-l1vx</link>
+        <description><![CDATA[📚 Phys. Rev. B
+
+👤 Lihua Zhong, Chenyang Lu, Jiguang Yao, Bimu Yao, Wei Lu, Can-Ming Hu
+
+Author(s): Lihua Zhong, Chenyang Lu, Jiguang Yao, Bimu Yao, Wei Lu, and Can-Ming Hu In this work, we demonstrate traveling-wave-mediated remote magnon-magnon coupling over a distance exceeding 2 meters, extending the range of magnetic interactions to the meter scale. For long-range magnon-magnon coupling, the relatively small coupling strength makes propagation loss non-negligible,… [Phys. Rev. B 114, 264409] Published Thu Nov 05, 2026]]></description>
+        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">http://link.aps.org/doi/10.1103/yyd4-l1vx</guid>
+    </item>
+    <item>
+        <title>Bidirectional teleportation using scrambling dynamics: a practical protocol</title>
         <link>https://arxiv.org/abs/2601.15536</link>
         <description><![CDATA[📚 arXiv
 
 👤 Amit Vikram, Edwin Chaparro, Muhammad Miskeen Khan, Andrew Lucas, Chris Akers, Ana Maria Rey
 
-我们证明，量子信息置乱可以在没有通用局部控制的系统中的集体自由度之间启用通用交换门。我们的协议将与黑洞信息悖论相关的 Hayden-Preskill 型恢复方案与量子隐形传态相结合，并以并行和相反的方向运行它们，从而仅通过全局交互即可实现量子态的双向交换。这种方法清楚地区分了信息传播、纠缠和混沌的作用，以实现相干状态转移和恢复。我们提出了使用迪克模型的实验实现，该模型可以在光学腔和俘获离子平台中实现，突出了全息术在设计实用量子门中的效用。]]></description>
+arXiv:2601.15536v2 Announce Type: replace-cross Abstract: We show that quantum information scrambling can enable a generic SWAP gate between collective degrees of freedom in systems without universal local control. Our protocol combines a Hayden-Preskill type recovery scheme, associated with the black hole information paradox, with quantum teleportation and runs them in parallel and in opposite directions, enabling bidirectional exchange of quantum states through global interactions alone. This approach cleanly distinguishes the roles of information spreading, entanglement, and chaos for enabling both coherent state transfer and recovery. We propose an experimental realization using the Dicke model, which can be realized in optical cavity and trapped-ion platforms, highlighting the utilit…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2601.15536</guid>
     </item>
     <item>
-        <title>耗散量子霍尔-超导结的分类和特征</title>
+        <title>Classification and Signatures of Dissipative Quantum Hall-Superconductor Junctions</title>
         <link>https://arxiv.org/abs/2611.05555</link>
         <description><![CDATA[📚 arXiv
 
 👤 Evgenii Zheltonozhskii, Barak A. Katzir, Yuval Oreg, Erez Berg, Netanel H. Lindner
 
-具有邻近感应超导性的分数量子霍尔（FQH）边缘可以容纳顺子零模式（PZM），使其成为拓扑量子计算的有前途的平台。最近的实验 [Gül 等人，Phys。 Rev. X 12, 021057 (2022)]测量了由窄超导体分隔的反向传播 FQH 边缘之间的交叉安德烈夫反射 (CAR) 的边缘电导。观察到的电导很小且非量子化，具有两种不同的行为：一些状态显示与温度无关的电导，而另一些状态显示电导随着温度降低而增加。]]></description>
+arXiv:2611.05555v1 Announce Type: new Abstract: Fractional quantum Hall (FQH) edges with proximity-induced superconductivity can host parafermionic zero modes (PZMs), making them a promising platform for topological quantum computing. Recent experiments [Gül et al., Phys. Rev. X 12, 021057 (2022)] measured the edge conductance from crossed Andreev reflection (CAR) between counter-propagating FQH edges separated by a narrow superconductor. The observed conductance was small and non-quantized, with two distinct behaviors: some states show temperature-independent conductance, while others show conductance that grows as temperature decreases. We explain these results by dissipation to sub-gap modes in the superconductor and present a phase diagram for the FQH-superconductor junction. We show…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05555</guid>
     </item>
@@ -595,13 +727,13 @@ Weiglhofer 于 1994 年提出了具有相等磁电标量的横向单轴双各向
         <guid isPermaLink="true">https://arxiv.org/abs/2601.08132</guid>
     </item>
     <item>
-        <title>多维单调准周期算子选择性能隙闭合的动力学特征</title>
+        <title>Dynamical Signatures of Selective Gap Closing in Multi-Dimensional Monotone Quasiperiodic Operators</title>
         <link>https://arxiv.org/abs/2611.05686</link>
         <description><![CDATA[📚 arXiv
 
 👤 Leonid Parnovski, Roman Shterenberg
 
-我们将多维单调准周期薛定谔算子的谱间隙闭合准则转化为具体的动力学协议，并通过大规模数值验证。对于非主标签，我们构造一个采样函数，其原点处的主特征函数权重消失；然后，局部碰撞将剩余重量驱动至零。原点到定位中心相关器的加权振荡时间平均值的高度在结束时精确地表现出深度最小值，而位点控制标签保持无特征并且数量级大。该签名非常强大，可以直接映射到超导电路和光子平台上。]]></description>
+arXiv:2611.05686v1 Announce Type: cross Abstract: We translate the spectral gap-closing criterion for multi-dimensional monotone quasiperiodic Schrödinger operators into a concrete dynamical protocol and verify it by large-scale numerics. For a non-principal label we construct a sampling function whose leading eigenfunction weight at the origin vanishes; a local bump then drives the residual weight through zero. The height of a weighted oscillatory time average of the origin-to-localization-center correlator exhibits a deep minimum precisely at the closing, while the site-control label remains featureless and orders of magnitude larger. The signature is robust and maps directly onto superconducting-circuit and photonic platforms.]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.05686</guid>
     </item>
@@ -628,13 +760,13 @@ Weiglhofer 于 1994 年提出了具有相等磁电标量的横向单轴双各向
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06526</guid>
     </item>
     <item>
-        <title>钻石IV族空位色心形成的第一性原理研究</title>
+        <title>First-principles study of the formation of Group-IV--vacancy color centers in diamond</title>
         <link>https://arxiv.org/abs/2611.06671</link>
         <description><![CDATA[📚 arXiv
 
 👤 Xiangru Han, Adam Gali
 
-XV（X 是 Si、Ge、Sn 或 Pb，V 是碳空位）色心由于其良好的光学和自旋特性而成为量子计算和量子信息科学的有前途的平台。它们通常是通过离子注入制造的，这不可避免地会在晶格中引入空位和碳自填隙（Cᵢ）。然而，微观形成机制仍不清楚，限制了 XV 中心的产量和稳定性。在这里，进行第一性原理计算，系统地研究 V 和 Cᵢ 在 XV 形成中的作用。我们发现 XV 的形成在能量上是有利的，具有大的结合能和低的扩散势垒。]]></description>
+arXiv:2611.06671v1 Announce Type: new Abstract: XV (X is Si, Ge, Sn, or Pb, and V is the carbon vacancy) color centers are promising platforms for quantum computing and quantum information science due to their favorable optical and spin properties. They are commonly fabricated by ion implantation, which inevitably introduces vacancies and carbon self-interstitials (Cᵢ) into the lattice. However, the microscopic formation mechanism remains unclear, limiting the yield and stability of XV centers. Here, first-principles calculations are conducted to systematically investigate the roles of V and Cᵢ in XV formation. We find that XV formation is energetically favorable, with large binding energies and low diffusion barriers. Nevertheless, XV readily captures Cᵢ to form substitutional defect Xₛ,…]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2611.06671</guid>
     </item>
@@ -648,138 +780,6 @@ XV（X 是 Si、Ge、Sn 或 Pb，V 是碳空位）色心由于其良好的光学
 螺旋是低频圆极化横向电磁模式，在存在静磁场的情况下在三维传导系统中传播。在这里，我们使用半经典玻尔兹曼输运理论研究了具有拓扑电荷 (J=1,2,) 和 (3) 的无间隙多外尔半金属 (mWSM) 中的螺旋激发。我们将贝里曲率和轨道磁矩校正合并到准粒子动力学中，并确定弱静磁场存在下的光导张量。单外尔系统、双外尔系统和三外尔系统的纵向电导率是通过分析获得的，而横向电导率是在与螺旋传播相关的低频区域中通过数值计算得到的。我们发现回旋加速器频率对拓扑电荷和磁场具有重要的依赖性。]]></description>
         <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
         <guid isPermaLink="true">https://arxiv.org/abs/2504.15426</guid>
-    </item>
-    <item>
-        <title>经典安培自旋液体中涌现电荷的隐藏熵序</title>
-        <link>https://arxiv.org/abs/2611.06795</link>
-        <description><![CDATA[📚 arXiv
-
-👤 H. Diego Rosales, Emma M. Bizot, Flavia A. Gómez Albarracín, Pierre Pujol
-
-经典自旋液体的特点是具有大量的基态构型。在这个基态流形中，库仑自旋液体具有无散度局部约束，它给出了结构因子中的偶极相关性和夹点。最近，提出了具有由零循环约束（安培定律）定义的互补基态约束的模型。虽然经典的库仑自旋液体禁止紧急电荷，但它们的安培对应物却使电荷不受限制。在这里，我们研究八氯石晶格上的伊辛安培模型。基态服从反对称二阶场的高斯定律，即三个耦合的二维高斯定律，预计它们会在结构因子中产生夹点。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06795</guid>
-    </item>
-    <item>
-        <title>LaH₁₂ 中的氢亚晶格：结构稳定性和可能的有序基序</title>
-        <link>https://arxiv.org/abs/2611.06424</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Khasan Akhmadiev, Di Zhou, Viktor V. Struzhkin, Alexander G. Kvashnin, Dmitrii V. Semenok
-
-在极压下合成的多氢化镧表现出接近室温的超导性。由于氢原子的 X 射线散射形状因子较小，寻找氢亚晶格的精确排列对于理解强电子声子耦合至关重要，这一问题在实验上仍未得到解决。在这项工作中，我们尝试结合无约束演化搜索和固定镧亚晶格的结构生成，在 100-200 GPa 下计算重建 LaH₁ 的氢亚晶格。通过实施相似性度量，我们根据实验粉末 X 射线衍射数据筛选计算生成的配置。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06424</guid>
-    </item>
-    <item>
-        <title>用于单分子振动强耦合的双曲纳米腔</title>
-        <link>https://arxiv.org/abs/2611.06240</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Stavros Athanasiou, Olivier J. F. Martin, Francisco J. García-Vidal, Johannes Feist
-
-六方氮化硼 (hBN) 等低损耗各向异性材料中的双曲声子极化激元 (HPhP) 在中红外区域提供极端的亚衍射场限制，使其在增强光与分子振动的相互作用方面具有吸引力。分子系综和 HPhP 之间的集体振动强耦合已经在扩展平板中得到证明。然而，用单分子达到这种状态仍然是一个重大挑战，并且将为研究真空电磁场如何影响分子动力学和化学反应性提供一个平台。在这里，我们从理论上证明，在将 HPhP 横向限制在有限体积内的 hBN 纳米腔中可以实现单分子振动强耦合。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06240</guid>
-    </item>
-    <item>
-        <title>双层哈伯德模型中旋转条纹与配对交叉之间的相互作用</title>
-        <link>https://arxiv.org/abs/2611.05840</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Zixuan Jia, Xuelei Sui, Shijie Hu, Tianxing Ma, Haiqing Lin, Bing Huang
-
-双层镍酸盐 ceLa3Ni2O7 中是否存在 d 波或 s_± 波配对仍未解决，并且其观察到的自旋顺序和磁激发与配对机制之间的关系尚不清楚。在这里，我们使用最小双层哈伯德模型的有限温度行列式量子蒙特卡罗模拟来研究强层间耦合下的配对竞争，其中层内和层间反铁磁相关性具有相当的强度。我们发现，随着空穴掺杂的增加，自旋条纹会自发形成，并伴随着主要配对对称性从 d 波到 s_± 波的交叉。交叉跟踪自旋相关性相对强度的变化，层间相关性在幅度上超过了层内相关性。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.05840</guid>
-    </item>
-    <item>
-        <title>非中心对称晶体中的反手性声子塞曼效应</title>
-        <link>https://arxiv.org/abs/2601.12763</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Jun-ichiro Kishine, A. S. Ovchinnikov, Masahiro Sato, G. N. Makarov, A. D. Lyakhov
-
-我们提出了非中心对称晶体中反手性声子塞曼效应的量子化有效理论。在微极性弹性内，耦合的平移位移和微旋转产生本质上的手性声子，其通过动态压电产生椭圆极化的内部磁场。如果电子屏蔽不完整，则该场充当电子自旋的有效纵向塞曼场，驱动局域态的弗洛奎特响应和流动电子的固定绝热能带分裂，导致宏观自旋极化。与早期基于近简并轴向光学模式或外部驱动的圆形晶格运动的讨论相反，本机制依赖于有限波数真正手性声子，其反向旋转分支本质上被晶体手性分裂。引入量化以受控方式定义单声子磁场尺度、相干态增强和磁手性。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2601.12763</guid>
-    </item>
-    <item>
-        <title>冷原子一维输运中的类马约拉纳约瑟夫森分支结构</title>
-        <link>https://arxiv.org/abs/2611.06693</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Rory Whelan, Dimitri M. Gangardt, Igor V. Lerner
-
-我们研究通过连接两个三维 BCS 库的吸引相互作用费米子的一维通道进行相控传输。两个接触处的通道相位刚度和对隧道效应之间的竞争导致出现两个 4π 周期稳态族，其特征是边界处的对称或不对称相位下降。将储层相位差提高 2π 会交换这些族，以便平衡能量保持 2π 周期性，而在非绝热状态下可能会获得 4π 周期性。该结构允许用两个边界马约拉纳算子进行形式化描述，组合成非局部费米子模式。重正化群分析表明，量子涨落和相滑在零温热力学极限内受到抑制，保留了分支交叉。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06693</guid>
-    </item>
-    <item>
-        <title>使用多交叉微霍尔传感器进行高达 30~T 的毫开尔文磁力测量</title>
-        <link>https://arxiv.org/abs/2611.06676</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Bingbing Tong, Yinina Ma, Zhenhua Zhao, Shuyu Zheng, Li Lu, Peijie Sun 等7位作者
-
-我们报告了一种由 MBE 生长的 GaAs/AlGaAs 异质结构制成的多交叉微霍尔传感器，用于高灵敏度磁力测量。该器件能够在低至 sim15~mK 的温度和高达 30 T 的直流磁场中进行直流磁化强度测量。尺寸范围从 100~μm 到 1~mm 的大块样品可以在 13.77 Hz 下以 1~μA 激励，以优于 1~μT 的分辨率进行测量。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06676</guid>
-    </item>
-    <item>
-        <title>Ni插层2H-NbS2范德华间隙中的Ni排序：从无序到2×2和sqrt3×sqrt3有序到条纹有序</title>
-        <link>https://arxiv.org/abs/2611.05699</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Naveen Singh Dhami, Ricardo Guillermo Torres Ramirez, Gaurav Pransu, Ivo Batistić, Pierre Fertey, Erik Elkaim 等13位作者
-
-我们报告了在 0.18 le x le 0.57 范围内插层 Ni 的 2H-NbS2 的同步加速器 X 射线衍射研究，并通过能量色散 X 射线光谱测量了 Ni 含量。整个系列的粉末衍射表明，NbS2主体被保留，而范德华间隙中的Ni离子从无序排列演变为x=1/4处的2×2有序和x=1/3处的sqrt3×sqrt3有序，经过两个图案共存的范围，演变为x=0.57处的正交条纹型有序。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.05699</guid>
-    </item>
-    <item>
-        <title>手性量子行走中的噪声诱导拓扑</title>
-        <link>https://arxiv.org/abs/2611.05471</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Alexandre Chaduteau, Derek K. K. Lee, Frank Schindler, Abhinav Prem
-
-噪声通常会破坏量子相干性并消除依赖于干扰的传输现象。手性量子行走就是一个很好的例子：在磁通量穿过的晶格上跳跃的粒子可能会由于路径之间的干扰而不对称地传播，而噪声有望消除这种不对称性。值得注意的是，我们发现最普遍的噪声——现场能量的随机波动（相移）——反而使这种不对称性在拓扑上变得鲁棒。密度分布会产生一种偏度，该偏度随着时间的推移而增长，而其中心保持固定，并且在有限链中，后期弛豫模式堆积在一个边缘：一种趋肤效应，缺乏传统非厄米趋肤效应的漂移。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.05471</guid>
-    </item>
-    <item>
-        <title>定量探测 4D-STEM 偏振分析中的倾斜角故障</title>
-        <link>https://arxiv.org/abs/2611.06274</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Fintan G. Hardy, Noah Schnitzer, Mariana Palos, Geri Topore, Aron Walsh, Michele Shelly Conroy
-
-四维扫描透射电子显微镜 (4D-STEM) 越来越多地用于绘制磁畴壁、涡旋、半子和斯格明子等铁质纹理中的偏振图。这些纹理伴随着局部应变、晶格旋转和取向错误，它们也会调制用于推断极序的衍射特征。因此，即使与区域轴的微小偏差也会产生与偏振信号无法区分的对比度。在这里，我们量化了三种具有明显极性畸变的铁电体：PbTiO3、BaTiO3 和 Cu3B7O13Cl 方硼石中两种偏振敏感信号、衍射盘强度和菊池带强度的倾斜灵敏度。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.06274</guid>
-    </item>
-    <item>
-        <title>原子薄磁体临界的量子噪声光谱</title>
-        <link>https://arxiv.org/abs/2407.05614</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Mark E. Ziffer, Francisco Machado, Benedikt Ursprung, Artur Lozovoi, Aya Batoul Tazi, Zhiyang Yuan 等23位作者
-
-相变的普遍性类别决定了材料中低频和长波长临界波动的行为。然而，研究薄磁绝缘体中的这些动力学仍然具有挑战性。实验探针必须对低频、长波长波动敏感，同时应对样品的小体积、固有的不均匀性和制造限制。利用金刚石中的氮空位 (NV) 中心，我们展示了 T2（自旋退相干）噪声磁力测定法作为二维范德华磁体 CrSBr 三层样品中临界动力学的直接定量探针。我们观察到样品临界温度下 NV 自旋系综的退相干率急剧增加，突出了我们的探针对临界波动的敏感性。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2407.05614</guid>
-    </item>
-    <item>
-        <title>量子态空间上的 Raychaudhuri-Ehlers 运动学：焦散和外在量子几何</title>
-        <link>https://arxiv.org/abs/2611.05499</link>
-        <description><![CDATA[📚 arXiv
-
-👤 Neellohit Karmakar, Suraj S. Hegde, Aryan Bhatia
-
-Quantum mechanics is inherently geometric in that the pure states form a curved complex manifold and the Schrödinger evolution defines a Hamiltonian flow on this space.几何学识别了量子态空间上流动的约束，这些约束独立于其微观实现。]]></description>
-        <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-        <guid isPermaLink="true">https://arxiv.org/abs/2611.05499</guid>
     </item>
 </channel>
 </rss>

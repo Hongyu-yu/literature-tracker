@@ -1,8 +1,8 @@
 [
   {
     "title": "Machine Learning the Complete Active-Space Wavefunction Reconstruction",
-    "title_zh": "机器学习完整的主动空间波函数重建",
-    "summary": "机器学习的原子间势能实现多参考质量的反应动力学，但不保留预测能量和力背后的电子结构。通过独立执行完整的活动空间自洽场 (CASSCF) 计算来恢复此信息既昂贵又可能不一致。我们引入了完整主动空间波函数重建（CAS-WR）模型，该模型从 CASSCF 数据中学习几何相关的电子结构，并重建 CAS 波函数，而无需重复轨道优化。结合基于不确定性的主动学习，CAS-WR 被证明适用于 Diels--Alder 反应和 ceTiC+ 催化的 C--H 激活。",
+    "title_zh": "文献研究：Machine Learning the Complete Active-Space Wavefunction Reconstruction",
+    "summary": "Machine-learned interatomic potentials enable multireference-quality reaction dynamics but do not retain the electronic structure underlying the predicted energies and forces. Recovering this informat…",
     "abstract": "arXiv:2611.06779v1 Announce Type: new Abstract: Machine-learned interatomic potentials enable multireference-quality reaction dynamics but do not retain the electronic structure underlying the predicted energies and forces. Recovering this information by independently performing complete active space self-consistent field (CASSCF) calculations is both expensive and potentially inconsistent. We introduce the Complete Active-Space Wave Function Reconstruction (CAS-WR) model, which learns the geometry-dependent electronic structure from CASSCF data and reconstructs the CAS wave function without repeated orbital optimization. Combined with uncertainty-based active learning, CAS-WR is demonstrated for the Diels--Alder reaction and ceTiC+-catalyzed C--H activation. The approach enables trajectory-resolved analysis of multiconfigurational electronic structure across reactive ensembles. Preliminary applications to excited-state proton transfer and transition-metal photocatalysis suggest that CAS-WR can provide a general route toward recovering electronic structure along complex ground- and excited-state reactive dynamics.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.06779",
@@ -19,8 +19,8 @@
   },
   {
     "title": "Interaction embedding via factorized linear models for multi-element machine learning interatomic potentials",
-    "title_zh": "通过分解线性模型进行交互嵌入，用于多元素机器学习原子间势",
-    "summary": "线性机器学习原子间势，例如超快力场 (UF3)，可以以较低的计算成本提供接近密度泛函理论的准确性。然而，它们的参数数量随着化学物质的数量而增加，限制了它们在多元素系统中的使用。我们用伪相互作用 UF3 (PI-UF3) 来解决这个缩放问题，这是一种因式分解的线性模型，其中 Z ( k ) 真实 k 体势被表示为少量共享伪相互作用 P ( k ) ≪ Z ( k ) 的线性组合。学习元素嵌入是非线性势的标准；",
+    "title_zh": "文献研究：Interaction embedding via factorized linear models for multi-element machine learning interatomic potentials",
+    "summary": "Linear machine-learning interatomic potentials, such as the Ultra-Fast Force Field (UF3), deliver near-density functional theory accuracy at low computational cost. Their number of parameters, however…",
     "abstract": "Linear machine-learning interatomic potentials, such as the Ultra-Fast Force Field (UF3), deliver near-density functional theory accuracy at low computational cost. Their number of parameters, however, grows combinatorially with the number of chemical species, limiting their use on multi-element systems. We address this scaling problem with pseudo-interaction UF3 (PI-UF3), a factorized linear model in which the Z ( k ) real k -body potentials are expressed as linear combinations of a small number P ( k ) ≪ Z ( k ) of shared pseudo-interactions. Learned element embeddings are standard in nonlinear potentials; inside a linear model, the embedding becomes a rank constraint on the coefficient matrix of each body order, and the resulting bilinear problem is trained with alternating least squares, where each block update is one closed-form linear solve. We benchmark PI-UF3 on a five-element refractory high-entropy alloy (HEA) and a subset of MD22, training on forces, with restarts and cross-validation. On the chemically homogeneous HEA, compression acts as implicit regularization: with three-body terms included, PI-UF3’s test force root-mean-squared error drops below the unfactorized UF3 baseline with 3% of the baseline’s parameters on the predefined split and 7% on every cross-validation fold, and the maximally compressed model recovers a chemically meaningful ordering of homonuclear interaction strengths consistent with experimental bulk melting temperatures. On the chemically heterogeneous MD22 subset, where UF3 is not expressive enough to overfit, PI-UF3 approaches the baseline from above and reaches parity with it at about two thirds of the parameter count. Compression thus regularizes only where the unfactorized model overfits, while a parameter reduction is available in both regimes.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/17/174119/3408194/Interaction-embedding-via-factorized-linear-models",
@@ -46,8 +46,8 @@
   },
   {
     "title": "Ab Initio Accuracy Beyond the Cutoff: Distributed Message-Passing Equivariant Attention at Tens-of-Millions-of-Atom Scale",
-    "title_zh": "超越截止值的从头算精度：数千万原子规模的分布式消息传递等变注意力",
-    "summary": "分子动力学根据原子力和轨迹积分预测分子运动。密度泛函理论 (DFT) 提供了第一原理力，但其 O(N3) 成本限制了对数千个原子的模拟；经验力场规模可达数百万，但错过了键断裂和电荷转移。等变消息传递 Transformer 以线性成本学习从头开始的潜力。堆叠层将信息传播到单个截止范围之外，使四层的感受野高达 23Å。在这个前沿，规模受到通信的限制：层在设备之间交换边界特征，力反向传播重复交换，移动原子改变相邻图和张量形状。",
+    "title_zh": "文献研究：Ab Initio Accuracy Beyond the Cutoff: Distributed Message-Passing Equivariant Attention at Tens-of-Millions-of-Atom Scale",
+    "summary": "Molecular dynamics predicts molecular motion from atomic forces and trajectory integration. Density functional theory (DFT) provides first-principles forces, but its O(N³) cost limits simulations to t…",
     "abstract": "arXiv:2611.06122v1 Announce Type: cross Abstract: Molecular dynamics predicts molecular motion from atomic forces and trajectory integration. Density functional theory (DFT) provides first-principles forces, but its O(N³) cost limits simulations to thousands of atoms; empirical force fields scale to millions but miss bond breaking and charge transfer. Equivariant message-passing Transformers learn the ab initio potential at linear cost. Stacked layers propagate information beyond a single cutoff, giving four layers a receptive field up to 23Å. At this frontier, scale is limited by communication: layers exchange boundary features across devices, force backpropagation repeats the exchange, and moving atoms change neighbor graphs and tensor shapes. We present Tessera, a distributed runtime that fixes workload shapes between rebuilds. It sorts atoms along a space-filling curve into equal-count shards, ensuring identical atom counts and tensor shapes per rank. Peer sets scale as K⁰.⁵, not K. A conservative neighbor skin preserves topology across updates, enabling each rebuild interval to replay as one CUDA Graph. Fused kernels, three-level neighbor search, and overlapped All-to-All complete it. On 512 GPUs, Tessera sustains 30.7M atoms at 89.7% weak-scaling efficiency (77--90% across three per-GPU loads); per-step time rises 1.11--1.29x as machine and problem grow 16x. Graph reuse cuts full-step time 1.87×. Across an 8× device increase, neighbor-search cost grows 1.7×, versus 3.0× for Morton order. In a live 10.24M-atom salt solution, NVE energy drift is 0.42,μeV/atom/ps over 10 ps, and structure matches a serial reference. A 10.06M-atom Norovirus capsid sustains 100 ps of NVT at approx 8 ps/day on 256 A100 GPUs. Over 200,000 steps, it has no broken bonds or anomalously close pairs and uses three compiled variants, with no graph breaks or eager fallbacks.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.06122",
@@ -73,12 +73,21 @@
   },
   {
     "title": "High-transformer-ratio plasma-based afterburner for extending X-ray free-electron laser photon energies to gtrsim50 keV",
-    "title_zh": "高变压器比等离子体加力燃烧室，用于将 X 射线自由电子激光光子能量扩展至 gtrsim50 keV",
-    "summary": "gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能量密度物理学和核物理学的应用，但很难从现有的 X 射线自由电子激光 (XFEL) 设施中获得。基于等离子体的加力燃烧器提供了一种增加电子束能量的紧凑途径，但高变压器比 (TR) 操作容易受到软管不稳定的影响，这会严重降低见证光束质量。我们建议使用横向椭圆驱动光束来激发具有轴向变化聚焦梯度的椭圆非线性等离子体尾流，从而通过电子感应加速器退相干来抑制见证光束。",
+    "title_zh": "文献研究：High-transformer-ratio plasma-based afterburner for extending X-ray free-electron laser photon energies to gtrsim50 keV",
+    "summary": "Bright coherent X-rays in the gtrsim50 keV range are highly desirable for applications in materials science, high-energy-density physics, and nuclear physics, but are difficult to obtain from present…",
     "abstract": "arXiv:2611.05957v1 Announce Type: new Abstract: Bright coherent X-rays in the gtrsim50 keV range are highly desirable for applications in materials science, high-energy-density physics, and nuclear physics, but are difficult to obtain from present X-ray free-electron laser (XFEL) facilities. Plasma-based afterburners offer a compact route to increasing the electron-beam energy, yet high transformer ratio (TR) operation is vulnerable to hosing instability, which can severely degrade the witness beam quality. We propose using a transversely elliptical driver beam to excite an elliptical nonlinear plasma wake with an axially varying focusing gradient, thereby suppressing the witness beam hosing through betatron decoherence. Three-dimensional particle-in-cell simulations show that, for a 3 kA driver and a 2.35 kA witness beam with an rms length of 4 μm and a beam separation of 94 μm (TR approx 3), this scheme can accelerate an 8 GeV witness beam to sim30 GeV while nearly half of the electrons meet the XFEL requirements. Start-to-end simulations show that the resulting beam can drive gtrsim50 keV XFEL radiation with peak powers of sim10 GW and durations of sim10 fs, even when quantum diffusion is included, offering a compact route to extend existing XFEL facilities to higher photon energies.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.05957",
     "journal": "arXiv"
+  },
+  {
+    "title": "Predicting stable planar boron clusters: Bonding rules, stability criteria, and global structure search accelerated by a machine learning force field",
+    "title_zh": "文献研究：Predicting stable planar boron clusters: Bonding rules, stability criteria, and global structure search accelerated by a machine learning force field",
+    "summary": "Author(s): Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim, and Feng Ding Boron's electron deficiency favors multicenter bonding and enables planar or quasiplanar boron nanostruc…",
+    "abstract": "Author(s): Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim, and Feng Ding Boron's electron deficiency favors multicenter bonding and enables planar or quasiplanar boron nanostructures with unusually stable pristine edges and corners. Yet a compact bonding picture that explains these stability trends remains elusive. Here we introduce a bonding model for triangular-lattice… [Phys. Rev. B 114, 254105] Published Thu Nov 05, 2026",
+    "category": "AI×物理",
+    "link": "http://link.aps.org/doi/10.1103/x3bz-g9zz",
+    "journal": "Phys. Rev. B"
   },
   {
     "title": "DefectSkills: Guiding AI agents through first-principles calculations for point defects in semiconductors and insulators",
@@ -87,6 +96,15 @@
     "abstract": "arXiv:2611.05654v1 Announce Type: new Abstract: First-principles defect calculations can now be performed autonomously by AI agents, enabled by established computational methods and open-source Python toolkits. However, reliable and repeatable defect calculations require clear scientific and technical guidance that helps agents resolve ambiguities and avoid errors in calculation setup, execution, postprocessing, and analysis. Here, we present DefectSkills, a set of structured prompts that provides human-in-the-loop guidance to AI agents performing first-principles calculations of point defects in semiconductors and insulators using the Vienna Ab initio Simulation Package (VASP). The prompts encode human expertise and guide agents through unit-cell relaxation, electronic-structure and dielectric calculations, phase-stability and chemical-potential analysis, charged-defect supercell generation and calculations, finite-size corrections, formation-energy calculations and thermodynamic analysis, and data backup. By packaging this expertise as reusable agent skills, DefectSkills supports consistent workflow execution across agentic AI systems and reproducible defect calculations.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2611.05654",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Unsupervised Neural Operators for Rotating Relativistic Stars: High-Fidelity Equation of State Inference and Pulsar Spin Evolution at Scale",
+    "title_zh": "文献研究：Unsupervised Neural Operators for Rotating Relativistic Stars: High-Fidelity Equation of State Inference and Pulsar Spin Evolution at Scale",
+    "summary": "Observed populations of rotating neutron stars~(NSs) with millisecond-order periods are powerful probes of fundamental physics. Mass-radius measurements inform poorly constrained properties of degener…",
+    "abstract": "arXiv:2611.05790v1 Announce Type: cross Abstract: Observed populations of rotating neutron stars~(NSs) with millisecond-order periods are powerful probes of fundamental physics. Mass-radius measurements inform poorly constrained properties of degenerate nuclear matter, whereas high-fidelity population synthesis connects unknowns in NS formation and binary evolution to large radio-timing surveys. However, repeated structure calculations are prohibitive due to the computational cost of solving the highly coupled partial differential equations of axisymmetric general relativistic hydrostatic equilibrium that govern rotating NS interiors. Non-rotating calculations or approximate rotational corrections can bias equation of state inference and limit the fidelity of population synthesis in tracing the evolutionary history of progenitors and propagating equation of state uncertainties. In this Letter, we develop physics-informed neural operators that can solve the axisymmetric problem with high accuracy and negligible computational cost. Our solvers are trained in a fully unsupervised setting, with the training objective informed solely by the partial differential equations, and achieve a 10³× speed-up with negligible accuracy loss. These solvers enable scalable EoS inference that self-consistently accounts for rotation and repeated stellar-structure calculations during binary evolution, making spin predictions that account for rotational structure and EoS uncertainties computationally accessible to population synthesis.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.05790",
     "journal": "arXiv"
   },
   {
@@ -109,12 +127,21 @@
   },
   {
     "title": "Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields",
-    "title_zh": "Drift-React：通过 SE(3) 漂移场一步生成反应路径",
-    "summary": "绘制反应路径和过渡态 (TS) 是化学的基础，但大规模计算成本高昂。最小能量路径（MEP）决定了反应速率和机制，但通过电子结构方法恢复它需要数千次昂贵的力评估。最近的生成模型加速了 TS 识别，但依赖于迭代推理，并且仅预测孤立的鞍点快照，缺少连续反应轨迹。我们引入了 Drift-React，这是一个 SE(3) 等变生成框架，它仅根据反应物和产物几何形状预测单次正向传递中的完整反应路径。",
+    "title_zh": "文献研究：Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields",
+    "summary": "Mapping reaction pathways and transition states (TS) is fundamental to chemistry but computationally expensive at scale. The minimum energy pathway (MEP) dictates reaction rates and mechanisms, yet re…",
     "abstract": "arXiv:2605.22990v2 Announce Type: replace Abstract: Mapping reaction pathways and transition states (TS) is fundamental to chemistry but computationally expensive at scale. The minimum energy pathway (MEP) dictates reaction rates and mechanisms, yet recovering it via electronic-structure methods requires thousands of costly force evaluations. Recent generative models accelerate TS identification but rely on iterative inference and only predict isolated saddle-point snapshots, missing the continuous reaction trajectory. We introduce Drift-React, an SE(3)-equivariant generative framework that predicts complete reaction pathways in a single forward pass from only reactant and product geometries. By shifting distribution evolution to training via a Sinkhorn-weighted drifting field, Drift-React eliminates both the iterative force evaluations of NEB-style methods and the sequential ODE/SDE integration of diffusion and flow matching models. Evaluated on the Transition1x and Halo8 datasets, our one-step model generates physically consistent MEPs that accurately capture energetic bottlenecks and enable arbitrary-resolution sampling along the reaction coordinate. For isolated TS prediction, Drift-React matches the sub-Ångström accuracy of state-of-the-art iterative models while delivering orders-of-magnitude acceleration, clearing a major computational bottleneck for large-scale reaction network exploration.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2605.22990",
     "journal": "arXiv"
+  },
+  {
+    "title": "Third-order intrinsic anomalous Hall effect in altermagnets",
+    "title_zh": "文献研究：Third-order intrinsic anomalous Hall effect in altermagnets",
+    "summary": "Author(s): Longjun Xiang, Hao Jin, and Jian Wang Altermagnets, as an emergent class of quantum magnets, have recently attracted considerable attention, yet an intrinsic transport hallmark of altermagn…",
+    "abstract": "Author(s): Longjun Xiang, Hao Jin, and Jian Wang Altermagnets, as an emergent class of quantum magnets, have recently attracted considerable attention, yet an intrinsic transport hallmark of altermagnetic order remains elusive. Here, through spin-group and magnetic Laue-group symmetry analyses, we identify the third-order intrinsic anomalous Hall … [Phys. Rev. B 114, L291401] Published Thu Nov 05, 2026",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/8nkd-ksnd",
+    "journal": "Phys. Rev. B"
   },
   {
     "title": "Thermally Conditioned Time-Series Forecasting of Grain Growth in Polycrystalline Materials",
@@ -150,33 +177,6 @@
     "abstract": "arXiv:2611.05856v1 Announce Type: new Abstract: Periodic driving enables ultrafast control of electronic structures in solids through the formation of photon-dressed Floquet-Bloch states. However, the measured photoemission spectra are influenced not only by these states but also by their interference with Volkov-dressed outgoing photoelectrons. Here, we demonstrate that Floquet-Volkov interference can generate spin-polarized photoemission in a collinear antiferromagnetic Dirac model without spin-orbit coupling (SOC). An in-plane linearly polarized pump preserves PT symmetry, leaving the Floquet quasienergies spin degenerate. Under near-resonant driving, photon-dressed conduction and valence bands hybridize, producing spin-dependent relative phases that are converted into unequal spin-resolved photoemission intensities through interference between pathways reaching the same Volkov-dressed final state. We analytically identify this interference mechanism and verify it using nonequilibrium Green-function calculations under periodic driving and finite pump-probe pulses. We further demonstrate that rotating the probe polarization can suppress or reverse the spin polarization without modifying the Floquet bands. Our findings establish Floquet-Volkov interference as a route to spin-selective photoemission in driven antiferromagnets without Floquet spin splitting or SOC.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2611.05856",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Quantum Spin Wave Theory with Multi-Spin Interactions for Magnetic Materials Modeling",
-    "title_zh": "用于磁性材料建模的多自旋相互作用的量子自旋波理论",
-    "summary": "在凝聚态物理的磁性领域中，磁系统由自旋哈密顿量在微观上描述。其参数化可通过从头计算和拟合实验数据来实现。通常，这是通过多阶段计算来实现的，这些计算要么将参数与可观察的材料特性相关联，要么将 Kohn-Sham 哈密顿量映射到有效的自旋模型上。在这个领域，准确而灵活的方法对于模拟后者的物理特性至关重要。本研究的重点是这样一种方法：自旋波理论。该方法应用于自旋哈密顿量的新公式，称为多项式局部自旋模型（PLSM），其中包括自旋算子中的任意阶项。",
-    "abstract": "arXiv:2611.06833v1 Announce Type: new Abstract: In the field of magnetism within condensed matter physics, magnetic systems are microscopically described by a spin Hamiltonian. Its parameterization is accessible through both ab initio calculations and fits to experimental data. Frequently, this is achieved via multi-stage calculations that either relate the parameters to observable material properties or map a Kohn-Sham Hamiltonian onto an effective spin model. In this realm, accurate and flexible methods are essential for simulating the physical properties of the latter. The present study focuses on one such method: spin wave theory. The approach is applied to a new formulation of the spin Hamiltonian, named polynomial localized spin model (PLSM), which includes terms of arbitrary order in the spin operators. This enables the direct application of linear spin wave theory (LSWT) to the analysis of the energy landscape and spin-wave spectrum of arbitrary collinear and non-collinear phases in any realistic magnetic material. Moreover, the classical and quantum parts of the PLSM are cleanly separated. Finally, an open-source implementation of LSWT, named Magnopy, is presented. It interfaces with modern parameterization software, supports arbitrary collinear and non-collinear systems, and is designed for both scripting and standalone use.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.06833",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Electrostatics of Chern junctions in a magnetic field",
-    "title_zh": "磁场中陈结的静电",
-    "summary": "静电控制对于传统材料制成的半导体结的运行至关重要。在这里，我们从理论上研究了垂直磁场中二维（2D）陈半导体之间横向结的静电特性。陈半导体的光谱不对称性充当磁场感应的有效掺杂剂密度，其取决于陈数。因此，具有不同陈数的两个区域在电荷中性时获得不同的化学势，从而导致结点上产生拓扑起源的内置势。使用这个内置电势作为边界条件，我们求解二维泊松方程以获得陈半导体结的电势和电荷密度分布以及电容。我们的结果揭示了二维材料制成的设备中电子拓扑和静电之间的相互作用。",
-    "abstract": "arXiv:2611.06134v1 Announce Type: new Abstract: Electrostatic control is central to the operation of semiconductor junctions made from conventional materials. Here, we theoretically investigate the electrostatic properties of lateral junctions between two-dimensional (2D) Chern semiconductors in a perpendicular magnetic field. The spectral asymmetry of a Chern semiconductor acts as a magnetic-field-induced effective dopant density that is dependent on the Chern number. As a consequence, two regions with different Chern numbers acquire different chemical potentials at charge neutrality, leading to a built-in potential of topological origin across the junction. Using this built-in potential as a boundary condition, we solve the 2D Poisson equation to obtain the electric potential and charge density profiles, as well as the capacitance, of Chern semiconductor junctions. Our results inform the interplay between electronic topology and electrostatics in devices made from 2D materials.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.06134",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Longitudinal and Transverse Thermoelectric Properties in Topological Quantum Materials",
-    "title_zh": "拓扑量子材料的纵向和横向热电特性",
-    "summary": "热电材料在拓扑上可以是平凡的，也可以是非平凡的，利用固态技术实现热和电的可逆相互转换。顺便说一句，最早通过实验发现的 3D 拓扑材料（即 Bi、Sb、Sn 和 Pb 基硫族化物）中很少有长期以来被认为是良好的热电材料。在这些化合物中，产生强自旋轨道耦合的重原子通常对于能带反转和非平凡能带拓扑至关重要。它们导致低晶格热导率，线性分散的狄拉克能带引起高电迁移率，并且具有多能带极值的能带反转电子结构产生高塞贝克系数。",
-    "abstract": "arXiv:2611.06865v1 Announce Type: new Abstract: Thermoelectric materials can be topologically trivial or non-trivial, enabling reversible interconversion of heat and electricity using a solid-state technology. Incidentally, few of the first experimentally discovered 3D topological materials, namely, Bi, Sb, Sn and Pb-based chalcogenides, were long known as good thermoelectric materials. In these compounds, the heavy atoms that give rise to strong spin-orbit coupling often become essential for band inversion and non-trivial band topology. They lead to low lattice thermal conductivity, linearly dispersing Dirac-like bands induce high electrical mobility, and a band-inverted electronic structure with multiple band extrema gives rise to high Seebeck coefficients. In materials, where the applied temperature gradient induces electrical voltage (Seebeck effect) in the same direction, they are termed as longitudinal thermoelectrics. On the other hand, when the generated electrical voltage and applied thermal current remain orthogonal to each other, the materials are termed as transverse thermoelectrics. The transverse response can be driven by an additional external magnetic field (ordinary Nernst effect), intrinsic remanent magnetisation, or non-zero Berry curvature of a material, which arises from their non-trivial topology (anomalous Nernst effect). We discuss another class of quantum materials, known as goniopolar materials, that exhibit axis-dependent conduction polarity and hence transverse thermoelectric effects, which are based on mechanisms of longitudinal thermoelectric properties. In this review, we cover both types of thermoelectricity, focusing on materials that possess non-trivial topological order. We make connections between their structures, topology and transport properties and suggest tunability of thermoelectric properties going beyond conventional mechanisms such as electron-phonon interactions.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.06865",
     "journal": "arXiv"
   }
 ]
