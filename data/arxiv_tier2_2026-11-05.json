@@ -1,8 +1,8 @@
 [
   {
     "title": "Machine Learning the Complete Active-Space Wavefunction Reconstruction",
-    "title_zh": "文献研究：Machine Learning the Complete Active-Space Wavefunction Reconstruction",
-    "summary": "Machine-learned interatomic potentials enable multireference-quality reaction dynamics but do not retain the electronic structure underlying the predicted energies and forces. Recovering this informat…",
+    "title_zh": "机器学习完整的主动空间波函数重建",
+    "summary": "机器学习的原子间势能实现多参考质量的反应动力学，但不保留预测能量和力背后的电子结构。通过独立执行完整的活动空间自洽场 (CASSCF) 计算来恢复此信息既昂贵又可能不一致。我们引入了完整主动空间波函数重建（CAS-WR）模型，该模型从 CASSCF 数据中学习几何相关的电子结构，并重建 CAS 波函数，而无需重复轨道优化。结合基于不确定性的主动学习，CAS-WR 被证明适用于 Diels--Alder 反应和 ceTiC+ 催化的 C--H 激活。",
     "abstract": "arXiv:2611.06779v1 Announce Type: new Abstract: Machine-learned interatomic potentials enable multireference-quality reaction dynamics but do not retain the electronic structure underlying the predicted energies and forces. Recovering this information by independently performing complete active space self-consistent field (CASSCF) calculations is both expensive and potentially inconsistent. We introduce the Complete Active-Space Wave Function Reconstruction (CAS-WR) model, which learns the geometry-dependent electronic structure from CASSCF data and reconstructs the CAS wave function without repeated orbital optimization. Combined with uncertainty-based active learning, CAS-WR is demonstrated for the Diels--Alder reaction and ceTiC+-catalyzed C--H activation. The approach enables trajectory-resolved analysis of multiconfigurational electronic structure across reactive ensembles. Preliminary applications to excited-state proton transfer and transition-metal photocatalysis suggest that CAS-WR can provide a general route toward recovering electronic structure along complex ground- and excited-state reactive dynamics.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.06779",
@@ -19,8 +19,8 @@
   },
   {
     "title": "Interaction embedding via factorized linear models for multi-element machine learning interatomic potentials",
-    "title_zh": "文献研究：Interaction embedding via factorized linear models for multi-element machine learning interatomic potentials",
-    "summary": "Linear machine-learning interatomic potentials, such as the Ultra-Fast Force Field (UF3), deliver near-density functional theory accuracy at low computational cost. Their number of parameters, however…",
+    "title_zh": "通过分解线性模型进行交互嵌入，用于多元素机器学习原子间势",
+    "summary": "线性机器学习原子间势，例如超快力场 (UF3)，可以以较低的计算成本提供接近密度泛函理论的准确性。然而，它们的参数数量随着化学物质的数量而增加，限制了它们在多元素系统中的使用。我们用伪相互作用 UF3 (PI-UF3) 来解决这个缩放问题，这是一种因式分解的线性模型，其中 Z ( k ) 真实 k 体势被表示为少量共享伪相互作用 P ( k ) ≪ Z ( k ) 的线性组合。学习元素嵌入是非线性势的标准；",
     "abstract": "Linear machine-learning interatomic potentials, such as the Ultra-Fast Force Field (UF3), deliver near-density functional theory accuracy at low computational cost. Their number of parameters, however, grows combinatorially with the number of chemical species, limiting their use on multi-element systems. We address this scaling problem with pseudo-interaction UF3 (PI-UF3), a factorized linear model in which the Z ( k ) real k -body potentials are expressed as linear combinations of a small number P ( k ) ≪ Z ( k ) of shared pseudo-interactions. Learned element embeddings are standard in nonlinear potentials; inside a linear model, the embedding becomes a rank constraint on the coefficient matrix of each body order, and the resulting bilinear problem is trained with alternating least squares, where each block update is one closed-form linear solve. We benchmark PI-UF3 on a five-element refractory high-entropy alloy (HEA) and a subset of MD22, training on forces, with restarts and cross-validation. On the chemically homogeneous HEA, compression acts as implicit regularization: with three-body terms included, PI-UF3’s test force root-mean-squared error drops below the unfactorized UF3 baseline with 3% of the baseline’s parameters on the predefined split and 7% on every cross-validation fold, and the maximally compressed model recovers a chemically meaningful ordering of homonuclear interaction strengths consistent with experimental bulk melting temperatures. On the chemically heterogeneous MD22 subset, where UF3 is not expressive enough to overfit, PI-UF3 approaches the baseline from above and reaches parity with it at about two thirds of the parameter count. Compression thus regularizes only where the unfactorized model overfits, while a parameter reduction is available in both regimes.",
     "category": "AI×化学·材料",
     "link": "https://pubs.aip.org/aip/jcp/article/165/17/174119/3408194/Interaction-embedding-via-factorized-linear-models",
@@ -46,8 +46,8 @@
   },
   {
     "title": "Ab Initio Accuracy Beyond the Cutoff: Distributed Message-Passing Equivariant Attention at Tens-of-Millions-of-Atom Scale",
-    "title_zh": "文献研究：Ab Initio Accuracy Beyond the Cutoff: Distributed Message-Passing Equivariant Attention at Tens-of-Millions-of-Atom Scale",
-    "summary": "Molecular dynamics predicts molecular motion from atomic forces and trajectory integration. Density functional theory (DFT) provides first-principles forces, but its O(N³) cost limits simulations to t…",
+    "title_zh": "超越截止值的从头算精度：数千万原子规模的分布式消息传递等变注意力",
+    "summary": "分子动力学根据原子力和轨迹积分预测分子运动。密度泛函理论 (DFT) 提供了第一原理力，但其 O(N3) 成本限制了对数千个原子的模拟；经验力场规模可达数百万，但错过了键断裂和电荷转移。等变消息传递 Transformer 以线性成本学习从头开始的潜力。堆叠层将信息传播到单个截止范围之外，使四层的感受野高达 23Å。在这个前沿，规模受到通信的限制：层在设备之间交换边界特征，力反向传播重复交换，移动原子改变相邻图和张量形状。",
     "abstract": "arXiv:2611.06122v1 Announce Type: cross Abstract: Molecular dynamics predicts molecular motion from atomic forces and trajectory integration. Density functional theory (DFT) provides first-principles forces, but its O(N³) cost limits simulations to thousands of atoms; empirical force fields scale to millions but miss bond breaking and charge transfer. Equivariant message-passing Transformers learn the ab initio potential at linear cost. Stacked layers propagate information beyond a single cutoff, giving four layers a receptive field up to 23Å. At this frontier, scale is limited by communication: layers exchange boundary features across devices, force backpropagation repeats the exchange, and moving atoms change neighbor graphs and tensor shapes. We present Tessera, a distributed runtime that fixes workload shapes between rebuilds. It sorts atoms along a space-filling curve into equal-count shards, ensuring identical atom counts and tensor shapes per rank. Peer sets scale as K⁰.⁵, not K. A conservative neighbor skin preserves topology across updates, enabling each rebuild interval to replay as one CUDA Graph. Fused kernels, three-level neighbor search, and overlapped All-to-All complete it. On 512 GPUs, Tessera sustains 30.7M atoms at 89.7% weak-scaling efficiency (77--90% across three per-GPU loads); per-step time rises 1.11--1.29x as machine and problem grow 16x. Graph reuse cuts full-step time 1.87×. Across an 8× device increase, neighbor-search cost grows 1.7×, versus 3.0× for Morton order. In a live 10.24M-atom salt solution, NVE energy drift is 0.42,μeV/atom/ps over 10 ps, and structure matches a serial reference. A 10.06M-atom Norovirus capsid sustains 100 ps of NVT at approx 8 ps/day on 256 A100 GPUs. Over 200,000 steps, it has no broken bonds or anomalously close pairs and uses three compiled variants, with no graph breaks or eager fallbacks.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.06122",
@@ -73,8 +73,8 @@
   },
   {
     "title": "High-transformer-ratio plasma-based afterburner for extending X-ray free-electron laser photon energies to gtrsim50 keV",
-    "title_zh": "文献研究：High-transformer-ratio plasma-based afterburner for extending X-ray free-electron laser photon energies to gtrsim50 keV",
-    "summary": "Bright coherent X-rays in the gtrsim50 keV range are highly desirable for applications in materials science, high-energy-density physics, and nuclear physics, but are difficult to obtain from present…",
+    "title_zh": "高变压器比等离子体加力燃烧室，用于将 X 射线自由电子激光光子能量扩展至 gtrsim50 keV",
+    "summary": "gtrsim50 keV 范围内的明亮相干 X 射线非常适合材料科学、高能量密度物理学和核物理学的应用，但很难从现有的 X 射线自由电子激光 (XFEL) 设施中获得。基于等离子体的加力燃烧器提供了一种增加电子束能量的紧凑途径，但高变压器比 (TR) 操作容易受到软管不稳定的影响，这会严重降低见证光束质量。我们建议使用横向椭圆驱动光束来激发具有轴向变化聚焦梯度的椭圆非线性等离子体尾流，从而通过电子感应加速器退相干来抑制见证光束。",
     "abstract": "arXiv:2611.05957v1 Announce Type: new Abstract: Bright coherent X-rays in the gtrsim50 keV range are highly desirable for applications in materials science, high-energy-density physics, and nuclear physics, but are difficult to obtain from present X-ray free-electron laser (XFEL) facilities. Plasma-based afterburners offer a compact route to increasing the electron-beam energy, yet high transformer ratio (TR) operation is vulnerable to hosing instability, which can severely degrade the witness beam quality. We propose using a transversely elliptical driver beam to excite an elliptical nonlinear plasma wake with an axially varying focusing gradient, thereby suppressing the witness beam hosing through betatron decoherence. Three-dimensional particle-in-cell simulations show that, for a 3 kA driver and a 2.35 kA witness beam with an rms length of 4 μm and a beam separation of 94 μm (TR approx 3), this scheme can accelerate an 8 GeV witness beam to sim30 GeV while nearly half of the electrons meet the XFEL requirements. Start-to-end simulations show that the resulting beam can drive gtrsim50 keV XFEL radiation with peak powers of sim10 GW and durations of sim10 fs, even when quantum diffusion is included, offering a compact route to extend existing XFEL facilities to higher photon energies.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.05957",
@@ -82,12 +82,21 @@
   },
   {
     "title": "Predicting stable planar boron clusters: Bonding rules, stability criteria, and global structure search accelerated by a machine learning force field",
-    "title_zh": "文献研究：Predicting stable planar boron clusters: Bonding rules, stability criteria, and global structure search accelerated by a machine learning force field",
-    "summary": "Author(s): Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim, and Feng Ding Boron's electron deficiency favors multicenter bonding and enables planar or quasiplanar boron nanostruc…",
+    "title_zh": "预测稳定的平面硼团簇：机器学习力场加速的键合规则、稳定性标准和全局结构搜索",
+    "summary": "作者：Lu Qiu、Cheng qian、Yuewen Mu、Yuhan Liu、Xiuyun Zhang、Sung Youb Kim 和 Feng Ding 硼的电子缺陷有利于多中心键合，并使平面或准平面硼纳米结构具有异常稳定的原始边缘和角落。然而，解释这些稳定性趋势的紧凑键合图仍然难以捉摸。在这里，我们介绍三角晶格的键合模型...... [Phys。修订版 B 114, 254105] 2026 年 11 月 5 日星期四发布",
     "abstract": "Author(s): Lu Qiu, Cheng Qian, Yuewen Mu, Yuhan Liu, Xiuyun Zhang, Sung Youb Kim, and Feng Ding Boron's electron deficiency favors multicenter bonding and enables planar or quasiplanar boron nanostructures with unusually stable pristine edges and corners. Yet a compact bonding picture that explains these stability trends remains elusive. Here we introduce a bonding model for triangular-lattice… [Phys. Rev. B 114, 254105] Published Thu Nov 05, 2026",
     "category": "AI×物理",
     "link": "http://link.aps.org/doi/10.1103/x3bz-g9zz",
     "journal": "Phys. Rev. B"
+  },
+  {
+    "title": "Lattice Distortion‐Triggered Cu─O─Ce Synergistic Sites Coupled With Machine Learning for Intelligent Multi‐Pesticide Recognition",
+    "title_zh": "晶格畸变触发的 Cu─O─Ce 协同位点与机器学习相结合实现智能多农药识别",
+    "summary": "先进功能材料，第 36 卷，第 89 期，2026 年 11 月 5 日。",
+    "abstract": "Advanced Functional Materials, Volume 36, Issue 89, 5 November 2026.",
+    "category": "AI×物理",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.78690?af=R",
+    "journal": "Wiley"
   },
   {
     "title": "DefectSkills: Guiding AI agents through first-principles calculations for point defects in semiconductors and insulators",
@@ -96,15 +105,6 @@
     "abstract": "arXiv:2611.05654v1 Announce Type: new Abstract: First-principles defect calculations can now be performed autonomously by AI agents, enabled by established computational methods and open-source Python toolkits. However, reliable and repeatable defect calculations require clear scientific and technical guidance that helps agents resolve ambiguities and avoid errors in calculation setup, execution, postprocessing, and analysis. Here, we present DefectSkills, a set of structured prompts that provides human-in-the-loop guidance to AI agents performing first-principles calculations of point defects in semiconductors and insulators using the Vienna Ab initio Simulation Package (VASP). The prompts encode human expertise and guide agents through unit-cell relaxation, electronic-structure and dielectric calculations, phase-stability and chemical-potential analysis, charged-defect supercell generation and calculations, finite-size corrections, formation-energy calculations and thermodynamic analysis, and data backup. By packaging this expertise as reusable agent skills, DefectSkills supports consistent workflow execution across agentic AI systems and reproducible defect calculations.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2611.05654",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Unsupervised Neural Operators for Rotating Relativistic Stars: High-Fidelity Equation of State Inference and Pulsar Spin Evolution at Scale",
-    "title_zh": "文献研究：Unsupervised Neural Operators for Rotating Relativistic Stars: High-Fidelity Equation of State Inference and Pulsar Spin Evolution at Scale",
-    "summary": "Observed populations of rotating neutron stars~(NSs) with millisecond-order periods are powerful probes of fundamental physics. Mass-radius measurements inform poorly constrained properties of degener…",
-    "abstract": "arXiv:2611.05790v1 Announce Type: cross Abstract: Observed populations of rotating neutron stars~(NSs) with millisecond-order periods are powerful probes of fundamental physics. Mass-radius measurements inform poorly constrained properties of degenerate nuclear matter, whereas high-fidelity population synthesis connects unknowns in NS formation and binary evolution to large radio-timing surveys. However, repeated structure calculations are prohibitive due to the computational cost of solving the highly coupled partial differential equations of axisymmetric general relativistic hydrostatic equilibrium that govern rotating NS interiors. Non-rotating calculations or approximate rotational corrections can bias equation of state inference and limit the fidelity of population synthesis in tracing the evolutionary history of progenitors and propagating equation of state uncertainties. In this Letter, we develop physics-informed neural operators that can solve the axisymmetric problem with high accuracy and negligible computational cost. Our solvers are trained in a fully unsupervised setting, with the training objective informed solely by the partial differential equations, and achieve a 10³× speed-up with negligible accuracy loss. These solvers enable scalable EoS inference that self-consistently accounts for rotation and repeated stellar-structure calculations during binary evolution, making spin predictions that account for rotational structure and EoS uncertainties computationally accessible to population synthesis.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.05790",
     "journal": "arXiv"
   },
   {
@@ -127,8 +127,8 @@
   },
   {
     "title": "Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields",
-    "title_zh": "文献研究：Drift-React: One-step Generation of Reaction Pathways via SE(3) Drifting Fields",
-    "summary": "Mapping reaction pathways and transition states (TS) is fundamental to chemistry but computationally expensive at scale. The minimum energy pathway (MEP) dictates reaction rates and mechanisms, yet re…",
+    "title_zh": "Drift-React：通过 SE(3) 漂移场一步生成反应路径",
+    "summary": "绘制反应路径和过渡态 (TS) 是化学的基础，但大规模计算成本高昂。最小能量路径（MEP）决定了反应速率和机制，但通过电子结构方法恢复它需要数千次昂贵的力评估。最近的生成模型加速了 TS 识别，但依赖于迭代推理，并且仅预测孤立的鞍点快照，缺少连续反应轨迹。我们引入了 Drift-React，这是一个 SE(3) 等变生成框架，它仅根据反应物和产物几何形状预测单次正向传递中的完整反应路径。",
     "abstract": "arXiv:2605.22990v2 Announce Type: replace Abstract: Mapping reaction pathways and transition states (TS) is fundamental to chemistry but computationally expensive at scale. The minimum energy pathway (MEP) dictates reaction rates and mechanisms, yet recovering it via electronic-structure methods requires thousands of costly force evaluations. Recent generative models accelerate TS identification but rely on iterative inference and only predict isolated saddle-point snapshots, missing the continuous reaction trajectory. We introduce Drift-React, an SE(3)-equivariant generative framework that predicts complete reaction pathways in a single forward pass from only reactant and product geometries. By shifting distribution evolution to training via a Sinkhorn-weighted drifting field, Drift-React eliminates both the iterative force evaluations of NEB-style methods and the sequential ODE/SDE integration of diffusion and flow matching models. Evaluated on the Transition1x and Halo8 datasets, our one-step model generates physically consistent MEPs that accurately capture energetic bottlenecks and enable arbitrary-resolution sampling along the reaction coordinate. For isolated TS prediction, Drift-React matches the sub-Ångström accuracy of state-of-the-art iterative models while delivering orders-of-magnitude acceleration, clearing a major computational bottleneck for large-scale reaction network exploration.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2605.22990",
@@ -136,8 +136,8 @@
   },
   {
     "title": "Third-order intrinsic anomalous Hall effect in altermagnets",
-    "title_zh": "文献研究：Third-order intrinsic anomalous Hall effect in altermagnets",
-    "summary": "Author(s): Longjun Xiang, Hao Jin, and Jian Wang Altermagnets, as an emergent class of quantum magnets, have recently attracted considerable attention, yet an intrinsic transport hallmark of altermagn…",
+    "title_zh": "交流磁体中的三阶本征反常霍尔效应",
+    "summary": "作者：向龙军、金浩和王健 交变磁体作为一类新兴的量子磁体，最近引起了相当大的关注，但交变磁序的内在输运特征仍然难以捉摸。在这里，通过自旋群和磁劳厄群对称性分析，我们确定了三阶本征反常霍尔……[物理。修订版 B 114，L291401] 2026 年 11 月 5 日星期四发布",
     "abstract": "Author(s): Longjun Xiang, Hao Jin, and Jian Wang Altermagnets, as an emergent class of quantum magnets, have recently attracted considerable attention, yet an intrinsic transport hallmark of altermagnetic order remains elusive. Here, through spin-group and magnetic Laue-group symmetry analyses, we identify the third-order intrinsic anomalous Hall … [Phys. Rev. B 114, L291401] Published Thu Nov 05, 2026",
     "category": "磁性·自旋电子学",
     "link": "http://link.aps.org/doi/10.1103/8nkd-ksnd",
