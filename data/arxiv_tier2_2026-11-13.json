@@ -45,6 +45,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Defect‐Conditioned Machine Learning for Molecular Passivator Design in Stable Perovskite Solar Cells",
+    "title_zh": "用于稳定钙钛矿太阳能电池中分子钝化剂设计的缺陷条件机器学习",
+    "summary": "先进功能材料，EarlyView。",
+    "abstract": "Advanced Functional Materials, EarlyView.",
+    "category": "AI×化学·材料",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/adfm.79647?af=R",
+    "journal": "Wiley"
+  },
+  {
     "title": "HARMONY: an efficient and accurate deep learning framework for prediction of experimental vibrational spectra",
     "title_zh": "HARMONY：用于预测实验振动谱的高效、准确的深度学习框架",
     "summary": "预测实验振动光谱需要有效的分子计算和从理论振动到测量信号的可靠映射。在这里，我们介绍 HARMONY，这是一个两阶段的深度学习框架，它使用谐波谱作为物理锚来弥补这一差距。等变神经网络直接预测原子力和光谱张量，以快速构建谐波光谱，而 HarmoNet 将这些光谱与分子拓扑和测量元数据相结合，以预测实验红外和拉曼光谱。",
@@ -169,14 +178,5 @@
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2607.28752",
     "journal": "arXiv"
-  },
-  {
-    "title": "SHRX: a neural surrogate of turbulent transport in tokamak plasma and its comparison with TORAX against experimental data",
-    "title_zh": "SHRX：托卡马克等离子体中湍流传输的神经替代物及其与 TORAX 与实验数据的比较",
-    "summary": "集成托卡马克建模需要湍流传输的快速替代，但现有模型依赖于 JAX。我们通过提炼 QuaLiKiz 神经网络 (QLKNN) 构建了 SHRX，这是一个具有 29,283 个参数的神经网络，仅在 NumPy 上运行。 “桥”将我们的一维半模拟器 SINTEZ 的状态转换为十个无维 QLKNN 输入。对于刚性传输，我们引入临界梯度因子 (:δ:f) 的误差作为度量，五个网络的集合给出了不确定性估计。",
-    "abstract": "Integrated tokamak modelling needs fast surrogates of turbulent transport, but existing ones depend on JAX. We built SHRX, a neural network with 29,283 parameters that runs on NumPy alone, by distilling the QuaLiKiz neural network (QLKNN). A “bridge” converts the state of our one-and-a-half-dimensional simulator SINTEZ into the ten dimensionless QLKNN inputs. For stiff transport we introduce the error of the critical-gradient factor, (:δ:f), as a metric, and an ensemble of five networks gives an uncertainty estimate. We compare SINTEZ with SHRX against the TORAX code at three levels: identical local plasma states, an integrated ITER discharge with identical inputs, and 206 conventional and 41 spherical records of the H-mode database of the International Tokamak Physics Activity (ITPA). On machines held out of training, the median error of the heat diffusivity (:χ:) is 9% and the median (:δ:f) is 2.3%; the ensemble lowers the (:χ:) error to 5.9–6.5%. The ITER fusion power is 492 MW with SINTEZ and SHRX, 478 MW with SINTEZ and QLKNN, and 532 MW with TORAX. On experimental records the two codes agree with each other ((:r=0.995) in (:lnW)) better than with the measurements, and both are less accurate than the IPB98(y,2) regression ((:σ:ₗₙ) of 0.55 and 0.56 against 0.21). On spherical tokamaks SHRX overestimates the stored energy by a median factor of 28. SHRX is a faster, JAX-free copy of QLKNN, not a better model than TORAX: most of the experimental error comes from inputs that both codes share.",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-11503430/latest",
-    "journal": "Preprints"
   }
 ]
