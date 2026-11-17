@@ -1,5 +1,86 @@
 [
   {
+    "title": "IANN: A Unified Framework for Equivariant InterAtomic Neural Networks with User-Friendly Implementation",
+    "title_zh": "IANN：具有用户友好实现的等变原子间神经网络的统一框架",
+    "summary": "机器学习原子间势（MLIP）现在以一小部分成本接近密度泛函理论（DFT）精度，但实际效益受到软件碎片化的限制：每个最先进的架构都作为单独的代码库发布，具有自己的数据格式、配置系统、训练循环和分子动力学接口。因此，在同一数据集上比较两种架构，或者将经过训练的模型转移到生产模拟中，都需要大量的重新设计。",
+    "abstract": "arXiv:2611.19793v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) now approach density functional theory (DFT) accuracy at a fraction of its cost, but the practical benefit is limited by software fragmentation: each state-of-the-art architecture is released as a separate codebase, with its own data format, configuration system, training loop and molecular-dynamics interface. Comparing two architectures on the same dataset, or moving a trained model into a production simulation, therefore requires substantial re-engineering. We introduce IANN (InterAtomic Neural Network), an open-source PyTorch framework that reimplements equivariant graph neural networks - PaiNN, NequIP, MACE, Allegro, EquiformerV2, EquiformerV3 and UMA - behind a unified data object, a unified trainer and a single deployment route, so that the architecture is a one-word change in a configuration dictionary. Forces, stresses and virials are obtained for every architecture from one analytic differentiation of the energy with respect to the edge vectors of the atomic graph, exact under periodic boundary conditions. Distributed training is configured automatically from the SLURM, PBS or MPI environment, so the same script runs unchanged from a workstation to a multi-node GPU allocation. Self-describing checkpoints serve directly as ASE calculators, as ensembles reporting uncertainties, or as TorchScript models run inside LAMMPS through bundled C++ pair styles with single- and multi-GPU inference. Trained on a common dataset of millions of structures, the architectures can be compared under identical conditions. We further release PaiNN foundation models trained on 41.9 million curated DFT structures from MPtrj, Alexandria, OMat24, MatPES, OC20, OC22, OC25, MPr2SCAN and MatPESr2SCAN, spanning the PBE, RPBE and r2SCAN functionals. Additionally, IANN provides an agent interface to facilitate integration with autonomous agents.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.19793",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Machine Learning the GW Self-Energy Operator for Real Materials",
+    "title_zh": "机器学习真实材料的 GW 自能算子",
+    "summary": "固体引力波的机器学习主要集中在标量准粒子能量修正的预测上。在这里，我们引入了一个相位感知的多体变压器，它可以预测完整的 k 分辨复杂自能矩阵。作为原理证明，我们应用该模型来预测准粒子哈密顿量对角化之前和之后的准粒子能量，对于静态 COHSEX 近似中的 1745 种二维材料的数据集获得了 29 meV 的测试集平均绝对误差 (MAE)，对于在等离子体激元极模型中计算的 433 种材料的更有限的数据集获得了 60 meV 的测试集平均绝对误差 (MAE)。",
+    "abstract": "arXiv:2611.20247v1 Announce Type: new Abstract: Machine learning of GW in solids has largely focused on prediction of scalar quasiparticle energy corrections. Here, we introduce a phase-aware many-body transformer that predicts the full k-resolved complex self-energy matrix. As a proof of principle, we apply the model to predict quasiparticle energies before and after diagonalization of the quasiparticle Hamiltonian, obtaining a test set mean absolute error (MAE) of 29 meV for a dataset of 1745 2D materials in the static COHSEX approximation and 60 meV for a more limited dataset of 433 materials calculated within a plasmon-pole model. COHSEX pretraining followed by finetuning reduces this MAE to 42 meV. The predicted matrices also accurately reproduce QP wavefunctions.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.20247",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Self-attention is a Dyson equation for many-body machine learning",
+    "title_zh": "文献研究：Self-attention is a Dyson equation for many-body machine learning",
+    "summary": "Why does symmetric sum-pooling (DeepSets) predict ground-state potentials to sub-meV accuracy, yet fail for correlated wavefunctions and excited states? Sum-pooling is a mean-field (Hartree) model: it…",
+    "abstract": "arXiv:2611.21398v1 Announce Type: new Abstract: Why does symmetric sum-pooling (DeepSets) predict ground-state potentials to sub-meV accuracy, yet fail for correlated wavefunctions and excited states? Sum-pooling is a mean-field (Hartree) model: its O(1/N) off-diagonal Jacobian suffices for nearsighted ground-state energies, but erases nonlocal two-body correlations. We show that self-attention is a real-space Dyson iteration whose Boltzmann (softmax) kernel acts as a two-body self-energy. Because physical Hamiltonians act pairwise, Löwdin's 2-RDM theorem and the Galitskii--Migdal relation guarantee that iterating a two-body propagator captures the full energetics of correlated matter. When fitting a fractal backflow determinant, DeepSets blurs the nodal surface onto a mean-field envelope, whereas self-attention recovers the fractal attractor. Seen through this lens, the unreasonable effectiveness of attention is not an accident; in a universe built from pairwise interactions, two-body attention is all you need.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.21398",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Gapless Nature of Spin Liquid in the S=1/2 Kagome Heisenberg Antiferromagnet with Neural-Network Quantum States",
+    "title_zh": "具有神经网络量子态的 S=1/2 Kagome 海森堡反铁磁体中自旋液体的无间隙性质",
+    "summary": "自旋 1/2 戈薇海森堡反铁磁体是否具有带隙 Z2 或无带隙 U(1) 狄拉克自旋液体仍然是受阻磁学中的一个核心悬而未决的问题。在这里，我们通过使用不预设任何特定自旋液体结构的神经网络量子态直接计算三重态间隙来解决这个问题。将基于时间反转对称变压器的 ansatz 应用于多达 768 个位点的簇，我们在具有周期性边界条件的二维晶格上获得了最先进的变分能量，并估计热力学极限下每个位点的能量为 -0.43873(12)。",
+    "abstract": "arXiv:2611.18840v1 Announce Type: new Abstract: Whether the spin-1/2 kagome Heisenberg antiferromagnet hosts a gapped Z₂ or a gapless U(1) Dirac spin liquid remains a central open question in frustrated magnetism. Here, we address this question by directly computing the triplet gap with a neural-network quantum state that does not presuppose any specific spin-liquid structure. Applying a time-reversal symmetric transformer-based ansatz to clusters of up to 768 sites, we obtain state-of-the-art variational energies on two-dimensional lattices with periodic boundary conditions and estimate an energy per site of -0.43873(12) in the thermodynamic limit. Finite-size scaling of the magnetic order parameter and triplet excitation gap shows that both extrapolate to zero in the thermodynamic limit. Together, these results provide independent and direct evidence of a gapless spin-liquid ground state, consistent with the U(1) Dirac spin liquid. More broadly, they demonstrate that neural-network quantum states can resolve ground-state properties of frustrated quantum magnets that remain challenging for conventional numerical methods.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.18840",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Rotation-Invariant Machine Learning for Highly Symmetric Molecular Configurations",
+    "title_zh": "文献研究：Rotation-Invariant Machine Learning for Highly Symmetric Molecular Configurations",
+    "summary": "Atomistic machine learning can approximate expensive quantum mechanical calculations at a fraction of their computational cost, but accuracy depends strongly on how the three-dimensional atomic enviro…",
+    "abstract": "arXiv:2611.21308v1 Announce Type: new Abstract: Atomistic machine learning can approximate expensive quantum mechanical calculations at a fraction of their computational cost, but accuracy depends strongly on how the three-dimensional atomic environments are represented. Invariant representations enable fast computation but can fail to distinguish geometrically distinct configurations, especially in highly symmetric environments. We introduce a lightweight benchmark to evaluate expressivity on n-fold symmetric configurations, and use it to expose degeneracies in both invariant and equivariant architectures. Guided by these results, we construct a new invariant basis for HIP-HOP which resolves most of the identified failures. On a methane simulation dataset, the extended basis achieves the lowest error among the HIP-HOP variants and has similar accuracy to EquiformerV3 while running 3.2× faster at inference. These results show that carefully constructed invariant representations can mitigate key expressivity limitations while balancing accuracy and computational efficiency.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.21308",
+    "journal": "arXiv"
+  },
+  {
+    "title": "U-HamGNN: a universal model for magnetic Hamiltonians conditioned on spin and Hubbard U",
+    "title_zh": "文献研究：U-HamGNN: a universal model for magnetic Hamiltonians conditioned on spin and Hubbard U",
+    "summary": "The electronic structure of a magnetic crystal depends jointly on its spin configuration and the on-site Hubbard correction U, requiring a separate DFT+U calculation for each combination. We introduce…",
+    "abstract": "arXiv:2611.20035v1 Announce Type: cross Abstract: The electronic structure of a magnetic crystal depends jointly on its spin configuration and the on-site Hubbard correction U, requiring a separate DFT+U calculation for each combination. We introduce U-HamGNN, an equivariant network that takes these two inputs directly and predicts spin-resolved Hamiltonians across diverse crystal chemistries. A spectral-hybrid optimizer that weights each update direction by how consistently the gradient points along it reaches 8% lower Hamiltonian error than Muon and 26% lower than AdamW in a ten-epoch benchmark. The predicted bands reproduce U-dependent gap opening and altermagnetic spin splitting within the trained window and beyond it; exchange couplings and magnetic-order calls derived from the Hamiltonian agree with DFT+U on a calibration set. This universal model provides a new tool for magnetic research.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2611.20035",
+    "journal": "arXiv"
+  },
+  {
+    "title": "FiuMD: Heterogeneous Batching for Coarse-Grained Molecular Dynamics with Neural Network Potentials",
+    "title_zh": "文献研究：FiuMD: Heterogeneous Batching for Coarse-Grained Molecular Dynamics with Neural Network Potentials",
+    "summary": "FiuMD is a GPU molecular dynamics engine that advances many independent biomolecular simulations as a single batch, even when the systems differ in size, topology, force-field parameters, periodic box…",
+    "abstract": "arXiv:2611.20429v1 Announce Type: cross Abstract: FiuMD is a GPU molecular dynamics engine that advances many independent biomolecular simulations as a single batch, even when the systems differ in size, topology, force-field parameters, periodic box, timestep, or thermostat parameters. All systems are concatenated into global tensors, so the classical interaction terms and a shared TorchMD-Net neural network potential are evaluated for the whole batch at once, while each system keeps its own integration and thermostat. FiuMD started as a fork of TorchMD and reworks its system representation, force evaluation, and integration to handle such heterogeneous batches. We test it with coarse-grained Cα models of chignolin, Trp-cage, BBL, and λ-repressor. In double precision, forces within a heterogeneous batch agree with isolated FiuMD and TorchMD evaluations to within the precision of repeated evaluations, with a maximum relative difference of 7×10⁻¹⁶ across 60 systems. Over 1000 steps without a thermostat, batched trajectories deviate by at most 2.5×10⁻¹¹ Angstrom from isolated ones, even when periodic images lie within the neural network cutoff. With a different target temperature for each system of the ensemble, the mean and width of each system's kinetic temperature match the values expected from its own thermostat. We show that when individual simulations are too small to fill the GPU, batching can improve throughput several-fold over TorchMD. On a single GPU, batching four different protein systems achieves a 4.6-7.8-fold speedup per step compared with sequential TorchMD simulations. Compared with sequential homogeneous FiuMD batches, heterogeneous batching provides up to a 4-fold speedup for smaller batches while maintaining comparable performance for larger ones.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.20429",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A Practitioner's Guide to Materials Theory and Computation in the Age of Big Data and Artificial Intelligence",
+    "title_zh": "大数据和人工智能时代材料理论和计算从业者指南",
+    "summary": "计算建模已成为材料科学的基石，原子模拟、高通量计算和人工智能的进步改变了材料的理解、发现和设计方式。这些发展建立在几代理论创新的基础上，这些创新将复杂的数学和物理原理转化为实用的预测工具。然而，计算方法日益多样化给寻求对其理论基础连贯理解的从业者带来了挑战。本专着借鉴了作者的研究经验，通过势能景观和统计抽样的概念，对计算材料科学提供了面向实践者的教学概述。",
+    "abstract": "arXiv:2611.18797v1 Announce Type: new Abstract: Computational modelling has become a cornerstone of materials science, with advances in atomistic simulations, high-throughput computation, and artificial intelligence transforming how materials are understood, discovered, and designed. These developments build upon generations of theoretical innovations that have translated complex mathematical and physical principles into practical predictive tools. However, the growing diversity of computational methods presents challenges for practitioners seeking a coherent understanding of their theoretical foundations. Drawing upon the author's research experience, this monograph provides a practitioner-oriented, pedagogical overview of computational materials science, unified through the concepts of potential-energy landscapes and statistical sampling. It explores how these concepts underpin structural stability, phase behaviour, and electronic and magnetic properties, through a systematic treatment of empirical force fields, density-functional theory, many-body electronic-structure methods, statistical sampling, and property prediction. It further examines high-throughput workflows, materials databases, and the probabilistic foundations of artificial intelligence. Particular emphasis is placed on atomistic representations, graph neural networks, and generative models, highlighting the roles of symmetry, group theory, differential geometry, and stochastic processes in modern materials modelling. By connecting established physical theories with emerging data-driven approaches, this monograph offers a unified perspective on computational materials science and identifies opportunities and challenges toward physics-informed, efficient, and reliable materials discovery.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.18797",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Adsorbate-Free Screening of Dissociative Water Adsorption on Nickel Nanoparticles via Graph Neural Networks",
+    "title_zh": "通过图神经网络对镍纳米颗粒上离解水吸附进行无吸附质筛选",
+    "summary": "离解吸水是多相催化和电化学催化的关键步骤，但在有限的镍纳米系统中，OH^*和H^*碎片可以占据表面位点的多种组合，这使得穷举密度泛函理论（DFT）筛选不切实际。我们引入了一种具有无吸附物表示的图神经网络（GNN）框架：候选O和H结合位点由一组Ni原子（锚点）定义，每个位点对被编码为仅由这些锚点及其局部Ni环境构成的图。",
+    "abstract": "arXiv:2611.20706v1 Announce Type: new Abstract: Dissociative water adsorption is a key step in heterogeneous and electrochemical catalysis, but on finite Ni nanosystems the OH^* and H^* fragments can occupy many combinations of surface sites, making exhaustive density functional theory (DFT) screening impractical. We introduce a graph neural network (GNN) framework with an adsorbate-free representation: candidate O- and H-binding sites are defined by sets of Ni atoms (anchors), and each site pair is encoded as a graph constructed solely from these anchors and their local Ni environment. Using only MACE-relaxed bare Ni geometries as input, separate GNNs predict the DFT-reference adsorption energies of OH^*+H^* configurations and whether the proposed binding sites would be retained upon DFT relaxation, eliminating the need to construct or relax adsorbates during screening. Trained across Ni nanoclusters and Ni(111)/Ni(100) surfaces, the energy model achieves a mean absolute error of 0.031 eV on the internal validation set and demonstrates transferability to unseen Ni₅₅, Ni₉₁, and Ni₁₃₀ clusters and larger surface cells, particularly for relative-energy ranking, although quantitative accuracy varies across systems. These independent tests also support the retention classifier's use as a conservative filter for selecting configurations likely to preserve their proposed binding sites. Application to Ni nanoparticles containing up to sim3000 atoms identifies favorable co-adsorption motifs and shows that lower O-site coordination generally stabilizes the dissociated state, whereas H-site coordination has a weaker influence. The framework thus offers an efficient route to screening adsorption energetics, with potential extensions to other metals and adsorbate combinations.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.20706",
+    "journal": "arXiv"
+  },
+  {
     "title": "Structure–reactivity relationships in IBX-mediated alcohol oxidation: Insights from DFT and machine learning",
     "title_zh": "IBX 介导的酒精氧化中的结构-反应性关系：DFT 和机器学习的见解",
     "summary": "出版日期：2027 年 1 月 16 日 来源：化学物理快报，第 901 卷 作者：Morteza Jamshidi、Jason A. Smith、Brian F. Yates",
@@ -18,48 +99,84 @@
     "journal": "ScienceDirect"
   },
   {
-    "title": "Quantum simulation of open systems with bounded jump activity",
-    "title_zh": "具有有界跳跃活动的开放系统的量子模拟",
-    "summary": "开放量子系统可以积累大量的耗散作用，同时经历很少的量子跃迁。基于发电机强度和演化时间的一般模拟界限无法区分这种动态与持续活动。在这里，我们展示了提供的活动范围降低了量子查询成本，而不需要干预进化来通勤。通过对哈密顿量和跳跃因子的一致访问，固定精度和有界活动给出了对耗散归一化作用的平方根依赖性。在相同的预言机模型下，匹配下限适用于缩减通道。该结构扩展到经过认证的跳尾，并在没有活动假设的情况下给出非交换增殖传播器的标准化一编码。显式边界会带来额外的电路、精度和离散化成本。",
-    "abstract": "Open quantum systems can accumulate a large dissipative action while undergoing few quantum jumps. General simulation bounds based on generator strength and evolution time do not distinguish such dynamics from sustained activity. Here we show that a supplied activity bound reduces the quantum query cost without requiring the intervening evolution to commute. With coherent access to Hamiltonian and jump factors, fixed accuracy and bounded activity give square root dependence on dissipative normalization action. Matching lower bounds hold for the reduced channel under the same oracle model. The construction extends to certified jump tails and gives a normalization-one encoding of a noncommuting accretive propagator without an activity assumption. Explicit bounds account for additional circuit, precision and discretization costs. These results identify jump activity as a resource for simulating absorption, finite excitation loss and weakly repumped dynamics.",
-    "category": "其他",
-    "link": "https://www.researchsquare.com/article/rs-11628481/latest",
-    "journal": "Preprints"
-  },
-  {
-    "title": "Chiral electronics: Researchers discover a disruptive interlayer in a promising material system",
-    "title_zh": "手性电子学：研究人员在有前途的材料系统中发现了破坏性中间层",
-    "summary": "反铁磁体被认为是下一代电子产品的重要材料。然而，准确测量它们的一些特性是很困难的。马丁·路德大学哈勒维滕贝格 (MLU) 和马克斯·普朗克微结构物理研究所（手性电子学卓越中心中心的一部分）的一项新研究解释了为什么会出现这种情况。",
-    "abstract": "Antiferromagnets are regarded as important materials for next-generation electronics. It is difficult, however, to accurately measure some of their properties. A new study by a team of researchers from Martin Luther University Halle-Wittenberg (MLU) and the Max Planck Institute for Microstructure Physics, working as part of the Cluster of Excellence Center for Chiral Electronics, explains why this is the case.",
-    "category": "磁性·自旋电子学",
-    "link": "https://phys.org/news/2026-11-chiral-electronics-disruptive-interlayer-material.html",
-    "journal": "Physics News"
-  },
-  {
-    "title": "Ultracold diamond microwave laser amplifies quantum signals 1,000-fold",
-    "title_zh": "超冷金刚石微波激光器将量子信号放大 1,000 倍",
-    "summary": "冲绳科学技术研究所 (OIST) 的研究人员创建了一种基于自旋的微波放大器，其运行速度接近于绝对零，可将信号增强 1,000 倍以上，同时增加的噪声接近物理定律所需的最低限度。作为当前最先进设备的更强大的替代品，OIST 设备可以处理更强的信号并在磁场中运行，为实用的量子计算和更高分辨率的传感技术铺平了道路。",
-    "abstract": "Researchers from the Okinawa Institute of Science and Technology (OIST) have created a spin-based microwave amplifier that operates near absolute zero, boosting signals by more than 1,000-fold while adding noise close to the bare minimum required by the laws of physics. As a more robust alternative to current state-of-the-art devices, the OIST device can handle much stronger signals and operate in magnetic fields, paving the way for practical quantum computing and higher-resolution sensing technologies.",
-    "category": "磁性·自旋电子学",
-    "link": "https://phys.org/news/2026-11-ultracold-diamond-microwave-laser-amplifies.html",
-    "journal": "Physics News"
-  },
-  {
-    "title": "Performance improvement of Cd-free CIGS Solar Cells Using ZnS Buffer Layers Prepared by Solvothermal Routes: Experimental and Device Simulation",
-    "title_zh": "使用溶剂热路线制备的 ZnS 缓冲层提高无镉 CIGS 太阳能电池的性能：实验和器件模拟",
-    "summary": "在这项工作中，我们研究了 ZnS 层的合成和表征，作为 Cu(In,Ga)Se2 (CIGS) 薄膜太阳能电池的替代无镉缓冲层，通过溶剂热法成功制备了 ZnS 纳米粉末，然后用于通过射频磁控溅射沉积薄膜。对它们的结构、形态和光学特征进行了表征。此外，获得的这些实验数据进一步在使用 SCAPS-1D 的 p-CIGS/n-ZnS 异质结的数值模拟中得到应用。深入比较和分析了不同缓冲层材料CdS和ZnS对CIGS太阳能电池性能的影响。",
-    "abstract": "In this work, we investigate the synthesis and characterization of the ZnS layer as an alternative Cd-free buffer layer for Cu(In,Ga)Se2 (CIGS) thin film solar cells, The ZnS nanopowders were successfully prepared via solvothermal method, then employed to fabricate thin films deposited by rf-magnetron sputtering. Their structural, morphological and optical characterizations were performed. In addition, these experimental data obtained were further implemented in numerical simulations of a p-CIGS/n-ZnS heterojunction using SCAPS-1D. The impact of different buffer layer materials CdS and ZnS on the performance of CIGS solar cells was thoroughly compared and analyzed. The obtained results demonstrate that, the films crystallize in the cubic phase with grain sizes ranging from 4 to 20 nm and exhibiting high transparency (> 90%), with a tunable band gap in the range of 3.68 to 3.8 eV. The tuning of the deposition conditions allows ZnS to achieve proper band alignment with the CIGS absorber. The optimized structure revealed that, both the buffer material and their thickness significantly influence the overall device performance. The substitution of the conventional CdS buffer with ZnS this possesses a wider bandgap, resulted in lower conversion efficiency due to unfavorable energy band alignment at the interface. To overcome this limitation and enhance short-wavelength absorption, a novel CdS/ZnS double buffer layer structure was proposed. The optimization of this configuration improved the cell efficiency from 22.62% to 24.68%. These results indicate the potential of ZnS-based buffers as promising and environmentally friendly alternatives for high efficiency CIGS solar cells.",
-    "category": "磁性·自旋电子学",
-    "link": "https://www.researchsquare.com/article/rs-11495025/latest",
-    "journal": "Preprints"
-  },
-  {
-    "title": "Day-Ahead Forecasting of Sunshine and Wind for a Dust- and Heat- Prone Hyper-Arid Mini-Grid: Machine Learning against Persistence and SARIMA at Agadez, Bilma and N'Guigmi, Niger (2015-2024) A real-data benchmark with regime-aware features, cross-site transfer and conformal calibration",
-    "title_zh": "易灰尘和高温的超干旱迷你电网的日照和风力预报：尼日尔阿加德兹、比尔马和恩吉格米的针对持久性和 SARIMA 的机器学习（2015-2024）具有状态感知功能、跨站点传输和共形校准的真实数据基准",
-    "summary": "确定迷你电网的规模后，第二天早上如何运行它仍然是一个悬而未决的问题。利用尼日尔三个站（Agadez、Bilma、N'Guigmi）的 2015-2024 年质量控制记录，我们利用梯度增强 (HGB) 和对抗持久性和 SARIMA 的紧凑神经网络，提前 1 至 7 天预测每日日照，并提前 3 至 72 小时预测 3 小时风速，在 2015-2022 年进行训练，在 2023-2024 年进行测试，并确认六个滚动的比较年（2019-2024）。",
-    "abstract": "Sizing a mini-grid well still leaves open how to run it the next morning. Using the quality-controlled 2015–2024 record of three Nigerien stations (Agadez, Bilma, N'Guigmi), we forecast daily sunshine one to seven days ahead and 3-hourly wind speed three to 72 hours ahead with gradient boosting (HGB) and a compact neural network against persistence and SARIMA, training on 2015–2022, testing on 2023–2024, and confirming the comparison over six rolling years (2019–2024). Both beat persistence by a wide margin (RMSE skill 18–49 percent for wind, 15–30 percent for sunshine), but the margin over SARIMA is thin and site-dependent: HGB beats SARIMA for wind at every lead at Agadez in 2023–2024, though it narrows over the rolling years, is most consistent at Bilma, and is not significant at N'Guigmi. Heat-stress and wind-regime features change RMSE by about 1 percent or less for wind and up to 5.4 percent for sunshine, short of the hypothesised Harmattan gain; cross-site pooling lowers Agadez's 24-h wind RMSE by 3.1 percent when data are scarce. Raw quantile forecasts at Agadez are miscalibrated (67–72 percent coverage for nominal 80 percent intervals); conformal recalibration improves this to 76–82 percent but drifts across years. For an illustrative 100 kWp PV plus 30 kW wind plant, a better forecast lowers the CVaR95 battery buffer at Agadez from 342 to 235 kWh, narrowed further by propagating wind quantiles through the power curve. The gains are real but modest, site-dependent, and the honest measure of what an operator can count on tomorrow.",
+    "title": "Accelerating Atomistic-Continuum Simulations of Multilayer 2D Materials with Functional Principal Component Analysis-Based Machine Learning",
+    "title_zh": "文献研究：Accelerating Atomistic-Continuum Simulations of Multilayer 2D Materials with Functional Principal Component Analysis-Based Machine Learning",
+    "summary": "Atomistic-continuum simulations of complex wrinkling deformations in large-area multilayer two-dimensional (2D) materials are computationally expensive. To accelerate these simulations, this work pres…",
+    "abstract": "arXiv:2611.18961v1 Announce Type: new Abstract: Atomistic-continuum simulations of complex wrinkling deformations in large-area multilayer two-dimensional (2D) materials are computationally expensive. To accelerate these simulations, this work presents a machine-learning (ML) framework that first constructs a low-dimensional representation of the deformation field, then learns the deformation in this reduced space. Dimensionality reduction of deformed 2D membranes is challenging because of the extremely high dimensionality of discretized deformation fields, the need to preserve surface continuity and prescribed geometric constraints, the stochastic nature of wrinkling patterns, and the limited availability of training data. We address these challenges using two-dimensional functional principal component analysis (FPCA). The proposed FPCA representation reduces deformation fields containing millions of degrees of freedom to latent spaces with only tens of dimensions while preserving the continuity of the deformed surface. In addition, prescribed homogeneous boundary constraints are satisfied exactly through an appropriate choice of basis functions in the FPCA representation. A neural network is then trained to predict the principal components from the system and loading parameters. The resulting ML-predicted deformation fields are used as high-quality initial configurations for the atomistic-continuum solver, which subsequently performs energy minimization to obtain equilibrium solutions. The framework is demonstrated for multilayer graphene subjected to uniaxial compression, biaxial compression, and combined biaxial compression and simple shear. For the most computationally intensive large-strain cases, the proposed approach achieves speedups of at least 6.8 times while converging to final energies comparable to, and in some cases lower than, those obtained using conventional atomistic-continuum initialization.",
     "category": "AI×化学·材料",
-    "link": "https://www.researchsquare.com/article/rs-11245814/latest",
-    "journal": "Preprints"
+    "link": "https://arxiv.org/abs/2611.18961",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Mesoscale Neural Operators: Learning Nonlinear Constitutive Laws from Molecular Dynamics for Scalable Fracture Predictions",
+    "title_zh": "文献研究：Mesoscale Neural Operators: Learning Nonlinear Constitutive Laws from Molecular Dynamics for Scalable Fracture Predictions",
+    "summary": "Molecular dynamics (MD) simulations can capture the nanoscale physics of fracture at the atomistic level, but their computational cost prohibits predictions at the length scales and time scales needed…",
+    "abstract": "arXiv:2611.19658v1 Announce Type: cross Abstract: Molecular dynamics (MD) simulations can capture the nanoscale physics of fracture at the atomistic level, but their computational cost prohibits predictions at the length scales and time scales needed for many applications. Machine learning approaches, on the other hand, have been proposed as heuristic surrogates for material fracture, yet they cannot guarantee the physical consistency of the predicted response. To address this shortcoming, we propose the mesoscale neural operator (MNO): a data-driven nonlocal constitutive model that is learned directly from MD loading and displacement data. After training, it can be used in continuum fracture simulations on much larger domains and grid sizes. The key idea of the MNO is to exploit the built-in characteristic length of a nonlocal model, called the horizon, to travel across scales. Physical consistency across scales is obtained by building two structural ingredients into the MNO: a normalized kernel that renders the strain energy density invariant under horizon rescaling, and a rescaled critical bond stretch that keeps the energy release rate consistent across scales. Through tests on synthetic data, we show that the MNO and its learning workflow indeed discover the nonlocal continuum multiscale model in the form of the nonlocal kernel and the nonlinear constitutive relation. We then apply the framework to coarse-grained MD data and find that in a test problem, the learned model matches the MD strain energy density and critical energy release rate within 3%. It also predicts the peak transmitted forces within 6% in out-of-distribution tension tests. As a further demonstration, the model is applied to a plate with 4000 times the area of the training specimens and containing an initial defect. In this problem, the model reproduces the main features of dynamic brittle fracture, including branch and cascading branch networks.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.19658",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Out-of-training properties in frozen interatomic potential embeddings are decodable and ordered by physical scale",
+    "title_zh": "文献研究：Out-of-training properties in frozen interatomic potential embeddings are decodable and ordered by physical scale",
+    "summary": "Machine-learned interatomic potentials (MLIPs) are trained on energies, forces and stresses, yet their frozen representations can predict other materials properties. We probe ORB-v3 and UMA-S across l…",
+    "abstract": "arXiv:2611.21116v1 Announce Type: new Abstract: Machine-learned interatomic potentials (MLIPs) are trained on energies, forces and stresses, yet their frozen representations can predict other materials properties. We probe ORB-v3 and UMA-S across layers, read-outs and equivariant channels for nine properties of 154,875 Materials Project crystals. Both models outperform composition-only descriptors on all targets, including five outside their training objectives; errors in physical units help assess potential screening applications. Optimal depth varies by property, consistent with a physical-scale ordering. Random-weight controls reveal strongly property-dependent benefits of pretraining. UMA-S's rotation-invariant angular channels improve crystal-system classification, while higher scores from its full tensor disappear under rotation; matched-model controls do not isolate equivariance as the explanation. Accuracy varies across different probes, but nearest-neighbour prediction often approaches XGBoost performance, even though materials do not form distinct clusters according to their properties. We also test whether a linear predictor trained on one model's embeddings can predict properties using the other model's embeddings after a learned linear transformation. Predictive accuracy is largely preserved, despite differences in which atoms the two models place close together. These results guide the reuse of frozen MLIP representations for materials prediction.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.21116",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Multi-output neural network surrogate for double-pulse femtosecond optothermal control of thin silicon films on fused silica",
+    "title_zh": "文献研究：Multi-output neural network surrogate for double-pulse femtosecond optothermal control of thin silicon films on fused silica",
+    "summary": "We introduce a multi-output feedforward neural network surrogate trained on a coupled multiple-reflection and two-temperature model to map double-pulse femtosecond laser excitation (1030 nm) of crysta…",
+    "abstract": "arXiv:2611.20301v1 Announce Type: cross Abstract: We introduce a multi-output feedforward neural network surrogate trained on a coupled multiple-reflection and two-temperature model to map double-pulse femtosecond laser excitation (1030 nm) of crystalline silicon films on fused silica across film thicknesses (50-500 nm) and inter-pulse delays (0-10ps). Trained via Levenberg-Marquardt optimization on 2000 physical simulations, the dual-hidden-layer network ([40,30] neurons) simultaneously predicts six strongly coupled optothermal observables, peak electron temperature, peak lattice temperature, peak carrier density, minimum and maximum absorptivity and minimum refractive index achieving coefficients of determination R2 larger than 0.9998 across all targets. Evaluating a dense 200 by 200 design grid in milliseconds resolves pronounced thin-film interference fringes and carrier-induced index modulation, identifying an optimal optothermal coupling regime at d=156 nm and Dt=4.572 ps. This unified machine-learning workflow eliminates computationally expensive multi-physics runtime bottlenecks for real-time laser processing control and inverse photonic thin-film design.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.20301",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Bias Conditioning and Long-Range Electrostatics for Consistent Machine-Learning Potentials of Electrified Interfaces",
+    "title_zh": "文献研究：Bias Conditioning and Long-Range Electrostatics for Consistent Machine-Learning Potentials of Electrified Interfaces",
+    "summary": "Machine-learning interatomic potentials (MLIPs) of electrified interfaces need the bias as input, but it is unclear whether a scalar electrode charge suffices and whether short-range models capture th…",
+    "abstract": "arXiv:2611.21026v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) of electrified interfaces need the bias as input, but it is unclear whether a scalar electrode charge suffices and whether short-range models capture the non-local response. We add charge and field conditioning to short- and long-range MLIPs. State-of-the-art field-conditioned short-range models overpolarize thick water films nearly twofold and miss work-function shifts at stepped Pt. Our long-range model captures both, needs only the electrode charge at metals as input, and reproduces ab initio simulations of the Pt(111)--water interface.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.21026",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Detecting False Self-Consistency in Density-Functional Calculations",
+    "title_zh": "检测密度泛函计算中的虚假自洽性",
+    "summary": "密度泛函计算为材料数据库和机器学习模型提供数据，当能量变化和残差低于阈值时，即宣告收敛。我们表明，这些标准，甚至独立优化器的一致性，都可以接受能量仍在下降或其哈密顿量与能量不一致的状态。在Kohn-Sham哈密顿量空间中，自洽性的变分形式产生了一种下降探测器，该探测器揭示了从返回的解中可达到的较低态，而冻结轨道Janak检验则检测到这种不一致性。两者均适用于任何代码，无需修改。",
+    "abstract": "arXiv:2611.20789v1 Announce Type: new Abstract: Density-functional calculations feed materials databases and machine-learning models, and are declared converged when energy changes and residuals fall below thresholds. We show that these criteria, and even the agreement of independent optimizers, can accept a state from which the energy still descends or whose Hamiltonian is inconsistent with the energy. A variational formulation of self-consistency in the space of Kohn-Sham Hamiltonians yields a descent probe that exposes lower states accessible from a returned solution, and a frozen-orbital Janak test detects such an inconsistency. Both apply to any code without modification. In VASP, a UO₂ PBE+U calculation converges 1.46 eV above a lower state, and CoO and FeO converge as metals 0.8-0.9 eV above insulating states. In a census of 339 converged calculations on tungsten-free Materials Project structures, recomputed with a modified static protocol, 57 (16.8%) show energy decreases above the threshold, 49 without an initial energy rise exceeding the tolerance.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.20789",
+    "journal": "arXiv"
+  },
+  {
+    "title": "A provenance-aware zirconia conductivity database and Arrhenius-constrained screening of doped electrolyte candidates",
+    "title_zh": "来源感知的氧化锆电导率数据库和掺杂电解质候选物的阿伦尼乌斯约束筛选",
+    "summary": "氧化锆固体电解质是关键的氧离子导体，但报告的电导率值在很大程度上取决于掺杂剂化学、加工历史和测量温度。在这里，我们整理了一个包含 1351 条记录的来源感知氧化锆电导率数据库，并用它来比较阿伦尼乌斯约束的物理信息机器学习模型 (PIML) 与无约束的深度神经网络 (DNN)。在保留的分组材料确认分割中，DNN 为保留的合成处理组实现了较低的合并均方根误差（RMSE，单位）。阿伦尼乌斯约束模型保持可比较的误差范围，并提供有界的有效活化能估计。",
+    "abstract": "Zirconia solid electrolytes are key oxygen-ion conductors, but reported conductivity values depend strongly on dopant chemistry, processing history and measurement temperature. Here we curate a provenance-aware zirconia conductivity database of 1351 records and use it to compare an Arrhenius-constrained physics-informed machine-learning model (PIML) with an unconstrained deep neural network (DNN). In a reserved grouped-material confirmation split, the DNN achieves the lower pooled root-mean-square error (RMSE, in units) for withheld composition–processing groups. The Arrhenius-constrained model remains on a comparable error scale and provides bounded effective activation-energy estimates. Its clearest benefit appears in matched-material temperature extrapolation: when trained at and tested at ( ), PIML reduces RMSE from 0.4187 to 0.3609 and raises from 0.8562 to 0.8932. Bootstrap resampling of individual records and material groups quantifies uncertainty in the observed RMSE reduction. Genetic-algorithm screening at a fixed measurement temperature identifies a Sc-rich/Mg-containing zirconia region for further study. CHGNet molecular dynamics examines oxygen transport in four selected compositions. DFT calculations use one atomic configuration per composition to compare energies relative to the constituent oxides. This work provides a curated conductivity resource and a conservative screening route for doped zirconia electrolytes.",
+    "category": "AI×物理",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aeb9a7",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Particle Identification Studies using a Highly Granular Crystal Electromagnetic Calorimeter",
+    "title_zh": "文献研究：Particle Identification Studies using a Highly Granular Crystal Electromagnetic Calorimeter",
+    "summary": "A proposal for the Circular Electron Positron Collider electromagnetic calorimeter is a highly granular scintillating crystal design that uses silicon photomultipliers to measure physics signals from…",
+    "abstract": "arXiv:2611.21011v1 Announce Type: new Abstract: A proposal for the Circular Electron Positron Collider electromagnetic calorimeter is a highly granular scintillating crystal design that uses silicon photomultipliers to measure physics signals from photons. The potential to develop particle identification methods using deep and traditional machine learning is explored. A contrastive machine learning technique was found to enable the separation of showering and 'punch-through' pions without explicit labels. A supervised particle identification method was then trained using the results, using both a graph neural network and a boosted decision tree to distinguish electron, showering hadron, and minimum-ionizing-particle-like events. The classifier achieved an area-under-the-receiver operating characteristic curve of 0.996 for both cases. A Shapley additive explanations analysis showed the boosted decision tree classifier matched expectations for each event type. The particle identification capability is then demonstrated on experimental data taken from the CERN Proton Synchrotron T9 beamline.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.21011",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
+    "title_zh": "文献研究：Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
+    "summary": "We report phase-sensitive measurements of Josephson junctions formed in InAs nanowires with epitaxial ferromagnetic EuS and superconducting Al shells. Using a superconducting interferometer, we observ…",
+    "abstract": "arXiv:2611.21593v1 Announce Type: new Abstract: We report phase-sensitive measurements of Josephson junctions formed in InAs nanowires with epitaxial ferromagnetic EuS and superconducting Al shells. Using a superconducting interferometer, we observe a continuous, hysteretic anomalous phase shift under axial magnetic-field sweeps. A remanent phase bias persists at zero applied field and depends on magnetic history. Electrostatic gating strongly modifies the magnitude of the phase response, revealing its sensitivity to the transverse electronic structure of the nanowire. Self-consistent electrostatic simulations show that the effective Rashba spin-orbit coupling follows the measured gate-dependent phase response, suggesting its central role in the electrostatic control of the anomalous Josephson phase.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2611.21593",
+    "journal": "arXiv"
   }
 ]
