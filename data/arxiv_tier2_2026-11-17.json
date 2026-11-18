@@ -19,8 +19,8 @@
   },
   {
     "title": "Self-attention is a Dyson equation for many-body machine learning",
-    "title_zh": "文献研究：Self-attention is a Dyson equation for many-body machine learning",
-    "summary": "Why does symmetric sum-pooling (DeepSets) predict ground-state potentials to sub-meV accuracy, yet fail for correlated wavefunctions and excited states? Sum-pooling is a mean-field (Hartree) model: it…",
+    "title_zh": "自注意力是多体机器学习的戴森方程",
+    "summary": "为什么对称求和池 (DeepSets) 可以将基态电势预测到亚兆伏级精度，但无法预测相关波函数和激发态？和池是一种平均场 (Hartree) 模型：其 O(1/N) 非对角雅可比行列式足以满足近视基态能量，但消除了非局部二体相关性。我们证明自注意力是一个实空间戴森迭代，其玻尔兹曼（softmax）内核充当二体自能。由于物理哈密顿量是成对起作用的，Löwdin 的 2-RDM 定理和 Galitskii-Migdal 关系保证了迭代二体传播器可以捕获相关物质的完整能量学。",
     "abstract": "arXiv:2611.21398v1 Announce Type: new Abstract: Why does symmetric sum-pooling (DeepSets) predict ground-state potentials to sub-meV accuracy, yet fail for correlated wavefunctions and excited states? Sum-pooling is a mean-field (Hartree) model: its O(1/N) off-diagonal Jacobian suffices for nearsighted ground-state energies, but erases nonlocal two-body correlations. We show that self-attention is a real-space Dyson iteration whose Boltzmann (softmax) kernel acts as a two-body self-energy. Because physical Hamiltonians act pairwise, Löwdin's 2-RDM theorem and the Galitskii--Migdal relation guarantee that iterating a two-body propagator captures the full energetics of correlated matter. When fitting a fractal backflow determinant, DeepSets blurs the nodal surface onto a mean-field envelope, whereas self-attention recovers the fractal attractor. Seen through this lens, the unreasonable effectiveness of attention is not an accident; in a universe built from pairwise interactions, two-body attention is all you need.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.21398",
@@ -37,8 +37,8 @@
   },
   {
     "title": "Rotation-Invariant Machine Learning for Highly Symmetric Molecular Configurations",
-    "title_zh": "文献研究：Rotation-Invariant Machine Learning for Highly Symmetric Molecular Configurations",
-    "summary": "Atomistic machine learning can approximate expensive quantum mechanical calculations at a fraction of their computational cost, but accuracy depends strongly on how the three-dimensional atomic enviro…",
+    "title_zh": "高度对称分子构型的旋转不变机器学习",
+    "summary": "原子机器学习可以用其计算成本的一小部分来近似昂贵的量子力学计算，但准确性在很大程度上取决于三维原子环境的表示方式。不变表示可以实现快速计算，但可能无法区分几何上不同的配置，尤其是在高度对称的环境中。我们引入了一个轻量级基准来评估 n 重对称配置的表现力，并用它来揭示不变和等变架构中的简并性。在这些结果的指导下，我们为 HIP-HOP 构建了一个新的不变基础，解决了大多数已识别的故障。",
     "abstract": "arXiv:2611.21308v1 Announce Type: new Abstract: Atomistic machine learning can approximate expensive quantum mechanical calculations at a fraction of their computational cost, but accuracy depends strongly on how the three-dimensional atomic environments are represented. Invariant representations enable fast computation but can fail to distinguish geometrically distinct configurations, especially in highly symmetric environments. We introduce a lightweight benchmark to evaluate expressivity on n-fold symmetric configurations, and use it to expose degeneracies in both invariant and equivariant architectures. Guided by these results, we construct a new invariant basis for HIP-HOP which resolves most of the identified failures. On a methane simulation dataset, the extended basis achieves the lowest error among the HIP-HOP variants and has similar accuracy to EquiformerV3 while running 3.2× faster at inference. These results show that carefully constructed invariant representations can mitigate key expressivity limitations while balancing accuracy and computational efficiency.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.21308",
@@ -46,8 +46,8 @@
   },
   {
     "title": "U-HamGNN: a universal model for magnetic Hamiltonians conditioned on spin and Hubbard U",
-    "title_zh": "文献研究：U-HamGNN: a universal model for magnetic Hamiltonians conditioned on spin and Hubbard U",
-    "summary": "The electronic structure of a magnetic crystal depends jointly on its spin configuration and the on-site Hubbard correction U, requiring a separate DFT+U calculation for each combination. We introduce…",
+    "title_zh": "U-HamGNN：以自旋和 Hubbard U 为条件的磁哈密顿量通用模型",
+    "summary": "磁性晶体的电子结构共同取决于其自旋构型和现场哈伯德校正U，需要对每种组合进行单独的DFT+U计算。我们引入了 U-HamGNN，这是一个等变网络，它直接采用这两个输入并预测跨不同晶体化学的自旋解析哈密顿量。光谱混合优化器，通过梯度点沿其方向的一致性来对每个更新方向进行加权，在 10 轮基准中，哈密顿误差比 Muon 低 8%，比 AdamW 低 26%。预测的能带在训练窗口内及其之外再现了 U 相关的带隙打开和交磁自旋分裂；",
     "abstract": "arXiv:2611.20035v1 Announce Type: cross Abstract: The electronic structure of a magnetic crystal depends jointly on its spin configuration and the on-site Hubbard correction U, requiring a separate DFT+U calculation for each combination. We introduce U-HamGNN, an equivariant network that takes these two inputs directly and predicts spin-resolved Hamiltonians across diverse crystal chemistries. A spectral-hybrid optimizer that weights each update direction by how consistently the gradient points along it reaches 8% lower Hamiltonian error than Muon and 26% lower than AdamW in a ten-epoch benchmark. The predicted bands reproduce U-dependent gap opening and altermagnetic spin splitting within the trained window and beyond it; exchange couplings and magnetic-order calls derived from the Hamiltonian agree with DFT+U on a calibration set. This universal model provides a new tool for magnetic research.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2611.20035",
@@ -55,11 +55,20 @@
   },
   {
     "title": "FiuMD: Heterogeneous Batching for Coarse-Grained Molecular Dynamics with Neural Network Potentials",
-    "title_zh": "文献研究：FiuMD: Heterogeneous Batching for Coarse-Grained Molecular Dynamics with Neural Network Potentials",
-    "summary": "FiuMD is a GPU molecular dynamics engine that advances many independent biomolecular simulations as a single batch, even when the systems differ in size, topology, force-field parameters, periodic box…",
+    "title_zh": "FiuMD：具有神经网络势的粗粒度分子动力学的异质批处理",
+    "summary": "FiuMD 是一款 GPU 分子动力学引擎，即使系统在大小、拓扑、力场参数、周期盒、时间步长或恒温器参数方面存在差异，也可以将许多独立的生物分子模拟作为单个批次进行推进。所有系统都连接成全局张量，因此可以同时评估整个批次的经典交互项和共享的 TorchMD-Net 神经网络潜力，同时每个系统保持自己的积分和恒温器。 FiuMD 最初是 TorchMD 的一个分支，并重新设计了其系统表示、力评估和集成，以处理此类异构批次。",
     "abstract": "arXiv:2611.20429v1 Announce Type: cross Abstract: FiuMD is a GPU molecular dynamics engine that advances many independent biomolecular simulations as a single batch, even when the systems differ in size, topology, force-field parameters, periodic box, timestep, or thermostat parameters. All systems are concatenated into global tensors, so the classical interaction terms and a shared TorchMD-Net neural network potential are evaluated for the whole batch at once, while each system keeps its own integration and thermostat. FiuMD started as a fork of TorchMD and reworks its system representation, force evaluation, and integration to handle such heterogeneous batches. We test it with coarse-grained Cα models of chignolin, Trp-cage, BBL, and λ-repressor. In double precision, forces within a heterogeneous batch agree with isolated FiuMD and TorchMD evaluations to within the precision of repeated evaluations, with a maximum relative difference of 7×10⁻¹⁶ across 60 systems. Over 1000 steps without a thermostat, batched trajectories deviate by at most 2.5×10⁻¹¹ Angstrom from isolated ones, even when periodic images lie within the neural network cutoff. With a different target temperature for each system of the ensemble, the mean and width of each system's kinetic temperature match the values expected from its own thermostat. We show that when individual simulations are too small to fill the GPU, batching can improve throughput several-fold over TorchMD. On a single GPU, batching four different protein systems achieves a 4.6-7.8-fold speedup per step compared with sequential TorchMD simulations. Compared with sequential homogeneous FiuMD batches, heterogeneous batching provides up to a 4-fold speedup for smaller batches while maintaining comparable performance for larger ones.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2611.20429",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Local topology hallucinations in universal machine-learned interatomic potentials",
+    "title_zh": "通用机器学习原子间势中的局部拓扑幻觉",
+    "summary": "使用通用机器学习原子间势来预测亚稳态需要它们保留参考势能表面的最小值和鞍座。在这里，我们识别了局部拓扑幻觉，其中不同的模型最小值松弛到相同的参考盆地中。此故障是由 MACE、CHGNet 和 M3GNet 共享的模式选择性曲率符号错误引起的。三个模型中的两个模型预测的曲率符号在 57 个正案例中的 55 个中与密度泛函计算结果一致，但在 56 个负案例中只有 5 个与密度泛函计算结果一致。",
+    "abstract": "arXiv:2611.21489v1 Announce Type: new Abstract: Predicting metastable states with universal machine-learned interatomic potentials requires that they preserve the minima and saddles of the reference potential-energy surface. Here we identify local topology hallucination, in which distinct model minima relax into the same reference basin. This failure arises from mode-selective curvature-sign errors shared by MACE, CHGNet and M3GNet. Curvature signs predicted by two of the three models agreed with density-functional calculations in 55 of 57 positive but only 5 of 56 negative cases. In LiGe₂S, two MACE minima connected by a verified saddle relaxed into one density-functional basin. Reference relaxation likewise returned nine of ten selected model minima to their reference basins. A directional test with two displaced reference calculations rejected 9 of 12 prospectively tested model instabilities. Model agreement alone therefore cannot establish that predicted minima are distinct metastable states.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.21489",
     "journal": "arXiv"
   },
   {
@@ -69,6 +78,15 @@
     "abstract": "arXiv:2611.18797v1 Announce Type: new Abstract: Computational modelling has become a cornerstone of materials science, with advances in atomistic simulations, high-throughput computation, and artificial intelligence transforming how materials are understood, discovered, and designed. These developments build upon generations of theoretical innovations that have translated complex mathematical and physical principles into practical predictive tools. However, the growing diversity of computational methods presents challenges for practitioners seeking a coherent understanding of their theoretical foundations. Drawing upon the author's research experience, this monograph provides a practitioner-oriented, pedagogical overview of computational materials science, unified through the concepts of potential-energy landscapes and statistical sampling. It explores how these concepts underpin structural stability, phase behaviour, and electronic and magnetic properties, through a systematic treatment of empirical force fields, density-functional theory, many-body electronic-structure methods, statistical sampling, and property prediction. It further examines high-throughput workflows, materials databases, and the probabilistic foundations of artificial intelligence. Particular emphasis is placed on atomistic representations, graph neural networks, and generative models, highlighting the roles of symmetry, group theory, differential geometry, and stochastic processes in modern materials modelling. By connecting established physical theories with emerging data-driven approaches, this monograph offers a unified perspective on computational materials science and identifies opportunities and challenges toward physics-informed, efficient, and reliable materials discovery.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.18797",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Multi-output neural network surrogate for double-pulse femtosecond optothermal control of thin silicon films on fused silica",
+    "title_zh": "多输出神经网络替代品用于熔融石英上硅薄膜的双脉冲飞秒光热控制",
+    "summary": "我们引入了一种多输出前馈神经网络代理，在耦合多重反射和双温度模型上进行训练，以将晶体硅薄膜的双脉冲飞秒激光激发（1030 nm）映射到熔融石英上，跨越薄膜厚度（50-500 nm）和脉冲间延迟（0-10ps）。",
+    "abstract": "arXiv:2611.20301v1 Announce Type: cross Abstract: We introduce a multi-output feedforward neural network surrogate trained on a coupled multiple-reflection and two-temperature model to map double-pulse femtosecond laser excitation (1030 nm) of crystalline silicon films on fused silica across film thicknesses (50-500 nm) and inter-pulse delays (0-10ps). Trained via Levenberg-Marquardt optimization on 2000 physical simulations, the dual-hidden-layer network ([40,30] neurons) simultaneously predicts six strongly coupled optothermal observables, peak electron temperature, peak lattice temperature, peak carrier density, minimum and maximum absorptivity and minimum refractive index achieving coefficients of determination R2 larger than 0.9998 across all targets. Evaluating a dense 200 by 200 design grid in milliseconds resolves pronounced thin-film interference fringes and carrier-induced index modulation, identifying an optimal optothermal coupling regime at d=156 nm and Dt=4.572 ps. This unified machine-learning workflow eliminates computationally expensive multi-physics runtime bottlenecks for real-time laser processing control and inverse photonic thin-film design.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.20301",
     "journal": "arXiv"
   },
   {
@@ -100,8 +118,8 @@
   },
   {
     "title": "Accelerating Atomistic-Continuum Simulations of Multilayer 2D Materials with Functional Principal Component Analysis-Based Machine Learning",
-    "title_zh": "文献研究：Accelerating Atomistic-Continuum Simulations of Multilayer 2D Materials with Functional Principal Component Analysis-Based Machine Learning",
-    "summary": "Atomistic-continuum simulations of complex wrinkling deformations in large-area multilayer two-dimensional (2D) materials are computationally expensive. To accelerate these simulations, this work pres…",
+    "title_zh": "利用基于功能主成分分析的机器学习加速多层二维材料的原子连续模拟",
+    "summary": "大面积多层二维 (2D) 材料中复杂起皱变形的原子连续模拟计算成本高昂。为了加速这些模拟，这项工作提出了一个机器学习（ML）框架，该框架首先构建变形场的低维表示，然后学习这个缩减空间中的变形。由于离散变形场的维数极高、需要保持表面连续性和规定的几何约束、起皱图案的随机性以及训练数据的有限可用性，变形二维膜的降维具有挑战性。我们使用二维函数主成分分析（FPCA）来应对这些挑战。",
     "abstract": "arXiv:2611.18961v1 Announce Type: new Abstract: Atomistic-continuum simulations of complex wrinkling deformations in large-area multilayer two-dimensional (2D) materials are computationally expensive. To accelerate these simulations, this work presents a machine-learning (ML) framework that first constructs a low-dimensional representation of the deformation field, then learns the deformation in this reduced space. Dimensionality reduction of deformed 2D membranes is challenging because of the extremely high dimensionality of discretized deformation fields, the need to preserve surface continuity and prescribed geometric constraints, the stochastic nature of wrinkling patterns, and the limited availability of training data. We address these challenges using two-dimensional functional principal component analysis (FPCA). The proposed FPCA representation reduces deformation fields containing millions of degrees of freedom to latent spaces with only tens of dimensions while preserving the continuity of the deformed surface. In addition, prescribed homogeneous boundary constraints are satisfied exactly through an appropriate choice of basis functions in the FPCA representation. A neural network is then trained to predict the principal components from the system and loading parameters. The resulting ML-predicted deformation fields are used as high-quality initial configurations for the atomistic-continuum solver, which subsequently performs energy minimization to obtain equilibrium solutions. The framework is demonstrated for multilayer graphene subjected to uniaxial compression, biaxial compression, and combined biaxial compression and simple shear. For the most computationally intensive large-strain cases, the proposed approach achieves speedups of at least 6.8 times while converging to final energies comparable to, and in some cases lower than, those obtained using conventional atomistic-continuum initialization.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2611.18961",
@@ -109,38 +127,47 @@
   },
   {
     "title": "Mesoscale Neural Operators: Learning Nonlinear Constitutive Laws from Molecular Dynamics for Scalable Fracture Predictions",
-    "title_zh": "文献研究：Mesoscale Neural Operators: Learning Nonlinear Constitutive Laws from Molecular Dynamics for Scalable Fracture Predictions",
-    "summary": "Molecular dynamics (MD) simulations can capture the nanoscale physics of fracture at the atomistic level, but their computational cost prohibits predictions at the length scales and time scales needed…",
+    "title_zh": "中尺度神经算子：从分子动力学学习非线性本构定律以进行可扩展的断裂预测",
+    "summary": "分子动力学（MD）模拟可以捕获原子水平上的纳米级断裂物理，但其计算成本阻碍了许多应用所需的长度尺度和时间尺度的预测。另一方面，机器学习方法已被提议作为材料断裂的启发式替代方法，但它们无法保证预测响应的物理一致性。为了解决这个缺点，我们提出了中尺度神经算子（MNO）：一种数据驱动的非局部本构模型，直接从MD加载和位移数据中学习。经过训练后，它可以用于更大域和网格尺寸的连续断裂模拟。 MNO 的关键思想是利用非局部模型的内置特征长度（称为地平线）来跨尺度移动。",
     "abstract": "arXiv:2611.19658v1 Announce Type: cross Abstract: Molecular dynamics (MD) simulations can capture the nanoscale physics of fracture at the atomistic level, but their computational cost prohibits predictions at the length scales and time scales needed for many applications. Machine learning approaches, on the other hand, have been proposed as heuristic surrogates for material fracture, yet they cannot guarantee the physical consistency of the predicted response. To address this shortcoming, we propose the mesoscale neural operator (MNO): a data-driven nonlocal constitutive model that is learned directly from MD loading and displacement data. After training, it can be used in continuum fracture simulations on much larger domains and grid sizes. The key idea of the MNO is to exploit the built-in characteristic length of a nonlocal model, called the horizon, to travel across scales. Physical consistency across scales is obtained by building two structural ingredients into the MNO: a normalized kernel that renders the strain energy density invariant under horizon rescaling, and a rescaled critical bond stretch that keeps the energy release rate consistent across scales. Through tests on synthetic data, we show that the MNO and its learning workflow indeed discover the nonlocal continuum multiscale model in the form of the nonlocal kernel and the nonlinear constitutive relation. We then apply the framework to coarse-grained MD data and find that in a test problem, the learned model matches the MD strain energy density and critical energy release rate within 3%. It also predicts the peak transmitted forces within 6% in out-of-distribution tension tests. As a further demonstration, the model is applied to a plate with 4000 times the area of the training specimens and containing an initial defect. In this problem, the model reproduces the main features of dynamic brittle fracture, including branch and cascading branch networks.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.19658",
     "journal": "arXiv"
   },
   {
+    "title": "A General-Purpose and Efficient Machine-Learned Potential for SiC from Ambient to Extreme Environments",
+    "title_zh": "从普通环境到极端环境，SiC 具有通用且高效的机器学习潜力",
+    "summary": "碳化硅（SiC）多晶型物广泛用作核材料、机械部件和宽带隙半导体。基于 SiC 的应用的快速发展得到了计算建模研究的补充，包括从头计算和经典原子方法。在这项工作中，我们开发了一种计算高效、通用的机器学习原子间势（ML-IAP），能够进行数百万原子分子动力学模拟。在表格高斯近似势（tabGAP）框架的基础上，我们引入了一个额外的嵌入项来捕获局部原子协调，提高准确性和通用性，同时保持高计算效率。",
+    "abstract": "arXiv:2510.01827v5 Announce Type: replace Abstract: Silicon carbide (SiC) polymorphs are widely employed as nuclear materials, mechanical components, and wide-bandgap semiconductors. The rapid advancement of SiC-based applications has been complemented by computational modeling studies, including both ab initio and classical atomistic approaches. In this work, we develop a computationally efficient, general-purpose machine-learned interatomic potential (ML-IAP) capable of multimillion-atom molecular dynamics simulations. Building on the tabulated Gaussian approximation potential (tabGAP) framework, we introduce an additional embedding term that captures local atomic coordination, improving accuracy and generality, while retaining high computational efficiency. Using this ML-tabGAP model, we map a broad pressure-temperature phase diagram, simulate the threshold displacement energy distributions for the 2H and 3C polymorphs, and simulate primary irradiation damage in 3C. Across a benchmark covering conditions from ambient to extreme, including high-pressure/high-temperature states and high-energy cascade damage, tabGAP provides a favorable balance of accuracy, robustness, transferability, and computational cost among the tested empirical and ML-IAPs.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2510.01827",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Bias Conditioning and Long-Range Electrostatics for Consistent Machine-Learning Potentials of Electrified Interfaces",
+    "title_zh": "偏置调节和长距离静电可实现电气化接口一致的机器学习潜力",
+    "summary": "带电界面的机器学习原子间势（MLIP）需要偏置作为输入，但尚不清楚标量电极电荷是否足够以及短程模型是否捕获非局部响应。我们为短程和长程 MLIP 添加电荷和场调节。最先进的场调节短程模型使厚水膜过度极化近两倍，并且错过了阶梯 Pt 处的功函数变化。我们的远程模型捕获了两者，只需要金属上的电极电荷作为输入，并再现 Pt(111)-水界面的从头开始模拟。",
+    "abstract": "arXiv:2611.21026v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) of electrified interfaces need the bias as input, but it is unclear whether a scalar electrode charge suffices and whether short-range models capture the non-local response. We add charge and field conditioning to short- and long-range MLIPs. State-of-the-art field-conditioned short-range models overpolarize thick water films nearly twofold and miss work-function shifts at stepped Pt. Our long-range model captures both, needs only the electrode charge at metals as input, and reproduces ab initio simulations of the Pt(111)--water interface.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2611.21026",
+    "journal": "arXiv"
+  },
+  {
     "title": "Out-of-training properties in frozen interatomic potential embeddings are decodable and ordered by physical scale",
-    "title_zh": "文献研究：Out-of-training properties in frozen interatomic potential embeddings are decodable and ordered by physical scale",
-    "summary": "Machine-learned interatomic potentials (MLIPs) are trained on energies, forces and stresses, yet their frozen representations can predict other materials properties. We probe ORB-v3 and UMA-S across l…",
+    "title_zh": "冻结原子间势嵌入中的训练外属性是可解码的，并按物理尺度排序",
+    "summary": "机器学习原子间势（MLIP）接受能量、力和应力的训练，但它们的冻结表示可以预测其他材料特性。我们跨层、读出和等变通道探测 ORB-v3 和 UMA-S，以了解 154,875 个材料项目晶体的九个属性。两种模型在所有目标上都优于仅组合描述符，其中包括训练目标之外的五个目标；物理单位的错误有助于评估潜在的筛选应用。最佳深度因属性而异，与物理尺度排序一致。随机权重控制揭示了预训练的强烈依赖于属性的好处。",
     "abstract": "arXiv:2611.21116v1 Announce Type: new Abstract: Machine-learned interatomic potentials (MLIPs) are trained on energies, forces and stresses, yet their frozen representations can predict other materials properties. We probe ORB-v3 and UMA-S across layers, read-outs and equivariant channels for nine properties of 154,875 Materials Project crystals. Both models outperform composition-only descriptors on all targets, including five outside their training objectives; errors in physical units help assess potential screening applications. Optimal depth varies by property, consistent with a physical-scale ordering. Random-weight controls reveal strongly property-dependent benefits of pretraining. UMA-S's rotation-invariant angular channels improve crystal-system classification, while higher scores from its full tensor disappear under rotation; matched-model controls do not isolate equivariance as the explanation. Accuracy varies across different probes, but nearest-neighbour prediction often approaches XGBoost performance, even though materials do not form distinct clusters according to their properties. We also test whether a linear predictor trained on one model's embeddings can predict properties using the other model's embeddings after a learned linear transformation. Predictive accuracy is largely preserved, despite differences in which atoms the two models place close together. These results guide the reuse of frozen MLIP representations for materials prediction.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2611.21116",
     "journal": "arXiv"
   },
   {
-    "title": "Multi-output neural network surrogate for double-pulse femtosecond optothermal control of thin silicon films on fused silica",
-    "title_zh": "文献研究：Multi-output neural network surrogate for double-pulse femtosecond optothermal control of thin silicon films on fused silica",
-    "summary": "We introduce a multi-output feedforward neural network surrogate trained on a coupled multiple-reflection and two-temperature model to map double-pulse femtosecond laser excitation (1030 nm) of crysta…",
-    "abstract": "arXiv:2611.20301v1 Announce Type: cross Abstract: We introduce a multi-output feedforward neural network surrogate trained on a coupled multiple-reflection and two-temperature model to map double-pulse femtosecond laser excitation (1030 nm) of crystalline silicon films on fused silica across film thicknesses (50-500 nm) and inter-pulse delays (0-10ps). Trained via Levenberg-Marquardt optimization on 2000 physical simulations, the dual-hidden-layer network ([40,30] neurons) simultaneously predicts six strongly coupled optothermal observables, peak electron temperature, peak lattice temperature, peak carrier density, minimum and maximum absorptivity and minimum refractive index achieving coefficients of determination R2 larger than 0.9998 across all targets. Evaluating a dense 200 by 200 design grid in milliseconds resolves pronounced thin-film interference fringes and carrier-induced index modulation, identifying an optimal optothermal coupling regime at d=156 nm and Dt=4.572 ps. This unified machine-learning workflow eliminates computationally expensive multi-physics runtime bottlenecks for real-time laser processing control and inverse photonic thin-film design.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.20301",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Bias Conditioning and Long-Range Electrostatics for Consistent Machine-Learning Potentials of Electrified Interfaces",
-    "title_zh": "文献研究：Bias Conditioning and Long-Range Electrostatics for Consistent Machine-Learning Potentials of Electrified Interfaces",
-    "summary": "Machine-learning interatomic potentials (MLIPs) of electrified interfaces need the bias as input, but it is unclear whether a scalar electrode charge suffices and whether short-range models capture th…",
-    "abstract": "arXiv:2611.21026v1 Announce Type: new Abstract: Machine-learning interatomic potentials (MLIPs) of electrified interfaces need the bias as input, but it is unclear whether a scalar electrode charge suffices and whether short-range models capture the non-local response. We add charge and field conditioning to short- and long-range MLIPs. State-of-the-art field-conditioned short-range models overpolarize thick water films nearly twofold and miss work-function shifts at stepped Pt. Our long-range model captures both, needs only the electrode charge at metals as input, and reproduces ab initio simulations of the Pt(111)--water interface.",
+    "title": "Large-scale Monte Carlo/Molecular Dynamics simulations with Atomic Cluster Expansion potentials in LAMMPS",
+    "title_zh": "LAMMPS 中原子团簇扩展势的大规模蒙特卡罗/分子动力学模拟",
+    "summary": "蒙特卡罗/分子动力学 (MCMD) 模拟广泛用于研究介观尺度材料的特性。数十万个原子的模拟通常依赖于经验势，因为具有机器学习原子间势的 MCMD 在现有实现中在这种规模上是不切实际的。在这里，我们介绍了一种用于 MCMD 的混合 MPI/OpenMP 方案，在 LAMMPS 中具有原子簇扩展 (ACE) 潜力。蒙特卡罗移动根据局部能量变化进行评估，并在 MPI 等级上并行执行，而分子动力学则在 OpenMP 线程上并行执行。",
+    "abstract": "arXiv:2611.21147v1 Announce Type: new Abstract: Monte Carlo/molecular dynamics (MCMD) simulations are widely used to study the properties of materials at the mesoscale. Simulations with hundreds of thousands of atoms usually rely on empirical potentials because MCMD with machine-learning interatomic potentials is impractical at this scale in existing implementations. Here, we introduce a hybrid MPI/OpenMP scheme for MCMD with Atomic Cluster Expansion (ACE) potentials in LAMMPS. Monte Carlo moves are evaluated from local energy changes and carried out in parallel over MPI ranks, while molecular dynamics is parallelized over OpenMP threads. At a fixed number of CPUs, the wall time of the Monte Carlo moves decreases by a factor equal to the number of MPI ranks. Larger simulation cells also reduce the statistical errors of free energy calculations because thermal fluctuations decrease with system size. We demonstrate the scheme by calculating free energies of the HCP and BCC phases in the strongly anharmonic Hf--Ti system and by simulating zirconium segregation in a nanocrystalline copper sample of 670,000 atoms. For Cu--Zr, an ACE potential and an empirical potential predict similar grain boundary compositions but different amounts of zirconium dissolved in the grains. The scheme makes MCMD simulations with machine-learning interatomic potentials practical at the length scales of microstructure.",
     "category": "其他",
-    "link": "https://arxiv.org/abs/2611.21026",
+    "link": "https://arxiv.org/abs/2611.21147",
     "journal": "arXiv"
   },
   {
@@ -150,33 +177,6 @@
     "abstract": "arXiv:2611.20789v1 Announce Type: new Abstract: Density-functional calculations feed materials databases and machine-learning models, and are declared converged when energy changes and residuals fall below thresholds. We show that these criteria, and even the agreement of independent optimizers, can accept a state from which the energy still descends or whose Hamiltonian is inconsistent with the energy. A variational formulation of self-consistency in the space of Kohn-Sham Hamiltonians yields a descent probe that exposes lower states accessible from a returned solution, and a frozen-orbital Janak test detects such an inconsistency. Both apply to any code without modification. In VASP, a UO₂ PBE+U calculation converges 1.46 eV above a lower state, and CoO and FeO converge as metals 0.8-0.9 eV above insulating states. In a census of 339 converged calculations on tungsten-free Materials Project structures, recomputed with a modified static protocol, 57 (16.8%) show energy decreases above the threshold, 49 without an initial energy rise exceeding the tolerance.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2611.20789",
-    "journal": "arXiv"
-  },
-  {
-    "title": "A provenance-aware zirconia conductivity database and Arrhenius-constrained screening of doped electrolyte candidates",
-    "title_zh": "来源感知的氧化锆电导率数据库和掺杂电解质候选物的阿伦尼乌斯约束筛选",
-    "summary": "氧化锆固体电解质是关键的氧离子导体，但报告的电导率值在很大程度上取决于掺杂剂化学、加工历史和测量温度。在这里，我们整理了一个包含 1351 条记录的来源感知氧化锆电导率数据库，并用它来比较阿伦尼乌斯约束的物理信息机器学习模型 (PIML) 与无约束的深度神经网络 (DNN)。在保留的分组材料确认分割中，DNN 为保留的合成处理组实现了较低的合并均方根误差（RMSE，单位）。阿伦尼乌斯约束模型保持可比较的误差范围，并提供有界的有效活化能估计。",
-    "abstract": "Zirconia solid electrolytes are key oxygen-ion conductors, but reported conductivity values depend strongly on dopant chemistry, processing history and measurement temperature. Here we curate a provenance-aware zirconia conductivity database of 1351 records and use it to compare an Arrhenius-constrained physics-informed machine-learning model (PIML) with an unconstrained deep neural network (DNN). In a reserved grouped-material confirmation split, the DNN achieves the lower pooled root-mean-square error (RMSE, in units) for withheld composition–processing groups. The Arrhenius-constrained model remains on a comparable error scale and provides bounded effective activation-energy estimates. Its clearest benefit appears in matched-material temperature extrapolation: when trained at and tested at ( ), PIML reduces RMSE from 0.4187 to 0.3609 and raises from 0.8562 to 0.8932. Bootstrap resampling of individual records and material groups quantifies uncertainty in the observed RMSE reduction. Genetic-algorithm screening at a fixed measurement temperature identifies a Sc-rich/Mg-containing zirconia region for further study. CHGNet molecular dynamics examines oxygen transport in four selected compositions. DFT calculations use one atomic configuration per composition to compare energies relative to the constituent oxides. This work provides a curated conductivity resource and a conservative screening route for doped zirconia electrolytes.",
-    "category": "AI×物理",
-    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aeb9a7",
-    "journal": "Machine Learning: Science and Technology"
-  },
-  {
-    "title": "Particle Identification Studies using a Highly Granular Crystal Electromagnetic Calorimeter",
-    "title_zh": "文献研究：Particle Identification Studies using a Highly Granular Crystal Electromagnetic Calorimeter",
-    "summary": "A proposal for the Circular Electron Positron Collider electromagnetic calorimeter is a highly granular scintillating crystal design that uses silicon photomultipliers to measure physics signals from…",
-    "abstract": "arXiv:2611.21011v1 Announce Type: new Abstract: A proposal for the Circular Electron Positron Collider electromagnetic calorimeter is a highly granular scintillating crystal design that uses silicon photomultipliers to measure physics signals from photons. The potential to develop particle identification methods using deep and traditional machine learning is explored. A contrastive machine learning technique was found to enable the separation of showering and 'punch-through' pions without explicit labels. A supervised particle identification method was then trained using the results, using both a graph neural network and a boosted decision tree to distinguish electron, showering hadron, and minimum-ionizing-particle-like events. The classifier achieved an area-under-the-receiver operating characteristic curve of 0.996 for both cases. A Shapley additive explanations analysis showed the boosted decision tree classifier matched expectations for each event type. The particle identification capability is then demonstrated on experimental data taken from the CERN Proton Synchrotron T9 beamline.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.21011",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
-    "title_zh": "文献研究：Electrostatic and magnetic control of the anomalous Josephson phase in ferromagnetic hybrid junctions",
-    "summary": "We report phase-sensitive measurements of Josephson junctions formed in InAs nanowires with epitaxial ferromagnetic EuS and superconducting Al shells. Using a superconducting interferometer, we observ…",
-    "abstract": "arXiv:2611.21593v1 Announce Type: new Abstract: We report phase-sensitive measurements of Josephson junctions formed in InAs nanowires with epitaxial ferromagnetic EuS and superconducting Al shells. Using a superconducting interferometer, we observe a continuous, hysteretic anomalous phase shift under axial magnetic-field sweeps. A remanent phase bias persists at zero applied field and depends on magnetic history. Electrostatic gating strongly modifies the magnitude of the phase response, revealing its sensitivity to the transverse electronic structure of the nanowire. Self-consistent electrostatic simulations show that the effective Rashba spin-orbit coupling follows the measured gate-dependent phase response, suggesting its central role in the electrostatic control of the anomalous Josephson phase.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.21593",
     "journal": "arXiv"
   }
 ]
