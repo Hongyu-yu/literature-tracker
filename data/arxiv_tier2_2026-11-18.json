@@ -19,8 +19,8 @@
   },
   {
     "title": "Stein Kernelized Molecular Dynamics for Active Learning of Interatomic Potentials",
-    "title_zh": "用于主动学习原子间势的 Stein 核化分子动力学",
-    "summary": "机器学习原子间势 (MLIP) 可实现高效、准确的原子模拟，但很大程度上取决于训练数据的质量和多样性。我们引入了 Stein 核化分子动力学 (SKMD)，这是一种增强的采样方法，它使用相互作用的粒子动力学来获取用于微调 MLIP 的信息训练配置。 SKMD 对应于 Stein 变分梯度下降的随机变体，通过合并异步粒子更新和全局原子描述符内核来适应分子动力学，这提供了构型相似性的对称感知测量。",
+    "title_zh": "文献研究：Stein Kernelized Molecular Dynamics for Active Learning of Interatomic Potentials",
+    "summary": "Machine learning interatomic potentials (MLIPs) enable efficient and accurate atomistic simulations but depend critically on the quality and diversity of the training data. We introduce Stein kerneliz…",
     "abstract": "arXiv:2606.04100v2 Announce Type: replace-cross Abstract: Machine learning interatomic potentials (MLIPs) enable efficient and accurate atomistic simulations but depend critically on the quality and diversity of the training data. We introduce Stein kernelized molecular dynamics (SKMD), an enhanced sampling method that uses interacting particle dynamics to acquire informative training configurations for the fine-tuning of MLIPs. SKMD corresponds to a stochastic variant of Stein variational gradient descent that is adapted for molecular dynamics by incorporating asynchronous particle updates and a kernel of global atomic descriptors, which provides a symmetry-aware measure of configurational similarity. Unlike other enhanced samplers used in molecular dynamics, SKMD maintains the Boltzmann distribution as a stationary distribution of its dynamics in the appropriate asymptotic limit. This property enforces a balance between the exploration of diverse configurations and attraction toward high-probability regions of the energy landscape. We further propose an approach to efficient online data acquisition using an adaptive stopping criterion that selects non-redundant training data over the course of simulation. We demonstrate SKMD for the active learning of a neural network model of the Müller--Brown potential, a MACE interatomic potential for alanine dipeptide, and a MACE foundation model with a DFT oracle for predicting the Pandey reconstruction of the Si(111) surface. Compared to active learning baselines, our method achieves higher model accuracy in fewer training iterations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.04100",
@@ -28,21 +28,12 @@
   },
   {
     "title": "Machine-learning interatomic potentials for battery materials: Defect-dependent lithium adsorption and local transferability on graphene",
-    "title_zh": "电池材料的机器学习原子间势：石墨烯上的缺陷依赖性锂吸附和局部可转移性",
-    "summary": "发表日期：2027 年 1 月 来源：计算材料科学，第 276 卷 作者：孙雨涵、黄晓",
+    "title_zh": "文献研究：Machine-learning interatomic potentials for battery materials: Defect-dependent lithium adsorption and local transferability on graphene",
+    "summary": "Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Yuhan Sun, Xiao Huang",
     "abstract": "Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Yuhan Sun, Xiao Huang",
     "category": "其他凝聚态",
     "link": "https://www.sciencedirect.com/science/article/pii/S092702562600652X?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
-  },
-  {
-    "title": "Data-driven reconstruction of band dispersion and quantum geometry via Koopman dynamic mode decomposition",
-    "title_zh": "通过库普曼动态模式分解数据驱动重建能带色散和量子几何",
-    "summary": "我们提出了一个数据驱动的框架，用于使用库普曼算子分析和动态模式分解（Koopman-DMD）重建能带结构。该方法不是从显式哈密顿量导出光谱，而是直接从时空数据（包括波函数和可观测量）重建能带色散和模态动力学。该框架在 Hamiltonian Floquet-Bloch 分解和 Koopman-DMD 之间建立了对应关系，由此提取的 DMD 模式对频率、衰减或增长率、空间剖面和投影权重进行编码。这些量允许重建谱函数、局域态密度以及离域到局域的度量，例如逆参与比。",
-    "abstract": "arXiv:2605.06199v3 Announce Type: replace Abstract: We present a data-driven framework for reconstructing band structures using Koopman operator analysis and dynamic mode decomposition (Koopman-DMD). Instead of deriving spectra from an explicit Hamiltonian, the approach reconstructs band dispersion and modal dynamics directly from spatiotemporal data, including wavefunctions and observables. This framework establishes a correspondence between Hamiltonian Floquet-Bloch decomposition and Koopman-DMD, whereby the extracted DMD modes encode frequencies, decay or growth rates, spatial profiles and projection weights. These quantities allow the reconstruction of spectral functions, local density of states, and delocalized-to-localized measures such as the inverse participation ratio. Also, these extended DMD modes enable inference of quantum-geometric and topological properties, including the quantum metric, Berry curvature and geometric phases. Applications to prototypical one- and two-dimensional tight-binding models, including disordered Su-Schrieffer-Heeger model and its Floquet and non-Hermitian variants, graphene and Haldane models, demonstrate that Koopman-DMD provides a unified route for the data-driven analysis of wave propagation, localization, and topological phases in condensed matter, photonics, and related fields.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2605.06199",
-    "journal": "arXiv"
   },
   {
     "title": "Dynamics and transport in LiF using classical and machine learned interatomic potentials",
@@ -64,8 +55,8 @@
   },
   {
     "title": "Predicting spin-crossover behavior in metal-organic frameworks from limited and noisy data using quantile active learning",
-    "title_zh": "使用分位数主动学习从有限且嘈杂的数据预测金属有机框架中的自旋交叉行为",
-    "summary": "使用分位数主动学习从有限且嘈杂的数据预测金属有机框架中的自旋交叉行为",
+    "title_zh": "文献研究：Predicting spin-crossover behavior in metal-organic frameworks from limited and noisy data using quantile active learning",
+    "summary": "Predicting spin-crossover behavior in metal-organic frameworks from limited and noisy data using quantile active learning",
     "abstract": "npj Computational Materials, Published online: 18 November 2026; doi:10.1038/s41524-026-02365-7 Predicting spin-crossover behavior in metal-organic frameworks from limited and noisy data using quantile active learning",
     "category": "AI×化学·材料",
     "link": "https://www.nature.com/articles/s41524-026-02365-7",
@@ -73,8 +64,8 @@
   },
   {
     "title": "QCap: a physics-corrected graph neural network for the capacitance matrix of any planar superconducting device layout",
-    "title_zh": "QCap：用于任何平面超导器件布局的电容矩阵的物理校正图神经网络",
-    "summary": "用于提取电容的器件布局电磁仿真需要大量计算，这是精确设计电路器件的主要障碍。机器学习模型可以绕过这些模拟，但以前的方法仅限于仅使用特定组件的布局，并且需要对这些相同组件进行数千次模拟作为训练数据。我们推出的 QCap 模型可以在几秒钟内准确预测任意超导器件布局的麦克斯韦电容矩阵，而 Ansys Q3D 仿真则需要几分钟到几小时。我们开发了一种新颖的设计嵌入算法，可将布局转换为通用图形格式，使模型能够与使用任何工具创建的任何布局一起使用。",
+    "title_zh": "文献研究：QCap: a physics-corrected graph neural network for the capacitance matrix of any planar superconducting device layout",
+    "summary": "Electromagnetic simulations of device layouts to extract capacitance are computationally intensive, a major obstacle to accurate design of circuit devices. Machine learning models can bypass these sim…",
     "abstract": "arXiv:2611.22057v1 Announce Type: cross Abstract: Electromagnetic simulations of device layouts to extract capacitance are computationally intensive, a major obstacle to accurate design of circuit devices. Machine learning models can bypass these simulations, but previous approaches have been restricted to layouts using only particular components, and require thousands of simulations of those same components as training data. We present QCap, a model that accurately predicts the Maxwell capacitance matrix of an arbitrary superconducting device layout in seconds, compared to minutes to hours of Ansys Q3D simulations. We develop a novel design-embedding algorithm that converts the layout into a universal graph format, allowing the model to work with any layout created with any tool. To achieve high accuracy, we obtain a coarse physics prior from a fast method of moments simulation of capacitance, then train the model to correct this prior. On 4,009 test designs withheld from training data the model outputs agree with Q3D simulations to a median error of 0.177%, and on never-seen component families it stays below 1% error. We demonstrate the model's scaling by obtaining the capacitance matrix of a 9-superconducting-qubit device in 12 seconds on a laptop (compared to 19.9 h and 228 GB of memory in Ansys) with sub-percent error, and capacitance of a (too large to simulate) 100-qubit, 781-conductor device in 3.4 min on a laptop. We provide the open-source models and data on SQuADDS and Hugging Face. Our results provide a powerful tool for large-scale accurate circuit design and guide the development of models to bypass other physical simulations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.22057",
@@ -82,8 +73,8 @@
   },
   {
     "title": "Compositional neural networks for multimodal X-ray and neutron scattering inversion",
-    "title_zh": "用于多模态 X 射线和中子散射反演的组合神经网络",
-    "summary": "X 射线和中子散射对于凝聚态物理和材料科学的结构表征是不可或缺的。然而，由于散射实验通常记录没有相位信息的强度，不同的结构可以产生相似的散射图案，从而使得相应的反演问题不唯一。通过组合互补测量可以减少这种模糊性，但将它们集成到机器学习框架中仍然具有挑战性。在这里，我们介绍了一种基于先验摊销流量匹配的概率多测量分析的模块化框架。单观测后验估计器针对各个观测类型或物理探针单独进行训练，并仅在推理时通过组合采样器进行组合。",
+    "title_zh": "文献研究：Compositional neural networks for multimodal X-ray and neutron scattering inversion",
+    "summary": "X-ray and neutron scattering are indispensable for structural characterization across condensed-matter physics and materials science. Yet, because scattering experiments generally record intensities w…",
     "abstract": "arXiv:2610.29362v3 Announce Type: replace-cross Abstract: X-ray and neutron scattering are indispensable for structural characterization across condensed-matter physics and materials science. Yet, because scattering experiments generally record intensities without phase information, distinct structures can yield similar scattering patterns, rendering the corresponding inverse problems non-unique. This ambiguity can be reduced by combining complementary measurements, but their integration into machine-learning frameworks remains challenging. Here we introduce a modular framework for probabilistic multi-measurement analysis based on prior-amortized flow matching. Single-observation posterior estimators are trained separately for individual observation types or physical probes and combined only at inference time through a compositional sampler. This late fusion approach allows pretrained single-observation models to be reused without dedicated joint retraining. As a case in point, we consider reflectometry, which provides depth-resolved, nanometer-scale information about thin films and interfaces. Our single-observation demonstrations span X-ray, time-of-flight neutron and polarized neutron reflectometry. In separate co-refinement studies, task-matched estimators enable homogeneous composition across multiple neutron contrasts and heterogeneous multimodal composition of X-ray and neutron measurements. Together, these results establish compositional flow matching as a modular approach to uncertainty-aware inversion and co-refinement, with potential applicability to other scattering problems in which multiple observations constrain a common physical structure while retaining measurement-specific parameters.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.29362",
@@ -100,8 +91,8 @@
   },
   {
     "title": "Magflow: Differentiable Simulation of Industrial-Grade 6D Magnetic Levitation",
-    "title_zh": "Magflow：工业级 6D 磁悬浮的可微分模拟",
-    "summary": "六自由度磁悬浮原则上可以实现无摩擦运输和微米级定位，但由于其复杂且不稳定的动力学，低级控制本身就具有挑战性。工业系统通常依赖于深度的硬件-软件协同设计，其中动子和定子的几何形状被联合设计，以实现电磁力计算的紧凑、手工近似，从而保持控制在千赫兹速率下的计算易处理性。然而，这种方法对操作工作空间和支持的移动器拓扑范围施加了过于保守的限制。我们没有将底层物理简化为手工制作的近似值，而是直接计算物理。我们推出 Magflow，一种用于 6D 磁悬浮的完全可微分、GPU 并行模拟器。",
+    "title_zh": "文献研究：Magflow: Differentiable Simulation of Industrial-Grade 6D Magnetic Levitation",
+    "summary": "Magnetic levitation with six-degrees-of-freedom enables frictionless transport and micrometer-scale positioning in principle, but low-level control is inherently challenging due to its complex and uns…",
     "abstract": "arXiv:2611.23050v1 Announce Type: cross Abstract: Magnetic levitation with six-degrees-of-freedom enables frictionless transport and micrometer-scale positioning in principle, but low-level control is inherently challenging due to its complex and unstable dynamics. Industrial systems typically rely on deep hardware-software co-design, where mover and stator geometries are jointly designed to enable a compact, hand-crafted approximation of the electromagnetic force computation, thereby keeping control computationally tractable at kilohertz rates. However, this approach imposes overly conservative constraints on the operating workspace and the range of supported mover topologies. Instead of reducing the underlying physics to a hand-crafted approximation, we compute the physics directly. We introduce Magflow, a fully differentiable, GPU-parallel simulator for 6D magnetic levitation. It is used to train the first neural controller for an industrial-grade 6D magnetic levitation system that is learned purely from simulated physics. We show that the learned neural controller transfers zero-shot from simulation to real hardware while satisfying hard real-time constraints at 4 kHz. The learned controller achieves qualitatively new behaviors and even levitates a mover topology for which no hand-crafted solution exists. These results demonstrate that co-design is not a physical necessity for 6D magnetic levitation control. More broadly, control learning from simulated physics can find solutions beyond the reach of control engineering in demanding industrial domains. Source code and demonstration videos are publicly available at https://sites.google.com/view/magflow.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2611.23050",
@@ -114,6 +105,15 @@
     "abstract": "arXiv:2611.22272v1 Announce Type: new Abstract: Transition states govern chemical reaction rates and outcomes, yet locating them remains a central challenge in computational chemistry. Double-ended search methods find transition states given reactant and product structures, but generally rely on discretized path representations developed for density functional theory, where potential energy surface evaluations are expensive. Machine learned interatomic potentials (MLIPs) dramatically reduce this cost and leverage automatic differentiation to access higher-order derivatives efficiently. We introduce Popcornn, a framework to find transition states by optimizing continuous neural network paths atop an MLIP with a parallelized adaptive numerical integrator. This combination eliminates path discretization artifacts, reduces hyperparameter sensitivity, and enables non-local optimization to overcome local features using second-order potential-energy-surface information. Popcornn consistently recovers more correct transition states than standard methods such as nudged elastic band and growing string, across MLIPs on thousands of organic reactions, establishing it as a robust, automation-ready method for high-throughput transition state search. Popcornn's infrastructure is flexible in path objective, integration strategy, and optimization algorithm, making it a practical tool and platform for investigating open questions in MLIP-based path optimization.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2611.22272",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Data-driven reconstruction of band dispersion and quantum geometry via Koopman dynamic mode decomposition",
+    "title_zh": "文献研究：Data-driven reconstruction of band dispersion and quantum geometry via Koopman dynamic mode decomposition",
+    "summary": "We present a data-driven framework for reconstructing band structures using Koopman operator analysis and dynamic mode decomposition (Koopman-DMD). Instead of deriving spectra from an explicit Hamilto…",
+    "abstract": "arXiv:2605.06199v3 Announce Type: replace Abstract: We present a data-driven framework for reconstructing band structures using Koopman operator analysis and dynamic mode decomposition (Koopman-DMD). Instead of deriving spectra from an explicit Hamiltonian, the approach reconstructs band dispersion and modal dynamics directly from spatiotemporal data, including wavefunctions and observables. This framework establishes a correspondence between Hamiltonian Floquet-Bloch decomposition and Koopman-DMD, whereby the extracted DMD modes encode frequencies, decay or growth rates, spatial profiles and projection weights. These quantities allow the reconstruction of spectral functions, local density of states, and delocalized-to-localized measures such as the inverse participation ratio. Also, these extended DMD modes enable inference of quantum-geometric and topological properties, including the quantum metric, Berry curvature and geometric phases. Applications to prototypical one- and two-dimensional tight-binding models, including disordered Su-Schrieffer-Heeger model and its Floquet and non-Hermitian variants, graphene and Haldane models, demonstrate that Koopman-DMD provides a unified route for the data-driven analysis of wave propagation, localization, and topological phases in condensed matter, photonics, and related fields.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2605.06199",
     "journal": "arXiv"
   },
   {
@@ -145,8 +145,8 @@
   },
   {
     "title": "MatOS: An Agent Operating System for Materials Research",
-    "title_zh": "MatOS：材料研究代理操作系统",
-    "summary": "材料研究依赖于分散且不断增长的数据、知识和模拟工具，一项研究通常跨越文献分析、计算和实验等多天的工作流程。大型语言模型代理现在可以检索材料数据，操作模拟代码，并与自主实验室关闭设计-合成-表征循环。然而，用新功能扩展这些代理、让长时间运行的任务保持在正轨上并让它们从过去的任务和用户反馈中学习仍然很困难。在这里，我们介绍 MatOS，一个用于材料研究的代理操作系统，具有三个核心组件：（1）分层科学资产图，将数据、知识、工具、技能、角色和工作流程组织为可重用资产；",
+    "title_zh": "文献研究：MatOS: An Agent Operating System for Materials Research",
+    "summary": "Materials research relies on scattered and growing data, knowledge, and simulation tools, and a single study often spans multi-day workflows across literature analysis, computation, and experiment. La…",
     "abstract": "arXiv:2610.34203v2 Announce Type: replace-cross Abstract: Materials research relies on scattered and growing data, knowledge, and simulation tools, and a single study often spans multi-day workflows across literature analysis, computation, and experiment. Large language model agents can now retrieve materials data, operate simulation codes, and close design-synthesis-characterization loops with autonomous laboratories. However, extending these agents with new capabilities, keeping long-running tasks on track, and letting them learn from past tasks and user feedback remain difficult. Here we present MatOS, an agent operating system for materials research with three core components: (1) a layered scientific asset graph that organizes data, knowledge, tools, skills, roles, and workflows as reusable assets; (2) a stateful adaptive workflow that runs tasks as explicit execution graphs with scientific checks, so that they can be resumed and traced; and (3) evidence-driven asset evolution, which revises these assets from execution records and user feedback. On ResearchClawBench, MatOS improves on the previously best-performing agent by 11.15% with the same base model and extends the cost-score Pareto frontier. With a common base model, it outperforms Codex CLI and Claude Code, exceeding Codex CLI by 2.13% on MatTools and 4.17% on SciAgentGym. In eight research cases, MatOS narrowed more than 30 million candidate structures to 97 solid-electrolyte candidates, identified 89 halide variants with higher computed conductivity than their parent structures, linked the force errors of 11 pretrained interatomic potentials to local atomic environments, and supported two new methods that reduce errors by 3.1% and 13.6% relative to their baselines. These results show that organizing research capabilities as reusable, evolving assets enables agents to carry out long, multistage materials studies. Code is available at https://github.com/DingyangLyu/MatOS.",
     "category": "其他",
     "link": "https://arxiv.org/abs/2610.34203",
