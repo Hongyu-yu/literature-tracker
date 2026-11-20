@@ -64,8 +64,8 @@
   },
   {
     "title": "Interpretable machine learning of formation energies and band gaps in hybrid perovskites through SHAP analysis and SISSO modelling",
-    "title_zh": "文献研究：Interpretable machine learning of formation energies and band gaps in hybrid perovskites through SHAP analysis and SISSO modelling",
-    "summary": "Accurate and interpretable property prediction is essential for exploring hybrid organic–inorganic perovskites. Here, we combine machine-learning screening with SHAP analysis and SISSO descriptor disc…",
+    "title_zh": "通过 SHAP 分析和 SISSO 建模对混合钙钛矿中的形成能和带隙进行可解释的机器学习",
+    "summary": "准确且可解释的性质预测对于探索有机-无机杂化钙钛矿至关重要。在这里，我们将机器学习筛选与 SHAP 分析和 SISSO 描述符发现相结合。使用 4,456 种化合物，优化的 XGBoost 模型在测试集上实现了形成能 R² 值为 0.99，带隙 R² 值为 0.93，并应用于超过 180,000 个候选化合物。",
     "abstract": "Accurate and interpretable property prediction is essential for exploring hybrid organic–inorganic perovskites. Here, we combine machine-learning screening with SHAP analysis and SISSO descriptor discovery. Using 4,456 compounds, optimized XGBoost models achieved test-set R² values of 0.99 for formation energy and 0.93 for band gap and were applied to over 180,000 candidates. Comparison across approximately 17,000 common compounds revealed broadly overlapping distributions from XGBoost and CGCNN but substantially lower predictions from UPET, suggesting potential limitations in its transferability to hybrid organic–inorganic perovskites. SHAP analysis and correlation-based pruning retained eight primary features for each property, from which SISSO derived expressions comprising four nonlinear descriptors. These expressions couple molecular and inorganic properties for formation energy and emphasize relative atomic sizes and B-site characteristics for band gap. This framework supports efficient candidate prioritization and interpretable analysis of learned structures–property relationships in hybrid perovskites.",
     "category": "AI×化学·材料",
     "link": "https://www.researchsquare.com/article/rs-11480170/latest",
@@ -73,11 +73,20 @@
   },
   {
     "title": "Neural SPICE Surrogate Modeling and Sensitivity Analysis for Semiconductor MOSFETs: A Deep Learning Framework for Accelerated VLSI Simulation",
-    "title_zh": "文献研究：Neural SPICE Surrogate Modeling and Sensitivity Analysis for Semiconductor MOSFETs: A Deep Learning Framework for Accelerated VLSI Simulation",
-    "summary": "Modern Very Large Scale Integration (VLSI) electronic design automation (EDA) workflows rely heavily on circuit simulation engines (SPICE) to resolve large systems of non-linear differential-algebraic…",
+    "title_zh": "半导体 MOSFET 的神经 SPICE 代理建模和灵敏度分析：用于加速 VLSI 仿真的深度学习框架",
+    "summary": "现代超大规模集成 (VLSI) 电子设计自动化 (EDA) 工作流程严重依赖电路仿真引擎 (SPICE) 来求解大型非线性微分代数方程系统。随着半导体尺寸的扩大，通过传统数值技术迭代计算漏极电流特性会带来严重的计算延迟，特别是在广泛的蒙特卡罗过程变化扫描中。在这项工作中，我们提出了一种深度学习代理建模框架来近似设备级非线性传输物理。",
     "abstract": "Modern Very Large Scale Integration (VLSI) electronic design automation (EDA) workflows rely heavily on circuit simulation engines (SPICE) to resolve large systems of non-linear differential-algebraic equations. As semiconductor dimensions scale, computing drain current characteristics iteratively via traditional numerical techniques introduces severe computational latency, particularly across extensive Monte Carlo process-variation sweeps. In this work, we propose a deep learning surrogate modeling framework to approximate device-level non-linear transport physics. The surrogate establishes a direct forward mapping F[𝑉𝑔𝑠, 𝑉ds, 𝑉𝑡ℎ, 𝜇0, 𝜆]--> Id across all operating regimes (cutoff, linear, and saturation) utilizing a high-capacity Multi-Layer Perceptron (MLP) architecture equipped with continuous Sigmoid Linear Unit (SiLU) activations. Trained on synthetically generated physical parameter profiles, the model demonstrates rapid convergence, driving means squared loss from an initial 0.122 down to 0.0078 with a coefficient of determination R² > 0.98 on unobserved test partitions. Furthermore, a normalized sensitivity analysis identifies gate bias 𝑉𝑔𝑠 and threshold voltage 𝑉𝑡ℎ as primary driving variables, fully consistent with metal-oxide-semiconductor field-effect transistor (MOSFET) electrostatics. The proposed surrogate achieves evaluation latencies under 2 milliseconds, providing a scalable path toward accelerated analog, digital, and post-silicon statistical simulations.",
     "category": "AI×物理",
     "link": "https://www.researchsquare.com/article/rs-11728512/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Gradient-estimator design overcomes trainability barriers in neural-network-based variational optimization",
+    "title_zh": "梯度估计器设计克服了基于神经网络的变分优化中的可训练性障碍",
+    "summary": "神经网络为科学计算提供了富有表现力的表示。然而，即使具有足够表达能力的网络也可能在弱梯度范围内遭受训练失败，从而限制了它们在量子多体物理和从头算量子化学中的实际应用。在这里，我们推导了一个无偏直接梯度估计器，并引入了用于神经网络变分优化的自适应最小方差相位（AMVP）估计器。通过提高弱梯度的信噪比，这些方法可以在以前训练失败的情况下实现可靠的科学计算，同时大大降低计算成本。",
+    "abstract": "Neural networks provide expressive representations for scientific computing. However, even sufficiently expressive networks can suffer training failure in weak-gradient regimes, limiting their practical use in quantum many-body physics and ab initio quantum chemistry. Here we derive an unbiased direct gradient estimator and introduce the adaptive minimum-variance phase (AMVP) estimator for neural-network variational optimization. By improving the signal-to-noise ratio of weak gradients, these methods enable reliable scientific calculations where training previously failed, while substantially reducing computational cost. The framework enables compact networks to outperform larger and fine-tuned default standard-estimator models with over an order of magnitude less GPU time on correlated flux models, and ultimately exceed the density matrix renormalization group (DMRG) accuracy. It further achieves chemical accuracy in N2 bond breaking and, for the first time, in heavy-element I2 with explicit spin–orbit coupling. These results demonstrate that gradient-estimator design expands the capabilities of neural-network variational methods for accurate scientific computing.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-11582001/latest",
     "journal": "Preprints"
   },
   {
@@ -91,21 +100,12 @@
   },
   {
     "title": "GEODE: Symmetry-Preserving Cartesian Diffusion for Crystal Generation",
-    "title_zh": "文献研究：GEODE: Symmetry-Preserving Cartesian Diffusion for Crystal Generation",
-    "summary": "Most known inorganic crystals exhibit symmetric atomic arrangements, yet generative models often fail to reproduce them. Explicitly enforcing these symmetries has so far yielded fewer stable and novel…",
+    "title_zh": "GEODE：用于晶体生成的保对称笛卡尔扩散",
+    "summary": "大多数已知的无机晶体表现出对称的原子排列，但生成模型通常无法重现它们。迄今为止，与不受约束的生成相比，明确强制这些对称性产生的稳定和新颖的结构较少。我们引入了生成等变轨道扩散引擎（GEODE），据我们所知，这是第一个在笛卡尔空间中结合坐标和晶格扩散的模型。 GEODE 首先对对称模板进行采样，然后联合生成晶格、原子坐标和原子类型，同时通过新颖的威科夫约束损失保留指定的对称性。笛卡尔扩散为坐标噪声提供了一致的物理尺度，我们根据经验证明可以提高性能。",
     "abstract": "arXiv:2610.01898v2 Announce Type: replace Abstract: Most known inorganic crystals exhibit symmetric atomic arrangements, yet generative models often fail to reproduce them. Explicitly enforcing these symmetries has so far yielded fewer stable and novel structures than unconstrained generation. We introduce Generative Equivariant Orbit Diffusion Engine (GEODE), to our knowledge the first model to combine coordinate and lattice diffusion in Cartesian space. GEODE first samples symmetry templates, then jointly generates the lattice, atomic coordinates and atom types while preserving the specified symmetry with a novel Wyckoff-constrained loss. Cartesian diffusion gives coordinate noise a consistent physical scale that we empirically demonstrate improves performance. Unconditional generation achieves a metastable, unique and novel (mSUN) rate of 11.9%, compared with 7.7% for the next best symmetry-aware model. We also introduce sampling time template filtering, which increases mSUN by ~6% without retraining, making GEODE competitive with leading symmetry-agnostic models. Template selection also enables joint symmetry and property guidance, which we demonstrate through classifier-free guidance of permittivity.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2610.01898",
     "journal": "arXiv"
-  },
-  {
-    "title": "Gradient-estimator design overcomes trainability barriers in neural-network-based variational optimization",
-    "title_zh": "文献研究：Gradient-estimator design overcomes trainability barriers in neural-network-based variational optimization",
-    "summary": "Neural networks provide expressive representations for scientific computing. However, even sufficiently expressive networks can suffer training failure in weak-gradient regimes, limiting their practic…",
-    "abstract": "Neural networks provide expressive representations for scientific computing. However, even sufficiently expressive networks can suffer training failure in weak-gradient regimes, limiting their practical use in quantum many-body physics and ab initio quantum chemistry. Here we derive an unbiased direct gradient estimator and introduce the adaptive minimum-variance phase (AMVP) estimator for neural-network variational optimization. By improving the signal-to-noise ratio of weak gradients, these methods enable reliable scientific calculations where training previously failed, while substantially reducing computational cost. The framework enables compact networks to outperform larger and fine-tuned default standard-estimator models with over an order of magnitude less GPU time on correlated flux models, and ultimately exceed the density matrix renormalization group (DMRG) accuracy. It further achieves chemical accuracy in N2 bond breaking and, for the first time, in heavy-element I2 with explicit spin–orbit coupling. These results demonstrate that gradient-estimator design expands the capabilities of neural-network variational methods for accurate scientific computing.",
-    "category": "AI×物理",
-    "link": "https://www.researchsquare.com/article/rs-11582001/latest",
-    "journal": "Preprints"
   },
   {
     "title": "Characterizing adsorption thermodynamics in carbon capture materials: an efficient first-principles approach",
@@ -133,15 +133,6 @@
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2611.23342",
     "journal": "arXiv"
-  },
-  {
-    "title": "Generative molecular design needs oracle grounding",
-    "title_zh": "文献研究：Generative molecular design needs oracle grounding",
-    "summary": "Generative molecular design is guided by oracles, computational proxies of experimental goals that models can exploit. We argue that oracle grounding, in which experiments diagnose and correct oracle…",
-    "abstract": "Nature Computational Science, Published online: 19 November 2026; doi:10.1038/s43588-026-01082-x Generative molecular design is guided by oracles, computational proxies of experimental goals that models can exploit. We argue that oracle grounding, in which experiments diagnose and correct oracle failures, will allow generative models to discover not only new molecules but also new chemistry.",
-    "category": "AI×化学·材料",
-    "link": "https://www.nature.com/articles/s43588-026-01082-x",
-    "journal": "Nature Computational Science"
   },
   {
     "title": "Generative discovery of chemical reaction networks",
@@ -178,5 +169,14 @@
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2611.23688",
     "journal": "arXiv"
+  },
+  {
+    "title": "Divergent solute effects of Re and Nb on primary radiation damage in Mo-based alloys studied with molecular dynamics simulations and new interatomic potentials",
+    "title_zh": "通过分子动力学模拟和新的原子间势研究 Re 和 Nb 对 Mo 基合金中初级辐射损伤的不同溶质效应",
+    "summary": "发表日期：2027年1月来源：《计算材料科学》，第276卷作者：向海攀、陈阳春、李根、刘志晓、何新福、窦燕坤、曹金利、贾丽霞、刘梓然、邓慧秋",
+    "abstract": "Publication date: January 2027 Source: Computational Materials Science, Volume 276 Author(s): Haipan Xiang, Yangchun Chen, Gen Li, Zhixiao Liu, Xinfu He, Yankun Dou, Jinli Cao, Lixia Jia, Ziran Liu, Huiqiu Deng",
+    "category": "其他",
+    "link": "https://www.sciencedirect.com/science/article/pii/S0927025626007214?dgcid=rss_sd_all",
+    "journal": "ScienceDirect"
   }
 ]
