@@ -36,12 +36,30 @@
     "journal": "arXiv"
   },
   {
+    "title": "Probabilistic physics-informed neural solvers for Woods–Saxon parameter identification: a coupled forward–inverse approach",
+    "title_zh": "用于伍德斯-萨克森参数识别的概率物理信息神经网络求解器：一种耦合的正反向方法",
+    "summary": "我们引入了一种概率性物理信息学习框架，该框架将量子态重构与从束缚态谱中对全局共享哈密顿量参数的数据集级识别相结合。伍德斯-萨克森逆问题提供了一个在物理上可解释的测试案例，其中涉及多个核、中子和质子扇区以及库仑和自旋-轨道贡献。WaveNet表示分离的径向、极向和方位角波函数分量，而ParamNet则将归一化径向探针、观测能量、核描述符和量子数结合起来，以推断六个全局参数的分布。",
+    "abstract": "We introduce a probabilistic physics-informed learning framework that couples quantum-state reconstruction with dataset-level identification of globally shared Hamiltonian parameters from bound-state spectra. The Woods–Saxon inverse problem provides a physically interpretable test case involving multiple nuclei, neutron and proton sectors, and Coulomb and spin–orbit contributions. WaveNet represents separated radial, polar, and azimuthal wavefunction components, while ParamNet combines normalized radial probes, observed energies, nuclear descriptors, and quantum numbers to infer a distribution over six global parameters. Training jointly enforces Rayleigh-energy consistency, separated Schrödinger residuals, boundary and phase conditions, explicit normalization, selective orthogonality, spin–orbit splitting consistency, and Kullback–Leibler regularization. The physics-informed formulation supports learning from limited spectral observations without supervised wavefunction labels, using only experimental energies from four nuclei. Spectral evaluation uses the physical-space distribution mean. The learned standard deviations describe model-dependent parameter variability. In synthetic closure tests, all six generating parameters are recovered with sub-percent relative errors. Reintroducing the inferred means into an independent finite-difference (FD) solver gives spectral mean absolute errors of for the Seminole parameterization and for Wahlborn. For experimental spectra, the inferred Seminole interaction gives an aggregate mean absolute error of , compared with for the reference interaction and for a FD least-squares fit using the same identification levels. Identification within the Wahlborn expression reduces the corresponding error from to . The framework provides a reusable and robust scientific-machine-learning formulation for inverse quantum eigenvalue problems in which globally shared parameters and physically constrained states must be identified jointly.",
+    "category": "AI×物理",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aec062",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
     "title": "Generating grain boundary structures at a specified energy with a symmetry-constrained diffusion model",
     "title_zh": "使用对称约束扩散模型在指定能量下生成晶界结构",
     "summary": "晶界（GB）控制着多晶材料的许多特性，逆向设计将使晶界结构本身成为一个设计变量。 MatterGen 等晶体生成模型在包含两个 GB 的周期性单元上运行。仅当两者等效时，电池能量才定义单个 GB，但现有模型并不强制执行这种等效性。在 MatterGen 的基础上，我们开发了一种对称约束扩散模型，其中两个 GB 通过对称操作相关：生成一个 GB 附近的原子，而另一个 GB 附近的原子则通过在每个去噪步骤中应用的对称投影来重建。",
     "abstract": "arXiv:2611.27188v1 Announce Type: new Abstract: Grain boundaries (GBs) govern many properties of polycrystalline materials, and inverse design would make the GB structure itself a design variable. Crystal generative models such as MatterGen operate on periodic cells, which contain two GBs. The cell energy defines a single GB only when the two are equivalent, but existing models do not enforce this equivalence. Building on MatterGen, we developed a symmetry-constrained diffusion model in which the two GBs are related by a symmetry operation: atoms near one GB are generated, and those near the other are reconstructed through a symmetry projection applied at every denoising step. We applied it to the Σ 5(210)[001] symmetric tilt GB in Al, conditioning generation on the GB energy from a machine-learning interatomic potential (MLIP). All 350 generated structures kept a geometrically equivalent GB pair after relaxation. Given a target GB energy, the model generated structures at that energy: for the three in-range targets with many nearby training structures, 44% to 70% fell within ± 0.1 J/m² of the target. Tracking weakened at higher energies and failed outside the training range. Of the 91 near-target structures, 90 matched no training structure under the adopted geometric criterion, indicating that the model can propose configurations near the target energy that are distinct from the training structures, a capability that could help identify unknown metastable GB structures observed in experiments. Building GB-pair equivalence into generation thus makes GB properties well-defined design targets, enabling inverse design of GB structures.",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2611.27188",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Sampling non-abelian lattice gauge theories with diffusion models",
+    "title_zh": "使用扩散模型对非阿贝尔格点规范场论进行采样",
+    "summary": "我们提出规范不变扩散模型作为格规范理论（LGT）的采样器。使用格规范等变卷积神经网络（L-CNN）和Metropolis调整的退火Langevin算法（MAALA），我们能够准确地对二维U(2)场构型进行采样，并展示了四维SU(3)的第一个有希望的结果。我们的二维模型在推断到比最初训练时更大的反耦合时表现出色。我们通过将可观测量与分析已知值以及混合蒙特卡洛结果进行比较来确认这一点。",
+    "abstract": "arXiv:2611.27821v1 Announce Type: cross Abstract: We present gauge-equivariant diffusion models as samplers for lattice gauge theories (LGTs). Using lattice gauge-equivariant convolutional neural networks (L-CNNs) and the Metropolis-adjusted annealed Langevin algorithm (MAALA), we are able to accurately sample two-dimensional U(2) field configurations and show first promising results for four-dimensional SU(3). Our two-dimensional models extrapolate remarkably well to larger inverse couplings than originally trained on. We confirm this by comparing observables to analytically known values and to hybrid Monte Carlo results.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.27821",
     "journal": "arXiv"
   },
   {
@@ -54,6 +72,24 @@
     "journal": "arXiv"
   },
   {
+    "title": "Spectral functions of an extended antiferromagnetic S=frac12 Heisenberg model on the triangular lattice",
+    "title_zh": "三角晶格上扩展反铁磁 S=frac12 海森堡模型的谱函数",
+    "summary": "作者：Markus Drescher、Laurens Vanderstraeten、Roderich Moessner 和 Frank Pollmann 量子自旋液体是奇特的物质相，即使在零温度下也不会形成磁序。相反，单个自旋翻转分裂成两个独立的出现的碎裂粒子，在中子散射光谱中留下独特的连续谱。在这里，作者使用 GPU 加速的动态矩阵乘积状态模拟，以新的精度水平计算受抑三角晶格反铁磁体的此类光谱。结果支持两种自旋液相的存在，即 U (1) 狄拉克自旋液体和手性自旋液体。",
+    "abstract": "Author(s): Markus Drescher, Laurens Vanderstraeten, Roderich Moessner, and Frank Pollmann Quantum spin liquids are exotic phases of matter that do not form magnetic order, even at zero temperature. Instead, a single spin flip breaks apart into two independent emergent fractionalized particles, leaving a distinctive continuum in neutron-scattering spectra. Here, using GPU-accelerated dynamical matrix-product-state simulations, the authors compute such spectra for a frustrated triangular-lattice antiferromagnet with new levels of accuracy. The results support the existence of two spin-liquid phases, a U (1) Dirac spin liquid and a chiral spin liquid. [Phys. Rev. B 114, 295119] Published Mon Nov 23, 2026",
+    "category": "磁性·自旋电子学",
+    "link": "http://link.aps.org/doi/10.1103/yfq3-6lmq",
+    "journal": "Phys. Rev. B"
+  },
+  {
+    "title": "Energy spectra and cascade in the spin turbulence of a driven spinor Bose-Einstein condensate",
+    "title_zh": "受激旋量玻色-爱因斯坦凝聚体自旋湍流中的能量谱和级联",
+    "summary": "我们研究了受驱动的自旋玻色-爱因斯坦凝聚态中自旋湍流的自旋相互作用能谱。对自旋-1凝聚体的连续自旋驱动会产生具有空间波动磁化的非平衡稳态。我们观察到一种幂律标度，其与自旋波湍流的预测指数-7/3一致，尽管谱各向异性存在显著变化，但这种标度在我们整个驱动强度范围内都持续存在。关闭驱动后，我们跟踪了自由衰减演化，并发现了与自旋相互作用能量直接向更高波数级联的证据相一致的证据。这些结果确立了自旋湍流的能量谱特征，并使人们能够对旋量超流体中的级联动力学进行定量研究。",
+    "abstract": "arXiv:2606.00766v2 Announce Type: replace Abstract: We investigate the spin-interaction energy spectrum of spin turbulence in a driven spinor Bose-Einstein condensate. Continuous spin driving of a spin-1 condensate produces a nonequilibrium steady state with spatially fluctuating magnetization. We observe a power-law scaling consistent with the -7/3 exponent predicted for spin-wave turbulence, which persists across our full range of drive strengths despite substantial changes in the spectral anisotropy. After switching off the drive, we track the free-decay evolution and find evidence consistent with a direct cascade of spin-interaction energy toward higher wavenumbers. These results establish an energy-spectral hallmark of spin turbulence and enable quantitative studies of cascade dynamics in spinor superfluids.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2606.00766",
+    "journal": "arXiv"
+  },
+  {
     "title": "Role of antisite disorder in dictating the Ising anisotropy and ferromagnetic ground state of NdGaSi",
     "title_zh": "反位无序在决定 NdGaSi 伊辛各向异性和铁磁基态中的作用",
     "summary": "单离子各向异性和交换相互作用共同设定了稀土金属间化合物的磁性基态，但化学无序对配体亚晶格的作用仍然很少被探索。在这里，我们发现 NdGaSi 中的 Ga/Si 反位无序稳定了中心对称的 I4₁/amd 结构，并将 Nd3⁺ 位点对称性提高到 D2d，这禁止晶体电场（CEF）哈密顿量中的所有 m=±2 史蒂文斯算符。磁化强度、比热、单晶中子衍射和 X 射线吸收光谱建立了无序结构和低于 T_Capprox11~K 的共线铁磁序，并具有沿 c 的伊辛各向异性。",
@@ -63,12 +99,12 @@
     "journal": "arXiv"
   },
   {
-    "title": "Chiral Spinterfaces as an Overlooked Component of the Chiral-Induced Spin Selectivity Effect",
-    "title_zh": "手性旋转面作为手性诱导自旋选择性效应中被忽视的组成部分",
-    "summary": "手性诱导自旋选择性（CISS）效应通常与通过手性分子的自旋选择性传输有关，而分子-电极界面的作用仍然知之甚少。在这里，我们证明手性氨基酸衍生分子在具有天然 NiO 层的铁磁镍薄膜上的吸附会诱导剩余的手性依赖性磁光响应。系统控制实验表明，这种响应源自分子-NiO/Ni 界面，而不是分子层或块状铁磁体。第一原理计算揭示了优先的羧酸盐结合和界面电荷重新分布延伸到 NiO 表面层，展示了分子吸附如何改变氧化物的电子结构。",
-    "abstract": "arXiv:2608.17608v2 Announce Type: replace Abstract: The chiral-induced spin selectivity (CISS) effect is commonly associated with spin-selective transport through chiral molecules, while the role of molecule-electrode interfaces remains poorly understood. Here, we demonstrate that adsorption of chiral amino acid derived molecules on ferromagnetic Ni films with native NiO layer induces a remanent chirality-dependent magneto-optical response. Systematic control experiments establish that this response originates from the molecule-NiO/Ni interface, rather than the molecular layer or bulk ferromagnet. First-principles calculations reveal preferential carboxylate binding and interfacial charge redistribution extending into the NiO surface layers, demonstrating how molecular adsorption modifies the electronic structure of the oxide. Together, these results provide evidence for the formation of chiral spinterfaces, where molecular chirality and interfacial electronic structure give rise to a distinct magnetic response. Our findings highlight the previously overlooked role of molecule-electrode interfaces in CISS-related systems and identify interfacial electronic and magnetic properties as important considerations for understanding and controlling spin selectivity.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2608.17608",
+    "title": "Decoupling Exciton Energetics from Wavefunction Geometry in Imide-Based Defect Double Antiperovskites",
+    "title_zh": "在基于酰亚胺的缺陷双反钙钛矿中将激子能量学与波函数几何结构解耦",
+    "summary": "本文使用自旋轨道耦合准粒子计算、Bethe-Salpeter方程模型（mBSE）以及晶格极化效应的分析描述，研究了基于酰亚胺的缺陷双反钙钛矿AE₅AsPn(NH)₂（AE = Ca、Sr；Pn = Sb、Bi）的激发态性质。在五个四方（P4/mmm）和单斜（Cm）结构模型中，计算出的激子结合能范围为140至210 meV。化学取代既改变了束缚能，也改变了激子空间范围的类氢估算值。",
+    "abstract": "arXiv:2611.27440v1 Announce Type: new Abstract: The excited-state properties of imide-based defect double antiperovskites AE₅AsPn(NH)₂ (AE = Ca, Sr; Pn = Sb, Bi) are investigated using spin--orbit-coupled quasiparticle calculations, the model Bethe--Salpeter equation (mBSE), and analytical descriptions of lattice-polarization effects. Across five tetragonal (P4/mmm) and monoclinic (Cm) structural models, the calculated exciton binding energies range from 140 to 210 meV. Chemical substitution modifies both the binding energies and the hydrogenic estimates of exciton spatial extent. By contrast, the structural distortion from tetragonal P4/mmm (D₄ₕ) to monoclinic Cm (Cₛ), which removes inversion and fourfold rotational symmetry, produces comparatively modest changes in binding energy but appreciably reshapes the real- and momentum-space exciton distributions. This contrast reveals a partial decoupling between exciton energetics and wavefunction geometry, and identifies a symmetry-associated sensitivity of exciton geometry to structural distortion. The changes are understood to occur together with modifications of local coordination and electronic dispersion, rather than as an isolated effect of symmetry alone. Lattice polarization provides an additional screening channel, reducing the estimated exciton binding energies by approximately 9--16%. Complementary Fröhlich-polaron calculations yield moderate mass enhancement and model-estimated electron-polaron mobilities of 39--99 cm² V⁻¹ s⁻¹, with comparatively modest differences between the two polymorphs. These results highlight the distinct responses of exciton energetics, exciton wavefunction geometry, and carrier transport to chemical and structural modifications.",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2611.27440",
     "journal": "arXiv"
   },
   {
@@ -90,12 +126,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "Topological phases protected by half-chiral symmetry",
-    "title_zh": "受半手性对称性保护的拓扑相",
-    "summary": "手性（或子晶格）对称性描述了二分系统，例如 Su-Schrieffer-Heeger (SSH) 链，其中禁止同子晶格 A-A 和 B-B 跳跃，从而能够保护拓扑相。在这里，我们确定了受半手性对称性保护的新拓扑相，其中手性对称性仅保留在一个亚晶格上，这可能发生在亚晶格不平衡（例如石墨烯-六方氮化硼）或局域轨道（例如闪锌矿）中。与群论描述的传统对称算子不同，半手性对称是亚晶格投影哈密顿量的代数约束，例如 PHP=0，需要新的拓扑保护框架。",
-    "abstract": "arXiv:2611.26693v1 Announce Type: cross Abstract: Chiral (or sublattice) symmetry describes bipartite systems such as the Su-Schrieffer-Heeger (SSH) chain where same-sublattice A-A and B-B hoppings are forbidden, enabling the protection of topological phases. Here we identify new topological phases protected by half-chiral symmetry wherein chiral symmetry is preserved on only one sublattice, as may occur with sublattice imbalance (e.g. graphene-hBN) or localized orbitals (e.g. zincblende). Unlike conventional symmetry operators described by group theory, half-chiral symmetry is an algebraic constraint on the sublattice-projected Hamiltonian such as PHP=0, requiring a new framework for topological protection. We develop such a framework, identifying real-space bulk topological invariants and corresponding topological boundary modes that stick to zero energy. In two dimensions we construct a half-chiral Kekule honeycomb model and show that its unusual higher-order topology protects a single zero-energy mode at a single corner.",
+    "title": "Symmetry-Resolved Spectral Weight Reveals Charge Localization in Correlated Insulator",
+    "title_zh": "对称分辨谱权重揭示了关联绝缘体中的电荷局域化",
+    "summary": "晶体对称性能否揭示电荷在强关联绝缘体中的局域化位置？我们表明，精确电子格林函数的已占有对称性分辨谱权重定义了有效原子极限。在相互作用的Su-Schrieffer-Heeger链中，它们的位移跟踪了不同绝缘相中自旋分辨的多体极化。单体约化密度矩阵的量子度量提供了一种互补的几何表征。我们的结果将实空间对称性分析扩展到了占据能带投影算符之外。",
+    "abstract": "arXiv:2603.11879v2 Announce Type: replace Abstract: Can crystalline symmetry reveal where charge localizes in a strongly correlated insulator? We show that occupied symmetry-resolved spectral weights of the exact electronic Green's function define effective atomic limits. In an interacting Su-Schrieffer-Heeger chain, their displacement tracks the spin-resolved many-body polarization across distinct insulating phases. A quantum metric of the one-body reduced density matrix provides a complementary geometric characterization. Our results extend real-space symmetry analysis beyond occupied-band projectors.",
+    "category": "铁电·极化",
+    "link": "https://arxiv.org/abs/2603.11879",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Topologically Obstructed Kondo Hybridization: A Route to Kondo Semimetals",
+    "title_zh": "拓扑受阻的近藤杂化：通往近藤半金属的途径",
+    "summary": "强关联、拓扑和对称性的相互作用可以重塑量子材料的低能电子结构，并推动新型量子相的出现。在重费米子系统中，Kondo效应使局域f磁矩与导带电子纠缠在一起，在低温下形成相干重电子带，通常以Kondo杂化能隙为特征。然而，我们在这里展示了导电电子费米面的拓扑结构和对称性在某些动量下会阻碍近藤杂化能隙的打开。我们将三维系统的费米面视为有效的二维流形，并证明在该流形上定义的非平凡拓扑不变量对打开完全杂化能隙施加了拓扑障碍，迫使fc杂化在费米面上的某些动量处消失。",
+    "abstract": "arXiv:2611.26686v1 Announce Type: new Abstract: The interplay of strong correlations, topology, and symmetry can reshape the low-energy electronic structure of quantum materials and drive the emergence of novel quantum phases. In heavy-fermion systems, the Kondo effect entangles localized f moments with conduction electrons, giving rise to coherent heavy-electron bands at low temperatures, typically characterized by a Kondo hybridization gap. Here we show, however, that the topology and symmetry of the conduction-electron Fermi surface can obstruct the opening of the Kondo hybridization gap at certain momenta. Treating the Fermi surface of a three-dimensional system as an effective two-dimensional manifold, we demonstrate that nontrivial topological invariants defined on this manifold impose a topological obstruction to opening a full hybridization gap, forcing the fc hybridization to vanish at certain momenta on the Fermi surface. These hybridization zeros lead to crossings between c and f bands, giving rise to nodal points or lines near the Fermi energy within the Kondo phase. Our results establish topological obstructions to Kondo hybridization as a route to Kondo semimetals, revealing a fundamental connection between Fermi-surface topology and the emergence of correlated electronic phases.",
     "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2611.26693",
+    "link": "https://arxiv.org/abs/2611.26686",
     "journal": "arXiv"
   },
   {
@@ -117,66 +162,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "Tailoring Phonon Transport in Bi-based Quaternary Half-Heusler alloys for Thermoelectric Applications",
-    "title_zh": "用于热电应用的双基四元半霍斯勒合金中的声子传输定制",
-    "summary": "四元half-Heusler (QHH) 是传统halfHeusler (HH) 化合物的替代无序衍生物，它提供了改变声子输运和增强热电性能的潜在途径。在这里，我们使用第一性原理计算和非谐晶格动力学研究了四元半 Heuslers ZrHfRh2Bi2、ZrHfIr2Bi2、Zr2RhIrBi2 和 Hf2RhIrBi2 的热电性质。四种化合物中，ZrHfRh2Bi2和Zr2RhIrBi2表现出半导体电子结构，其他化合物本质上是半金属。",
-    "abstract": "arXiv:2611.27234v1 Announce Type: new Abstract: Quaternary half-Heuslers (QHHs) are substitutionally disordered derivatives of conventional halfHeusler (HH) compounds, which offer a potential route to modify phonon transport and enhance thermoelectric performance. Here, we investigate the thermoelectric properties of the quaternary half-Heuslers ZrHfRh2Bi2, ZrHfIr2Bi2, Zr2RhIrBi2, and Hf2RhIrBi2 using first-principles calculations and anharmonic lattice dynamics. Among four compounds, ZrHfRh2Bi2 and Zr2RhIrBi2 exhibit semiconducting electronic structure and others are semimetallic in nature. Both the semiconducting compounds show favorable electronic transport properties. However, quaternary substitution substantially modifies the phonon dispersion, lowering the average phonon group velocity by about 17-22% relative to the parent compounds while leaving the anharmonic scattering rates comparable. The combination of high power factor and low kl results in high thermoelectric performance, with maximum ZT values of 2.28 and 2.18 at 1000 K for p-type ZrHfRh2Bi2 and Zr2RhIrBi2, respectively, with maximum thermoelectric power conversion efficiency 16.3% for p-type ZrHfRh2Bi2. Further reducing the grain size enhances the thermoelectric performance, with maximum ZT values of 2.51 and 2.58 at 1000 K for p-type ZrHfRh2Bi2 and Zr2RhIrBi2, respectively, at a grain size of 30 nm. Our results demonstrate that combining substitutional disorder with grain boundary engineering, provides an effective strategy to enhance the thermoelectric performance of HH compounds.",
-    "category": "其他凝聚态",
-    "link": "https://arxiv.org/abs/2611.27234",
+    "title": "Chiral Spinterfaces as an Overlooked Component of the Chiral-Induced Spin Selectivity Effect",
+    "title_zh": "手性旋转面作为手性诱导自旋选择性效应中被忽视的组成部分",
+    "summary": "手性诱导自旋选择性（CISS）效应通常与通过手性分子的自旋选择性传输有关，而分子-电极界面的作用仍然知之甚少。在这里，我们证明手性氨基酸衍生分子在具有天然 NiO 层的铁磁镍薄膜上的吸附会诱导剩余的手性依赖性磁光响应。系统控制实验表明，这种响应源自分子-NiO/Ni 界面，而不是分子层或块状铁磁体。第一原理计算揭示了优先的羧酸盐结合和界面电荷重新分布延伸到 NiO 表面层，展示了分子吸附如何改变氧化物的电子结构。",
+    "abstract": "arXiv:2608.17608v2 Announce Type: replace Abstract: The chiral-induced spin selectivity (CISS) effect is commonly associated with spin-selective transport through chiral molecules, while the role of molecule-electrode interfaces remains poorly understood. Here, we demonstrate that adsorption of chiral amino acid derived molecules on ferromagnetic Ni films with native NiO layer induces a remanent chirality-dependent magneto-optical response. Systematic control experiments establish that this response originates from the molecule-NiO/Ni interface, rather than the molecular layer or bulk ferromagnet. First-principles calculations reveal preferential carboxylate binding and interfacial charge redistribution extending into the NiO surface layers, demonstrating how molecular adsorption modifies the electronic structure of the oxide. Together, these results provide evidence for the formation of chiral spinterfaces, where molecular chirality and interfacial electronic structure give rise to a distinct magnetic response. Our findings highlight the previously overlooked role of molecule-electrode interfaces in CISS-related systems and identify interfacial electronic and magnetic properties as important considerations for understanding and controlling spin selectivity.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.17608",
     "journal": "arXiv"
   },
   {
-    "title": "Artificial Spin-Glass of Antiferromagnetic Co3O4 Nanocubes Using Spin-Polarized Oxygen",
-    "title_zh": "使用自旋极化氧的反铁磁 Co3O4 纳米立方体的人工自旋玻璃",
-    "summary": "使用立方体形状的纳米粒子优先暴露 Co3O4 的 (100) 表面终端，产生非常规的离子重排，从而从反铁磁性纳米立方体产生旋转玻璃状的磁性。必要的磁挫败是由于 O 2p 和 Co 3d 轨道之间的电荷转移引起的极化 Co-O 键之间的竞争以及高度各向异性的 Co²⁺ 离子与八面体位点中异常高自旋 Co³⁺ 离子的结合而产生的。尺寸控制允许通过优先极化的 Co-O 键来调节这种新颖的离子组合。",
-    "abstract": "arXiv:2611.26860v1 Announce Type: new Abstract: Preferentially exposing (100) surface terminations of Co₃O₄ using cube-shaped nanoparticles yields an unconventional rearrangement of ions that generates spin-glass-like magnetism from the antiferromagnetic nanocubes. The necessary magnetic frustration arises out of competition between polarized Co-O bonds from charge transfer between O 2p and Co 3d orbitals, and highly anisotropic Co²⁺ ions combined with anomalous high spin Co³⁺ ions in octahedral sites. Size control permits tuning this novel combination of ions via preferentially polarizing Co-O bonds. The presence of control over frustrated magnetism among antiferromagnetic nanocubes yields an artificial spin glass platform for exploring unconventional nanomagnetism and engendering new opportunities for emerging technologies like spintronics and physical reservoir computing.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.26860",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Deconfined criticality between an antiferromagnetic insulator and a nodal d-wave superconductor: a quantum Monte Carlo study",
-    "title_zh": "反铁磁绝缘体和节点 d 波超导体之间的解除临界临界性：量子蒙特卡罗研究",
-    "summary": "我们提出了量子蒙特卡罗研究，研究半填充时方形晶格上的绝缘尼尔态和节点 d 波超导体之间的转变。我们使用电子的费米子自旋子和玻色子电荷的部分子表示来访问受挫磁序状态，而不会出现符号问题。两个部分子都在背景 π 通量中移动（因此电子没有经历净通量），并耦合到量子涨落 SU(2) 晶格规范场。与早期直接对电子自由度的研究相比，我们发现了二阶解禁量子相变的证据，在该相变中，尼尔和 d 波超导阶连续消失。",
-    "abstract": "arXiv:2607.00762v5 Announce Type: replace Abstract: We present a quantum Monte Carlo study of the transition between the insulating Néel state and the nodal d-wave superconductor on the square lattice at half-filling. We access a regime of frustrated magnetic order without a sign problem using a parton representation of the electron in terms of fermionic spinons and bosonic chargons. Both partons move in a background π-flux (so the electron experiences no net flux) and are coupled to a quantum fluctuating SU(2) lattice gauge field. In contrast to earlier studies directly on the electronic degrees of freedom, we find evidence for a second-order deconfined quantum phase transition at which both the Néel and d-wave superconductivity orders vanish continuously. We compute correlators of the spinon-chargon composite with the same quantum numbers as the electron: we find a gapless Dirac dispersion inside the d-wave superconductor, turning into a gapped dispersion in the antiferromagnet.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.00762",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Frustration-Stabilized Hexamerons and Their Topological Magnons in Janus MXene",
-    "title_zh": "Janus MXene 中的挫败稳定六聚体及其拓扑磁振子",
-    "summary": "三角形晶格上的受挫磁体有利于非共线顺序，当反演对称性被打破时，它们可以在该顺序之上承载局部拓扑纹理。在这里，我们展示了 Janus MXene MnHf2C2FI 就是这样一个系统。将第一性原理计算与原子自旋模拟相结合，我们发现磁性仅限于 Mn 层，其中强烈的反铁磁最近邻交换以及相当大的 Dzyaloshinskii-Moriya 相互作用稳定了受抑的 120 Neel 基态。",
-    "abstract": "arXiv:2611.27384v1 Announce Type: new Abstract: Frustrated magnets on triangular lattices favour noncollinear order, and when inversion symmetry is broken they can host localized topological textures on top of that order. Here we show that the Janus MXene MnHf2C2FI is such a system. Combining first-principles calculations with atomistic spin simulations, we find that magnetism is confined to the Mn layer, where a strong antiferromagnetic nearest-neighbor exchange together with a sizable Dzyaloshinskii-Moriya interaction stabilizes a frustrated 120 Neel ground state. On top of this ground state we identify a metastable hexameron: a composite of six merons and antimerons, one vortex-antivortex pair on each of the three sublattices, whose sublattice-resolved topological charges compensate. Linear spin-wave theory confirms that the hexameron is a local energy minimum, and its noncoplanar cores act as potential wells that bind discrete in-gap magnon modes below the bulk continuum. In a periodic hexameron array the magnon bands carry nonzero Chern numbers, and the resulting Berry curvature produces a magnon thermal Hall response whose sign depends on which of the two time-reversal partners of the hexameron is realized. Our results establish Janus MXenes as a two-dimensional platform in which frustration, broken inversion symmetry, and spin-orbit coupling combine to produce metastable antiferromagnetic solitons with distinct spectroscopic and transport fingerprints.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.27384",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Growth and anisotropic directional dependent transport properties of Altermagnetic CrSb",
-    "title_zh": "交变磁 CrSb 的生长和各向异性方向依赖输运特性",
-    "summary": "CrSb 是一种金属交变磁体，在远高于室温的温度下表现出较大的动量相关自旋分裂和反铁磁有序性。尽管其电子和磁输运特性引起了相当大的关注，但对使用不同生长方法制备的晶体的系统比较仍然有限。在这里，我们研究了通过 Sb(自)-通量、Bi 通量和化学气相传输 (CVT) 生长的 CrSb 单晶的结构、磁性和各向异性传输特性。每一种生长都显示出不同的晶体形态。磁化测量表现出广泛一致的反铁磁响应，并在双助熔剂生长的晶体中观察到了额外的低温贡献。",
-    "abstract": "arXiv:2611.27072v1 Announce Type: new Abstract: CrSb is a metallic altermagnet exhibiting large momentum-dependent spin splitting and antifer- romagnetic ordering well above room temperature. Although its electronic and magnetotransport properties have attracted considerable attention, a systematic comparison of crystals prepared us- ing different growth methods remains limited. Here we investigate the structural, magnetic, and anisotropic transport properties of CrSb single crystals grown by Sb(self)-flux, Bi flux, and chem- ical vapor transport (CVT). Each of these growth reveals distinct crystal morphologies. Magne- tization measurements exhibit broadly consistent antiferromagnetic responses, with an additional low-temperature contribution observed in Bi-flux-grown crystals. All samples display metallic resis- tivity and positive, nonsaturating magnetoresistance up to 9 T. Sb-flux- and CVT-grown crystals exhibit comparable residual resistivity ratios and magnetoresistance, whereas Bi-flux-grown crys- tals show enhanced residual resistivity and a substantially reduced magnetoresistance, consistent with stronger carrier scattering. Hall measurements reveal a pronounced dependence on the field- current configuration, including nonlinear field dependence and opposite Hall polarities for different crystallographic orientations. These results establish the reproducibility of anisotropic magneto- transport across distinct growth routes while highlighting the sensitivity of carrier scattering to crystal-growth conditions. Our findings provide a comparative framework for selecting CrSb single crystals for orientation-dependent transport and spintronic investigations.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.27072",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Impact of spin fluctuations on spectral functions and transport in a model altermagnet",
-    "title_zh": "自旋涨落对模型交流磁体中光谱函数和输运的影响",
-    "summary": "了解交流磁体中的自旋相关输运对于将其纳入下一代自旋电子技术非常重要。受强相关量子材料中交变磁性发现的启发，我们使用费米子蒙特卡罗方法在棋盘格哈伯德模型中探索这种物理现象，该方法跟踪自旋波动作为温度函数的完整空间依赖性。我们提出了当我们从有序基态进入高温无序顺磁相时，自旋相关的单粒子光谱函数和输运演化的结果。我们的结果可以在未来的自旋选择角分辨光电子能谱（ARPES）和在固态量子材料或拟议的超冷原子系统中实现的候选交替磁体的自旋输运实验中进行测试。",
-    "abstract": "arXiv:2611.26725v1 Announce Type: new Abstract: Understanding spin dependent transport in altermagnets is important for incorporating them in next generation spintronic technologies. Motivated by the discovery of altermagnetism in strongly correlated quantum materials, we explore this physics in the checkerboard lattice Hubbard model using a fermion Monte Carlo approach which tracks the full spatial dependence of spin fluctuations as a function of temperature. We present results for the evolution of the spin-dependent single particle spectral functions and transport as we go from the ordered ground state into the high temperature disordered paramagnetic phase. Our results could be tested in future spin-selective angle-resolved photoemission spectroscopy (ARPES) and spin transport experiments in candidate altermagnets realized in solid state quantum materials or in proposed ultracold atomic systems.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.26725",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Local moment magnon spectrum in conduction electron tunnelling",
-    "title_zh": "传导电子隧道中的局域矩磁振子谱",
-    "summary": "研究了由具有反铁磁序的局域矩通过现场交换相互作用耦合到传导电子的双系统的表面隧道谱。在局部矩阶的静态近似中，已知磁带重建会导致局部矩的磁阶向量处的异常隧道谱，尽管后者不能直接贡献。在这项工作中，我们通过考虑来自局部矩磁振子激发的传导电子的散射来考虑动态效应。它们导致自能和传导态的重整化，这反过来又显着地改变了隧道谱，使其超出了静态顺序的影响，解释为磁振子边带的出现。",
-    "abstract": "arXiv:2607.05858v2 Announce Type: replace Abstract: The surface tunnelling spectrum of a dual system consisting of localised moments with antiferromagnetic order coupled to conduction electrons by on-site exchange interaction is investigated. In the static approximation of the local moment order it is known that magnetic band reconstruction leads to an anomalous tunnelling spectrum at the magnetic ordering vector of local moments although the latter cannot contribute directly. In this work we consider dynamic effects by including the scattering of conduction electrons from the local moment magnon excitations. They lead to self energies and renormalisation of conduction states which in turn appreciably modify the tunnelling spectrum beyond the influence of static order, interpreted as the appearance of magnon sidebands.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2607.05858",
+    "title": "Topological phases protected by half-chiral symmetry",
+    "title_zh": "受半手性对称性保护的拓扑相",
+    "summary": "手性（或子晶格）对称性描述了二分系统，例如 Su-Schrieffer-Heeger (SSH) 链，其中禁止同子晶格 A-A 和 B-B 跳跃，从而能够保护拓扑相。在这里，我们确定了受半手性对称性保护的新拓扑相，其中手性对称性仅保留在一个亚晶格上，这可能发生在亚晶格不平衡（例如石墨烯-六方氮化硼）或局域轨道（例如闪锌矿）中。与群论描述的传统对称算子不同，半手性对称是亚晶格投影哈密顿量的代数约束，例如 PHP=0，需要新的拓扑保护框架。",
+    "abstract": "arXiv:2611.26693v1 Announce Type: cross Abstract: Chiral (or sublattice) symmetry describes bipartite systems such as the Su-Schrieffer-Heeger (SSH) chain where same-sublattice A-A and B-B hoppings are forbidden, enabling the protection of topological phases. Here we identify new topological phases protected by half-chiral symmetry wherein chiral symmetry is preserved on only one sublattice, as may occur with sublattice imbalance (e.g. graphene-hBN) or localized orbitals (e.g. zincblende). Unlike conventional symmetry operators described by group theory, half-chiral symmetry is an algebraic constraint on the sublattice-projected Hamiltonian such as PHP=0, requiring a new framework for topological protection. We develop such a framework, identifying real-space bulk topological invariants and corresponding topological boundary modes that stick to zero energy. In two dimensions we construct a half-chiral Kekule honeycomb model and show that its unusual higher-order topology protects a single zero-energy mode at a single corner.",
+    "category": "拓扑·电子结构",
+    "link": "https://arxiv.org/abs/2611.26693",
     "journal": "arXiv"
   }
 ]
