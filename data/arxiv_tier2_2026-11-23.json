@@ -9,6 +9,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Machine-learning molecular dynamics reveals dynamic interfacial structure and active-site accessibility in Fe–N–C single-atom catalysts",
+    "title_zh": "机器学习分子动力学揭示了 Fe-N-C 单原子催化剂的动态界面结构和活性位点可达性",
+    "summary": "Fe-N-C单原子催化剂是有前途的氧还原反应无铂催化剂。然而，对其水界面的分子水平理解仍然有限，因为从头开始分子动力学仅限于小系统和皮秒时间尺度，而现有的经典力场缺乏描述铁水配位和界面溶剂结构所需的准确性和可转移性。在这项研究中，我们使用自旋极化密度泛函理论参考数据开发了 Fe-N-C/水系统的等变神经网络势集合。利用这些势，我们对包含 320 个水分子的界面进行了长达 5 ns 的分子动力学模拟。我们的模拟揭示了铁位点水的持续轴向配位和局部稳定的氢键网络。",
+    "abstract": "Fe–N–C single-atom catalysts are promising Pt-free catalysts for the oxygen reduction reaction. However, molecular-level understanding of their aqueous interfaces remains limited because ab initio molecular dynamics is restricted to small systems and picosecond timescales, whereas existing classical force fields lack the accuracy and transferability required to describe Fe–water coordination and interfacial solvent structure. In this study, we developed an ensemble of equivariant neural-network potentials for the Fe–N–C/water system using spin-polarized density functional theory reference data. Using these potentials, we performed molecular dynamics simulations of up to 5 ns for an interface containing 320 water molecules. Our simulations reveal persistent axial coordination of water at the Fe sites and a locally stabilized hydrogen-bond network. Enhanced sampling shows that coordinated water can exchange between opposite sides of the Fe–N 4 plane through a low-energy pathway with a barrier of ∼0.07 eV, whereas blocking backside solvent access in a bilayer model strongly suppresses this exchange and prolongs site hydration. Constrained ab initio simulations further show that O 2 can approach the Fe site from the side opposite to the coordinated water, while no physically reasonable direct-displacement pathway is identified from the water-coordinated side within the present sampling protocol. Additionally, electronic-response calculations averaged over multiple configurations reveal a contact region with low polarizability, which limits the electronic capacitance of the contact layer under ion-free conditions resembling the potential of zero charge. These results clarify how dynamic hydration governs interfacial structure and active-site accessibility at Fe–N–C/water interfaces.",
+    "category": "其他",
+    "link": "https://pubs.aip.org/aip/jcp/article/165/20/204701/3409199/Machine-learning-molecular-dynamics-reveals",
+    "journal": "The Journal of Chemical Physics Current Issue"
+  },
+  {
     "title": "E2Former-V3: Atom-Role-Aware Equivariant Interatomic Potentials",
     "title_zh": "E2Former-V3：原子角色感知等变原子间势",
     "summary": "机器学习的原子间势接近密度泛函精度，但显式溶剂原子计数以氢和水为主。统一的等变架构仍然为每个原子提供相同的潜在宽度和昂贵的块更新数量。据我们所知，现有方法还没有通过化学作用重新分配容量，同时保留每个原子及其第一原理力。我们引入了 E2Former-V3，它将容量视为原子级资源：在主干运行之前分配的静态化学角色，设置每个原子的潜在宽度和更新计数。没有原子被移除，没有坐标被积分，并且每个力仍然是一个保守能量的梯度。标准仅减少更新计数，通过一半的全角块更新发送氢；",
@@ -36,15 +45,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Probabilistic physics-informed neural solvers for Woods–Saxon parameter identification: a coupled forward–inverse approach",
-    "title_zh": "用于伍德斯-萨克森参数识别的概率物理信息神经网络求解器：一种耦合的正反向方法",
-    "summary": "我们引入了一种概率性物理信息学习框架，该框架将量子态重构与从束缚态谱中对全局共享哈密顿量参数的数据集级识别相结合。伍德斯-萨克森逆问题提供了一个在物理上可解释的测试案例，其中涉及多个核、中子和质子扇区以及库仑和自旋-轨道贡献。WaveNet表示分离的径向、极向和方位角波函数分量，而ParamNet则将归一化径向探针、观测能量、核描述符和量子数结合起来，以推断六个全局参数的分布。",
-    "abstract": "We introduce a probabilistic physics-informed learning framework that couples quantum-state reconstruction with dataset-level identification of globally shared Hamiltonian parameters from bound-state spectra. The Woods–Saxon inverse problem provides a physically interpretable test case involving multiple nuclei, neutron and proton sectors, and Coulomb and spin–orbit contributions. WaveNet represents separated radial, polar, and azimuthal wavefunction components, while ParamNet combines normalized radial probes, observed energies, nuclear descriptors, and quantum numbers to infer a distribution over six global parameters. Training jointly enforces Rayleigh-energy consistency, separated Schrödinger residuals, boundary and phase conditions, explicit normalization, selective orthogonality, spin–orbit splitting consistency, and Kullback–Leibler regularization. The physics-informed formulation supports learning from limited spectral observations without supervised wavefunction labels, using only experimental energies from four nuclei. Spectral evaluation uses the physical-space distribution mean. The learned standard deviations describe model-dependent parameter variability. In synthetic closure tests, all six generating parameters are recovered with sub-percent relative errors. Reintroducing the inferred means into an independent finite-difference (FD) solver gives spectral mean absolute errors of for the Seminole parameterization and for Wahlborn. For experimental spectra, the inferred Seminole interaction gives an aggregate mean absolute error of , compared with for the reference interaction and for a FD least-squares fit using the same identification levels. Identification within the Wahlborn expression reduces the corresponding error from to . The framework provides a reusable and robust scientific-machine-learning formulation for inverse quantum eigenvalue problems in which globally shared parameters and physically constrained states must be identified jointly.",
-    "category": "AI×物理",
-    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aec062",
-    "journal": "Machine Learning: Science and Technology"
-  },
-  {
     "title": "Generating grain boundary structures at a specified energy with a symmetry-constrained diffusion model",
     "title_zh": "使用对称约束扩散模型在指定能量下生成晶界结构",
     "summary": "晶界（GB）控制着多晶材料的许多特性，逆向设计将使晶界结构本身成为一个设计变量。 MatterGen 等晶体生成模型在包含两个 GB 的周期性单元上运行。仅当两者等效时，电池能量才定义单个 GB，但现有模型并不强制执行这种等效性。在 MatterGen 的基础上，我们开发了一种对称约束扩散模型，其中两个 GB 通过对称操作相关：生成一个 GB 附近的原子，而另一个 GB 附近的原子则通过在每个去噪步骤中应用的对称投影来重建。",
@@ -55,12 +55,21 @@
   },
   {
     "title": "Sampling non-abelian lattice gauge theories with diffusion models",
-    "title_zh": "使用扩散模型对非阿贝尔格点规范场论进行采样",
-    "summary": "我们提出规范不变扩散模型作为格规范理论（LGT）的采样器。使用格规范等变卷积神经网络（L-CNN）和Metropolis调整的退火Langevin算法（MAALA），我们能够准确地对二维U(2)场构型进行采样，并展示了四维SU(3)的第一个有希望的结果。我们的二维模型在推断到比最初训练时更大的反耦合时表现出色。我们通过将可观测量与分析已知值以及混合蒙特卡洛结果进行比较来确认这一点。",
+    "title_zh": "使用扩散模型对非交换晶格规范理论进行采样",
+    "summary": "我们提出规范等变扩散模型作为格子规范理论（LGT）的采样器。使用格规范等变卷积神经网络 (L-CNN) 和 Metropolis 调整退火 Langevin 算法 (MAALA)，我们能够准确地对二维 U(2) 场配置进行采样，并首次展示了四维 SU(3) 的有希望的结果。我们的二维模型可以很好地推断出比最初训练的更大的逆耦合。我们通过将可观测值与分析已知值以及混合蒙特卡罗结果进行比较来证实这一点。",
     "abstract": "arXiv:2611.27821v1 Announce Type: cross Abstract: We present gauge-equivariant diffusion models as samplers for lattice gauge theories (LGTs). Using lattice gauge-equivariant convolutional neural networks (L-CNNs) and the Metropolis-adjusted annealed Langevin algorithm (MAALA), we are able to accurately sample two-dimensional U(2) field configurations and show first promising results for four-dimensional SU(3). Our two-dimensional models extrapolate remarkably well to larger inverse couplings than originally trained on. We confirm this by comparing observables to analytically known values and to hybrid Monte Carlo results.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.27821",
     "journal": "arXiv"
+  },
+  {
+    "title": "Probabilistic physics-informed neural solvers for Woods–Saxon parameter identification: a coupled forward–inverse approach",
+    "title_zh": "用于伍兹-撒克逊参数识别的基于概率物理的神经求解器：耦合的正向-逆向方法",
+    "summary": "我们引入了一种基于概率物理的学习框架，该框架将量子态重建与来自束缚态谱的全局共享哈密顿参数的数据集级识别结合起来。伍兹-撒克逊反问题提供了一个物理上可解释的测试用例，涉及多个核、中子和质子扇区，以及库仑和自旋轨道贡献。 WaveNet 表示分离的径向、极坐标和方位角波函数分量，而 ParamNet 结合归一化径向探针、观测到的能量、核描述符和量子数来推断六个全局参数的分布。",
+    "abstract": "We introduce a probabilistic physics-informed learning framework that couples quantum-state reconstruction with dataset-level identification of globally shared Hamiltonian parameters from bound-state spectra. The Woods–Saxon inverse problem provides a physically interpretable test case involving multiple nuclei, neutron and proton sectors, and Coulomb and spin–orbit contributions. WaveNet represents separated radial, polar, and azimuthal wavefunction components, while ParamNet combines normalized radial probes, observed energies, nuclear descriptors, and quantum numbers to infer a distribution over six global parameters. Training jointly enforces Rayleigh-energy consistency, separated Schrödinger residuals, boundary and phase conditions, explicit normalization, selective orthogonality, spin–orbit splitting consistency, and Kullback–Leibler regularization. The physics-informed formulation supports learning from limited spectral observations without supervised wavefunction labels, using only experimental energies from four nuclei. Spectral evaluation uses the physical-space distribution mean. The learned standard deviations describe model-dependent parameter variability. In synthetic closure tests, all six generating parameters are recovered with sub-percent relative errors. Reintroducing the inferred means into an independent finite-difference (FD) solver gives spectral mean absolute errors of for the Seminole parameterization and for Wahlborn. For experimental spectra, the inferred Seminole interaction gives an aggregate mean absolute error of , compared with for the reference interaction and for a FD least-squares fit using the same identification levels. Identification within the Wahlborn expression reduces the corresponding error from to . The framework provides a reusable and robust scientific-machine-learning formulation for inverse quantum eigenvalue problems in which globally shared parameters and physically constrained states must be identified jointly.",
+    "category": "AI×物理",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aec062",
+    "journal": "Machine Learning: Science and Technology"
   },
   {
     "title": "Reactivity-Informed Machine Learning for Performance Prediction and Design Space Exploration of Alkali-Activated Slag",
@@ -82,8 +91,8 @@
   },
   {
     "title": "Energy spectra and cascade in the spin turbulence of a driven spinor Bose-Einstein condensate",
-    "title_zh": "受激旋量玻色-爱因斯坦凝聚体自旋湍流中的能量谱和级联",
-    "summary": "我们研究了受驱动的自旋玻色-爱因斯坦凝聚态中自旋湍流的自旋相互作用能谱。对自旋-1凝聚体的连续自旋驱动会产生具有空间波动磁化的非平衡稳态。我们观察到一种幂律标度，其与自旋波湍流的预测指数-7/3一致，尽管谱各向异性存在显著变化，但这种标度在我们整个驱动强度范围内都持续存在。关闭驱动后，我们跟踪了自由衰减演化，并发现了与自旋相互作用能量直接向更高波数级联的证据相一致的证据。这些结果确立了自旋湍流的能量谱特征，并使人们能够对旋量超流体中的级联动力学进行定量研究。",
+    "title_zh": "驱动旋量玻色-爱因斯坦凝聚的自旋湍流中的能谱和级联",
+    "summary": "我们研究了驱动旋量玻色-爱因斯坦凝聚体中自旋湍流的自旋相互作用能谱。自旋 1 凝聚体的连续自旋驱动产生具有空间波动磁化强度的非平衡稳态。我们观察到与自旋波湍流预测的 -7/3 指数一致的幂律缩放，尽管光谱各向异性发生了很大变化，但它在我们的整个驱动强度范围内持续存在。关闭驱动器后，我们跟踪自由衰变演化，并找到与自旋相互作用能量向更高波数直接级联一致的证据。这些结果建立了自旋湍流的能谱标志，并使自旋超流体中的级联动力学的定量研究成为可能。",
     "abstract": "arXiv:2606.00766v2 Announce Type: replace Abstract: We investigate the spin-interaction energy spectrum of spin turbulence in a driven spinor Bose-Einstein condensate. Continuous spin driving of a spin-1 condensate produces a nonequilibrium steady state with spatially fluctuating magnetization. We observe a power-law scaling consistent with the -7/3 exponent predicted for spin-wave turbulence, which persists across our full range of drive strengths despite substantial changes in the spectral anisotropy. After switching off the drive, we track the free-decay evolution and find evidence consistent with a direct cascade of spin-interaction energy toward higher wavenumbers. These results establish an energy-spectral hallmark of spin turbulence and enable quantitative studies of cascade dynamics in spinor superfluids.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2606.00766",
@@ -100,8 +109,8 @@
   },
   {
     "title": "Decoupling Exciton Energetics from Wavefunction Geometry in Imide-Based Defect Double Antiperovskites",
-    "title_zh": "在基于酰亚胺的缺陷双反钙钛矿中将激子能量学与波函数几何结构解耦",
-    "summary": "本文使用自旋轨道耦合准粒子计算、Bethe-Salpeter方程模型（mBSE）以及晶格极化效应的分析描述，研究了基于酰亚胺的缺陷双反钙钛矿AE₅AsPn(NH)₂（AE = Ca、Sr；Pn = Sb、Bi）的激发态性质。在五个四方（P4/mmm）和单斜（Cm）结构模型中，计算出的激子结合能范围为140至210 meV。化学取代既改变了束缚能，也改变了激子空间范围的类氢估算值。",
+    "title_zh": "酰亚胺基缺陷双反钙钛矿中激子能量与波函数几何的解耦",
+    "summary": "利用自旋轨道耦合准粒子计算、模型Bethe-Salpeter方程（mBSE）和晶格极化效应的分析描述，研究了酰亚胺基缺陷双反钙钛矿AE₅AsPn（NH）2（AE = Ca，Sr；Pn = Sb，Bi）的激发态性质。在五种四方 (P4/mmm) 和单斜 (Cm) 结构模型中，计算出的激子结合能范围为 140 至 210 meV。化学取代改变了结合能和激子空间范围的氢估计。",
     "abstract": "arXiv:2611.27440v1 Announce Type: new Abstract: The excited-state properties of imide-based defect double antiperovskites AE₅AsPn(NH)₂ (AE = Ca, Sr; Pn = Sb, Bi) are investigated using spin--orbit-coupled quasiparticle calculations, the model Bethe--Salpeter equation (mBSE), and analytical descriptions of lattice-polarization effects. Across five tetragonal (P4/mmm) and monoclinic (Cm) structural models, the calculated exciton binding energies range from 140 to 210 meV. Chemical substitution modifies both the binding energies and the hydrogenic estimates of exciton spatial extent. By contrast, the structural distortion from tetragonal P4/mmm (D₄ₕ) to monoclinic Cm (Cₛ), which removes inversion and fourfold rotational symmetry, produces comparatively modest changes in binding energy but appreciably reshapes the real- and momentum-space exciton distributions. This contrast reveals a partial decoupling between exciton energetics and wavefunction geometry, and identifies a symmetry-associated sensitivity of exciton geometry to structural distortion. The changes are understood to occur together with modifications of local coordination and electronic dispersion, rather than as an isolated effect of symmetry alone. Lattice polarization provides an additional screening channel, reducing the estimated exciton binding energies by approximately 9--16%. Complementary Fröhlich-polaron calculations yield moderate mass enhancement and model-estimated electron-polaron mobilities of 39--99 cm² V⁻¹ s⁻¹, with comparatively modest differences between the two polymorphs. These results highlight the distinct responses of exciton energetics, exciton wavefunction geometry, and carrier transport to chemical and structural modifications.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2611.27440",
@@ -127,8 +136,8 @@
   },
   {
     "title": "Symmetry-Resolved Spectral Weight Reveals Charge Localization in Correlated Insulator",
-    "title_zh": "对称分辨谱权重揭示了关联绝缘体中的电荷局域化",
-    "summary": "晶体对称性能否揭示电荷在强关联绝缘体中的局域化位置？我们表明，精确电子格林函数的已占有对称性分辨谱权重定义了有效原子极限。在相互作用的Su-Schrieffer-Heeger链中，它们的位移跟踪了不同绝缘相中自旋分辨的多体极化。单体约化密度矩阵的量子度量提供了一种互补的几何表征。我们的结果将实空间对称性分析扩展到了占据能带投影算符之外。",
+    "title_zh": "对称解析的谱权揭示了相关绝缘体中的电荷局域化",
+    "summary": "晶体对称性能否揭示强相关绝缘体中电荷的定位位置？我们证明，精确电子格林函数的占据对称分辨光谱权重定义了有效的原子极限。在相互作用的 Su-Schrieffer-Heeger 链中，它们的位移跟踪不同绝缘相上的自旋分辨多体极化。单体约化密度矩阵的量子度量提供了互补的几何表征。我们的结果将真实空间对称性分析扩展到占用带投影仪之外。",
     "abstract": "arXiv:2603.11879v2 Announce Type: replace Abstract: Can crystalline symmetry reveal where charge localizes in a strongly correlated insulator? We show that occupied symmetry-resolved spectral weights of the exact electronic Green's function define effective atomic limits. In an interacting Su-Schrieffer-Heeger chain, their displacement tracks the spin-resolved many-body polarization across distinct insulating phases. A quantum metric of the one-body reduced density matrix provides a complementary geometric characterization. Our results extend real-space symmetry analysis beyond occupied-band projectors.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2603.11879",
@@ -136,8 +145,8 @@
   },
   {
     "title": "Topologically Obstructed Kondo Hybridization: A Route to Kondo Semimetals",
-    "title_zh": "拓扑受阻的近藤杂化：通往近藤半金属的途径",
-    "summary": "强关联、拓扑和对称性的相互作用可以重塑量子材料的低能电子结构，并推动新型量子相的出现。在重费米子系统中，Kondo效应使局域f磁矩与导带电子纠缠在一起，在低温下形成相干重电子带，通常以Kondo杂化能隙为特征。然而，我们在这里展示了导电电子费米面的拓扑结构和对称性在某些动量下会阻碍近藤杂化能隙的打开。我们将三维系统的费米面视为有效的二维流形，并证明在该流形上定义的非平凡拓扑不变量对打开完全杂化能隙施加了拓扑障碍，迫使fc杂化在费米面上的某些动量处消失。",
+    "title_zh": "拓扑受阻近藤杂化：通向近藤半金属的途径",
+    "summary": "强相关性、拓扑结构和对称性的相互作用可以重塑量子材料的低能电子结构，并推动新型量子相的出现。在重费米子系统中，近藤效应使局域 f 矩与传导电子纠缠在一起，在低温下产生相干重电子带，通常以近藤杂化带隙为特征。然而，在这里我们表明，传导电子费米面的拓扑和对称性可以在某些动量下阻碍近藤杂化能隙的打开。将三维系统的费米面视为有效的二维流形，我们证明了在该流形上定义的非平凡拓扑不变量对打开完全杂化间隙施加了拓扑障碍，迫使 fc 杂化在费米表面上的某些动量处消失。",
     "abstract": "arXiv:2611.26686v1 Announce Type: new Abstract: The interplay of strong correlations, topology, and symmetry can reshape the low-energy electronic structure of quantum materials and drive the emergence of novel quantum phases. In heavy-fermion systems, the Kondo effect entangles localized f moments with conduction electrons, giving rise to coherent heavy-electron bands at low temperatures, typically characterized by a Kondo hybridization gap. Here we show, however, that the topology and symmetry of the conduction-electron Fermi surface can obstruct the opening of the Kondo hybridization gap at certain momenta. Treating the Fermi surface of a three-dimensional system as an effective two-dimensional manifold, we demonstrate that nontrivial topological invariants defined on this manifold impose a topological obstruction to opening a full hybridization gap, forcing the fc hybridization to vanish at certain momenta on the Fermi surface. These hybridization zeros lead to crossings between c and f bands, giving rise to nodal points or lines near the Fermi energy within the Kondo phase. Our results establish topological obstructions to Kondo hybridization as a route to Kondo semimetals, revealing a fundamental connection between Fermi-surface topology and the emergence of correlated electronic phases.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2611.26686",
@@ -168,15 +177,6 @@
     "abstract": "arXiv:2608.17608v2 Announce Type: replace Abstract: The chiral-induced spin selectivity (CISS) effect is commonly associated with spin-selective transport through chiral molecules, while the role of molecule-electrode interfaces remains poorly understood. Here, we demonstrate that adsorption of chiral amino acid derived molecules on ferromagnetic Ni films with native NiO layer induces a remanent chirality-dependent magneto-optical response. Systematic control experiments establish that this response originates from the molecule-NiO/Ni interface, rather than the molecular layer or bulk ferromagnet. First-principles calculations reveal preferential carboxylate binding and interfacial charge redistribution extending into the NiO surface layers, demonstrating how molecular adsorption modifies the electronic structure of the oxide. Together, these results provide evidence for the formation of chiral spinterfaces, where molecular chirality and interfacial electronic structure give rise to a distinct magnetic response. Our findings highlight the previously overlooked role of molecule-electrode interfaces in CISS-related systems and identify interfacial electronic and magnetic properties as important considerations for understanding and controlling spin selectivity.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2608.17608",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Topological phases protected by half-chiral symmetry",
-    "title_zh": "受半手性对称性保护的拓扑相",
-    "summary": "手性（或子晶格）对称性描述了二分系统，例如 Su-Schrieffer-Heeger (SSH) 链，其中禁止同子晶格 A-A 和 B-B 跳跃，从而能够保护拓扑相。在这里，我们确定了受半手性对称性保护的新拓扑相，其中手性对称性仅保留在一个亚晶格上，这可能发生在亚晶格不平衡（例如石墨烯-六方氮化硼）或局域轨道（例如闪锌矿）中。与群论描述的传统对称算子不同，半手性对称是亚晶格投影哈密顿量的代数约束，例如 PHP=0，需要新的拓扑保护框架。",
-    "abstract": "arXiv:2611.26693v1 Announce Type: cross Abstract: Chiral (or sublattice) symmetry describes bipartite systems such as the Su-Schrieffer-Heeger (SSH) chain where same-sublattice A-A and B-B hoppings are forbidden, enabling the protection of topological phases. Here we identify new topological phases protected by half-chiral symmetry wherein chiral symmetry is preserved on only one sublattice, as may occur with sublattice imbalance (e.g. graphene-hBN) or localized orbitals (e.g. zincblende). Unlike conventional symmetry operators described by group theory, half-chiral symmetry is an algebraic constraint on the sublattice-projected Hamiltonian such as PHP=0, requiring a new framework for topological protection. We develop such a framework, identifying real-space bulk topological invariants and corresponding topological boundary modes that stick to zero energy. In two dimensions we construct a half-chiral Kekule honeycomb model and show that its unusual higher-order topology protects a single zero-energy mode at a single corner.",
-    "category": "拓扑·电子结构",
-    "link": "https://arxiv.org/abs/2611.26693",
     "journal": "arXiv"
   }
 ]
