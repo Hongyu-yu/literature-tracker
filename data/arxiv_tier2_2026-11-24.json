@@ -1,8 +1,8 @@
 [
   {
     "title": "Machine Learning Electronic Hamiltonian with Long-Range Effects and External Fields",
-    "title_zh": "文献研究：Machine Learning Electronic Hamiltonian with Long-Range Effects and External Fields",
-    "summary": "Conventional machine-learning electronic Hamiltonian (MLEH) models rely on a local-environment approximation and can miss the effects of long-range (LR) interactions and external fields. Here, we intr…",
+    "title_zh": "具有长程效应和外部场的机器学习电子哈密顿量",
+    "summary": "传统的机器学习电子哈密顿 (MLEH) 模型依赖于局部环境近似，可能会忽略远程 (LR) 相互作用和外部场的影响。在这里，我们介绍 MLEH-LR，一个将这些效应纳入哈密顿预测的框架。具有不同极化和维度的材料的基准测试表明，预测的哈密顿量和由此产生的电子结构的准确性有了显着提高。 MLEH-LR 能够实现精确、大规模、高通量的电子结构计算，正如横向电场下之字形氮化硼带材所证明的那样。这些计算使我们能够制定描述接头宽度和带隙场依赖性的定量关系，并揭示其场响应背后的电子机制。",
     "abstract": "arXiv:2611.28450v1 Announce Type: new Abstract: Conventional machine-learning electronic Hamiltonian (MLEH) models rely on a local-environment approximation and can miss the effects of long-range (LR) interactions and external fields. Here, we introduce MLEH-LR, a framework that incorporates these effects into Hamiltonian prediction. Benchmarks across materials with different polarizations and dimensionalities demonstrate substantial improvements in the accuracy of the predicted Hamiltonians and resulting electronic structures. MLEH-LR enables accurate, large-scale, high-throughput electronic-structure calculations, as demonstrated for zigzag boron nitride ribbons under transverse electric fields. These calculations allow us to formulate a quantitative relation describing the joint width and field dependence of the band gap and to reveal the electronic mechanisms underlying its field response. Our work provides an efficient method and tool for studying electronic structure in materials where long-range electrostatics and external fields play an important role.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.28450",
@@ -28,8 +28,8 @@
   },
   {
     "title": "Auditing a superconducting database built by a large language model",
-    "title_zh": "文献研究：Auditing a superconducting database built by a large language model",
-    "summary": "The data on superconducting materials are published as measurements and scattered across the literature, in prose, in tables and in figures, so that gathering them into one place means reading the pap…",
+    "title_zh": "审计由大型语言模型构建的超导数据库",
+    "summary": "超导材料的数据以测量结果的形式发布，并分散在文献、散文、表格和图表中，因此将它们收集到一处就意味着阅读论文本身。大型语言模型（LLM）可以阅读这些论文，并且以这种方式构建的数据库正在出现。困难不在于阅读，而在于信任：从句子中取出的数字可能属于邻近的化合物，计算出的转变温度可以记录下来而不说它是计算出来的，论文本身也可能是错误的。本文描述了一种从法学硕士发表的文献中提取超导材料的流程，根据其来源检查每个值，并询问检查进行到什么程度。该管道提议了 19,576 条记录；",
     "abstract": "arXiv:2611.29445v1 Announce Type: new Abstract: The data on superconducting materials are published as measurements and scattered across the literature, in prose, in tables and in figures, so that gathering them into one place means reading the papers themselves. Large language models (LLMs) can read those papers, and databases built that way are appearing. The difficulty is not the reading but the trust: a number lifted out of a sentence can belong to a neighbouring compound, a computed transition temperature can be recorded without saying that it is computed, and the paper itself may be wrong. This paper describes a pipeline that extracts superconducting materials from the published literature with an LLM, checks every value against its source, and asks how far that checking goes. The pipeline proposed 19,576 records; a cascade of gates rejected 659,252 field-level extractions, 644,438 of them for want of verbatim evidence, 13,121 because the text does not attach the value to the material, and 1,693 because the source sentence reads as a calculation. The database that survives holds 3,137 material records, each with the sentence its value came from. An audit of the survivors by two independent models, on 500 records drawn in proportion to the database, shows that the gates remove the errors that are mechanical: in 93.4% of the audited records the value is in the text and the text is about the compound the record names, and 91.8% of them are measurements rather than predictions.",
     "category": "超导",
     "link": "https://arxiv.org/abs/2611.29445",
@@ -37,8 +37,8 @@
   },
   {
     "title": "An equivariant classical density functional for ionic fluids at complex interfaces",
-    "title_zh": "文献研究：An equivariant classical density functional for ionic fluids at complex interfaces",
-    "summary": "Predicting the combined effects of ionic packing and long-range electrostatics at complex interfaces is technologically important, but remains challenging without atomistic simulations. Here we presen…",
+    "title_zh": "复杂界面离子流体的等变经典密度泛函",
+    "summary": "预测复杂界面上离子堆积和长程静电的综合效应在技术上很重要，但如果没有原子模拟，仍然具有挑战性。在这里，我们提出了一种机器学习的离子流体经典密度泛函，它将用于短程相关性的对称适应神经自由能与显式长程静电相结合。经过对全库仑限制原始模型的三维平衡密度和体积相关性的训练，单一功能转移到电荷图案粒子和原子结构电极。围绕各向异性带电溶质，它再现了分子动力学的离子结构和平均力，包括裸静电力的反转。",
     "abstract": "arXiv:2611.28501v1 Announce Type: new Abstract: Predicting the combined effects of ionic packing and long-range electrostatics at complex interfaces is technologically important, but remains challenging without atomistic simulations. Here we present a machine-learned classical density functional for ionic fluids that combines a symmetry-adapted neural free energy for short-range correlations with explicit long-range electrostatics. Trained on three-dimensional equilibrium densities and bulk correlations of the full-Coulomb restricted primitive model, a single functional transfers to charge-patterned particles and atomically structured electrodes. Around anisotropic charged solutes, it reproduces the ionic structure and mean forces from molecular dynamics, including reversals of the bare electrostatic force. At metal electrodes, self-consistent coupling to metal atoms captures the redistribution of ionic and electrode charge and the loading-dependent capacitance enhancement produced by steps and bumps. Combined with mobilities determined independently from bulk molecular dynamics, the same functional describes the main features of charging dynamics and resolves geometry-dependent spatial relaxation. This framework can be extended to more complex ionic fluids, enabling efficient exploration of how composition and geometry control structure and response.",
     "category": "软物质·流体·统计",
     "link": "https://arxiv.org/abs/2611.28501",
@@ -54,40 +54,76 @@
     "journal": "arXiv"
   },
   {
+    "title": "Anatomy of orbital and spin responses in GaAs and Si: Hall, inverse Faraday, and magneto-optical Kerr effects",
+    "title_zh": "GaAs 和 Si 中轨道和自旋响应的剖析：霍尔效应、逆法拉第效应和磁光克尔效应",
+    "summary": "非磁性半导体中的磁光信号在角动量生成和磁光检测中都会纠缠自旋和轨道贡献。我们使用密度泛函理论、线性响应理论和反法拉第效应的二阶密度矩阵处理来计算电子掺杂的 GaAs 和 Si 的这些贡献。在少量电子掺杂下，本征轨道霍尔电导率在数量级上超过其自旋对应物，而轨道对光诱导磁化的贡献在广泛的光子能量范围内占主导地位。我们表明，轨道和自旋分辨的光学霍尔系数和极克尔系数对轨道矩的敏感性比对相等自旋矩的敏感性更强。这种对比反映了与轨道运动的直接电偶极耦合与与自旋极化的自旋轨道介导的耦合。",
+    "abstract": "arXiv:2611.30297v1 Announce Type: new Abstract: Magneto-optical signals in nonmagnetic semiconductors entangle spin and orbital contributions, both in angular-momentum generation and magneto-optical detection. We calculate these contributions for electron-doped GaAs and Si using density-functional theory, linear-response theory, and a second-order density-matrix treatment of the inverse Faraday effect. At small electron doping, the intrinsic orbital Hall conductivity exceeds its spin counterpart in magnitude, while the orbital contribution to light-induced magnetization dominates over broad photon-energy ranges. We show that orbital- and spin-resolved optical Hall and polar Kerr coefficients exhibit stronger sensitivity to orbital moments than to equal spin moments. This contrast reflects direct electric-dipole coupling to orbital motion versus spin-orbit-mediated coupling to spin polarization. Consequently, Si maintains a substantial orbital magneto-optical response despite its weak spin-orbit interaction. At probe energies of 1.5 eV in GaAs and 3.0 eV in Si, the magnitude of the Kerr rotation per unit orbital moment is approximately 5 and 13 times larger than that per unit spin moment, respectively. Combining the calculated Hall conductivities and Kerr coefficients with a phenomenological drift-diffusion model yields predominantly orbital edge signals for the assumed diffusion constants and relaxation lengths. These results indicate that optical detection of induced magnetization in doped semiconductors such as GaAs and Si can be dominated by orbital signals, and therefore cannot be interpreted solely in terms of spin polarization.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.30297",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Electric polarizabilities with phaseless auxiliary-field quantum Monte Carlo",
+    "title_zh": "无相辅助场量子蒙特卡罗的电极化率",
+    "summary": "虽然投影量子蒙特卡罗方法以产生准确的基态能量而闻名，但对编码电子对所施加的电场和磁场的响应的其他特性的预测历来具有挑战性。在这项工作中，我们证明了电（静态）极化张量（形式上是能量相对于电场的二阶导数）可以使用相关采样有限差分策略通过无相辅助场量子蒙特卡罗有效计算。通过简单的 Hartree-Fock 试验波函数，我们研究了一系列小分子（其中一些难以近似密度泛函）、尺寸不断增大的多并苯以及作为代表性有机金属配合物的二茂铁。",
+    "abstract": "arXiv:2611.29858v1 Announce Type: cross Abstract: While projector quantum Monte Carlo methods are known for producing accurate ground-state energies, the prediction of other properties that encode the electronic response to applied electric and magnetic fields has historically been challenging. In this work we demonstrate that the electric (static) polarizability tensor, which is formally a second-derivative of the energy with respect to electric fields, can be efficiently computed with phaseless auxiliary-field quantum Monte Carlo using a correlated sampling finite-difference strategy. With simple Hartree-Fock trial wave functions, we investigate a series of small molecules (some of which are difficult for approximate density functionals), polyacenes of increasing size, and ferrocene as a representative organometallic complex. The methodology is scalable to relatively large molecules involving thousands of basis functions, and with appropriate trial wave functions remains robust for strongly correlated electronic states, as we show for the stretched dinitrogen molecule. This work opens the door to the computation of a host of other second-order molecular properties with auxiliary-field quantum Monte Carlo, which will inform the ongoing search for optimal trial wave functions and extend benchmark-quality training data sets for the refinement of semi-empirical and machine learning models for quantum chemistry and molecular simulation.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.29858",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Molecular Pawns on a Surface Chessboard: Computational Investigation of Nanographenes with Atomistic Methods",
+    "title_zh": "表面棋盘上的分子棋子：用原子方法对纳米石墨烯进行计算研究",
+    "summary": "原子精确的纳米石墨烯将可调谐电子拓扑与局域相干自旋态相结合，使其成为分子量子技术的候选平台。这篇综述研究了控制这些系统的多尺度理论框架：用于描述磁性的计算方法的层次结构、基质-分子界面、表面合成动力学和超分子自组装。我们重点介绍密度泛函理论、自动反应路径发现和自旋感知机器学习原子间势如何将静态电子结构与介观动力学联系起来，以及如何在合成前预测磁交换、光学激发和自旋输运。",
+    "abstract": "arXiv:2611.30917v1 Announce Type: new Abstract: Atomically precise nanographenes combine tunable electronic topology with localized, coherent spin states, making them candidate platforms for molecular quantum technologies. This review examines the multiscale theoretical framework governing these systems: the hierarchy of computational methods for describing magnetic properties, the substrate-molecule interface, on-surface synthetic kinetics, and supramolecular self-assembly. We highlight how density functional theory, automated reaction-path discovery, and spin-aware machine-learned interatomic potentials connect static electronic structure to mesoscale dynamics, and how magnetic exchange, optical excitations, and spin transport can be predicted before synthesis.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2611.30917",
+    "journal": "arXiv"
+  },
+  {
     "title": "Origin of Reduced Coercive Field in ScAlN: Synergy of Structural Softening and Dynamic Atomic Correlations",
-    "title_zh": "文献研究：Origin of Reduced Coercive Field in ScAlN: Synergy of Structural Softening and Dynamic Atomic Correlations",
-    "summary": "Among wurtzite-type ferroelectrics, scandium-doped aluminum nitride (ScAlN) has emerged as a leading candidate for CMOS-compatible low-voltage memory, combining strong spontaneous polarization with pr…",
+    "title_zh": "ScAlN 矫顽场减小的起源：结构软化和动态原子相关性的协同作用",
+    "summary": "在纤锌矿型铁电体中，掺钪氮化铝 (ScAlN) 已成为 CMOS 兼容低压存储器的主要候选材料，它将强自发极化与工艺兼容性结合在一起。该系统的一个显着特征是矫顽场（E_c）随着钪浓度的增加而显着降低；然而，在原子尺度上，特别是在有限的温度和施加的电场下，其微观起源仍然知之甚少。在这里，我们采用原子模拟框架，将密度泛函理论精确的机器学习力场与基于等变神经网络的玻恩有效电荷模型集成在一起，以接近第一原理的精度进行大规模电场诱导的分子动力学模拟。",
     "abstract": "arXiv:2603.18710v2 Announce Type: replace Abstract: Among wurtzite-type ferroelectrics, scandium-doped aluminum nitride (ScAlN) has emerged as a leading candidate for CMOS-compatible low-voltage memory, combining strong spontaneous polarization with process compatibility. A remarkable feature of this system is the pronounced reduction of the coercive field (E_c) with increasing Sc concentration; however, its microscopic origin remains poorly understood at the atomic scale, particularly under finite temperature and applied electric fields. Here, we employ an atomistic simulation framework that integrates a density-functional-theory-accurate machine-learning force field with an equivariant neural-network-based Born effective charge model to perform large-scale electric-field-induced molecular dynamics simulations at near-first-principles accuracy. The framework correctly reproduces key experimentally observed trends, including the decrease in the c/a ratio and the monotonic reduction of E_c with increasing Sc content. Beyond static structural softening, we uncover a dynamic mechanism underlying E_c reduction. Sc atoms exhibit larger thermal vibrations and begin to displace earlier during switching, acting as dynamic triggers for polarization reversal. Moreover, the displacement correlation between Sc and Al atoms evolves systematically with composition, enhancing cooperative atomic rearrangements and lowering the effective switching barrier. These results demonstrate that E_c reduction in ScAlN arises from the synergy of structural softening and dynamic correlation evolution, providing a new perspective for designing hexagonal ferroelectrics.",
     "category": "铁电·极化",
     "link": "https://arxiv.org/abs/2603.18710",
     "journal": "arXiv"
   },
   {
+    "title": "High-Throughput Screening of Phononic Bandgap in Experimentally Realized Materials",
+    "title_zh": "实验材料中声子带隙的高通量筛选",
+    "summary": "具有声子带隙的材料提供了限制声子散射的独特机制，使其成为开发用于目标热应用的功能材料的有希望的候选者。在广泛的材料类别中解锁这种机制需要系统的探索，但第一性原理方法和实验成本太高。在这里，我们使用通用机器学习原子间势来量化声子和热力学性质。我们通过将机器学习计算结果与密度泛函理论进行比较，验证了机器学习计算结果的准确性。我们筛选了 154,879 种材料，并对 42,347 种热力学稳定且实验观察到的化合物进行了声子计算。",
+    "abstract": "arXiv:2611.30344v1 Announce Type: new Abstract: Materials with a phonon band gap offer a unique mechanism to restrict phonon scattering, making them promising candidates for developing functional materials for targeted thermal applications. Unlocking this mechanism across broad material classes requires systematic exploration, but first-principles methods and experiments are too expensive. Here, we used the universal machine-learning interatomic potential to quantify phonons and thermodynamic properties. We validated the accuracy of machine-learning-calculated results by comparing them with density-functional theory. We screened 154,879 materials and performed phonon calculations for 42,347 thermodynamically stable and experimentally observed compounds. We then performed phonon band gap analysis for dynamically stable materials and identified 11,176 materials with a phononic gap, including 10,960 materials with optical-optical gaps and 270 with acoustic-optical gaps. We also analyzed the lattice thermal conductivity of materials with phonon band gaps to identify candidates with acoustic-optical gaps and low thermal conductivity. Finally, by solving the linearized phonon Boltzmann equation from first principles, we demonstrate low room-temperature lattice thermal conductivities in three Li-metal binaries.",
+    "category": "其他凝聚态",
+    "link": "https://arxiv.org/abs/2611.30344",
+    "journal": "arXiv"
+  },
+  {
     "title": "CrysLDM: Latent Diffusion Model for Crystal Material Generation",
-    "title_zh": "文献研究：CrysLDM: Latent Diffusion Model for Crystal Material Generation",
-    "summary": "Generating new crystal materials with desirable chemical properties has long been a challenging task. Existing diffusion models operate in feature space, requiring complex diffusion architectures to m…",
+    "title_zh": "CrysLDM：用于生成晶体材料的潜在扩散模型",
+    "summary": "生成具有理想化学性质的新晶体材料长期以来一直是一项具有挑战性的任务。现有的扩散模型在特征空间中运行，需要复杂的扩散架构来模拟原子类型、坐标和晶格结构的联合分布。这种复杂性增加了扩散步骤的数量，导致更高的培训和采样成本。在这项工作中，我们的目标是在时间和资源有限的情况下生成新型晶体材料，而现有模型不太适合。为了解决这个问题，我们提出了 CrysLDM，一种用于 3D 晶体材料的新型潜在扩散模型，它集成了变分自动编码器和扩散模型。",
     "abstract": "arXiv:2611.29675v1 Announce Type: new Abstract: Generating new crystal materials with desirable chemical properties has long been a challenging task. Existing diffusion models operate in feature space, requiring complex diffusion architectures to model the joint distribution of atom types, coordinates, and lattice structures. This complexity increases the number of diffusion steps, leading to higher training and sampling costs. In this work, we aim to generate novel crystal materials within a time- and resource-constrained setup, where existing models are not well-suited. To address this, we propose CrysLDM, a novel latent diffusion model for 3D crystal materials, which integrates a variational autoencoder and a diffusion model. The VAE encoder maps 3D crystal structures into a latent space, where the diffusion model operates. Since CrysLDM leverages a smooth, lower-dimensional latent space, it simplifies the generative process and accelerates both training and inference. Through extensive experiments on benchmark datasets and tasks, we show that CrysLDM generates stable and valid materials with quality comparable to state-of-the-art methods, while being significantly more efficient in terms of computational resources and time.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.29675",
     "journal": "arXiv"
   },
   {
+    "title": "Adaptive Slater Koster Parameters: Crossing Oxidation States with Density Functional Tight Binding",
+    "title_zh": "自适应 Slater Koster 参数：通过密度函数紧结合交叉氧化态",
+    "summary": "我们建议将密度泛函紧束缚（DFTB）中支撑 Slater-Koster（SK）表的受限伪原子轨道调整到局部原子环境。为不同氧化态的金属原子分配最佳的 SK 参数可以改善部分氧化的 Ni 表面的电子结构，并且通过调整排斥力，改善石墨中的 Li 插入能量。它们对化学和空间环境的平滑、可解释的响应，独立观察到镍和钴氧化物，实现了简单、物理信息丰富的机器学习方案，此处应用于镍氧二元化合物。",
+    "abstract": "arXiv:2605.19977v2 Announce Type: replace Abstract: We propose to adapt the confined pseudo-atomic orbitals underpinning the Slater-Koster (SK) tables in density functional tight binding (DFTB) to local atomic environments. Assigning optimal SK parameters to metal atoms in different oxidation states improves the electronic structure of a partially oxidized Ni surface and, with adapted repulsion, Li insertion energetics in graphite. Their smooth, interpretable response to chemical and spatial environment, independently observed for Ni and Co oxides, enables a simple, physically informed machine-learning scheme, here applied to Ni-O binaries.",
+    "category": "其他",
+    "link": "https://arxiv.org/abs/2605.19977",
+    "journal": "arXiv"
+  },
+  {
     "title": "PACSYLLM: natural-language access to an expanded PACSY database of protein structures and chemical shifts",
-    "title_zh": "文献研究：PACSYLLM: natural-language access to an expanded PACSY database of protein structures and chemical shifts",
-    "summary": "Chemical shifts are the first data obtained in protein NMR studies, and their relationship to three-dimensional structure underlies resonance assignment, secondary-structure analysis, and structure de…",
+    "title_zh": "PACSYLLM：以自然语言访问蛋白质结构和化学位移的扩展 PACSY 数据库",
+    "summary": "化学位移是蛋白质核磁共振研究中获得的第一个数据，它们与三维结构的关系是共振分配、二级结构分析和结构测定的基础。 2012 年，PACSY 通过集成蛋白质数据库 (PDB) 的 NMR 结构、生物磁共振数据库 (BMRB) 的化学位移以及蛋白质结构分类 (SCOP) 的折叠分类，使这种关系变得可搜索。然而，许多分析仍然需要 SQL 查询或自定义脚本。在这里，我们描述了一个重建的、质量控制的 PACSY 数据库和 PACSYLLM（其数据的自然语言接口）。",
     "abstract": "Chemical shifts are the first data obtained in protein NMR studies, and their relationship to three-dimensional structure underlies resonance assignment, secondary-structure analysis, and structure determination. In 2012, PACSY made this relationship searchable by integrating NMR structures from the Protein Data Bank (PDB), chemical shifts from the Biological Magnetic Resonance Data Bank (BMRB), and fold classifications from the Structural Classification of Proteins (SCOP). Many analyses, however, still require SQL queries or custom scripts. Here, we describe a rebuilt, quality-controlled PACSY database and PACSYLLM, a natural-language interface to its data. The database holds 11,537 PDB/BMRB chain pairs, 10,881 of them protein chains, with 7.9 million chemical shifts and 239 million atomic coordinates, 1.6 to 3.9 times the 2012 content. It also stores derived annotations for shift-based secondary-structure and torsion-angle prediction, chemical-shift re-referencing, fold classification, ensemble quality, and covalent geometry. Chemical shifts are matched to the correct molecular entity and checked against their NMR-STAR source files. PACSYLLM keeps scientific computation outside the language model: deterministic programs handle well-defined outputs, while a self-hosted 27-billion-parameter model generates one validated, read-only SQL query and summarizes the returned data. PACSYLLM answered all 26 held-out questions correctly in three repeats and answered reworded versions correctly. The database queries of six published PACSY analyses, each posed as a single natural-language request, returned the published or independently verified results.",
     "category": "磁性·自旋电子学",
     "link": "https://www.researchsquare.com/article/rs-11816282/latest",
     "journal": "Preprints"
-  },
-  {
-    "title": "Anatomy of orbital and spin responses in GaAs and Si: Hall, inverse Faraday, and magneto-optical Kerr effects",
-    "title_zh": "文献研究：Anatomy of orbital and spin responses in GaAs and Si: Hall, inverse Faraday, and magneto-optical Kerr effects",
-    "summary": "Magneto-optical signals in nonmagnetic semiconductors entangle spin and orbital contributions, both in angular-momentum generation and magneto-optical detection. We calculate these contributions for e…",
-    "abstract": "arXiv:2611.30297v1 Announce Type: new Abstract: Magneto-optical signals in nonmagnetic semiconductors entangle spin and orbital contributions, both in angular-momentum generation and magneto-optical detection. We calculate these contributions for electron-doped GaAs and Si using density-functional theory, linear-response theory, and a second-order density-matrix treatment of the inverse Faraday effect. At small electron doping, the intrinsic orbital Hall conductivity exceeds its spin counterpart in magnitude, while the orbital contribution to light-induced magnetization dominates over broad photon-energy ranges. We show that orbital- and spin-resolved optical Hall and polar Kerr coefficients exhibit stronger sensitivity to orbital moments than to equal spin moments. This contrast reflects direct electric-dipole coupling to orbital motion versus spin-orbit-mediated coupling to spin polarization. Consequently, Si maintains a substantial orbital magneto-optical response despite its weak spin-orbit interaction. At probe energies of 1.5 eV in GaAs and 3.0 eV in Si, the magnitude of the Kerr rotation per unit orbital moment is approximately 5 and 13 times larger than that per unit spin moment, respectively. Combining the calculated Hall conductivities and Kerr coefficients with a phenomenological drift-diffusion model yields predominantly orbital edge signals for the assumed diffusion constants and relaxation lengths. These results indicate that optical detection of induced magnetization in doped semiconductors such as GaAs and Si can be dominated by orbital signals, and therefore cannot be interpreted solely in terms of spin polarization.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.30297",
-    "journal": "arXiv"
   },
   {
     "title": "DeepDOSReasoner: Physics-Grounded Reasoning for Density-of-States Prediction and Materials Discovery",
@@ -99,18 +135,9 @@
     "journal": "arXiv"
   },
   {
-    "title": "Electric polarizabilities with phaseless auxiliary-field quantum Monte Carlo",
-    "title_zh": "文献研究：Electric polarizabilities with phaseless auxiliary-field quantum Monte Carlo",
-    "summary": "While projector quantum Monte Carlo methods are known for producing accurate ground-state energies, the prediction of other properties that encode the electronic response to applied electric and magne…",
-    "abstract": "arXiv:2611.29858v1 Announce Type: cross Abstract: While projector quantum Monte Carlo methods are known for producing accurate ground-state energies, the prediction of other properties that encode the electronic response to applied electric and magnetic fields has historically been challenging. In this work we demonstrate that the electric (static) polarizability tensor, which is formally a second-derivative of the energy with respect to electric fields, can be efficiently computed with phaseless auxiliary-field quantum Monte Carlo using a correlated sampling finite-difference strategy. With simple Hartree-Fock trial wave functions, we investigate a series of small molecules (some of which are difficult for approximate density functionals), polyacenes of increasing size, and ferrocene as a representative organometallic complex. The methodology is scalable to relatively large molecules involving thousands of basis functions, and with appropriate trial wave functions remains robust for strongly correlated electronic states, as we show for the stretched dinitrogen molecule. This work opens the door to the computation of a host of other second-order molecular properties with auxiliary-field quantum Monte Carlo, which will inform the ongoing search for optimal trial wave functions and extend benchmark-quality training data sets for the refinement of semi-empirical and machine learning models for quantum chemistry and molecular simulation.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.29858",
-    "journal": "arXiv"
-  },
-  {
     "title": "Dictionary learning approach to analytic continuation of imaginary-time quantum Monte Carlo data",
-    "title_zh": "文献研究：Dictionary learning approach to analytic continuation of imaginary-time quantum Monte Carlo data",
-    "summary": "Many fields of physics use quantum Monte Carlo (QMC) simulations to simulate quantum systems in imaginary-time τ and estimate imaginary-time correlation functions (ITCF). However, extracting dynamic ω…",
+    "title_zh": "虚时间量子蒙特卡罗数据解析延拓的字典学习方法",
+    "summary": "物理学的许多领域都使用量子蒙特卡罗 (QMC) 模拟来模拟虚数时间 τ 中的量子系统并估计虚数时间相关函数 (ITCF)。然而，从 ITCF 中提取动态 ω 相关量是一项众所周知的困难任务，称为解析延拓 (AC)，相当于解决指数病态反问题。在 AC 文献中，存在相互竞争的随机方法和正则化方法，以及使用神经网络等参数化模型的新兴作品集。在这里，我们超越了社区之间的传统鸿沟，引入了正则化随机优化方法（RSOM）。该方法将 AC 重新表述为字典学习问题，发现稀疏字典来表示解决方案。",
     "abstract": "arXiv:2606.19205v2 Announce Type: replace Abstract: Many fields of physics use quantum Monte Carlo (QMC) simulations to simulate quantum systems in imaginary-time τ and estimate imaginary-time correlation functions (ITCF). However, extracting dynamic ω-dependent quantities from ITCFs is a notoriously difficult task, known as analytic continuation (AC), that amounts to solving an exponentially ill-conditioned inverse problem. Within the AC literature, there are competing stochastic and regularized approaches, as well as an emerging collection of works using parameterized models like neural networks. Here we transcend the traditional divides between the communities, introducing the regularized stochastic optimization method (RSOM). This method reformulates AC as a dictionary learning problem, discovering a sparse dictionary to represent the solution. Our approach is motivated by the astounding results dictionary learning has produced in many scientific fields. Remarkably, RSOM discovers a sparse dictionary that maps a high-dimensional ill-conditioned inverse problem to a low-dimensional problem. We demonstrate that the method yields competitive results for common synthetic test problems as well as for authentic QMC data from the finite temperature electron gas. Due to the low dimensionality, there is reasonably finite uncertainty in the dictionary, which is leveraged to create an ad hoc post-processing estimate of the dictionary coefficients' sensitivity to perturbations. This work exposes that a dictionary exists within all stochastic and regularized methods and that dictionary learning provides a new angle of attack for future AC methods.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.19205",
@@ -118,8 +145,8 @@
   },
   {
     "title": "Autonomous Optimization of Complex Oxides for Thermochemical Fuel Production",
-    "title_zh": "文献研究：Autonomous Optimization of Complex Oxides for Thermochemical Fuel Production",
-    "summary": "Two-step thermochemical cycles for H2O and CO2 splitting offer a promising route to sustainable fuel production. Their performance depends on redox-active oxides that undergo cyclic reduction and oxid…",
+    "title_zh": "用于热化学燃料生产的复合氧化物的自主优化",
+    "summary": "H2O 和 CO2 分解的两步热化学循环为可持续燃料生产提供了一条有前途的途径。它们的性能取决于经历循环还原和氧化反应的氧化还原活性氧化物。实现高热-燃料转化效率需要良好的氧化还原热力学和足够快的反应动力学。这些要求已将材料设计转向复杂的多阳离子氧化物，包括混合阳离子萤石、钙钛矿和高熵氧化物。开发此类材料需要同时优化其成分、缺陷化学、相稳定性和形态。由此产生的设计空间很难通过连续的试验和错误来探索。因此，热化学燃料生产为自主材料设计和优化提供了一个引人注目的测试平台。",
     "abstract": "arXiv:2608.06877v2 Announce Type: replace Abstract: Two-step thermochemical cycles for H2O and CO2 splitting offer a promising route to sustainable fuel production. Their performance depends on redox-active oxides that undergo cyclic reduction and oxidation reactions. Achieving high thermal-to-fuel conversion efficiency requires both favorable redox thermodynamics and sufficiently rapid reaction kinetics. These requirements have shifted materials design toward complex multication oxides, including mixed-cation fluorites, perovskites, and high-entropy oxides. Developing such materials requires the simultaneous optimization of their composition, defect chemistry, phase stability, and morphology. The resulting design space is difficult to explore through sequential trial and error. Thermochemical fuel production therefore provides a compelling testbed for autonomous materials design and optimization. In this study, we first examine why redox-active complex oxides are challenging to develop owing to their multidimensional phase spaces, harsh operating conditions, and competing functional targets. We then discuss how high-throughput computation, automated synthesis, characterization, and testing, together with machine learning, can be integrated into closed-loop workflows to address these challenges. Drawing on advances from broader oxide materials research, we define a capability roadmap encompassing complex-oxide synthesis, operando characterization, robotic testing, condition-aware computation, and multi-objective optimization. Finally, we identify the key experimental, computational, data, and artificial intelligence capabilities required to build self-improving optimization platforms for materials development in thermochemical fuel production",
     "category": "AI×化学·材料",
     "link": "https://arxiv.org/abs/2608.06877",
@@ -135,48 +162,21 @@
     "journal": "Preprints"
   },
   {
+    "title": "Approximating thermodynamic equilibrium observables of quasi one-dimensional magnetic molecules and chains by thermal DMRG - a user perspective",
+    "title_zh": "通过热 DMRG 近似准一维磁性分子和链的热力学平衡可观测值 - 用户视角",
+    "summary": "一般而言，密度矩阵重整化群方法或张量网络方法不仅可以用于确定基态，还可以用于评估热平衡性质。尽管收敛性对于具有最近邻交换和开放边界条件的一维量子自旋系统来说是优越的，但希望这些方法也可以用于近似具有更复杂相互作用模式的磁性分子的磁可观测量。在这里，我们假设用户的位置，并研究使用 TenPy 套件对几种典型的准一维结构实际可以实现的精度。在我们的研究中，我们的目标是对于精确对角化或克雷洛夫空间方法来说太大的系统。",
+    "abstract": "arXiv:2608.24608v3 Announce Type: replace Abstract: Density matrix renormalization group methods or tensor network methods in general can not only be used to determine ground states but also to evaluate thermal equilibrium properties. Although convergence is superior for one-dimensional quantum spin systems with nearest neighbor exchange and open boundary conditions, the hope is that these methods can as well be employed to approximate magnetic observables of magnetic molecules with more complex interaction patterns. Here, we assume the position of a user and study the accuracy that can realistically be achieved for several archetypical quasi one-dimensional structures using the TenPy suite. In our study, we aim at systems that are too large for exact diagonalization or Krylov space methods.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2608.24608",
+    "journal": "arXiv"
+  },
+  {
     "title": "A Fractional Chern Semimetal: Exact Wavefunction and Conformal Criticality",
-    "title_zh": "文献研究：A Fractional Chern Semimetal: Exact Wavefunction and Conformal Criticality",
-    "summary": "Unlike fractional quantum Hall states in uniform Landau levels, fractional Chern insulators can host dispersive anyon bands, raising the question of what happens when the anyon gap closes. We construc…",
+    "title_zh": "分数陈半金属：精确波函数和共形临界性",
+    "summary": "与均匀朗道能级中的分数量子霍尔态不同，分数陈绝缘体可以容纳色散任意子带，这就提出了当任意子间隙闭合时会发生什么的问题。我们通过 Gutzwiller 投影临界部分子态，为分数陈半金属构造了精确的有限键维张量网络状态。该状态在带电扇区中表现出不同的相关长度，但分数量化的多体陈数为 1/3。尽管它的每个晶胞只有一个电子，但其模块化 S 和 T 矩阵以及纠缠谱与 ν=1/3 Laughlin 态的相匹配。",
     "abstract": "arXiv:2611.31234v1 Announce Type: new Abstract: Unlike fractional quantum Hall states in uniform Landau levels, fractional Chern insulators can host dispersive anyon bands, raising the question of what happens when the anyon gap closes. We construct an exact finite-bond-dimension tensor-network state for a fractional Chern semimetal by Gutzwiller projecting a critical parton state. This state exhibits divergent correlation lengths in charged sectors but a fractionally quantized many-body Chern number of 1/3. Although it has one electron per unit cell, its modular S and T matrices and entanglement spectrum match those of the ν=1/3 Laughlin state. We identify a (1+1)--dimensional U(3)₁× SU(3)₁ conformal field theory (CFT) governing the wavefunction norm in the infrared, an unexpected result for a state with U(1)₃ topology. The SU(3)₁ sector is a nonlinear sigma model whose Wess--Zumino level and kinetic stiffness are determined by the parton Chern number and Fubini--Study metric, respectively. Under renormalization, it flows to the conformal fixed point, with an initial distance to this fixed point controlled by the idealness of parton quantum geometry. Favorable geometry enables precise agreement with CFT predictions even on narrow cylinders.",
     "category": "拓扑·电子结构",
     "link": "https://arxiv.org/abs/2611.31234",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Dirac-like bands and weak-field transverse transport in ABA trilayer graphene",
-    "title_zh": "文献研究：Dirac-like bands and weak-field transverse transport in ABA trilayer graphene",
-    "summary": "The low-energy electronic structure of ABA trilayer graphene is composed of light and heavy electron branches, which can be altered by an out-of-plane displacement field. Here, we show that, depending…",
-    "abstract": "arXiv:2611.30924v1 Announce Type: new Abstract: The low-energy electronic structure of ABA trilayer graphene is composed of light and heavy electron branches, which can be altered by an out-of-plane displacement field. Here, we show that, depending on the values of Slonczewski-Weiss-McClure parameters, a displacement field can inflict a band edge inversion, for which we identify the inversion conditions. This inversion is accompanied by a reversal of Berry curvature and giant topological magnetic moments at the band edges. In a weak perpendicular magnetic field, those topological magnetic moments produce valley splitting, giving rise to distinct anomalous transverse electrical and thermoelectric responses. These features offer a potential route to detecting the band inversion and constraining several of the least established tight-binding parameters, such as the on-site energy shift for the dimer pair of carbons Δ^prime and the next neighbour hopping parameters γ₂ and γ₅.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.30924",
-    "journal": "arXiv"
-  },
-  {
-    "title": "High-temperature superconductivity from kinetic energy",
-    "title_zh": "文献研究：High-temperature superconductivity from kinetic energy",
-    "summary": "Superconductivity is usually assumed to arise from attractive interaction. In this work we show that strong pairing is possible soley from kinetic energy even without a net attraction. We demonstrate…",
-    "abstract": "arXiv:2411.07292v3 Announce Type: replace Abstract: Superconductivity is usually assumed to arise from attractive interaction. In this work we show that strong pairing is possible soley from kinetic energy even without a net attraction. We demonstrate a high-temperature kinetic superconductor in a simple lattice model with nearest-neighbor hopping (t) projected onto a constrained Hilbert space, analogous to the t-J model with J=0, where kinetic magnetism has been previously studied. Using density matrix renormalization group (DMRG) on cylinders up to width L_y=8, we find a superconducting ground state exhibiting a key difference from high-T_c cuprates: both the pairing gap and phase stiffness increase with doping (x). We find pairing gaps, determined from spin and single-electron charge gaps, exceeding 1.5t. This model can be realized within the double Kondo lattice model, relevant to bilayer nickelates, in the limit of strong inter-layer spin coupling (J_perp/t → +infty) and a balancing inter-layer repulsion (V). Importantly, the double Kondo model does not fundamentally restrict J_perp/t, suggesting the potential for high critical temperatures (T_c) approaching 0.5t. While this idealized limit predicts large pairing gaps, we show a smooth connection to the more realistic regime with J_perp sim t, albeit with a reduced pairing gap of approximately 0.1t. Assuming t sim 10³ K in typical solid state systems, our model suggests the exciting possibility of achieving T_c of hundreds of Kelvin. We propose searching for bilayer materials with reduced out-of-plane lattice constants to better approximate the conditions of our ideal model.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2411.07292",
-    "journal": "arXiv"
-  },
-  {
-    "title": "MagPot: A magnetoelastic potential generator for molecular dynamics simulations",
-    "title_zh": "MagPot：用于分子动力学模拟的磁弹性势发生器",
-    "summary": "磁弹性现象源于原子位移和磁自由度之间的耦合，其原子模拟需要原子间模型，其中磁相互作用明确取决于原子间距离。本文介绍了 MagPot，这是一个 Python 程序，它使用大型原子/分子大规模并行模拟器 (LAMMPS) 的 SPIN 包生成用于自旋晶格分子动力学模拟的 Bethe-Slater 参数集。该程序从一组紧凑的材料属性中确定描述海森堡交换的径向函数以及双离子尼尔相互作用的偶极子和四极子贡献。 1.0 版支持具有铁磁和反铁磁配置的简单立方、体心立方和面心立方晶格。",
-    "abstract": "arXiv:2611.29574v1 Announce Type: new Abstract: Magnetoelastic phenomena originate from the coupling between atomic displacements and magnetic degrees of freedom, and their atomistic simulation requires interatomic models in which magnetic interactions depend explicitly on interatomic distance. This paper presents MagPot, a Python program that generates Bethe-Slater parameter sets for spin-lattice molecular dynamics simulations using the SPIN package of the Large-scale Atomic/Molecular Massively Parallel Simulator (LAMMPS). From a compact set of material properties, the program determines the radial functions describing Heisenberg exchange and the dipole and quadrupole contributions of the two-ion Néel interaction. Version 1.0 supports simple-cubic, body-centred-cubic and face-centred-cubic lattices with ferromagnetic and antiferromagnetic configurations. A central feature of MagPot is its modular architecture, which allows the magnetic contribution it generates to be combined additively with a broad range of compatible non-magnetic interatomic potentials. The parameterisation workflow is assessed through equation-of-state, Curie-temperature, volume-magnetostriction, pressure-dependent magnetocrystalline-anisotropy and anisotropic-magnetoelastic tests. By automating the construction of the magnetic contribution to the interatomic model, MagPot offers a straightforward and reproducible route from material properties to LAMMPS-ready magnetic interactions, facilitating large-scale atomistic simulations of magnetoelasticity and magnetostriction, as well as physical phenomena associated with magnon-phonon coupling.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2611.29574",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Minimal Three-Band Model and d-Wave Superconductivity in La₄Ni₃O₈",
-    "title_zh": "文献研究：Minimal Three-Band Model and d-Wave Superconductivity in La₄Ni₃O₈",
-    "summary": "Motivated by the recent observation of ambient-pressure superconductivity in Pr- and Y-substituted La₄Ni₃O₈, we combined density-functional theory (DFT), dynamical mean-field theory (DMFT), random pha…",
-    "abstract": "arXiv:2611.28747v1 Announce Type: new Abstract: Motivated by the recent observation of ambient-pressure superconductivity in Pr- and Y-substituted La₄Ni₃O₈, we combined density-functional theory (DFT), dynamical mean-field theory (DMFT), random phase approximation (RPA), and fluctuation exchange approximation (FLEX) methods to study its electronic structure and superconducting pairing symmetry. DFT band analysis indicates that the low-energy states are mainly dominated by three Ni-3dₓ^₂₋y^₂ orbitals with weak d-p hybridization. Multi-orbital DMFT calculations yield an average dₓ^₂₋y^₂ filling of about 0.87, close to the optimal value for infinite-layer nickelates. By comparing the DMFT results of dₓ^₂₋y^₂ only and full Ni-3d models, we find that their electronic properties are almost completely consistent, demonstrating the effectiveness of the simplified dₓ^₂₋y^₂ model. RPA and FLEX calculations based on this model consistently indicate a dominant dₓ^₂₋y^₂-wave pairing instability. These results establish La₄Ni₃O₈ as a system whose electronic structure closely resembles that of hole-doped cuprates, suggesting that the electronic pockets near the Γ- and A-points, which are characteristic of infinite-layer nickelates, may not be essential for superconductivity. The calculated superconducting transition temperature (T_C) is approximately 10,K, in good agreement with experimental observations.",
-    "category": "超导",
-    "link": "https://arxiv.org/abs/2611.28747",
     "journal": "arXiv"
   }
 ]

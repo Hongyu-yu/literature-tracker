@@ -1,0 +1,801 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+    <title>2026-11-25 AI × Science 文献日报 RSS</title>
+    <link>https://hongyu-yu.github.io/literature-tracker/daily/2026-11-25.html</link>
+    <description>2026-11-25 当天筛选出的 AI × 物理 / 化学 / 材料交叉文献 RSS。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Wed, 25 Nov 2026 18:35:11 GMT</lastBuildDate>
+    <atom:link href="https://hongyu-yu.github.io/literature-tracker/daily/2026-11-25.xml" rel="self" type="application/rss+xml"/>
+    <item>
+        <title>利用机器学习的磁势进行高效的自旋晶格动力学和自旋测温</title>
+        <link>https://arxiv.org/abs/2611.32129</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yuanmai Zheng, Liangliang Hong, Xingao Gong, Hongjun Xiang, Hongyu Yu
+
+在有限温度自旋晶格动力学中，传统的仅受力自旋温度计因每次自旋中的能量非线性而失效，而标准半隐式 SIB 积分器每步需要两次模型评估。在这里，我们引入了一种几何探针自旋温度，该温度对于仅使用一阶自旋力而不使用 Hessians 的任意高阶平滑哈密顿量来说是精确的，使其自然适合非线性多体机器学习 (ML) 磁势。作为补充，我们的缓存字段积分器 (CFI) 通过每步进行单个模型评估来保持二阶精度，大约可利用 ML 潜力将每步时间减半。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32129</guid>
+    </item>
+    <item>
+        <title>玻色相变中的参数神经网络波函数</title>
+        <link>https://arxiv.org/abs/2611.33150</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Daniil S. Antonenko, Liang Fu, Leonid I. Glazman
+
+我们提出了 Boseformer，一种基于注意力的通用神经网络架构，用于用玻色量子统计表示粒子的波函数，包括超流体和晶相。该模型经过训练，生成波函数作为这些相之间量子相变的哈密顿参数的函数。一旦使用变分蒙特卡罗优化进行训练，它就可以作为描述相变的基础模型，而无需针对各个参数值对其进行重新训练。我们在具有 1/r3 排斥相互作用的二维玻色子系统上演示了我们的方法。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33150</guid>
+    </item>
+    <item>
+        <title>使用通用神经网络势对 Al、Mg 和 Ti 上初始氧化膜生长进行比较分子动力学研究</title>
+        <link>https://arxiv.org/abs/2611.32659</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yoyo Hinuma, Taisuke Hasegawa
+
+许多金属（例如铝和钛）会自发形成氧化膜，该氧化膜可能是钝化的。我们报告了使用通用神经网络势 (NNP) 通过分子动力学 (MD) 对三种主要轻结构金属 Al、Mg 和 Ti 上氧化膜形成的直接计算观察。在 MD 模拟过程中提供 O2 分子以补充金属消耗的 O2。在氧气压力为 102-103 atm 的情况下，Al 和 Ti 在模拟的几皮秒内形成了 1-2 nm 厚的薄膜。所有金属氧化物的薄膜厚度继续与模拟时间的对数成比例增加，与卡布雷拉-莫特理论一致。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32659</guid>
+    </item>
+    <item>
+        <title>OMNI-P3x 通用神经网络在大规模计算光化学工作流程中的潜力</title>
+        <link>https://arxiv.org/abs/2611.32133</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Mikołaj Martyka, Joanna Jankowska, Pavlo O. Dral
+
+计算光化学支持新材料的设计和理解。然而，激发态量子力学（QM）计算的高昂成本使得筛选大型分子库的成本过高。为了解决这一限制，我们引入了 OMNI-P3x，这是一种通用机器学习原子间势 (MLIP)，用于中性和带电有机分子的单线态基态和激发态模拟。它经过基态和激发态构象的训练，可以执行完整的计算光化学工作流程，精度接近 TD-DFT。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32133</guid>
+    </item>
+    <item>
+        <title>通过径向制表和核融合加速分子动力学的等变原子间势</title>
+        <link>https://arxiv.org/abs/2611.31865</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jaekyun Yoo, Suyeon Ju
+
+等变机器学习原子间势 (MLIP) 实现了接近量子化学的精度，但其计算成本和 GPU 内存占用限制了分子动力学 (MD) 在扩展长度和时间尺度上的发展。即使张量积 (TP) 加速，这两个瓶颈仍然是通过评估和存储 NequIP 卷积中的每边径向权重来控制的。我们引入了 JET-MLIP（用于 MLIP 模拟的带有列表径向权重的联合核等变卷积），这是一种适用于预训练 NequIP 系列势的 GPU 后端，无需重新训练。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31865</guid>
+    </item>
+    <item>
+        <title>中子光谱学的变革：氘代 ZIF-8 和机器学习势捕获氮穿过它的大门</title>
+        <link>https://arxiv.org/abs/2611.32739</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jeff Armstrong, Hamish Cavaye, Pankaj Sharma, Matthew E. Potter
+
+我们报告了通过将机器学习的原子间势 (MLIP) 与样品的有意氘化相结合，非弹性中子散射 (INS) 所揭示的内容发生了阶跃变化。 INS 在原位定量过程中绘制框架和多孔材料内客体运动方面的能力历来有一个警告：昂贵的密度泛函理论计算是分析速度和深度的主要瓶颈。我们表明，快速前沿 MLIP 在两个方面消除了这一瓶颈，与实验保持同步，同时带来了新的洞察力。氘化 ZIF-8 的连接体撬开氢框架中重叠的谱带，我们在 77 K 下针对八个阶段的氮剂量测试了 4 个 MLIP。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32739</guid>
+    </item>
+    <item>
+        <title>用于量子机器学习基准的费米子框架</title>
+        <link>https://arxiv.org/abs/2611.31458</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jérémie Gince, Ayana Sarkar, Stefanos Kourtis
+
+我们提出了一个基于模拟自由费米子系统来构建和基准测试可扩展机器学习（ML）模型的框架。我们的费米子机器学习 (FermiML) 框架 (i) 用途广泛，足以涵盖核方法和神经网络，(ii) 适用于分类和回归，以及 (iii) 可扩展到现实世界的数据集。 FermiML 模型是量子电路，共享大多数量子 ML (QML) 模型的构建块：（参数化）量子位旋转和纠缠门。这使我们能够构建模拟任何 QML 模型的架构以及量子资源和归纳偏差的费米子代理，同时保持有效的经典可模拟性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31458</guid>
+    </item>
+    <item>
+        <title>通过实验引导的机器学习分子动力学模拟，纳米压痕诱导等原子 MoTaW 合金的塑性</title>
+        <link>https://arxiv.org/abs/2601.06846</link>
+        <description><![CDATA[📚 arXiv
+
+👤 F. J. Dominguez-Gutierrez, T. Stasiak, G. Markovic, A. Kosinska, K. Mulewska
+
+难熔复合浓缩合金（RCCA）表现出卓越的强度和热稳定性，但其在复杂接触载荷下的塑性变形机制仍不清楚。在这里，通过实验和原子解析相结合的建模方法研究了等原子 MoTaW 合金的纳米压痕响应。球形纳米压痕实验与采用表格低维高斯近似势 (tabGAP) 的大规模分子动力学模拟相结合，可实现接近 DFT 的精度。通过载荷-位移曲线的主成分分析 (PCA) 实现的基于物理的相似性准则用于识别机械代表性的实验响应，以便与模拟进行定量比较。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2601.06846</guid>
+    </item>
+    <item>
+        <title>人工智能辅助的格子静态和瞬态密度泛函理论的形式证明</title>
+        <link>https://arxiv.org/abs/2611.32370</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Miguel A. L. Marques, Irene D'Amico, Stefano Pittalis
+
+霍恩伯格-科恩定理在晶格上失败，在晶格中，相差超过一个常数的两个势能共享一个基态。我们证明这种潜力是非凡的。我们考虑任何连接晶格上的无自旋费米子，在除空或满之外的任何填充下，具有公共符号的跳跃幅度和任何密度-密度相互作用。其基态与相差超过一个常数的电势共享的电势位于封闭的、无处密集的零勒贝格测度集中。非简并共享基态的密度形成一组至少为二的余维。关于势的陈述也适用于 Kohn-Sham 势和自旋密度泛函理论，其中磁场的均匀移动是唯一的附加自由度。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32370</guid>
+    </item>
+    <item>
+        <title>用于表征晶体对称性和非线性响应的人工智能辅助拓扑高次谐波光谱</title>
+        <link>https://arxiv.org/abs/2611.32704</link>
+        <description><![CDATA[📚 arXiv
+
+👤 David Hervalejo-Sancho, Sergio Martín-Domene, Rodrigo Martín-Hernández, Antonio Picón, Luis Plaja, José M. Caridad 等8位作者
+
+结构光已成为探测非线性光与物质相互作用的独特工具。特别有趣的是它与各向异性介质（例如晶体材料）的相互作用，其各向异性响应编码有关其电子特性的信息。最近，拓扑高次谐波光谱作为一种全光学方法被引入，从谐波空间强度分布中提取石墨烯的各向异性非线性响应。在这里，拓扑高次谐波光谱与人工智能（AI）相结合，以检索原子薄材料的各向异性非线性响应和晶体对称性。卷积神经网络经过训练和验证，可以学习谐波远场强度分布与表现出不同旋转对称性的材料的非线性响应之间的逆映射。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32704</guid>
+    </item>
+    <item>
+        <title>可压缩表示：深度神经网络中的功能脊柱</title>
+        <link>https://arxiv.org/abs/2611.31817</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Niranjan Rajesh, Meenakshi Khosla
+
+深度网络将输入嵌入高维表示中，但这种容量有多少实际上驱动了行为？我们引入了一个框架，用于在每一层识别对任务功能敏感的表示子空间。使用类似于 Fisher 信息但在隐藏表示上定义的矩阵，我们根据方向对下游计算的影响对方向进行排名，并将其投影到对任务最敏感的子空间上。在预训练的视觉网络中，表示具有显着的可压缩性：任务敏感子空间的一小部分保留了大部分性能，通常需要比几何替代品少得多的维度。我们发现这种压缩表示对于整个网络上生成的对抗性攻击也更加鲁棒。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31817</guid>
+    </item>
+    <item>
+        <title>机器学习可实现旋转极端质量比螺旋的完整贝叶斯推理</title>
+        <link>https://arxiv.org/abs/2611.31916</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Bo Liang, Minghui Du, Zhenwei Lyu, Hanlin Song, Jiakai Zhang, Weichen Qin 等13位作者
+
+极端质量比螺旋体（EMRI）是一种恒星质量致密天体，螺旋进入大质量黑洞，有望测量中心黑洞的质量和自旋，揭示它们周围的强场环境，并通过毫赫兹引力波观测来测量宇宙距离。然而，大多数对这些系统的参数推断的预测都假设已知的源参数，并且广泛的先前分析仅解决了问题的简化版本。旋转源的所有 14 个参数与完整先验的联合反演仍未解决。在这里，我们针对增强分析拼凑模型解决了这个问题：生成网络缩小了完整的先验并揭示了退化自旋方向的环，并且确切的检测器似然确定了后验。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31916</guid>
+    </item>
+    <item>
+        <title>用于硅翅片阵列中多尺度热传输的双向声子玻尔兹曼-傅里叶耦合的神经算子加速</title>
+        <link>https://arxiv.org/abs/2611.31542</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ruthwik Chivukula, Khemraj Shukla, George Em Karniadakis
+
+半导体器件中的局部加热可以在发热区域附近产生非扩散声子传输，而通过周围基板传播的热量仍然可以通过傅里叶传导得到很好的描述。我们提出了一个混合框架，它将单个鳍内的声子玻尔兹曼输运方程（BTE）的预训练神经算子与共享基板的傅立叶模型耦合起来。为了降低跨翅片位置和耦合迭代重复 BTE 求解的成本，DeepONet 将每个翅片的基板界面温度和加热状态映射到其温度和热通量场。操作员接受由耦合问题的线性化代理生成的界面温度的训练，这避免了从完全耦合运行中收集显式训练数据。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31542</guid>
+    </item>
+    <item>
+        <title>来自广义平均场键模型的复杂晶体的热力学</title>
+        <link>https://arxiv.org/abs/2611.32609</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Raynol Dsouza, Thomas D. Swinburne, Jörg Neugebauer
+
+我们将之前引入的平均场键模型从一元面心立方晶格扩展到具有多种化学物质和亚晶格的晶体，无需统计采样即可准确预测有限温度热力学。我们的概括根据晶体的威科夫位置重新表述了模型，用一个原子代表每个原子，并求解其每个相邻壳层的参考键的键密度。键-键相关函数是根据零温力常数构建的，允许晶体中每个键的偏差通过壳参考键的线性函数来表达。通过要求整个晶体具有单一维里温度以及平均键长与晶体体积的兼容性来增强热力学自一致性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32609</guid>
+    </item>
+    <item>
+        <title>Lattice in Line：针对复杂晶格几何结构的优化DMRG排序</title>
+        <link>https://arxiv.org/abs/2609.25384</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Roman Rausch
+
+密度矩阵重整化群（DMRG）是一种一维张量网络技术，但它并不局限于一维系统：它可以应用于周期性二维和三维簇和分子，前提是它们的位点首先沿一条线枚举；这一步可以称为“晶格编译”。本文讨论了用于寻找这一最优枚举的三个代理损失函数：图带宽B（最大相互作用范围）、割宽C（穿过割集的边最大数目）和平均相互作用范围R。通过为受阻磁性中关注的大量簇构造哈密顿MPO（矩阵积算符），我发现C决定了峰值SU(2)海森堡MPO边维数，而R决定了平均边维数。按字典顺序针对(C,R)可得到最佳能量。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2609.25384</guid>
+    </item>
+    <item>
+        <title>针对动态可观测值优化力场的路径概率梯度</title>
+        <link>https://arxiv.org/abs/2611.32851</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zhongyao Wang, Lun Song, Yakun Zeng, Xingao Gong, Rui Shi, Mao Su
+
+机器学习力场继承了用于生成训练数据的电子结构方法的误差，并根据实验测量对其进行改进，提供了超越此限制的直接途径。然而，这种细化对于动态可观测量仍然很困难，因为微分混沌分子轨迹会产生不稳定的梯度。在这里，我们引入 PathGrad，它区分 Langevin 路径概率而不是轨迹本身。所得的梯度估计器是根据热噪声和力导数即时累积的，并且随着轨迹长度的增加，其方差保持稳定。我们根据有限差分计算验证了梯度估计器，并用它根据实验扩散系数和结构约束来微调熔融铜和水势。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32851</guid>
+    </item>
+    <item>
+        <title>非晶态 Ge2Sb2Te₅ 热导率的非谐增强：分子动力学和维格纳输运的一致图景</title>
+        <link>https://arxiv.org/abs/2611.33089</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Luiz Felipe C. Pereira, Kamil Iwanowski, Michele Simoncelli, Omar Abou El Kheir, Marco Bernasconi, Riccardo Mazzarello 等7位作者
+
+非谐性限制了晶体中的热传导，但它在非晶固体中的作用仍然不稳定，其中热量主要通过准简并振动之间的隧道传输。在这里，我们理清了结构无序、量子统计和非谐性对原型相变存储材料非晶 Ge2Sb2Te5 (aGST) 热导率的影响。使用在第一原理数据上训练的单个机器学习势，我们将经典平衡和非平衡分子动力学（MD）（包括所有阶的非调和性）与调和艾伦-费尔德曼理论和非调和维格纳输运方程（两者都包括量子统计）进行比较。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33089</guid>
+    </item>
+    <item>
+        <title>原子作为代理：通过集体预测编码产生的秩序</title>
+        <link>https://arxiv.org/abs/2610.36673</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Koji Hashimoto, Tadahiro Taniguchi
+
+微观系统中出现宏观序参数的内在原因是什么？在本文中，我们将集体预测编码（CPC），即语言/符号出现理论应用于物理学。正如我们的语言源于人类的交流，物理宏观秩序参数也源于原子之间的交流——每个原子都被视为一个通过推理来预测彼此行为的代理。我们提出了经典自旋系统的三个例子：二维铁磁和反铁磁 Ising 模型、具有竞争条纹顺序的二维自旋模型以及完全连接的 Sherrington-Kirkpatrick 自旋玻璃模型。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2610.36673</guid>
+    </item>
+    <item>
+        <title>三角晶格上磁化自旋 1/2 XXZ 反铁磁体的基态和热相图</title>
+        <link>https://arxiv.org/abs/2611.31412</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Owan Cho, Seungho Lee, Hyun-Yong Lee, SungBin Lee
+
+磁场中三角晶格上的自旋 1/2 XXZ 反铁磁体是典型的受挫量子磁体，但其一般各向异性的基态相图及其热相结构仍未完全了解。在这里，使用无限密度矩阵重整化群、无限投影纠缠对算子和指数张量重整化群方法，在精确对角化的支持下，我们解决了这两个问题。在零温度下，我们连续绘制从伊辛极限到海森堡点的相图，发现非经典 Ψ 超固体在所研究的所有各向异性下都是略低于饱和度的稳定相：它直接与强易轴区域中的三分之一磁化上下平台和朝向海森堡点的半经典 V 相接壤。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31412</guid>
+    </item>
+    <item>
+        <title>磁自旋霍尔效应中的本征自旋累积</title>
+        <link>https://arxiv.org/abs/2509.24719</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Atsuo Shitade
+
+磁自旋霍尔效应是一种时间反转奇数现象，其中充电电流感应自旋电流。然而，在存在自旋轨道耦合和/或非共线磁性的情况下，自旋流并不是唯一定义的。相反，我们研究自旋对电场梯度的固有响应，该电场梯度描述了磁系统边界处的自旋累积。我们推导了一个由布洛赫波函数表示的通用公式，并将其应用于代表性交流磁体 RuO2 和 MnF2 的最小模型。我们的结果表明，磁绝缘体中的本征自旋累积可以是非零的，与磁自旋霍尔电导率形成鲜明对比。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2509.24719</guid>
+    </item>
+    <item>
+        <title>由单层CrSe₂中的sqrt3×sqrt3电荷密度波诱导的磁电平带</title>
+        <link>https://arxiv.org/abs/2606.24494</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Pablo Savino, M. del Carmen Fuente Santiago, Jan Phillips, Javier Corral Sertal, Adolfo O. Fumega, Santiago Blanco-Canosa 等7位作者
+
+我们使用从头计算研究了 CrSe2 极性 sqrt3×sqrt3 电荷密度波 (CDW) 相的电子和磁性。 CDW 在范德华平面之外引入了极性畸变，该畸变耦合到自旋极化的 Cr d 态，从而在费米能级处产生非常平坦的电子能带。我们通过详细分析结构重建、轨道杂化的影响、晶体场分裂、自旋轨道耦合和电子相关性，提供了对平带起源的微观理解。我们的计算表明，由于 CDW 失真的极性性质，电场可以充当外部开关来诱发 CDW 相位，从而提供了一种操纵系统中强相关性的方法。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.24494</guid>
+    </item>
+    <item>
+        <title>第一原理中互磁 α-MnTe 的自旋哈密顿量、磁各向异性和激发谱</title>
+        <link>https://arxiv.org/abs/2611.31548</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Matteo Costa, Dario Fiore Mosca, Cesare Franchini, Leonid V. Pourovskii
+
+六方相变磁体 α-MnTe 将近室温共线有序与强自旋分裂电子结构结合在一起，但其易平面各向异性、区中心磁振子间隙和异常大磁致伸缩的微观起源仍无法解释。我们根据第一原理，结合密度泛函理论和动态平均场理论，以及完全各向异性位点间交换、单离子项和经典偶极耦合的力定理评估，推导了 α-MnTe 的完整低能磁性哈密顿量。各向同性交换，包括第十邻耦合的交磁分裂，与非弹性中子散射数据一致。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31548</guid>
+    </item>
+    <item>
+        <title>P4/nmm KCoO2 中强 Co-O 交换相互作用及其对自旋波和尼尔温度的影响</title>
+        <link>https://arxiv.org/abs/2611.31504</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ilteris K. Turan, Walter R. L. Lambrecht, Jerome Jackson
+
+P4/nnm 结构中 KCoO2 中经典海森堡哈密顿量的交换相互作用是使用线性响应方法计算的，该方法源自横向自旋磁化率，使用与局部磁化强度成比例的投影仪在原子球上积分，并将所有原子作为磁性原子。 Co 与其顶端 O 之间的交换相互作用被发现是迄今为止最大的相互作用和铁磁性。评估了它对尼尔温度和自旋波谱的影响。研究发现，Co-O 交换会强烈提高平均场近似中的临界温度，但不会显着提高随机相近似中的临界温度。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31504</guid>
+    </item>
+    <item>
+        <title>ZStar：用于极化、本虚电荷、介电和压电响应以及红外和拉曼光谱的统一工具包</title>
+        <link>https://arxiv.org/abs/2609.16802</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Xudong Zhu, Junhong Li, Gan Jin, Zheng Guan, Meng Zhang, Lixin He
+
+极化和对原子位移的响应决定了材料的介电、压电和振动光谱，但这些量通常是通过ABACUS中的独立工作流程获得的。在此，我们介绍ZStar，这是一个将这些计算统一起来的开源Python工具包。ZStar使用ABACUS和PYATB，从一个对称适配的位移集推导出波恩有效电荷（BEC）和区中心力常数，并重复使用位移电子矩阵来计算拉曼光谱。周期性方向上的贝里相位与非周期性方向上的电荷密度偶极子相结合，将该方法从体晶体（3D）扩展到2D和1D材料以及分子（0D）。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2609.16802</guid>
+    </item>
+    <item>
+        <title>电子输运测量对 GdTe₃ 磁相图的贡献</title>
+        <link>https://arxiv.org/abs/2611.32401</link>
+        <description><![CDATA[📚 arXiv
+
+👤 A. A. Sinchenko, P. D. Grigoriev, A. Hadj-Azzem, E. Pachoud, E. Lorenzo, P. Monceau
+
+通过沿三个晶体方向的磁场中的电阻测量，研究了在 TN1=12 K、TN2=10.5 K 和 T1=7 K 的零磁场下发生的 GdTe3 的三个反铁磁 (AFM) 转变的磁相图。当在基面施加磁场时，我们发现了中间相的重新进入，这可能是 TN2 AFM 与可能具有铁轴级的电荷密度波之间耦合的结果。在可能会聚于2.5-3.0T附近的三相点且T在T1和TN2之间的温度下也观察到自旋随角异型跃迁。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32401</guid>
+    </item>
+    <item>
+        <title>由振动介导的电子-电子相互作用：对手性诱导的自旋选择性的影响</title>
+        <link>https://arxiv.org/abs/2610.40990</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Leonardo Celada, Rocco Bellusci, D. K. Andrea Phan-Huu, Alessandro Chiesa, Stefano Carretta
+
+调节电子跳跃和自旋轨道耦合（SOC）的分子振动已被提议作为手性诱导自旋选择性（CISS）的一个组成部分。我们研究了与单个 Peierls 模式耦合的四站点电桥，该模式可调制两项，幅度为 g 和 χ。精确的 Lang-Firsov 变换产生封闭形式的变换后的哈密顿量；在抗绝热极限下，它简化为具有瞬时振动介导的相互作用的纯费米子模型，其二体部分分为 g²、χ² 和 gχ 通道，最后一个包含 Dzyaloshinskii-Moriya 相互作用 (DMI) 和相关跳跃。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2610.40990</guid>
+    </item>
+    <item>
+        <title>朗道极化子中准平衡超辐射相变的 Floquet 工程</title>
+        <link>https://arxiv.org/abs/2604.08635</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Wen-Hua Wu, Fuyang Tay, Mengqian Che, Andrey Baydin, Junichiro Kono, David Hagenmüller
+
+超辐射相变（SRPT）以光子凝聚和宏观物质极化为特征，根据 no-go 定理，在均匀场的平衡中是被禁止的。在这里，我们证明了 Floquet 驱动可以在由耦合到直流磁场中太赫兹腔的二维电子气组成的朗道极化子系统中规避这一限制。非共振交流磁场调制回旋加速器频率和光-物质耦合强度，同时保持抗磁项不变，产生额外的直流耦合贡献。这驱动系统跨过临界阈值进入超辐射阶段，其特征是弗洛奎哈密顿量基态下的光子凝聚和朗道级偏振。这种准平衡方法提供了一条不同于驱动耗散方案的 SRPT 途径。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2604.08635</guid>
+    </item>
+    <item>
+        <title>从费米子到涡旋：d 波超导体中相序的微观模拟</title>
+        <link>https://arxiv.org/abs/2611.32916</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ali Rayat, Gia-Wei Chern
+
+直接从微观费米子哈密顿量描述浴诱导的超导相序仍然是一个艰巨的挑战。在这里，我们使用最近引入的绝热变分原理（AVP）开发了这个问题的微观框架，并演示了其在二维 d 波超导体中的应用。中心结构将不断变化的空间不均匀键配对场映射到受约束的 Bogoliubov-de Gennes 态上，并用相关的拉格朗日乘子确定热力学驱动力。这使得超导序的耗散演化成为可能，同时保留其微观电子结构，而无需假设唯象金兹堡-朗道自由能泛函。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32916</guid>
+    </item>
+    <item>
+        <title>用多轨道多通道脉动场理论研究 Kanamori-Hubbard 模型中的竞争阶</title>
+        <link>https://arxiv.org/abs/2611.32983</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Laura Torchia, Erik Linnér, Massimo Capone
+
+多通道涨落场（MCFF）方法以非微扰方式处理相互作用的量子晶格模型中选定的集体涨落，但迄今为止仅应用于单带系统。在这里，我们将 MCFF 理论扩展到多轨道系统，解释了电荷和自旋不稳定性的轨道结构。我们将其应用于具有排斥性轨道内相互作用 U 以及正负洪德耦合 J 的半填充双轨道 Kanamori-Hubbard 模型，解决了竞争级及其相互作用。有选择地保留个体波动通道并控制它们相互作用的能力使我们能够理清它们各自的贡献并确定竞争不稳定性的潜在机制。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32983</guid>
+    </item>
+    <item>
+        <title>来自非局域性的局域性：晶格狄拉克费米子的对称重定位和测量</title>
+        <link>https://arxiv.org/abs/2611.31366</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Lei Su
+
+空间非局域对称性并不一定意味着非局域规范动力学。非局域正则变换使自由晶格狄拉克费米子现场具有某些精确的非局域紧对称性，同时保留足够的哈密顿局域性进行测量。对称重定位可在 1D、2D 和 3D 中产生精确或紧急的规范局域性，但受晶格结构、拓扑和异常的影响。在一维中，哈密顿量保持变换交换半填充链的现场矢量和非局部光谱轴向电荷，从而能够对每个电荷进行局部测量并暴露它们的混合异常。玻色化识别了动量缠绕的 T 对偶性，奇偶投影算子流向不可逆的拓扑缺陷。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31366</guid>
+    </item>
+    <item>
+        <title>类三明治异质结构中非范德华二维材料的混合和保持性能</title>
+        <link>https://arxiv.org/abs/2611.32723</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Anastasiia Nihei, Rico Friedrich
+
+通过堆叠二维 (2D) 材料创建的异质结构界面概述了实现纳米级先进电子和磁性功能的有吸引力的途径。非范德华 (non-vdW) 夹层状异质结构 (HS) 由源自非层状晶体的非 vdW 二维材料构建而成，并建立了一个新的前沿，可实现强界面耦合。采用从头算密度泛函理论 (DFT)，我们研究了两类此类三层 HS：纯非 vdW 组件和混合 vdW/非 vdW/vdW 堆栈。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32723</guid>
+    </item>
+    <item>
+        <title>点消除、投影和图案化分形晶格上的拓扑绝缘体</title>
+        <link>https://arxiv.org/abs/2611.33155</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Aiden Mains, Danile Salib, Christopher Leong, Bitan Roy
+
+将分数维（Hausdorff）分形晶格识别为母晶体的几何后代，我们展示了从整数维晶格正则化模型开始，使用三种互补方法成功实现了一维、二维和三维晶体中的规范拓扑绝缘体的自相似下降。 (a) 在第一种方法中，我们通过删除所有不属于此类网络的父晶格站点（站点消除方法）来构造分形哈密顿量。 (b) 在第二个中，我们整合或投影出同一组位点以获得分形晶格的有效哈密顿量（投影或重整化方法）。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33155</guid>
+    </item>
+    <item>
+        <title>铁电体中轴向铁电子的角动量霍尔效应</title>
+        <link>https://arxiv.org/abs/2611.32331</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Xiyin Ye, Tao Yu
+
+声子热效应和角动量 (AM) 霍尔效应在非铁电绝缘体中是已知的，但位移铁电体（即“铁电子”）的太赫兹软模式是否共享它们仍然悬而未决。我们报道了在单轴铁电体中保持极化动量锁定的轴向铁电子，并表明这两种效应都存在：纵向温度梯度在没有任何场的情况下驱动横向 AM 流，而面外磁场则在热霍尔上切换AM 霍尔效应出现两个竞争通道：自辐射磁场将两个分支混合成圆形模式，其动量锁定贝里曲率将相反的磁矩偏转到相对的边缘，而温度梯度诱导模式量子相干性增加了磁矩偶极子，导致相反的横向 AM 电流，面…]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32331</guid>
+    </item>
+    <item>
+        <title>具有记忆依赖性重置的多体量子传输中的异常前传播</title>
+        <link>https://arxiv.org/abs/2611.32961</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Gabriele de Mauro, Manas Kulkarni, Satya N. Majumdar
+
+我们引入了一种基于记忆随机重置的非马尔可夫量子多体动力学的精确可解框架。我们的框架适用于任意时间无关的哈密顿量，包括相互作用的系统，根据相应的无重置演化提供了记忆动力学的精确表示，可以通过分析或数值方式访问。我们通过研究非相互作用费米子一维链中的畴壁熔化，获得密度分布、前沿局部结构、最右边费米子的极值统计和积分电流的精确分析结果，展示了这种方法的威力。值得注意的是，记忆将弹道传输转变为对数缓慢的传播，而不会阻止传播。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32961</guid>
+    </item>
+    <item>
+        <title>MnTe2 的反铁磁相：自旋序诱导的声子拉曼光谱重正化</title>
+        <link>https://arxiv.org/abs/2611.33156</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Taras Palasyuk, Ashutosh S. Wadge, Eduard E. Zubov, Igor Antoniazzi, Gayatri, Andrzej Wiśniewski 等13位作者
+
+最近，在 MnTe2 的拉曼散射光谱中检测到两种模式的自旋波激发（磁振子）。它是一种非常规磁体，具有黄铁矿型晶体结构，在尼尔温度以下具有非共线、非共面反铁磁 (AFM) 自旋序。在这篇简短的交流中，重点主要是自旋排序对晶格动力学（声子）的影响，该影响是通过温度（5 - 300 K）、线性偏振角（0 度 - 360 度）和外部磁场（高达 16 T）相关测量建立的。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33156</guid>
+    </item>
+    <item>
+        <title>d波交错磁体中的圆声子二向色性</title>
+        <link>https://arxiv.org/abs/2607.21221</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ding Li, Tao Qin, Jianhui Zhou
+
+可变磁体是一类新型的共线反铁磁体，表现出与动量相关的自旋劈裂，为反铁磁自旋电子学提供了引人注目的优势。然而，磁序本质上难以读出，这阻碍了其实际应用。我们提出有限动量圆声子二向色性作为一种直接探测方法，用于区分二维d波交错磁体中两个相反的平面外奈尔矢量构型。将昂萨格倒易关系与C₂z晶格对称性相结合，我们发现，当平面声子波矢量的奈尔矢量翻转时，二向色性信号的符号发生反转。此外，通道分辨分解表明，圆偏振声子二向性源自带间相干跃迁。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.21221</guid>
+    </item>
+    <item>
+        <title>自旋空间群和晶体磁序的分类</title>
+        <link>https://arxiv.org/abs/2611.33099</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zheng Zhang, Peiyuan Wang, Y. X. Zhao
+
+自旋空间群（SSG）描述了可忽略的自旋轨道耦合极限下的磁性晶体，其中空间和自旋旋转解耦。尽管存在 SSG 的代数枚举，但它们的抽象数学方法模糊了所得分类的物理意义，导致 SSG 与真实空间磁序之间的直接对应关系尚未建立。在这里，我们提出了一个基于物理驱动的框架，用于根据平移完整性（自旋同态下的空间晶格平移群的图像）对 SSG 进行枚举和分类。 SO(3) 中的三类阿贝尔图像将 SSG 分为三种基本翻译类型。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33099</guid>
+    </item>
+    <item>
+        <title>具有高于室温磁性的高熵过渡金属二硫属化物的成分可调合成</title>
+        <link>https://arxiv.org/abs/2611.33115</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Chen Zhang, Xiahua Zhong, Dejia Kong, Wenhu Wang, Christopher T. Nelson, Mingfeng Chen 等18位作者
+
+随着硅基电子产品接近其物理极限，低维磁性材料越来越受到下一代电子和信息技术的关注。实现这些机会需要具有强大且可调节室温磁性的二维 (2D) 材料。在这里，我们报告了一种两步合成策略，用于制造二维高熵过渡金属二硫属化物（HE-TMD），其中包含超出常规第 4-6 族的磁性元素。首先通过水热共沉淀合成高熵层状双氢氧化物 (HE-LDH)，从而实现 4-12 族不同过渡金属的原子级混合。随后的硫属化产生 2D HE-TMD，同时保持均匀的元素分布。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33115</guid>
+    </item>
+    <item>
+        <title>具有螺旋度量的硬壁圆柱体中的电子：时间反转配对、立方反交叉和扭转激活偶极子跃迁</title>
+        <link>https://arxiv.org/abs/2611.32619</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Humberto Belich Jr., Edilberto O. Silva
+
+当轴向方向被算子域中内置的狄利克雷壁封闭时，我们研究螺旋度量中的标量薛定谔方程。对于硬壁，轴向导数不能用行波因子代替，并且在旋转对称的无旋转腔中，时间反转使得方位角数为 m 和 -m 的能级精确退化。我们将哈密顿量写为埃尔米特耦合子带矩阵，并给出精确的规范自适应变分表示。对于有限半径，主扭曲校正是二次的，并且在临界纵横比处改变符号；对于无界径向域，它在 |Ω_g| 中呈线性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32619</guid>
+    </item>
+    <item>
+        <title>内亚晶格竞争：Aubry-André 晶格中可重入定位的最小机制</title>
+        <link>https://arxiv.org/abs/2606.24720</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Hangdong Qiu, Yunhua Wang
+
+我们构建了一个双马赛克 Aubry-André (DMAA) 模型，将两个独立的准周期势分配给 AA 晶格的相应偶数和奇数子晶格，并表明它们之间的竞争在单参数调整下引起了多个局域-离域转变。这种重入定位通过全面的数值表征进行了验证，包括逆参与比、归一化参与比、分形维数和实空间波函数分布。基于连续极化子模型的模拟产生了一致的结果，证实了预测现象的实验可行性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.24720</guid>
+    </item>
+    <item>
+        <title>一维磁性准晶的局域化</title>
+        <link>https://arxiv.org/abs/2611.31384</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Andrew Osborne, Rhine Samajdar, Andrew A. Houck
+
+由于最近邻跳跃和准周期现场势之间的激烈竞争，著名的奥布里-安德烈-哈珀模型经历了类似于安德森局域化的金属-绝缘体转变。在这项工作中，我们考虑了受准周期外场影响的一维晶格问题，其中底层图的拓扑介导了绝缘相和导电相之间的竞争。特别是，我们提出了所有色散本征态都临界局域化的示例，以及它们指数局域化的模型。我们还证明了这些现象与形成平带的大量简并有限支撑本征态的共存。最后，我们构建具有仅由图结构产生的完全可解的移动边的模型。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31384</guid>
+    </item>
+    <item>
+        <title>5d1 双钙钛矿 Ba2MgReO₆ 中四极有序的起源</title>
+        <link>https://arxiv.org/abs/2611.31395</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Dario Fiore Mosca, Leonid V. Pourovskii
+
+尽管对 Ba MgReO 中的四极有序进行了广泛的实验和理论研究，但驱动其相互作用的微观起源和相对能量尺度仍未解决。特别是，观察到的 z² 四极杆的铁序仍然难以解释，因为超交换、经典四极杆-四极杆相互作用、振动耦合和对更高能级的虚拟激发的相对贡献尚未定量确定。在这里，我们根据第一原理确定所有这些相互作用，并求解所得的微观哈密顿量。计算的基态以定量精度再现了实验观察到的四极有序参数和相关的结构畸变。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31395</guid>
+    </item>
+    <item>
+        <title>量子化学的自旋适应态制备</title>
+        <link>https://arxiv.org/abs/2611.30014</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Matthew L. Sims-Goh, Fredrik Hasselgren, Hamza Jnane
+
+强相关分子的量子相位估计需要与真实基态高度重叠的初始态，而准备一个初始态是一项巨大的容错成本。由密度矩阵重整化群 (DMRG) 产生的矩阵积态 (MPS) 是主要选择，但现有电路将其张量视为密集的或不使用分子电子哈密顿量中存在的完全对称性。在量子化学中，DMRG 还利用总自旋（一种非阿贝尔对称性），为每个自旋多重态存储一个振幅，而不是每个状态一个振幅。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.30014</guid>
+    </item>
+    <item>
+        <title>补偿亚铁磁体中非线性光电流的自旋群与磁群选择规则</title>
+        <link>https://arxiv.org/abs/2611.32618</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Fu Li, Vikrant Chaudhary, Weiyi Pan, Hongbin Zhang, Harish K. Singh
+
+光激发提供了一种无接触、超快的电荷和自旋电流路径，其对称性决定了允许哪些非线性光电流以及它们是否携带电荷、自旋或两者。自旋群对称性描述了没有自旋轨道耦合 (SOC) 的极限，而磁群对称性则说明了 SOC。我们表明，这两种描述对多铁补偿亚铁磁体 GaFeO₃ 中的电荷和自旋光电流产生不同的选择规则。如果没有 SOC，则仅允许线性移位和循环注入电流，充电和自旋具有相同的分量，因此每个充电电流都会沿时刻自旋极化。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32618</guid>
+    </item>
+    <item>
+        <title>BaFe₁₂O₁₉ 中的应变驱动动态磁电耦合</title>
+        <link>https://arxiv.org/abs/2611.31413</link>
+        <description><![CDATA[📚 arXiv
+
+👤 ChanJu You, Jayanti Higgins, Zhiren He, Yilin Evan Li, Harikrishnan KP, Sören Buchenau 等14位作者
+
+光激发已成为操纵和创建物质非平衡相的强大工具。然而，可用于光学控制的途径本质上受到平衡系统的对称性和相互作用的限制。在这里，我们证明这些途径可以通过原子结构工程重新设计，以获取隐藏的动力学特性。通过将谐振振动激发与外延应变相结合，我们在技术相关的六方铁磁体、六方铁氧体钡（BaFe₁2O₁₉，BaM）的应变薄膜中实现了光诱导的室温多铁态。时间分辨二次谐波产生和磁光克尔效应测量表明，在应变 BaM 薄膜中激发中红外声子时，铁电极化增强，磁矩减弱，但在块体材料中则不然。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31413</guid>
+    </item>
+    <item>
+        <title>方晶格 S=1 反铁磁体中场致自旋超固体的区域折叠戈德斯通模式</title>
+        <link>https://arxiv.org/abs/2611.32798</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Sibin Yang, Pinaki Sengupta
+
+具有单离子和交换各向异性的方晶格 S=1 反铁磁体的场致自旋超固体迄今为止仅通过静态可观测量来表征，其中包括双峰横向结构因子。我们通过在反温度 β=32 的 16×16 晶格上，在超固体、m_z=1/2 伊辛平台和倾斜 XY 相的每个场中，对 16×16 晶格上的随机级数展开量子蒙特卡罗数据进行随机解析延拓，计算其动态自旋结构因子以及邻近相的动态自旋结构因子。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32798</guid>
+    </item>
+    <item>
+        <title>从加权前沿 d 态到分子-固体交叉原子分散催化剂的几何描述符</title>
+        <link>https://arxiv.org/abs/2611.32059</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yuqi Li, Zewen Wu, Longling Pang, Zhidan Li, Xianghua Kong
+
+当局域金属轨道与载体衍生的能带杂化时，原子分散的催化剂表现出分子-固体交叉特征，这种状态不能被 d 能带中心描述或前沿轨道图完全捕获。我们建立了一个电子到几何框架，用于十四种金属的氧还原。 M-N4 位点中的 N 到 P 取代提高了 13 个系统中的理论起始电位，其中 Rh-N3P 达到 0.88 V，与 Pt(111) 基准相当。比例关系将 *OOH、*O 和 *OH 热力学简化为 ΔG*OH。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32059</guid>
+    </item>
+    <item>
+        <title>从杂化泛函参数化DFT+U+V：一种基于Wannier函数的关联子空间哈密顿量方法</title>
+        <link>https://www.sciencedirect.com/science/article/pii/S0927025626007883?dgcid=rss_sd_all</link>
+        <description><![CDATA[📚 ScienceDirect
+
+出版日期：2027 年 1 月 15 日来源：计算材料科学，第 277 卷作者：Dmitry M. Korotin、Anna A. Anisimova、Vladimir I. Anisimov]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://www.sciencedirect.com/science/article/pii/S0927025626007883?dgcid=rss_sd_all</guid>
+    </item>
+    <item>
+        <title>用于准连续介质法和有限元法的量化不确定性J积分计算</title>
+        <link>https://arxiv.org/abs/2607.23003</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Sai Harshith Badi, Stephen M. Whalen, Ronald E. Miller, Ellad B. Tadmor
+
+J积分是断裂力学中的一个基本概念，用于量化驱动裂纹扩展的能量释放率。本研究在多尺度三维（3D）准连续体（QC3D）方法中严格实施和验证了J积分，并进行了适用于QC3D和传统有限元（FE）方法的不确定性量化分析。我们利用通过柯西-伯恩规则从潜在的原子间势能导出的连续介质力学场（应力和应变能密度），在平面应变假设下计算 3D J 积分。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.23003</guid>
+    </item>
+    <item>
+        <title>超高介电常数衬底上的紧凑型慢波混合磁振子学</title>
+        <link>https://arxiv.org/abs/2611.31612</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Yu Jiang, Haiyang Yun, Zixin Yan, Amin Pishehvar, Benyamin Davaji, Xufeng Zhang
+
+基于欺骗表面等离子体激元 (SSPP) 的混合磁振子可实现强宽带磁振子-光子耦合，但低千兆赫频率所需的厘米级器件占用空间阻碍了集成。在这里，我们展示了使用超高介电常数陶瓷基板 (ε = 140) 的小型化慢波混合磁振子器件。由于 SSPP 等离子体频率与有效介电常数呈平方根倒数关系，与传统微波基板相比，所需的波纹指长度减少了近四倍。陶瓷又厚又脆，传统的薄膜工艺无法轻松地在其上形成厚的低损耗导体图案。我们通过增材制造电子产品 (AME) 克服了这一挑战。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31612</guid>
+    </item>
+    <item>
+        <title>门可调谐扭曲双层 PbO 中的空间解耦极涡和铁磁性</title>
+        <link>https://www.researchsquare.com/article/rs-11722668/latest</link>
+        <description><![CDATA[📚 Preprints
+
+👤 Keying Han, Yajing Liu, Peipei Xue, Yanyan Wan, Yinglun Sun, Shenghan Shi 等12位作者
+
+二维多铁性材料从根本上受到极化和磁序之间化学不相容性的限制。莫尔超晶格通过层间扭曲产生偏振来避免这一限制，但共存且可调的磁序仍然是一个开放的挑战。在这里，使用非极性、非磁性 α-PbO 作为模型系统，我们提出了一种在空穴掺杂下利布莫尔超晶格中空间去耦极化和磁性的策略。第一性原理计算表明，手性面内极涡出现在 AA 堆积区域内。此外，面外极化（在 θt = 36.87° 时高达 34.9 pC/m）产生周期性静电势，形成用于相邻材料调谐的可编程极性基板。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://www.researchsquare.com/article/rs-11722668/latest</guid>
+    </item>
+    <item>
+        <title>国家多体密度的广义相干国家框架</title>
+        <link>https://arxiv.org/abs/2604.14367</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Deniz Coskun, R. Chitra
+
+我们开发了一个通用框架来计算孤立和相互作用的量子系统的多体态密度（DOS）。基于广义相干态形式主义和量子配分函数的 Simon-Lieb 界，我们的方法提供了高维不可约扇区中 DOS 的通用计算方法。该框架进一步为每个扇区的基态能量提供了严格的界限，并能够计算整个光谱中的微正则可观测值。使用 Lipkin-Meshkov-Glick (LMG) 模型作为测试台，我们通过成功识别自旋扇区的量子相变 (QPT) 和激发态量子相变 (ESQPT) 来验证我们的框架。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2604.14367</guid>
+    </item>
+    <item>
+        <title>Co/Fe₃GaTe₂异质结构中自旋重取向转变的电热控制</title>
+        <link>https://arxiv.org/abs/2607.15844</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Po-Wei Chen, Ming-Hsien Hsu, Cheng-Ying Hsiao, Ming-Yang Ho, Masahiro Haze, Yan-Ru Chu 等15位作者
+
+对范德华（vdWs）磁体中磁各向异性的电控是实现可重构二维自旋电子学的关键一步，但传统金属铁磁体如何通过直接界面与范德华磁体竞争，在很大程度上仍未得到探索。本文展示了在Co/Fe₃GaTe₂ (FGaT)异质结构中对自旋重取向转变的可逆热控和电热控。随着焦耳热削弱FGaT的各向异性，异质结构在约311 K的重取向温度下从面外主导状态切换到面内主导状态，该温度远低于居里温度，这与Co覆盖层和FGaT之间由交换介导的各向异性竞争相一致。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.15844</guid>
+    </item>
+    <item>
+        <title>扭曲双层 NiPS₃ 中的新兴电场可调谐 p 波磁力</title>
+        <link>https://arxiv.org/abs/2611.32103</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Jiaran Su, Jin-Xin Hu, Qi Sun, Dante M. Kennes, Yuhao Fu, Lede Xian 等7位作者
+
+垂直电场可以在不改变局部磁配置的情况下重新定向动量空间自旋纹理。在这封信中，我们研究了具有锯齿形顺序和共面非平行层 Néel 向量的 21^circ-twisted NiPS₃ 双层中的这种机制。在理想的非相对论极限中，反酉面内半平移强制以相反动量进行相反自旋配对，而层交换双重操作将领先的 p 波自旋分裂固定到晶体学方向。垂直层偏置解除了这种方向约束，同时保留了反酉对称性，从而允许分裂向量的横向分量。第一原理计算显示了自旋分辨等能轮廓的门相关重新定向和变形。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32103</guid>
+    </item>
+    <item>
+        <title>非均匀淬火中的纠缠不对称性和量子姆潘巴效应</title>
+        <link>https://arxiv.org/abs/2611.32934</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Maëlle Olivier, Filiberto Ares, Pasquale Calabrese
+
+纠缠不对称性是对称性破缺及其在量子淬灭后动态恢复的有力探针。虽然对均质初始态进行了广泛研究，但其从非均质初始构型的演化在很大程度上仍未被探索。我们研究了一个自旋 1/2 XX 链，其两半最初是在具有不同倾斜角度的倾斜铁磁态下制备的。将广义流体动力学（GHD）和准粒子图像与精确的费米子相关矩阵计算相结合，我们研究了纠缠不对称的动力学。我们发现这两种通用初始配置方法之间具有良好的一致性，并观察到量子 Mpemba 效应，即具有更强初始对称性破缺的状态可以更快地恢复对称性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32934</guid>
+    </item>
+    <item>
+        <title>极化磁体中远距离自旋之间的纠缠形成了 d 波三叶草</title>
+        <link>https://arxiv.org/abs/2611.32190</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Alan Zhang, Ye Zhou
+
+自旋轨道耦合使极化磁体成为虚拟自旋翻转对的来源。这些对使遥远的自旋纠缠在一起：耦合的对称性固定了角度模式，并且它们留下的翻转以逆自旋轨道角的量级的距离结束了它。对于自旋 1/2 方格铁磁体，我们在主阶上证明了 d 波平方反比定律，是自旋波振幅的 1.376 倍，三叶草形状的纠缠区域，在没有 Dzyaloshinskii-Moriya 项的情况下是精确的，并且每个自旋的纠缠完全是成对的。四个量子位可以测试当前错误率下的 d 波符号。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32190</guid>
+    </item>
+    <item>
+        <title>钻石链中的环境辅助运输</title>
+        <link>https://arxiv.org/abs/2611.32027</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Pavel S. Muraev, Andrey R. Kolovsky, Dmitrii N. Maksimov
+
+我们研究与边界马尔可夫储层耦合的钻石链中的量子输运。该系统受到均匀相移和外部磁场的影响，每个小板的通量为 Φ。我们推导出 Φ=0 和 Φ=π 的精确解析解。我们证明，在 Φ=π 的全带平坦状态下，移相破坏了阿哈罗诺夫-玻姆笼，从而导致环境辅助的量子传输。我们的结果表明，将平带系统耦合到耗散环境提供了一种在仅相干动力学即可实现完全定位的情况下控制输运的可行途径。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32027</guid>
+    </item>
+    <item>
+        <title>双轴应变下单层 CrS2 多晶型物的第一性原理相图及其对 Hubbard U 参数的敏感性</title>
+        <link>https://arxiv.org/abs/2611.32265</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Rashmi Ranjan Routaray, Ali Ghojavand, Eric Bousquet
+
+在相关二维磁体中，竞争的电子相和磁相之间的平衡通常由现场库仑相互作用的强度决定，因此预测的基态可能取决于未唯一定义的参数。单层 CrS2 正好处于这种状态，具有几种能量上接近的多晶型物，其特征范围从非磁性半导体到磁性有序金属。因此，我们使用广义梯度近似中的 DFT+U，研究了单层 CrS2 的 1H、1T、1T' 和 1T'' 多晶型物在不同哈伯德相互作用 (U=0--8~eV) 和双轴应变（-10% 至 +10%）下的结构、磁性和电子特性。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32265</guid>
+    </item>
+    <item>
+        <title>受挫的神经元：排斥相振荡器中的能量景观和松弛动力学</title>
+        <link>https://arxiv.org/abs/2606.02512</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Brandon B. Le
+
+几何挫败是凝聚态物理学的一个中心范式，它为系统提供了一种统一的语言，在这些系统中，局部首选的相互作用无法实现全局兼容。在这里，我们使用这种语言来制定受挫神经时序的最小理论，将排斥耦合的节律单元映射到反铁磁 XY 模型上。在这个公式中，局部约束、简并基态流形、亚稳态和失超动力学的凝聚态概念被用来指导我们对结构化神经相动力学的分析。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.02512</guid>
+    </item>
+    <item>
+        <title>不对称紊乱的石墨烯约瑟夫森二极管</title>
+        <link>https://arxiv.org/abs/2606.17673</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Ivan Villani, Luca Chirolli, Matteo Carrega, Alessandro Crippa, Elia Strambini, Francesco Giazotto 等13位作者
+
+约瑟夫森二极管是不可逆超导器件，其特征在于根据电流流动方向而具有不同的开关电流。鉴于它们可能作为超导电子学领域的整流元件以及作为研究介观系统中对称破缺机制的探针，它们最近引起了相当多的理论和实验关注。在这项工作中，我们证明石墨烯约瑟夫森结可以提供超电流整流，效率超过 20%。该效应在施加 mT 面外磁场时出现，并且在靠近弗劳恩霍夫干涉图样的节点处增强。我们的研究结果与理论模型一致，该模型将结中的长程散射电势视为对称破缺机制，从而在高度透明的结中产生超电流整流。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2606.17673</guid>
+    </item>
+    <item>
+        <title>用于改进溅射 GeTe 纳米器件中自旋电荷相互转换的界面和薄膜工程</title>
+        <link>https://arxiv.org/abs/2611.31816</link>
+        <description><![CDATA[📚 arXiv
+
+👤 S. Teresi, T. Frottier, M. Culot, W. Savero-Torres, P. Sgarro, M. Wissmann 等21位作者
+
+自旋逻辑器件有望实现具有超低功耗的非易失性内存逻辑计算，从而提供了绕过冯·诺依曼瓶颈的途径。然而，磁电和铁电自旋轨道（MESO/FESO）器件需要将大输出信号与能够承受纳米级集成的特性相结合的自旋电荷互变材料。碲化物在这方面特别脆弱，因为加工过程容易引入缺陷，从而降低其自旋电荷互变性能。在这里，我们展示了基于溅射 GeTe 的图案化 FESO 纳米级器件中的室温自旋电荷互变，其特征尺寸小至 100 nm。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31816</guid>
+    </item>
+    <item>
+        <title>干涉测量揭示了石墨烯中的自旋单态分数量子霍尔边缘</title>
+        <link>https://arxiv.org/abs/2609.01233</link>
+        <description><![CDATA[📚 arXiv
+
+👤 R. Ayache, K. Kim, M. Kuiri, Q. Benichou, H. Chakraborti, L. Pugliese 等10位作者
+
+自旋单态分数量子霍尔（FQH）相的边缘模式是多组分拓扑序和SU(2)自旋对称性的表现。一个原型是ν=2/3时的自旋非极化态，其边缘预计将承载在空间上共存但反向传播的电荷模式和中性自旋模式。尽管作出了努力，但由于在FQH边缘输运中难以分辨自旋，其边缘特性（包括自旋相干性和自旋-电荷分离）仍然难以捉摸。在这里，我们通过使用p-n结将目标FQH态与相反极性的探测整数量子霍尔（QH）态相连，开发了一种对石墨烯FQH边缘具有自旋敏感性的探测方法。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2609.01233</guid>
+    </item>
+    <item>
+        <title>具有高阶旋转轴的铁轴金属的固有纵向霍尔效应</title>
+        <link>https://arxiv.org/abs/2611.32709</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Eleni Chatzikyriakou, Stepan Tsirkin, Fernando Peñaranda, Oscar Pozo, Ivo Souza, Fernando de Juan
+
+非磁性金属的低场霍尔电阻率具有本征量子贡献，该贡献源自费米表面附近布洛赫态的场校正贝里曲率和本征磁矩。然而，它的效果通常被经典洛伦兹力的贡献所掩盖。在这里，我们表明，对于纵向霍尔效应（当施加的磁场位于霍尔平面时，铁轴晶体中会发生这种效应），对于具有 3,4 或 6 倍旋转轴的八个铁轴组，洛伦兹力的贡献消失。这提供了单独测量量子校正的机会，但到目前为止，所有测量到的效应实例都落在其余五个较低对称性的铁轴组中，其中洛伦兹力在信号中占主导地位。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32709</guid>
+    </item>
+    <item>
+        <title>手性随机运动的晶格模型：简短回顾</title>
+        <link>https://arxiv.org/abs/2611.32743</link>
+        <description><![CDATA[📚 arXiv
+
+👤 E. Kalz, J. Wojcik, N. Sherf, Y. Roichman, R. Metzler
+
+手性是一种系统性旋转偏差，在许多随机运动模式中无处不在，从在表面附近绕圈游动和旋转胶体的细菌细胞，到在磁场影响下扩散的带电粒子。在二维中，手性使随机传输变得奇怪：扩散张量获得反对称部分，使均方位移不变，但会改变通量和边界电流。随机运动的晶格模型是研究手性的自然环境，因为它们完全可解，直接连接到异构介质、元胞自动机和可编程机器人，并且在离散时间内通过局部体和边缘传输承认完全手性限制。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32743</guid>
+    </item>
+    <item>
+        <title>Cr2AlC MAX相中的局部磁关联和光敏中心</title>
+        <link>https://arxiv.org/abs/2607.15110</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Malgorzata Wierzbowska, Anna Basa, Kazuhiro Marumoto, Jiaxi Wang, Katarzyna Gas, Maciej Sawicki 等9位作者
+
+Cr2AlC MAX 相通过高压固态退火合成，并作为光响应磁性的候选平台进行研究。结构表征证实了 Cr2AlC 相的形成，同时通过超导量子干涉装置 (SQUID) 磁力测量、电子自旋共振 (ESR) 和第一原理计算来检查磁性和光磁特性。 SQUID 磁力测定法将 Cr 2AlC 识别为弱场线性金属顺磁体，由流动 Cr 衍生态的类泡利磁化率主导。其非单调温度依赖性由反铁磁耦合 Cr-Cr 二聚体的额外贡献来描述，而低温居里样上升仅源自局部 Cr 中心的痕量群体。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2607.15110</guid>
+    </item>
+    <item>
+        <title>镜面粒子孔反对称性的马约拉纳平带</title>
+        <link>https://arxiv.org/abs/2611.31597</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Justin Schirmann, Martin Rodriguez-Vega, Alexander Cerjan
+
+马约拉纳平带，整个边缘布里渊区的零模式，通常依赖于手性对称性。我们证明，完全带隙的 D 类超导体可以在没有手性对称性或时间反转的情况下容纳这样的平带，只要其超导带隙在镜子下是奇数并且沿边缘的平移得以保留。与粒子-空穴共轭相结合，镜子形成了反酉反对称，其平方为+1并保留了沿边缘的动量，因此它固定了每片固定边缘动量的基塔耶夫指数。在有间隙的块体中，该切片指数不能随边缘动量变化，并且边缘零模式形成横跨整个边缘布里渊区的带。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31597</guid>
+    </item>
+    <item>
+        <title>石墨烯/六方氮化硼超晶格中莫尔感应层间电子声子耦合</title>
+        <link>https://arxiv.org/abs/2611.31896</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Dasol Kim, Zhengguang Lu, Tonghang Han, Guorui Chen, Tianyi Han, Jixiang Yang 等19位作者
+
+电子声子耦合 (EPC) 在材料的电学和光学性质（从超导性到电荷动力学）中发挥着至关重要的作用。在莫尔超晶格中，面外振动可以调节莫尔势并增强层间 EPC。在这里，我们报告了首次直接观察到石墨烯莫尔超晶格中莫尔电子激发和声子之间耦合产生的共振。使用傅里叶变换红外光电流光谱，我们检测到名义上静音的六方氮化硼 (hBN) 面外光学 (ZO) 声子作为明显的吸收峰。声子干扰莫尔平带激发，形成特征性的法诺共振。位移场相关测量证实该特征源自与莫尔电子连续体的耦合，而不是简单的区域折叠。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.31896</guid>
+    </item>
+    <item>
+        <title>多稳态热电约瑟夫森自动机</title>
+        <link>https://arxiv.org/abs/2611.33041</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Filippo Antola, Margherita Cervi, Angelo Greco, Alessandro Braggio, Giorgio De Simoni, Francesco Giazotto
+
+多稳态系统可以存储和处理信息，但其元件通常只消耗驱动能量。在这里，我们构建了一个自动机，其元件主动将热量转化为电能。仅靠热量就能将状态稳定在零偏压下，并且每个状态都会将生成和耗散路由到不同的结点。这些元件是间隙不对称超导隧道结，在固定加热条件下，任一极性均可提供高达 2.6 pW 的功率，并支持磁场可调的约瑟夫森电流。共享一个加热岛的两个结点会滞后地分割偏置，即使在零偏置下，也会锁定到编码扫描方向的相反电压。通过负载和电流偏置，自动机可以访问跨越结极性组合的状态，包括零电压；]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33041</guid>
+    </item>
+    <item>
+        <title>TiN 和 CrN 中的原生空位能量学和缔合：化学势依赖性、聚类和表面效应</title>
+        <link>https://arxiv.org/abs/2611.33060</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Barsha Bhattacharjee, Emilia Olsson
+
+过渡金属氮化物涂层中的原生空位数量反映了空位形成、缔合和深度依赖性稳定性。使用密度泛函理论 (DFT)，我们在相稳定性限制的化学势范围内比较了岩盐 TiN 和 CrN 的块体和 (001) 表面的这些影响。在TiN中，贫氮条件下有利于V_N，富氮条件下有利于V_Ti；在 CrN 中，V_N 在整个稳定范围内仍然是首选。缔合能参考相应的孤立空位，其中正值意味着缔合降低能量，负值有利于分离。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.33060</guid>
+    </item>
+    <item>
+        <title>网络拓扑对集体非平衡响应施加谱约束</title>
+        <link>https://arxiv.org/abs/2611.32130</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Dingjie Wu, Yaozu Wang, Rong Wang, Ying Wu
+
+朗之万系统中的集体非平衡动力学取决于网络拓扑和随机驱动。了解拓扑在随机驱动响应和非平衡出现中的作用至关重要。从微观可逆性原理和网络线性朗之万动力学出发，我们推导出短时互相关不对称性和稳态热流的模态分解。这种分解揭示了非平衡的两个来源——单个模式的波动和不同模式之间的相关波动。对于具有独立局部驱动的互易网络，我们推导了两个非平衡响应算子，它们产生全局不对称强度和熵产生率的显式表达式。这些算子是独立于随机驱动的加权拉普拉斯算子。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32130</guid>
+    </item>
+    <item>
+        <title>堆积布拉格球：聚合物折射率 (1.55) 下的完整三维光子带隙</title>
+        <link>https://arxiv.org/abs/2611.32789</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Alexander Itin
+
+迄今为止，仅在折射率对比度约为 1.9 及以上时才发现完整的 3D 光子带隙，这是通过杆连接的金刚石晶格结构达到的。准周期结构的倒易空间设计最近在低得多的对比度下实现了相当大的发射衰减[L.麦瓦尔德等人，Adv。光学材料。 10、2100785（2022）]。在这里，我们实现了具有完整带隙的周期性 3D 结构的系统搜索和倒易空间设计，解决了整数晶格上的离散优化问题。高频带以上的间隙需要接近该频带布拉格球的最强电介质傅立叶分量。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2611.32789</guid>
+    </item>
+    <item>
+        <title>自旋空间群的射影表示理论</title>
+        <link>https://arxiv.org/abs/2609.21289</link>
+        <description><![CDATA[📚 arXiv
+
+👤 Zheng Zhang, Peiyuan Wang, Y. X. Zhao
+
+自旋空间群为具有弱自旋轨道耦合的磁性晶体提供了对称性框架，但要提取其物理结果，则需要一个不可约表示的一般性理论。主要困难在于自旋空间群以射影方式表示：它们的因子系统可以使晶格平移不交换，在动量空间中诱发非同构作用，并改变小余群的射影结构。这些效应超出了常规空间群表示理论的范畴。在这里，我们利用Mackey的群扩张理论，为所有共线、共面和非共面自旋空间群（包括反幺正对称性和一般因子系统）建立了一个统一的构造性框架。]]></description>
+        <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+        <guid isPermaLink="true">https://arxiv.org/abs/2609.21289</guid>
+    </item>
+</channel>
+</rss>
