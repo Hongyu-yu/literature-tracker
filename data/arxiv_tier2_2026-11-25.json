@@ -36,6 +36,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Integration of Mott neurons and spintronic memories for event-driven spiking neural networks",
+    "title_zh": "事件驱动尖峰神经网络的莫特神经元和自旋电子记忆的集成",
+    "summary": "提出了一种混合计算和存储核心，将热耦合二氧化钒泄漏集成和激发神经元与域壁赛道存储器相结合。该架构保留了时间尖峰历史，并以低功耗实现了高识别精度。",
+    "abstract": "Nature Nanotechnology, Published online: 25 November 2026; doi:10.1038/s41565-026-02311-0 A hybrid compute-and-store core combining thermally coupled vanadium dioxide leaky integrate-and-fire neurons with domain-wall racetrack memory is presented. This architecture preserves temporal spike histories and achieves high recognition accuracy with low power consumption.",
+    "category": "AI×物理",
+    "link": "https://www.nature.com/articles/s41565-026-02311-0",
+    "journal": "Nature Nanotechnology"
+  },
+  {
     "title": "Accelerating Equivariant Interatomic Potentials for Molecular Dynamics through Radial tabulation and Kernel Fusion",
     "title_zh": "通过径向制表和核融合加速分子动力学的等变原子间势",
     "summary": "等变机器学习原子间势 (MLIP) 实现了接近量子化学的精度，但其计算成本和 GPU 内存占用限制了分子动力学 (MD) 在扩展长度和时间尺度上的发展。即使张量积 (TP) 加速，这两个瓶颈仍然是通过评估和存储 NequIP 卷积中的每边径向权重来控制的。我们引入了 JET-MLIP（用于 MLIP 模拟的带有列表径向权重的联合核等变卷积），这是一种适用于预训练 NequIP 系列势的 GPU 后端，无需重新训练。",
@@ -117,21 +126,21 @@
     "journal": "arXiv"
   },
   {
-    "title": "Lattice in Line: Optimized DMRG ordering for complex lattice geometries",
-    "title_zh": "Lattice in Line：针对复杂晶格几何结构的优化DMRG排序",
-    "summary": "密度矩阵重整化群（DMRG）是一种一维张量网络技术，但它并不局限于一维系统：它可以应用于周期性二维和三维簇和分子，前提是它们的位点首先沿一条线枚举；这一步可以称为“晶格编译”。本文讨论了用于寻找这一最优枚举的三个代理损失函数：图带宽B（最大相互作用范围）、割宽C（穿过割集的边最大数目）和平均相互作用范围R。通过为受阻磁性中关注的大量簇构造哈密顿MPO（矩阵积算符），我发现C决定了峰值SU(2)海森堡MPO边维数，而R决定了平均边维数。按字典顺序针对(C,R)可得到最佳能量。",
-    "abstract": "arXiv:2609.25384v2 Announce Type: replace Abstract: The density-matrix renormalization group (DMRG) is a one-dimensional tensor-network technique, but it is not limited to one-dimensional systems: it can be applied to periodic 2D and 3D clusters and molecules, provided their sites are first enumerated along a line; a step one may call ``lattice compilation''. This paper discusses three proxy loss functions for finding this optimal enumeration: the graph bandwidth B (maximum interaction range), the cutwidth C (maximum number of bonds crossing a cut), and the average interaction range R. Constructing the Hamiltonian MPO (matrix-product operator) for a large set of clusters that are of interest in frustrated magnetism, I find that C determines the peak SU(2) Heisenberg MPO bond dimension and R the average one. Targeting (C,R) lexicographically yields the best energies. Targeting B indirectly reduces C, but not as efficiently as targeting C directly. Otherwise, the value of B itself is largely irrelevant in the sense that good DMRG energies can have large B. To perform the optimization, classic heuristics (e.g. reverse Cuthill--McKee) prove unreliable even for small clusters, and I find that a QUBO formulation improves them only marginally. Instead I propose a staged optimization built on Boolean satisfiability (SAT) and constraint-programming (CP) solvers, CP-SAT of Google's OR-Tools (a hybrid of CP propagation and SAT clause learning) and the SAT solvers CaDiCaL and Glucose. This approach yields significantly better orderings together with rigorous bounds. The corresponding Lattice in Line code is available at https://github.com/spinflip/lattice_in_line and was designed with extensive use of the Fable 5 large language model.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2609.25384",
-    "journal": "arXiv"
-  },
-  {
     "title": "Path-probability gradients for optimizing force fields against dynamical observables",
     "title_zh": "针对动态可观测值优化力场的路径概率梯度",
     "summary": "机器学习力场继承了用于生成训练数据的电子结构方法的误差，并根据实验测量对其进行改进，提供了超越此限制的直接途径。然而，这种细化对于动态可观测量仍然很困难，因为微分混沌分子轨迹会产生不稳定的梯度。在这里，我们引入 PathGrad，它区分 Langevin 路径概率而不是轨迹本身。所得的梯度估计器是根据热噪声和力导数即时累积的，并且随着轨迹长度的增加，其方差保持稳定。我们根据有限差分计算验证了梯度估计器，并用它根据实验扩散系数和结构约束来微调熔融铜和水势。",
     "abstract": "arXiv:2611.32851v1 Announce Type: new Abstract: Machine learning force fields inherit the errors of the electronic-structure methods used to generate their training data, and refining them against experimental measurements provides a direct route beyond this limit. However, such refinement remains difficult for dynamical observables because differentiating chaotic molecular trajectories yields unstable gradients. Here, we introduce PathGrad, which differentiates Langevin path probabilities instead of the trajectories themselves. The resulting gradient estimator is accumulated on the fly from thermal noise and force derivatives, and its variance remains stable as the trajectory length increases. We validated the gradient estimator against finite-difference calculations and used it to fine-tune molten-copper and water potentials against experimental diffusion coefficients together with structural constraints. For water, jointly optimizing diffusion and the oxygen-oxygen radial distribution function also improves the predictions of shear viscosity and rotational relaxation, neither of which is included in the optimization objective. Alignment at a single temperature also improves the apparent activation energies of multiple dynamical observables, bringing their temperature dependences closer to experiments. Moreover, the optimized potential exhibits smaller force errors relative to an independent, higher-level quantum-chemical reference, indicating that alignment with experiments improves the fidelity of the potential energy surface beyond the fitted targets. PathGrad thus establishes a general framework for incorporating experimental observables directly into force field optimizations.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2611.32851",
+    "journal": "arXiv"
+  },
+  {
+    "title": "Lattice in Line: Optimized DMRG ordering for complex lattice geometries",
+    "title_zh": "Lattice in Line：针对复杂晶格几何结构的优化DMRG排序",
+    "summary": "密度矩阵重整化群（DMRG）是一种一维张量网络技术，但它并不局限于一维系统：它可以应用于周期性二维和三维簇和分子，前提是它们的位点首先沿一条线枚举；这一步可以称为“晶格编译”。本文讨论了用于寻找这一最优枚举的三个代理损失函数：图带宽B（最大相互作用范围）、割宽C（穿过割集的边最大数目）和平均相互作用范围R。通过为受阻磁性中关注的大量簇构造哈密顿MPO（矩阵积算符），我发现C决定了峰值SU(2)海森堡MPO边维数，而R决定了平均边维数。按字典顺序针对(C,R)可得到最佳能量。",
+    "abstract": "arXiv:2609.25384v2 Announce Type: replace Abstract: The density-matrix renormalization group (DMRG) is a one-dimensional tensor-network technique, but it is not limited to one-dimensional systems: it can be applied to periodic 2D and 3D clusters and molecules, provided their sites are first enumerated along a line; a step one may call ``lattice compilation''. This paper discusses three proxy loss functions for finding this optimal enumeration: the graph bandwidth B (maximum interaction range), the cutwidth C (maximum number of bonds crossing a cut), and the average interaction range R. Constructing the Hamiltonian MPO (matrix-product operator) for a large set of clusters that are of interest in frustrated magnetism, I find that C determines the peak SU(2) Heisenberg MPO bond dimension and R the average one. Targeting (C,R) lexicographically yields the best energies. Targeting B indirectly reduces C, but not as efficiently as targeting C directly. Otherwise, the value of B itself is largely irrelevant in the sense that good DMRG energies can have large B. To perform the optimization, classic heuristics (e.g. reverse Cuthill--McKee) prove unreliable even for small clusters, and I find that a QUBO formulation improves them only marginally. Instead I propose a staged optimization built on Boolean satisfiability (SAT) and constraint-programming (CP) solvers, CP-SAT of Google's OR-Tools (a hybrid of CP propagation and SAT clause learning) and the SAT solvers CaDiCaL and Glucose. This approach yields significantly better orderings together with rigorous bounds. The corresponding Lattice in Line code is available at https://github.com/spinflip/lattice_in_line and was designed with extensive use of the Fable 5 large language model.",
+    "category": "磁性·自旋电子学",
+    "link": "https://arxiv.org/abs/2609.25384",
     "journal": "arXiv"
   },
   {
@@ -168,15 +177,6 @@
     "abstract": "arXiv:2509.24719v3 Announce Type: replace Abstract: The magnetic spin Hall effect is a time-reversal-odd phenomenon in which spin current is induced by the charge current. In the presence of a spin-orbit coupling and/or noncolinear magnetism, however, spin current is not uniquely defined. Instead, we study an intrinsic response of spin to an electric field gradient that describes the spin accumulation at the boundaries of magnetic systems. We derive a generic formula expressed by Bloch wave functions and apply it to a minimal model for representative altermagnets, RuO₂ and MnF₂. Our results show that the intrinsic spin accumulation can be nonzero in magnetic insulators in sharp contrast to the magnetic spin Hall conductivity.",
     "category": "磁性·自旋电子学",
     "link": "https://arxiv.org/abs/2509.24719",
-    "journal": "arXiv"
-  },
-  {
-    "title": "Magnetoelectric flat band induced by a sqrt3×sqrt3 charge density wave in monolayer CrSe₂",
-    "title_zh": "由单层CrSe₂中的sqrt3×sqrt3电荷密度波诱导的磁电平带",
-    "summary": "我们使用从头计算研究了 CrSe2 极性 sqrt3×sqrt3 电荷密度波 (CDW) 相的电子和磁性。 CDW 在范德华平面之外引入了极性畸变，该畸变耦合到自旋极化的 Cr d 态，从而在费米能级处产生非常平坦的电子能带。我们通过详细分析结构重建、轨道杂化的影响、晶体场分裂、自旋轨道耦合和电子相关性，提供了对平带起源的微观理解。我们的计算表明，由于 CDW 失真的极性性质，电场可以充当外部开关来诱发 CDW 相位，从而提供了一种操纵系统中强相关性的方法。",
-    "abstract": "arXiv:2606.24494v2 Announce Type: replace Abstract: We investigate the electronic and magnetic properties of the polar sqrt3×sqrt3 charge-density-wave (CDW) phase of CrSe₂ using ab initio calculations. The CDW introduces a polar distortion out of the van der Waals plane that couples to the spin-polarized Cr d states resulting in a remarkably flat electronic band exactly at the Fermi level. We provide a microscopic understanding of the origin of the flat band by analyzing in detail the structural reconstruction, the effects of orbital hybridization, crystal-field splittings, spin-orbit coupling and electronic correlations. Our calculations show that due to the polar nature of the CDW distortion, an electric field can act as an external switch to induce the CDW phase, providing a way to manipulate strong correlations in the system.",
-    "category": "磁性·自旋电子学",
-    "link": "https://arxiv.org/abs/2606.24494",
     "journal": "arXiv"
   }
 ]

@@ -36,6 +36,15 @@
     "journal": "arXiv"
   },
   {
+    "title": "Decoding Perovskite Interfaces: Machine Learning Uncovers Geometry‐Matched Dual‐Site Hydrogen Bonding",
+    "title_zh": "解码钙钛矿界面：机器学习揭示几何匹配的双位点氢键",
+    "summary": "应用化学国际版，第 65 卷，第 48 期，2026 年 11 月 23 日。",
+    "abstract": "Angewandte Chemie International Edition, Volume 65, Issue 48, 23 November 2026.",
+    "category": "AI×化学·材料",
+    "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.9718249?af=R",
+    "journal": "Wiley"
+  },
+  {
     "title": "An equivariant classical density functional for ionic fluids at complex interfaces",
     "title_zh": "复杂界面离子流体的等变经典密度泛函",
     "summary": "预测复杂界面上离子堆积和长程静电的综合效应在技术上很重要，但如果没有原子模拟，仍然具有挑战性。在这里，我们提出了一种机器学习的离子流体经典密度泛函，它将用于短程相关性的对称适应神经自由能与显式长程静电相结合。经过对全库仑限制原始模型的三维平衡密度和体积相关性的训练，单一功能转移到电荷图案粒子和原子结构电极。围绕各向异性带电溶质，它再现了分子动力学的离子结构和平均力，包括裸静电力的反转。",
@@ -108,15 +117,6 @@
     "journal": "arXiv"
   },
   {
-    "title": "Adaptive Slater Koster Parameters: Crossing Oxidation States with Density Functional Tight Binding",
-    "title_zh": "自适应 Slater Koster 参数：通过密度函数紧结合交叉氧化态",
-    "summary": "我们建议将密度泛函紧束缚（DFTB）中支撑 Slater-Koster（SK）表的受限伪原子轨道调整到局部原子环境。为不同氧化态的金属原子分配最佳的 SK 参数可以改善部分氧化的 Ni 表面的电子结构，并且通过调整排斥力，改善石墨中的 Li 插入能量。它们对化学和空间环境的平滑、可解释的响应，独立观察到镍和钴氧化物，实现了简单、物理信息丰富的机器学习方案，此处应用于镍氧二元化合物。",
-    "abstract": "arXiv:2605.19977v2 Announce Type: replace Abstract: We propose to adapt the confined pseudo-atomic orbitals underpinning the Slater-Koster (SK) tables in density functional tight binding (DFTB) to local atomic environments. Assigning optimal SK parameters to metal atoms in different oxidation states improves the electronic structure of a partially oxidized Ni surface and, with adapted repulsion, Li insertion energetics in graphite. Their smooth, interpretable response to chemical and spatial environment, independently observed for Ni and Co oxides, enables a simple, physically informed machine-learning scheme, here applied to Ni-O binaries.",
-    "category": "其他",
-    "link": "https://arxiv.org/abs/2605.19977",
-    "journal": "arXiv"
-  },
-  {
     "title": "PACSYLLM: natural-language access to an expanded PACSY database of protein structures and chemical shifts",
     "title_zh": "PACSYLLM：以自然语言访问蛋白质结构和化学位移的扩展 PACSY 数据库",
     "summary": "化学位移是蛋白质核磁共振研究中获得的第一个数据，它们与三维结构的关系是共振分配、二级结构分析和结构测定的基础。 2012 年，PACSY 通过集成蛋白质数据库 (PDB) 的 NMR 结构、生物磁共振数据库 (BMRB) 的化学位移以及蛋白质结构分类 (SCOP) 的折叠分类，使这种关系变得可搜索。然而，许多分析仍然需要 SQL 查询或自定义脚本。在这里，我们描述了一个重建的、质量控制的 PACSY 数据库和 PACSYLLM（其数据的自然语言接口）。",
@@ -126,21 +126,21 @@
     "journal": "Preprints"
   },
   {
-    "title": "DeepDOSReasoner: Physics-Grounded Reasoning for Density-of-States Prediction and Materials Discovery",
-    "title_zh": "DeepDOSReasoner：用于状态密度预测和材料发现的物理推理",
-    "summary": "从原子结构预测材料的行为是物理科学的长期目标。电子态和声子态密度（eDOS 和 phDOS）控制着关键的电子、光学、振动和热力学性质，但使用密度泛函理论 (DFT) 进行计算的成本很高：大约 60% 的材料项目条目缺乏 eDOS，超过 80% 缺乏 phDOS。现有的晶体到光谱模型依赖于池结构表示和逐点回归，这模糊了光谱特征并违反了总状态守恒。",
-    "abstract": "arXiv:2611.29132v1 Announce Type: new Abstract: Predicting a material's behavior from its atomic structure is a longstanding goal of the physical sciences. The electronic and phonon densities of states (eDOS and phDOS) govern key electronic, optical, vibrational, and thermodynamic properties, yet their calculation using density functional theory (DFT) is costly: about 60% of Materials Project entries lack eDOS and over 80% lack phDOS. Existing crystal-to-spectrum models rely on pooled structural representations and pointwise regression, which blur spectral features and violate total-state conservation. Here we introduce DeepDOSReasoner, a physics-grounded framework that decodes spectra through atom-to-energy source attention and refines the normalized DOS through learned continuity-equation transport, enforcing nonnegativity and total-state conservation by construction. DeepDOSReasoner achieves the highest prediction accuracy across all evaluated metrics for both eDOS and phDOS, recovers element-resolved contributions without supervision, and most reliably identifies rare valence-band (VB) gaps. In a prospective screen of 8,106 uncharted materials validated by new DFT calculations, its predictions remain the most accurate among the methods evaluated, with 25 of its top 50 candidates confirmed as VB-gap materials. Three case studies spanning substituted compounds, photovoltaic chalcogenides, and a high-entropy alloy demonstrate transfer across materials classes. Ablations confirm that both stages are necessary, while the model retains comparable accuracy when trained on only 25% of the data. Predicting spectra in milliseconds enables exhaustive screening; we release predictions filling the missing eDOS for 91,405 and phDOS for 127,768 Materials Project entries. DeepDOSReasoner provides a blueprint for integrating machine learning with physical reasoning toward high-throughput spectral screening and autonomous materials discovery.",
-    "category": "AI×物理",
-    "link": "https://arxiv.org/abs/2611.29132",
-    "journal": "arXiv"
-  },
-  {
     "title": "Dictionary learning approach to analytic continuation of imaginary-time quantum Monte Carlo data",
     "title_zh": "虚时间量子蒙特卡罗数据解析延拓的字典学习方法",
     "summary": "物理学的许多领域都使用量子蒙特卡罗 (QMC) 模拟来模拟虚数时间 τ 中的量子系统并估计虚数时间相关函数 (ITCF)。然而，从 ITCF 中提取动态 ω 相关量是一项众所周知的困难任务，称为解析延拓 (AC)，相当于解决指数病态反问题。在 AC 文献中，存在相互竞争的随机方法和正则化方法，以及使用神经网络等参数化模型的新兴作品集。在这里，我们超越了社区之间的传统鸿沟，引入了正则化随机优化方法（RSOM）。该方法将 AC 重新表述为字典学习问题，发现稀疏字典来表示解决方案。",
     "abstract": "arXiv:2606.19205v2 Announce Type: replace Abstract: Many fields of physics use quantum Monte Carlo (QMC) simulations to simulate quantum systems in imaginary-time τ and estimate imaginary-time correlation functions (ITCF). However, extracting dynamic ω-dependent quantities from ITCFs is a notoriously difficult task, known as analytic continuation (AC), that amounts to solving an exponentially ill-conditioned inverse problem. Within the AC literature, there are competing stochastic and regularized approaches, as well as an emerging collection of works using parameterized models like neural networks. Here we transcend the traditional divides between the communities, introducing the regularized stochastic optimization method (RSOM). This method reformulates AC as a dictionary learning problem, discovering a sparse dictionary to represent the solution. Our approach is motivated by the astounding results dictionary learning has produced in many scientific fields. Remarkably, RSOM discovers a sparse dictionary that maps a high-dimensional ill-conditioned inverse problem to a low-dimensional problem. We demonstrate that the method yields competitive results for common synthetic test problems as well as for authentic QMC data from the finite temperature electron gas. Due to the low dimensionality, there is reasonably finite uncertainty in the dictionary, which is leveraged to create an ad hoc post-processing estimate of the dictionary coefficients' sensitivity to perturbations. This work exposes that a dictionary exists within all stochastic and regularized methods and that dictionary learning provides a new angle of attack for future AC methods.",
     "category": "AI×物理",
     "link": "https://arxiv.org/abs/2606.19205",
+    "journal": "ScienceDirect"
+  },
+  {
+    "title": "DeepDOSReasoner: Physics-Grounded Reasoning for Density-of-States Prediction and Materials Discovery",
+    "title_zh": "DeepDOSReasoner：用于状态密度预测和材料发现的物理推理",
+    "summary": "从原子结构预测材料的行为是物理科学的长期目标。电子态和声子态密度（eDOS 和 phDOS）控制着关键的电子、光学、振动和热力学性质，但使用密度泛函理论 (DFT) 进行计算的成本很高：大约 60% 的材料项目条目缺乏 eDOS，超过 80% 缺乏 phDOS。现有的晶体到光谱模型依赖于池结构表示和逐点回归，这模糊了光谱特征并违反了总状态守恒。",
+    "abstract": "arXiv:2611.29132v1 Announce Type: new Abstract: Predicting a material's behavior from its atomic structure is a longstanding goal of the physical sciences. The electronic and phonon densities of states (eDOS and phDOS) govern key electronic, optical, vibrational, and thermodynamic properties, yet their calculation using density functional theory (DFT) is costly: about 60% of Materials Project entries lack eDOS and over 80% lack phDOS. Existing crystal-to-spectrum models rely on pooled structural representations and pointwise regression, which blur spectral features and violate total-state conservation. Here we introduce DeepDOSReasoner, a physics-grounded framework that decodes spectra through atom-to-energy source attention and refines the normalized DOS through learned continuity-equation transport, enforcing nonnegativity and total-state conservation by construction. DeepDOSReasoner achieves the highest prediction accuracy across all evaluated metrics for both eDOS and phDOS, recovers element-resolved contributions without supervision, and most reliably identifies rare valence-band (VB) gaps. In a prospective screen of 8,106 uncharted materials validated by new DFT calculations, its predictions remain the most accurate among the methods evaluated, with 25 of its top 50 candidates confirmed as VB-gap materials. Three case studies spanning substituted compounds, photovoltaic chalcogenides, and a high-entropy alloy demonstrate transfer across materials classes. Ablations confirm that both stages are necessary, while the model retains comparable accuracy when trained on only 25% of the data. Predicting spectra in milliseconds enables exhaustive screening; we release predictions filling the missing eDOS for 91,405 and phDOS for 127,768 Materials Project entries. DeepDOSReasoner provides a blueprint for integrating machine learning with physical reasoning toward high-throughput spectral screening and autonomous materials discovery.",
+    "category": "AI×物理",
+    "link": "https://arxiv.org/abs/2611.29132",
     "journal": "arXiv"
   },
   {
