@@ -1,5 +1,23 @@
 [
   {
+    "title": "S-matrix constrained equivariant graph neural network for Hamiltonian inversion of Kagome and quasiperiodic non-Hermitian systems",
+    "title_zh": "用于 Kagome 和准周期非厄米系统哈密顿反演的 S 矩阵约束等变图神经网络",
+    "summary": "从噪声散射数据重建哈密顿参数是非厄米量子系统中的不适定逆问题。我们提出了一种 S 矩阵约束等变图神经网络，它嵌入了两个架构硬约束以减少解决方案的模糊性。等变消息传递编码器结合了晶格点群对称性和排列不变聚合（对于奥布里-安德烈-哈珀准周期链），从而抑制了对称引起的参数变异。确定性 S 矩阵求解器充当固定解码器，在假设模型内强制执行散射方程，从而消除了基于物理的剩余损失项的需要。推理是通过两阶段混合优化进行的：对合成数据进行离线预训练，然后在低维潜在空间中进行在线单样本微调。",
+    "abstract": "Reconstructing Hamiltonian parameters from noisy scattering data is an ill-posed inverse problem in non-Hermitian quantum systems. We propose an S-matrix constrained equivariant graph neural network that embeds two architectural hard constraints to reduce the solution ambiguity. An equivariant message-passing encoder incorporates lattice point-group symmetry and permutation-invariant aggregation (for the Aubry–André–Harper quasiperiodic chain), thereby suppressing symmetry-induced parameter variability. A deterministic S-matrix solver serves as a fixed decoder that enforces the scattering equations within the assumed model, eliminating the need for physics-based residual loss terms. Inference is performed via a two-stage hybrid optimization: offline pre-training on synthetic data, followed by online single-sample fine-tuning in a low-dimensional latent space. On a 48-site Kagome supercell and a 50-site Aubry–André–Harper quasiperiodic chain, using a synthetic dataset of 120 000 samples (100 000 training, 10 000 validation, 10 000 test) with additive white Gaussian noise (0%–10%), the mean absolute percentage error of reconstructed parameters remains around 5% for both systems under 10% noise, with per-parameter standard deviations below across 20 independent repetitions, and with an empirical inconsistency ratio around . The transmission spectrum reconstruction RMSE is 0.026± 0.003 (Kagome) and 0.029± 0.003 (Aubry–André–Harper) at 10% noise. Single-sample CPU inference takes 23 s (offline simulation scenario), achieving a 5.6-fold speedup over least-squares fitting with five restarts. Ablation studies confirm that each architectural component contributes to the reported performance. For the AAH quasiperiodic chain, we consider two scenarios: a uniform-dissipation scenario with two independent parameters ( and ), which serves as our primary benchmark. Unless otherwise stated, all numerical results reported in the main text for the AAH chain correspond to the uniform-dissipation scenario. All experiments are conducted on synthetic data; the method is validated as a proof-of-concept for the two benchmark systems under the wide-band approximation, which is adopted as the forward map of the benchmark systems and is adequate for the parameter ranges studied, without claiming general 1% accuracy.",
+    "category": "AI×物理",
+    "link": "https://iopscience.iop.org/article/10.1088/2632-2153/aec366",
+    "journal": "Machine Learning: Science and Technology"
+  },
+  {
+    "title": "Calibrated machine learning for entanglement andmagnetic-field information in a noisy moving-atomKerr optomechanical cavity",
+    "title_zh": "噪声运动原子克尔光机械腔中纠缠和磁场信息的校准机器学习",
+    "summary": "在混合腔中，产生原子腔纠缠的控制可能不同于使原子对磁场敏感的控制。我们研究了克尔光机械腔中运动的两能级原子的这种区别，其中包括光子损失、原子相移和逐次速度变化。我们一起传播密度算子及其塞曼导数，对未记录的速度进行平均，并计算原子腔负性和纯原子量子费希尔信息（QFI）。在参考控制中，添加损耗、移相和 10% 速度不确定性将最终负值从 0.31374 降低到 0.20709。在固定询问时间和中点哈密顿量控制下，增加的光子损失会降低负性，但会提高采样损失相移网格上的原子 QFI。",
+    "abstract": "In a hybrid cavity, the controls that generate atom--cavity entanglement can differ from those that make the atom sensitive to a magnetic field. We study this distinction for a moving two-level atom in a Kerr optomechanical cavity with photon loss, atomic dephasing and shot-to-shot velocity variation. We propagate the density operator and its Zeeman derivative together, average both over the unrecorded velocity, and compute atom--cavity negativity and atom-only quantum Fisher information (QFI). At the reference control, adding loss, dephasing and 10% velocity uncertainty reduces the final negativity from 0.31374 to 0.20709. At the fixed interrogation time and midpoint Hamiltonian controls, increased photon loss lowers negativity but raises atomic QFI across the sampled loss--dephasing grid. The entanglement response to Kerr coupling changes sign with the mean transit frequency. A Gaussian-process model trained on 56 trajectories yields test-set R² values of 0.915 for negativity and 0.934 for QFI. Split conformal intervals with nominal 95% marginal coverage contain 37 of 40 test labels for each target. A single equal-budget comparison leaves the advantage of variance-based acquisition over random sampling unresolved. Direct propagation of nine candidate controls increases the best checked weighted score from 0.2618 at the midpoint to 0.4026. That control strengthens atom--cavity entanglement while reducing atomic QFI relative to the midpoint. However, its fixed-basis atomic population readout has classical Fisher information only 0.0666, compared with atomic QFI 0.7799; the highest-QFI proposal gives 1.9610 and 1.9886, respectively. Thus practical readout and objective weighting must both be specified, and no computational speedup over direct search is established.",
+    "category": "AI×物理",
+    "link": "https://www.researchsquare.com/article/rs-11775010/latest",
+    "journal": "Preprints"
+  },
+  {
     "title": "A unified machine-learning interatomic potential for thermal properties of As-doped and B-doped silicon systems",
     "title_zh": "砷掺杂和硼掺杂硅系统热特性的统一机器学习原子间势",
     "summary": "出版日期：2027 年 1 月 15 日来源：《计算材料科学》，第 277 卷作者：曹清源、侯超峰、葛伟、陈希中",
@@ -25,5 +43,140 @@
     "category": "AI×化学·材料",
     "link": "https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all",
     "journal": "ScienceDirect"
+  },
+  {
+    "title": "Advancing Circular and Sustainable Surface Engineering through Machine Learning-Assisted Plasma Electrolytic Polishing of TC4 Alloy: Reusability, Stirring and Immersion Properties",
+    "title_zh": "通过机器学习辅助的 TC4 合金等离子电解抛光推进循环和可持续表面工程：可重复使用性、搅拌和浸泡特性",
+    "summary": "Plasma electrolytic polishing (PeP) is an anodic finishing process in which surface asperities are dissolved beneath a vapor–gaseous envelope (VGE).先前的研究主要涉及电压和电解质特性，而对浸泡条件和搅拌的探索较少。",
+    "abstract": "Plasma electrolytic polishing (PeP) is an anodic finishing process in which surface asperities are dissolved beneath a vapor–gaseous envelope (VGE). Previous studies have mainly addressed voltage and electrolyte properties, whereas immersion conditions and stirring remain less explored. This study investigated the effects of immersion depth, electrolyte reusability, immersion cycle, and stirring on the PeP of TC4 alloy using a 27-run full factorial design. Surface roughness, gloss, morphology, and elemental composition were evaluated. After PeP, Ra decreased from 13.18 µm to 1.214–3.173 µm, reaching its minimum at 50 mm depth, 600 rpm stirring, and single cycle, owing to a thinner VGE at greater depths and electrolyte renewal through agitation. Fluorine residues decreased from 9.8 to 0.8 wt.% with increasing depth and stirring, while Al and V contents remained nearly unchanged. Edge erosion cavities at 10 mm without stirring were suppressed by deeper immersion and stirring. Twenty-three regression models and a target-specific hybrid approach were compared for predicting Ra and gloss using stirring-stratified nine-fold cross-validation. The selected configurations achieved pooled out-of-fold R2 values of 0.7159 (Ra) and 0.9009 (gloss). SHAP analysis identified stirring as the most influential predictor for both responses, followed by depth for Ra and cycle for gloss.",
+    "category": "AI×化学·材料",
+    "link": "https://www.researchsquare.com/article/rs-11590729/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Control of out-of-plane anti-damping spin torque with a canted ferromagnetic spin source",
+    "title_zh": "利用倾斜铁磁自旋源控制面外抗阻尼自旋扭矩",
+    "summary": "黄等人。研究表明，SrRuO3 中的倾斜磁化在不依赖于低晶体对称性的情况下产生相当大的面外阻尼式扭矩，为具有垂直磁各向异性的可扩展磁存储器件提供了一种策略。",
+    "abstract": "Nature Communications, Published online: 27 November 2026; doi:10.1038/s41467-026-79635-x Huang et al. show that canted magnetization in SrRuO3 generates a sizable out-of-plane damping-like torque without relying on low crystal symmetry, offering a strategy toward scalable magnetic-memory devices with perpendicular magnetic anisotropy.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.nature.com/articles/s41467-026-79635-x",
+    "journal": "Nature Communications"
+  },
+  {
+    "title": "Magnetic‐Additive‐Free Alignment Strategy of Diamagnetic Boron Nitride for Enhanced Thermal Conductivity via Directed Phonon Propagation",
+    "title_zh": "通过定向声子传播增强导热性的反磁性氮化硼的无磁添加剂对准策略",
+    "summary": "先进科学，早期观点。",
+    "abstract": "Advanced Science, EarlyView.",
+    "category": "磁性·自旋电子学",
+    "link": "https://advanced.onlinelibrary.wiley.com/doi/10.1002/advs.79006?af=R",
+    "journal": "Wiley: Advanced Science: Table of Contents"
+  },
+  {
+    "title": "Observation and control of spontaneous magnon emission from spin ensembles in 2D hexagonal boron nitride",
+    "title_zh": "二维六方氮化硼自旋系综自发磁振子发射的观测与控制",
+    "summary": "《科学进展》，第 12 卷，第 48 期，2026 年 11 月。",
+    "abstract": "Science Advances, Volume 12, Issue 48, November 2026.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.science.org/doi/abs/10.1126/sciadv.aej3973?af=R",
+    "journal": "AAAS: Science Advances: Table of Contents"
+  },
+  {
+    "title": "Critical parameters of thermomagnetic convection in a ferrofluid inside a stationary cylindrical annulus",
+    "title_zh": "静止圆柱环内铁磁流体热磁对流的关键参数",
+    "summary": "铁磁流体（水基或油基）被限制在圆柱环内，受到径向温度梯度和插入内圆柱内的一堆磁体产生的磁场的影响。磁场与铁磁流体磁化强度的相互作用产生开尔文力，其非保守分量起到磁浮力和磁重力的作用。这种磁浮力可以在铁磁流体中产生热磁对流。利用线性稳定性分析（LSA）分析了阿基米德浮力和磁浮力引起的热重力和热磁对流的触发条件。热重力模式是振荡轴对称辊，而热磁模式以固定螺旋对流辊的形式出现。对于中等阿基米德浮力，热磁模式以固定柱状辊的形式出现。",
+    "abstract": "A ferrofluid (water-based or oil-based) is confined in a cylindrical annulus subject to a radial temperature gradient and a magnetic field created by a stack of magnets inserted inside the inner cylinder. The interaction of magnetic field with the ferrofluid magnetization generates the Kelvin force, non-conservative component of which, plays the role of the magnetic buoyancy with a magnetic gravity. This magnetic buoyancy can generate thermo-magnetic convection in the ferrofluid. The conditions for triggering thermo-gravitational and thermo-magnetic convective flows induced by the Archimedean buoyancy and the magnetic buoyancy are analyzed with linear stability analysis (LSA). Thermo-gravitational modes are oscillatory axisymmetric rolls while thermo-magnetic modes appear in form of stationary helical convective rolls. For moderate Archimedean buoyancy, thermo-magnetic modes appear in form of stationary columnar rolls.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-11777135/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Electronic force fields and their associated local charge densities in small molecules featuring conventional covalent and charge-shift bonds and in contact ion pairs",
+    "title_zh": "具有传统共价键和电荷转移键以及接触离子对的小分子中的电子力场及其相关的局部电荷密度",
+    "summary": "本文首先回顾了基于电子力场及其相关局部电荷密度的理论形式，并确定了进一步研究的有希望的方向。在此框架内，作用于 (:N)-电子化学系统中的电子的 Slater 总静态电势 (:ψ:ₑₘleft(rright)) 在这里通过对电子 (:i)、(:widehatVᵢ) 的库仑相互作用能量算子在剩余 (:N-1) 个电子的条件概率分布上进行平均来正式定义，假设电子 (:i) 位于 (:r)。该定义为推导具有化学意义的物理量提供了严格的基础。",
+    "abstract": "This article first reviews the theoretical formalism based on electronic force fields and their associated local charge densities and identifies promising directions for further research. Within this framework, the Slater total static potential (:ϕ:ₑₘleft(rright)) acting on an electron in an (:N)-electron chemical system is formally defined here by averaging the Coulomb interaction energy operator for electron (:i), (:widehatVᵢ), over the conditional probability distribution of the remaining (:N-1) electrons, given that electron (:i) is at (:r). This definition provides a rigorous basis for deriving chemically significant physical quantities. The article then presents quantum-chemical calculations at a correlated level of theory for LiF, LiH, HF, BN, CO, NO, N2, N2H4, N2O4, H2O2, and F2. Particular attention is given to the phenomena of interatomic electron transfer and consequent quantum chemical response, as revealed by the superposition of the electron density gradient field (:nabla:ρ:left(rright)), the per-electron electrostatic force field (:Fₑₛleft(rright)), and the Slater total static force field (:Fleft(rright)=-nabla:ϕ:ₑₘleft(rright)). The analysis further addresses electron-pair density condensation and decondensation in the many-electron cloud, which are represented by regions where the Slater exchange–correlation charge density (:qₓcleft(rright)=nabla:·:left[Fleft(rright)-Fₑₛleft(rright)right]/left(4π:right)) takes negative and positive values, respectively. Importantly, charge-shift bonding is shown to manifest itself in real space as electron-pair density decondensation within internuclear binding regions, with this decondensation apparently driven by Coulomb correlation. On this basis, covalent bonds whose internuclear binding regions exhibit such decondensation, as indicated by positive values of (:qₓcleft(rright)), are proposed to constitute a distinct class, here termed electron-pair-deficient covalent bonds. Finally, theoretical analysis of (:Fleft(rright)) allows tensile and compressive principal modes of the local linear variation of the scalar Cartesian components of this force field to be distinguished along their respective principal directions. These modes are characterized by the eigenvalues of the Hessian of (:ϕ:ₑₘleft(rright)) at the corresponding saddle-type Lagrange point of (:Fleft(rright)). In this context, the tensile principal mode is more pronounced relative to the compressive principal modes in charge-shift bonds than in conventional homoatomic covalent bonds, with the former representing attraction of the electron cloud toward the nuclei and the latter representing attraction of the electron cloud toward the bond axis. Thus, the force-field and charge-density perspective on chemical structure yields robust orbital-free descriptors of interatomic interactions, thereby enabling the charge-shift character of electron-pair-deficient covalent bonds to be captured and quantified outside the framework of valence bond theory.",
+    "category": "其他",
+    "link": "https://www.researchsquare.com/article/rs-11873460/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Nonlinear harmonic signatures of energy dissipation and barrier-controlled heating in magnetic nanoparticles",
+    "title_zh": "磁性纳米粒子中能量耗散和势垒控制加热的非线性谐波特征",
+    "summary": "在随机 Landau-Lifshitz-Gilbert 方程的框架内研究了单畴铁磁纳米粒子在交变磁场下的非线性磁弛豫和能量耗散。使用互补的分析和数值方法检查热波动、磁各向异性、阻尼和激励频率对动态磁化响应的影响。弱非线性响应的解析表达式是通过相关福克-普朗克方程的微扰处理获得的，并与随机运动方程的数值解进行比较。特别关注高阶磁化谐波与磁场周期期间耗散的能量之间的关系。结果表明，归一化三次谐波幅度和场归一化磁滞损耗的非线性校正在弱非线性极限下表现出与场幅度相同的二次相关性。",
+    "abstract": "The nonlinear magnetic relaxation and energy dissipation of single-domain ferromagnetic nanoparticles subjected to an alternating magnetic field are investigated within the framework of the stochastic Landau–Lifshitz–Gilbert equation. The effects of thermal fluctuations, magnetic anisotropy, damping, and excitation frequency on the dynamic magnetization response are examined using complementary analytical and numerical approaches. Analytical expressions for the weakly nonlinear response are obtained from a perturbative treatment of the associated Fokker–Planck equation and compared with numerical solutions of the stochastic equations of motion. Particular attention is given to the relationship between higher-order magnetization harmonics and the energy dissipated during a field cycle. It is shown that the normalized third-harmonic amplitude and the nonlinear correction to the field-normalized hysteresis loss exhibit the same quadratic dependence on field amplitude in the weakly nonlinear limit. Their relationship provides a means of characterizing departures from linear-response theory and identifying the influence of anisotropy-controlled relaxation on magnetic heating. The corresponding specific absorption rate is calculated over a range of field amplitudes, frequencies, and damping parameters, and the theoretical predictions are compared with published experimental measurements. The results establish a connection between nonlinear magnetic susceptibility, dynamic hysteresis, and thermal energy dissipation, providing a systematic basis for assessing magnetic heating beyond the linear-response approximation.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-11479761/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Magnetic proximity effect in nanoparticle–molecule hybrids enables room-temperature circularly polarized luminescence",
+    "title_zh": "纳米颗粒-分子杂化物中的磁邻近效应可实现室温圆偏振发光",
+    "summary": "从非手性发射体实现室温圆偏振发光（CPL）具有挑战性，因为它通常需要复杂的分子手性工程。现在，纳米颗粒-分子杂化物中的磁邻近效应通过界面自旋转移实现了场可调谐 CPL，为分子手性光学和自旋电子学应用提供了途径。",
+    "abstract": "Nature Chemistry, Published online: 27 November 2026; doi:10.1038/s41557-026-02283-7 Achieving room-temperature circularly polarized luminescence (CPL) from achiral emitters is challenging because it usually requires elaborate molecular chirality engineering. Now magnetic proximity effects in nanoparticle–molecule hybrids enable field-tunable CPL through interfacial spin transfer, offering a route to molecular chiroptics and spintronic applications.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.nature.com/articles/s41557-026-02283-7",
+    "journal": "Nature Chemistry"
+  },
+  {
+    "title": "Selective synthesis of 1T and 2H MoS2 via atomic spacing–tuned magnetic susceptibility",
+    "title_zh": "通过原子间距调节磁化率选择性合成 1T 和 2H MoS2",
+    "summary": "《科学进展》，第 12 卷，第 48 期，2026 年 11 月。",
+    "abstract": "Science Advances, Volume 12, Issue 48, November 2026.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.science.org/doi/abs/10.1126/sciadv.aej4653?af=R",
+    "journal": "AAAS: Science Advances: Table of Contents"
+  },
+  {
+    "title": "Continuous Tuning of Magnetic Bistability via Consecutive Desolvation and Decoupled Structural Phase Transition",
+    "title_zh": "通过连续去溶剂化和解耦结构相变连续调节磁双稳态",
+    "summary": "应用化学国际版，EarlyView。",
+    "abstract": "Angewandte Chemie International Edition, EarlyView.",
+    "category": "磁性·自旋电子学",
+    "link": "https://onlinelibrary.wiley.com/doi/10.1002/anie.6734019?af=R",
+    "journal": "Wiley"
+  },
+  {
+    "title": "Direct amplification of octave-spanning coherent infrared spectra enabled by chirped quasi-phase matching",
+    "title_zh": "通过啁啾准相位匹配直接放大倍频程相干红外光谱",
+    "summary": "跨越光学倍频程的宽带相干激光源对于推进超快光谱、波形合成和阿秒科学至关重要。然而，倍频程光谱的直接放大仍然是一个基本挑战，因为非线性晶体的有限相位匹配带宽阻止了传统的光学参量放大（OPA）同时在超宽带光谱范围内提供有效的增益。在这里，我们引入了啁啾准相位匹配（CQPM）来直接放大倍频程相干光谱。通过定制的啁啾偏振结构设计非线性倒易晶格，不同的光谱分量在单个非线性晶体内的不同位置满足其最佳相位匹配条件，从而实现分布式光谱放大。",
+    "abstract": "Broadband coherent laser sources spanning optical octaves are essential for advancing ultrafast spectroscopy, waveform synthesis, and attosecond science. However, direct amplification of octave-spanning spectra remains a fundamental challenge because the finite phase-matching bandwidth of nonlinear crystals prevents conventional optical parametric amplification (OPA) from simultaneously providing efficient gain over an ultrabroadband spectral range. Here, we introduce chirped quasi-phase matching (CQPM) for direct amplification of octave-spanning coherent spectra. By engineering the nonlinear reciprocal lattice through a tailored chirped polarization structure, different spectral components satisfy their optimal phase-matching conditions at different positions inside a single nonlinear crystal, enabling distributed spectral amplification. Using a dispersion-poling co-designed chirped periodically poled lithium niobate crystal in a two-stage OPA, we demonstrate broadband parametric amplification covering signal and idler spectra from 1.3 to 4.2 μm with a pulse energy of 65 μJ at 1 kHz repetition rate. The CEP-stabilized mid-infrared idler pulses support a transform-limited duration approaching a single optical cycle.",
+    "category": "铁电·极化",
+    "link": "https://www.researchsquare.com/article/rs-11756946/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Investigating ionizable lipid chemical environment in lipid nanoparticles using multiphase nuclear magnetic resonance spectroscopy",
+    "title_zh": "使用多相核磁共振波谱研究脂质纳米粒子中的可电离脂质化学环境",
+    "summary": "脂质纳米粒子（LNP）是核酸递送的领先平台，但使用传统方法仍然无法对其内部组织进行分子水平表征。我们开发了多相核磁共振波谱工具箱，用于对天然配方中的 LNP 进行无损、原子分辨率表征。该工具箱结合了用于层相关 1H T2 弛豫测量的扩散过滤完美回波 CPMG、多重编辑的 HSQC 实验以及用于隔离 LNP 相关信号的 HSQC-iDOSY 脉冲序列、饱和传递差 (STD) 和用于信号分配的扩散过滤水 LOGSY 实验；",
+    "abstract": "Lipid nanoparticles (LNPs) are a leading platform for nucleic acid delivery, yet molecular-level characterization of their internal organization remains inaccessible using conventional methods. We developed a multiphase NMR spectroscopy toolbox for the non-destructive, atomic-resolution characterization of LNPs in their native formulations. The toolbox combines diffusion-filtered perfect-echo CPMG for layer-dependent 1H T₂ relaxation measurements, a multiplicity-edited HSQC experiment in combination with an HSQC-iDOSY pulse sequence to isolate LNP-associated signals, saturation transfer difference (STD) and diffusion-filtered waterLOGSY experiments for signal assignment; and proton spin diffusion-driven NOESY for assigning the backbone connectivity of the ionizable lipid (IZL). Applied to LNPs produced under varied formulation and manufacturing conditions, this toolbox revealed multiple ionizable lipid populations residing in heterogeneous chemical environments. Spatial constriction of the PEG lipid was detected in selected formulations and was distinguished from PEG shedding through total lipid quantification. Semi-quantitative HSQC analysis estimated that 7–30% of the ionizable lipid resides at the particle surface, with surface enrichment factors correlating with in vitro transfection efficiency. These results suggest that manufacturing parameters influence LNP structure through molecular-level changes that are not resolved by conventional analytical methods, demonstrating the utility of this NMR toolbox for elucidating how formulation and manufacturing parameters govern LNP structure and function. Correspondence to Peyman Sakhaii (peyman.sakhaii@sanofi.com) or Dan Zarraga (dan.zarraga@sanofi.com)",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-11677250/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Nanostructure-engineered telecom quantum platform with room-temperature optical quantum coherence",
+    "title_zh": "具有室温光量子相干性的纳米结构工程电信量子平台",
+    "summary": "在电信 C 波段室温下实现 μs 级量子相干性仍然是固态量子平台的一个核心挑战，此前仅在真空低温条件下进行了演示。在这里，我们介绍了一种与 CMOS 兼容的纳米工程方法，该方法使用亚 5 nm 硅基空心纳米柱来确定性地控制纳米级体积内的铒离子数量及其电磁环境。这首次实现了单个铒离子的几何定义空间隔离，抑制了环境条件下的离子间相互作用和局部电磁场噪声。",
+    "abstract": "Achieving μs-scale quantum coherence at room temperature in the telecom C band remains a central challenge for solid state quantum platforms, previously demonstrated only under vacuum cryogenic conditions. Here we introduce a CMOS-compatible nanoengineering approach that deterministically controls the number of erbium ions within a nanoscale volume and their electromagnetic environment using sub 5 nm silicon based hollow nanopillars. This achieves the first geometry-defined spatial isolation of single erbium ions, suppressing ion-ion interactions and local electromagnetic field noise under ambient conditions. Individually addressable single-ion devices exhibit a record room temperature optical coherence time of T2*= 32 μs, limited by laser coherence, while photon-echo measurements yield coherence exceeding 60 μs at few-ion sites. We further demonstrate the first background free, upconversion enabled single photon emission from multi-energy-level single erbium ions. The results establish nanostructure-engineered control of the local ion environments as a pathway toward scalable, manufacturable, telecom-compatible quantum networks, distributed sensing, and cryogenic-free quantum photonic integrated circuits.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-11789687/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Schrödinger’s Continuous Electron Revisited: A Fourth Spatial Direction Recovers Exchange, Exclusion and the Born Rule Without Configuration Space",
+    "title_zh": "薛定谔的连续电子重温：第四空间方向恢复交换、排斥和无构型空间的诞生规则",
+    "summary": "1926 年，薛定谔将他的波解释为电子物质真实、连续的分布。这种解释很快就受到四个原因的挑战：多电子波存在于构型空间中，电子被检测为完整的实体，带电云预计会排斥自身，经典带电物质不能拥有自旋或表现出磁性。这项研究的目的是确定在什么条件下电子可以被视为一个连续体，以解决这些异议并与光谱证据保持一致，并引入相应的原子物理模型。",
+    "abstract": "In 1926, Schrödinger interpreted his wave as a real, continuous distribution of electronic matter. This interpretation was soon challenged for four reasons: the many-electron wave exists in configuration space, electrons are detected as whole entities, a charged cloud would be expected to repel itself, and classical charged matter cannot possess spin or exhibit magnetism. The objective of this study is to determine the conditions under which the electron can be treated as a continuous body that addresses these objections and aligns with spectroscopic evidence, as well as to introduce a corresponding physical model of the atom. By conceptualizing the vacuum as an unbounded resonator vibrating at Ω₀, electronic matter as maintaining this resonance, and the nucleus as a compact 1/r source, the vacuum-resonance continuous-matter (VRCM) model provides a physical foundation for the atom. This model further conceptualizes the electron as a continuous body extending into a real fourth spatial direction (w), with a maximum extent of 2.6 × 10–19 m, and whose portions are defined by pattern, fold, and side. A single calibrated action unit, G, reproduced fifteen lines of H, He⁺, and Li²⁺ within 2.9 ppm, and one value of Γ fitted five measured hydrogen transitions within 1.3 × 10–9. Unlike non-relativistic quantum mechanics, which postulates the sign reversal upon exchanging two electrons, VRCM derives it from the geometry of its body, which is non-orientable and returns only after 720°. With each place holding one hydrogen-equivalent of matter and a face rule taken as a premise, each pattern accommodates only two portions, one on each side, which accounted for the shells from hydrogen to neon, lithium’s 2s below its 2p within 3%, the ground terms from boron to fluorine through Hund’s first two rules, and the triplet ground state of O₂. The diamagnetism of helium and the paramagnetic susceptibility of O₂ agreed within 0.7% and 0.5%, respectively, and the ionization energy of lithium came out at 5.409 eV against the measured 5.392 eV. Helium’s two portions share one three-dimensional region and are separated only along w; without w, its energy rises by at least 20 eV. A coupling of the vibrations of the two portions through w, fixed on helium alone, brought the correlation energies of the helium-like ions from Li+ to Ne+8 within 0.1% and of H– within 1.6%. Within one side, the self-repulsion of the body is cancelled exactly by exchange, while portions on opposite sides repel with full strength. With the coupling between the two faces taken as a premise, a two-face law gave g = 2, the two kinds of charge as the two faces, and Dirac’s small component as matter spilled onto the second face. The vacuum’s zero-point vibrations gave the Lamb shift of hydrogen as 1050.74 MHz at one loop, against the measured 1057.8 MHz, and the electron’s anomalous magnetic moment as α/2p. Aside from spectra, the same body accounted for its detection as a whole: its wavelength followed from the vacuum’s wave rule, and the Born odds from the body remaining whole as it contracts onto one place at capture, given a detection threshold taken as a premise. Each premise in this model was adopted only after its alternative failed by a stated margin. These results suggest that continuous electronic matter connected through the fourth spatial direction (w) can recover the exchange sign, exclusion and the Born rule without configuration space, while accounting for spin, magnetism and the absence of self-repulsion.",
+    "category": "磁性·自旋电子学",
+    "link": "https://www.researchsquare.com/article/rs-11884360/latest",
+    "journal": "Preprints"
+  },
+  {
+    "title": "Theory of spin-polarized scanning tunneling microscopy with topological insulator tips",
+    "title_zh": "具有拓扑绝缘体探针的自旋极化扫描隧道显微镜的理论",
+    "summary": "拓扑绝缘体催生了一类基于螺旋边界态的自旋敏感扫描隧道显微镜（STM）探针。然而，这些探针是如何产生净自旋极化隧道电流的，目前仍不清楚。我们提出了具有拓扑绝缘体针尖的自旋极化STM的理论，并表明非对称隧道接触几何结构和自旋去相位使螺旋边界态能够产生自旋极化隧道电流。",
+    "abstract": "Topological insulators have enabled a new class of spin-sensitive scanning tunneling microscopy (STM) probes based on helical boundary states. However, how these probes generate a net spin-polarized tunneling current remains unclear. We present a theory of spin-polarized STM with topological insulator tips and show that asymmetric tunneling-contact geometry and spin dephasing enable helical boundary states to generate a spin-polarized tunneling current. Within the standard Landauer-Büttiker formalism, we demonstrate this mechanism for a quantum spin Hall (QSH) insulator tip: asymmetric contacts make the two counter-propagating helical edge states, which carry opposite spins, traverse path lengths that differ by Δ L, and spin dephasing induces backscattering that reduces the conductance more strongly for the longer path. For a representative asymmetric contact and weak spin dephasing, the QSH tip exhibits a tunneling spin polarization of Pₛ=-17.2% under positive bias, whose magnitude can reach 50% for larger Δ L, and which remains robust against Rashba spin-orbit coupling. Crucially, this polarization, dominated by helical edge transport rather than by bulk states, naturally reverses sign with the bias polarity owing to spin-momentum locking. Our findings are consistent with recent STM experiments using topological tips.",
+    "category": "铁电·极化",
+    "link": "https://www.researchsquare.com/article/rs-11784264/latest",
+    "journal": "Preprints"
   }
 ]
