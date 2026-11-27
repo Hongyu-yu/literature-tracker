@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>2026-11-27 文献日报 - 文献追踪系统</title>
+<link href="../style.css" rel="stylesheet"/>
+<link href="../bookmarks.css" rel="stylesheet"/>
+<script defer="" src="../exports.js"></script>
+<script defer="" src="../bookmarks.js"></script>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="default" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="文献追踪" name="apple-mobile-web-app-title"/>
+<meta content="#f59e0b" name="theme-color"/>
+<link href="2026-11-27.xml" rel="alternate" title="2026-11-27 日报 RSS" type="application/rss+xml"/>
+<link href="../daily-common.css" rel="stylesheet"/>
+<style id="daily-enhancement-style">
+#daily-enhancement-top-nav, #daily-enhancement-bottom-nav {
+    margin-top: 18px;
+}
+
+.daily-page-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+}
+
+.daily-page-nav-link,
+.daily-page-nav-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--border-color);
+    background: rgba(255,255,255,0.92);
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.92rem;
+    transition: all var(--transition-fast);
+}
+
+.daily-page-nav-link:hover,
+.daily-page-nav-pill:hover {
+    color: var(--accent-primary);
+    border-color: rgba(99,102,241,0.35);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-page-nav-disabled {
+    opacity: 0.45;
+    pointer-events: none;
+}
+
+.daily-title-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.daily-title-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-permalink-link {
+    margin-left: 8px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+
+.daily-permalink-link:hover {
+    color: var(--accent-primary);
+}
+
+.daily-inline-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.daily-inline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    color: var(--accent-primary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.daily-inline-link:hover {
+    color: var(--accent-hover);
+}
+
+.daily-toc-card {
+    max-height: min(74vh, calc(100vh - 40px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 12px;
+}
+
+.daily-toc-card::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-toc-card::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-toc-card::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-scroll {
+    max-height: min(40vh, calc(100vh - 320px));
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    scrollbar-gutter: stable both-edges;
+    padding-right: 6px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar {
+    width: 10px;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-thumb {
+    background: rgba(99, 102, 241, 0.28);
+    border-radius: 999px;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+}
+
+.daily-outline-scroll::-webkit-scrollbar-track {
+    background: rgba(148, 163, 184, 0.10);
+    border-radius: 999px;
+}
+
+.daily-outline-group + .daily-outline-group {
+    margin-top: 14px;
+}
+
+.daily-outline-group-title {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.daily-outline-group-title:hover {
+    color: var(--accent-primary);
+}
+
+.daily-outline-list {
+    display: grid;
+    gap: 6px;
+}
+
+.daily-outline-link {
+    display: block;
+    padding: 8px 10px;
+    border-radius: 12px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    line-height: 1.45;
+    background: rgba(255,255,255,0.6);
+    border: 1px solid rgba(148,163,184,0.18);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.daily-outline-link:hover {
+    color: var(--accent-primary);
+    background: rgba(99,102,241,0.08);
+}
+
+.daily-outline-link-highlight {
+    border-color: rgba(99,102,241,0.24);
+}
+
+.daily-outline-meta {
+    display: block;
+    margin-top: 2px;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+}
+
+.daily-topic-anchor {
+    margin-left: 8px;
+}
+
+@media (max-width: 980px) {
+    .daily-toc-card {
+        max-height: none;
+    }
+    .daily-outline-scroll {
+        max-height: none;
+    }
+}
+</style></head>
+<body>
+<div class="daily-shell">
+<div class="daily-topbar">
+<div class="daily-topbar-left">
+<a class="back-link" href="../index.html">← 返回主页</a>
+<span class="daily-mini-chip">AI × Science Daily</span>
+</div>
+<div class="daily-topbar-right">
+<a class="daily-mini-chip" href="2026-11-27.xml">📡 当日 RSS</a>
+<a class="daily-mini-chip" href="../feed.xml">📰 全站 RSS</a>
+<span class="daily-mini-chip">2026-11-27</span>
+<button class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题">🌙</button>
+</div>
+</div>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-top"><a class="daily-nav-link daily-nav-prev" href="2026-11-26.html">← 前一天 · 2026-11-26</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<nav aria-label="移动目录" class="daily-toc-sticky">
+<a href="#summary">摘要</a>
+<a href="#core-focus">核心关注</a>
+<a href="#papers">今日文献</a>
+</nav>
+<div class="daily-layout">
+<article class="daily-article">
+<div class="daily-hero">
+<div class="daily-kicker">AI 文献日报</div>
+<h1 class="daily-title">AI × Science 文献日报 2026/11/27</h1>
+<p class="daily-subtitle">聚焦 AI × 物理 / 化学 / 材料交叉方向，按交叉强度与方向匹配度排序。</p>
+<div class="daily-stats">
+<div class="daily-stat">
+<div class="daily-stat-label">日报精选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">AI × 科学交叉</div>
+<div class="daily-stat-value">4</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">主线候选</div>
+<div class="daily-stat-value">14</div>
+</div>
+<div class="daily-stat">
+<div class="daily-stat-label">arXiv / 期刊</div>
+<div class="daily-stat-value">0<small> / 14</small></div>
+</div>
+</div>
+<details aria-label="今日概览" class="daily-viz"><summary>📊 今日分布图（主题 / 来源 / 分层）</summary><div class="daily-viz-grid"><svg aria-label="主题分布" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 98"><title>主题分布</title><text class="vt" x="8" y="20">主题分布</text><text class="vl" x="8" y="50">其他</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">13</text><text class="vl" x="8" y="78">AI×化学·材料</text><rect class="vb" height="18" rx="5" width="14.6" x="142" y="64"></rect><text class="vn" x="162.6" y="78">1</text></svg><svg aria-label="来源构成" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 70"><title>来源构成</title><text class="vt" x="8" y="20">来源构成</text><text class="vl" x="8" y="50">期刊</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="36"></rect><text class="vn" x="338" y="50">14</text></svg><svg aria-label="方向分层" class="daily-viz-svg" role="img" style="max-width:100%;height:auto" viewbox="0 0 360 126"><title>方向分层</title><text class="vt" x="8" y="20">方向分层</text><text class="vl" x="8" y="50">神经网络势·电子结构</text><rect class="vb" height="18" rx="5" width="38.0" x="142" y="36"></rect><text class="vn" x="186.0" y="50">2</text><text class="vl" x="8" y="78">AI × 物理/材料/化学</text><rect class="vb" height="18" rx="5" width="38.0" x="142" y="64"></rect><text class="vn" x="186.0" y="78">2</text><text class="vl" x="8" y="106">其他物理/材料</text><rect class="vb" height="18" rx="5" width="190.0" x="142" y="92"></rect><text class="vn" x="338" y="106">10</text></svg></div></details>
+<div class="daily-page-nav" id="daily-enhancement-top-nav"><a class="daily-page-nav-link" href="2026-11-26.html">前一天 · 2026-11-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-11-27.html">最新一期 · 2026-11-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-11-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div>
+<section class="daily-section" id="summary">
+<div class="daily-section-head">
+<span class="daily-section-index">01</span>
+<h2 class="daily-section-title">今日摘要</h2>
+</div>
+<div class="daily-summary-card">
+<p><strong>总览：</strong>今日精选 14 篇：神经网络势 · 电子结构（重点） 2 篇、AI × 物理 / 材料 / 化学 2 篇、其他物理 / 材料进展 10 篇。（AI 摘要服务今日不可用，以下条目的中文标题与摘要可能为机器翻译。）</p>
+<p><strong>与我们研究方向的总体关系：</strong>本日文献与团队研究的交集主要集中在分子动力学与有限温度轨迹、强化学习和闭环控制、热力学自由能、相稳定与有限温度建模，并落到缺陷、畴壁、成核和开关动力学、声子、有限温度和输运性质、晶体结构、功能材料和结构—性质关系。对现有工作最直接的价值是提供可复用的表示、采样或验证流程，而不是替代具体材料体系的物理判断。</p>
+</div>
+</section>
+<section class="daily-section daily-core-section" id="core-focus">
+<div class="daily-section-head">
+<span class="daily-section-index">🎯</span>
+<h2 class="daily-section-title">核心关注（ML × ferro / 凝聚态）</h2>
+<span class="daily-core-count">3 篇</span>
+</div>
+<ol class="daily-core-list">
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007469?dgcid=rss_sd_all">
+<div class="daily-core-number">01</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-2">砷掺杂和硼掺杂硅系统热特性的统一机器学习原子间势</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">出版日期：2027 年 1 月 15 日来源：《计算材料科学》，第 277 卷作者：曹清源、侯超峰、葛伟、陈希中</p>
+<p class="daily-core-why">🎯 与你方向的关键词重合：interatomic potential。</p>
+<a class="daily-core-jump" href="#paper-2">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526004923?dgcid=rss_sd_all">
+<div class="daily-core-number">02</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-1">ELASTIC3rd：根据第一原理和机器学习原子间势计算任意晶体的高阶弹性常数的程序</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-core-work">出版日期：2027 年 2 月 资料来源：《计算机物理通讯》第 331 卷 作者：廖明清、王凤江</p>
+<p class="daily-core-why">🎯 与你方向的关键词重合：interatomic potential。</p>
+<a class="daily-core-jump" href="#paper-1">查看完整卡片 ↓</a>
+</div>
+</li>
+<li class="daily-core-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all">
+<div class="daily-core-number">03</div>
+<div class="daily-core-body">
+<div class="daily-core-title-zh"><a class="daily-core-title-link" href="#paper-3">用于晶体塑性模拟的混合机制数据驱动框架：在大增量下通过深度学习辅助的牛顿-拉夫逊协同增强收敛性和效率</a></div>
+<div class="daily-core-meta"><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-core-work">发表日期：2027年1月15日来源：《计算材料科学》，第277卷作者：王哲、段春正、吴川、蔡宇军</p>
+<a class="daily-core-jump" href="#paper-3">查看完整卡片 ↓</a>
+</div>
+</li>
+</ol>
+</section>
+<section class="daily-section" id="papers">
+<div class="daily-section-head">
+<span class="daily-section-index">📚</span>
+<h2 class="daily-section-title">今日文献</h2>
+<span class="daily-core-count">14 篇 · 0 含图深析</span>
+</div>
+<section class="daily-priority-group"><h3>🔬 神经网络势 · 电子结构（重点）</h3><p>神经网络势、哈密顿量、密度矩阵、电荷密度与电子结构。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0010465526004923?dgcid=rss_sd_all" id="paper-1">
+<span class="daily-paper-number">01</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526004923?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">ELASTIC3rd：根据第一原理和机器学习原子间势计算任意晶体的高阶弹性常数的程序</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526004923?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">ELASTIC3rd: a program for calculating higher-order elastic constants of arbitrary crystals from first principles and machine-learning interatomic potentials</a><a class="daily-permalink-link" href="#paper-1" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🔬 神经网络势·电子结构 · 其他</span><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 2 月 资料来源：《计算机物理通讯》第 331 卷 作者：廖明清、王凤江</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：interatomic potential。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: February 2027 Source: Computer Physics Communications, Volume 331 Author(s): Mingqing Liao, Fengjiang Wang</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0010465526004923?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-1">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007469?dgcid=rss_sd_all" id="paper-2">
+<span class="daily-paper-number">02</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007469?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">砷掺杂和硼掺杂硅系统热特性的统一机器学习原子间势</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007469?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">A unified machine-learning interatomic potential for thermal properties of As-doped and B-doped silicon systems</a><a class="daily-permalink-link" href="#paper-2" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🔬 神经网络势·电子结构 · 其他</span><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 5 / 10" class="daily-relevance is-me" title="方向匹配 5 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:50.0%"></i></span><strong>5</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 1 月 15 日来源：《计算材料科学》，第 277 卷作者：曹清源、侯超峰、葛伟、陈希中</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：interatomic potential。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 15 January 2027 Source: Computational Materials Science, Volume 277 Author(s): Qingyuan Cao, Chaofeng Hou, Wei Ge, Xizhong Chen</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007469?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-2">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🤖 AI × 物理 / 材料 / 化学</h3><p>机器学习与第一性原理、分子动力学、材料与化学问题的交叉研究。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all" id="paper-3">
+<span class="daily-paper-number">03</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">用于晶体塑性模拟的混合机制数据驱动框架：在大增量下通过深度学习辅助的牛顿-拉夫逊协同增强收敛性和效率</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">A hybrid mechanism-data driven framework for crystal plasticity simulation: Synergistic enhancement of convergence and efficiency via deep learning-assisted Newton–Raphson under large increments</a><a class="daily-permalink-link" href="#paper-3" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🤖 AI×科学 · AI×化学·材料</span><span aria-label="AI×科学交叉 8 / 10" class="daily-relevance is-cross" title="AI×科学交叉 8 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:80.0%"></i></span><strong>8</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>发表日期：2027年1月15日来源：《计算材料科学》，第277卷作者：王哲、段春正、吴川、蔡宇军</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 15 January 2027 Source: Computational Materials Science, Volume 277 Author(s): Zhe Wang, ChunZheng Duan, Chuan Wu, YuJun Cai</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007251?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-3">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11033446/latest" id="paper-4">
+<span class="daily-paper-number">04</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11033446/latest" rel="noopener noreferrer" target="_blank">使用频率空间融合和聚焦扩散金字塔检测电力线绝缘子的微小表面缺陷</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11033446/latest" rel="noopener noreferrer" target="_blank">Minor Surface Defect Detection for Power Line Insulators UsingFrequency-Space Fusion and Focused Diffusion Pyramids</a><a class="daily-permalink-link" href="#paper-4" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：xiwei lin、xiu ji、sijia liu、yiqi liu、huan cheng。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p1">🤖 AI×科学 · 其他</span><span aria-label="AI×科学交叉 6 / 10" class="daily-relevance is-cross" title="AI×科学交叉 6 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:60.0%"></i></span><strong>6</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>抽象的。针对复杂背景和资源受限的边缘场景下绝缘子缺陷检测的挑战，提出一种基于RT-DETR框架的轻量级高精度检测方法。 FSNet 是一种高效的特征提取网络，旨在通过动态路由和空域和频域信息的自适应融合来增强特征表示。此外，引入以特征为中心的扩散金字塔网络来改善多尺度上下文交互，从而增强对不同尺寸缺陷的定位和分类能力。在自建绝缘子数据集上的实验结果表明，该方法在 mAP@0.5 方面比基线模型提高了 4.8 个百分点，同时计算成本降低了 2.8%。此外，在公共数据集上的大量实验进一步验证了所提出方法的强大泛化能力。与几种代表性的基于 CNN 和 Transformer 的检测器相比，所提出的方法始终在检测精度和效率之间实现了优越的权衡。最后，NVIDIA Jetson Nano 平台上的边缘部署证实了其基于无人机的实时输电线路检测的可行性和实用价值。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Abstract. To address the challenges of insulator defect detection in complex backgrounds and resource-constrainededge scenarios, this paper proposes a lightweight and high-precision detection method based on the RT-DETR frame-work. An efficient feature extraction network, FSNet, is designed to enhance feature representation through dynamicrouting and adaptive fusion of spatial- and frequency-domain information. Furthermore, a Feature-Focused Diffu-sion Pyramid Network is introduced to improve multi-scale contextual interaction, thereby strengthening the local-ization and classification capability for defects of varying sizes. Experimental results on a self-built insulator datasetdemonstrate that the proposed method achieves a 4.8 percentage point improvement in mAP@0.5 over the baselinemodel, while reducing computational cost by 2.8%. In addition, extensive experiments on a public dataset furthervalidate the strong generalization ability of the proposed method. Compared with several representative CNN-basedand Transformer-based detectors, the proposed method consistently achieves a superior trade-off between detectionaccuracy and efficiency. Finally, edge deployment on the NVIDIA Jetson Nano platform confirms its feasibility andpractical value for real-time UAV-based transmission line inspection.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11033446/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-4">页内定位</a></div></div>
+</div>
+</li>
+</ol></section><section class="daily-priority-group"><h3>🧲 其他物理 / 材料进展</h3><p>不含机器学习成分的凝聚态、铁电磁性与材料工作。</p><ol class="daily-paper-list">
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11474769/latest" id="paper-5">
+<span class="daily-paper-number">05</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11474769/latest" rel="noopener noreferrer" target="_blank">通过计费感知任务组重新分配在异构云中进行多目标工作流调度</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11474769/latest" rel="noopener noreferrer" target="_blank">Multi-objective workflow scheduling in heterogeneous clouds through billing-aware task-group reassignment</a><a class="daily-permalink-link" href="#paper-5" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Shuhui Zhang¹˒²˒、Wenhao Li¹˒²、Lianhai Wang¹˒²、Shujiang Xu¹˒²、Wei Shao¹˒²、Qizheng Wang¹˒²。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>任务依赖性、异构资源和离散计费共同使云中的多目标工作流调度变得复杂。本文提出了存档引导的计费感知蚁群优化 (AGBACO)，以最大限度地减少完工时间、成本和能源消耗。该方法从非支配存档继承完整的任务到虚拟机映射，并重新分配作为一个组共享同一虚拟机的任务。此操作探索释放源虚拟机并重用目标现有计费间隔的机会。涉及一到两项任务的调整进一步细化资源匹配。受量子启发的遗传探索建立了初始档案，而传统的蚁群构建和基于档案的重新分配共同生成了用于三目标评估和档案更新的候选者。在五个科学工作流程中检查参数敏感性，然后在四个任务规模上进行算法比较和组件消融。相对于五种多目标比较算法，平均配对超体积增益（跨输入平均）范围为 8.01% 至 12.24%。解决方案集质量和资源占用结果表明，AGBACO 可以适应不同的工作流结构，并在执行效率和资源开销之间实现有利的权衡。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Task dependencies, heterogeneous resources, and discrete billing jointly complicate multi-objective workflow scheduling in clouds. This paper proposes archive-guided billing-aware ant colony optimization (AGBACO) to minimize makespan, cost, and energy consumption. The method inherits complete task-to-virtual-machine mappings from a nondominated archive and reassigns tasks sharing the same virtual machine as a group. This operation explores opportunities to release the source virtual machine and reuse the target's existing billing intervals. Adjustments involving one or two tasks further refine resource matching. Quantum-inspired genetic exploration establishes the initial archive, while conventional ant colony construction and archive-based reassignment jointly generate candidates for three-objective evaluation and archive updates. Parameter sensitivity is examined on five scientific workflows, followed by algorithm comparisons and component ablations at four task scales. Relative to five multi-objective comparison algorithms, the mean paired hypervolume gain, averaged across inputs, ranges from 8.01% to 12.24%. Solution-set quality and resource-occupancy results show that AGBACO accommodates different workflow structures and achieves favorable trade-offs between execution efficiency and resource overhead.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11474769/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-5">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11508057/latest" id="paper-6">
+<span class="daily-paper-number">06</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11508057/latest" rel="noopener noreferrer" target="_blank">克利肽 U1 在毕赤酵母中的重组表达：抗菌活性和机制见解</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11508057/latest" rel="noopener noreferrer" target="_blank">Recombinant Expression of Cliotide U1 in Pichia pastoris: Antibacterial Activity and Mechanistic Insights</a><a class="daily-permalink-link" href="#paper-6" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Xiao-Ya Wang、Yun-Zhi Li、Hao-Yang Dong、Zi-Xin Wang、Xin-lei Chu、Chun-Ming Dong。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 3 / 10" class="daily-relevance is-me" title="方向匹配 3 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:30.0%"></i></span><strong>3</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>抗菌素耐药性增加了对新型抗菌剂和可扩展生产方法的需求。 Cliotide U1 (CU1) 是一种植物源性抗菌肽，据报道具有对抗革兰氏阳性和革兰氏阴性细菌的活性，但其生产依赖于低产提取或化学合成。在这里，CU1在毕赤酵母中重组表达，并对含有CU1的发酵上清液（CU1-FS）的抗菌活性和特性进行了表征。 CU1-FS 抑制所有六种测试的细菌菌株，根据 ELISA 估计的 His 标记产品，表观最低抑制浓度为 3–8 µg/mL。经过温度、pH、盐和蛋白酶处理后，抗菌活性均不同程度地保留，并且CU1-FS在测试条件下表现出对人红细胞的低溶血作用。扫描电子显微镜显示细菌细胞形态的变化；碘化丙啶染色以及细胞外核酸和蛋白质相关吸光度的测量支持膜通透性增加和细胞内成分渗漏。琼脂糖凝胶电泳显示细菌基因组 DNA 的迁移发生改变，这与潜在的体外相互作用一致。分子对接和 100 纳秒分子动力学模拟提供了 CU1 与选定细菌蛋白和模型脂质膜的相互作用预测模型。由于测试材料是未纯化的 CU1-FS，因此不能排除其他上清液成分的贡献。这些发现建立了含有生物活性 CU1 的上清液的重组生产方法，并支持对 CU1 相关膜效应的进一步研究。</p>
+<div class="daily-research-relation"><div class="daily-relation-head">🔗 与我们工作的关联与启发</div><p class="daily-relation-link"><strong>关联：</strong>与你方向的关键词重合：molecular dynamics。</p></div>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Antimicrobial resistance has increased the need for new antibacterial agents and scalable production methods. Cliotide U1 (CU1), a plant-derived antimicrobial peptide, has reported activity against Gram-positive and Gram-negative bacteria, but its production has relied on low-yield extraction or chemical synthesis. Here, CU1 was recombinantly expressed in Pichia pastoris, and the antibacterial activity and properties of the CU1-containing fermentation supernatant (CU1-FS) were characterized. CU1-FS inhibited all six tested bacterial strains, with apparent minimum inhibitory concentrations of 3–8 µg/mL based on ELISA-estimated His-tagged products. Antibacterial activity was retained to varying degrees after temperature, pH, salt, and protease treatments, and CU1-FS showed low hemolysis of human erythrocytes under the tested conditions. Scanning electron microscopy showed changes in bacterial cell morphology; propidium iodide staining and measurements of extracellular nucleic acid- and protein-associated absorbance supported increased membrane permeability and leakage of intracellular components. Agarose gel electrophoresis showed altered migration of bacterial genomic DNA, consistent with a potential in vitro interaction. Molecular docking and 100-ns molecular dynamics simulations provided predicted interaction models for CU1 with selected bacterial proteins and a model lipid membrane. Because the tested material was unpurified CU1-FS, contributions from other supernatant components cannot be excluded. These findings establish a recombinant production approach for bioactive CU1-containing supernatant and support further study of CU1-associated membrane effects.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11508057/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-6">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11779060/latest" id="paper-7">
+<span class="daily-paper-number">07</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11779060/latest" rel="noopener noreferrer" target="_blank">通过原位合成硅镁复合凝胶增强古代砖石的耐久性：界面化学和长期现场监测</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11779060/latest" rel="noopener noreferrer" target="_blank">Durability enhancement of ancient masonry via in-situ synthesized silicon- magnesium composite gel: Interfacial chemistry and long-term field monitoring</a><a class="daily-permalink-link" href="#paper-7" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Tingting Yue、Jianwei Yue。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>反复的干湿和冻融循环严重破坏了古代砖石结构，威胁着建筑遗产的长期保护。针对这一问题，开发了一种新型硅镁复合凝胶，通过原位共聚和真空辅助压力渗透对历史灰砖进行深度修复。使用 FTIR、XRD 和 XRF 系统地表征了复合网络的化学演化和结构稳定性，证实了桥接有机相和无机相的稳定共价键（Si-O-Mg 和 Si-O-C）的形成。正交实验设计优化了配方，得到了适合深度渗透的实用可操作固化时间（5.33-6.41小时）。 SEM 观察揭示了连续的互穿网络，有效填充了微裂纹并连接了孔隙，显着致密了基质。单轴压缩试验表明改性砖的机械完整性得到了显着改善。此外，还建造了室外实验墙以进行长期耐久性监测。降雨后的湿度传感器数据和红外热成像证实，与未处理的对照相比，经过处理的墙体表现出显着降低的内部水分含量、抑制毛细管水上升和抑制昼夜温度波动。本工作为古砖石建筑的工程保护提供了可持续、可扩展的加固策略。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Repeated drying-wetting and freeze-thaw cycles severely deteriorate ancient masonry structures, threatening the long-term conservation of architectural heritage. Addressing this, a novel silicon-magnesium composite gel was developed for the deep rehabilitation of historic gray bricks via in-situ copolymerization and vacuum-assisted pressure infiltration. The chemical evolution and structural stability of the composite network were systematically characterized using FTIR, XRD, and XRF, which confirmed the formation of stable covalent bonds (Si-O-Mg and Si-O-C) bridging the organic and inorganic phases. Orthogonal experimental design optimized the formulation, yielding a practical operable curing time (5.33–6.41 h) suitable for deep penetration. SEM observations revealed a continuous interpenetrating network that effectively filled microcracks and connected pores, significantly densifying the matrix. Uniaxial compression tests demonstrated a substantial improvement in the mechanical integrity of the modified bricks. Furthermore, an outdoor experimental wall was constructed for long-term durability monitoring. Moisture sensor data and infrared thermal imaging after rainfall verified that the treated wall exhibited substantially reduced internal moisture content, inhibited capillary water rise, and dampened diurnal temperature fluctuations compared to the untreated control. This work provides a sustainable and extensible reinforcement strategy for the engineering conservation of ancient masonry buildings.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11779060/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-7">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11424742/latest" id="paper-8">
+<span class="daily-paper-number">08</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11424742/latest" rel="noopener noreferrer" target="_blank">位点分层转录组整合揭示了从第 3 天到第 7 天的免疫到骨重塑的转变，以及人类牙槽骨骨整合中跨解剖位点的成骨细胞-破骨细胞偶联的保守核心</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11424742/latest" rel="noopener noreferrer" target="_blank">Site-Stratified Transcriptomic Integration Reveals an Immune-to- Bone-Remodeling Transition from Day 3 to Day 7 and a Conserved Core of Osteoblast–Osteoclast Coupling across Anatomical Sites in Human Alveolar Bone Osseointegration</a><a class="daily-permalink-link" href="#paper-8" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Hanqi Su、Junjiang Hao、Yibo Liu、Yifan Yin、Yucheng Su。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>背景 关于种植体骨整合的纵向转录组学证据主要来自长骨种植模型。人类牙槽骨是否表现出可重复的免疫到骨重塑的转录转变，以及成骨细胞-破骨细胞偶联的核心程序是否在解剖部位和物种之间保守，仍然没有充分利用口腔数据进行表征。本研究旨在鉴定人类牙槽骨的早期转录变化并评估其跨位点和跨物种保守性。方法采用位点分层转录组整合策略。人类牙槽骨数据集 GSE41446 作为核心发现数据集，包含来自 11 位参与者、两个种植体表面以及第 3 天 (D3) 和第 7 天 (D7) 的 44 个样本。使用大鼠上颌骨数据集GSE304968和大鼠胫骨和股骨数据集进行跨站点比较。分析包括差异表达分析、参与者和植入物表面配对的定向验证、加权基因共表达网络分析 (WGCNA)、稳健的排名聚合和机器学习特征选择。进一步使用大鼠胫骨骨整合时间序列（GSE35976）来评估候选中心基因的跨物种方向一致性。结果从D3到D7，修复性巨噬细胞标记物MRC1上调，而炎症基因TNF和IL1B下调。参与成骨细胞外基质 (ECM) 过程和破骨细胞介导的基质重塑的基因，包括 CTSK、COL1A1、COL3A1、SPARC、LOX 和 ALPL，协调上调，支持从炎症主导状态向修复和骨重塑状态的转录转变。定向单样本基因集富集分析 (ssGSEA) 显示 22 个配对样本中有 19 个的修复性巨噬细胞基因集富集分数有所增加。这种变化的幅度超出了在同一运行中分析的随机 10 个基因组的经验分布 (P = 0.017)，尽管这</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Background Longitudinal transcriptomic evidence on implant osseointegration has largely been derived from long-bone implantation models. Whether human alveolar bone exhibits a reproducible immune-to-bone-remodeling transcriptional transition, and whether a core program of osteoblast–osteoclast coupling is conserved across anatomical sites and species, remain insufficiently characterized using oral data. This study aimed to identify early transcriptional changes in human alveolar bone and evaluate their cross-site and cross-species conservation.Methods A site-stratified transcriptomic integration strategy was adopted. The human alveolar bone dataset GSE41446, comprising 44 samples from 11 participants, two implant surfaces, and day 3 (D3) and day 7 (D7), served as the core discovery dataset. Rat maxillary bone dataset GSE304968 and rat tibial and femoral datasets were used for cross-site comparisons. Analyses included differential expression analysis, directional validation paired by participant and implant surface, weighted gene co-expression network analysis (WGCNA), robust rank aggregation, and machine-learning feature selection. A rat tibial osseointegration time series (GSE35976) was further used to assess the cross-species directional concordance of candidate hub genes.Results From D3 to D7, the reparative macrophage marker MRC1 was upregulated, whereas the inflammatory genes TNF and IL1B were downregulated. Genes involved in osteogenesis–extracellular matrix (ECM) processes and osteoclast-mediated matrix remodeling, including CTSK, COL1A1, COL3A1, SPARC, LOX, and ALPL, were coordinately upregulated, supporting a transcriptional transition from an inflammation-dominated state toward repair and bone remodeling. Directional single-sample gene set enrichment analysis (ssGSEA) showed increased enrichment scores for the reparative macrophage gene set in 19 of 22 paired samples. The magnitude of this change exceeded the empirical distribution of random 10-gene sets analyzed in the same run (P = 0.017), although this</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11424742/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-8">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007561?dgcid=rss_sd_all" id="paper-9">
+<span class="daily-paper-number">09</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007561?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">基于深电位的CoSb 3 /Ni界面拉伸力学性能</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007561?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Tensile mechanical properties of the CoSb 3 /Ni interface based on deep potential</a><a class="daily-permalink-link" href="#paper-9" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>发表日期：2027年1月15日来源：《计算材料科学》，第277卷作者：舒翠翠、翟鹏程、黄谢格、雷振帅、李国栋</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 15 January 2027 Source: Computational Materials Science, Volume 277 Author(s): Cuicui Shu, Pengcheng Zhai, Xiege Huang, Zhenshuai Lei, Guodong Li</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007561?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-9">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11616033/latest" id="paper-10">
+<span class="daily-paper-number">10</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11616033/latest" rel="noopener noreferrer" target="_blank">干燥工艺对西印度樱桃（Malpighia emarginata）粉末生物活性成分和微观结构特征的影响</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11616033/latest" rel="noopener noreferrer" target="_blank">Influence of drying technology on the bioactive composition and microstructural characteristics of West Indian cherry (Malpighia emarginata) powders</a><a class="daily-permalink-link" href="#paper-10" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Harini Palani、Amrita Halder、Mangalambika Balaji、Utpal Das、Sandeep Singh Rana。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>西印度樱桃 (WIC)、Malpighia emarginata，通常称为针叶樱桃，是一种热带、极易腐烂的水果，富含维生素 C 和生物活性化合物。目前的研究旨在比较热风炉、喷雾和冷冻干燥方法生产针叶樱桃果肉粉，评估其成分和生物活性化合物的变化，并评估最终产品的抗氧化活性和微观结构。还测定了新鲜果肉的水分含量以及灰分、纤维、蛋白质和碳水化合物的水平。钾、钠和镁是最丰富的矿物质。冷冻干燥保留了最高水平，而热风干燥由于长时间暴露在高温下而导致显微结构变形最大。粉末微观结构在扫描电子显微镜水平上存在显着差异，从固结的不规则表面到变形的多孔表面。因此，目前的研究表明，干燥技术和条件的选择会影响针叶樱桃果肉粉的大多数营养成分和微观结构。在这些方法中，冷冻干燥被发现在保留原始纸浆的特性方面是最有效的。同时，粉末微观结构的差异表明需要选择合适的技术来生产基于针叶樱桃的功能性食品成分。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">West Indian Cherry (WIC), Malpighia emarginata, commonly called acerola, is a tropical, highly perishable fruit rich in vitamin C and bioactive compounds. The current research aimed to compare the hot-air oven, spray, and freeze-drying methods to produce acerola pulp powder, assess changes in its composition and bioactive compounds, and evaluate the antioxidant activity and microstructure of the final product. The moisture content of the fresh pulp and the levels of ash, fibre, protein, and carbohydrates were also determined. Potassium, sodium, and magnesium were the most abundant minerals. Freeze-drying retained the highest levels, while hot-air drying led to the most deformed microstructure due to extended exposure to elevated temperatures. The powder microstructures differed significantly at the scanning electron microscopy level, ranging from consolidated, irregular surfaces to deformed, porous surfaces. Therefore, the current study revealed that the choice of drying technologies and conditions impacts the levels of most nutrients and the microstructure of acerola pulp powder. Among the methods, freeze-drying was found to be the most efficient in terms of retaining the properties of the original pulp. Meanwhile, the differences in the microstructure of the powders suggested the need to select the appropriate technologies for producing acerola-based functional food ingredients.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11616033/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-10">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11723507/latest" id="paper-11">
+<span class="daily-paper-number">11</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11723507/latest" rel="noopener noreferrer" target="_blank">延迟氚循环聚变电站和储能的学习与协调调度</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11723507/latest" rel="noopener noreferrer" target="_blank">Learning and Coordinated Dispatch of Fusion Power Plants and Energy Storage With Delayed Tritium Circulation</a><a class="daily-permalink-link" href="#paper-11" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：Tan Peng、Pengfei Zhao、Dong Zhang、Da Xie、Mohannad Alhazmi。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 2 / 10" class="daily-relevance is-cross" title="AI×科学交叉 2 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:20.0%"></i></span><strong>2</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>氚循环将聚变能输送与燃料回收的时间结合起来。回收和养殖设备内的材料构成了总库存，但仍无法立即提取。本文开发了一种质量守恒舱模型，并将联合状态参数估计与热存储、电池运行和扩展调度联系起来。该公式保留了因果提取、辅助消耗、转换损失和特定车厢的终端资源。前缀界限确定了返回时间在燃料可用性中的作用。在一个确切的例子中，相同的 0.50 千克总库存支持不同的提款顺序：只有较早返回的状态提供连续的 0.15 千克请求。然后，能量界限将可用燃料与预充电存储中可用的支持相关联。 72 小时数值基准将受保护的命令驱动模拟与综合不确定性和灵敏度计算相结合。模拟将被拒绝的燃料请求与已实现的储备违规分开，并显示存储分配如何改变交付损失。综合预测实验还量化了边际覆盖率和完整路径覆盖率之间的差异。这些结果将燃料成熟度、存储排放限制和时间不确定性确定为可靠交付的明显限制。由此产生的公式将每项电力承诺与该承诺到期之前可用的材料和能源联系起来。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Tritium circulation couples fusion power delivery to the timing of fuel recovery. Material inside recycling and breeding equipment contributes to total inventory but remains unavailable for immediate withdrawal. This paper develops a mass-conserving compartment model and connects joint state–parameter estimation to thermal storage, battery operation, and extended dispatch. The formulation retains causal withdrawals, auxiliary consumption, conversion losses, and compartment-specific terminal resources. A prefix bound establishes the role of return timing in fuel availability. In an exact example, equal total inventories of 0.50 kg support different withdrawal sequences: only the earlier-return state supplies consecutive 0.15 kg requests. An energy bound then relates usable fuel to the support available from precharged storage. A 72 h numerical benchmark combines protected command-driven simulations with synthetic uncertainty and sensitivity calculations. The simulations separate rejected fuel requests from realized reserve violations and show how storage allocation changes delivery loss. The synthetic forecast experiment also quantifies the difference between marginal and complete-path coverage. These results identify fuel maturity, storage discharge limits, and temporal uncertainty as distinct constraints on dependable delivery. The resulting formulation links each electricity commitment to the material and energy available before that commitment falls due.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11723507/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-11">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626007615?dgcid=rss_sd_all" id="paper-12">
+<span class="daily-paper-number">12</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007615?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">AutoREC：用于生成等效电路模型的强化学习平台</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007615?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">AutoREC: A reinforcement learning platform for equivalent circuit model generation</a><a class="daily-permalink-link" href="#paper-12" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>出版日期：2027 年 1 月 15 日 来源：计算材料科学，第 277 卷 作者：A. Jaberi、Y. Kurniawan、R. Black、S. Mousavi M.、K. Verma、Z. Sadighi、S. Miret、J. Hattrick-Simpers</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 15 January 2027 Source: Computational Materials Science, Volume 277 Author(s): A. Jaberi, Y. Kurniawan, R. Black, S. Mousavi M., K. Verma, Z. Sadighi, S. Miret, J. Hattrick-Simpers</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626007615?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-12">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.researchsquare.com/article/rs-11710252/latest" id="paper-13">
+<span class="daily-paper-number">13</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11710252/latest" rel="noopener noreferrer" target="_blank">基于矢量辐射传递模型和机器学习方法的气溶胶反演</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.researchsquare.com/article/rs-11710252/latest" rel="noopener noreferrer" target="_blank">Aerosol Inversion Based on Vector Radiative Transfer Model and Machine Learning Method</a><a class="daily-permalink-link" href="#paper-13" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-authors">作者：He Huang、Bochen Zhang、Yong Qian、Le Liu、Yuanfu Niu。</span><span class="daily-byline-source">Preprints，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 6 / 10" class="daily-relevance is-me" title="方向匹配 6 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:60.0%"></i></span><strong>6</strong></span></div>
+<p class="daily-paper-abstract is-clamped" onclick="this.classList.toggle('is-open')" title="点击展开 / 收起"><strong>📄 摘要（中文翻译）：</strong>虽然对地静止成像仪可以跟踪每日气溶胶光学深度（AOD），但分离大气和表面信号仍然具有挑战性。在这里，我们将矢量辐射传输模型（VRTM）与多光谱机器学习相结合，以增强风云四号A（FY-4A）AGRI观测的AOD检索，并在不同的操作场景下评估该算法。在基于 VRTM 的合成反演中，AOD 恢复在已知表面上达到了数值精度，而联合拟合 AOD 和表面反射率将均方根误差 (RMSE) 增加到 0.121，突出了多通道约束的需要。对于 550 nm 处的独立 FY-4A AGRI 对，我们的五通道随机森林算法将检索精度提高到预测决定系数 (R2pred) 为 0.601，RMSE 为 0.212，而单蓝色通道模型的预测系数 (R2pred) 为 0.519 和 0.232。特定场景的验证进一步表明，五通道算法在受监控像素处实现了时间检索的高精度（在日期分组验证中，R2pred = 0.704），并且当应用于未监控位置时，R2pred 为 0.497。总体而言，该框架提高了对地静止 AOD 检索的准确性，并为跨时间监测和空间传输应用程序部署机器学习检索提供了明确的指导。</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">While geostationary imagers can track diurnal aerosol optical depth (AOD), separating atmospheric and surface signals remains challenging. Here, we combine a vector radiative transfer model (VRTM) with multi-spectral machine learning to enhance AOD retrieval from FengYun-4A (FY-4A) AGRI observations and evaluate the algorithm across different operational scenarios. In VRTM-based synthetic inversions, AOD recovery reached numerical precision with a known surface, whereas jointly fitting AOD and surface reflectance increased the root mean square error (RMSE) to 0.121, highlighting the need for multi-channel constraints. For independent FY-4A AGRI pairs at 550 nm, our five-channel random forest algorithm improved retrieval accuracy to a predictive coefficient of determination (R2pred) of 0.601 and an RMSE of 0.212, compared with 0.519 and 0.232 for the single blue-channel model. Scenario-specific validation further showed that the five-channel algorithm achieved high accuracy for temporal retrieval at monitored pixels (R2pred = 0.704 in date-grouped validation) and an R2pred of 0.497 when applied to unmonitored locations. Overall, this framework improves geostationary AOD retrieval accuracy and provides clear guidance for deploying machine learning retrievals across temporal monitoring and spatial transfer applications.</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.researchsquare.com/article/rs-11710252/latest" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-13">页内定位</a></div></div>
+</div>
+</li>
+<li class="daily-paper-card" data-bookmark-key="https://www.sciencedirect.com/science/article/pii/S0927025626008062?dgcid=rss_sd_all" id="paper-14">
+<span class="daily-paper-number">14</span>
+<div class="daily-paper-body">
+<div class="daily-paper-head"><div class="daily-paper-titles">
+<div class="daily-paper-title-zh"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626008062?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">由机器学习潜力和结构先验指导的 Zr x S y 团簇的结构搜索和热力学稳定性</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+<div class="daily-paper-title-en"><a class="daily-title-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626008062?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">Structural search and thermodynamic stability of Zr x S y clusters guided by a machine-learning potential and structural priors</a><a class="daily-permalink-link" href="#paper-14" title="复制本页定位">#</a></div>
+</div></div>
+<div class="daily-paper-byline"><span class="daily-byline-source">ScienceDirect，2026-11-27</span></div>
+<div class="daily-paper-meta"><span class="daily-chip daily-chip-category daily-chip-priority-p3">🧲 物理/材料 · 其他</span><span aria-label="AI×科学交叉 0 / 10" class="daily-relevance is-cross" title="AI×科学交叉 0 / 10"><span class="daily-relevance-label">AI×科学交叉</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-cross" style="width:0.0%"></i></span><strong>0</strong></span><span aria-label="方向匹配 0 / 10" class="daily-relevance is-me" title="方向匹配 0 / 10"><span class="daily-relevance-label">方向匹配</span><span class="daily-relevance-track"><i class="daily-relevance-bar is-me" style="width:0.0%"></i></span><strong>0</strong></span></div>
+<p class="daily-paper-abstract"><strong>📄 摘要（中文翻译）：</strong>发表日期：2027年1月15日来源：《计算材料科学》，第277卷作者：蔡建伟、张明祥、方元林、刘思燕、于志强、迟玉华、丁峰、赵文</p>
+<details class="daily-abstract-en"><summary>📖 英文原文</summary><p class="daily-abstract-en-body">Publication date: 15 January 2027 Source: Computational Materials Science, Volume 277 Author(s): Jianwei Cai, Mingxiang Zhang, Yuanlin Fang, Siyan Liu, Zhiqiang Yu, Yuhua Chi, Feng Ding, Wen Zhao</p></details>
+<div class="daily-paper-actions"><a class="daily-news-link" href="https://www.sciencedirect.com/science/article/pii/S0927025626008062?dgcid=rss_sd_all" rel="noopener noreferrer" target="_blank">阅读原文 ↗</a><div class="daily-inline-links"><a class="daily-inline-link" href="#paper-14">页内定位</a></div></div>
+</div>
+</li>
+</ol></section>
+</section>
+<nav aria-label="日报日期导航" class="daily-nav daily-nav-bottom"><a class="daily-nav-link daily-nav-prev" href="2026-11-26.html">← 前一天 · 2026-11-26</a><a class="daily-nav-home" href="../index.html#daily">📅 日报索引</a><span class="daily-nav-link daily-nav-disabled">后一天 →</span></nav>
+<div class="daily-page-nav" id="daily-enhancement-bottom-nav"><a class="daily-page-nav-link" href="2026-11-26.html">前一天 · 2026-11-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-11-27.html">最新一期 · 2026-11-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-11-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div><div class="daily-footer">
+          本页由文献追踪系统自动生成，仅保留 AI × 物理 / 化学 / 材料主线相关文献，并按专题重新整理，方便快速筛选与深度阅读。
+        </div>
+</article>
+<aside class="daily-toc">
+<div class="daily-toc-card">
+<div class="daily-toc-title">目录</div>
+<a href="#summary"><span>今日摘要</span><span>01</span></a>
+<a href="#core-focus"><span>🎯 核心关注</span><span>3</span></a>
+<a href="#papers"><span>今日文献</span><span>📚</span></a>
+<div class="daily-sidebar-block">
+<div class="daily-sidebar-title">专题分布</div>
+<div class="daily-sidebar-stats"><div class="daily-sidebar-fact"><span>文献总数</span><strong>14</strong></div><div class="daily-sidebar-fact"><span>含图深析</span><strong>0</strong></div><div class="daily-sidebar-fact"><span>期刊数</span><strong>2</strong></div></div>
+</div>
+<div class="daily-sidebar-block" id="daily-enhancement-outline"><div class="daily-sidebar-title">单页目录</div><div class="daily-outline-scroll"><div class="daily-outline-group"><a class="daily-outline-group-title" href="#papers">今日文献</a><div class="daily-outline-list"><a class="daily-outline-link" href="#paper-1">ELASTIC3rd：根据第一原理和机器学习原子间势计算任意晶体的高阶弹性常数的程序<span class="daily-outline-meta">01</span></a><a class="daily-outline-link" href="#paper-2">砷掺杂和硼掺杂硅系统热特性的统一机器学习原子间势<span class="daily-outline-meta">02</span></a><a class="daily-outline-link" href="#paper-3">用于晶体塑性模拟的混合机制数据驱动框架：在大增量下通过深度学习辅助的牛顿-拉夫逊协同增强收敛性和效率<span class="daily-outline-meta">03</span></a><a class="daily-outline-link" href="#paper-4">使用频率空间融合和聚焦扩散金字塔检测电力线绝缘子的微小表面缺陷<span class="daily-outline-meta">04</span></a><a class="daily-outline-link" href="#paper-5">通过计费感知任务组重新分配在异构云中进行多目标工作流调度<span class="daily-outline-meta">05</span></a><a class="daily-outline-link" href="#paper-6">克利肽 U1 在毕赤酵母中的重组表达：抗菌活性和机制见解<span class="daily-outline-meta">06</span></a><a class="daily-outline-link" href="#paper-7">通过原位合成硅镁复合凝胶增强古代砖石的耐久性：界面化学和长期现场监测<span class="daily-outline-meta">07</span></a><a class="daily-outline-link" href="#paper-8">位点分层转录组整合揭示了从第 3 天到第 7 天的免疫到骨重塑的转变，以及人类牙槽骨骨整合中跨解剖位点的成骨细胞-破骨细胞偶联的保守核心<span class="daily-outline-meta">08</span></a><a class="daily-outline-link" href="#paper-9">基于深电位的CoSb 3 /Ni界面拉伸力学性能<span class="daily-outline-meta">09</span></a><a class="daily-outline-link" href="#paper-10">干燥工艺对西印度樱桃（Malpighia emarginata）粉末生物活性成分和微观结构特征的影响<span class="daily-outline-meta">10</span></a><a class="daily-outline-link" href="#paper-11">延迟氚循环聚变电站和储能的学习与协调调度<span class="daily-outline-meta">11</span></a><a class="daily-outline-link" href="#paper-12">AutoREC：用于生成等效电路模型的强化学习平台<span class="daily-outline-meta">12</span></a><a class="daily-outline-link" href="#paper-13">基于矢量辐射传递模型和机器学习方法的气溶胶反演<span class="daily-outline-meta">13</span></a><a class="daily-outline-link" href="#paper-14">由机器学习潜力和结构先验指导的 Zr x S y 团簇的结构搜索和热力学稳定性<span class="daily-outline-meta">14</span></a></div></div></div></div><div class="daily-sidebar-block" id="daily-enhancement-sidebar-nav"><div class="daily-sidebar-title">日期跳转</div><div class="daily-page-nav" id="daily-sidebar-nav-inner"><a class="daily-page-nav-link" href="2026-11-26.html">前一天 · 2026-11-26</a><span class="daily-page-nav-link daily-page-nav-disabled">后一天 · 暂无</span><a class="daily-page-nav-link" href="2026-11-27.html">最新一期 · 2026-11-27</a><a class="daily-page-nav-link" href="index.html">日报归档</a><a class="daily-page-nav-link" href="2026-11-27.xml">当日RSS</a><a class="daily-page-nav-link" href="../feed.xml">站点RSS</a><a class="daily-page-nav-link" href="../index.html">主页</a><a class="daily-page-nav-link" href="#summary">今日摘要</a><a class="daily-page-nav-link" href="#papers">今日文献</a></div></div><div class="daily-sidebar-block">
+<div class="daily-sidebar-title">阅读建议</div>
+<ul class="insight-note-list">
+<li class="insight-note-item">含「📊 含图深析」徽标的条目可点开看信息图、中文要素与深度分析。</li>
+<li class="insight-note-item">明显偏离主线的医学、教育等内容已自动剔除。</li>
+<li class="insight-note-item">若需回看历史日报，可从日报索引页按日期倒序进入。</li>
+</ul>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script>
+    const THEME_KEY = 'literature_theme';
+
+    function initTheme() {
+      const theme = localStorage.getItem(THEME_KEY) || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+      updateThemeButton();
+    }
+
+    function toggleTheme() {
+      const current = document.documentElement.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      localStorage.setItem(THEME_KEY, next);
+      document.documentElement.setAttribute('data-theme', next);
+      updateThemeButton();
+    }
+
+    function updateThemeButton() {
+      const btn = document.getElementById('themeToggle');
+      const theme = document.documentElement.getAttribute('data-theme') || 'light';
+      if (btn) btn.textContent = theme === 'light' ? '🌙' : '☀️';
+    }
+
+    initTheme();
+  </script>
+</body>
+</html>
